@@ -1,0 +1,22 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2016-02-06T22:27:19Z")
+ (DESIGN "MeterDriverTest")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 3.3")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "MeterDriverTest")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT ClockBlock.clk_bus_glb \\WaveDAC8_1\:Wave1_DMA\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.clk_bus_glb \\WaveDAC8_1\:Wave2_DMA\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.dclk_0 \\WaveDAC8_1\:VDAC8\:viDAC8\\.strobe_udb (10.852:10.852:10.852))
+    (INTERCONNECT ClockBlock.dclk_0 \\WaveDAC8_1\:Wave1_DMA\\.dmareq (5.720:5.720:5.720))
+   )
+  )
+ )
+)

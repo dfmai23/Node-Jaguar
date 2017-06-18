@@ -1,0 +1,1 @@
+'C:\Users\Sirius\Desktop\Dashboard\Dashboard.cydsn\Generated_Source\PSoC5\CAN.c' -o .o -T ARM_C_FILE -I 'C:\Users\Sirius\Desktop\Dashboard\Dashboard.cydsn' -I 'C:\Users\Sirius\Desktop\Dashboard\Dashboard.cydsn\Generated_Source\PSoC5' -f 'C:\Users\Sirius\Desktop\Dashboard\Dashboard.cydsn\CortexM3\ARM_GCC_493\Debug\.deps\ARM_C_FILE.d'

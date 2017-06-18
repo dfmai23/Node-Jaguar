@@ -1,0 +1,4572 @@
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.nodeCheckStart,"ax",%progbits
+  19              		.align	2
+  20              		.global	nodeCheckStart
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	nodeCheckStart, %function
+  24              	nodeCheckStart:
+  25              	.LFB63:
+  26              		.file 1 "main.c"
+   1:main.c        **** #include <project.h>
+   2:main.c        **** #include <stdio.h>
+   3:main.c        **** #include "can_manga.h"
+   4:main.c        **** 
+   5:main.c        **** #define PWM_PULSE_WIDTH_STEP        (10u)
+   6:main.c        **** #define SWITCH_PRESSED              (0u)
+   7:main.c        **** #define PWM_MESSAGE_ID              (0x1AAu)
+   8:main.c        **** #define PWM_MESSAGE_IDE             (0u)    /* Standard message */
+   9:main.c        **** #define PWM_MESSAGE_IRQ             (0u)    /* No transmit IRQ */
+  10:main.c        **** #define PWM_MESSAGE_RTR             (0u)    /* No RTR */
+  11:main.c        **** #define CAN_RX_MAILBOX_0_SHIFT      (1u)
+  12:main.c        **** #define CAN_RX_MAILBOX_1_SHIFT      (2u)
+  13:main.c        **** #define DATA_SIZE                   (6u)
+  14:main.c        **** #define ONE_BYTE_OFFSET             (8u)
+  15:main.c        **** 
+  16:main.c        **** #define PEDAL_TIMEOUT 100 // Timeout after (PEDAL_TIMEOUT * 10)ms
+  17:main.c        **** 
+  18:main.c        **** /* Function prototypes */
+  19:main.c        **** //CY_ISR_PROTO(ISR_CAN);
+  20:main.c        **** 
+  21:main.c        **** /* Global variables used to store configuration and data for BASIC CAN mailbox */
+  22:main.c        **** //CAN_DATA_BYTES_MSG dataPWM;
+  23:main.c        **** //CAN_TX_MSG messagePWM;
+  24:main.c        **** 
+  25:main.c        **** /* Global variable used to store PWM pulse width value */
+  26:main.c        **** //uint8 pulseWidthValue = 0u;
+  27:main.c        **** 
+  28:main.c        **** /* Global variable used to store receive message mailbox number */
+  29:main.c        **** //volatile uint8 receiveMailboxNumber = 0xFFu;
+  30:main.c        **** 
+  31:main.c        **** void nodeCheckStart()
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 2
+
+
+  32:main.c        **** {
+  27              		.loc 1 32 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  33:main.c        ****     Node_Timer_Start();
+  35              		.loc 1 33 0
+  36 0002 FFF7FEFF 		bl	Node_Timer_Start
+  37              	.LVL0:
+  34:main.c        ****     isr_nodeok_Start();
+  38              		.loc 1 34 0
+  39 0006 FFF7FEFF 		bl	isr_nodeok_Start
+  40              	.LVL1:
+  41 000a 08BD     		pop	{r3, pc}
+  42              		.cfi_endproc
+  43              	.LFE63:
+  44              		.size	nodeCheckStart, .-nodeCheckStart
+  45              		.section	.text.main,"ax",%progbits
+  46              		.align	2
+  47              		.global	main
+  48              		.thumb
+  49              		.thumb_func
+  50              		.type	main, %function
+  51              	main:
+  52              	.LFB64:
+  35:main.c        **** }
+  36:main.c        **** 
+  37:main.c        **** typedef enum 
+  38:main.c        **** {
+  39:main.c        **** 	Startup,
+  40:main.c        **** 	LV,
+  41:main.c        **** 	Precharging,
+  42:main.c        **** 	HV_Enabled,
+  43:main.c        **** 	Drive,
+  44:main.c        **** 	Fault
+  45:main.c        ****     
+  46:main.c        **** }Dash_State;
+  47:main.c        **** 
+  48:main.c        **** typedef enum 
+  49:main.c        **** {
+  50:main.c        **** 	OK,
+  51:main.c        **** 	fromLV,
+  52:main.c        **** 	fromPrecharging,
+  53:main.c        **** 	fromHV_Enabled,
+  54:main.c        **** 	fromDrive,
+  55:main.c        ****     fromFault,
+  56:main.c        ****     nodeFailure
+  57:main.c        ****     
+  58:main.c        **** }Error_State;
+  59:main.c        **** 
+  60:main.c        **** /* Switch state defines -- Active High*/ 
+  61:main.c        **** #define SWITCH_ON         (1u)
+  62:main.c        **** #define SWITCH_OFF        (0u)
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 3
+
+
+  63:main.c        **** /* Switch debounce delay in milliseconds */
+  64:main.c        **** #define SWITCH_DEBOUNCE_UNIT   (1u)
+  65:main.c        **** /* Number of debounce units to count delay, before consider that switch is pressed */
+  66:main.c        **** #define SWITCH_DEBOUNCE_PERIOD (10u)
+  67:main.c        **** /* Function prototypes */
+  68:main.c        **** static uint32 ReadSwSwitch(void);
+  69:main.c        **** 
+  70:main.c        **** /* Global variable used to store switch state */
+  71:main.c        **** uint8 HVSwitch = SWITCH_OFF;
+  72:main.c        **** uint8 DriveSwitch = SWITCH_OFF;
+  73:main.c        **** //volatile Dash_State state = Startup;
+  74:main.c        **** 
+  75:main.c        **** // Global variables used to track status of nodes
+  76:main.c        **** volatile uint32_t pedalOK = 0; // for pedal node
+  77:main.c        **** 
+  78:main.c        **** //CY_ISR(isr_can_handler){
+  79:main.c        ****     
+  80:main.c        **** //    can_send_status(state);
+  81:main.c        ****     
+  82:main.c        **** //}
+  83:main.c        **** 
+  84:main.c        **** /*******************************************************************************
+  85:main.c        **** * Function Name: main
+  86:main.c        **** ********************************************************************************
+  87:main.c        **** *
+  88:main.c        **** * Summary:
+  89:main.c        **** *  main() performs the following functions:
+  90:main.c        **** *  1: Initializes a structure for the Basic CAN mailbox to send messages.
+  91:main.c        **** *  2: Starts the CAN and LCD components.
+  92:main.c        **** *  3: When received Message 1, sends the PWM pulse width and displays
+  93:main.c        **** *     received switch status and value of PWM pulse width on an LCD; 
+  94:main.c        **** *     When received Message 2, display received ADC data on an LCD.
+  95:main.c        **** *
+  96:main.c        **** * Parameters:
+  97:main.c        **** *  None.
+  98:main.c        **** *
+  99:main.c        **** * Return:
+ 100:main.c        **** *  None.
+ 101:main.c        **** *
+ 102:main.c        **** *******************************************************************************/
+ 103:main.c        **** 
+ 104:main.c        **** int main()
+ 105:main.c        **** {   
+  53              		.loc 1 105 0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 8
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+  58              		.cfi_def_cfa_offset 32
+  59              		.cfi_offset 4, -32
+  60              		.cfi_offset 5, -28
+  61              		.cfi_offset 6, -24
+  62              		.cfi_offset 7, -20
+  63              		.cfi_offset 8, -16
+  64              		.cfi_offset 9, -12
+  65              		.cfi_offset 10, -8
+  66              		.cfi_offset 14, -4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 4
+
+
+  67 0004 82B0     		sub	sp, sp, #8
+  68              		.cfi_def_cfa_offset 40
+  69              	.LVL2:
+ 106:main.c        ****     Dash_State state = Startup;
+ 107:main.c        ****     Error_State error_state = OK;
+ 108:main.c        ****     
+ 109:main.c        ****     //Tach Meter Stuff
+ 110:main.c        ****     uint8_t value=0; // replace the value with 
+ 111:main.c        ****     int8_t direction=1;
+ 112:main.c        ****     WaveDAC8_1_Start();
+  70              		.loc 1 112 0
+  71 0006 FFF7FEFF 		bl	WaveDAC8_1_Start
+  72              	.LVL3:
+ 113:main.c        ****     
+ 114:main.c        ****     //precharging time counter
+ 115:main.c        ****     volatile uint32_t PrechargingTimeCount = 0;
+  73              		.loc 1 115 0
+  74 000a 0024     		movs	r4, #0
+  75 000c 0194     		str	r4, [sp, #4]
+  76              	.LVL4:
+ 116:main.c        ****     uint32_t DriveTimeCount = 0;
+ 117:main.c        ****     
+ 118:main.c        ****     //CyDelay(5000);
+ 119:main.c        ****     //Initialize CAN
+ 120:main.c        ****     //CAN_GlobalIntEnable();
+ 121:main.c        ****     //CAN_Init();
+ 122:main.c        ****     //CAN_Start();
+ 123:main.c        ****     
+ 124:main.c        ****     /* Set CAN interrupt handler to local routine */
+ 125:main.c        ****     //CyIntSetVector(CAN_ISR_NUMBER, ISR_CAN);   
+ 126:main.c        ****     
+ 127:main.c        ****     //CAN_Timer_Start();
+ 128:main.c        ****     //isr_can_StartEx(isr_can_handler);    
+ 129:main.c        **** 
+ 130:main.c        ****     CyGlobalIntEnable;
+  77              		.loc 1 130 0
+  78              	@ 130 "main.c" 1
+  79 000e 62B6     		CPSIE   i
+  80              	@ 0 "" 2
+ 131:main.c        ****     
+ 132:main.c        ****     //while(1){
+ 133:main.c        ****     //}
+ 134:main.c        ****     
+ 135:main.c        ****     //char8 txData[DATA_SIZE];
+ 136:main.c        ****     //uint16 adcData;
+ 137:main.c        ****     
+ 138:main.c        ****     /* BASIC CAN mailbox configuration */
+ 139:main.c        ****     //messagePWM.dlc = CAN_TX_DLC_MAX_VALUE;
+ 140:main.c        ****     //messagePWM.id  = PWM_MESSAGE_ID;
+ 141:main.c        ****     //messagePWM.ide = PWM_MESSAGE_IDE;
+ 142:main.c        ****     //messagePWM.irq = PWM_MESSAGE_IRQ;
+ 143:main.c        ****     //messagePWM.msg = &dataPWM;
+ 144:main.c        ****     //messagePWM.rtr = PWM_MESSAGE_RTR;
+ 145:main.c        **** 
+ 146:main.c        ****     ////LCD_Start();
+ 147:main.c        **** 
+ 148:main.c        ****     
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 5
+
+
+ 149:main.c        ****     /* Display value of ADC output on LCD */
+ 150:main.c        ****     //LCD_Position(0u, 0u);
+ 151:main.c        ****     //LCD_PrintString("ADC");
+ 152:main.c        **** 
+ 153:main.c        ****     /* Display state of switch on LCD */
+ 154:main.c        ****     //LCD_Position(1u, 0u);
+ 155:main.c        ****     //LCD_PrintString("SW");
+ 156:main.c        **** 
+ 157:main.c        ****     /* Display state of PWM pulse width on LCD */
+ 158:main.c        ****     //LCD_Position(0u, 10u);
+ 159:main.c        ****     //LCD_PrintString("PWM");
+ 160:main.c        **** 
+ 161:main.c        ****     //test_inject(data_queue, &data_tail);
+ 162:main.c        ****     
+ 163:main.c        ****     nodeCheckStart();
+  81              		.loc 1 163 0
+  82              		.thumb
+  83 0010 FFF7FEFF 		bl	nodeCheckStart
+  84              	.LVL5:
+ 116:main.c        ****     uint32_t DriveTimeCount = 0;
+  85              		.loc 1 116 0
+  86 0014 2646     		mov	r6, r4
+ 107:main.c        ****     
+  87              		.loc 1 107 0
+  88 0016 2546     		mov	r5, r4
+  89 0018 1BE0     		b	.L4
+  90              	.LVL6:
+  91              	.L23:
+  92              	.LBB2:
+ 164:main.c        ****     
+ 165:main.c        ****     for(;;)
+ 166:main.c        ****     {
+ 167:main.c        ****         //LED_Write(~LED_ReadDataReg());    
+ 168:main.c        ****         
+ 169:main.c        ****         //can_send_status(state);
+ 170:main.c        ****         //CyDelay(2000);
+ 171:main.c        ****         
+ 172:main.c        ****         RGB3_2_Write(1);
+ 173:main.c        ****         RGB2_2_Write(1);
+ 174:main.c        ****         RGB1_2_Write(1);
+ 175:main.c        ****         
+ 176:main.c        ****         // Check if all nodes are OK
+ 177:main.c        ****         if (pedalOK > PEDAL_TIMEOUT)
+ 178:main.c        ****         {
+ 179:main.c        ****             can_send_cmd(1,0,0); // setInterlock. 
+ 180:main.c        ****             state = Fault;
+ 181:main.c        ****             error_state = nodeFailure;
+ 182:main.c        ****         }
+ 183:main.c        ****         
+ 184:main.c        ****         switch(state)
+ 185:main.c        ****         {    
+ 186:main.c        ****             //CyDelay(1000);
+ 187:main.c        ****             case Startup:
+ 188:main.c        ****   
+ 189:main.c        ****                 //CyDelay(5000);
+ 190:main.c        ****                 //Initialize CAN
+ 191:main.c        ****                 CAN_GlobalIntEnable();
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 6
+
+
+ 192:main.c        ****                 CAN_Init();
+ 193:main.c        ****                 CAN_Start();
+ 194:main.c        ****                 CyDelay(1000);
+ 195:main.c        ****                 //nodeCheckStart(); EDIT UNCOMMENT
+ 196:main.c        ****                 
+ 197:main.c        ****                 //CyDelay(5000);
+ 198:main.c        ****                 can_send_status(state, error_state);
+ 199:main.c        **** 
+ 200:main.c        ****                 //CyGlobalIntEnable;
+ 201:main.c        ****                 //CAN_GlobalIntDisable();
+ 202:main.c        ****                 //CyGlobalIntDisable;
+ 203:main.c        ****                 LCD_Start();
+ 204:main.c        ****                 
+ 205:main.c        ****                 //UI
+ 206:main.c        ****                 
+ 207:main.c        ****                 Buzzer_Write(1);
+ 208:main.c        ****                 WaveDAC8_1_SetValue(253);
+ 209:main.c        ****                 CyDelay(50);
+ 210:main.c        ****                 
+ 211:main.c        ****                 
+ 212:main.c        ****                 /*
+ 213:main.c        ****                 //Active Low
+ 214:main.c        ****                 RGB3_1_Write(1);
+ 215:main.c        ****                 RGB2_1_Write(1);
+ 216:main.c        ****                 RGB1_1_Write(1);
+ 217:main.c        ****                 
+ 218:main.c        ****                 RGB3_2_Write(1);
+ 219:main.c        ****                 RGB2_2_Write(1);
+ 220:main.c        ****                 RGB1_2_Write(1);
+ 221:main.c        ****                 
+ 222:main.c        ****                 //RGB Testing
+ 223:main.c        ****                 RGB3_1_Write(0);
+ 224:main.c        ****                 CyDelay(2000);
+ 225:main.c        ****                 RGB3_1_Write(1);
+ 226:main.c        ****                 RGB2_1_Write(0);
+ 227:main.c        ****                 CyDelay(2000);
+ 228:main.c        ****                 RGB2_1_Write(1);
+ 229:main.c        ****                 RGB1_1_Write(0);
+ 230:main.c        ****                 CyDelay(2000);
+ 231:main.c        ****                 RGB1_1_Write(1);
+ 232:main.c        ****                 RGB3_2_Write(0);
+ 233:main.c        ****                 CyDelay(2000);
+ 234:main.c        ****                 RGB3_2_Write(1);
+ 235:main.c        ****                 RGB2_2_Write(0);
+ 236:main.c        ****                 CyDelay(2000);
+ 237:main.c        ****                 RGB2_2_Write(1);
+ 238:main.c        ****                 RGB1_2_Write(0);
+ 239:main.c        ****                 CyDelay(2000);
+ 240:main.c        ****                 RGB1_2_Write(1);
+ 241:main.c        ****                 */
+ 242:main.c        ****                 
+ 243:main.c        ****                 
+ 244:main.c        ****                 Buzzer_Write(0);
+ 245:main.c        ****                 WaveDAC8_1_SetValue(250);
+ 246:main.c        ****                 //CyDelay(5000);
+ 247:main.c        ****                 WaveDAC8_1_SetValue(0);
+ 248:main.c        ****                 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 7
+
+
+ 249:main.c        ****                 state = LV;
+ 250:main.c        ****                 
+ 251:main.c        ****             break;
+ 252:main.c        ****                 
+ 253:main.c        ****             case LV:
+ 254:main.c        ****                 
+ 255:main.c        ****                 can_send_cmd(0,0,0);
+ 256:main.c        ****                 CAN_GlobalIntEnable();
+ 257:main.c        ****                 CAN_Init();
+ 258:main.c        ****                 CAN_Start();
+ 259:main.c        ****                 //nodeCheckStart();
+ 260:main.c        ****           
+ 261:main.c        ****                 can_send_status(state, error_state);
+ 262:main.c        **** 
+ 263:main.c        ****                 /*
+ 264:main.c        ****                 LCD_Position(1u, 10u);
+ 265:main.c        ****                 LCD_PrintInt16(data_queue[0].id);
+ 266:main.c        ****                 
+ 267:main.c        ****                 uint16_t temp = can_read(data_queue, data_head, data_tail, 0x07FF, 0);
+ 268:main.c        ****                 
+ 269:main.c        ****                 LCD_Position(0u, 0u);
+ 270:main.c        ****                 LCD_PrintInt16(temp);
+ 271:main.c        ****                 
+ 272:main.c        ****                 temp = can_read(data_queue, data_head, data_tail, 0x07FF, 1);
+ 273:main.c        ****                 LCD_Position(1u, 0u);
+ 274:main.c        ****                 LCD_PrintInt8(temp);
+ 275:main.c        ****                 
+ 276:main.c        ****                 temp = can_read(data_queue, data_head, data_tail, 0x07FF, 2);
+ 277:main.c        ****                 LCD_Position(0u, 10u);
+ 278:main.c        ****                 LCD_PrintInt8(temp);
+ 279:main.c        ****                 */
+ 280:main.c        ****                 
+ 281:main.c        ****                 
+ 282:main.c        ****                 //UI
+ 283:main.c        ****                 
+ 284:main.c        ****                 Buzzer_Write(0);
+ 285:main.c        ****                 
+ 286:main.c        ****                 
+ 287:main.c        ****                 //
+ 288:main.c        ****                 // RGB code goes here
+ 289:main.c        ****                 // pick a color
+ 290:main.c        ****                 // all on. 
+ 291:main.c        ****                 
+ 292:main.c        ****                 RGB3_1_Write(0);
+ 293:main.c        ****                 RGB2_1_Write(1);
+ 294:main.c        ****                 RGB1_1_Write(0);
+ 295:main.c        ****                 
+ 296:main.c        ****                 RGB3_2_Write(1);
+ 297:main.c        ****                 RGB2_2_Write(1);
+ 298:main.c        ****                 RGB1_2_Write(1);
+ 299:main.c        ****                 
+ 300:main.c        ****                 if (Drive_Read())
+ 301:main.c        ****                 {
+ 302:main.c        ****                     state = Fault;
+ 303:main.c        ****                     error_state = fromLV;
+  93              		.loc 1 303 0
+  94 001a 0125     		movs	r5, #1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 8
+
+
+  95              	.LVL7:
+ 302:main.c        ****                     error_state = fromLV;
+  96              		.loc 1 302 0
+  97 001c 0524     		movs	r4, #5
+  98              	.LVL8:
+  99 001e 18E0     		b	.L4
+ 100              	.LVL9:
+ 101              	.L24:
+ 304:main.c        ****                     break;
+ 305:main.c        ****                 }
+ 306:main.c        ****             
+ 307:main.c        ****                 if (HV_Read())    /* Switch state changed status */
+ 308:main.c        ****                 {
+ 309:main.c        ****                     state = Precharging;
+ 102              		.loc 1 309 0
+ 103 0020 0224     		movs	r4, #2
+ 104              	.LVL10:
+ 105 0022 16E0     		b	.L4
+ 106              	.LVL11:
+ 107              	.L25:
+ 108              	.LBB3:
+ 310:main.c        ****                     break;
+ 311:main.c        ****                 } 
+ 312:main.c        ****                 
+ 313:main.c        ****             break;
+ 314:main.c        ****                 
+ 315:main.c        ****             case Precharging:
+ 316:main.c        ****                 CAN_GlobalIntEnable();
+ 317:main.c        ****                 CAN_Init();
+ 318:main.c        ****                 CAN_Start();
+ 319:main.c        ****                 //nodeCheckStart();
+ 320:main.c        ****                 
+ 321:main.c        ****                 can_send_status(state, error_state);
+ 322:main.c        ****                 
+ 323:main.c        ****                 RGB3_1_Write(0);
+ 324:main.c        ****                 RGB2_1_Write(0);
+ 325:main.c        ****                 RGB1_1_Write(1);
+ 326:main.c        ****                 
+ 327:main.c        ****                 RGB3_2_Write(1);
+ 328:main.c        ****                 RGB2_2_Write(1);
+ 329:main.c        ****                 RGB1_2_Write(1);
+ 330:main.c        ****                 
+ 331:main.c        ****                 Buzzer_Write(0);
+ 332:main.c        ****                 
+ 333:main.c        ****                 
+ 334:main.c        ****                 PrechargingTimeCount = 0;
+ 335:main.c        ****                 
+ 336:main.c        ****                 while(1)
+ 337:main.c        ****                 {
+ 338:main.c        ****                     can_send_cmd(1,0,0); // setInterlock
+ 339:main.c        ****                 
+ 340:main.c        ****                     // UNUSED //uint8_t MainState = can_read(data_queue, data_head, data_tail, 0x05
+ 341:main.c        ****                     uint8_t CapacitorVolt = getCapacitorVoltage(); //can_read(data_queue, data_head
+ 342:main.c        ****                     // UNUSED //uint8_t NomialVolt =  can_read(data_queue, data_head, data_tail, 0x
+ 343:main.c        ****                 
+ 344:main.c        ****                     if(CapacitorVolt >= 0x16) // need to be tuned
+ 345:main.c        ****                     {
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 9
+
+
+ 346:main.c        ****                         state = HV_Enabled;
+ 109              		.loc 1 346 0
+ 110 0024 0324     		movs	r4, #3
+ 111              	.LVL12:
+ 112 0026 14E0     		b	.L4
+ 113              	.LVL13:
+ 114              	.L26:
+ 347:main.c        ****                         break;
+ 348:main.c        ****                     }
+ 349:main.c        ****                 
+ 350:main.c        ****                 
+ 351:main.c        ****                     PrechargingTimeCount++;
+ 352:main.c        ****                 
+ 353:main.c        ****                     if (PrechargingTimeCount == 10)
+ 354:main.c        ****                     {
+ 355:main.c        ****                         state = Fault;
+ 356:main.c        ****                         error_state = fromPrecharging;
+ 115              		.loc 1 356 0
+ 116 0028 0225     		movs	r5, #2
+ 117              	.LVL14:
+ 355:main.c        ****                         error_state = fromPrecharging;
+ 118              		.loc 1 355 0
+ 119 002a 0524     		movs	r4, #5
+ 120              	.LVL15:
+ 121 002c 11E0     		b	.L4
+ 122              	.LVL16:
+ 123              	.L27:
+ 124              	.LBE3:
+ 357:main.c        ****                         break;
+ 358:main.c        ****                     }
+ 359:main.c        ****                 
+ 360:main.c        ****                     CyDelay(1000);
+ 361:main.c        ****                 }    
+ 362:main.c        ****                 
+ 363:main.c        ****             break;
+ 364:main.c        **** 	        
+ 365:main.c        ****             case HV_Enabled:
+ 366:main.c        **** 
+ 367:main.c        ****                 CAN_GlobalIntEnable();
+ 368:main.c        ****                 CAN_Init();
+ 369:main.c        ****                 CAN_Start();
+ 370:main.c        ****                 
+ 371:main.c        ****                 //nodeCheckStart();
+ 372:main.c        ****                 
+ 373:main.c        ****                 can_send_status(state, error_state);
+ 374:main.c        ****                 
+ 375:main.c        ****                 //
+ 376:main.c        ****                 // RGB code goes here
+ 377:main.c        ****                 // Blue
+ 378:main.c        ****                 RGB3_1_Write(1);
+ 379:main.c        ****                 RGB2_1_Write(1);
+ 380:main.c        ****                 RGB1_1_Write(0);
+ 381:main.c        ****                 
+ 382:main.c        ****                 RGB3_2_Write(1);
+ 383:main.c        ****                 RGB2_2_Write(1);
+ 384:main.c        ****                 RGB1_2_Write(1);
+ 385:main.c        ****                 //CyDelay(5000); ///for debug
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 10
+
+
+ 386:main.c        ****                 
+ 387:main.c        ****                 Buzzer_Write(0);
+ 388:main.c        ****                 
+ 389:main.c        ****                 if (Drive_Read())
+ 390:main.c        ****                 {
+ 391:main.c        ****                     CyDelay(1000); // wait for the brake msg to be sent
+ 392:main.c        ****                     if(getErrorTolerance() == 1) // 100 for error tolerance /// needs to be getErro
+ 393:main.c        ****                     {
+ 394:main.c        ****                         Buzzer_Write(1);
+ 395:main.c        ****                         CyDelay(1000);
+ 396:main.c        ****                         Buzzer_Write(0);
+ 397:main.c        ****                         state = Drive;
+ 398:main.c        ****                         break;
+ 399:main.c        ****                     }
+ 400:main.c        ****                     else
+ 401:main.c        ****                     {
+ 402:main.c        ****                         state = Fault;
+ 403:main.c        ****                         error_state = fromHV_Enabled;
+ 125              		.loc 1 403 0
+ 126 002e 0325     		movs	r5, #3
+ 127              	.LVL17:
+ 402:main.c        ****                         error_state = fromHV_Enabled;
+ 128              		.loc 1 402 0
+ 129 0030 0524     		movs	r4, #5
+ 130              	.LVL18:
+ 131 0032 0EE0     		b	.L4
+ 132              	.LVL19:
+ 133              	.L28:
+ 404:main.c        ****                         break;
+ 405:main.c        ****                     }                     
+ 406:main.c        ****                 }
+ 407:main.c        ****                 
+ 408:main.c        ****                 // if capacitor voltage is undervoltage, change the threshold 0x16
+ 409:main.c        ****                 if(!HV_Read() | getCapacitorVoltage() < 0x16)
+ 410:main.c        ****                 {
+ 411:main.c        ****                     state = LV;
+ 412:main.c        ****                     DriveTimeCount = 0;
+ 134              		.loc 1 412 0
+ 135 0034 0026     		movs	r6, #0
+ 136              	.LVL20:
+ 411:main.c        ****                     DriveTimeCount = 0;
+ 137              		.loc 1 411 0
+ 138 0036 0124     		movs	r4, #1
+ 139              	.LVL21:
+ 140 0038 0BE0     		b	.L4
+ 141              	.LVL22:
+ 142              	.L32:
+ 413:main.c        ****                     break;
+ 414:main.c        ****                 }
+ 415:main.c        ****                 
+ 416:main.c        ****             break;
+ 417:main.c        ****                 
+ 418:main.c        **** 	        case Drive:
+ 419:main.c        ****                 //CAN_GlobalIntEnable();
+ 420:main.c        ****                 //CAN_Init();
+ 421:main.c        ****                 //CAN_Start();
+ 422:main.c        ****                 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 11
+
+
+ 423:main.c        ****                 can_send_status(state, error_state);
+ 424:main.c        ****                 //
+ 425:main.c        ****                 // RGB code goes here
+ 426:main.c        ****                 // Green
+ 427:main.c        ****                 RGB3_1_Write(1);
+ 428:main.c        ****                 RGB2_1_Write(0);
+ 429:main.c        ****                 RGB1_1_Write(1);
+ 430:main.c        ****                 
+ 431:main.c        ****                 RGB3_2_Write(1);
+ 432:main.c        ****                 RGB2_2_Write(1);
+ 433:main.c        ****                 RGB1_2_Write(1);
+ 434:main.c        ****                 
+ 435:main.c        ****                 //CyDelay(10000); // debug
+ 436:main.c        ****                 
+ 437:main.c        ****                 //Buzzer_Write(1);
+ 438:main.c        ****                 //CyDelay(5000);
+ 439:main.c        ****                 //Buzzer_Write(0);
+ 440:main.c        ****                 
+ 441:main.c        ****                 //CyDelay(500);
+ 442:main.c        ****                 
+ 443:main.c        ****                 
+ 444:main.c        ****                 uint8_t ACK = 0xFF;
+ 445:main.c        ****                 
+ 446:main.c        ****                 DriveTimeCount++;
+ 447:main.c        ****                 if (DriveTimeCount > 100) //EDIT: was 100!
+ 448:main.c        ****                 {
+ 449:main.c        ****                     DriveTimeCount = 0; 
+ 450:main.c        ****                     ACK = getAckRx();
+ 451:main.c        ****                 }
+ 452:main.c        ****    
+ 453:main.c        ****                 uint8_t ABS_Motor_RPM = getABSMotorRPM();
+ 454:main.c        ****                 uint8_t Throttle_High = getPedalHigh();//manga_getThrottleHigh(); // use 123 for pe
+ 455:main.c        ****                 uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
+ 456:main.c        ****                 
+ 457:main.c        ****                 WaveDAC8_1_SetValue(ABS_Motor_RPM);
+ 458:main.c        ****                 can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock 
+ 459:main.c        ****                 
+ 460:main.c        ****                 //check if everything is going well
+ 461:main.c        ****                 if (!HV_Read())
+ 462:main.c        ****                     state = LV;
+ 463:main.c        ****                 
+ 464:main.c        ****                 if (!Drive_Read())
+ 465:main.c        ****                     state = HV_Enabled;
+ 466:main.c        ****                 
+ 467:main.c        ****                 if ((ACK != 0xFF) | 
+ 468:main.c        ****                     (!getCurtisHeartBeatCheck())) // EDIT: Removed | CurtisFaultCheck from this 
+ 469:main.c        ****                 {
+ 470:main.c        ****                     state = Fault;
+ 471:main.c        ****                     error_state = fromDrive;
+ 472:main.c        ****                     DriveTimeCount = 0;
+ 143              		.loc 1 472 0
+ 144 003a 0026     		movs	r6, #0
+ 145              	.LVL23:
+ 471:main.c        ****                     DriveTimeCount = 0;
+ 146              		.loc 1 471 0
+ 147 003c 0425     		movs	r5, #4
+ 148              	.LVL24:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 12
+
+
+ 470:main.c        ****                     error_state = fromDrive;
+ 149              		.loc 1 470 0
+ 150 003e 0524     		movs	r4, #5
+ 151              	.LVL25:
+ 152 0040 07E0     		b	.L4
+ 153              	.LVL26:
+ 154              	.L33:
+ 473:main.c        ****                     break;
+ 474:main.c        ****                 }
+ 475:main.c        ****                 
+ 476:main.c        ****                     
+ 477:main.c        ****                 // need to map ABS_Motor_RPM into 1-253 scale.
+ 478:main.c        ****                 
+ 479:main.c        ****                 /*
+ 480:main.c        ****                 if (ABS_Motor_RPM>=253)
+ 481:main.c        ****                 {
+ 482:main.c        ****                     direction=-1;
+ 483:main.c        ****                 }
+ 484:main.c        ****                 else if (ABS_Motor_RPM<=1)
+ 485:main.c        ****                 {
+ 486:main.c        ****                     direction=1;
+ 487:main.c        ****                 }
+ 488:main.c        ****                 value+=direction;
+ 489:main.c        ****                 //CyDelay(100);
+ 490:main.c        ****                 */
+ 491:main.c        ****             break;
+ 492:main.c        ****                 
+ 493:main.c        **** 	        case Fault:
+ 494:main.c        ****                 
+ 495:main.c        ****                 CAN_GlobalIntEnable();
+ 496:main.c        ****                 CAN_Init();
+ 497:main.c        ****                 CAN_Start();
+ 498:main.c        ****                 //nodeCheckStart();
+ 499:main.c        ****                 
+ 500:main.c        ****                 can_send_status(state, error_state);
+ 501:main.c        ****                 
+ 502:main.c        ****                 //
+ 503:main.c        ****                 // RGB code goes here
+ 504:main.c        ****                 // flashing red
+ 505:main.c        ****                 RGB3_1_Write(1);
+ 506:main.c        ****                 RGB2_1_Write(1);
+ 507:main.c        ****                 RGB1_1_Write(1);
+ 508:main.c        ****                 
+ 509:main.c        ****                 RGB3_2_Write(1);
+ 510:main.c        ****                 RGB2_2_Write(1);
+ 511:main.c        ****                 RGB1_2_Write(1);
+ 512:main.c        ****                 
+ 513:main.c        ****                 RGB3_1_Write(0);
+ 514:main.c        ****                 CyDelay(1000);
+ 515:main.c        ****                 RGB3_1_Write(1);
+ 516:main.c        ****                 CyDelay(1000);
+ 517:main.c        ****                 
+ 518:main.c        ****                 Buzzer_Write(0);
+ 519:main.c        ****                 
+ 520:main.c        ****                 if(error_state == fromLV)
+ 521:main.c        ****                 {
+ 522:main.c        ****                     if(!Drive_Read())
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 13
+
+
+ 523:main.c        ****                     {
+ 524:main.c        ****                         state = LV;
+ 525:main.c        ****                         error_state = OK;
+ 155              		.loc 1 525 0
+ 156 0042 0025     		movs	r5, #0
+ 157              	.LVL27:
+ 524:main.c        ****                         error_state = OK;
+ 158              		.loc 1 524 0
+ 159 0044 0124     		movs	r4, #1
+ 160              	.LVL28:
+ 161 0046 04E0     		b	.L4
+ 162              	.LVL29:
+ 163              	.L34:
+ 526:main.c        ****                     }
+ 527:main.c        ****                 }
+ 528:main.c        ****                 else if (error_state == fromPrecharging)
+ 529:main.c        ****                 {
+ 530:main.c        ****                     if(!Drive_Read() && !HV_Read())
+ 531:main.c        ****                     {
+ 532:main.c        ****                         state = LV;
+ 533:main.c        ****                         error_state = OK;
+ 164              		.loc 1 533 0
+ 165 0048 0025     		movs	r5, #0
+ 166              	.LVL30:
+ 532:main.c        ****                         error_state = OK;
+ 167              		.loc 1 532 0
+ 168 004a 0124     		movs	r4, #1
+ 169              	.LVL31:
+ 170 004c 01E0     		b	.L4
+ 171              	.LVL32:
+ 172              	.L35:
+ 534:main.c        ****                     }
+ 535:main.c        ****                 }
+ 536:main.c        ****                 else if (error_state == fromHV_Enabled)
+ 537:main.c        ****                 {
+ 538:main.c        ****                     if(!Drive_Read())
+ 539:main.c        ****                     {
+ 540:main.c        ****                         state = HV_Enabled;
+ 541:main.c        ****                         error_state = OK;
+ 173              		.loc 1 541 0
+ 174 004e 0025     		movs	r5, #0
+ 175              	.LVL33:
+ 540:main.c        ****                         error_state = OK;
+ 176              		.loc 1 540 0
+ 177 0050 0324     		movs	r4, #3
+ 178              	.LVL34:
+ 179              	.L4:
+ 180              	.LBE2:
+ 172:main.c        ****         RGB2_2_Write(1);
+ 181              		.loc 1 172 0
+ 182 0052 0120     		movs	r0, #1
+ 183 0054 FFF7FEFF 		bl	RGB3_2_Write
+ 184              	.LVL35:
+ 173:main.c        ****         RGB1_2_Write(1);
+ 185              		.loc 1 173 0
+ 186 0058 0120     		movs	r0, #1
+ 187 005a FFF7FEFF 		bl	RGB2_2_Write
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 14
+
+
+ 188              	.LVL36:
+ 174:main.c        ****         
+ 189              		.loc 1 174 0
+ 190 005e 0120     		movs	r0, #1
+ 191 0060 FFF7FEFF 		bl	RGB1_2_Write
+ 192              	.LVL37:
+ 177:main.c        ****         {
+ 193              		.loc 1 177 0
+ 194 0064 C94B     		ldr	r3, .L37
+ 195 0066 1B68     		ldr	r3, [r3]
+ 196 0068 642B     		cmp	r3, #100
+ 197 006a 06D9     		bls	.L5
+ 179:main.c        ****             state = Fault;
+ 198              		.loc 1 179 0
+ 199 006c 0120     		movs	r0, #1
+ 200 006e 0021     		movs	r1, #0
+ 201 0070 0A46     		mov	r2, r1
+ 202 0072 FFF7FEFF 		bl	can_send_cmd
+ 203              	.LVL38:
+ 181:main.c        ****         }
+ 204              		.loc 1 181 0
+ 205 0076 0625     		movs	r5, #6
+ 180:main.c        ****             error_state = nodeFailure;
+ 206              		.loc 1 180 0
+ 207 0078 0524     		movs	r4, #5
+ 208              	.LVL39:
+ 209              	.L5:
+ 184:main.c        ****         {    
+ 210              		.loc 1 184 0
+ 211 007a 052C     		cmp	r4, #5
+ 212 007c 00F27381 		bhi	.L6
+ 213 0080 DFE814F0 		tbh	[pc, r4, lsl #1]
+ 214              	.L8:
+ 215 0084 0600     		.2byte	(.L7-.L8)/2
+ 216 0086 2A00     		.2byte	(.L9-.L8)/2
+ 217 0088 5900     		.2byte	(.L10-.L8)/2
+ 218 008a 9000     		.2byte	(.L11-.L8)/2
+ 219 008c D200     		.2byte	(.L12-.L8)/2
+ 220 008e 1A01     		.2byte	(.L13-.L8)/2
+ 221              		.p2align 1
+ 222              	.L7:
+ 223              	.LBB5:
+ 191:main.c        ****                 CAN_Init();
+ 224              		.loc 1 191 0
+ 225 0090 FFF7FEFF 		bl	CAN_GlobalIntEnable
+ 226              	.LVL40:
+ 192:main.c        ****                 CAN_Start();
+ 227              		.loc 1 192 0
+ 228 0094 FFF7FEFF 		bl	CAN_Init
+ 229              	.LVL41:
+ 193:main.c        ****                 CyDelay(1000);
+ 230              		.loc 1 193 0
+ 231 0098 FFF7FEFF 		bl	CAN_Start
+ 232              	.LVL42:
+ 194:main.c        ****                 //nodeCheckStart(); EDIT UNCOMMENT
+ 233              		.loc 1 194 0
+ 234 009c 4FF47A70 		mov	r0, #1000
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 15
+
+
+ 235 00a0 FFF7FEFF 		bl	CyDelay
+ 236              	.LVL43:
+ 198:main.c        **** 
+ 237              		.loc 1 198 0
+ 238 00a4 2046     		mov	r0, r4
+ 239 00a6 2946     		mov	r1, r5
+ 240 00a8 FFF7FEFF 		bl	can_send_status
+ 241              	.LVL44:
+ 203:main.c        ****                 
+ 242              		.loc 1 203 0
+ 243 00ac FFF7FEFF 		bl	LCD_Start
+ 244              	.LVL45:
+ 207:main.c        ****                 WaveDAC8_1_SetValue(253);
+ 245              		.loc 1 207 0
+ 246 00b0 0120     		movs	r0, #1
+ 247 00b2 FFF7FEFF 		bl	Buzzer_Write
+ 248              	.LVL46:
+ 208:main.c        ****                 CyDelay(50);
+ 249              		.loc 1 208 0
+ 250 00b6 FD20     		movs	r0, #253
+ 251 00b8 FFF7FEFF 		bl	WaveDAC8_1_VDAC8_SetValue
+ 252              	.LVL47:
+ 209:main.c        ****                 
+ 253              		.loc 1 209 0
+ 254 00bc 3220     		movs	r0, #50
+ 255 00be FFF7FEFF 		bl	CyDelay
+ 256              	.LVL48:
+ 244:main.c        ****                 WaveDAC8_1_SetValue(250);
+ 257              		.loc 1 244 0
+ 258 00c2 0020     		movs	r0, #0
+ 259 00c4 FFF7FEFF 		bl	Buzzer_Write
+ 260              	.LVL49:
+ 245:main.c        ****                 //CyDelay(5000);
+ 261              		.loc 1 245 0
+ 262 00c8 FA20     		movs	r0, #250
+ 263 00ca FFF7FEFF 		bl	WaveDAC8_1_VDAC8_SetValue
+ 264              	.LVL50:
+ 247:main.c        ****                 
+ 265              		.loc 1 247 0
+ 266 00ce 0020     		movs	r0, #0
+ 267 00d0 FFF7FEFF 		bl	WaveDAC8_1_VDAC8_SetValue
+ 268              	.LVL51:
+ 249:main.c        ****                 
+ 269              		.loc 1 249 0
+ 270 00d4 0124     		movs	r4, #1
+ 251:main.c        ****                 
+ 271              		.loc 1 251 0
+ 272 00d6 BCE7     		b	.L4
+ 273              	.LVL52:
+ 274              	.L9:
+ 255:main.c        ****                 CAN_GlobalIntEnable();
+ 275              		.loc 1 255 0
+ 276 00d8 0020     		movs	r0, #0
+ 277 00da 0146     		mov	r1, r0
+ 278 00dc 0246     		mov	r2, r0
+ 279 00de FFF7FEFF 		bl	can_send_cmd
+ 280              	.LVL53:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 16
+
+
+ 256:main.c        ****                 CAN_Init();
+ 281              		.loc 1 256 0
+ 282 00e2 FFF7FEFF 		bl	CAN_GlobalIntEnable
+ 283              	.LVL54:
+ 257:main.c        ****                 CAN_Start();
+ 284              		.loc 1 257 0
+ 285 00e6 FFF7FEFF 		bl	CAN_Init
+ 286              	.LVL55:
+ 258:main.c        ****                 //nodeCheckStart();
+ 287              		.loc 1 258 0
+ 288 00ea FFF7FEFF 		bl	CAN_Start
+ 289              	.LVL56:
+ 261:main.c        **** 
+ 290              		.loc 1 261 0
+ 291 00ee 2046     		mov	r0, r4
+ 292 00f0 2946     		mov	r1, r5
+ 293 00f2 FFF7FEFF 		bl	can_send_status
+ 294              	.LVL57:
+ 284:main.c        ****                 
+ 295              		.loc 1 284 0
+ 296 00f6 0020     		movs	r0, #0
+ 297 00f8 FFF7FEFF 		bl	Buzzer_Write
+ 298              	.LVL58:
+ 292:main.c        ****                 RGB2_1_Write(1);
+ 299              		.loc 1 292 0
+ 300 00fc 0020     		movs	r0, #0
+ 301 00fe FFF7FEFF 		bl	RGB3_1_Write
+ 302              	.LVL59:
+ 293:main.c        ****                 RGB1_1_Write(0);
+ 303              		.loc 1 293 0
+ 304 0102 0120     		movs	r0, #1
+ 305 0104 FFF7FEFF 		bl	RGB2_1_Write
+ 306              	.LVL60:
+ 294:main.c        ****                 
+ 307              		.loc 1 294 0
+ 308 0108 0020     		movs	r0, #0
+ 309 010a FFF7FEFF 		bl	RGB1_1_Write
+ 310              	.LVL61:
+ 296:main.c        ****                 RGB2_2_Write(1);
+ 311              		.loc 1 296 0
+ 312 010e 0120     		movs	r0, #1
+ 313 0110 FFF7FEFF 		bl	RGB3_2_Write
+ 314              	.LVL62:
+ 297:main.c        ****                 RGB1_2_Write(1);
+ 315              		.loc 1 297 0
+ 316 0114 0120     		movs	r0, #1
+ 317 0116 FFF7FEFF 		bl	RGB2_2_Write
+ 318              	.LVL63:
+ 298:main.c        ****                 
+ 319              		.loc 1 298 0
+ 320 011a 0120     		movs	r0, #1
+ 321 011c FFF7FEFF 		bl	RGB1_2_Write
+ 322              	.LVL64:
+ 300:main.c        ****                 {
+ 323              		.loc 1 300 0
+ 324 0120 FFF7FEFF 		bl	Drive_Read
+ 325              	.LVL65:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 17
+
+
+ 326 0124 0028     		cmp	r0, #0
+ 327 0126 7FF478AF 		bne	.L23
+ 307:main.c        ****                 {
+ 328              		.loc 1 307 0
+ 329 012a FFF7FEFF 		bl	HV_Read
+ 330              	.LVL66:
+ 331 012e 0028     		cmp	r0, #0
+ 332 0130 7FF476AF 		bne	.L24
+ 333 0134 8DE7     		b	.L4
+ 334              	.L10:
+ 316:main.c        ****                 CAN_Init();
+ 335              		.loc 1 316 0
+ 336 0136 FFF7FEFF 		bl	CAN_GlobalIntEnable
+ 337              	.LVL67:
+ 317:main.c        ****                 CAN_Start();
+ 338              		.loc 1 317 0
+ 339 013a FFF7FEFF 		bl	CAN_Init
+ 340              	.LVL68:
+ 318:main.c        ****                 //nodeCheckStart();
+ 341              		.loc 1 318 0
+ 342 013e FFF7FEFF 		bl	CAN_Start
+ 343              	.LVL69:
+ 321:main.c        ****                 
+ 344              		.loc 1 321 0
+ 345 0142 2046     		mov	r0, r4
+ 346 0144 2946     		mov	r1, r5
+ 347 0146 FFF7FEFF 		bl	can_send_status
+ 348              	.LVL70:
+ 323:main.c        ****                 RGB2_1_Write(0);
+ 349              		.loc 1 323 0
+ 350 014a 0020     		movs	r0, #0
+ 351 014c FFF7FEFF 		bl	RGB3_1_Write
+ 352              	.LVL71:
+ 324:main.c        ****                 RGB1_1_Write(1);
+ 353              		.loc 1 324 0
+ 354 0150 0020     		movs	r0, #0
+ 355 0152 FFF7FEFF 		bl	RGB2_1_Write
+ 356              	.LVL72:
+ 325:main.c        ****                 
+ 357              		.loc 1 325 0
+ 358 0156 0120     		movs	r0, #1
+ 359 0158 FFF7FEFF 		bl	RGB1_1_Write
+ 360              	.LVL73:
+ 327:main.c        ****                 RGB2_2_Write(1);
+ 361              		.loc 1 327 0
+ 362 015c 0120     		movs	r0, #1
+ 363 015e FFF7FEFF 		bl	RGB3_2_Write
+ 364              	.LVL74:
+ 328:main.c        ****                 RGB1_2_Write(1);
+ 365              		.loc 1 328 0
+ 366 0162 0120     		movs	r0, #1
+ 367 0164 FFF7FEFF 		bl	RGB2_2_Write
+ 368              	.LVL75:
+ 329:main.c        ****                 
+ 369              		.loc 1 329 0
+ 370 0168 0120     		movs	r0, #1
+ 371 016a FFF7FEFF 		bl	RGB1_2_Write
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 18
+
+
+ 372              	.LVL76:
+ 331:main.c        ****                 
+ 373              		.loc 1 331 0
+ 374 016e 0020     		movs	r0, #0
+ 375 0170 FFF7FEFF 		bl	Buzzer_Write
+ 376              	.LVL77:
+ 334:main.c        ****                 
+ 377              		.loc 1 334 0
+ 378 0174 0023     		movs	r3, #0
+ 379 0176 0193     		str	r3, [sp, #4]
+ 380              	.L15:
+ 381              	.LBB4:
+ 338:main.c        ****                 
+ 382              		.loc 1 338 0
+ 383 0178 0120     		movs	r0, #1
+ 384 017a 0021     		movs	r1, #0
+ 385 017c 0A46     		mov	r2, r1
+ 386 017e FFF7FEFF 		bl	can_send_cmd
+ 387              	.LVL78:
+ 341:main.c        ****                     // UNUSED //uint8_t NomialVolt =  can_read(data_queue, data_head, data_tail, 0x
+ 388              		.loc 1 341 0
+ 389 0182 FFF7FEFF 		bl	getCapacitorVoltage
+ 390              	.LVL79:
+ 344:main.c        ****                     {
+ 391              		.loc 1 344 0
+ 392 0186 1528     		cmp	r0, #21
+ 393 0188 3FF64CAF 		bhi	.L25
+ 351:main.c        ****                 
+ 394              		.loc 1 351 0
+ 395 018c 019B     		ldr	r3, [sp, #4]
+ 396 018e 0133     		adds	r3, r3, #1
+ 397 0190 0193     		str	r3, [sp, #4]
+ 353:main.c        ****                     {
+ 398              		.loc 1 353 0
+ 399 0192 019B     		ldr	r3, [sp, #4]
+ 400 0194 0A2B     		cmp	r3, #10
+ 401 0196 3FF447AF 		beq	.L26
+ 360:main.c        ****                 }    
+ 402              		.loc 1 360 0
+ 403 019a 4FF47A70 		mov	r0, #1000
+ 404              	.LVL80:
+ 405 019e FFF7FEFF 		bl	CyDelay
+ 406              	.LVL81:
+ 407              	.LBE4:
+ 361:main.c        ****                 
+ 408              		.loc 1 361 0
+ 409 01a2 E9E7     		b	.L15
+ 410              	.L11:
+ 367:main.c        ****                 CAN_Init();
+ 411              		.loc 1 367 0
+ 412 01a4 FFF7FEFF 		bl	CAN_GlobalIntEnable
+ 413              	.LVL82:
+ 368:main.c        ****                 CAN_Start();
+ 414              		.loc 1 368 0
+ 415 01a8 FFF7FEFF 		bl	CAN_Init
+ 416              	.LVL83:
+ 369:main.c        ****                 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 19
+
+
+ 417              		.loc 1 369 0
+ 418 01ac FFF7FEFF 		bl	CAN_Start
+ 419              	.LVL84:
+ 373:main.c        ****                 
+ 420              		.loc 1 373 0
+ 421 01b0 2046     		mov	r0, r4
+ 422 01b2 2946     		mov	r1, r5
+ 423 01b4 FFF7FEFF 		bl	can_send_status
+ 424              	.LVL85:
+ 378:main.c        ****                 RGB2_1_Write(1);
+ 425              		.loc 1 378 0
+ 426 01b8 0120     		movs	r0, #1
+ 427 01ba FFF7FEFF 		bl	RGB3_1_Write
+ 428              	.LVL86:
+ 379:main.c        ****                 RGB1_1_Write(0);
+ 429              		.loc 1 379 0
+ 430 01be 0120     		movs	r0, #1
+ 431 01c0 FFF7FEFF 		bl	RGB2_1_Write
+ 432              	.LVL87:
+ 380:main.c        ****                 
+ 433              		.loc 1 380 0
+ 434 01c4 0020     		movs	r0, #0
+ 435 01c6 FFF7FEFF 		bl	RGB1_1_Write
+ 436              	.LVL88:
+ 382:main.c        ****                 RGB2_2_Write(1);
+ 437              		.loc 1 382 0
+ 438 01ca 0120     		movs	r0, #1
+ 439 01cc FFF7FEFF 		bl	RGB3_2_Write
+ 440              	.LVL89:
+ 383:main.c        ****                 RGB1_2_Write(1);
+ 441              		.loc 1 383 0
+ 442 01d0 0120     		movs	r0, #1
+ 443 01d2 FFF7FEFF 		bl	RGB2_2_Write
+ 444              	.LVL90:
+ 384:main.c        ****                 //CyDelay(5000); ///for debug
+ 445              		.loc 1 384 0
+ 446 01d6 0120     		movs	r0, #1
+ 447 01d8 FFF7FEFF 		bl	RGB1_2_Write
+ 448              	.LVL91:
+ 387:main.c        ****                 
+ 449              		.loc 1 387 0
+ 450 01dc 0020     		movs	r0, #0
+ 451 01de FFF7FEFF 		bl	Buzzer_Write
+ 452              	.LVL92:
+ 389:main.c        ****                 {
+ 453              		.loc 1 389 0
+ 454 01e2 FFF7FEFF 		bl	Drive_Read
+ 455              	.LVL93:
+ 456 01e6 98B1     		cbz	r0, .L16
+ 391:main.c        ****                     if(getErrorTolerance() == 1) // 100 for error tolerance /// needs to be getErro
+ 457              		.loc 1 391 0
+ 458 01e8 4FF47A70 		mov	r0, #1000
+ 459 01ec FFF7FEFF 		bl	CyDelay
+ 460              	.LVL94:
+ 392:main.c        ****                     {
+ 461              		.loc 1 392 0
+ 462 01f0 FFF7FEFF 		bl	getErrorTolerance
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 20
+
+
+ 463              	.LVL95:
+ 464 01f4 0128     		cmp	r0, #1
+ 465 01f6 7FF41AAF 		bne	.L27
+ 394:main.c        ****                         CyDelay(1000);
+ 466              		.loc 1 394 0
+ 467 01fa FFF7FEFF 		bl	Buzzer_Write
+ 468              	.LVL96:
+ 395:main.c        ****                         Buzzer_Write(0);
+ 469              		.loc 1 395 0
+ 470 01fe 4FF47A70 		mov	r0, #1000
+ 471 0202 FFF7FEFF 		bl	CyDelay
+ 472              	.LVL97:
+ 396:main.c        ****                         state = Drive;
+ 473              		.loc 1 396 0
+ 474 0206 0020     		movs	r0, #0
+ 475 0208 FFF7FEFF 		bl	Buzzer_Write
+ 476              	.LVL98:
+ 397:main.c        ****                         break;
+ 477              		.loc 1 397 0
+ 478 020c 0424     		movs	r4, #4
+ 398:main.c        ****                     }
+ 479              		.loc 1 398 0
+ 480 020e 20E7     		b	.L4
+ 481              	.LVL99:
+ 482              	.L16:
+ 409:main.c        ****                 {
+ 483              		.loc 1 409 0
+ 484 0210 FFF7FEFF 		bl	HV_Read
+ 485              	.LVL100:
+ 486 0214 8146     		mov	r9, r0
+ 487 0216 FFF7FEFF 		bl	getCapacitorVoltage
+ 488              	.LVL101:
+ 489 021a B9F1000F 		cmp	r9, #0
+ 490 021e 18BF     		it	ne
+ 491 0220 1528     		cmpne	r0, #21
+ 492 0222 7FF607AF 		bls	.L28
+ 493 0226 14E7     		b	.L4
+ 494              	.L12:
+ 423:main.c        ****                 //
+ 495              		.loc 1 423 0
+ 496 0228 2046     		mov	r0, r4
+ 497 022a 2946     		mov	r1, r5
+ 498 022c FFF7FEFF 		bl	can_send_status
+ 499              	.LVL102:
+ 427:main.c        ****                 RGB2_1_Write(0);
+ 500              		.loc 1 427 0
+ 501 0230 0120     		movs	r0, #1
+ 502 0232 FFF7FEFF 		bl	RGB3_1_Write
+ 503              	.LVL103:
+ 428:main.c        ****                 RGB1_1_Write(1);
+ 504              		.loc 1 428 0
+ 505 0236 0020     		movs	r0, #0
+ 506 0238 FFF7FEFF 		bl	RGB2_1_Write
+ 507              	.LVL104:
+ 429:main.c        ****                 
+ 508              		.loc 1 429 0
+ 509 023c 0120     		movs	r0, #1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 21
+
+
+ 510 023e FFF7FEFF 		bl	RGB1_1_Write
+ 511              	.LVL105:
+ 431:main.c        ****                 RGB2_2_Write(1);
+ 512              		.loc 1 431 0
+ 513 0242 0120     		movs	r0, #1
+ 514 0244 FFF7FEFF 		bl	RGB3_2_Write
+ 515              	.LVL106:
+ 432:main.c        ****                 RGB1_2_Write(1);
+ 516              		.loc 1 432 0
+ 517 0248 0120     		movs	r0, #1
+ 518 024a FFF7FEFF 		bl	RGB2_2_Write
+ 519              	.LVL107:
+ 433:main.c        ****                 
+ 520              		.loc 1 433 0
+ 521 024e 0120     		movs	r0, #1
+ 522 0250 FFF7FEFF 		bl	RGB1_2_Write
+ 523              	.LVL108:
+ 446:main.c        ****                 if (DriveTimeCount > 100) //EDIT: was 100!
+ 524              		.loc 1 446 0
+ 525 0254 0136     		adds	r6, r6, #1
+ 526              	.LVL109:
+ 447:main.c        ****                 {
+ 527              		.loc 1 447 0
+ 528 0256 642E     		cmp	r6, #100
+ 529 0258 04D9     		bls	.L29
+ 530              	.LVL110:
+ 450:main.c        ****                 }
+ 531              		.loc 1 450 0
+ 532 025a FFF7FEFF 		bl	getAckRx
+ 533              	.LVL111:
+ 534 025e 8246     		mov	r10, r0
+ 535              	.LVL112:
+ 449:main.c        ****                     ACK = getAckRx();
+ 536              		.loc 1 449 0
+ 537 0260 0026     		movs	r6, #0
+ 538 0262 01E0     		b	.L17
+ 539              	.LVL113:
+ 540              	.L29:
+ 444:main.c        ****                 
+ 541              		.loc 1 444 0
+ 542 0264 4FF0FF0A 		mov	r10, #255
+ 543              	.LVL114:
+ 544              	.L17:
+ 453:main.c        ****                 uint8_t Throttle_High = getPedalHigh();//manga_getThrottleHigh(); // use 123 for pe
+ 545              		.loc 1 453 0
+ 546 0268 FFF7FEFF 		bl	getABSMotorRPM
+ 547              	.LVL115:
+ 548 026c 8146     		mov	r9, r0
+ 549              	.LVL116:
+ 454:main.c        ****                 uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
+ 550              		.loc 1 454 0
+ 551 026e FFF7FEFF 		bl	getPedalHigh
+ 552              	.LVL117:
+ 553 0272 0746     		mov	r7, r0
+ 554              	.LVL118:
+ 455:main.c        ****                 
+ 555              		.loc 1 455 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 22
+
+
+ 556 0274 FFF7FEFF 		bl	getPedalLow
+ 557              	.LVL119:
+ 558 0278 8046     		mov	r8, r0
+ 559              	.LVL120:
+ 457:main.c        ****                 can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock 
+ 560              		.loc 1 457 0
+ 561 027a 4846     		mov	r0, r9
+ 562 027c FFF7FEFF 		bl	WaveDAC8_1_VDAC8_SetValue
+ 563              	.LVL121:
+ 458:main.c        ****                 
+ 564              		.loc 1 458 0
+ 565 0280 0120     		movs	r0, #1
+ 566 0282 B9B2     		uxth	r1, r7
+ 567 0284 1FFA88F2 		uxth	r2, r8
+ 568 0288 FFF7FEFF 		bl	can_send_cmd
+ 569              	.LVL122:
+ 461:main.c        ****                     state = LV;
+ 570              		.loc 1 461 0
+ 571 028c FFF7FEFF 		bl	HV_Read
+ 572              	.LVL123:
+ 573 0290 00B9     		cbnz	r0, .L18
+ 462:main.c        ****                 
+ 574              		.loc 1 462 0
+ 575 0292 0124     		movs	r4, #1
+ 576              	.LVL124:
+ 577              	.L18:
+ 464:main.c        ****                     state = HV_Enabled;
+ 578              		.loc 1 464 0
+ 579 0294 FFF7FEFF 		bl	Drive_Read
+ 580              	.LVL125:
+ 581 0298 00B9     		cbnz	r0, .L19
+ 465:main.c        ****                 
+ 582              		.loc 1 465 0
+ 583 029a 0324     		movs	r4, #3
+ 584              	.LVL126:
+ 585              	.L19:
+ 468:main.c        ****                 {
+ 586              		.loc 1 468 0
+ 587 029c FFF7FEFF 		bl	getCurtisHeartBeatCheck
+ 588              	.LVL127:
+ 467:main.c        ****                     (!getCurtisHeartBeatCheck())) // EDIT: Removed | CurtisFaultCheck from this 
+ 589              		.loc 1 467 0
+ 590 02a0 B0FA80F0 		clz	r0, r0
+ 591 02a4 4009     		lsrs	r0, r0, #5
+ 592 02a6 BAF1FF0F 		cmp	r10, #255
+ 593 02aa 18BF     		it	ne
+ 594 02ac 40F00100 		orrne	r0, r0, #1
+ 595 02b0 0028     		cmp	r0, #0
+ 596 02b2 7FF4C2AE 		bne	.L32
+ 597 02b6 CCE6     		b	.L4
+ 598              	.LVL128:
+ 599              	.L13:
+ 495:main.c        ****                 CAN_Init();
+ 600              		.loc 1 495 0
+ 601 02b8 FFF7FEFF 		bl	CAN_GlobalIntEnable
+ 602              	.LVL129:
+ 496:main.c        ****                 CAN_Start();
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 23
+
+
+ 603              		.loc 1 496 0
+ 604 02bc FFF7FEFF 		bl	CAN_Init
+ 605              	.LVL130:
+ 497:main.c        ****                 //nodeCheckStart();
+ 606              		.loc 1 497 0
+ 607 02c0 FFF7FEFF 		bl	CAN_Start
+ 608              	.LVL131:
+ 500:main.c        ****                 
+ 609              		.loc 1 500 0
+ 610 02c4 2046     		mov	r0, r4
+ 611 02c6 2946     		mov	r1, r5
+ 612 02c8 FFF7FEFF 		bl	can_send_status
+ 613              	.LVL132:
+ 505:main.c        ****                 RGB2_1_Write(1);
+ 614              		.loc 1 505 0
+ 615 02cc 0120     		movs	r0, #1
+ 616 02ce FFF7FEFF 		bl	RGB3_1_Write
+ 617              	.LVL133:
+ 506:main.c        ****                 RGB1_1_Write(1);
+ 618              		.loc 1 506 0
+ 619 02d2 0120     		movs	r0, #1
+ 620 02d4 FFF7FEFF 		bl	RGB2_1_Write
+ 621              	.LVL134:
+ 507:main.c        ****                 
+ 622              		.loc 1 507 0
+ 623 02d8 0120     		movs	r0, #1
+ 624 02da FFF7FEFF 		bl	RGB1_1_Write
+ 625              	.LVL135:
+ 509:main.c        ****                 RGB2_2_Write(1);
+ 626              		.loc 1 509 0
+ 627 02de 0120     		movs	r0, #1
+ 628 02e0 FFF7FEFF 		bl	RGB3_2_Write
+ 629              	.LVL136:
+ 510:main.c        ****                 RGB1_2_Write(1);
+ 630              		.loc 1 510 0
+ 631 02e4 0120     		movs	r0, #1
+ 632 02e6 FFF7FEFF 		bl	RGB2_2_Write
+ 633              	.LVL137:
+ 511:main.c        ****                 
+ 634              		.loc 1 511 0
+ 635 02ea 0120     		movs	r0, #1
+ 636 02ec FFF7FEFF 		bl	RGB1_2_Write
+ 637              	.LVL138:
+ 513:main.c        ****                 CyDelay(1000);
+ 638              		.loc 1 513 0
+ 639 02f0 0020     		movs	r0, #0
+ 640 02f2 FFF7FEFF 		bl	RGB3_1_Write
+ 641              	.LVL139:
+ 514:main.c        ****                 RGB3_1_Write(1);
+ 642              		.loc 1 514 0
+ 643 02f6 4FF47A70 		mov	r0, #1000
+ 644 02fa FFF7FEFF 		bl	CyDelay
+ 645              	.LVL140:
+ 515:main.c        ****                 CyDelay(1000);
+ 646              		.loc 1 515 0
+ 647 02fe 0120     		movs	r0, #1
+ 648 0300 FFF7FEFF 		bl	RGB3_1_Write
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 24
+
+
+ 649              	.LVL141:
+ 516:main.c        ****                 
+ 650              		.loc 1 516 0
+ 651 0304 4FF47A70 		mov	r0, #1000
+ 652 0308 FFF7FEFF 		bl	CyDelay
+ 653              	.LVL142:
+ 518:main.c        ****                 
+ 654              		.loc 1 518 0
+ 655 030c 0020     		movs	r0, #0
+ 656 030e FFF7FEFF 		bl	Buzzer_Write
+ 657              	.LVL143:
+ 520:main.c        ****                 {
+ 658              		.loc 1 520 0
+ 659 0312 012D     		cmp	r5, #1
+ 660 0314 05D1     		bne	.L20
+ 522:main.c        ****                     {
+ 661              		.loc 1 522 0
+ 662 0316 FFF7FEFF 		bl	Drive_Read
+ 663              	.LVL144:
+ 664 031a 0028     		cmp	r0, #0
+ 665 031c 3FF491AE 		beq	.L33
+ 666 0320 97E6     		b	.L4
+ 667              	.L20:
+ 528:main.c        ****                 {
+ 668              		.loc 1 528 0
+ 669 0322 022D     		cmp	r5, #2
+ 670 0324 0AD1     		bne	.L21
+ 530:main.c        ****                     {
+ 671              		.loc 1 530 0
+ 672 0326 FFF7FEFF 		bl	Drive_Read
+ 673              	.LVL145:
+ 674 032a 0028     		cmp	r0, #0
+ 675 032c 7FF491AE 		bne	.L4
+ 530:main.c        ****                     {
+ 676              		.loc 1 530 0 is_stmt 0 discriminator 1
+ 677 0330 FFF7FEFF 		bl	HV_Read
+ 678              	.LVL146:
+ 679 0334 0028     		cmp	r0, #0
+ 680 0336 3FF487AE 		beq	.L34
+ 681 033a 8AE6     		b	.L4
+ 682              	.L21:
+ 536:main.c        ****                 {
+ 683              		.loc 1 536 0 is_stmt 1
+ 684 033c 032D     		cmp	r5, #3
+ 685 033e 05D1     		bne	.L22
+ 538:main.c        ****                     {
+ 686              		.loc 1 538 0
+ 687 0340 FFF7FEFF 		bl	Drive_Read
+ 688              	.LVL147:
+ 689 0344 0028     		cmp	r0, #0
+ 690 0346 3FF482AE 		beq	.L35
+ 691 034a 82E6     		b	.L4
+ 692              	.L22:
+ 542:main.c        ****                     }
+ 543:main.c        ****                 }
+ 544:main.c        ****                 else if (error_state == fromDrive)
+ 693              		.loc 1 544 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 25
+
+
+ 694 034c 042D     		cmp	r5, #4
+ 695 034e 7FF480AE 		bne	.L4
+ 545:main.c        ****                 {   
+ 546:main.c        ****                     can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock
+ 696              		.loc 1 546 0
+ 697 0352 0120     		movs	r0, #1
+ 698 0354 B9B2     		uxth	r1, r7
+ 699 0356 1FFA88F2 		uxth	r2, r8
+ 700 035a FFF7FEFF 		bl	can_send_cmd
+ 701              	.LVL148:
+ 547:main.c        ****                     
+ 548:main.c        ****                     CyDelay(200);
+ 702              		.loc 1 548 0
+ 703 035e C820     		movs	r0, #200
+ 704 0360 FFF7FEFF 		bl	CyDelay
+ 705              	.LVL149:
+ 706 0364 75E6     		b	.L4
+ 707              	.L6:
+ 549:main.c        ****                     
+ 550:main.c        ****                     // Curtis Come back online again without error
+ 551:main.c        ****                     /*
+ 552:main.c        ****                     if((getCurtisHeartBeatCheck())) // EDIT: Removed !(Curtis_Fault_Check(data_queu
+ 553:main.c        ****                     {
+ 554:main.c        ****                         state = LV;
+ 555:main.c        ****                         error_state = OK;
+ 556:main.c        ****                     }
+ 557:main.c        ****                     else if(0xFF == getAckRx()) //ACK received
+ 558:main.c        ****                     {
+ 559:main.c        ****                         state = HV_Enabled;
+ 560:main.c        ****                         error_state = OK;
+ 561:main.c        ****                     } 
+ 562:main.c        ****                     */
+ 563:main.c        ****                 }
+ 564:main.c        ****                 else if (error_state == nodeFailure)
+ 565:main.c        ****                 {
+ 566:main.c        ****                     state = Fault;
+ 567:main.c        ****                 }
+ 568:main.c        ****             break;
+ 569:main.c        ****                 
+ 570:main.c        ****             default:
+ 571:main.c        ****                 RGB3_1_Write(1);
+ 708              		.loc 1 571 0
+ 709 0366 0120     		movs	r0, #1
+ 710 0368 FFF7FEFF 		bl	RGB3_1_Write
+ 711              	.LVL150:
+ 572:main.c        ****                 RGB2_1_Write(1);
+ 712              		.loc 1 572 0
+ 713 036c 0120     		movs	r0, #1
+ 714 036e FFF7FEFF 		bl	RGB2_1_Write
+ 715              	.LVL151:
+ 573:main.c        ****                 RGB1_1_Write(1);
+ 716              		.loc 1 573 0
+ 717 0372 0120     		movs	r0, #1
+ 718 0374 FFF7FEFF 		bl	RGB1_1_Write
+ 719              	.LVL152:
+ 574:main.c        ****                 
+ 575:main.c        ****                 RGB3_2_Write(1);
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 26
+
+
+ 720              		.loc 1 575 0
+ 721 0378 0120     		movs	r0, #1
+ 722 037a FFF7FEFF 		bl	RGB3_2_Write
+ 723              	.LVL153:
+ 576:main.c        ****                 RGB2_2_Write(1);
+ 724              		.loc 1 576 0
+ 725 037e 0120     		movs	r0, #1
+ 726 0380 FFF7FEFF 		bl	RGB2_2_Write
+ 727              	.LVL154:
+ 577:main.c        ****                 RGB1_2_Write(1);
+ 728              		.loc 1 577 0
+ 729 0384 0120     		movs	r0, #1
+ 730 0386 FFF7FEFF 		bl	RGB1_2_Write
+ 731              	.LVL155:
+ 732 038a 62E6     		b	.L4
+ 733              	.L38:
+ 734              		.align	2
+ 735              	.L37:
+ 736 038c 00000000 		.word	.LANCHOR0
+ 737              	.LBE5:
+ 738              		.cfi_endproc
+ 739              	.LFE64:
+ 740              		.size	main, .-main
+ 741              		.section	.text.ISR_CAN,"ax",%progbits
+ 742              		.align	2
+ 743              		.global	ISR_CAN
+ 744              		.thumb
+ 745              		.thumb_func
+ 746              		.type	ISR_CAN, %function
+ 747              	ISR_CAN:
+ 748              	.LFB65:
+ 578:main.c        **** 
+ 579:main.c        ****         }// end of switch
+ 580:main.c        ****         
+ 581:main.c        ****         
+ 582:main.c        ****         //if (receiveMailboxNumber == CAN_RX_MAILBOX_switchStatus)
+ 583:main.c        ****         //{
+ 584:main.c        ****             //LCD_Position(1u, 3u);
+ 585:main.c        ****             //send
+ 586:main.c        ****             //if (CAN_RX_DATA_BYTE1(CAN_RX_MAILBOX_switchStatus) == SWITCH_PRESSED)
+ 587:main.c        ****             //{
+ 588:main.c        ****                 /* Display received switch status on LCD */
+ 589:main.c        ****             
+ 590:main.c        ****                 //LCD_PrintString("pressed ");
+ 591:main.c        **** 
+ 592:main.c        ****                 /* Increase the PWM pulse width */
+ 593:main.c        ****                 //pulseWidthValue += PWM_PULSE_WIDTH_STEP;
+ 594:main.c        **** 
+ 595:main.c        ****                 /* Send message with the new PWM pulse width */
+ 596:main.c        ****                 //dataPWM.byte[0u] = pulseWidthValue;
+ 597:main.c        ****                 //CAN_SendMsg(&messagePWM);
+ 598:main.c        **** 
+ 599:main.c        ****                 /* Display value of PWM pulse width on LCD */
+ 600:main.c        ****                 //LCD_Position(0u, 14u);
+ 601:main.c        ****                 //LCD_PrintInt8(pulseWidthValue);
+ 602:main.c        **** 
+ 603:main.c        ****             //}
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 27
+
+
+ 604:main.c        ****             //else
+ 605:main.c        ****             //{
+ 606:main.c        ****                 /* Display received switch status on LCD */
+ 607:main.c        ****             //    LCD_PrintString("released");
+ 608:main.c        ****             //}
+ 609:main.c        ****             //receiveMailboxNumber = 0xFFu;
+ 610:main.c        ****         //}
+ 611:main.c        ****         
+ 612:main.c        ****         //received
+ 613:main.c        **** 
+ 614:main.c        ****         //if (receiveMailboxNumber == CAN_RX_MAILBOX_ADCdata)
+ 615:main.c        ****         //{
+ 616:main.c        ****         //    adcData = ((uint16) ((uint16) CAN_RX_DATA_BYTE1(CAN_RX_MAILBOX_ADCdata) << ONE_BYTE_O
+ 617:main.c        ****         //    CAN_RX_DATA_BYTE2(CAN_RX_MAILBOX_ADCdata);
+ 618:main.c        ****             
+ 619:main.c        ****             /* Display received ADC data on LCD */
+ 620:main.c        ****        //     sprintf(txData, "%u.%.3u", (adcData / 1000u), (adcData % 1000u));
+ 621:main.c        ****         //    txData[DATA_SIZE - 1u] = (char8) '\0';
+ 622:main.c        ****             
+ 623:main.c        ****         //    LCD_Position(0u, 4u);
+ 624:main.c        ****          //   LCD_PrintString(txData);
+ 625:main.c        ****          //   receiveMailboxNumber = 0xFFu;
+ 626:main.c        ****         //}
+ 627:main.c        ****     } 
+ 628:main.c        **** }
+ 629:main.c        **** 
+ 630:main.c        **** /*
+ 631:main.c        **** // 0 for HV, 1 for Drive
+ 632:main.c        **** static uint32 ReadSwSwitch(uint8_t choice)
+ 633:main.c        **** {
+ 634:main.c        ****     uint32 heldDown;
+ 635:main.c        ****     uint32 swStatus;
+ 636:main.c        **** 
+ 637:main.c        ****     swStatus = 0u;  // Switch is not active 
+ 638:main.c        ****     heldDown = 0u;  // Reset debounce counter
+ 639:main.c        **** 
+ 640:main.c        ****     
+ 641:main.c        ****     if (choice)
+ 642:main.c        ****         swStatus = Drive_Read();
+ 643:main.c        ****     else
+ 644:main.c        ****         swStatus = HV_Read();
+ 645:main.c        **** 
+ 646:main.c        ****     return (swStatus);
+ 647:main.c        **** }
+ 648:main.c        **** */
+ 649:main.c        **** /*******************************************************************************
+ 650:main.c        **** * Function Name: ISR_CAN
+ 651:main.c        **** ********************************************************************************
+ 652:main.c        **** *
+ 653:main.c        **** * Summary:
+ 654:main.c        **** *  This ISR is executed at a Receive Message event and set receiveMailboxNumber
+ 655:main.c        **** *  global variable with receive message mailbox number.
+ 656:main.c        **** *
+ 657:main.c        **** * Parameters:
+ 658:main.c        **** *  None.
+ 659:main.c        **** *
+ 660:main.c        **** * Return:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 28
+
+
+ 661:main.c        **** *  None.
+ 662:main.c        **** *
+ 663:main.c        **** *******************************************************************************/
+ 664:main.c        **** CY_ISR(ISR_CAN)
+ 665:main.c        **** {   
+ 749              		.loc 1 665 0
+ 750              		.cfi_startproc
+ 751              		@ args = 0, pretend = 0, frame = 0
+ 752              		@ frame_needed = 0, uses_anonymous_args = 0
+ 753              		@ link register save eliminated.
+ 666:main.c        ****     /* Clear Receive Message flag */
+ 667:main.c        ****     CAN_INT_SR_REG.byte[1u] = CAN_RX_MESSAGE_MASK;
+ 754              		.loc 1 667 0
+ 755 0000 1022     		movs	r2, #16
+ 756 0002 044B     		ldr	r3, .L40
+ 757 0004 5A70     		strb	r2, [r3, #1]
+ 668:main.c        **** 
+ 669:main.c        ****     /* Set the isrFlag */
+ 670:main.c        ****     //isrFlag = 1u;    
+ 671:main.c        **** 
+ 672:main.c        ****     /* Acknowledges receipt of new message */
+ 673:main.c        ****     CAN_RX_ACK_MESSAGE(CAN_RX_MAILBOX_0);
+ 758              		.loc 1 673 0
+ 759 0006 044A     		ldr	r2, .L40+4
+ 760 0008 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 761 000a 43F00103 		orr	r3, r3, #1
+ 762 000e 1370     		strb	r3, [r2]
+ 763 0010 7047     		bx	lr
+ 764              	.L41:
+ 765 0012 00BF     		.align	2
+ 766              	.L40:
+ 767 0014 00A00040 		.word	1073782784
+ 768 0018 A0A00040 		.word	1073782944
+ 769              		.cfi_endproc
+ 770              	.LFE65:
+ 771              		.size	ISR_CAN, .-ISR_CAN
+ 772              		.global	pedalOK
+ 773              		.global	DriveSwitch
+ 774              		.global	HVSwitch
+ 775              		.bss
+ 776              		.align	2
+ 777              		.set	.LANCHOR0,. + 0
+ 778              		.type	pedalOK, %object
+ 779              		.size	pedalOK, 4
+ 780              	pedalOK:
+ 781 0000 00000000 		.space	4
+ 782              		.type	DriveSwitch, %object
+ 783              		.size	DriveSwitch, 1
+ 784              	DriveSwitch:
+ 785 0004 00       		.space	1
+ 786              		.type	HVSwitch, %object
+ 787              		.size	HVSwitch, 1
+ 788              	HVSwitch:
+ 789 0005 00       		.space	1
+ 790 0006 0000     		.text
+ 791              	.Letext0:
+ 792              		.file 2 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 29
+
+
+ 793              		.file 3 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ 794              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 795              		.file 5 "Generated_Source\\PSoC5/CAN.h"
+ 796              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+ 797              		.file 7 "Generated_Source\\PSoC5/Node_Timer.h"
+ 798              		.file 8 "Generated_Source\\PSoC5/isr_nodeok.h"
+ 799              		.file 9 "can_manga.h"
+ 800              		.file 10 "Generated_Source\\PSoC5/CyLib.h"
+ 801              		.file 11 "Generated_Source\\PSoC5/LCD.h"
+ 802              		.file 12 "Generated_Source\\PSoC5/Buzzer.h"
+ 803              		.file 13 "Generated_Source\\PSoC5/WaveDAC8_1_VDAC8.h"
+ 804              		.file 14 "Generated_Source\\PSoC5/RGB3_1.h"
+ 805              		.file 15 "Generated_Source\\PSoC5/RGB2_1.h"
+ 806              		.file 16 "Generated_Source\\PSoC5/RGB1_1.h"
+ 807              		.file 17 "Generated_Source\\PSoC5/RGB3_2.h"
+ 808              		.file 18 "Generated_Source\\PSoC5/RGB2_2.h"
+ 809              		.file 19 "Generated_Source\\PSoC5/RGB1_2.h"
+ 810              		.file 20 "Generated_Source\\PSoC5/Drive.h"
+ 811              		.file 21 "Generated_Source\\PSoC5/HV.h"
+ 812              		.file 22 "Generated_Source\\PSoC5/WaveDAC8_1.h"
+ 813              		.section	.debug_info,"",%progbits
+ 814              	.Ldebug_info0:
+ 815 0000 3C0C0000 		.4byte	0xc3c
+ 816 0004 0400     		.2byte	0x4
+ 817 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 818 000a 04       		.byte	0x4
+ 819 000b 01       		.uleb128 0x1
+ 820 000c 54030000 		.4byte	.LASF91
+ 821 0010 01       		.byte	0x1
+ 822 0011 20040000 		.4byte	.LASF92
+ 823 0015 FE000000 		.4byte	.LASF93
+ 824 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 825 001d 00000000 		.4byte	0
+ 826 0021 00000000 		.4byte	.Ldebug_line0
+ 827 0025 02       		.uleb128 0x2
+ 828 0026 31030000 		.4byte	.LASF0
+ 829 002a 02       		.byte	0x2
+ 830 002b 1B       		.byte	0x1b
+ 831 002c 30000000 		.4byte	0x30
+ 832 0030 03       		.uleb128 0x3
+ 833 0031 01       		.byte	0x1
+ 834 0032 06       		.byte	0x6
+ 835 0033 67010000 		.4byte	.LASF2
+ 836 0037 02       		.uleb128 0x2
+ 837 0038 DA010000 		.4byte	.LASF1
+ 838 003c 02       		.byte	0x2
+ 839 003d 1D       		.byte	0x1d
+ 840 003e 42000000 		.4byte	0x42
+ 841 0042 03       		.uleb128 0x3
+ 842 0043 01       		.byte	0x1
+ 843 0044 08       		.byte	0x8
+ 844 0045 33020000 		.4byte	.LASF3
+ 845 0049 03       		.uleb128 0x3
+ 846 004a 02       		.byte	0x2
+ 847 004b 05       		.byte	0x5
+ 848 004c 40000000 		.4byte	.LASF4
+ 849 0050 02       		.uleb128 0x2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 30
+
+
+ 850 0051 AA000000 		.4byte	.LASF5
+ 851 0055 02       		.byte	0x2
+ 852 0056 2B       		.byte	0x2b
+ 853 0057 5B000000 		.4byte	0x5b
+ 854 005b 03       		.uleb128 0x3
+ 855 005c 02       		.byte	0x2
+ 856 005d 07       		.byte	0x7
+ 857 005e 11030000 		.4byte	.LASF6
+ 858 0062 02       		.uleb128 0x2
+ 859 0063 83040000 		.4byte	.LASF7
+ 860 0067 02       		.byte	0x2
+ 861 0068 3F       		.byte	0x3f
+ 862 0069 6D000000 		.4byte	0x6d
+ 863 006d 03       		.uleb128 0x3
+ 864 006e 04       		.byte	0x4
+ 865 006f 05       		.byte	0x5
+ 866 0070 BB010000 		.4byte	.LASF8
+ 867 0074 02       		.uleb128 0x2
+ 868 0075 FD010000 		.4byte	.LASF9
+ 869 0079 02       		.byte	0x2
+ 870 007a 41       		.byte	0x41
+ 871 007b 7F000000 		.4byte	0x7f
+ 872 007f 03       		.uleb128 0x3
+ 873 0080 04       		.byte	0x4
+ 874 0081 07       		.byte	0x7
+ 875 0082 2C040000 		.4byte	.LASF10
+ 876 0086 03       		.uleb128 0x3
+ 877 0087 08       		.byte	0x8
+ 878 0088 05       		.byte	0x5
+ 879 0089 79010000 		.4byte	.LASF11
+ 880 008d 03       		.uleb128 0x3
+ 881 008e 08       		.byte	0x8
+ 882 008f 07       		.byte	0x7
+ 883 0090 92020000 		.4byte	.LASF12
+ 884 0094 04       		.uleb128 0x4
+ 885 0095 04       		.byte	0x4
+ 886 0096 05       		.byte	0x5
+ 887 0097 696E7400 		.ascii	"int\000"
+ 888 009b 03       		.uleb128 0x3
+ 889 009c 04       		.byte	0x4
+ 890 009d 07       		.byte	0x7
+ 891 009e C1020000 		.4byte	.LASF13
+ 892 00a2 02       		.uleb128 0x2
+ 893 00a3 19000000 		.4byte	.LASF14
+ 894 00a7 03       		.byte	0x3
+ 895 00a8 14       		.byte	0x14
+ 896 00a9 25000000 		.4byte	0x25
+ 897 00ad 02       		.uleb128 0x2
+ 898 00ae E1000000 		.4byte	.LASF15
+ 899 00b2 03       		.byte	0x3
+ 900 00b3 15       		.byte	0x15
+ 901 00b4 37000000 		.4byte	0x37
+ 902 00b8 02       		.uleb128 0x2
+ 903 00b9 CE020000 		.4byte	.LASF16
+ 904 00bd 03       		.byte	0x3
+ 905 00be 21       		.byte	0x21
+ 906 00bf 50000000 		.4byte	0x50
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 31
+
+
+ 907 00c3 02       		.uleb128 0x2
+ 908 00c4 EE030000 		.4byte	.LASF17
+ 909 00c8 03       		.byte	0x3
+ 910 00c9 2C       		.byte	0x2c
+ 911 00ca 62000000 		.4byte	0x62
+ 912 00ce 02       		.uleb128 0x2
+ 913 00cf A9020000 		.4byte	.LASF18
+ 914 00d3 03       		.byte	0x3
+ 915 00d4 2D       		.byte	0x2d
+ 916 00d5 74000000 		.4byte	0x74
+ 917 00d9 05       		.uleb128 0x5
+ 918 00da F8000000 		.4byte	.LASF19
+ 919 00de 04       		.byte	0x4
+ 920 00df 3801     		.2byte	0x138
+ 921 00e1 42000000 		.4byte	0x42
+ 922 00e5 05       		.uleb128 0x5
+ 923 00e6 19040000 		.4byte	.LASF20
+ 924 00ea 04       		.byte	0x4
+ 925 00eb 3A01     		.2byte	0x13a
+ 926 00ed 7F000000 		.4byte	0x7f
+ 927 00f1 03       		.uleb128 0x3
+ 928 00f2 04       		.byte	0x4
+ 929 00f3 04       		.byte	0x4
+ 930 00f4 73010000 		.4byte	.LASF21
+ 931 00f8 03       		.uleb128 0x3
+ 932 00f9 08       		.byte	0x8
+ 933 00fa 04       		.byte	0x4
+ 934 00fb 3E040000 		.4byte	.LASF22
+ 935 00ff 03       		.uleb128 0x3
+ 936 0100 01       		.byte	0x1
+ 937 0101 08       		.byte	0x8
+ 938 0102 41030000 		.4byte	.LASF23
+ 939 0106 05       		.uleb128 0x5
+ 940 0107 27040000 		.4byte	.LASF24
+ 941 010b 04       		.byte	0x4
+ 942 010c E201     		.2byte	0x1e2
+ 943 010e 12010000 		.4byte	0x112
+ 944 0112 06       		.uleb128 0x6
+ 945 0113 D9000000 		.4byte	0xd9
+ 946 0117 03       		.uleb128 0x3
+ 947 0118 04       		.byte	0x4
+ 948 0119 07       		.byte	0x7
+ 949 011a 5F000000 		.4byte	.LASF25
+ 950 011e 07       		.uleb128 0x7
+ 951 011f 08       		.byte	0x8
+ 952 0120 05       		.byte	0x5
+ 953 0121 75       		.byte	0x75
+ 954 0122 33010000 		.4byte	0x133
+ 955 0126 08       		.uleb128 0x8
+ 956 0127 08020000 		.4byte	.LASF27
+ 957 012b 05       		.byte	0x5
+ 958 012c 77       		.byte	0x77
+ 959 012d 43010000 		.4byte	0x143
+ 960 0131 00       		.byte	0
+ 961 0132 00       		.byte	0
+ 962 0133 09       		.uleb128 0x9
+ 963 0134 06010000 		.4byte	0x106
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 32
+
+
+ 964 0138 43010000 		.4byte	0x143
+ 965 013c 0A       		.uleb128 0xa
+ 966 013d 17010000 		.4byte	0x117
+ 967 0141 07       		.byte	0x7
+ 968 0142 00       		.byte	0
+ 969 0143 06       		.uleb128 0x6
+ 970 0144 33010000 		.4byte	0x133
+ 971 0148 02       		.uleb128 0x2
+ 972 0149 0A000000 		.4byte	.LASF26
+ 973 014d 05       		.byte	0x5
+ 974 014e 78       		.byte	0x78
+ 975 014f 1E010000 		.4byte	0x11e
+ 976 0153 07       		.uleb128 0x7
+ 977 0154 04       		.byte	0x4
+ 978 0155 05       		.byte	0x5
+ 979 0156 7B       		.byte	0x7b
+ 980 0157 68010000 		.4byte	0x168
+ 981 015b 08       		.uleb128 0x8
+ 982 015c 08020000 		.4byte	.LASF27
+ 983 0160 05       		.byte	0x5
+ 984 0161 7D       		.byte	0x7d
+ 985 0162 78010000 		.4byte	0x178
+ 986 0166 00       		.byte	0
+ 987 0167 00       		.byte	0
+ 988 0168 09       		.uleb128 0x9
+ 989 0169 06010000 		.4byte	0x106
+ 990 016d 78010000 		.4byte	0x178
+ 991 0171 0A       		.uleb128 0xa
+ 992 0172 17010000 		.4byte	0x117
+ 993 0176 03       		.byte	0x3
+ 994 0177 00       		.byte	0
+ 995 0178 06       		.uleb128 0x6
+ 996 0179 68010000 		.4byte	0x168
+ 997 017d 02       		.uleb128 0x2
+ 998 017e 0E040000 		.4byte	.LASF28
+ 999 0182 05       		.byte	0x5
+ 1000 0183 7E       		.byte	0x7e
+ 1001 0184 53010000 		.4byte	0x153
+ 1002 0188 07       		.uleb128 0x7
+ 1003 0189 20       		.byte	0x20
+ 1004 018a 05       		.byte	0x5
+ 1005 018b A0       		.byte	0xa0
+ 1006 018c E5010000 		.4byte	0x1e5
+ 1007 0190 08       		.uleb128 0x8
+ 1008 0191 F6030000 		.4byte	.LASF29
+ 1009 0195 05       		.byte	0x5
+ 1010 0196 A2       		.byte	0xa2
+ 1011 0197 7D010000 		.4byte	0x17d
+ 1012 019b 00       		.byte	0
+ 1013 019c 08       		.uleb128 0x8
+ 1014 019d 78000000 		.4byte	.LASF30
+ 1015 01a1 05       		.byte	0x5
+ 1016 01a2 A3       		.byte	0xa3
+ 1017 01a3 7D010000 		.4byte	0x17d
+ 1018 01a7 04       		.byte	0x4
+ 1019 01a8 08       		.uleb128 0x8
+ 1020 01a9 A3000000 		.4byte	.LASF31
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 33
+
+
+ 1021 01ad 05       		.byte	0x5
+ 1022 01ae A4       		.byte	0xa4
+ 1023 01af 48010000 		.4byte	0x148
+ 1024 01b3 08       		.byte	0x8
+ 1025 01b4 08       		.uleb128 0x8
+ 1026 01b5 F8040000 		.4byte	.LASF32
+ 1027 01b9 05       		.byte	0x5
+ 1028 01ba A5       		.byte	0xa5
+ 1029 01bb 7D010000 		.4byte	0x17d
+ 1030 01bf 10       		.byte	0x10
+ 1031 01c0 08       		.uleb128 0x8
+ 1032 01c1 51010000 		.4byte	.LASF33
+ 1033 01c5 05       		.byte	0x5
+ 1034 01c6 A6       		.byte	0xa6
+ 1035 01c7 7D010000 		.4byte	0x17d
+ 1036 01cb 14       		.byte	0x14
+ 1037 01cc 08       		.uleb128 0x8
+ 1038 01cd 4E020000 		.4byte	.LASF34
+ 1039 01d1 05       		.byte	0x5
+ 1040 01d2 A7       		.byte	0xa7
+ 1041 01d3 7D010000 		.4byte	0x17d
+ 1042 01d7 18       		.byte	0x18
+ 1043 01d8 08       		.uleb128 0x8
+ 1044 01d9 3A030000 		.4byte	.LASF35
+ 1045 01dd 05       		.byte	0x5
+ 1046 01de A8       		.byte	0xa8
+ 1047 01df 7D010000 		.4byte	0x17d
+ 1048 01e3 1C       		.byte	0x1c
+ 1049 01e4 00       		.byte	0
+ 1050 01e5 02       		.uleb128 0x2
+ 1051 01e6 46030000 		.4byte	.LASF36
+ 1052 01ea 05       		.byte	0x5
+ 1053 01eb A9       		.byte	0xa9
+ 1054 01ec 88010000 		.4byte	0x188
+ 1055 01f0 06       		.uleb128 0x6
+ 1056 01f1 CE000000 		.4byte	0xce
+ 1057 01f5 0B       		.uleb128 0xb
+ 1058 01f6 01       		.byte	0x1
+ 1059 01f7 01       		.byte	0x1
+ 1060 01f8 26       		.byte	0x26
+ 1061 01f9 21020000 		.4byte	0x221
+ 1062 01fd 0C       		.uleb128 0xc
+ 1063 01fe 20000000 		.4byte	.LASF37
+ 1064 0202 00       		.sleb128 0
+ 1065 0203 0D       		.uleb128 0xd
+ 1066 0204 4C5600   		.ascii	"LV\000"
+ 1067 0207 01       		.sleb128 1
+ 1068 0208 0C       		.uleb128 0xc
+ 1069 0209 F1010000 		.4byte	.LASF38
+ 1070 020d 02       		.sleb128 2
+ 1071 020e 0C       		.uleb128 0xc
+ 1072 020f B0010000 		.4byte	.LASF39
+ 1073 0213 03       		.sleb128 3
+ 1074 0214 0C       		.uleb128 0xc
+ 1075 0215 B5000000 		.4byte	.LASF40
+ 1076 0219 04       		.sleb128 4
+ 1077 021a 0C       		.uleb128 0xc
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 34
+
+
+ 1078 021b 55020000 		.4byte	.LASF41
+ 1079 021f 05       		.sleb128 5
+ 1080 0220 00       		.byte	0
+ 1081 0221 02       		.uleb128 0x2
+ 1082 0222 03040000 		.4byte	.LASF42
+ 1083 0226 01       		.byte	0x1
+ 1084 0227 2E       		.byte	0x2e
+ 1085 0228 F5010000 		.4byte	0x1f5
+ 1086 022c 0B       		.uleb128 0xb
+ 1087 022d 01       		.byte	0x1
+ 1088 022e 01       		.byte	0x1
+ 1089 022f 31       		.byte	0x31
+ 1090 0230 5E020000 		.4byte	0x25e
+ 1091 0234 0D       		.uleb128 0xd
+ 1092 0235 4F4B00   		.ascii	"OK\000"
+ 1093 0238 00       		.sleb128 0
+ 1094 0239 0C       		.uleb128 0xc
+ 1095 023a FC030000 		.4byte	.LASF43
+ 1096 023e 01       		.sleb128 1
+ 1097 023f 0C       		.uleb128 0xc
+ 1098 0240 57010000 		.4byte	.LASF44
+ 1099 0244 02       		.sleb128 2
+ 1100 0245 0C       		.uleb128 0xc
+ 1101 0246 B2020000 		.4byte	.LASF45
+ 1102 024a 03       		.sleb128 3
+ 1103 024b 0C       		.uleb128 0xc
+ 1104 024c E4020000 		.4byte	.LASF46
+ 1105 0250 04       		.sleb128 4
+ 1106 0251 0C       		.uleb128 0xc
+ 1107 0252 CC040000 		.4byte	.LASF47
+ 1108 0256 05       		.sleb128 5
+ 1109 0257 0C       		.uleb128 0xc
+ 1110 0258 87010000 		.4byte	.LASF48
+ 1111 025c 06       		.sleb128 6
+ 1112 025d 00       		.byte	0
+ 1113 025e 02       		.uleb128 0x2
+ 1114 025f 78020000 		.4byte	.LASF49
+ 1115 0263 01       		.byte	0x1
+ 1116 0264 3A       		.byte	0x3a
+ 1117 0265 2C020000 		.4byte	0x22c
+ 1118 0269 0E       		.uleb128 0xe
+ 1119 026a 7D000000 		.4byte	.LASF94
+ 1120 026e 01       		.byte	0x1
+ 1121 026f 1F       		.byte	0x1f
+ 1122 0270 00000000 		.4byte	.LFB63
+ 1123 0274 0C000000 		.4byte	.LFE63-.LFB63
+ 1124 0278 01       		.uleb128 0x1
+ 1125 0279 9C       		.byte	0x9c
+ 1126 027a 91020000 		.4byte	0x291
+ 1127 027e 0F       		.uleb128 0xf
+ 1128 027f 06000000 		.4byte	.LVL0
+ 1129 0283 AB0A0000 		.4byte	0xaab
+ 1130 0287 0F       		.uleb128 0xf
+ 1131 0288 0A000000 		.4byte	.LVL1
+ 1132 028c B20A0000 		.4byte	0xab2
+ 1133 0290 00       		.byte	0
+ 1134 0291 10       		.uleb128 0x10
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 35
+
+
+ 1135 0292 96000000 		.4byte	.LASF95
+ 1136 0296 01       		.byte	0x1
+ 1137 0297 68       		.byte	0x68
+ 1138 0298 94000000 		.4byte	0x94
+ 1139 029c 00000000 		.4byte	.LFB64
+ 1140 02a0 90030000 		.4byte	.LFE64-.LFB64
+ 1141 02a4 01       		.uleb128 0x1
+ 1142 02a5 9C       		.byte	0x9c
+ 1143 02a6 550A0000 		.4byte	0xa55
+ 1144 02aa 11       		.uleb128 0x11
+ 1145 02ab 28000000 		.4byte	.LASF50
+ 1146 02af 01       		.byte	0x1
+ 1147 02b0 6A       		.byte	0x6a
+ 1148 02b1 21020000 		.4byte	0x221
+ 1149 02b5 00000000 		.4byte	.LLST0
+ 1150 02b9 11       		.uleb128 0x11
+ 1151 02ba E2030000 		.4byte	.LASF51
+ 1152 02be 01       		.byte	0x1
+ 1153 02bf 6B       		.byte	0x6b
+ 1154 02c0 5E020000 		.4byte	0x25e
+ 1155 02c4 C7000000 		.4byte	.LLST1
+ 1156 02c8 12       		.uleb128 0x12
+ 1157 02c9 D0000000 		.4byte	.LASF52
+ 1158 02cd 01       		.byte	0x1
+ 1159 02ce 6E       		.byte	0x6e
+ 1160 02cf AD000000 		.4byte	0xad
+ 1161 02d3 00       		.byte	0
+ 1162 02d4 12       		.uleb128 0x12
+ 1163 02d5 8C000000 		.4byte	.LASF53
+ 1164 02d9 01       		.byte	0x1
+ 1165 02da 6F       		.byte	0x6f
+ 1166 02db A2000000 		.4byte	0xa2
+ 1167 02df 01       		.byte	0x1
+ 1168 02e0 13       		.uleb128 0x13
+ 1169 02e1 4A000000 		.4byte	.LASF54
+ 1170 02e5 01       		.byte	0x1
+ 1171 02e6 73       		.byte	0x73
+ 1172 02e7 F0010000 		.4byte	0x1f0
+ 1173 02eb 02       		.uleb128 0x2
+ 1174 02ec 91       		.byte	0x91
+ 1175 02ed 5C       		.sleb128 -36
+ 1176 02ee 11       		.uleb128 0x11
+ 1177 02ef 24020000 		.4byte	.LASF55
+ 1178 02f3 01       		.byte	0x1
+ 1179 02f4 74       		.byte	0x74
+ 1180 02f5 CE000000 		.4byte	0xce
+ 1181 02f9 4A010000 		.4byte	.LLST2
+ 1182 02fd 14       		.uleb128 0x14
+ 1183 02fe 00000000 		.4byte	.Ldebug_ranges0+0
+ 1184 0302 F0090000 		.4byte	0x9f0
+ 1185 0306 15       		.uleb128 0x15
+ 1186 0307 41434B00 		.ascii	"ACK\000"
+ 1187 030b 01       		.byte	0x1
+ 1188 030c BC01     		.2byte	0x1bc
+ 1189 030e AD000000 		.4byte	0xad
+ 1190 0312 96010000 		.4byte	.LLST3
+ 1191 0316 16       		.uleb128 0x16
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 36
+
+
+ 1192 0317 43010000 		.4byte	.LASF56
+ 1193 031b 01       		.byte	0x1
+ 1194 031c C501     		.2byte	0x1c5
+ 1195 031e AD000000 		.4byte	0xad
+ 1196 0322 D9010000 		.4byte	.LLST4
+ 1197 0326 17       		.uleb128 0x17
+ 1198 0327 A6040000 		.4byte	.LASF57
+ 1199 032b 01       		.byte	0x1
+ 1200 032c C601     		.2byte	0x1c6
+ 1201 032e AD000000 		.4byte	0xad
+ 1202 0332 01       		.uleb128 0x1
+ 1203 0333 57       		.byte	0x57
+ 1204 0334 17       		.uleb128 0x17
+ 1205 0335 76040000 		.4byte	.LASF58
+ 1206 0339 01       		.byte	0x1
+ 1207 033a C701     		.2byte	0x1c7
+ 1208 033c AD000000 		.4byte	0xad
+ 1209 0340 01       		.uleb128 0x1
+ 1210 0341 58       		.byte	0x58
+ 1211 0342 14       		.uleb128 0x14
+ 1212 0343 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1213 0347 93030000 		.4byte	0x393
+ 1214 034b 16       		.uleb128 0x16
+ 1215 034c 84020000 		.4byte	.LASF59
+ 1216 0350 01       		.byte	0x1
+ 1217 0351 5501     		.2byte	0x155
+ 1218 0353 AD000000 		.4byte	0xad
+ 1219 0357 F7010000 		.4byte	.LLST5
+ 1220 035b 18       		.uleb128 0x18
+ 1221 035c 82010000 		.4byte	.LVL78
+ 1222 0360 B90A0000 		.4byte	0xab9
+ 1223 0364 78030000 		.4byte	0x378
+ 1224 0368 19       		.uleb128 0x19
+ 1225 0369 01       		.uleb128 0x1
+ 1226 036a 52       		.byte	0x52
+ 1227 036b 01       		.uleb128 0x1
+ 1228 036c 30       		.byte	0x30
+ 1229 036d 19       		.uleb128 0x19
+ 1230 036e 01       		.uleb128 0x1
+ 1231 036f 51       		.byte	0x51
+ 1232 0370 01       		.uleb128 0x1
+ 1233 0371 30       		.byte	0x30
+ 1234 0372 19       		.uleb128 0x19
+ 1235 0373 01       		.uleb128 0x1
+ 1236 0374 50       		.byte	0x50
+ 1237 0375 01       		.uleb128 0x1
+ 1238 0376 31       		.byte	0x31
+ 1239 0377 00       		.byte	0
+ 1240 0378 0F       		.uleb128 0xf
+ 1241 0379 86010000 		.4byte	.LVL79
+ 1242 037d D40A0000 		.4byte	0xad4
+ 1243 0381 1A       		.uleb128 0x1a
+ 1244 0382 A2010000 		.4byte	.LVL81
+ 1245 0386 E50A0000 		.4byte	0xae5
+ 1246 038a 19       		.uleb128 0x19
+ 1247 038b 01       		.uleb128 0x1
+ 1248 038c 50       		.byte	0x50
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 37
+
+
+ 1249 038d 03       		.uleb128 0x3
+ 1250 038e 0A       		.byte	0xa
+ 1251 038f E803     		.2byte	0x3e8
+ 1252 0391 00       		.byte	0
+ 1253 0392 00       		.byte	0
+ 1254 0393 0F       		.uleb128 0xf
+ 1255 0394 94000000 		.4byte	.LVL40
+ 1256 0398 F60A0000 		.4byte	0xaf6
+ 1257 039c 0F       		.uleb128 0xf
+ 1258 039d 98000000 		.4byte	.LVL41
+ 1259 03a1 010B0000 		.4byte	0xb01
+ 1260 03a5 0F       		.uleb128 0xf
+ 1261 03a6 9C000000 		.4byte	.LVL42
+ 1262 03aa 0C0B0000 		.4byte	0xb0c
+ 1263 03ae 18       		.uleb128 0x18
+ 1264 03af A4000000 		.4byte	.LVL43
+ 1265 03b3 E50A0000 		.4byte	0xae5
+ 1266 03b7 C3030000 		.4byte	0x3c3
+ 1267 03bb 19       		.uleb128 0x19
+ 1268 03bc 01       		.uleb128 0x1
+ 1269 03bd 50       		.byte	0x50
+ 1270 03be 03       		.uleb128 0x3
+ 1271 03bf 0A       		.byte	0xa
+ 1272 03c0 E803     		.2byte	0x3e8
+ 1273 03c2 00       		.byte	0
+ 1274 03c3 18       		.uleb128 0x18
+ 1275 03c4 AC000000 		.4byte	.LVL44
+ 1276 03c8 170B0000 		.4byte	0xb17
+ 1277 03cc DD030000 		.4byte	0x3dd
+ 1278 03d0 19       		.uleb128 0x19
+ 1279 03d1 01       		.uleb128 0x1
+ 1280 03d2 51       		.byte	0x51
+ 1281 03d3 02       		.uleb128 0x2
+ 1282 03d4 75       		.byte	0x75
+ 1283 03d5 00       		.sleb128 0
+ 1284 03d6 19       		.uleb128 0x19
+ 1285 03d7 01       		.uleb128 0x1
+ 1286 03d8 50       		.byte	0x50
+ 1287 03d9 02       		.uleb128 0x2
+ 1288 03da 74       		.byte	0x74
+ 1289 03db 00       		.sleb128 0
+ 1290 03dc 00       		.byte	0
+ 1291 03dd 0F       		.uleb128 0xf
+ 1292 03de B0000000 		.4byte	.LVL45
+ 1293 03e2 2D0B0000 		.4byte	0xb2d
+ 1294 03e6 18       		.uleb128 0x18
+ 1295 03e7 B6000000 		.4byte	.LVL46
+ 1296 03eb 340B0000 		.4byte	0xb34
+ 1297 03ef F9030000 		.4byte	0x3f9
+ 1298 03f3 19       		.uleb128 0x19
+ 1299 03f4 01       		.uleb128 0x1
+ 1300 03f5 50       		.byte	0x50
+ 1301 03f6 01       		.uleb128 0x1
+ 1302 03f7 31       		.byte	0x31
+ 1303 03f8 00       		.byte	0
+ 1304 03f9 18       		.uleb128 0x18
+ 1305 03fa BC000000 		.4byte	.LVL47
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 38
+
+
+ 1306 03fe 450B0000 		.4byte	0xb45
+ 1307 0402 0D040000 		.4byte	0x40d
+ 1308 0406 19       		.uleb128 0x19
+ 1309 0407 01       		.uleb128 0x1
+ 1310 0408 50       		.byte	0x50
+ 1311 0409 02       		.uleb128 0x2
+ 1312 040a 09       		.byte	0x9
+ 1313 040b FD       		.byte	0xfd
+ 1314 040c 00       		.byte	0
+ 1315 040d 18       		.uleb128 0x18
+ 1316 040e C2000000 		.4byte	.LVL48
+ 1317 0412 E50A0000 		.4byte	0xae5
+ 1318 0416 21040000 		.4byte	0x421
+ 1319 041a 19       		.uleb128 0x19
+ 1320 041b 01       		.uleb128 0x1
+ 1321 041c 50       		.byte	0x50
+ 1322 041d 02       		.uleb128 0x2
+ 1323 041e 08       		.byte	0x8
+ 1324 041f 32       		.byte	0x32
+ 1325 0420 00       		.byte	0
+ 1326 0421 18       		.uleb128 0x18
+ 1327 0422 C8000000 		.4byte	.LVL49
+ 1328 0426 340B0000 		.4byte	0xb34
+ 1329 042a 34040000 		.4byte	0x434
+ 1330 042e 19       		.uleb128 0x19
+ 1331 042f 01       		.uleb128 0x1
+ 1332 0430 50       		.byte	0x50
+ 1333 0431 01       		.uleb128 0x1
+ 1334 0432 30       		.byte	0x30
+ 1335 0433 00       		.byte	0
+ 1336 0434 18       		.uleb128 0x18
+ 1337 0435 CE000000 		.4byte	.LVL50
+ 1338 0439 450B0000 		.4byte	0xb45
+ 1339 043d 48040000 		.4byte	0x448
+ 1340 0441 19       		.uleb128 0x19
+ 1341 0442 01       		.uleb128 0x1
+ 1342 0443 50       		.byte	0x50
+ 1343 0444 02       		.uleb128 0x2
+ 1344 0445 09       		.byte	0x9
+ 1345 0446 FA       		.byte	0xfa
+ 1346 0447 00       		.byte	0
+ 1347 0448 18       		.uleb128 0x18
+ 1348 0449 D4000000 		.4byte	.LVL51
+ 1349 044d 450B0000 		.4byte	0xb45
+ 1350 0451 5B040000 		.4byte	0x45b
+ 1351 0455 19       		.uleb128 0x19
+ 1352 0456 01       		.uleb128 0x1
+ 1353 0457 50       		.byte	0x50
+ 1354 0458 01       		.uleb128 0x1
+ 1355 0459 30       		.byte	0x30
+ 1356 045a 00       		.byte	0
+ 1357 045b 18       		.uleb128 0x18
+ 1358 045c E2000000 		.4byte	.LVL53
+ 1359 0460 B90A0000 		.4byte	0xab9
+ 1360 0464 78040000 		.4byte	0x478
+ 1361 0468 19       		.uleb128 0x19
+ 1362 0469 01       		.uleb128 0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 39
+
+
+ 1363 046a 52       		.byte	0x52
+ 1364 046b 01       		.uleb128 0x1
+ 1365 046c 30       		.byte	0x30
+ 1366 046d 19       		.uleb128 0x19
+ 1367 046e 01       		.uleb128 0x1
+ 1368 046f 51       		.byte	0x51
+ 1369 0470 01       		.uleb128 0x1
+ 1370 0471 30       		.byte	0x30
+ 1371 0472 19       		.uleb128 0x19
+ 1372 0473 01       		.uleb128 0x1
+ 1373 0474 50       		.byte	0x50
+ 1374 0475 01       		.uleb128 0x1
+ 1375 0476 30       		.byte	0x30
+ 1376 0477 00       		.byte	0
+ 1377 0478 0F       		.uleb128 0xf
+ 1378 0479 E6000000 		.4byte	.LVL54
+ 1379 047d F60A0000 		.4byte	0xaf6
+ 1380 0481 0F       		.uleb128 0xf
+ 1381 0482 EA000000 		.4byte	.LVL55
+ 1382 0486 010B0000 		.4byte	0xb01
+ 1383 048a 0F       		.uleb128 0xf
+ 1384 048b EE000000 		.4byte	.LVL56
+ 1385 048f 0C0B0000 		.4byte	0xb0c
+ 1386 0493 18       		.uleb128 0x18
+ 1387 0494 F6000000 		.4byte	.LVL57
+ 1388 0498 170B0000 		.4byte	0xb17
+ 1389 049c AD040000 		.4byte	0x4ad
+ 1390 04a0 19       		.uleb128 0x19
+ 1391 04a1 01       		.uleb128 0x1
+ 1392 04a2 51       		.byte	0x51
+ 1393 04a3 02       		.uleb128 0x2
+ 1394 04a4 75       		.byte	0x75
+ 1395 04a5 00       		.sleb128 0
+ 1396 04a6 19       		.uleb128 0x19
+ 1397 04a7 01       		.uleb128 0x1
+ 1398 04a8 50       		.byte	0x50
+ 1399 04a9 02       		.uleb128 0x2
+ 1400 04aa 74       		.byte	0x74
+ 1401 04ab 00       		.sleb128 0
+ 1402 04ac 00       		.byte	0
+ 1403 04ad 18       		.uleb128 0x18
+ 1404 04ae FC000000 		.4byte	.LVL58
+ 1405 04b2 340B0000 		.4byte	0xb34
+ 1406 04b6 C0040000 		.4byte	0x4c0
+ 1407 04ba 19       		.uleb128 0x19
+ 1408 04bb 01       		.uleb128 0x1
+ 1409 04bc 50       		.byte	0x50
+ 1410 04bd 01       		.uleb128 0x1
+ 1411 04be 30       		.byte	0x30
+ 1412 04bf 00       		.byte	0
+ 1413 04c0 18       		.uleb128 0x18
+ 1414 04c1 02010000 		.4byte	.LVL59
+ 1415 04c5 560B0000 		.4byte	0xb56
+ 1416 04c9 D3040000 		.4byte	0x4d3
+ 1417 04cd 19       		.uleb128 0x19
+ 1418 04ce 01       		.uleb128 0x1
+ 1419 04cf 50       		.byte	0x50
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 40
+
+
+ 1420 04d0 01       		.uleb128 0x1
+ 1421 04d1 30       		.byte	0x30
+ 1422 04d2 00       		.byte	0
+ 1423 04d3 18       		.uleb128 0x18
+ 1424 04d4 08010000 		.4byte	.LVL60
+ 1425 04d8 670B0000 		.4byte	0xb67
+ 1426 04dc E6040000 		.4byte	0x4e6
+ 1427 04e0 19       		.uleb128 0x19
+ 1428 04e1 01       		.uleb128 0x1
+ 1429 04e2 50       		.byte	0x50
+ 1430 04e3 01       		.uleb128 0x1
+ 1431 04e4 31       		.byte	0x31
+ 1432 04e5 00       		.byte	0
+ 1433 04e6 18       		.uleb128 0x18
+ 1434 04e7 0E010000 		.4byte	.LVL61
+ 1435 04eb 780B0000 		.4byte	0xb78
+ 1436 04ef F9040000 		.4byte	0x4f9
+ 1437 04f3 19       		.uleb128 0x19
+ 1438 04f4 01       		.uleb128 0x1
+ 1439 04f5 50       		.byte	0x50
+ 1440 04f6 01       		.uleb128 0x1
+ 1441 04f7 30       		.byte	0x30
+ 1442 04f8 00       		.byte	0
+ 1443 04f9 18       		.uleb128 0x18
+ 1444 04fa 14010000 		.4byte	.LVL62
+ 1445 04fe 890B0000 		.4byte	0xb89
+ 1446 0502 0C050000 		.4byte	0x50c
+ 1447 0506 19       		.uleb128 0x19
+ 1448 0507 01       		.uleb128 0x1
+ 1449 0508 50       		.byte	0x50
+ 1450 0509 01       		.uleb128 0x1
+ 1451 050a 31       		.byte	0x31
+ 1452 050b 00       		.byte	0
+ 1453 050c 18       		.uleb128 0x18
+ 1454 050d 1A010000 		.4byte	.LVL63
+ 1455 0511 9A0B0000 		.4byte	0xb9a
+ 1456 0515 1F050000 		.4byte	0x51f
+ 1457 0519 19       		.uleb128 0x19
+ 1458 051a 01       		.uleb128 0x1
+ 1459 051b 50       		.byte	0x50
+ 1460 051c 01       		.uleb128 0x1
+ 1461 051d 31       		.byte	0x31
+ 1462 051e 00       		.byte	0
+ 1463 051f 18       		.uleb128 0x18
+ 1464 0520 20010000 		.4byte	.LVL64
+ 1465 0524 AB0B0000 		.4byte	0xbab
+ 1466 0528 32050000 		.4byte	0x532
+ 1467 052c 19       		.uleb128 0x19
+ 1468 052d 01       		.uleb128 0x1
+ 1469 052e 50       		.byte	0x50
+ 1470 052f 01       		.uleb128 0x1
+ 1471 0530 31       		.byte	0x31
+ 1472 0531 00       		.byte	0
+ 1473 0532 0F       		.uleb128 0xf
+ 1474 0533 24010000 		.4byte	.LVL65
+ 1475 0537 BC0B0000 		.4byte	0xbbc
+ 1476 053b 0F       		.uleb128 0xf
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 41
+
+
+ 1477 053c 2E010000 		.4byte	.LVL66
+ 1478 0540 C70B0000 		.4byte	0xbc7
+ 1479 0544 0F       		.uleb128 0xf
+ 1480 0545 3A010000 		.4byte	.LVL67
+ 1481 0549 F60A0000 		.4byte	0xaf6
+ 1482 054d 0F       		.uleb128 0xf
+ 1483 054e 3E010000 		.4byte	.LVL68
+ 1484 0552 010B0000 		.4byte	0xb01
+ 1485 0556 0F       		.uleb128 0xf
+ 1486 0557 42010000 		.4byte	.LVL69
+ 1487 055b 0C0B0000 		.4byte	0xb0c
+ 1488 055f 18       		.uleb128 0x18
+ 1489 0560 4A010000 		.4byte	.LVL70
+ 1490 0564 170B0000 		.4byte	0xb17
+ 1491 0568 79050000 		.4byte	0x579
+ 1492 056c 19       		.uleb128 0x19
+ 1493 056d 01       		.uleb128 0x1
+ 1494 056e 51       		.byte	0x51
+ 1495 056f 02       		.uleb128 0x2
+ 1496 0570 75       		.byte	0x75
+ 1497 0571 00       		.sleb128 0
+ 1498 0572 19       		.uleb128 0x19
+ 1499 0573 01       		.uleb128 0x1
+ 1500 0574 50       		.byte	0x50
+ 1501 0575 02       		.uleb128 0x2
+ 1502 0576 74       		.byte	0x74
+ 1503 0577 00       		.sleb128 0
+ 1504 0578 00       		.byte	0
+ 1505 0579 18       		.uleb128 0x18
+ 1506 057a 50010000 		.4byte	.LVL71
+ 1507 057e 560B0000 		.4byte	0xb56
+ 1508 0582 8C050000 		.4byte	0x58c
+ 1509 0586 19       		.uleb128 0x19
+ 1510 0587 01       		.uleb128 0x1
+ 1511 0588 50       		.byte	0x50
+ 1512 0589 01       		.uleb128 0x1
+ 1513 058a 30       		.byte	0x30
+ 1514 058b 00       		.byte	0
+ 1515 058c 18       		.uleb128 0x18
+ 1516 058d 56010000 		.4byte	.LVL72
+ 1517 0591 670B0000 		.4byte	0xb67
+ 1518 0595 9F050000 		.4byte	0x59f
+ 1519 0599 19       		.uleb128 0x19
+ 1520 059a 01       		.uleb128 0x1
+ 1521 059b 50       		.byte	0x50
+ 1522 059c 01       		.uleb128 0x1
+ 1523 059d 30       		.byte	0x30
+ 1524 059e 00       		.byte	0
+ 1525 059f 18       		.uleb128 0x18
+ 1526 05a0 5C010000 		.4byte	.LVL73
+ 1527 05a4 780B0000 		.4byte	0xb78
+ 1528 05a8 B2050000 		.4byte	0x5b2
+ 1529 05ac 19       		.uleb128 0x19
+ 1530 05ad 01       		.uleb128 0x1
+ 1531 05ae 50       		.byte	0x50
+ 1532 05af 01       		.uleb128 0x1
+ 1533 05b0 31       		.byte	0x31
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 42
+
+
+ 1534 05b1 00       		.byte	0
+ 1535 05b2 18       		.uleb128 0x18
+ 1536 05b3 62010000 		.4byte	.LVL74
+ 1537 05b7 890B0000 		.4byte	0xb89
+ 1538 05bb C5050000 		.4byte	0x5c5
+ 1539 05bf 19       		.uleb128 0x19
+ 1540 05c0 01       		.uleb128 0x1
+ 1541 05c1 50       		.byte	0x50
+ 1542 05c2 01       		.uleb128 0x1
+ 1543 05c3 31       		.byte	0x31
+ 1544 05c4 00       		.byte	0
+ 1545 05c5 18       		.uleb128 0x18
+ 1546 05c6 68010000 		.4byte	.LVL75
+ 1547 05ca 9A0B0000 		.4byte	0xb9a
+ 1548 05ce D8050000 		.4byte	0x5d8
+ 1549 05d2 19       		.uleb128 0x19
+ 1550 05d3 01       		.uleb128 0x1
+ 1551 05d4 50       		.byte	0x50
+ 1552 05d5 01       		.uleb128 0x1
+ 1553 05d6 31       		.byte	0x31
+ 1554 05d7 00       		.byte	0
+ 1555 05d8 18       		.uleb128 0x18
+ 1556 05d9 6E010000 		.4byte	.LVL76
+ 1557 05dd AB0B0000 		.4byte	0xbab
+ 1558 05e1 EB050000 		.4byte	0x5eb
+ 1559 05e5 19       		.uleb128 0x19
+ 1560 05e6 01       		.uleb128 0x1
+ 1561 05e7 50       		.byte	0x50
+ 1562 05e8 01       		.uleb128 0x1
+ 1563 05e9 31       		.byte	0x31
+ 1564 05ea 00       		.byte	0
+ 1565 05eb 18       		.uleb128 0x18
+ 1566 05ec 74010000 		.4byte	.LVL77
+ 1567 05f0 340B0000 		.4byte	0xb34
+ 1568 05f4 FE050000 		.4byte	0x5fe
+ 1569 05f8 19       		.uleb128 0x19
+ 1570 05f9 01       		.uleb128 0x1
+ 1571 05fa 50       		.byte	0x50
+ 1572 05fb 01       		.uleb128 0x1
+ 1573 05fc 30       		.byte	0x30
+ 1574 05fd 00       		.byte	0
+ 1575 05fe 0F       		.uleb128 0xf
+ 1576 05ff A8010000 		.4byte	.LVL82
+ 1577 0603 F60A0000 		.4byte	0xaf6
+ 1578 0607 0F       		.uleb128 0xf
+ 1579 0608 AC010000 		.4byte	.LVL83
+ 1580 060c 010B0000 		.4byte	0xb01
+ 1581 0610 0F       		.uleb128 0xf
+ 1582 0611 B0010000 		.4byte	.LVL84
+ 1583 0615 0C0B0000 		.4byte	0xb0c
+ 1584 0619 18       		.uleb128 0x18
+ 1585 061a B8010000 		.4byte	.LVL85
+ 1586 061e 170B0000 		.4byte	0xb17
+ 1587 0622 33060000 		.4byte	0x633
+ 1588 0626 19       		.uleb128 0x19
+ 1589 0627 01       		.uleb128 0x1
+ 1590 0628 51       		.byte	0x51
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 43
+
+
+ 1591 0629 02       		.uleb128 0x2
+ 1592 062a 75       		.byte	0x75
+ 1593 062b 00       		.sleb128 0
+ 1594 062c 19       		.uleb128 0x19
+ 1595 062d 01       		.uleb128 0x1
+ 1596 062e 50       		.byte	0x50
+ 1597 062f 02       		.uleb128 0x2
+ 1598 0630 74       		.byte	0x74
+ 1599 0631 00       		.sleb128 0
+ 1600 0632 00       		.byte	0
+ 1601 0633 18       		.uleb128 0x18
+ 1602 0634 BE010000 		.4byte	.LVL86
+ 1603 0638 560B0000 		.4byte	0xb56
+ 1604 063c 46060000 		.4byte	0x646
+ 1605 0640 19       		.uleb128 0x19
+ 1606 0641 01       		.uleb128 0x1
+ 1607 0642 50       		.byte	0x50
+ 1608 0643 01       		.uleb128 0x1
+ 1609 0644 31       		.byte	0x31
+ 1610 0645 00       		.byte	0
+ 1611 0646 18       		.uleb128 0x18
+ 1612 0647 C4010000 		.4byte	.LVL87
+ 1613 064b 670B0000 		.4byte	0xb67
+ 1614 064f 59060000 		.4byte	0x659
+ 1615 0653 19       		.uleb128 0x19
+ 1616 0654 01       		.uleb128 0x1
+ 1617 0655 50       		.byte	0x50
+ 1618 0656 01       		.uleb128 0x1
+ 1619 0657 31       		.byte	0x31
+ 1620 0658 00       		.byte	0
+ 1621 0659 18       		.uleb128 0x18
+ 1622 065a CA010000 		.4byte	.LVL88
+ 1623 065e 780B0000 		.4byte	0xb78
+ 1624 0662 6C060000 		.4byte	0x66c
+ 1625 0666 19       		.uleb128 0x19
+ 1626 0667 01       		.uleb128 0x1
+ 1627 0668 50       		.byte	0x50
+ 1628 0669 01       		.uleb128 0x1
+ 1629 066a 30       		.byte	0x30
+ 1630 066b 00       		.byte	0
+ 1631 066c 18       		.uleb128 0x18
+ 1632 066d D0010000 		.4byte	.LVL89
+ 1633 0671 890B0000 		.4byte	0xb89
+ 1634 0675 7F060000 		.4byte	0x67f
+ 1635 0679 19       		.uleb128 0x19
+ 1636 067a 01       		.uleb128 0x1
+ 1637 067b 50       		.byte	0x50
+ 1638 067c 01       		.uleb128 0x1
+ 1639 067d 31       		.byte	0x31
+ 1640 067e 00       		.byte	0
+ 1641 067f 18       		.uleb128 0x18
+ 1642 0680 D6010000 		.4byte	.LVL90
+ 1643 0684 9A0B0000 		.4byte	0xb9a
+ 1644 0688 92060000 		.4byte	0x692
+ 1645 068c 19       		.uleb128 0x19
+ 1646 068d 01       		.uleb128 0x1
+ 1647 068e 50       		.byte	0x50
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 44
+
+
+ 1648 068f 01       		.uleb128 0x1
+ 1649 0690 31       		.byte	0x31
+ 1650 0691 00       		.byte	0
+ 1651 0692 18       		.uleb128 0x18
+ 1652 0693 DC010000 		.4byte	.LVL91
+ 1653 0697 AB0B0000 		.4byte	0xbab
+ 1654 069b A5060000 		.4byte	0x6a5
+ 1655 069f 19       		.uleb128 0x19
+ 1656 06a0 01       		.uleb128 0x1
+ 1657 06a1 50       		.byte	0x50
+ 1658 06a2 01       		.uleb128 0x1
+ 1659 06a3 31       		.byte	0x31
+ 1660 06a4 00       		.byte	0
+ 1661 06a5 18       		.uleb128 0x18
+ 1662 06a6 E2010000 		.4byte	.LVL92
+ 1663 06aa 340B0000 		.4byte	0xb34
+ 1664 06ae B8060000 		.4byte	0x6b8
+ 1665 06b2 19       		.uleb128 0x19
+ 1666 06b3 01       		.uleb128 0x1
+ 1667 06b4 50       		.byte	0x50
+ 1668 06b5 01       		.uleb128 0x1
+ 1669 06b6 30       		.byte	0x30
+ 1670 06b7 00       		.byte	0
+ 1671 06b8 0F       		.uleb128 0xf
+ 1672 06b9 E6010000 		.4byte	.LVL93
+ 1673 06bd BC0B0000 		.4byte	0xbbc
+ 1674 06c1 18       		.uleb128 0x18
+ 1675 06c2 F0010000 		.4byte	.LVL94
+ 1676 06c6 E50A0000 		.4byte	0xae5
+ 1677 06ca D6060000 		.4byte	0x6d6
+ 1678 06ce 19       		.uleb128 0x19
+ 1679 06cf 01       		.uleb128 0x1
+ 1680 06d0 50       		.byte	0x50
+ 1681 06d1 03       		.uleb128 0x3
+ 1682 06d2 0A       		.byte	0xa
+ 1683 06d3 E803     		.2byte	0x3e8
+ 1684 06d5 00       		.byte	0
+ 1685 06d6 0F       		.uleb128 0xf
+ 1686 06d7 F4010000 		.4byte	.LVL95
+ 1687 06db D20B0000 		.4byte	0xbd2
+ 1688 06df 0F       		.uleb128 0xf
+ 1689 06e0 FE010000 		.4byte	.LVL96
+ 1690 06e4 340B0000 		.4byte	0xb34
+ 1691 06e8 18       		.uleb128 0x18
+ 1692 06e9 06020000 		.4byte	.LVL97
+ 1693 06ed E50A0000 		.4byte	0xae5
+ 1694 06f1 FD060000 		.4byte	0x6fd
+ 1695 06f5 19       		.uleb128 0x19
+ 1696 06f6 01       		.uleb128 0x1
+ 1697 06f7 50       		.byte	0x50
+ 1698 06f8 03       		.uleb128 0x3
+ 1699 06f9 0A       		.byte	0xa
+ 1700 06fa E803     		.2byte	0x3e8
+ 1701 06fc 00       		.byte	0
+ 1702 06fd 18       		.uleb128 0x18
+ 1703 06fe 0C020000 		.4byte	.LVL98
+ 1704 0702 340B0000 		.4byte	0xb34
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 45
+
+
+ 1705 0706 10070000 		.4byte	0x710
+ 1706 070a 19       		.uleb128 0x19
+ 1707 070b 01       		.uleb128 0x1
+ 1708 070c 50       		.byte	0x50
+ 1709 070d 01       		.uleb128 0x1
+ 1710 070e 30       		.byte	0x30
+ 1711 070f 00       		.byte	0
+ 1712 0710 0F       		.uleb128 0xf
+ 1713 0711 14020000 		.4byte	.LVL100
+ 1714 0715 C70B0000 		.4byte	0xbc7
+ 1715 0719 0F       		.uleb128 0xf
+ 1716 071a 1A020000 		.4byte	.LVL101
+ 1717 071e D40A0000 		.4byte	0xad4
+ 1718 0722 18       		.uleb128 0x18
+ 1719 0723 30020000 		.4byte	.LVL102
+ 1720 0727 170B0000 		.4byte	0xb17
+ 1721 072b 3C070000 		.4byte	0x73c
+ 1722 072f 19       		.uleb128 0x19
+ 1723 0730 01       		.uleb128 0x1
+ 1724 0731 51       		.byte	0x51
+ 1725 0732 02       		.uleb128 0x2
+ 1726 0733 75       		.byte	0x75
+ 1727 0734 00       		.sleb128 0
+ 1728 0735 19       		.uleb128 0x19
+ 1729 0736 01       		.uleb128 0x1
+ 1730 0737 50       		.byte	0x50
+ 1731 0738 02       		.uleb128 0x2
+ 1732 0739 74       		.byte	0x74
+ 1733 073a 00       		.sleb128 0
+ 1734 073b 00       		.byte	0
+ 1735 073c 18       		.uleb128 0x18
+ 1736 073d 36020000 		.4byte	.LVL103
+ 1737 0741 560B0000 		.4byte	0xb56
+ 1738 0745 4F070000 		.4byte	0x74f
+ 1739 0749 19       		.uleb128 0x19
+ 1740 074a 01       		.uleb128 0x1
+ 1741 074b 50       		.byte	0x50
+ 1742 074c 01       		.uleb128 0x1
+ 1743 074d 31       		.byte	0x31
+ 1744 074e 00       		.byte	0
+ 1745 074f 18       		.uleb128 0x18
+ 1746 0750 3C020000 		.4byte	.LVL104
+ 1747 0754 670B0000 		.4byte	0xb67
+ 1748 0758 62070000 		.4byte	0x762
+ 1749 075c 19       		.uleb128 0x19
+ 1750 075d 01       		.uleb128 0x1
+ 1751 075e 50       		.byte	0x50
+ 1752 075f 01       		.uleb128 0x1
+ 1753 0760 30       		.byte	0x30
+ 1754 0761 00       		.byte	0
+ 1755 0762 18       		.uleb128 0x18
+ 1756 0763 42020000 		.4byte	.LVL105
+ 1757 0767 780B0000 		.4byte	0xb78
+ 1758 076b 75070000 		.4byte	0x775
+ 1759 076f 19       		.uleb128 0x19
+ 1760 0770 01       		.uleb128 0x1
+ 1761 0771 50       		.byte	0x50
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 46
+
+
+ 1762 0772 01       		.uleb128 0x1
+ 1763 0773 31       		.byte	0x31
+ 1764 0774 00       		.byte	0
+ 1765 0775 18       		.uleb128 0x18
+ 1766 0776 48020000 		.4byte	.LVL106
+ 1767 077a 890B0000 		.4byte	0xb89
+ 1768 077e 88070000 		.4byte	0x788
+ 1769 0782 19       		.uleb128 0x19
+ 1770 0783 01       		.uleb128 0x1
+ 1771 0784 50       		.byte	0x50
+ 1772 0785 01       		.uleb128 0x1
+ 1773 0786 31       		.byte	0x31
+ 1774 0787 00       		.byte	0
+ 1775 0788 18       		.uleb128 0x18
+ 1776 0789 4E020000 		.4byte	.LVL107
+ 1777 078d 9A0B0000 		.4byte	0xb9a
+ 1778 0791 9B070000 		.4byte	0x79b
+ 1779 0795 19       		.uleb128 0x19
+ 1780 0796 01       		.uleb128 0x1
+ 1781 0797 50       		.byte	0x50
+ 1782 0798 01       		.uleb128 0x1
+ 1783 0799 31       		.byte	0x31
+ 1784 079a 00       		.byte	0
+ 1785 079b 18       		.uleb128 0x18
+ 1786 079c 54020000 		.4byte	.LVL108
+ 1787 07a0 AB0B0000 		.4byte	0xbab
+ 1788 07a4 AE070000 		.4byte	0x7ae
+ 1789 07a8 19       		.uleb128 0x19
+ 1790 07a9 01       		.uleb128 0x1
+ 1791 07aa 50       		.byte	0x50
+ 1792 07ab 01       		.uleb128 0x1
+ 1793 07ac 31       		.byte	0x31
+ 1794 07ad 00       		.byte	0
+ 1795 07ae 0F       		.uleb128 0xf
+ 1796 07af 5E020000 		.4byte	.LVL111
+ 1797 07b3 E30B0000 		.4byte	0xbe3
+ 1798 07b7 0F       		.uleb128 0xf
+ 1799 07b8 6C020000 		.4byte	.LVL115
+ 1800 07bc F40B0000 		.4byte	0xbf4
+ 1801 07c0 0F       		.uleb128 0xf
+ 1802 07c1 72020000 		.4byte	.LVL117
+ 1803 07c5 050C0000 		.4byte	0xc05
+ 1804 07c9 0F       		.uleb128 0xf
+ 1805 07ca 78020000 		.4byte	.LVL119
+ 1806 07ce 160C0000 		.4byte	0xc16
+ 1807 07d2 18       		.uleb128 0x18
+ 1808 07d3 80020000 		.4byte	.LVL121
+ 1809 07d7 450B0000 		.4byte	0xb45
+ 1810 07db E6070000 		.4byte	0x7e6
+ 1811 07df 19       		.uleb128 0x19
+ 1812 07e0 01       		.uleb128 0x1
+ 1813 07e1 50       		.byte	0x50
+ 1814 07e2 02       		.uleb128 0x2
+ 1815 07e3 79       		.byte	0x79
+ 1816 07e4 00       		.sleb128 0
+ 1817 07e5 00       		.byte	0
+ 1818 07e6 18       		.uleb128 0x18
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 47
+
+
+ 1819 07e7 8C020000 		.4byte	.LVL122
+ 1820 07eb B90A0000 		.4byte	0xab9
+ 1821 07ef 05080000 		.4byte	0x805
+ 1822 07f3 19       		.uleb128 0x19
+ 1823 07f4 01       		.uleb128 0x1
+ 1824 07f5 52       		.byte	0x52
+ 1825 07f6 02       		.uleb128 0x2
+ 1826 07f7 78       		.byte	0x78
+ 1827 07f8 00       		.sleb128 0
+ 1828 07f9 19       		.uleb128 0x19
+ 1829 07fa 01       		.uleb128 0x1
+ 1830 07fb 51       		.byte	0x51
+ 1831 07fc 02       		.uleb128 0x2
+ 1832 07fd 77       		.byte	0x77
+ 1833 07fe 00       		.sleb128 0
+ 1834 07ff 19       		.uleb128 0x19
+ 1835 0800 01       		.uleb128 0x1
+ 1836 0801 50       		.byte	0x50
+ 1837 0802 01       		.uleb128 0x1
+ 1838 0803 31       		.byte	0x31
+ 1839 0804 00       		.byte	0
+ 1840 0805 0F       		.uleb128 0xf
+ 1841 0806 90020000 		.4byte	.LVL123
+ 1842 080a C70B0000 		.4byte	0xbc7
+ 1843 080e 0F       		.uleb128 0xf
+ 1844 080f 98020000 		.4byte	.LVL125
+ 1845 0813 BC0B0000 		.4byte	0xbbc
+ 1846 0817 0F       		.uleb128 0xf
+ 1847 0818 A0020000 		.4byte	.LVL127
+ 1848 081c 270C0000 		.4byte	0xc27
+ 1849 0820 0F       		.uleb128 0xf
+ 1850 0821 BC020000 		.4byte	.LVL129
+ 1851 0825 F60A0000 		.4byte	0xaf6
+ 1852 0829 0F       		.uleb128 0xf
+ 1853 082a C0020000 		.4byte	.LVL130
+ 1854 082e 010B0000 		.4byte	0xb01
+ 1855 0832 0F       		.uleb128 0xf
+ 1856 0833 C4020000 		.4byte	.LVL131
+ 1857 0837 0C0B0000 		.4byte	0xb0c
+ 1858 083b 18       		.uleb128 0x18
+ 1859 083c CC020000 		.4byte	.LVL132
+ 1860 0840 170B0000 		.4byte	0xb17
+ 1861 0844 55080000 		.4byte	0x855
+ 1862 0848 19       		.uleb128 0x19
+ 1863 0849 01       		.uleb128 0x1
+ 1864 084a 51       		.byte	0x51
+ 1865 084b 02       		.uleb128 0x2
+ 1866 084c 75       		.byte	0x75
+ 1867 084d 00       		.sleb128 0
+ 1868 084e 19       		.uleb128 0x19
+ 1869 084f 01       		.uleb128 0x1
+ 1870 0850 50       		.byte	0x50
+ 1871 0851 02       		.uleb128 0x2
+ 1872 0852 74       		.byte	0x74
+ 1873 0853 00       		.sleb128 0
+ 1874 0854 00       		.byte	0
+ 1875 0855 18       		.uleb128 0x18
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 48
+
+
+ 1876 0856 D2020000 		.4byte	.LVL133
+ 1877 085a 560B0000 		.4byte	0xb56
+ 1878 085e 68080000 		.4byte	0x868
+ 1879 0862 19       		.uleb128 0x19
+ 1880 0863 01       		.uleb128 0x1
+ 1881 0864 50       		.byte	0x50
+ 1882 0865 01       		.uleb128 0x1
+ 1883 0866 31       		.byte	0x31
+ 1884 0867 00       		.byte	0
+ 1885 0868 18       		.uleb128 0x18
+ 1886 0869 D8020000 		.4byte	.LVL134
+ 1887 086d 670B0000 		.4byte	0xb67
+ 1888 0871 7B080000 		.4byte	0x87b
+ 1889 0875 19       		.uleb128 0x19
+ 1890 0876 01       		.uleb128 0x1
+ 1891 0877 50       		.byte	0x50
+ 1892 0878 01       		.uleb128 0x1
+ 1893 0879 31       		.byte	0x31
+ 1894 087a 00       		.byte	0
+ 1895 087b 18       		.uleb128 0x18
+ 1896 087c DE020000 		.4byte	.LVL135
+ 1897 0880 780B0000 		.4byte	0xb78
+ 1898 0884 8E080000 		.4byte	0x88e
+ 1899 0888 19       		.uleb128 0x19
+ 1900 0889 01       		.uleb128 0x1
+ 1901 088a 50       		.byte	0x50
+ 1902 088b 01       		.uleb128 0x1
+ 1903 088c 31       		.byte	0x31
+ 1904 088d 00       		.byte	0
+ 1905 088e 18       		.uleb128 0x18
+ 1906 088f E4020000 		.4byte	.LVL136
+ 1907 0893 890B0000 		.4byte	0xb89
+ 1908 0897 A1080000 		.4byte	0x8a1
+ 1909 089b 19       		.uleb128 0x19
+ 1910 089c 01       		.uleb128 0x1
+ 1911 089d 50       		.byte	0x50
+ 1912 089e 01       		.uleb128 0x1
+ 1913 089f 31       		.byte	0x31
+ 1914 08a0 00       		.byte	0
+ 1915 08a1 18       		.uleb128 0x18
+ 1916 08a2 EA020000 		.4byte	.LVL137
+ 1917 08a6 9A0B0000 		.4byte	0xb9a
+ 1918 08aa B4080000 		.4byte	0x8b4
+ 1919 08ae 19       		.uleb128 0x19
+ 1920 08af 01       		.uleb128 0x1
+ 1921 08b0 50       		.byte	0x50
+ 1922 08b1 01       		.uleb128 0x1
+ 1923 08b2 31       		.byte	0x31
+ 1924 08b3 00       		.byte	0
+ 1925 08b4 18       		.uleb128 0x18
+ 1926 08b5 F0020000 		.4byte	.LVL138
+ 1927 08b9 AB0B0000 		.4byte	0xbab
+ 1928 08bd C7080000 		.4byte	0x8c7
+ 1929 08c1 19       		.uleb128 0x19
+ 1930 08c2 01       		.uleb128 0x1
+ 1931 08c3 50       		.byte	0x50
+ 1932 08c4 01       		.uleb128 0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 49
+
+
+ 1933 08c5 31       		.byte	0x31
+ 1934 08c6 00       		.byte	0
+ 1935 08c7 18       		.uleb128 0x18
+ 1936 08c8 F6020000 		.4byte	.LVL139
+ 1937 08cc 560B0000 		.4byte	0xb56
+ 1938 08d0 DA080000 		.4byte	0x8da
+ 1939 08d4 19       		.uleb128 0x19
+ 1940 08d5 01       		.uleb128 0x1
+ 1941 08d6 50       		.byte	0x50
+ 1942 08d7 01       		.uleb128 0x1
+ 1943 08d8 30       		.byte	0x30
+ 1944 08d9 00       		.byte	0
+ 1945 08da 18       		.uleb128 0x18
+ 1946 08db FE020000 		.4byte	.LVL140
+ 1947 08df E50A0000 		.4byte	0xae5
+ 1948 08e3 EF080000 		.4byte	0x8ef
+ 1949 08e7 19       		.uleb128 0x19
+ 1950 08e8 01       		.uleb128 0x1
+ 1951 08e9 50       		.byte	0x50
+ 1952 08ea 03       		.uleb128 0x3
+ 1953 08eb 0A       		.byte	0xa
+ 1954 08ec E803     		.2byte	0x3e8
+ 1955 08ee 00       		.byte	0
+ 1956 08ef 18       		.uleb128 0x18
+ 1957 08f0 04030000 		.4byte	.LVL141
+ 1958 08f4 560B0000 		.4byte	0xb56
+ 1959 08f8 02090000 		.4byte	0x902
+ 1960 08fc 19       		.uleb128 0x19
+ 1961 08fd 01       		.uleb128 0x1
+ 1962 08fe 50       		.byte	0x50
+ 1963 08ff 01       		.uleb128 0x1
+ 1964 0900 31       		.byte	0x31
+ 1965 0901 00       		.byte	0
+ 1966 0902 18       		.uleb128 0x18
+ 1967 0903 0C030000 		.4byte	.LVL142
+ 1968 0907 E50A0000 		.4byte	0xae5
+ 1969 090b 17090000 		.4byte	0x917
+ 1970 090f 19       		.uleb128 0x19
+ 1971 0910 01       		.uleb128 0x1
+ 1972 0911 50       		.byte	0x50
+ 1973 0912 03       		.uleb128 0x3
+ 1974 0913 0A       		.byte	0xa
+ 1975 0914 E803     		.2byte	0x3e8
+ 1976 0916 00       		.byte	0
+ 1977 0917 18       		.uleb128 0x18
+ 1978 0918 12030000 		.4byte	.LVL143
+ 1979 091c 340B0000 		.4byte	0xb34
+ 1980 0920 2A090000 		.4byte	0x92a
+ 1981 0924 19       		.uleb128 0x19
+ 1982 0925 01       		.uleb128 0x1
+ 1983 0926 50       		.byte	0x50
+ 1984 0927 01       		.uleb128 0x1
+ 1985 0928 30       		.byte	0x30
+ 1986 0929 00       		.byte	0
+ 1987 092a 0F       		.uleb128 0xf
+ 1988 092b 1A030000 		.4byte	.LVL144
+ 1989 092f BC0B0000 		.4byte	0xbbc
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 50
+
+
+ 1990 0933 0F       		.uleb128 0xf
+ 1991 0934 2A030000 		.4byte	.LVL145
+ 1992 0938 BC0B0000 		.4byte	0xbbc
+ 1993 093c 0F       		.uleb128 0xf
+ 1994 093d 34030000 		.4byte	.LVL146
+ 1995 0941 C70B0000 		.4byte	0xbc7
+ 1996 0945 0F       		.uleb128 0xf
+ 1997 0946 44030000 		.4byte	.LVL147
+ 1998 094a BC0B0000 		.4byte	0xbbc
+ 1999 094e 18       		.uleb128 0x18
+ 2000 094f 5E030000 		.4byte	.LVL148
+ 2001 0953 B90A0000 		.4byte	0xab9
+ 2002 0957 6D090000 		.4byte	0x96d
+ 2003 095b 19       		.uleb128 0x19
+ 2004 095c 01       		.uleb128 0x1
+ 2005 095d 52       		.byte	0x52
+ 2006 095e 02       		.uleb128 0x2
+ 2007 095f 78       		.byte	0x78
+ 2008 0960 00       		.sleb128 0
+ 2009 0961 19       		.uleb128 0x19
+ 2010 0962 01       		.uleb128 0x1
+ 2011 0963 51       		.byte	0x51
+ 2012 0964 02       		.uleb128 0x2
+ 2013 0965 77       		.byte	0x77
+ 2014 0966 00       		.sleb128 0
+ 2015 0967 19       		.uleb128 0x19
+ 2016 0968 01       		.uleb128 0x1
+ 2017 0969 50       		.byte	0x50
+ 2018 096a 01       		.uleb128 0x1
+ 2019 096b 31       		.byte	0x31
+ 2020 096c 00       		.byte	0
+ 2021 096d 18       		.uleb128 0x18
+ 2022 096e 64030000 		.4byte	.LVL149
+ 2023 0972 E50A0000 		.4byte	0xae5
+ 2024 0976 81090000 		.4byte	0x981
+ 2025 097a 19       		.uleb128 0x19
+ 2026 097b 01       		.uleb128 0x1
+ 2027 097c 50       		.byte	0x50
+ 2028 097d 02       		.uleb128 0x2
+ 2029 097e 08       		.byte	0x8
+ 2030 097f C8       		.byte	0xc8
+ 2031 0980 00       		.byte	0
+ 2032 0981 18       		.uleb128 0x18
+ 2033 0982 6C030000 		.4byte	.LVL150
+ 2034 0986 560B0000 		.4byte	0xb56
+ 2035 098a 94090000 		.4byte	0x994
+ 2036 098e 19       		.uleb128 0x19
+ 2037 098f 01       		.uleb128 0x1
+ 2038 0990 50       		.byte	0x50
+ 2039 0991 01       		.uleb128 0x1
+ 2040 0992 31       		.byte	0x31
+ 2041 0993 00       		.byte	0
+ 2042 0994 18       		.uleb128 0x18
+ 2043 0995 72030000 		.4byte	.LVL151
+ 2044 0999 670B0000 		.4byte	0xb67
+ 2045 099d A7090000 		.4byte	0x9a7
+ 2046 09a1 19       		.uleb128 0x19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 51
+
+
+ 2047 09a2 01       		.uleb128 0x1
+ 2048 09a3 50       		.byte	0x50
+ 2049 09a4 01       		.uleb128 0x1
+ 2050 09a5 31       		.byte	0x31
+ 2051 09a6 00       		.byte	0
+ 2052 09a7 18       		.uleb128 0x18
+ 2053 09a8 78030000 		.4byte	.LVL152
+ 2054 09ac 780B0000 		.4byte	0xb78
+ 2055 09b0 BA090000 		.4byte	0x9ba
+ 2056 09b4 19       		.uleb128 0x19
+ 2057 09b5 01       		.uleb128 0x1
+ 2058 09b6 50       		.byte	0x50
+ 2059 09b7 01       		.uleb128 0x1
+ 2060 09b8 31       		.byte	0x31
+ 2061 09b9 00       		.byte	0
+ 2062 09ba 18       		.uleb128 0x18
+ 2063 09bb 7E030000 		.4byte	.LVL153
+ 2064 09bf 890B0000 		.4byte	0xb89
+ 2065 09c3 CD090000 		.4byte	0x9cd
+ 2066 09c7 19       		.uleb128 0x19
+ 2067 09c8 01       		.uleb128 0x1
+ 2068 09c9 50       		.byte	0x50
+ 2069 09ca 01       		.uleb128 0x1
+ 2070 09cb 31       		.byte	0x31
+ 2071 09cc 00       		.byte	0
+ 2072 09cd 18       		.uleb128 0x18
+ 2073 09ce 84030000 		.4byte	.LVL154
+ 2074 09d2 9A0B0000 		.4byte	0xb9a
+ 2075 09d6 E0090000 		.4byte	0x9e0
+ 2076 09da 19       		.uleb128 0x19
+ 2077 09db 01       		.uleb128 0x1
+ 2078 09dc 50       		.byte	0x50
+ 2079 09dd 01       		.uleb128 0x1
+ 2080 09de 31       		.byte	0x31
+ 2081 09df 00       		.byte	0
+ 2082 09e0 1A       		.uleb128 0x1a
+ 2083 09e1 8A030000 		.4byte	.LVL155
+ 2084 09e5 AB0B0000 		.4byte	0xbab
+ 2085 09e9 19       		.uleb128 0x19
+ 2086 09ea 01       		.uleb128 0x1
+ 2087 09eb 50       		.byte	0x50
+ 2088 09ec 01       		.uleb128 0x1
+ 2089 09ed 31       		.byte	0x31
+ 2090 09ee 00       		.byte	0
+ 2091 09ef 00       		.byte	0
+ 2092 09f0 0F       		.uleb128 0xf
+ 2093 09f1 0A000000 		.4byte	.LVL3
+ 2094 09f5 380C0000 		.4byte	0xc38
+ 2095 09f9 0F       		.uleb128 0xf
+ 2096 09fa 14000000 		.4byte	.LVL5
+ 2097 09fe 69020000 		.4byte	0x269
+ 2098 0a02 18       		.uleb128 0x18
+ 2099 0a03 58000000 		.4byte	.LVL35
+ 2100 0a07 890B0000 		.4byte	0xb89
+ 2101 0a0b 150A0000 		.4byte	0xa15
+ 2102 0a0f 19       		.uleb128 0x19
+ 2103 0a10 01       		.uleb128 0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 52
+
+
+ 2104 0a11 50       		.byte	0x50
+ 2105 0a12 01       		.uleb128 0x1
+ 2106 0a13 31       		.byte	0x31
+ 2107 0a14 00       		.byte	0
+ 2108 0a15 18       		.uleb128 0x18
+ 2109 0a16 5E000000 		.4byte	.LVL36
+ 2110 0a1a 9A0B0000 		.4byte	0xb9a
+ 2111 0a1e 280A0000 		.4byte	0xa28
+ 2112 0a22 19       		.uleb128 0x19
+ 2113 0a23 01       		.uleb128 0x1
+ 2114 0a24 50       		.byte	0x50
+ 2115 0a25 01       		.uleb128 0x1
+ 2116 0a26 31       		.byte	0x31
+ 2117 0a27 00       		.byte	0
+ 2118 0a28 18       		.uleb128 0x18
+ 2119 0a29 64000000 		.4byte	.LVL37
+ 2120 0a2d AB0B0000 		.4byte	0xbab
+ 2121 0a31 3B0A0000 		.4byte	0xa3b
+ 2122 0a35 19       		.uleb128 0x19
+ 2123 0a36 01       		.uleb128 0x1
+ 2124 0a37 50       		.byte	0x50
+ 2125 0a38 01       		.uleb128 0x1
+ 2126 0a39 31       		.byte	0x31
+ 2127 0a3a 00       		.byte	0
+ 2128 0a3b 1A       		.uleb128 0x1a
+ 2129 0a3c 76000000 		.4byte	.LVL38
+ 2130 0a40 B90A0000 		.4byte	0xab9
+ 2131 0a44 19       		.uleb128 0x19
+ 2132 0a45 01       		.uleb128 0x1
+ 2133 0a46 52       		.byte	0x52
+ 2134 0a47 01       		.uleb128 0x1
+ 2135 0a48 30       		.byte	0x30
+ 2136 0a49 19       		.uleb128 0x19
+ 2137 0a4a 01       		.uleb128 0x1
+ 2138 0a4b 51       		.byte	0x51
+ 2139 0a4c 01       		.uleb128 0x1
+ 2140 0a4d 30       		.byte	0x30
+ 2141 0a4e 19       		.uleb128 0x19
+ 2142 0a4f 01       		.uleb128 0x1
+ 2143 0a50 50       		.byte	0x50
+ 2144 0a51 01       		.uleb128 0x1
+ 2145 0a52 31       		.byte	0x31
+ 2146 0a53 00       		.byte	0
+ 2147 0a54 00       		.byte	0
+ 2148 0a55 1B       		.uleb128 0x1b
+ 2149 0a56 8D040000 		.4byte	.LASF96
+ 2150 0a5a 01       		.byte	0x1
+ 2151 0a5b 9802     		.2byte	0x298
+ 2152 0a5d 00000000 		.4byte	.LFB65
+ 2153 0a61 1C000000 		.4byte	.LFE65-.LFB65
+ 2154 0a65 01       		.uleb128 0x1
+ 2155 0a66 9C       		.byte	0x9c
+ 2156 0a67 1C       		.uleb128 0x1c
+ 2157 0a68 E3040000 		.4byte	.LASF60
+ 2158 0a6c 06       		.byte	0x6
+ 2159 0a6d 5506     		.2byte	0x655
+ 2160 0a6f 730A0000 		.4byte	0xa73
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 53
+
+
+ 2161 0a73 06       		.uleb128 0x6
+ 2162 0a74 C3000000 		.4byte	0xc3
+ 2163 0a78 1D       		.uleb128 0x1d
+ 2164 0a79 D1010000 		.4byte	.LASF61
+ 2165 0a7d 01       		.byte	0x1
+ 2166 0a7e 47       		.byte	0x47
+ 2167 0a7f D9000000 		.4byte	0xd9
+ 2168 0a83 05       		.uleb128 0x5
+ 2169 0a84 03       		.byte	0x3
+ 2170 0a85 00000000 		.4byte	HVSwitch
+ 2171 0a89 1D       		.uleb128 0x1d
+ 2172 0a8a 56040000 		.4byte	.LASF62
+ 2173 0a8e 01       		.byte	0x1
+ 2174 0a8f 48       		.byte	0x48
+ 2175 0a90 D9000000 		.4byte	0xd9
+ 2176 0a94 05       		.uleb128 0x5
+ 2177 0a95 03       		.byte	0x3
+ 2178 0a96 00000000 		.4byte	DriveSwitch
+ 2179 0a9a 1D       		.uleb128 0x1d
+ 2180 0a9b BB000000 		.4byte	.LASF63
+ 2181 0a9f 01       		.byte	0x1
+ 2182 0aa0 4C       		.byte	0x4c
+ 2183 0aa1 F0010000 		.4byte	0x1f0
+ 2184 0aa5 05       		.uleb128 0x5
+ 2185 0aa6 03       		.byte	0x3
+ 2186 0aa7 00000000 		.4byte	pedalOK
+ 2187 0aab 1E       		.uleb128 0x1e
+ 2188 0aac 45040000 		.4byte	.LASF64
+ 2189 0ab0 07       		.byte	0x7
+ 2190 0ab1 5A       		.byte	0x5a
+ 2191 0ab2 1E       		.uleb128 0x1e
+ 2192 0ab3 9F010000 		.4byte	.LASF65
+ 2193 0ab7 08       		.byte	0x8
+ 2194 0ab8 17       		.byte	0x17
+ 2195 0ab9 1F       		.uleb128 0x1f
+ 2196 0aba C3000000 		.4byte	.LASF66
+ 2197 0abe 09       		.byte	0x9
+ 2198 0abf 12       		.byte	0x12
+ 2199 0ac0 D40A0000 		.4byte	0xad4
+ 2200 0ac4 20       		.uleb128 0x20
+ 2201 0ac5 AD000000 		.4byte	0xad
+ 2202 0ac9 20       		.uleb128 0x20
+ 2203 0aca B8000000 		.4byte	0xb8
+ 2204 0ace 20       		.uleb128 0x20
+ 2205 0acf B8000000 		.4byte	0xb8
+ 2206 0ad3 00       		.byte	0
+ 2207 0ad4 21       		.uleb128 0x21
+ 2208 0ad5 5B020000 		.4byte	.LASF67
+ 2209 0ad9 09       		.byte	0x9
+ 2210 0ada 15       		.byte	0x15
+ 2211 0adb AD000000 		.4byte	0xad
+ 2212 0adf E50A0000 		.4byte	0xae5
+ 2213 0ae3 22       		.uleb128 0x22
+ 2214 0ae4 00       		.byte	0
+ 2215 0ae5 1F       		.uleb128 0x1f
+ 2216 0ae6 F0040000 		.4byte	.LASF68
+ 2217 0aea 0A       		.byte	0xa
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 54
+
+
+ 2218 0aeb 77       		.byte	0x77
+ 2219 0aec F60A0000 		.4byte	0xaf6
+ 2220 0af0 20       		.uleb128 0x20
+ 2221 0af1 E5000000 		.4byte	0xe5
+ 2222 0af5 00       		.byte	0
+ 2223 0af6 23       		.uleb128 0x23
+ 2224 0af7 62040000 		.4byte	.LASF69
+ 2225 0afb 05       		.byte	0x5
+ 2226 0afc C8       		.byte	0xc8
+ 2227 0afd D9000000 		.4byte	0xd9
+ 2228 0b01 23       		.uleb128 0x23
+ 2229 0b02 08030000 		.4byte	.LASF70
+ 2230 0b06 05       		.byte	0x5
+ 2231 0b07 C4       		.byte	0xc4
+ 2232 0b08 D9000000 		.4byte	0xd9
+ 2233 0b0c 23       		.uleb128 0x23
+ 2234 0b0d 00000000 		.4byte	.LASF71
+ 2235 0b11 05       		.byte	0x5
+ 2236 0b12 C5       		.byte	0xc5
+ 2237 0b13 D9000000 		.4byte	0xd9
+ 2238 0b17 1F       		.uleb128 0x1f
+ 2239 0b18 68000000 		.4byte	.LASF72
+ 2240 0b1c 09       		.byte	0x9
+ 2241 0b1d 13       		.byte	0x13
+ 2242 0b1e 2D0B0000 		.4byte	0xb2d
+ 2243 0b22 20       		.uleb128 0x20
+ 2244 0b23 AD000000 		.4byte	0xad
+ 2245 0b27 20       		.uleb128 0x20
+ 2246 0b28 AD000000 		.4byte	0xad
+ 2247 0b2c 00       		.byte	0
+ 2248 0b2d 1E       		.uleb128 0x1e
+ 2249 0b2e 1A020000 		.4byte	.LASF73
+ 2250 0b32 0B       		.byte	0xb
+ 2251 0b33 38       		.byte	0x38
+ 2252 0b34 1F       		.uleb128 0x1f
+ 2253 0b35 41020000 		.4byte	.LASF74
+ 2254 0b39 0C       		.byte	0xc
+ 2255 0b3a 26       		.byte	0x26
+ 2256 0b3b 450B0000 		.4byte	0xb45
+ 2257 0b3f 20       		.uleb128 0x20
+ 2258 0b40 D9000000 		.4byte	0xd9
+ 2259 0b44 00       		.byte	0
+ 2260 0b45 1F       		.uleb128 0x1f
+ 2261 0b46 EE020000 		.4byte	.LASF75
+ 2262 0b4a 0D       		.byte	0xd
+ 2263 0b4b 37       		.byte	0x37
+ 2264 0b4c 560B0000 		.4byte	0xb56
+ 2265 0b50 20       		.uleb128 0x20
+ 2266 0b51 D9000000 		.4byte	0xd9
+ 2267 0b55 00       		.byte	0
+ 2268 0b56 1F       		.uleb128 0x1f
+ 2269 0b57 0D020000 		.4byte	.LASF76
+ 2270 0b5b 0E       		.byte	0xe
+ 2271 0b5c 28       		.byte	0x28
+ 2272 0b5d 670B0000 		.4byte	0xb67
+ 2273 0b61 20       		.uleb128 0x20
+ 2274 0b62 D9000000 		.4byte	0xd9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 55
+
+
+ 2275 0b66 00       		.byte	0
+ 2276 0b67 1F       		.uleb128 0x1f
+ 2277 0b68 E4010000 		.4byte	.LASF77
+ 2278 0b6c 0F       		.byte	0xf
+ 2279 0b6d 28       		.byte	0x28
+ 2280 0b6e 780B0000 		.4byte	0xb78
+ 2281 0b72 20       		.uleb128 0x20
+ 2282 0b73 D9000000 		.4byte	0xd9
+ 2283 0b77 00       		.byte	0
+ 2284 0b78 1F       		.uleb128 0x1f
+ 2285 0b79 C4010000 		.4byte	.LASF78
+ 2286 0b7d 10       		.byte	0x10
+ 2287 0b7e 28       		.byte	0x28
+ 2288 0b7f 890B0000 		.4byte	0xb89
+ 2289 0b83 20       		.uleb128 0x20
+ 2290 0b84 D9000000 		.4byte	0xd9
+ 2291 0b88 00       		.byte	0
+ 2292 0b89 1F       		.uleb128 0x1f
+ 2293 0b8a FE040000 		.4byte	.LASF79
+ 2294 0b8e 11       		.byte	0x11
+ 2295 0b8f 28       		.byte	0x28
+ 2296 0b90 9A0B0000 		.4byte	0xb9a
+ 2297 0b94 20       		.uleb128 0x20
+ 2298 0b95 D9000000 		.4byte	0xd9
+ 2299 0b99 00       		.byte	0
+ 2300 0b9a 1F       		.uleb128 0x1f
+ 2301 0b9b D7020000 		.4byte	.LASF80
+ 2302 0b9f 12       		.byte	0x12
+ 2303 0ba0 28       		.byte	0x28
+ 2304 0ba1 AB0B0000 		.4byte	0xbab
+ 2305 0ba5 20       		.uleb128 0x20
+ 2306 0ba6 D9000000 		.4byte	0xd9
+ 2307 0baa 00       		.byte	0
+ 2308 0bab 1F       		.uleb128 0x1f
+ 2309 0bac D6040000 		.4byte	.LASF81
+ 2310 0bb0 13       		.byte	0x13
+ 2311 0bb1 28       		.byte	0x28
+ 2312 0bb2 BC0B0000 		.4byte	0xbbc
+ 2313 0bb6 20       		.uleb128 0x20
+ 2314 0bb7 D9000000 		.4byte	0xd9
+ 2315 0bbb 00       		.byte	0
+ 2316 0bbc 23       		.uleb128 0x23
+ 2317 0bbd D6000000 		.4byte	.LASF82
+ 2318 0bc1 14       		.byte	0x14
+ 2319 0bc2 29       		.byte	0x29
+ 2320 0bc3 D9000000 		.4byte	0xd9
+ 2321 0bc7 23       		.uleb128 0x23
+ 2322 0bc8 9B000000 		.4byte	.LASF83
+ 2323 0bcc 15       		.byte	0x15
+ 2324 0bcd 29       		.byte	0x29
+ 2325 0bce D9000000 		.4byte	0xd9
+ 2326 0bd2 21       		.uleb128 0x21
+ 2327 0bd3 2E000000 		.4byte	.LASF84
+ 2328 0bd7 09       		.byte	0x9
+ 2329 0bd8 19       		.byte	0x19
+ 2330 0bd9 AD000000 		.4byte	0xad
+ 2331 0bdd E30B0000 		.4byte	0xbe3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 56
+
+
+ 2332 0be1 22       		.uleb128 0x22
+ 2333 0be2 00       		.byte	0
+ 2334 0be3 21       		.uleb128 0x21
+ 2335 0be4 6F020000 		.4byte	.LASF85
+ 2336 0be8 09       		.byte	0x9
+ 2337 0be9 18       		.byte	0x18
+ 2338 0bea AD000000 		.4byte	0xad
+ 2339 0bee F40B0000 		.4byte	0xbf4
+ 2340 0bf2 22       		.uleb128 0x22
+ 2341 0bf3 00       		.byte	0
+ 2342 0bf4 21       		.uleb128 0x21
+ 2343 0bf5 E9000000 		.4byte	.LASF86
+ 2344 0bf9 09       		.byte	0x9
+ 2345 0bfa 1A       		.byte	0x1a
+ 2346 0bfb AD000000 		.4byte	0xad
+ 2347 0bff 050C0000 		.4byte	0xc05
+ 2348 0c03 22       		.uleb128 0x22
+ 2349 0c04 00       		.byte	0
+ 2350 0c05 21       		.uleb128 0x21
+ 2351 0c06 24030000 		.4byte	.LASF87
+ 2352 0c0a 09       		.byte	0x9
+ 2353 0c0b 1C       		.byte	0x1c
+ 2354 0c0c AD000000 		.4byte	0xad
+ 2355 0c10 160C0000 		.4byte	0xc16
+ 2356 0c14 22       		.uleb128 0x22
+ 2357 0c15 00       		.byte	0
+ 2358 0c16 21       		.uleb128 0x21
+ 2359 0c17 93010000 		.4byte	.LASF88
+ 2360 0c1b 09       		.byte	0x9
+ 2361 0c1c 1B       		.byte	0x1b
+ 2362 0c1d AD000000 		.4byte	0xad
+ 2363 0c21 270C0000 		.4byte	0xc27
+ 2364 0c25 22       		.uleb128 0x22
+ 2365 0c26 00       		.byte	0
+ 2366 0c27 21       		.uleb128 0x21
+ 2367 0c28 B4040000 		.4byte	.LASF89
+ 2368 0c2c 09       		.byte	0x9
+ 2369 0c2d 17       		.byte	0x17
+ 2370 0c2e AD000000 		.4byte	0xad
+ 2371 0c32 380C0000 		.4byte	0xc38
+ 2372 0c36 22       		.uleb128 0x22
+ 2373 0c37 00       		.byte	0
+ 2374 0c38 1E       		.uleb128 0x1e
+ 2375 0c39 95040000 		.4byte	.LASF90
+ 2376 0c3d 16       		.byte	0x16
+ 2377 0c3e 67       		.byte	0x67
+ 2378 0c3f 00       		.byte	0
+ 2379              		.section	.debug_abbrev,"",%progbits
+ 2380              	.Ldebug_abbrev0:
+ 2381 0000 01       		.uleb128 0x1
+ 2382 0001 11       		.uleb128 0x11
+ 2383 0002 01       		.byte	0x1
+ 2384 0003 25       		.uleb128 0x25
+ 2385 0004 0E       		.uleb128 0xe
+ 2386 0005 13       		.uleb128 0x13
+ 2387 0006 0B       		.uleb128 0xb
+ 2388 0007 03       		.uleb128 0x3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 57
+
+
+ 2389 0008 0E       		.uleb128 0xe
+ 2390 0009 1B       		.uleb128 0x1b
+ 2391 000a 0E       		.uleb128 0xe
+ 2392 000b 55       		.uleb128 0x55
+ 2393 000c 17       		.uleb128 0x17
+ 2394 000d 11       		.uleb128 0x11
+ 2395 000e 01       		.uleb128 0x1
+ 2396 000f 10       		.uleb128 0x10
+ 2397 0010 17       		.uleb128 0x17
+ 2398 0011 00       		.byte	0
+ 2399 0012 00       		.byte	0
+ 2400 0013 02       		.uleb128 0x2
+ 2401 0014 16       		.uleb128 0x16
+ 2402 0015 00       		.byte	0
+ 2403 0016 03       		.uleb128 0x3
+ 2404 0017 0E       		.uleb128 0xe
+ 2405 0018 3A       		.uleb128 0x3a
+ 2406 0019 0B       		.uleb128 0xb
+ 2407 001a 3B       		.uleb128 0x3b
+ 2408 001b 0B       		.uleb128 0xb
+ 2409 001c 49       		.uleb128 0x49
+ 2410 001d 13       		.uleb128 0x13
+ 2411 001e 00       		.byte	0
+ 2412 001f 00       		.byte	0
+ 2413 0020 03       		.uleb128 0x3
+ 2414 0021 24       		.uleb128 0x24
+ 2415 0022 00       		.byte	0
+ 2416 0023 0B       		.uleb128 0xb
+ 2417 0024 0B       		.uleb128 0xb
+ 2418 0025 3E       		.uleb128 0x3e
+ 2419 0026 0B       		.uleb128 0xb
+ 2420 0027 03       		.uleb128 0x3
+ 2421 0028 0E       		.uleb128 0xe
+ 2422 0029 00       		.byte	0
+ 2423 002a 00       		.byte	0
+ 2424 002b 04       		.uleb128 0x4
+ 2425 002c 24       		.uleb128 0x24
+ 2426 002d 00       		.byte	0
+ 2427 002e 0B       		.uleb128 0xb
+ 2428 002f 0B       		.uleb128 0xb
+ 2429 0030 3E       		.uleb128 0x3e
+ 2430 0031 0B       		.uleb128 0xb
+ 2431 0032 03       		.uleb128 0x3
+ 2432 0033 08       		.uleb128 0x8
+ 2433 0034 00       		.byte	0
+ 2434 0035 00       		.byte	0
+ 2435 0036 05       		.uleb128 0x5
+ 2436 0037 16       		.uleb128 0x16
+ 2437 0038 00       		.byte	0
+ 2438 0039 03       		.uleb128 0x3
+ 2439 003a 0E       		.uleb128 0xe
+ 2440 003b 3A       		.uleb128 0x3a
+ 2441 003c 0B       		.uleb128 0xb
+ 2442 003d 3B       		.uleb128 0x3b
+ 2443 003e 05       		.uleb128 0x5
+ 2444 003f 49       		.uleb128 0x49
+ 2445 0040 13       		.uleb128 0x13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 58
+
+
+ 2446 0041 00       		.byte	0
+ 2447 0042 00       		.byte	0
+ 2448 0043 06       		.uleb128 0x6
+ 2449 0044 35       		.uleb128 0x35
+ 2450 0045 00       		.byte	0
+ 2451 0046 49       		.uleb128 0x49
+ 2452 0047 13       		.uleb128 0x13
+ 2453 0048 00       		.byte	0
+ 2454 0049 00       		.byte	0
+ 2455 004a 07       		.uleb128 0x7
+ 2456 004b 13       		.uleb128 0x13
+ 2457 004c 01       		.byte	0x1
+ 2458 004d 0B       		.uleb128 0xb
+ 2459 004e 0B       		.uleb128 0xb
+ 2460 004f 3A       		.uleb128 0x3a
+ 2461 0050 0B       		.uleb128 0xb
+ 2462 0051 3B       		.uleb128 0x3b
+ 2463 0052 0B       		.uleb128 0xb
+ 2464 0053 01       		.uleb128 0x1
+ 2465 0054 13       		.uleb128 0x13
+ 2466 0055 00       		.byte	0
+ 2467 0056 00       		.byte	0
+ 2468 0057 08       		.uleb128 0x8
+ 2469 0058 0D       		.uleb128 0xd
+ 2470 0059 00       		.byte	0
+ 2471 005a 03       		.uleb128 0x3
+ 2472 005b 0E       		.uleb128 0xe
+ 2473 005c 3A       		.uleb128 0x3a
+ 2474 005d 0B       		.uleb128 0xb
+ 2475 005e 3B       		.uleb128 0x3b
+ 2476 005f 0B       		.uleb128 0xb
+ 2477 0060 49       		.uleb128 0x49
+ 2478 0061 13       		.uleb128 0x13
+ 2479 0062 38       		.uleb128 0x38
+ 2480 0063 0B       		.uleb128 0xb
+ 2481 0064 00       		.byte	0
+ 2482 0065 00       		.byte	0
+ 2483 0066 09       		.uleb128 0x9
+ 2484 0067 01       		.uleb128 0x1
+ 2485 0068 01       		.byte	0x1
+ 2486 0069 49       		.uleb128 0x49
+ 2487 006a 13       		.uleb128 0x13
+ 2488 006b 01       		.uleb128 0x1
+ 2489 006c 13       		.uleb128 0x13
+ 2490 006d 00       		.byte	0
+ 2491 006e 00       		.byte	0
+ 2492 006f 0A       		.uleb128 0xa
+ 2493 0070 21       		.uleb128 0x21
+ 2494 0071 00       		.byte	0
+ 2495 0072 49       		.uleb128 0x49
+ 2496 0073 13       		.uleb128 0x13
+ 2497 0074 2F       		.uleb128 0x2f
+ 2498 0075 0B       		.uleb128 0xb
+ 2499 0076 00       		.byte	0
+ 2500 0077 00       		.byte	0
+ 2501 0078 0B       		.uleb128 0xb
+ 2502 0079 04       		.uleb128 0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 59
+
+
+ 2503 007a 01       		.byte	0x1
+ 2504 007b 0B       		.uleb128 0xb
+ 2505 007c 0B       		.uleb128 0xb
+ 2506 007d 3A       		.uleb128 0x3a
+ 2507 007e 0B       		.uleb128 0xb
+ 2508 007f 3B       		.uleb128 0x3b
+ 2509 0080 0B       		.uleb128 0xb
+ 2510 0081 01       		.uleb128 0x1
+ 2511 0082 13       		.uleb128 0x13
+ 2512 0083 00       		.byte	0
+ 2513 0084 00       		.byte	0
+ 2514 0085 0C       		.uleb128 0xc
+ 2515 0086 28       		.uleb128 0x28
+ 2516 0087 00       		.byte	0
+ 2517 0088 03       		.uleb128 0x3
+ 2518 0089 0E       		.uleb128 0xe
+ 2519 008a 1C       		.uleb128 0x1c
+ 2520 008b 0D       		.uleb128 0xd
+ 2521 008c 00       		.byte	0
+ 2522 008d 00       		.byte	0
+ 2523 008e 0D       		.uleb128 0xd
+ 2524 008f 28       		.uleb128 0x28
+ 2525 0090 00       		.byte	0
+ 2526 0091 03       		.uleb128 0x3
+ 2527 0092 08       		.uleb128 0x8
+ 2528 0093 1C       		.uleb128 0x1c
+ 2529 0094 0D       		.uleb128 0xd
+ 2530 0095 00       		.byte	0
+ 2531 0096 00       		.byte	0
+ 2532 0097 0E       		.uleb128 0xe
+ 2533 0098 2E       		.uleb128 0x2e
+ 2534 0099 01       		.byte	0x1
+ 2535 009a 3F       		.uleb128 0x3f
+ 2536 009b 19       		.uleb128 0x19
+ 2537 009c 03       		.uleb128 0x3
+ 2538 009d 0E       		.uleb128 0xe
+ 2539 009e 3A       		.uleb128 0x3a
+ 2540 009f 0B       		.uleb128 0xb
+ 2541 00a0 3B       		.uleb128 0x3b
+ 2542 00a1 0B       		.uleb128 0xb
+ 2543 00a2 11       		.uleb128 0x11
+ 2544 00a3 01       		.uleb128 0x1
+ 2545 00a4 12       		.uleb128 0x12
+ 2546 00a5 06       		.uleb128 0x6
+ 2547 00a6 40       		.uleb128 0x40
+ 2548 00a7 18       		.uleb128 0x18
+ 2549 00a8 9742     		.uleb128 0x2117
+ 2550 00aa 19       		.uleb128 0x19
+ 2551 00ab 01       		.uleb128 0x1
+ 2552 00ac 13       		.uleb128 0x13
+ 2553 00ad 00       		.byte	0
+ 2554 00ae 00       		.byte	0
+ 2555 00af 0F       		.uleb128 0xf
+ 2556 00b0 898201   		.uleb128 0x4109
+ 2557 00b3 00       		.byte	0
+ 2558 00b4 11       		.uleb128 0x11
+ 2559 00b5 01       		.uleb128 0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 60
+
+
+ 2560 00b6 31       		.uleb128 0x31
+ 2561 00b7 13       		.uleb128 0x13
+ 2562 00b8 00       		.byte	0
+ 2563 00b9 00       		.byte	0
+ 2564 00ba 10       		.uleb128 0x10
+ 2565 00bb 2E       		.uleb128 0x2e
+ 2566 00bc 01       		.byte	0x1
+ 2567 00bd 3F       		.uleb128 0x3f
+ 2568 00be 19       		.uleb128 0x19
+ 2569 00bf 03       		.uleb128 0x3
+ 2570 00c0 0E       		.uleb128 0xe
+ 2571 00c1 3A       		.uleb128 0x3a
+ 2572 00c2 0B       		.uleb128 0xb
+ 2573 00c3 3B       		.uleb128 0x3b
+ 2574 00c4 0B       		.uleb128 0xb
+ 2575 00c5 49       		.uleb128 0x49
+ 2576 00c6 13       		.uleb128 0x13
+ 2577 00c7 11       		.uleb128 0x11
+ 2578 00c8 01       		.uleb128 0x1
+ 2579 00c9 12       		.uleb128 0x12
+ 2580 00ca 06       		.uleb128 0x6
+ 2581 00cb 40       		.uleb128 0x40
+ 2582 00cc 18       		.uleb128 0x18
+ 2583 00cd 9742     		.uleb128 0x2117
+ 2584 00cf 19       		.uleb128 0x19
+ 2585 00d0 01       		.uleb128 0x1
+ 2586 00d1 13       		.uleb128 0x13
+ 2587 00d2 00       		.byte	0
+ 2588 00d3 00       		.byte	0
+ 2589 00d4 11       		.uleb128 0x11
+ 2590 00d5 34       		.uleb128 0x34
+ 2591 00d6 00       		.byte	0
+ 2592 00d7 03       		.uleb128 0x3
+ 2593 00d8 0E       		.uleb128 0xe
+ 2594 00d9 3A       		.uleb128 0x3a
+ 2595 00da 0B       		.uleb128 0xb
+ 2596 00db 3B       		.uleb128 0x3b
+ 2597 00dc 0B       		.uleb128 0xb
+ 2598 00dd 49       		.uleb128 0x49
+ 2599 00de 13       		.uleb128 0x13
+ 2600 00df 02       		.uleb128 0x2
+ 2601 00e0 17       		.uleb128 0x17
+ 2602 00e1 00       		.byte	0
+ 2603 00e2 00       		.byte	0
+ 2604 00e3 12       		.uleb128 0x12
+ 2605 00e4 34       		.uleb128 0x34
+ 2606 00e5 00       		.byte	0
+ 2607 00e6 03       		.uleb128 0x3
+ 2608 00e7 0E       		.uleb128 0xe
+ 2609 00e8 3A       		.uleb128 0x3a
+ 2610 00e9 0B       		.uleb128 0xb
+ 2611 00ea 3B       		.uleb128 0x3b
+ 2612 00eb 0B       		.uleb128 0xb
+ 2613 00ec 49       		.uleb128 0x49
+ 2614 00ed 13       		.uleb128 0x13
+ 2615 00ee 1C       		.uleb128 0x1c
+ 2616 00ef 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 61
+
+
+ 2617 00f0 00       		.byte	0
+ 2618 00f1 00       		.byte	0
+ 2619 00f2 13       		.uleb128 0x13
+ 2620 00f3 34       		.uleb128 0x34
+ 2621 00f4 00       		.byte	0
+ 2622 00f5 03       		.uleb128 0x3
+ 2623 00f6 0E       		.uleb128 0xe
+ 2624 00f7 3A       		.uleb128 0x3a
+ 2625 00f8 0B       		.uleb128 0xb
+ 2626 00f9 3B       		.uleb128 0x3b
+ 2627 00fa 0B       		.uleb128 0xb
+ 2628 00fb 49       		.uleb128 0x49
+ 2629 00fc 13       		.uleb128 0x13
+ 2630 00fd 02       		.uleb128 0x2
+ 2631 00fe 18       		.uleb128 0x18
+ 2632 00ff 00       		.byte	0
+ 2633 0100 00       		.byte	0
+ 2634 0101 14       		.uleb128 0x14
+ 2635 0102 0B       		.uleb128 0xb
+ 2636 0103 01       		.byte	0x1
+ 2637 0104 55       		.uleb128 0x55
+ 2638 0105 17       		.uleb128 0x17
+ 2639 0106 01       		.uleb128 0x1
+ 2640 0107 13       		.uleb128 0x13
+ 2641 0108 00       		.byte	0
+ 2642 0109 00       		.byte	0
+ 2643 010a 15       		.uleb128 0x15
+ 2644 010b 34       		.uleb128 0x34
+ 2645 010c 00       		.byte	0
+ 2646 010d 03       		.uleb128 0x3
+ 2647 010e 08       		.uleb128 0x8
+ 2648 010f 3A       		.uleb128 0x3a
+ 2649 0110 0B       		.uleb128 0xb
+ 2650 0111 3B       		.uleb128 0x3b
+ 2651 0112 05       		.uleb128 0x5
+ 2652 0113 49       		.uleb128 0x49
+ 2653 0114 13       		.uleb128 0x13
+ 2654 0115 02       		.uleb128 0x2
+ 2655 0116 17       		.uleb128 0x17
+ 2656 0117 00       		.byte	0
+ 2657 0118 00       		.byte	0
+ 2658 0119 16       		.uleb128 0x16
+ 2659 011a 34       		.uleb128 0x34
+ 2660 011b 00       		.byte	0
+ 2661 011c 03       		.uleb128 0x3
+ 2662 011d 0E       		.uleb128 0xe
+ 2663 011e 3A       		.uleb128 0x3a
+ 2664 011f 0B       		.uleb128 0xb
+ 2665 0120 3B       		.uleb128 0x3b
+ 2666 0121 05       		.uleb128 0x5
+ 2667 0122 49       		.uleb128 0x49
+ 2668 0123 13       		.uleb128 0x13
+ 2669 0124 02       		.uleb128 0x2
+ 2670 0125 17       		.uleb128 0x17
+ 2671 0126 00       		.byte	0
+ 2672 0127 00       		.byte	0
+ 2673 0128 17       		.uleb128 0x17
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 62
+
+
+ 2674 0129 34       		.uleb128 0x34
+ 2675 012a 00       		.byte	0
+ 2676 012b 03       		.uleb128 0x3
+ 2677 012c 0E       		.uleb128 0xe
+ 2678 012d 3A       		.uleb128 0x3a
+ 2679 012e 0B       		.uleb128 0xb
+ 2680 012f 3B       		.uleb128 0x3b
+ 2681 0130 05       		.uleb128 0x5
+ 2682 0131 49       		.uleb128 0x49
+ 2683 0132 13       		.uleb128 0x13
+ 2684 0133 02       		.uleb128 0x2
+ 2685 0134 18       		.uleb128 0x18
+ 2686 0135 00       		.byte	0
+ 2687 0136 00       		.byte	0
+ 2688 0137 18       		.uleb128 0x18
+ 2689 0138 898201   		.uleb128 0x4109
+ 2690 013b 01       		.byte	0x1
+ 2691 013c 11       		.uleb128 0x11
+ 2692 013d 01       		.uleb128 0x1
+ 2693 013e 31       		.uleb128 0x31
+ 2694 013f 13       		.uleb128 0x13
+ 2695 0140 01       		.uleb128 0x1
+ 2696 0141 13       		.uleb128 0x13
+ 2697 0142 00       		.byte	0
+ 2698 0143 00       		.byte	0
+ 2699 0144 19       		.uleb128 0x19
+ 2700 0145 8A8201   		.uleb128 0x410a
+ 2701 0148 00       		.byte	0
+ 2702 0149 02       		.uleb128 0x2
+ 2703 014a 18       		.uleb128 0x18
+ 2704 014b 9142     		.uleb128 0x2111
+ 2705 014d 18       		.uleb128 0x18
+ 2706 014e 00       		.byte	0
+ 2707 014f 00       		.byte	0
+ 2708 0150 1A       		.uleb128 0x1a
+ 2709 0151 898201   		.uleb128 0x4109
+ 2710 0154 01       		.byte	0x1
+ 2711 0155 11       		.uleb128 0x11
+ 2712 0156 01       		.uleb128 0x1
+ 2713 0157 31       		.uleb128 0x31
+ 2714 0158 13       		.uleb128 0x13
+ 2715 0159 00       		.byte	0
+ 2716 015a 00       		.byte	0
+ 2717 015b 1B       		.uleb128 0x1b
+ 2718 015c 2E       		.uleb128 0x2e
+ 2719 015d 00       		.byte	0
+ 2720 015e 3F       		.uleb128 0x3f
+ 2721 015f 19       		.uleb128 0x19
+ 2722 0160 03       		.uleb128 0x3
+ 2723 0161 0E       		.uleb128 0xe
+ 2724 0162 3A       		.uleb128 0x3a
+ 2725 0163 0B       		.uleb128 0xb
+ 2726 0164 3B       		.uleb128 0x3b
+ 2727 0165 05       		.uleb128 0x5
+ 2728 0166 27       		.uleb128 0x27
+ 2729 0167 19       		.uleb128 0x19
+ 2730 0168 11       		.uleb128 0x11
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 63
+
+
+ 2731 0169 01       		.uleb128 0x1
+ 2732 016a 12       		.uleb128 0x12
+ 2733 016b 06       		.uleb128 0x6
+ 2734 016c 40       		.uleb128 0x40
+ 2735 016d 18       		.uleb128 0x18
+ 2736 016e 9742     		.uleb128 0x2117
+ 2737 0170 19       		.uleb128 0x19
+ 2738 0171 00       		.byte	0
+ 2739 0172 00       		.byte	0
+ 2740 0173 1C       		.uleb128 0x1c
+ 2741 0174 34       		.uleb128 0x34
+ 2742 0175 00       		.byte	0
+ 2743 0176 03       		.uleb128 0x3
+ 2744 0177 0E       		.uleb128 0xe
+ 2745 0178 3A       		.uleb128 0x3a
+ 2746 0179 0B       		.uleb128 0xb
+ 2747 017a 3B       		.uleb128 0x3b
+ 2748 017b 05       		.uleb128 0x5
+ 2749 017c 49       		.uleb128 0x49
+ 2750 017d 13       		.uleb128 0x13
+ 2751 017e 3F       		.uleb128 0x3f
+ 2752 017f 19       		.uleb128 0x19
+ 2753 0180 3C       		.uleb128 0x3c
+ 2754 0181 19       		.uleb128 0x19
+ 2755 0182 00       		.byte	0
+ 2756 0183 00       		.byte	0
+ 2757 0184 1D       		.uleb128 0x1d
+ 2758 0185 34       		.uleb128 0x34
+ 2759 0186 00       		.byte	0
+ 2760 0187 03       		.uleb128 0x3
+ 2761 0188 0E       		.uleb128 0xe
+ 2762 0189 3A       		.uleb128 0x3a
+ 2763 018a 0B       		.uleb128 0xb
+ 2764 018b 3B       		.uleb128 0x3b
+ 2765 018c 0B       		.uleb128 0xb
+ 2766 018d 49       		.uleb128 0x49
+ 2767 018e 13       		.uleb128 0x13
+ 2768 018f 3F       		.uleb128 0x3f
+ 2769 0190 19       		.uleb128 0x19
+ 2770 0191 02       		.uleb128 0x2
+ 2771 0192 18       		.uleb128 0x18
+ 2772 0193 00       		.byte	0
+ 2773 0194 00       		.byte	0
+ 2774 0195 1E       		.uleb128 0x1e
+ 2775 0196 2E       		.uleb128 0x2e
+ 2776 0197 00       		.byte	0
+ 2777 0198 3F       		.uleb128 0x3f
+ 2778 0199 19       		.uleb128 0x19
+ 2779 019a 03       		.uleb128 0x3
+ 2780 019b 0E       		.uleb128 0xe
+ 2781 019c 3A       		.uleb128 0x3a
+ 2782 019d 0B       		.uleb128 0xb
+ 2783 019e 3B       		.uleb128 0x3b
+ 2784 019f 0B       		.uleb128 0xb
+ 2785 01a0 27       		.uleb128 0x27
+ 2786 01a1 19       		.uleb128 0x19
+ 2787 01a2 3C       		.uleb128 0x3c
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 64
+
+
+ 2788 01a3 19       		.uleb128 0x19
+ 2789 01a4 00       		.byte	0
+ 2790 01a5 00       		.byte	0
+ 2791 01a6 1F       		.uleb128 0x1f
+ 2792 01a7 2E       		.uleb128 0x2e
+ 2793 01a8 01       		.byte	0x1
+ 2794 01a9 3F       		.uleb128 0x3f
+ 2795 01aa 19       		.uleb128 0x19
+ 2796 01ab 03       		.uleb128 0x3
+ 2797 01ac 0E       		.uleb128 0xe
+ 2798 01ad 3A       		.uleb128 0x3a
+ 2799 01ae 0B       		.uleb128 0xb
+ 2800 01af 3B       		.uleb128 0x3b
+ 2801 01b0 0B       		.uleb128 0xb
+ 2802 01b1 27       		.uleb128 0x27
+ 2803 01b2 19       		.uleb128 0x19
+ 2804 01b3 3C       		.uleb128 0x3c
+ 2805 01b4 19       		.uleb128 0x19
+ 2806 01b5 01       		.uleb128 0x1
+ 2807 01b6 13       		.uleb128 0x13
+ 2808 01b7 00       		.byte	0
+ 2809 01b8 00       		.byte	0
+ 2810 01b9 20       		.uleb128 0x20
+ 2811 01ba 05       		.uleb128 0x5
+ 2812 01bb 00       		.byte	0
+ 2813 01bc 49       		.uleb128 0x49
+ 2814 01bd 13       		.uleb128 0x13
+ 2815 01be 00       		.byte	0
+ 2816 01bf 00       		.byte	0
+ 2817 01c0 21       		.uleb128 0x21
+ 2818 01c1 2E       		.uleb128 0x2e
+ 2819 01c2 01       		.byte	0x1
+ 2820 01c3 3F       		.uleb128 0x3f
+ 2821 01c4 19       		.uleb128 0x19
+ 2822 01c5 03       		.uleb128 0x3
+ 2823 01c6 0E       		.uleb128 0xe
+ 2824 01c7 3A       		.uleb128 0x3a
+ 2825 01c8 0B       		.uleb128 0xb
+ 2826 01c9 3B       		.uleb128 0x3b
+ 2827 01ca 0B       		.uleb128 0xb
+ 2828 01cb 49       		.uleb128 0x49
+ 2829 01cc 13       		.uleb128 0x13
+ 2830 01cd 3C       		.uleb128 0x3c
+ 2831 01ce 19       		.uleb128 0x19
+ 2832 01cf 01       		.uleb128 0x1
+ 2833 01d0 13       		.uleb128 0x13
+ 2834 01d1 00       		.byte	0
+ 2835 01d2 00       		.byte	0
+ 2836 01d3 22       		.uleb128 0x22
+ 2837 01d4 18       		.uleb128 0x18
+ 2838 01d5 00       		.byte	0
+ 2839 01d6 00       		.byte	0
+ 2840 01d7 00       		.byte	0
+ 2841 01d8 23       		.uleb128 0x23
+ 2842 01d9 2E       		.uleb128 0x2e
+ 2843 01da 00       		.byte	0
+ 2844 01db 3F       		.uleb128 0x3f
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 65
+
+
+ 2845 01dc 19       		.uleb128 0x19
+ 2846 01dd 03       		.uleb128 0x3
+ 2847 01de 0E       		.uleb128 0xe
+ 2848 01df 3A       		.uleb128 0x3a
+ 2849 01e0 0B       		.uleb128 0xb
+ 2850 01e1 3B       		.uleb128 0x3b
+ 2851 01e2 0B       		.uleb128 0xb
+ 2852 01e3 27       		.uleb128 0x27
+ 2853 01e4 19       		.uleb128 0x19
+ 2854 01e5 49       		.uleb128 0x49
+ 2855 01e6 13       		.uleb128 0x13
+ 2856 01e7 3C       		.uleb128 0x3c
+ 2857 01e8 19       		.uleb128 0x19
+ 2858 01e9 00       		.byte	0
+ 2859 01ea 00       		.byte	0
+ 2860 01eb 00       		.byte	0
+ 2861              		.section	.debug_loc,"",%progbits
+ 2862              	.Ldebug_loc0:
+ 2863              	.LLST0:
+ 2864 0000 06000000 		.4byte	.LVL2
+ 2865 0004 1A000000 		.4byte	.LVL6
+ 2866 0008 0200     		.2byte	0x2
+ 2867 000a 30       		.byte	0x30
+ 2868 000b 9F       		.byte	0x9f
+ 2869 000c 1A000000 		.4byte	.LVL6
+ 2870 0010 1E000000 		.4byte	.LVL8
+ 2871 0014 0100     		.2byte	0x1
+ 2872 0016 54       		.byte	0x54
+ 2873 0017 20000000 		.4byte	.LVL9
+ 2874 001b 22000000 		.4byte	.LVL10
+ 2875 001f 0100     		.2byte	0x1
+ 2876 0021 54       		.byte	0x54
+ 2877 0022 24000000 		.4byte	.LVL11
+ 2878 0026 26000000 		.4byte	.LVL12
+ 2879 002a 0100     		.2byte	0x1
+ 2880 002c 54       		.byte	0x54
+ 2881 002d 28000000 		.4byte	.LVL13
+ 2882 0031 2C000000 		.4byte	.LVL15
+ 2883 0035 0100     		.2byte	0x1
+ 2884 0037 54       		.byte	0x54
+ 2885 0038 2E000000 		.4byte	.LVL16
+ 2886 003c 32000000 		.4byte	.LVL18
+ 2887 0040 0100     		.2byte	0x1
+ 2888 0042 54       		.byte	0x54
+ 2889 0043 34000000 		.4byte	.LVL19
+ 2890 0047 38000000 		.4byte	.LVL21
+ 2891 004b 0100     		.2byte	0x1
+ 2892 004d 54       		.byte	0x54
+ 2893 004e 3A000000 		.4byte	.LVL22
+ 2894 0052 40000000 		.4byte	.LVL25
+ 2895 0056 0100     		.2byte	0x1
+ 2896 0058 54       		.byte	0x54
+ 2897 0059 42000000 		.4byte	.LVL26
+ 2898 005d 46000000 		.4byte	.LVL28
+ 2899 0061 0100     		.2byte	0x1
+ 2900 0063 54       		.byte	0x54
+ 2901 0064 48000000 		.4byte	.LVL29
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 66
+
+
+ 2902 0068 4C000000 		.4byte	.LVL31
+ 2903 006c 0100     		.2byte	0x1
+ 2904 006e 54       		.byte	0x54
+ 2905 006f 4E000000 		.4byte	.LVL32
+ 2906 0073 76000000 		.4byte	.LVL38
+ 2907 0077 0100     		.2byte	0x1
+ 2908 0079 54       		.byte	0x54
+ 2909 007a 76000000 		.4byte	.LVL38
+ 2910 007e 7A000000 		.4byte	.LVL39
+ 2911 0082 0200     		.2byte	0x2
+ 2912 0084 35       		.byte	0x35
+ 2913 0085 9F       		.byte	0x9f
+ 2914 0086 7A000000 		.4byte	.LVL39
+ 2915 008a D4000000 		.4byte	.LVL51
+ 2916 008e 0100     		.2byte	0x1
+ 2917 0090 54       		.byte	0x54
+ 2918 0091 D4000000 		.4byte	.LVL51
+ 2919 0095 D8000000 		.4byte	.LVL52
+ 2920 0099 0200     		.2byte	0x2
+ 2921 009b 31       		.byte	0x31
+ 2922 009c 9F       		.byte	0x9f
+ 2923 009d D8000000 		.4byte	.LVL52
+ 2924 00a1 0C020000 		.4byte	.LVL98
+ 2925 00a5 0100     		.2byte	0x1
+ 2926 00a7 54       		.byte	0x54
+ 2927 00a8 0C020000 		.4byte	.LVL98
+ 2928 00ac 10020000 		.4byte	.LVL99
+ 2929 00b0 0200     		.2byte	0x2
+ 2930 00b2 34       		.byte	0x34
+ 2931 00b3 9F       		.byte	0x9f
+ 2932 00b4 10020000 		.4byte	.LVL99
+ 2933 00b8 90030000 		.4byte	.LFE64
+ 2934 00bc 0100     		.2byte	0x1
+ 2935 00be 54       		.byte	0x54
+ 2936 00bf 00000000 		.4byte	0
+ 2937 00c3 00000000 		.4byte	0
+ 2938              	.LLST1:
+ 2939 00c7 06000000 		.4byte	.LVL2
+ 2940 00cb 1A000000 		.4byte	.LVL6
+ 2941 00cf 0200     		.2byte	0x2
+ 2942 00d1 30       		.byte	0x30
+ 2943 00d2 9F       		.byte	0x9f
+ 2944 00d3 1A000000 		.4byte	.LVL6
+ 2945 00d7 1C000000 		.4byte	.LVL7
+ 2946 00db 0100     		.2byte	0x1
+ 2947 00dd 55       		.byte	0x55
+ 2948 00de 20000000 		.4byte	.LVL9
+ 2949 00e2 2A000000 		.4byte	.LVL14
+ 2950 00e6 0100     		.2byte	0x1
+ 2951 00e8 55       		.byte	0x55
+ 2952 00e9 2E000000 		.4byte	.LVL16
+ 2953 00ed 30000000 		.4byte	.LVL17
+ 2954 00f1 0100     		.2byte	0x1
+ 2955 00f3 55       		.byte	0x55
+ 2956 00f4 34000000 		.4byte	.LVL19
+ 2957 00f8 3E000000 		.4byte	.LVL24
+ 2958 00fc 0100     		.2byte	0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 67
+
+
+ 2959 00fe 55       		.byte	0x55
+ 2960 00ff 42000000 		.4byte	.LVL26
+ 2961 0103 44000000 		.4byte	.LVL27
+ 2962 0107 0100     		.2byte	0x1
+ 2963 0109 55       		.byte	0x55
+ 2964 010a 48000000 		.4byte	.LVL29
+ 2965 010e 4A000000 		.4byte	.LVL30
+ 2966 0112 0100     		.2byte	0x1
+ 2967 0114 55       		.byte	0x55
+ 2968 0115 4E000000 		.4byte	.LVL32
+ 2969 0119 50000000 		.4byte	.LVL33
+ 2970 011d 0100     		.2byte	0x1
+ 2971 011f 55       		.byte	0x55
+ 2972 0120 52000000 		.4byte	.LVL34
+ 2973 0124 76000000 		.4byte	.LVL38
+ 2974 0128 0100     		.2byte	0x1
+ 2975 012a 55       		.byte	0x55
+ 2976 012b 76000000 		.4byte	.LVL38
+ 2977 012f 7A000000 		.4byte	.LVL39
+ 2978 0133 0200     		.2byte	0x2
+ 2979 0135 36       		.byte	0x36
+ 2980 0136 9F       		.byte	0x9f
+ 2981 0137 7A000000 		.4byte	.LVL39
+ 2982 013b 90030000 		.4byte	.LFE64
+ 2983 013f 0100     		.2byte	0x1
+ 2984 0141 55       		.byte	0x55
+ 2985 0142 00000000 		.4byte	0
+ 2986 0146 00000000 		.4byte	0
+ 2987              	.LLST2:
+ 2988 014a 0E000000 		.4byte	.LVL4
+ 2989 014e 1A000000 		.4byte	.LVL6
+ 2990 0152 0200     		.2byte	0x2
+ 2991 0154 30       		.byte	0x30
+ 2992 0155 9F       		.byte	0x9f
+ 2993 0156 1A000000 		.4byte	.LVL6
+ 2994 015a 36000000 		.4byte	.LVL20
+ 2995 015e 0100     		.2byte	0x1
+ 2996 0160 56       		.byte	0x56
+ 2997 0161 3A000000 		.4byte	.LVL22
+ 2998 0165 3C000000 		.4byte	.LVL23
+ 2999 0169 0100     		.2byte	0x1
+ 3000 016b 56       		.byte	0x56
+ 3001 016c 42000000 		.4byte	.LVL26
+ 3002 0170 5A020000 		.4byte	.LVL110
+ 3003 0174 0100     		.2byte	0x1
+ 3004 0176 56       		.byte	0x56
+ 3005 0177 5A020000 		.4byte	.LVL110
+ 3006 017b 64020000 		.4byte	.LVL113
+ 3007 017f 0200     		.2byte	0x2
+ 3008 0181 30       		.byte	0x30
+ 3009 0182 9F       		.byte	0x9f
+ 3010 0183 64020000 		.4byte	.LVL113
+ 3011 0187 90030000 		.4byte	.LFE64
+ 3012 018b 0100     		.2byte	0x1
+ 3013 018d 56       		.byte	0x56
+ 3014 018e 00000000 		.4byte	0
+ 3015 0192 00000000 		.4byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 68
+
+
+ 3016              	.LLST3:
+ 3017 0196 3A000000 		.4byte	.LVL22
+ 3018 019a 42000000 		.4byte	.LVL26
+ 3019 019e 0100     		.2byte	0x1
+ 3020 01a0 5A       		.byte	0x5a
+ 3021 01a1 54020000 		.4byte	.LVL108
+ 3022 01a5 60020000 		.4byte	.LVL112
+ 3023 01a9 0300     		.2byte	0x3
+ 3024 01ab 09       		.byte	0x9
+ 3025 01ac FF       		.byte	0xff
+ 3026 01ad 9F       		.byte	0x9f
+ 3027 01ae 60020000 		.4byte	.LVL112
+ 3028 01b2 64020000 		.4byte	.LVL113
+ 3029 01b6 0100     		.2byte	0x1
+ 3030 01b8 5A       		.byte	0x5a
+ 3031 01b9 64020000 		.4byte	.LVL113
+ 3032 01bd 68020000 		.4byte	.LVL114
+ 3033 01c1 0300     		.2byte	0x3
+ 3034 01c3 09       		.byte	0x9
+ 3035 01c4 FF       		.byte	0xff
+ 3036 01c5 9F       		.byte	0x9f
+ 3037 01c6 68020000 		.4byte	.LVL114
+ 3038 01ca B8020000 		.4byte	.LVL128
+ 3039 01ce 0100     		.2byte	0x1
+ 3040 01d0 5A       		.byte	0x5a
+ 3041 01d1 00000000 		.4byte	0
+ 3042 01d5 00000000 		.4byte	0
+ 3043              	.LLST4:
+ 3044 01d9 3A000000 		.4byte	.LVL22
+ 3045 01dd 42000000 		.4byte	.LVL26
+ 3046 01e1 0100     		.2byte	0x1
+ 3047 01e3 59       		.byte	0x59
+ 3048 01e4 6E020000 		.4byte	.LVL116
+ 3049 01e8 B8020000 		.4byte	.LVL128
+ 3050 01ec 0100     		.2byte	0x1
+ 3051 01ee 59       		.byte	0x59
+ 3052 01ef 00000000 		.4byte	0
+ 3053 01f3 00000000 		.4byte	0
+ 3054              	.LLST5:
+ 3055 01f7 24000000 		.4byte	.LVL11
+ 3056 01fb 2E000000 		.4byte	.LVL16
+ 3057 01ff 0100     		.2byte	0x1
+ 3058 0201 50       		.byte	0x50
+ 3059 0202 86010000 		.4byte	.LVL79
+ 3060 0206 9E010000 		.4byte	.LVL80
+ 3061 020a 0100     		.2byte	0x1
+ 3062 020c 50       		.byte	0x50
+ 3063 020d 00000000 		.4byte	0
+ 3064 0211 00000000 		.4byte	0
+ 3065              		.section	.debug_aranges,"",%progbits
+ 3066 0000 2C000000 		.4byte	0x2c
+ 3067 0004 0200     		.2byte	0x2
+ 3068 0006 00000000 		.4byte	.Ldebug_info0
+ 3069 000a 04       		.byte	0x4
+ 3070 000b 00       		.byte	0
+ 3071 000c 0000     		.2byte	0
+ 3072 000e 0000     		.2byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 69
+
+
+ 3073 0010 00000000 		.4byte	.LFB63
+ 3074 0014 0C000000 		.4byte	.LFE63-.LFB63
+ 3075 0018 00000000 		.4byte	.LFB64
+ 3076 001c 90030000 		.4byte	.LFE64-.LFB64
+ 3077 0020 00000000 		.4byte	.LFB65
+ 3078 0024 1C000000 		.4byte	.LFE65-.LFB65
+ 3079 0028 00000000 		.4byte	0
+ 3080 002c 00000000 		.4byte	0
+ 3081              		.section	.debug_ranges,"",%progbits
+ 3082              	.Ldebug_ranges0:
+ 3083 0000 1A000000 		.4byte	.LBB2
+ 3084 0004 52000000 		.4byte	.LBE2
+ 3085 0008 90000000 		.4byte	.LBB5
+ 3086 000c 90030000 		.4byte	.LBE5
+ 3087 0010 00000000 		.4byte	0
+ 3088 0014 00000000 		.4byte	0
+ 3089 0018 24000000 		.4byte	.LBB3
+ 3090 001c 2E000000 		.4byte	.LBE3
+ 3091 0020 78010000 		.4byte	.LBB4
+ 3092 0024 A2010000 		.4byte	.LBE4
+ 3093 0028 00000000 		.4byte	0
+ 3094 002c 00000000 		.4byte	0
+ 3095 0030 00000000 		.4byte	.LFB63
+ 3096 0034 0C000000 		.4byte	.LFE63
+ 3097 0038 00000000 		.4byte	.LFB64
+ 3098 003c 90030000 		.4byte	.LFE64
+ 3099 0040 00000000 		.4byte	.LFB65
+ 3100 0044 1C000000 		.4byte	.LFE65
+ 3101 0048 00000000 		.4byte	0
+ 3102 004c 00000000 		.4byte	0
+ 3103              		.section	.debug_line,"",%progbits
+ 3104              	.Ldebug_line0:
+ 3105 0000 19030000 		.section	.debug_str,"MS",%progbits,1
+ 3105      02001002 
+ 3105      00000201 
+ 3105      FB0E0D00 
+ 3105      01010101 
+ 3106              	.LASF71:
+ 3107 0000 43414E5F 		.ascii	"CAN_Start\000"
+ 3107      53746172 
+ 3107      7400
+ 3108              	.LASF26:
+ 3109 000a 43414E5F 		.ascii	"CAN_DATA_BYTES\000"
+ 3109      44415441 
+ 3109      5F425954 
+ 3109      455300
+ 3110              	.LASF14:
+ 3111 0019 696E7438 		.ascii	"int8_t\000"
+ 3111      5F7400
+ 3112              	.LASF37:
+ 3113 0020 53746172 		.ascii	"Startup\000"
+ 3113      74757000 
+ 3114              	.LASF50:
+ 3115 0028 73746174 		.ascii	"state\000"
+ 3115      6500
+ 3116              	.LASF84:
+ 3117 002e 67657445 		.ascii	"getErrorTolerance\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 70
+
+
+ 3117      72726F72 
+ 3117      546F6C65 
+ 3117      72616E63 
+ 3117      6500
+ 3118              	.LASF4:
+ 3119 0040 73686F72 		.ascii	"short int\000"
+ 3119      7420696E 
+ 3119      7400
+ 3120              	.LASF54:
+ 3121 004a 50726563 		.ascii	"PrechargingTimeCount\000"
+ 3121      68617267 
+ 3121      696E6754 
+ 3121      696D6543 
+ 3121      6F756E74 
+ 3122              	.LASF25:
+ 3123 005f 73697A65 		.ascii	"sizetype\000"
+ 3123      74797065 
+ 3123      00
+ 3124              	.LASF72:
+ 3125 0068 63616E5F 		.ascii	"can_send_status\000"
+ 3125      73656E64 
+ 3125      5F737461 
+ 3125      74757300 
+ 3126              	.LASF30:
+ 3127 0078 72786964 		.ascii	"rxid\000"
+ 3127      00
+ 3128              	.LASF94:
+ 3129 007d 6E6F6465 		.ascii	"nodeCheckStart\000"
+ 3129      43686563 
+ 3129      6B537461 
+ 3129      727400
+ 3130              	.LASF53:
+ 3131 008c 64697265 		.ascii	"direction\000"
+ 3131      6374696F 
+ 3131      6E00
+ 3132              	.LASF95:
+ 3133 0096 6D61696E 		.ascii	"main\000"
+ 3133      00
+ 3134              	.LASF83:
+ 3135 009b 48565F52 		.ascii	"HV_Read\000"
+ 3135      65616400 
+ 3136              	.LASF31:
+ 3137 00a3 72786461 		.ascii	"rxdata\000"
+ 3137      746100
+ 3138              	.LASF5:
+ 3139 00aa 5F5F7569 		.ascii	"__uint16_t\000"
+ 3139      6E743136 
+ 3139      5F7400
+ 3140              	.LASF40:
+ 3141 00b5 44726976 		.ascii	"Drive\000"
+ 3141      6500
+ 3142              	.LASF63:
+ 3143 00bb 70656461 		.ascii	"pedalOK\000"
+ 3143      6C4F4B00 
+ 3144              	.LASF66:
+ 3145 00c3 63616E5F 		.ascii	"can_send_cmd\000"
+ 3145      73656E64 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 71
+
+
+ 3145      5F636D64 
+ 3145      00
+ 3146              	.LASF52:
+ 3147 00d0 76616C75 		.ascii	"value\000"
+ 3147      6500
+ 3148              	.LASF82:
+ 3149 00d6 44726976 		.ascii	"Drive_Read\000"
+ 3149      655F5265 
+ 3149      616400
+ 3150              	.LASF15:
+ 3151 00e1 75696E74 		.ascii	"uint8_t\000"
+ 3151      385F7400 
+ 3152              	.LASF86:
+ 3153 00e9 67657441 		.ascii	"getABSMotorRPM\000"
+ 3153      42534D6F 
+ 3153      746F7252 
+ 3153      504D00
+ 3154              	.LASF19:
+ 3155 00f8 75696E74 		.ascii	"uint8\000"
+ 3155      3800
+ 3156              	.LASF93:
+ 3157 00fe 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\FE3-DashboardRev1\\FE3-Dashbo"
+ 3157      6F776E6C 
+ 3157      6F616473 
+ 3157      5C465255 
+ 3157      43445C46 
+ 3158 012d 6172645C 		.ascii	"ard\\Node-Jaguar.cydsn\000"
+ 3158      4E6F6465 
+ 3158      2D4A6167 
+ 3158      7561722E 
+ 3158      63796473 
+ 3159              	.LASF56:
+ 3160 0143 4142535F 		.ascii	"ABS_Motor_RPM\000"
+ 3160      4D6F746F 
+ 3160      725F5250 
+ 3160      4D00
+ 3161              	.LASF33:
+ 3162 0151 72786163 		.ascii	"rxacr\000"
+ 3162      7200
+ 3163              	.LASF44:
+ 3164 0157 66726F6D 		.ascii	"fromPrecharging\000"
+ 3164      50726563 
+ 3164      68617267 
+ 3164      696E6700 
+ 3165              	.LASF2:
+ 3166 0167 7369676E 		.ascii	"signed char\000"
+ 3166      65642063 
+ 3166      68617200 
+ 3167              	.LASF21:
+ 3168 0173 666C6F61 		.ascii	"float\000"
+ 3168      7400
+ 3169              	.LASF11:
+ 3170 0179 6C6F6E67 		.ascii	"long long int\000"
+ 3170      206C6F6E 
+ 3170      6720696E 
+ 3170      7400
+ 3171              	.LASF48:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 72
+
+
+ 3172 0187 6E6F6465 		.ascii	"nodeFailure\000"
+ 3172      4661696C 
+ 3172      75726500 
+ 3173              	.LASF88:
+ 3174 0193 67657450 		.ascii	"getPedalLow\000"
+ 3174      6564616C 
+ 3174      4C6F7700 
+ 3175              	.LASF65:
+ 3176 019f 6973725F 		.ascii	"isr_nodeok_Start\000"
+ 3176      6E6F6465 
+ 3176      6F6B5F53 
+ 3176      74617274 
+ 3176      00
+ 3177              	.LASF39:
+ 3178 01b0 48565F45 		.ascii	"HV_Enabled\000"
+ 3178      6E61626C 
+ 3178      656400
+ 3179              	.LASF8:
+ 3180 01bb 6C6F6E67 		.ascii	"long int\000"
+ 3180      20696E74 
+ 3180      00
+ 3181              	.LASF78:
+ 3182 01c4 52474231 		.ascii	"RGB1_1_Write\000"
+ 3182      5F315F57 
+ 3182      72697465 
+ 3182      00
+ 3183              	.LASF61:
+ 3184 01d1 48565377 		.ascii	"HVSwitch\000"
+ 3184      69746368 
+ 3184      00
+ 3185              	.LASF1:
+ 3186 01da 5F5F7569 		.ascii	"__uint8_t\000"
+ 3186      6E74385F 
+ 3186      7400
+ 3187              	.LASF77:
+ 3188 01e4 52474232 		.ascii	"RGB2_1_Write\000"
+ 3188      5F315F57 
+ 3188      72697465 
+ 3188      00
+ 3189              	.LASF38:
+ 3190 01f1 50726563 		.ascii	"Precharging\000"
+ 3190      68617267 
+ 3190      696E6700 
+ 3191              	.LASF9:
+ 3192 01fd 5F5F7569 		.ascii	"__uint32_t\000"
+ 3192      6E743332 
+ 3192      5F7400
+ 3193              	.LASF27:
+ 3194 0208 62797465 		.ascii	"byte\000"
+ 3194      00
+ 3195              	.LASF76:
+ 3196 020d 52474233 		.ascii	"RGB3_1_Write\000"
+ 3196      5F315F57 
+ 3196      72697465 
+ 3196      00
+ 3197              	.LASF73:
+ 3198 021a 4C43445F 		.ascii	"LCD_Start\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 73
+
+
+ 3198      53746172 
+ 3198      7400
+ 3199              	.LASF55:
+ 3200 0224 44726976 		.ascii	"DriveTimeCount\000"
+ 3200      6554696D 
+ 3200      65436F75 
+ 3200      6E7400
+ 3201              	.LASF3:
+ 3202 0233 756E7369 		.ascii	"unsigned char\000"
+ 3202      676E6564 
+ 3202      20636861 
+ 3202      7200
+ 3203              	.LASF74:
+ 3204 0241 42757A7A 		.ascii	"Buzzer_Write\000"
+ 3204      65725F57 
+ 3204      72697465 
+ 3204      00
+ 3205              	.LASF34:
+ 3206 024e 7278616D 		.ascii	"rxamrd\000"
+ 3206      726400
+ 3207              	.LASF41:
+ 3208 0255 4661756C 		.ascii	"Fault\000"
+ 3208      7400
+ 3209              	.LASF67:
+ 3210 025b 67657443 		.ascii	"getCapacitorVoltage\000"
+ 3210      61706163 
+ 3210      69746F72 
+ 3210      566F6C74 
+ 3210      61676500 
+ 3211              	.LASF85:
+ 3212 026f 67657441 		.ascii	"getAckRx\000"
+ 3212      636B5278 
+ 3212      00
+ 3213              	.LASF49:
+ 3214 0278 4572726F 		.ascii	"Error_State\000"
+ 3214      725F5374 
+ 3214      61746500 
+ 3215              	.LASF59:
+ 3216 0284 43617061 		.ascii	"CapacitorVolt\000"
+ 3216      6369746F 
+ 3216      72566F6C 
+ 3216      7400
+ 3217              	.LASF12:
+ 3218 0292 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3218      206C6F6E 
+ 3218      6720756E 
+ 3218      7369676E 
+ 3218      65642069 
+ 3219              	.LASF18:
+ 3220 02a9 75696E74 		.ascii	"uint32_t\000"
+ 3220      33325F74 
+ 3220      00
+ 3221              	.LASF45:
+ 3222 02b2 66726F6D 		.ascii	"fromHV_Enabled\000"
+ 3222      48565F45 
+ 3222      6E61626C 
+ 3222      656400
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 74
+
+
+ 3223              	.LASF13:
+ 3224 02c1 756E7369 		.ascii	"unsigned int\000"
+ 3224      676E6564 
+ 3224      20696E74 
+ 3224      00
+ 3225              	.LASF16:
+ 3226 02ce 75696E74 		.ascii	"uint16_t\000"
+ 3226      31365F74 
+ 3226      00
+ 3227              	.LASF80:
+ 3228 02d7 52474232 		.ascii	"RGB2_2_Write\000"
+ 3228      5F325F57 
+ 3228      72697465 
+ 3228      00
+ 3229              	.LASF46:
+ 3230 02e4 66726F6D 		.ascii	"fromDrive\000"
+ 3230      44726976 
+ 3230      6500
+ 3231              	.LASF75:
+ 3232 02ee 57617665 		.ascii	"WaveDAC8_1_VDAC8_SetValue\000"
+ 3232      44414338 
+ 3232      5F315F56 
+ 3232      44414338 
+ 3232      5F536574 
+ 3233              	.LASF70:
+ 3234 0308 43414E5F 		.ascii	"CAN_Init\000"
+ 3234      496E6974 
+ 3234      00
+ 3235              	.LASF6:
+ 3236 0311 73686F72 		.ascii	"short unsigned int\000"
+ 3236      7420756E 
+ 3236      7369676E 
+ 3236      65642069 
+ 3236      6E7400
+ 3237              	.LASF87:
+ 3238 0324 67657450 		.ascii	"getPedalHigh\000"
+ 3238      6564616C 
+ 3238      48696768 
+ 3238      00
+ 3239              	.LASF0:
+ 3240 0331 5F5F696E 		.ascii	"__int8_t\000"
+ 3240      74385F74 
+ 3240      00
+ 3241              	.LASF35:
+ 3242 033a 72786163 		.ascii	"rxacrd\000"
+ 3242      726400
+ 3243              	.LASF23:
+ 3244 0341 63686172 		.ascii	"char\000"
+ 3244      00
+ 3245              	.LASF36:
+ 3246 0346 43414E5F 		.ascii	"CAN_RX_STRUCT\000"
+ 3246      52585F53 
+ 3246      54525543 
+ 3246      5400
+ 3247              	.LASF91:
+ 3248 0354 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 3248      4320342E 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 75
+
+
+ 3248      392E3320 
+ 3248      32303135 
+ 3248      30333033 
+ 3249 0387 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 3249      20726576 
+ 3249      6973696F 
+ 3249      6E203232 
+ 3249      31323230 
+ 3250 03ba 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3250      66756E63 
+ 3250      74696F6E 
+ 3250      2D736563 
+ 3250      74696F6E 
+ 3251              	.LASF51:
+ 3252 03e2 6572726F 		.ascii	"error_state\000"
+ 3252      725F7374 
+ 3252      61746500 
+ 3253              	.LASF17:
+ 3254 03ee 696E7433 		.ascii	"int32_t\000"
+ 3254      325F7400 
+ 3255              	.LASF29:
+ 3256 03f6 7278636D 		.ascii	"rxcmd\000"
+ 3256      6400
+ 3257              	.LASF43:
+ 3258 03fc 66726F6D 		.ascii	"fromLV\000"
+ 3258      4C5600
+ 3259              	.LASF42:
+ 3260 0403 44617368 		.ascii	"Dash_State\000"
+ 3260      5F537461 
+ 3260      746500
+ 3261              	.LASF28:
+ 3262 040e 43414E5F 		.ascii	"CAN_REG_32\000"
+ 3262      5245475F 
+ 3262      333200
+ 3263              	.LASF20:
+ 3264 0419 75696E74 		.ascii	"uint32\000"
+ 3264      333200
+ 3265              	.LASF92:
+ 3266 0420 6D61696E 		.ascii	"main.c\000"
+ 3266      2E6300
+ 3267              	.LASF24:
+ 3268 0427 72656738 		.ascii	"reg8\000"
+ 3268      00
+ 3269              	.LASF10:
+ 3270 042c 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3270      20756E73 
+ 3270      69676E65 
+ 3270      6420696E 
+ 3270      7400
+ 3271              	.LASF22:
+ 3272 043e 646F7562 		.ascii	"double\000"
+ 3272      6C6500
+ 3273              	.LASF64:
+ 3274 0445 4E6F6465 		.ascii	"Node_Timer_Start\000"
+ 3274      5F54696D 
+ 3274      65725F53 
+ 3274      74617274 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 76
+
+
+ 3274      00
+ 3275              	.LASF62:
+ 3276 0456 44726976 		.ascii	"DriveSwitch\000"
+ 3276      65537769 
+ 3276      74636800 
+ 3277              	.LASF69:
+ 3278 0462 43414E5F 		.ascii	"CAN_GlobalIntEnable\000"
+ 3278      476C6F62 
+ 3278      616C496E 
+ 3278      74456E61 
+ 3278      626C6500 
+ 3279              	.LASF58:
+ 3280 0476 5468726F 		.ascii	"Throttle_Low\000"
+ 3280      74746C65 
+ 3280      5F4C6F77 
+ 3280      00
+ 3281              	.LASF7:
+ 3282 0483 5F5F696E 		.ascii	"__int32_t\000"
+ 3282      7433325F 
+ 3282      7400
+ 3283              	.LASF96:
+ 3284 048d 4953525F 		.ascii	"ISR_CAN\000"
+ 3284      43414E00 
+ 3285              	.LASF90:
+ 3286 0495 57617665 		.ascii	"WaveDAC8_1_Start\000"
+ 3286      44414338 
+ 3286      5F315F53 
+ 3286      74617274 
+ 3286      00
+ 3287              	.LASF57:
+ 3288 04a6 5468726F 		.ascii	"Throttle_High\000"
+ 3288      74746C65 
+ 3288      5F486967 
+ 3288      6800
+ 3289              	.LASF89:
+ 3290 04b4 67657443 		.ascii	"getCurtisHeartBeatCheck\000"
+ 3290      75727469 
+ 3290      73486561 
+ 3290      72744265 
+ 3290      61744368 
+ 3291              	.LASF47:
+ 3292 04cc 66726F6D 		.ascii	"fromFault\000"
+ 3292      4661756C 
+ 3292      7400
+ 3293              	.LASF81:
+ 3294 04d6 52474231 		.ascii	"RGB1_2_Write\000"
+ 3294      5F325F57 
+ 3294      72697465 
+ 3294      00
+ 3295              	.LASF60:
+ 3296 04e3 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3296      52784275 
+ 3296      66666572 
+ 3296      00
+ 3297              	.LASF68:
+ 3298 04f0 43794465 		.ascii	"CyDelay\000"
+ 3298      6C617900 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccIttM0p.s 			page 77
+
+
+ 3299              	.LASF32:
+ 3300 04f8 7278616D 		.ascii	"rxamr\000"
+ 3300      7200
+ 3301              	.LASF79:
+ 3302 04fe 52474233 		.ascii	"RGB3_2_Write\000"
+ 3302      5F325F57 
+ 3302      72697465 
+ 3302      00
+ 3303              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

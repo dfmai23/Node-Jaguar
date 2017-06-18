@@ -1,0 +1,5 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|3d5e5985-7b95-43f6-9309-cbbd0a33c3b7
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|b4b8d243-e040-4953-99b9-b94024fbb4c9
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|c607efa3-59ff-45af-bf36-8f0e6b41498a
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c0e323cd-60de-4a60-a70b-1f2f6dace837
+W:\FE3\Design\Electrical\Dashboard\meterDriver\Workspace01\MeterDriverTest.cydsn\MeterDriverTest.cyprj|680b34d6-530c-49e6-9d79-63ceda441445

@@ -1,0 +1,2477 @@
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"WaveDAC8_1.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.WaveDAC8_1_Enable,"ax",%progbits
+  19              		.align	2
+  20              		.global	WaveDAC8_1_Enable
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	WaveDAC8_1_Enable, %function
+  24              	WaveDAC8_1_Enable:
+  25              	.LFB1:
+  26              		.file 1 "Generated_Source\\PSoC5\\WaveDAC8_1.c"
+   1:Generated_Source\PSoC5/WaveDAC8_1.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/WaveDAC8_1.c **** * File Name: WaveDAC8_1.c
+   3:Generated_Source\PSoC5/WaveDAC8_1.c **** * Version 2.0
+   4:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+   5:Generated_Source\PSoC5/WaveDAC8_1.c **** * Description:
+   6:Generated_Source\PSoC5/WaveDAC8_1.c **** *  This file provides the source code for the 8-bit Waveform DAC 
+   7:Generated_Source\PSoC5/WaveDAC8_1.c **** *  (WaveDAC8) Component.
+   8:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+   9:Generated_Source\PSoC5/WaveDAC8_1.c **** ********************************************************************************
+  10:Generated_Source\PSoC5/WaveDAC8_1.c **** * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  11:Generated_Source\PSoC5/WaveDAC8_1.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:Generated_Source\PSoC5/WaveDAC8_1.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:Generated_Source\PSoC5/WaveDAC8_1.c **** * the software package with which this file was provided.
+  14:Generated_Source\PSoC5/WaveDAC8_1.c **** *******************************************************************************/
+  15:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  16:Generated_Source\PSoC5/WaveDAC8_1.c **** #include "WaveDAC8_1.h"
+  17:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  18:Generated_Source\PSoC5/WaveDAC8_1.c **** uint8  WaveDAC8_1_initVar = 0u;
+  19:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  20:Generated_Source\PSoC5/WaveDAC8_1.c **** const uint8 CYCODE WaveDAC8_1_wave1[WaveDAC8_1_WAVE1_LENGTH] = { 188u,195u,203u,211u,218u,224u,230u
+  21:Generated_Source\PSoC5/WaveDAC8_1.c **** const uint8 CYCODE WaveDAC8_1_wave2[WaveDAC8_1_WAVE2_LENGTH] = { 188u,189u,191u,193u,195u,197u,199u
+  22:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  23:Generated_Source\PSoC5/WaveDAC8_1.c **** static uint8  WaveDAC8_1_Wave1Chan;
+  24:Generated_Source\PSoC5/WaveDAC8_1.c **** static uint8  WaveDAC8_1_Wave2Chan;
+  25:Generated_Source\PSoC5/WaveDAC8_1.c **** static uint8  WaveDAC8_1_Wave1TD;
+  26:Generated_Source\PSoC5/WaveDAC8_1.c **** static uint8  WaveDAC8_1_Wave2TD;
+  27:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  28:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  29:Generated_Source\PSoC5/WaveDAC8_1.c **** /*******************************************************************************
+  30:Generated_Source\PSoC5/WaveDAC8_1.c **** * Function Name: WaveDAC8_1_Init
+  31:Generated_Source\PSoC5/WaveDAC8_1.c **** ********************************************************************************
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 2
+
+
+  32:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+  33:Generated_Source\PSoC5/WaveDAC8_1.c **** * Summary:
+  34:Generated_Source\PSoC5/WaveDAC8_1.c **** *  Initializes component with parameters set in the customizer.
+  35:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+  36:Generated_Source\PSoC5/WaveDAC8_1.c **** * Parameters:  
+  37:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None
+  38:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+  39:Generated_Source\PSoC5/WaveDAC8_1.c **** * Return: 
+  40:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None
+  41:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+  42:Generated_Source\PSoC5/WaveDAC8_1.c **** *******************************************************************************/
+  43:Generated_Source\PSoC5/WaveDAC8_1.c **** void WaveDAC8_1_Init(void) 
+  44:Generated_Source\PSoC5/WaveDAC8_1.c **** {
+  45:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_VDAC8_Init();
+  46:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_VDAC8_SetSpeed(WaveDAC8_1_HIGHSPEED);
+  47:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_VDAC8_SetRange(WaveDAC8_1_DAC_RANGE);
+  48:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  49:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#if(WaveDAC8_1_DAC_MODE == WaveDAC8_1_CURRENT_MODE)
+  50:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_IDAC8_SetPolarity(WaveDAC8_1_DAC_POL);
+  51:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#endif /* WaveDAC8_1_DAC_MODE == WaveDAC8_1_CURRENT_MODE */
+  52:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  53:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#if(WaveDAC8_1_OUT_MODE == WaveDAC8_1_BUFFER_MODE)
+  54:Generated_Source\PSoC5/WaveDAC8_1.c **** 	   WaveDAC8_1_BuffAmp_Init();
+  55:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#endif /* WaveDAC8_1_OUT_MODE == WaveDAC8_1_BUFFER_MODE */
+  56:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  57:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Get the TD Number for the DMA channel 1 and 2   */
+  58:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave1TD = CyDmaTdAllocate();
+  59:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave2TD = CyDmaTdAllocate();
+  60:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+  61:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Initialize waveform pointers  */
+  62:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave1Setup(WaveDAC8_1_wave1, WaveDAC8_1_WAVE1_LENGTH) ;
+  63:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave2Setup(WaveDAC8_1_wave2, WaveDAC8_1_WAVE2_LENGTH) ;
+  64:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+  65:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Initialize the internal clock if one present  */
+  66:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#if defined(WaveDAC8_1_DacClk_PHASE)
+  67:Generated_Source\PSoC5/WaveDAC8_1.c **** 	   WaveDAC8_1_DacClk_SetPhase(WaveDAC8_1_CLK_PHASE_0nS);
+  68:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#endif /* defined(WaveDAC8_1_DacClk_PHASE) */
+  69:Generated_Source\PSoC5/WaveDAC8_1.c **** }
+  70:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  71:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  72:Generated_Source\PSoC5/WaveDAC8_1.c **** /*******************************************************************************
+  73:Generated_Source\PSoC5/WaveDAC8_1.c **** * Function Name: WaveDAC8_1_Enable
+  74:Generated_Source\PSoC5/WaveDAC8_1.c **** ********************************************************************************
+  75:Generated_Source\PSoC5/WaveDAC8_1.c **** *  
+  76:Generated_Source\PSoC5/WaveDAC8_1.c **** * Summary: 
+  77:Generated_Source\PSoC5/WaveDAC8_1.c **** *  Enables the DAC block and DMA operation.
+  78:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+  79:Generated_Source\PSoC5/WaveDAC8_1.c **** * Parameters:  
+  80:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None
+  81:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+  82:Generated_Source\PSoC5/WaveDAC8_1.c **** * Return: 
+  83:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None
+  84:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+  85:Generated_Source\PSoC5/WaveDAC8_1.c **** *******************************************************************************/
+  86:Generated_Source\PSoC5/WaveDAC8_1.c **** void WaveDAC8_1_Enable(void) 
+  87:Generated_Source\PSoC5/WaveDAC8_1.c **** {
+  27              		.loc 1 87 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 3
+
+
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 4, -8
+  34              		.cfi_offset 14, -4
+  88:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_VDAC8_Enable();
+  35              		.loc 1 88 0
+  36 0002 FFF7FEFF 		bl	WaveDAC8_1_VDAC8_Enable
+  37              	.LVL0:
+  89:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  90:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#if(WaveDAC8_1_OUT_MODE == WaveDAC8_1_BUFFER_MODE)
+  91:Generated_Source\PSoC5/WaveDAC8_1.c **** 	   WaveDAC8_1_BuffAmp_Enable();
+  92:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#endif /* WaveDAC8_1_OUT_MODE == WaveDAC8_1_BUFFER_MODE */
+  93:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+  94:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* 
+  95:Generated_Source\PSoC5/WaveDAC8_1.c **** 	* Enable the channel. It is configured to remember the TD value so that
+  96:Generated_Source\PSoC5/WaveDAC8_1.c **** 	* it can be restored from the place where it has been stopped.
+  97:Generated_Source\PSoC5/WaveDAC8_1.c **** 	*/
+  98:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaChEnable(WaveDAC8_1_Wave1Chan, 1u);
+  38              		.loc 1 98 0
+  39 0006 074C     		ldr	r4, .L3
+  40 0008 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  41 000a 0121     		movs	r1, #1
+  42 000c FFF7FEFF 		bl	CyDmaChEnable
+  43              	.LVL1:
+  99:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaChEnable(WaveDAC8_1_Wave2Chan, 1u);
+  44              		.loc 1 99 0
+  45 0010 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+  46 0012 0121     		movs	r1, #1
+  47 0014 FFF7FEFF 		bl	CyDmaChEnable
+  48              	.LVL2:
+ 100:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 101:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* set the initial value */
+ 102:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_SetValue(0u);
+  49              		.loc 1 102 0
+  50 0018 0020     		movs	r0, #0
+  51 001a FFF7FEFF 		bl	WaveDAC8_1_VDAC8_SetValue
+  52              	.LVL3:
+ 103:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 104:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#if(WaveDAC8_1_CLOCK_SRC == WaveDAC8_1_CLOCK_INT)  	
+ 105:Generated_Source\PSoC5/WaveDAC8_1.c **** 	   WaveDAC8_1_DacClk_Start();
+  53              		.loc 1 105 0
+  54 001e FFF7FEFF 		bl	WaveDAC8_1_DacClk_Start
+  55              	.LVL4:
+  56 0022 10BD     		pop	{r4, pc}
+  57              	.L4:
+  58              		.align	2
+  59              	.L3:
+  60 0024 00000000 		.word	.LANCHOR0
+  61              		.cfi_endproc
+  62              	.LFE1:
+  63              		.size	WaveDAC8_1_Enable, .-WaveDAC8_1_Enable
+  64              		.section	.text.WaveDAC8_1_Stop,"ax",%progbits
+  65              		.align	2
+  66              		.global	WaveDAC8_1_Stop
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 4
+
+
+  67              		.thumb
+  68              		.thumb_func
+  69              		.type	WaveDAC8_1_Stop, %function
+  70              	WaveDAC8_1_Stop:
+  71              	.LFB4:
+ 106:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#endif /* WaveDAC8_1_CLOCK_SRC == WaveDAC8_1_CLOCK_INT */
+ 107:Generated_Source\PSoC5/WaveDAC8_1.c **** }
+ 108:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 109:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 110:Generated_Source\PSoC5/WaveDAC8_1.c **** /*******************************************************************************
+ 111:Generated_Source\PSoC5/WaveDAC8_1.c **** * Function Name: WaveDAC8_1_Start
+ 112:Generated_Source\PSoC5/WaveDAC8_1.c **** ********************************************************************************
+ 113:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 114:Generated_Source\PSoC5/WaveDAC8_1.c **** * Summary:
+ 115:Generated_Source\PSoC5/WaveDAC8_1.c **** *  The start function initializes the voltage DAC with the default values, 
+ 116:Generated_Source\PSoC5/WaveDAC8_1.c **** *  and sets the power to the given level.  A power level of 0, is the same as 
+ 117:Generated_Source\PSoC5/WaveDAC8_1.c **** *  executing the stop function.
+ 118:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 119:Generated_Source\PSoC5/WaveDAC8_1.c **** * Parameters:  
+ 120:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None
+ 121:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 122:Generated_Source\PSoC5/WaveDAC8_1.c **** * Return: 
+ 123:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None
+ 124:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 125:Generated_Source\PSoC5/WaveDAC8_1.c **** * Reentrant:
+ 126:Generated_Source\PSoC5/WaveDAC8_1.c **** *  No
+ 127:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 128:Generated_Source\PSoC5/WaveDAC8_1.c **** *******************************************************************************/
+ 129:Generated_Source\PSoC5/WaveDAC8_1.c **** void WaveDAC8_1_Start(void) 
+ 130:Generated_Source\PSoC5/WaveDAC8_1.c **** {
+ 131:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* If not Initialized then initialize all required hardware and software */
+ 132:Generated_Source\PSoC5/WaveDAC8_1.c **** 	if(WaveDAC8_1_initVar == 0u)
+ 133:Generated_Source\PSoC5/WaveDAC8_1.c **** 	{
+ 134:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_Init();
+ 135:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_initVar = 1u;
+ 136:Generated_Source\PSoC5/WaveDAC8_1.c **** 	}
+ 137:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 138:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Enable();
+ 139:Generated_Source\PSoC5/WaveDAC8_1.c **** }
+ 140:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 141:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 142:Generated_Source\PSoC5/WaveDAC8_1.c **** /*******************************************************************************
+ 143:Generated_Source\PSoC5/WaveDAC8_1.c **** * Function Name: WaveDAC8_1_StartEx
+ 144:Generated_Source\PSoC5/WaveDAC8_1.c **** ********************************************************************************
+ 145:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 146:Generated_Source\PSoC5/WaveDAC8_1.c **** * Summary:
+ 147:Generated_Source\PSoC5/WaveDAC8_1.c **** *  The StartEx function sets pointers and sizes for both waveforms
+ 148:Generated_Source\PSoC5/WaveDAC8_1.c **** *  and then starts the component.
+ 149:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 150:Generated_Source\PSoC5/WaveDAC8_1.c **** * Parameters:  
+ 151:Generated_Source\PSoC5/WaveDAC8_1.c **** *   uint8 * wavePtr1:     Pointer to the waveform 1 array.
+ 152:Generated_Source\PSoC5/WaveDAC8_1.c **** *   uint16  sampleSize1:  The amount of samples in the waveform 1.
+ 153:Generated_Source\PSoC5/WaveDAC8_1.c **** *   uint8 * wavePtr2:     Pointer to the waveform 2 array.
+ 154:Generated_Source\PSoC5/WaveDAC8_1.c **** *   uint16  sampleSize2:  The amount of samples in the waveform 2.
+ 155:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 156:Generated_Source\PSoC5/WaveDAC8_1.c **** * Return: 
+ 157:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 5
+
+
+ 158:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 159:Generated_Source\PSoC5/WaveDAC8_1.c **** * Reentrant:
+ 160:Generated_Source\PSoC5/WaveDAC8_1.c **** *  No
+ 161:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 162:Generated_Source\PSoC5/WaveDAC8_1.c **** *******************************************************************************/
+ 163:Generated_Source\PSoC5/WaveDAC8_1.c **** void WaveDAC8_1_StartEx(const uint8 * wavePtr1, uint16 sampleSize1, const uint8 * wavePtr2, uint16 
+ 164:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 165:Generated_Source\PSoC5/WaveDAC8_1.c **** {
+ 166:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave1Setup(wavePtr1, sampleSize1);
+ 167:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave2Setup(wavePtr2, sampleSize2);
+ 168:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Start();
+ 169:Generated_Source\PSoC5/WaveDAC8_1.c **** }
+ 170:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 171:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 172:Generated_Source\PSoC5/WaveDAC8_1.c **** /*******************************************************************************
+ 173:Generated_Source\PSoC5/WaveDAC8_1.c **** * Function Name: WaveDAC8_1_Stop
+ 174:Generated_Source\PSoC5/WaveDAC8_1.c **** ********************************************************************************
+ 175:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 176:Generated_Source\PSoC5/WaveDAC8_1.c **** * Summary:
+ 177:Generated_Source\PSoC5/WaveDAC8_1.c **** *  Stops the clock (if internal), disables the DMA channels
+ 178:Generated_Source\PSoC5/WaveDAC8_1.c **** *  and powers down the DAC.
+ 179:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 180:Generated_Source\PSoC5/WaveDAC8_1.c **** * Parameters:  
+ 181:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None  
+ 182:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 183:Generated_Source\PSoC5/WaveDAC8_1.c **** * Return: 
+ 184:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None
+ 185:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 186:Generated_Source\PSoC5/WaveDAC8_1.c **** *******************************************************************************/
+ 187:Generated_Source\PSoC5/WaveDAC8_1.c **** void WaveDAC8_1_Stop(void) 
+ 188:Generated_Source\PSoC5/WaveDAC8_1.c **** {
+  72              		.loc 1 188 0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76 0000 10B5     		push	{r4, lr}
+  77              		.cfi_def_cfa_offset 8
+  78              		.cfi_offset 4, -8
+  79              		.cfi_offset 14, -4
+ 189:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Turn off internal clock, if one present */
+ 190:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#if(WaveDAC8_1_CLOCK_SRC == WaveDAC8_1_CLOCK_INT)  	
+ 191:Generated_Source\PSoC5/WaveDAC8_1.c **** 	   WaveDAC8_1_DacClk_Stop();
+  80              		.loc 1 191 0
+  81 0002 FFF7FEFF 		bl	WaveDAC8_1_DacClk_Stop
+  82              	.LVL5:
+ 192:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#endif /* WaveDAC8_1_CLOCK_SRC == WaveDAC8_1_CLOCK_INT */
+ 193:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 194:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Disble DMA channels */
+ 195:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaChDisable(WaveDAC8_1_Wave1Chan);
+  83              		.loc 1 195 0
+  84 0006 054C     		ldr	r4, .L7
+  85 0008 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+  86 000a FFF7FEFF 		bl	CyDmaChDisable
+  87              	.LVL6:
+ 196:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaChDisable(WaveDAC8_1_Wave2Chan);
+  88              		.loc 1 196 0
+  89 000e 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 6
+
+
+  90 0010 FFF7FEFF 		bl	CyDmaChDisable
+  91              	.LVL7:
+ 197:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 198:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Disable power to DAC */
+ 199:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_VDAC8_Stop();
+  92              		.loc 1 199 0
+  93 0014 FFF7FEFF 		bl	WaveDAC8_1_VDAC8_Stop
+  94              	.LVL8:
+  95 0018 10BD     		pop	{r4, pc}
+  96              	.L8:
+  97 001a 00BF     		.align	2
+  98              	.L7:
+  99 001c 00000000 		.word	.LANCHOR0
+ 100              		.cfi_endproc
+ 101              	.LFE4:
+ 102              		.size	WaveDAC8_1_Stop, .-WaveDAC8_1_Stop
+ 103              		.section	.text.WaveDAC8_1_Wave1Setup,"ax",%progbits
+ 104              		.align	2
+ 105              		.global	WaveDAC8_1_Wave1Setup
+ 106              		.thumb
+ 107              		.thumb_func
+ 108              		.type	WaveDAC8_1_Wave1Setup, %function
+ 109              	WaveDAC8_1_Wave1Setup:
+ 110              	.LFB5:
+ 200:Generated_Source\PSoC5/WaveDAC8_1.c **** }
+ 201:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 202:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 203:Generated_Source\PSoC5/WaveDAC8_1.c **** /*******************************************************************************
+ 204:Generated_Source\PSoC5/WaveDAC8_1.c **** * Function Name: WaveDAC8_1_Wave1Setup
+ 205:Generated_Source\PSoC5/WaveDAC8_1.c **** ********************************************************************************
+ 206:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 207:Generated_Source\PSoC5/WaveDAC8_1.c **** * Summary:
+ 208:Generated_Source\PSoC5/WaveDAC8_1.c **** *  Sets pointer and size for waveform 1.                                    
+ 209:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 210:Generated_Source\PSoC5/WaveDAC8_1.c **** * Parameters:  
+ 211:Generated_Source\PSoC5/WaveDAC8_1.c **** *  uint8 * WavePtr:     Pointer to the waveform array.
+ 212:Generated_Source\PSoC5/WaveDAC8_1.c **** *  uint16  SampleSize:  The amount of samples in the waveform.
+ 213:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 214:Generated_Source\PSoC5/WaveDAC8_1.c **** * Return: 
+ 215:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None 
+ 216:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 217:Generated_Source\PSoC5/WaveDAC8_1.c **** *******************************************************************************/
+ 218:Generated_Source\PSoC5/WaveDAC8_1.c **** void WaveDAC8_1_Wave1Setup(const uint8 * wavePtr, uint16 sampleSize)
+ 219:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 220:Generated_Source\PSoC5/WaveDAC8_1.c **** {
+ 111              		.loc 1 220 0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              	.LVL9:
+ 116 0000 70B5     		push	{r4, r5, r6, lr}
+ 117              		.cfi_def_cfa_offset 16
+ 118              		.cfi_offset 4, -16
+ 119              		.cfi_offset 5, -12
+ 120              		.cfi_offset 6, -8
+ 121              		.cfi_offset 14, -4
+ 122 0002 0546     		mov	r5, r0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 7
+
+
+ 123 0004 0E46     		mov	r6, r1
+ 221:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#if (CY_PSOC3)
+ 222:Generated_Source\PSoC5/WaveDAC8_1.c **** 		uint16 memoryType; /* determining the source memory type */
+ 223:Generated_Source\PSoC5/WaveDAC8_1.c **** 		memoryType = (WaveDAC8_1_HI16FLASHPTR == HI16(wavePtr)) ? HI16(CYDEV_FLS_BASE) : HI16(CYDEV_SRAM_
+ 224:Generated_Source\PSoC5/WaveDAC8_1.c **** 		
+ 225:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_Wave1Chan = WaveDAC8_1_Wave1_DMA_DmaInitialize(
+ 226:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_Wave1_DMA_BYTES_PER_BURST, WaveDAC8_1_Wave1_DMA_REQUEST_PER_BURST,
+ 227:Generated_Source\PSoC5/WaveDAC8_1.c **** 		memoryType, HI16(CYDEV_PERIPH_BASE));
+ 228:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#else /* PSoC 5 */
+ 229:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_Wave1Chan = WaveDAC8_1_Wave1_DMA_DmaInitialize(
+ 124              		.loc 1 229 0
+ 125 0006 0120     		movs	r0, #1
+ 126              	.LVL10:
+ 127 0008 0146     		mov	r1, r0
+ 128              	.LVL11:
+ 129 000a 2A0C     		lsrs	r2, r5, #16
+ 130 000c 4FF48043 		mov	r3, #16384
+ 131 0010 FFF7FEFF 		bl	WaveDAC8_1_Wave1_DMA_DmaInitialize
+ 132              	.LVL12:
+ 133 0014 094C     		ldr	r4, .L11
+ 134 0016 2070     		strb	r0, [r4]
+ 230:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_Wave1_DMA_BYTES_PER_BURST, WaveDAC8_1_Wave1_DMA_REQUEST_PER_BURST,
+ 231:Generated_Source\PSoC5/WaveDAC8_1.c **** 		HI16(wavePtr), HI16(WaveDAC8_1_DAC8__D));
+ 232:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#endif /* CY_PSOC3 */
+ 233:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 234:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/*
+ 235:Generated_Source\PSoC5/WaveDAC8_1.c **** 	* TD is looping on itself. 
+ 236:Generated_Source\PSoC5/WaveDAC8_1.c ****     * Increment the source address, but not the destination address. 
+ 237:Generated_Source\PSoC5/WaveDAC8_1.c **** 	*/
+ 238:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaTdSetConfiguration(WaveDAC8_1_Wave1TD, sampleSize, WaveDAC8_1_Wave1TD, 
+ 135              		.loc 1 238 0
+ 136 0018 A278     		ldrb	r2, [r4, #2]	@ zero_extendqisi2
+ 137 001a 1046     		mov	r0, r2
+ 138 001c 3146     		mov	r1, r6
+ 139 001e 0123     		movs	r3, #1
+ 140 0020 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 141              	.LVL13:
+ 239:Generated_Source\PSoC5/WaveDAC8_1.c ****                                     (uint8)CY_DMA_TD_INC_SRC_ADR | (uint8)WaveDAC8_1_Wave1_DMA__TD_
+ 240:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 241:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Set the TD source and destination address */
+ 242:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaTdSetAddress(WaveDAC8_1_Wave1TD, LO16((uint32)wavePtr), LO16(WaveDAC8_1_DAC8__D));
+ 142              		.loc 1 242 0
+ 143 0024 A078     		ldrb	r0, [r4, #2]	@ zero_extendqisi2
+ 144 0026 A9B2     		uxth	r1, r5
+ 145 0028 45F68132 		movw	r2, #23425
+ 146 002c FFF7FEFF 		bl	CyDmaTdSetAddress
+ 147              	.LVL14:
+ 243:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 244:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Associate the TD with the channel */
+ 245:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaChSetInitialTd(WaveDAC8_1_Wave1Chan, WaveDAC8_1_Wave1TD);
+ 148              		.loc 1 245 0
+ 149 0030 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 150 0032 A178     		ldrb	r1, [r4, #2]	@ zero_extendqisi2
+ 151 0034 FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 152              	.LVL15:
+ 153 0038 70BD     		pop	{r4, r5, r6, pc}
+ 154              	.LVL16:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 8
+
+
+ 155              	.L12:
+ 156 003a 00BF     		.align	2
+ 157              	.L11:
+ 158 003c 00000000 		.word	.LANCHOR0
+ 159              		.cfi_endproc
+ 160              	.LFE5:
+ 161              		.size	WaveDAC8_1_Wave1Setup, .-WaveDAC8_1_Wave1Setup
+ 162              		.section	.text.WaveDAC8_1_Wave2Setup,"ax",%progbits
+ 163              		.align	2
+ 164              		.global	WaveDAC8_1_Wave2Setup
+ 165              		.thumb
+ 166              		.thumb_func
+ 167              		.type	WaveDAC8_1_Wave2Setup, %function
+ 168              	WaveDAC8_1_Wave2Setup:
+ 169              	.LFB6:
+ 246:Generated_Source\PSoC5/WaveDAC8_1.c **** }
+ 247:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 248:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 249:Generated_Source\PSoC5/WaveDAC8_1.c **** /*******************************************************************************
+ 250:Generated_Source\PSoC5/WaveDAC8_1.c **** * Function Name: WaveDAC8_1_Wave2Setup
+ 251:Generated_Source\PSoC5/WaveDAC8_1.c **** ********************************************************************************
+ 252:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 253:Generated_Source\PSoC5/WaveDAC8_1.c **** * Summary:
+ 254:Generated_Source\PSoC5/WaveDAC8_1.c **** *  Sets pointer and size for waveform 2.                                    
+ 255:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 256:Generated_Source\PSoC5/WaveDAC8_1.c **** * Parameters:  
+ 257:Generated_Source\PSoC5/WaveDAC8_1.c **** *  uint8 * WavePtr:     Pointer to the waveform array.
+ 258:Generated_Source\PSoC5/WaveDAC8_1.c **** *  uint16  SampleSize:  The amount of samples in the waveform.
+ 259:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 260:Generated_Source\PSoC5/WaveDAC8_1.c **** * Return: 
+ 261:Generated_Source\PSoC5/WaveDAC8_1.c **** *  None
+ 262:Generated_Source\PSoC5/WaveDAC8_1.c **** *
+ 263:Generated_Source\PSoC5/WaveDAC8_1.c **** *******************************************************************************/
+ 264:Generated_Source\PSoC5/WaveDAC8_1.c **** void WaveDAC8_1_Wave2Setup(const uint8 * wavePtr, uint16 sampleSize)
+ 265:Generated_Source\PSoC5/WaveDAC8_1.c ****  
+ 266:Generated_Source\PSoC5/WaveDAC8_1.c **** {
+ 170              		.loc 1 266 0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174              	.LVL17:
+ 175 0000 70B5     		push	{r4, r5, r6, lr}
+ 176              		.cfi_def_cfa_offset 16
+ 177              		.cfi_offset 4, -16
+ 178              		.cfi_offset 5, -12
+ 179              		.cfi_offset 6, -8
+ 180              		.cfi_offset 14, -4
+ 181 0002 0546     		mov	r5, r0
+ 182 0004 0E46     		mov	r6, r1
+ 267:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#if (CY_PSOC3)
+ 268:Generated_Source\PSoC5/WaveDAC8_1.c **** 		uint16 memoryType; /* determining the source memory type */
+ 269:Generated_Source\PSoC5/WaveDAC8_1.c **** 		memoryType = (WaveDAC8_1_HI16FLASHPTR == HI16(wavePtr)) ? HI16(CYDEV_FLS_BASE) : HI16(CYDEV_SRAM_
+ 270:Generated_Source\PSoC5/WaveDAC8_1.c **** 			
+ 271:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_Wave2Chan = WaveDAC8_1_Wave2_DMA_DmaInitialize(
+ 272:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_Wave2_DMA_BYTES_PER_BURST, WaveDAC8_1_Wave2_DMA_REQUEST_PER_BURST,
+ 273:Generated_Source\PSoC5/WaveDAC8_1.c **** 		memoryType, HI16(CYDEV_PERIPH_BASE));
+ 274:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#else /* PSoC 5 */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 9
+
+
+ 275:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_Wave2Chan = WaveDAC8_1_Wave2_DMA_DmaInitialize(
+ 183              		.loc 1 275 0
+ 184 0006 0120     		movs	r0, #1
+ 185              	.LVL18:
+ 186 0008 0146     		mov	r1, r0
+ 187              	.LVL19:
+ 188 000a 2A0C     		lsrs	r2, r5, #16
+ 189 000c 4FF48043 		mov	r3, #16384
+ 190 0010 FFF7FEFF 		bl	WaveDAC8_1_Wave2_DMA_DmaInitialize
+ 191              	.LVL20:
+ 192 0014 094C     		ldr	r4, .L15
+ 193 0016 6070     		strb	r0, [r4, #1]
+ 276:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_Wave2_DMA_BYTES_PER_BURST, WaveDAC8_1_Wave2_DMA_REQUEST_PER_BURST,
+ 277:Generated_Source\PSoC5/WaveDAC8_1.c **** 		HI16(wavePtr), HI16(WaveDAC8_1_DAC8__D));
+ 278:Generated_Source\PSoC5/WaveDAC8_1.c **** 	#endif /* CY_PSOC3 */
+ 279:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 280:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/*
+ 281:Generated_Source\PSoC5/WaveDAC8_1.c **** 	* TD is looping on itself. 
+ 282:Generated_Source\PSoC5/WaveDAC8_1.c **** 	* Increment the source address, but not the destination address. 
+ 283:Generated_Source\PSoC5/WaveDAC8_1.c **** 	*/
+ 284:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaTdSetConfiguration(WaveDAC8_1_Wave2TD, sampleSize, WaveDAC8_1_Wave2TD, 
+ 194              		.loc 1 284 0
+ 195 0018 E278     		ldrb	r2, [r4, #3]	@ zero_extendqisi2
+ 196 001a 1046     		mov	r0, r2
+ 197 001c 3146     		mov	r1, r6
+ 198 001e 0123     		movs	r3, #1
+ 199 0020 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 200              	.LVL21:
+ 285:Generated_Source\PSoC5/WaveDAC8_1.c ****                                     (uint8)CY_DMA_TD_INC_SRC_ADR | (uint8)WaveDAC8_1_Wave2_DMA__TD_
+ 286:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 287:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Set the TD source and destination address */
+ 288:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaTdSetAddress(WaveDAC8_1_Wave2TD, LO16((uint32)wavePtr), LO16(WaveDAC8_1_DAC8__D));
+ 201              		.loc 1 288 0
+ 202 0024 E078     		ldrb	r0, [r4, #3]	@ zero_extendqisi2
+ 203 0026 A9B2     		uxth	r1, r5
+ 204 0028 45F68132 		movw	r2, #23425
+ 205 002c FFF7FEFF 		bl	CyDmaTdSetAddress
+ 206              	.LVL22:
+ 289:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 290:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* Associate the TD with the channel */
+ 291:Generated_Source\PSoC5/WaveDAC8_1.c **** 	(void)CyDmaChSetInitialTd(WaveDAC8_1_Wave2Chan, WaveDAC8_1_Wave2TD);
+ 207              		.loc 1 291 0
+ 208 0030 6078     		ldrb	r0, [r4, #1]	@ zero_extendqisi2
+ 209 0032 E178     		ldrb	r1, [r4, #3]	@ zero_extendqisi2
+ 210 0034 FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 211              	.LVL23:
+ 212 0038 70BD     		pop	{r4, r5, r6, pc}
+ 213              	.LVL24:
+ 214              	.L16:
+ 215 003a 00BF     		.align	2
+ 216              	.L15:
+ 217 003c 00000000 		.word	.LANCHOR0
+ 218              		.cfi_endproc
+ 219              	.LFE6:
+ 220              		.size	WaveDAC8_1_Wave2Setup, .-WaveDAC8_1_Wave2Setup
+ 221              		.section	.text.WaveDAC8_1_Init,"ax",%progbits
+ 222              		.align	2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 10
+
+
+ 223              		.global	WaveDAC8_1_Init
+ 224              		.thumb
+ 225              		.thumb_func
+ 226              		.type	WaveDAC8_1_Init, %function
+ 227              	WaveDAC8_1_Init:
+ 228              	.LFB0:
+  44:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_VDAC8_Init();
+ 229              		.loc 1 44 0
+ 230              		.cfi_startproc
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 0, uses_anonymous_args = 0
+ 233 0000 10B5     		push	{r4, lr}
+ 234              		.cfi_def_cfa_offset 8
+ 235              		.cfi_offset 4, -8
+ 236              		.cfi_offset 14, -4
+  45:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_VDAC8_SetSpeed(WaveDAC8_1_HIGHSPEED);
+ 237              		.loc 1 45 0
+ 238 0002 FFF7FEFF 		bl	WaveDAC8_1_VDAC8_Init
+ 239              	.LVL25:
+  46:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_VDAC8_SetRange(WaveDAC8_1_DAC_RANGE);
+ 240              		.loc 1 46 0
+ 241 0006 0220     		movs	r0, #2
+ 242 0008 FFF7FEFF 		bl	WaveDAC8_1_VDAC8_SetSpeed
+ 243              	.LVL26:
+  47:Generated_Source\PSoC5/WaveDAC8_1.c **** 
+ 244              		.loc 1 47 0
+ 245 000c 0420     		movs	r0, #4
+ 246 000e FFF7FEFF 		bl	WaveDAC8_1_VDAC8_SetRange
+ 247              	.LVL27:
+  58:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave2TD = CyDmaTdAllocate();
+ 248              		.loc 1 58 0
+ 249 0012 FFF7FEFF 		bl	CyDmaTdAllocate
+ 250              	.LVL28:
+ 251 0016 084C     		ldr	r4, .L19
+ 252 0018 A070     		strb	r0, [r4, #2]
+  59:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 253              		.loc 1 59 0
+ 254 001a FFF7FEFF 		bl	CyDmaTdAllocate
+ 255              	.LVL29:
+ 256 001e E070     		strb	r0, [r4, #3]
+  62:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave2Setup(WaveDAC8_1_wave2, WaveDAC8_1_WAVE2_LENGTH) ;
+ 257              		.loc 1 62 0
+ 258 0020 064C     		ldr	r4, .L19+4
+ 259 0022 2046     		mov	r0, r4
+ 260 0024 3221     		movs	r1, #50
+ 261 0026 FFF7FEFF 		bl	WaveDAC8_1_Wave1Setup
+ 262              	.LVL30:
+  63:Generated_Source\PSoC5/WaveDAC8_1.c **** 	
+ 263              		.loc 1 63 0
+ 264 002a 04F13400 		add	r0, r4, #52
+ 265 002e 6421     		movs	r1, #100
+ 266 0030 FFF7FEFF 		bl	WaveDAC8_1_Wave2Setup
+ 267              	.LVL31:
+ 268 0034 10BD     		pop	{r4, pc}
+ 269              	.L20:
+ 270 0036 00BF     		.align	2
+ 271              	.L19:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 11
+
+
+ 272 0038 00000000 		.word	.LANCHOR0
+ 273 003c 00000000 		.word	.LANCHOR1
+ 274              		.cfi_endproc
+ 275              	.LFE0:
+ 276              		.size	WaveDAC8_1_Init, .-WaveDAC8_1_Init
+ 277              		.section	.text.WaveDAC8_1_Start,"ax",%progbits
+ 278              		.align	2
+ 279              		.global	WaveDAC8_1_Start
+ 280              		.thumb
+ 281              		.thumb_func
+ 282              		.type	WaveDAC8_1_Start, %function
+ 283              	WaveDAC8_1_Start:
+ 284              	.LFB2:
+ 130:Generated_Source\PSoC5/WaveDAC8_1.c **** 	/* If not Initialized then initialize all required hardware and software */
+ 285              		.loc 1 130 0
+ 286              		.cfi_startproc
+ 287              		@ args = 0, pretend = 0, frame = 0
+ 288              		@ frame_needed = 0, uses_anonymous_args = 0
+ 289 0000 08B5     		push	{r3, lr}
+ 290              		.cfi_def_cfa_offset 8
+ 291              		.cfi_offset 3, -8
+ 292              		.cfi_offset 14, -4
+ 132:Generated_Source\PSoC5/WaveDAC8_1.c **** 	{
+ 293              		.loc 1 132 0
+ 294 0002 054B     		ldr	r3, .L24
+ 295 0004 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 296 0006 23B9     		cbnz	r3, .L22
+ 134:Generated_Source\PSoC5/WaveDAC8_1.c **** 		WaveDAC8_1_initVar = 1u;
+ 297              		.loc 1 134 0
+ 298 0008 FFF7FEFF 		bl	WaveDAC8_1_Init
+ 299              	.LVL32:
+ 135:Generated_Source\PSoC5/WaveDAC8_1.c **** 	}
+ 300              		.loc 1 135 0
+ 301 000c 0122     		movs	r2, #1
+ 302 000e 024B     		ldr	r3, .L24
+ 303 0010 1A71     		strb	r2, [r3, #4]
+ 304              	.L22:
+ 138:Generated_Source\PSoC5/WaveDAC8_1.c **** }
+ 305              		.loc 1 138 0
+ 306 0012 FFF7FEFF 		bl	WaveDAC8_1_Enable
+ 307              	.LVL33:
+ 308 0016 08BD     		pop	{r3, pc}
+ 309              	.L25:
+ 310              		.align	2
+ 311              	.L24:
+ 312 0018 00000000 		.word	.LANCHOR0
+ 313              		.cfi_endproc
+ 314              	.LFE2:
+ 315              		.size	WaveDAC8_1_Start, .-WaveDAC8_1_Start
+ 316              		.section	.text.WaveDAC8_1_StartEx,"ax",%progbits
+ 317              		.align	2
+ 318              		.global	WaveDAC8_1_StartEx
+ 319              		.thumb
+ 320              		.thumb_func
+ 321              		.type	WaveDAC8_1_StartEx, %function
+ 322              	WaveDAC8_1_StartEx:
+ 323              	.LFB3:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 12
+
+
+ 165:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave1Setup(wavePtr1, sampleSize1);
+ 324              		.loc 1 165 0
+ 325              		.cfi_startproc
+ 326              		@ args = 0, pretend = 0, frame = 0
+ 327              		@ frame_needed = 0, uses_anonymous_args = 0
+ 328              	.LVL34:
+ 329 0000 38B5     		push	{r3, r4, r5, lr}
+ 330              		.cfi_def_cfa_offset 16
+ 331              		.cfi_offset 3, -16
+ 332              		.cfi_offset 4, -12
+ 333              		.cfi_offset 5, -8
+ 334              		.cfi_offset 14, -4
+ 335 0002 1546     		mov	r5, r2
+ 336 0004 1C46     		mov	r4, r3
+ 166:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Wave2Setup(wavePtr2, sampleSize2);
+ 337              		.loc 1 166 0
+ 338 0006 FFF7FEFF 		bl	WaveDAC8_1_Wave1Setup
+ 339              	.LVL35:
+ 167:Generated_Source\PSoC5/WaveDAC8_1.c **** 	WaveDAC8_1_Start();
+ 340              		.loc 1 167 0
+ 341 000a 2846     		mov	r0, r5
+ 342 000c 2146     		mov	r1, r4
+ 343 000e FFF7FEFF 		bl	WaveDAC8_1_Wave2Setup
+ 344              	.LVL36:
+ 168:Generated_Source\PSoC5/WaveDAC8_1.c **** }
+ 345              		.loc 1 168 0
+ 346 0012 FFF7FEFF 		bl	WaveDAC8_1_Start
+ 347              	.LVL37:
+ 348 0016 38BD     		pop	{r3, r4, r5, pc}
+ 349              		.cfi_endproc
+ 350              	.LFE3:
+ 351              		.size	WaveDAC8_1_StartEx, .-WaveDAC8_1_StartEx
+ 352              		.global	WaveDAC8_1_wave2
+ 353              		.global	WaveDAC8_1_wave1
+ 354              		.global	WaveDAC8_1_initVar
+ 355              		.section	.rodata
+ 356              		.align	2
+ 357              		.set	.LANCHOR1,. + 0
+ 358              		.type	WaveDAC8_1_wave1, %object
+ 359              		.size	WaveDAC8_1_wave1, 50
+ 360              	WaveDAC8_1_wave1:
+ 361 0000 BC       		.byte	-68
+ 362 0001 C3       		.byte	-61
+ 363 0002 CB       		.byte	-53
+ 364 0003 D3       		.byte	-45
+ 365 0004 DA       		.byte	-38
+ 366 0005 E0       		.byte	-32
+ 367 0006 E6       		.byte	-26
+ 368 0007 EC       		.byte	-20
+ 369 0008 F0       		.byte	-16
+ 370 0009 F4       		.byte	-12
+ 371 000a F7       		.byte	-9
+ 372 000b F9       		.byte	-7
+ 373 000c FA       		.byte	-6
+ 374 000d FA       		.byte	-6
+ 375 000e F9       		.byte	-7
+ 376 000f F7       		.byte	-9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 13
+
+
+ 377 0010 F4       		.byte	-12
+ 378 0011 F0       		.byte	-16
+ 379 0012 EC       		.byte	-20
+ 380 0013 E6       		.byte	-26
+ 381 0014 E0       		.byte	-32
+ 382 0015 DA       		.byte	-38
+ 383 0016 D3       		.byte	-45
+ 384 0017 CB       		.byte	-53
+ 385 0018 C3       		.byte	-61
+ 386 0019 BC       		.byte	-68
+ 387 001a B4       		.byte	-76
+ 388 001b AC       		.byte	-84
+ 389 001c A4       		.byte	-92
+ 390 001d 9D       		.byte	-99
+ 391 001e 97       		.byte	-105
+ 392 001f 91       		.byte	-111
+ 393 0020 8B       		.byte	-117
+ 394 0021 87       		.byte	-121
+ 395 0022 83       		.byte	-125
+ 396 0023 80       		.byte	-128
+ 397 0024 7E       		.byte	126
+ 398 0025 7D       		.byte	125
+ 399 0026 7D       		.byte	125
+ 400 0027 7E       		.byte	126
+ 401 0028 80       		.byte	-128
+ 402 0029 83       		.byte	-125
+ 403 002a 87       		.byte	-121
+ 404 002b 8B       		.byte	-117
+ 405 002c 91       		.byte	-111
+ 406 002d 97       		.byte	-105
+ 407 002e 9D       		.byte	-99
+ 408 002f A4       		.byte	-92
+ 409 0030 AC       		.byte	-84
+ 410 0031 B4       		.byte	-76
+ 411 0032 0000     		.space	2
+ 412              		.type	WaveDAC8_1_wave2, %object
+ 413              		.size	WaveDAC8_1_wave2, 100
+ 414              	WaveDAC8_1_wave2:
+ 415 0034 BC       		.byte	-68
+ 416 0035 BD       		.byte	-67
+ 417 0036 BF       		.byte	-65
+ 418 0037 C1       		.byte	-63
+ 419 0038 C3       		.byte	-61
+ 420 0039 C5       		.byte	-59
+ 421 003a C7       		.byte	-57
+ 422 003b C9       		.byte	-55
+ 423 003c CB       		.byte	-53
+ 424 003d CC       		.byte	-52
+ 425 003e CE       		.byte	-50
+ 426 003f CF       		.byte	-49
+ 427 0040 D1       		.byte	-47
+ 428 0041 D2       		.byte	-46
+ 429 0042 D4       		.byte	-44
+ 430 0043 D5       		.byte	-43
+ 431 0044 D6       		.byte	-42
+ 432 0045 D7       		.byte	-41
+ 433 0046 D8       		.byte	-40
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 14
+
+
+ 434 0047 D9       		.byte	-39
+ 435 0048 D9       		.byte	-39
+ 436 0049 DA       		.byte	-38
+ 437 004a DA       		.byte	-38
+ 438 004b DB       		.byte	-37
+ 439 004c DB       		.byte	-37
+ 440 004d DB       		.byte	-37
+ 441 004e DB       		.byte	-37
+ 442 004f DB       		.byte	-37
+ 443 0050 DA       		.byte	-38
+ 444 0051 DA       		.byte	-38
+ 445 0052 D9       		.byte	-39
+ 446 0053 D9       		.byte	-39
+ 447 0054 D8       		.byte	-40
+ 448 0055 D7       		.byte	-41
+ 449 0056 D6       		.byte	-42
+ 450 0057 D5       		.byte	-43
+ 451 0058 D4       		.byte	-44
+ 452 0059 D2       		.byte	-46
+ 453 005a D1       		.byte	-47
+ 454 005b CF       		.byte	-49
+ 455 005c CE       		.byte	-50
+ 456 005d CC       		.byte	-52
+ 457 005e CB       		.byte	-53
+ 458 005f C9       		.byte	-55
+ 459 0060 C7       		.byte	-57
+ 460 0061 C5       		.byte	-59
+ 461 0062 C3       		.byte	-61
+ 462 0063 C1       		.byte	-63
+ 463 0064 BF       		.byte	-65
+ 464 0065 BD       		.byte	-67
+ 465 0066 BC       		.byte	-68
+ 466 0067 BA       		.byte	-70
+ 467 0068 B8       		.byte	-72
+ 468 0069 B6       		.byte	-74
+ 469 006a B4       		.byte	-76
+ 470 006b B2       		.byte	-78
+ 471 006c B0       		.byte	-80
+ 472 006d AE       		.byte	-82
+ 473 006e AC       		.byte	-84
+ 474 006f AB       		.byte	-85
+ 475 0070 A9       		.byte	-87
+ 476 0071 A8       		.byte	-88
+ 477 0072 A6       		.byte	-90
+ 478 0073 A5       		.byte	-91
+ 479 0074 A3       		.byte	-93
+ 480 0075 A2       		.byte	-94
+ 481 0076 A1       		.byte	-95
+ 482 0077 A0       		.byte	-96
+ 483 0078 9F       		.byte	-97
+ 484 0079 9E       		.byte	-98
+ 485 007a 9E       		.byte	-98
+ 486 007b 9D       		.byte	-99
+ 487 007c 9D       		.byte	-99
+ 488 007d 9C       		.byte	-100
+ 489 007e 9C       		.byte	-100
+ 490 007f 9C       		.byte	-100
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 15
+
+
+ 491 0080 9C       		.byte	-100
+ 492 0081 9C       		.byte	-100
+ 493 0082 9D       		.byte	-99
+ 494 0083 9D       		.byte	-99
+ 495 0084 9E       		.byte	-98
+ 496 0085 9E       		.byte	-98
+ 497 0086 9F       		.byte	-97
+ 498 0087 A0       		.byte	-96
+ 499 0088 A1       		.byte	-95
+ 500 0089 A2       		.byte	-94
+ 501 008a A3       		.byte	-93
+ 502 008b A5       		.byte	-91
+ 503 008c A6       		.byte	-90
+ 504 008d A8       		.byte	-88
+ 505 008e A9       		.byte	-87
+ 506 008f AB       		.byte	-85
+ 507 0090 AC       		.byte	-84
+ 508 0091 AE       		.byte	-82
+ 509 0092 B0       		.byte	-80
+ 510 0093 B2       		.byte	-78
+ 511 0094 B4       		.byte	-76
+ 512 0095 B6       		.byte	-74
+ 513 0096 B8       		.byte	-72
+ 514 0097 BA       		.byte	-70
+ 515              		.bss
+ 516              		.set	.LANCHOR0,. + 0
+ 517              		.type	WaveDAC8_1_Wave1Chan, %object
+ 518              		.size	WaveDAC8_1_Wave1Chan, 1
+ 519              	WaveDAC8_1_Wave1Chan:
+ 520 0000 00       		.space	1
+ 521              		.type	WaveDAC8_1_Wave2Chan, %object
+ 522              		.size	WaveDAC8_1_Wave2Chan, 1
+ 523              	WaveDAC8_1_Wave2Chan:
+ 524 0001 00       		.space	1
+ 525              		.type	WaveDAC8_1_Wave1TD, %object
+ 526              		.size	WaveDAC8_1_Wave1TD, 1
+ 527              	WaveDAC8_1_Wave1TD:
+ 528 0002 00       		.space	1
+ 529              		.type	WaveDAC8_1_Wave2TD, %object
+ 530              		.size	WaveDAC8_1_Wave2TD, 1
+ 531              	WaveDAC8_1_Wave2TD:
+ 532 0003 00       		.space	1
+ 533              		.type	WaveDAC8_1_initVar, %object
+ 534              		.size	WaveDAC8_1_initVar, 1
+ 535              	WaveDAC8_1_initVar:
+ 536 0004 00       		.space	1
+ 537              		.text
+ 538              	.Letext0:
+ 539              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 540              		.file 3 "Generated_Source\\PSoC5/WaveDAC8_1_VDAC8.h"
+ 541              		.file 4 "Generated_Source\\PSoC5/WaveDAC8_1_DacClk.h"
+ 542              		.file 5 "Generated_Source\\PSoC5/CYDMAC.H"
+ 543              		.file 6 "Generated_Source\\PSoC5/WaveDAC8_1_Wave1_DMA_dma.h"
+ 544              		.file 7 "Generated_Source\\PSoC5/WaveDAC8_1_Wave2_DMA_dma.h"
+ 545              		.section	.debug_info,"",%progbits
+ 546              	.Ldebug_info0:
+ 547 0000 9C050000 		.4byte	0x59c
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 16
+
+
+ 548 0004 0400     		.2byte	0x4
+ 549 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 550 000a 04       		.byte	0x4
+ 551 000b 01       		.uleb128 0x1
+ 552 000c 5E020000 		.4byte	.LASF52
+ 553 0010 01       		.byte	0x1
+ 554 0011 07030000 		.4byte	.LASF53
+ 555 0015 9C030000 		.4byte	.LASF54
+ 556 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 557 001d 00000000 		.4byte	0
+ 558 0021 00000000 		.4byte	.Ldebug_line0
+ 559 0025 02       		.uleb128 0x2
+ 560 0026 01       		.byte	0x1
+ 561 0027 06       		.byte	0x6
+ 562 0028 4E040000 		.4byte	.LASF0
+ 563 002c 02       		.uleb128 0x2
+ 564 002d 01       		.byte	0x1
+ 565 002e 08       		.byte	0x8
+ 566 002f EC020000 		.4byte	.LASF1
+ 567 0033 02       		.uleb128 0x2
+ 568 0034 02       		.byte	0x2
+ 569 0035 05       		.byte	0x5
+ 570 0036 15020000 		.4byte	.LASF2
+ 571 003a 02       		.uleb128 0x2
+ 572 003b 02       		.byte	0x2
+ 573 003c 07       		.byte	0x7
+ 574 003d 85000000 		.4byte	.LASF3
+ 575 0041 02       		.uleb128 0x2
+ 576 0042 04       		.byte	0x4
+ 577 0043 05       		.byte	0x5
+ 578 0044 45040000 		.4byte	.LASF4
+ 579 0048 02       		.uleb128 0x2
+ 580 0049 04       		.byte	0x4
+ 581 004a 07       		.byte	0x7
+ 582 004b 81010000 		.4byte	.LASF5
+ 583 004f 02       		.uleb128 0x2
+ 584 0050 08       		.byte	0x8
+ 585 0051 05       		.byte	0x5
+ 586 0052 8E030000 		.4byte	.LASF6
+ 587 0056 02       		.uleb128 0x2
+ 588 0057 08       		.byte	0x8
+ 589 0058 07       		.byte	0x7
+ 590 0059 2B030000 		.4byte	.LASF7
+ 591 005d 03       		.uleb128 0x3
+ 592 005e 04       		.byte	0x4
+ 593 005f 05       		.byte	0x5
+ 594 0060 696E7400 		.ascii	"int\000"
+ 595 0064 02       		.uleb128 0x2
+ 596 0065 04       		.byte	0x4
+ 597 0066 07       		.byte	0x7
+ 598 0067 FA020000 		.4byte	.LASF8
+ 599 006b 04       		.uleb128 0x4
+ 600 006c 9B010000 		.4byte	.LASF9
+ 601 0070 02       		.byte	0x2
+ 602 0071 3801     		.2byte	0x138
+ 603 0073 2C000000 		.4byte	0x2c
+ 604 0077 04       		.uleb128 0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 17
+
+
+ 605 0078 2D020000 		.4byte	.LASF10
+ 606 007c 02       		.byte	0x2
+ 607 007d 3901     		.2byte	0x139
+ 608 007f 3A000000 		.4byte	0x3a
+ 609 0083 04       		.uleb128 0x4
+ 610 0084 57020000 		.4byte	.LASF11
+ 611 0088 02       		.byte	0x2
+ 612 0089 3A01     		.2byte	0x13a
+ 613 008b 48000000 		.4byte	0x48
+ 614 008f 02       		.uleb128 0x2
+ 615 0090 04       		.byte	0x4
+ 616 0091 04       		.byte	0x4
+ 617 0092 2F010000 		.4byte	.LASF12
+ 618 0096 02       		.uleb128 0x2
+ 619 0097 08       		.byte	0x8
+ 620 0098 04       		.byte	0x4
+ 621 0099 FE010000 		.4byte	.LASF13
+ 622 009d 02       		.uleb128 0x2
+ 623 009e 01       		.byte	0x1
+ 624 009f 08       		.byte	0x8
+ 625 00a0 E1030000 		.4byte	.LASF14
+ 626 00a4 04       		.uleb128 0x4
+ 627 00a5 1A000000 		.4byte	.LASF15
+ 628 00a9 02       		.byte	0x2
+ 629 00aa DA01     		.2byte	0x1da
+ 630 00ac 48000000 		.4byte	0x48
+ 631 00b0 02       		.uleb128 0x2
+ 632 00b1 04       		.byte	0x4
+ 633 00b2 07       		.byte	0x7
+ 634 00b3 85030000 		.4byte	.LASF16
+ 635 00b7 05       		.uleb128 0x5
+ 636 00b8 FC030000 		.4byte	.LASF17
+ 637 00bc 01       		.byte	0x1
+ 638 00bd 56       		.byte	0x56
+ 639 00be 00000000 		.4byte	.LFB1
+ 640 00c2 28000000 		.4byte	.LFE1-.LFB1
+ 641 00c6 01       		.uleb128 0x1
+ 642 00c7 9C       		.byte	0x9c
+ 643 00c8 18010000 		.4byte	0x118
+ 644 00cc 06       		.uleb128 0x6
+ 645 00cd 06000000 		.4byte	.LVL0
+ 646 00d1 6A040000 		.4byte	0x46a
+ 647 00d5 07       		.uleb128 0x7
+ 648 00d6 10000000 		.4byte	.LVL1
+ 649 00da 71040000 		.4byte	0x471
+ 650 00de E8000000 		.4byte	0xe8
+ 651 00e2 08       		.uleb128 0x8
+ 652 00e3 01       		.uleb128 0x1
+ 653 00e4 51       		.byte	0x51
+ 654 00e5 01       		.uleb128 0x1
+ 655 00e6 31       		.byte	0x31
+ 656 00e7 00       		.byte	0
+ 657 00e8 07       		.uleb128 0x7
+ 658 00e9 18000000 		.4byte	.LVL2
+ 659 00ed 71040000 		.4byte	0x471
+ 660 00f1 FB000000 		.4byte	0xfb
+ 661 00f5 08       		.uleb128 0x8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 18
+
+
+ 662 00f6 01       		.uleb128 0x1
+ 663 00f7 51       		.byte	0x51
+ 664 00f8 01       		.uleb128 0x1
+ 665 00f9 31       		.byte	0x31
+ 666 00fa 00       		.byte	0
+ 667 00fb 07       		.uleb128 0x7
+ 668 00fc 1E000000 		.4byte	.LVL3
+ 669 0100 8B040000 		.4byte	0x48b
+ 670 0104 0E010000 		.4byte	0x10e
+ 671 0108 08       		.uleb128 0x8
+ 672 0109 01       		.uleb128 0x1
+ 673 010a 50       		.byte	0x50
+ 674 010b 01       		.uleb128 0x1
+ 675 010c 30       		.byte	0x30
+ 676 010d 00       		.byte	0
+ 677 010e 06       		.uleb128 0x6
+ 678 010f 22000000 		.4byte	.LVL4
+ 679 0113 9C040000 		.4byte	0x49c
+ 680 0117 00       		.byte	0
+ 681 0118 05       		.uleb128 0x5
+ 682 0119 05020000 		.4byte	.LASF18
+ 683 011d 01       		.byte	0x1
+ 684 011e BB       		.byte	0xbb
+ 685 011f 00000000 		.4byte	.LFB4
+ 686 0123 20000000 		.4byte	.LFE4-.LFB4
+ 687 0127 01       		.uleb128 0x1
+ 688 0128 9C       		.byte	0x9c
+ 689 0129 52010000 		.4byte	0x152
+ 690 012d 06       		.uleb128 0x6
+ 691 012e 06000000 		.4byte	.LVL5
+ 692 0132 A3040000 		.4byte	0x4a3
+ 693 0136 06       		.uleb128 0x6
+ 694 0137 0E000000 		.4byte	.LVL6
+ 695 013b AA040000 		.4byte	0x4aa
+ 696 013f 06       		.uleb128 0x6
+ 697 0140 14000000 		.4byte	.LVL7
+ 698 0144 AA040000 		.4byte	0x4aa
+ 699 0148 06       		.uleb128 0x6
+ 700 0149 18000000 		.4byte	.LVL8
+ 701 014d BF040000 		.4byte	0x4bf
+ 702 0151 00       		.byte	0
+ 703 0152 05       		.uleb128 0x5
+ 704 0153 D0010000 		.4byte	.LASF19
+ 705 0157 01       		.byte	0x1
+ 706 0158 DA       		.byte	0xda
+ 707 0159 00000000 		.4byte	.LFB5
+ 708 015d 40000000 		.4byte	.LFE5-.LFB5
+ 709 0161 01       		.uleb128 0x1
+ 710 0162 9C       		.byte	0x9c
+ 711 0163 EA010000 		.4byte	0x1ea
+ 712 0167 09       		.uleb128 0x9
+ 713 0168 93010000 		.4byte	.LASF20
+ 714 016c 01       		.byte	0x1
+ 715 016d DA       		.byte	0xda
+ 716 016e EA010000 		.4byte	0x1ea
+ 717 0172 00000000 		.4byte	.LLST0
+ 718 0176 09       		.uleb128 0x9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 19
+
+
+ 719 0177 48010000 		.4byte	.LASF21
+ 720 017b 01       		.byte	0x1
+ 721 017c DA       		.byte	0xda
+ 722 017d 77000000 		.4byte	0x77
+ 723 0181 2C000000 		.4byte	.LLST1
+ 724 0185 07       		.uleb128 0x7
+ 725 0186 14000000 		.4byte	.LVL12
+ 726 018a C6040000 		.4byte	0x4c6
+ 727 018e AC010000 		.4byte	0x1ac
+ 728 0192 08       		.uleb128 0x8
+ 729 0193 01       		.uleb128 0x1
+ 730 0194 53       		.byte	0x53
+ 731 0195 03       		.uleb128 0x3
+ 732 0196 0A       		.byte	0xa
+ 733 0197 0040     		.2byte	0x4000
+ 734 0199 08       		.uleb128 0x8
+ 735 019a 01       		.uleb128 0x1
+ 736 019b 52       		.byte	0x52
+ 737 019c 04       		.uleb128 0x4
+ 738 019d 75       		.byte	0x75
+ 739 019e 00       		.sleb128 0
+ 740 019f 40       		.byte	0x40
+ 741 01a0 25       		.byte	0x25
+ 742 01a1 08       		.uleb128 0x8
+ 743 01a2 01       		.uleb128 0x1
+ 744 01a3 51       		.byte	0x51
+ 745 01a4 01       		.uleb128 0x1
+ 746 01a5 31       		.byte	0x31
+ 747 01a6 08       		.uleb128 0x8
+ 748 01a7 01       		.uleb128 0x1
+ 749 01a8 50       		.byte	0x50
+ 750 01a9 01       		.uleb128 0x1
+ 751 01aa 31       		.byte	0x31
+ 752 01ab 00       		.byte	0
+ 753 01ac 07       		.uleb128 0x7
+ 754 01ad 24000000 		.4byte	.LVL13
+ 755 01b1 EA040000 		.4byte	0x4ea
+ 756 01b5 C5010000 		.4byte	0x1c5
+ 757 01b9 08       		.uleb128 0x8
+ 758 01ba 01       		.uleb128 0x1
+ 759 01bb 53       		.byte	0x53
+ 760 01bc 01       		.uleb128 0x1
+ 761 01bd 31       		.byte	0x31
+ 762 01be 08       		.uleb128 0x8
+ 763 01bf 01       		.uleb128 0x1
+ 764 01c0 51       		.byte	0x51
+ 765 01c1 02       		.uleb128 0x2
+ 766 01c2 76       		.byte	0x76
+ 767 01c3 00       		.sleb128 0
+ 768 01c4 00       		.byte	0
+ 769 01c5 07       		.uleb128 0x7
+ 770 01c6 30000000 		.4byte	.LVL14
+ 771 01ca 0E050000 		.4byte	0x50e
+ 772 01ce E0010000 		.4byte	0x1e0
+ 773 01d2 08       		.uleb128 0x8
+ 774 01d3 01       		.uleb128 0x1
+ 775 01d4 52       		.byte	0x52
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 20
+
+
+ 776 01d5 03       		.uleb128 0x3
+ 777 01d6 0A       		.byte	0xa
+ 778 01d7 815B     		.2byte	0x5b81
+ 779 01d9 08       		.uleb128 0x8
+ 780 01da 01       		.uleb128 0x1
+ 781 01db 51       		.byte	0x51
+ 782 01dc 02       		.uleb128 0x2
+ 783 01dd 75       		.byte	0x75
+ 784 01de 00       		.sleb128 0
+ 785 01df 00       		.byte	0
+ 786 01e0 06       		.uleb128 0x6
+ 787 01e1 38000000 		.4byte	.LVL15
+ 788 01e5 2D050000 		.4byte	0x52d
+ 789 01e9 00       		.byte	0
+ 790 01ea 0A       		.uleb128 0xa
+ 791 01eb 04       		.byte	0x4
+ 792 01ec F0010000 		.4byte	0x1f0
+ 793 01f0 0B       		.uleb128 0xb
+ 794 01f1 6B000000 		.4byte	0x6b
+ 795 01f5 0C       		.uleb128 0xc
+ 796 01f6 E6030000 		.4byte	.LASF22
+ 797 01fa 01       		.byte	0x1
+ 798 01fb 0801     		.2byte	0x108
+ 799 01fd 00000000 		.4byte	.LFB6
+ 800 0201 40000000 		.4byte	.LFE6-.LFB6
+ 801 0205 01       		.uleb128 0x1
+ 802 0206 9C       		.byte	0x9c
+ 803 0207 90020000 		.4byte	0x290
+ 804 020b 0D       		.uleb128 0xd
+ 805 020c 93010000 		.4byte	.LASF20
+ 806 0210 01       		.byte	0x1
+ 807 0211 0801     		.2byte	0x108
+ 808 0213 EA010000 		.4byte	0x1ea
+ 809 0217 4D000000 		.4byte	.LLST2
+ 810 021b 0D       		.uleb128 0xd
+ 811 021c 48010000 		.4byte	.LASF21
+ 812 0220 01       		.byte	0x1
+ 813 0221 0801     		.2byte	0x108
+ 814 0223 77000000 		.4byte	0x77
+ 815 0227 79000000 		.4byte	.LLST3
+ 816 022b 07       		.uleb128 0x7
+ 817 022c 14000000 		.4byte	.LVL20
+ 818 0230 47050000 		.4byte	0x547
+ 819 0234 52020000 		.4byte	0x252
+ 820 0238 08       		.uleb128 0x8
+ 821 0239 01       		.uleb128 0x1
+ 822 023a 53       		.byte	0x53
+ 823 023b 03       		.uleb128 0x3
+ 824 023c 0A       		.byte	0xa
+ 825 023d 0040     		.2byte	0x4000
+ 826 023f 08       		.uleb128 0x8
+ 827 0240 01       		.uleb128 0x1
+ 828 0241 52       		.byte	0x52
+ 829 0242 04       		.uleb128 0x4
+ 830 0243 75       		.byte	0x75
+ 831 0244 00       		.sleb128 0
+ 832 0245 40       		.byte	0x40
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 21
+
+
+ 833 0246 25       		.byte	0x25
+ 834 0247 08       		.uleb128 0x8
+ 835 0248 01       		.uleb128 0x1
+ 836 0249 51       		.byte	0x51
+ 837 024a 01       		.uleb128 0x1
+ 838 024b 31       		.byte	0x31
+ 839 024c 08       		.uleb128 0x8
+ 840 024d 01       		.uleb128 0x1
+ 841 024e 50       		.byte	0x50
+ 842 024f 01       		.uleb128 0x1
+ 843 0250 31       		.byte	0x31
+ 844 0251 00       		.byte	0
+ 845 0252 07       		.uleb128 0x7
+ 846 0253 24000000 		.4byte	.LVL21
+ 847 0257 EA040000 		.4byte	0x4ea
+ 848 025b 6B020000 		.4byte	0x26b
+ 849 025f 08       		.uleb128 0x8
+ 850 0260 01       		.uleb128 0x1
+ 851 0261 53       		.byte	0x53
+ 852 0262 01       		.uleb128 0x1
+ 853 0263 31       		.byte	0x31
+ 854 0264 08       		.uleb128 0x8
+ 855 0265 01       		.uleb128 0x1
+ 856 0266 51       		.byte	0x51
+ 857 0267 02       		.uleb128 0x2
+ 858 0268 76       		.byte	0x76
+ 859 0269 00       		.sleb128 0
+ 860 026a 00       		.byte	0
+ 861 026b 07       		.uleb128 0x7
+ 862 026c 30000000 		.4byte	.LVL22
+ 863 0270 0E050000 		.4byte	0x50e
+ 864 0274 86020000 		.4byte	0x286
+ 865 0278 08       		.uleb128 0x8
+ 866 0279 01       		.uleb128 0x1
+ 867 027a 52       		.byte	0x52
+ 868 027b 03       		.uleb128 0x3
+ 869 027c 0A       		.byte	0xa
+ 870 027d 815B     		.2byte	0x5b81
+ 871 027f 08       		.uleb128 0x8
+ 872 0280 01       		.uleb128 0x1
+ 873 0281 51       		.byte	0x51
+ 874 0282 02       		.uleb128 0x2
+ 875 0283 75       		.byte	0x75
+ 876 0284 00       		.sleb128 0
+ 877 0285 00       		.byte	0
+ 878 0286 06       		.uleb128 0x6
+ 879 0287 38000000 		.4byte	.LVL23
+ 880 028b 2D050000 		.4byte	0x52d
+ 881 028f 00       		.byte	0
+ 882 0290 05       		.uleb128 0x5
+ 883 0291 75000000 		.4byte	.LASF23
+ 884 0295 01       		.byte	0x1
+ 885 0296 2B       		.byte	0x2b
+ 886 0297 00000000 		.4byte	.LFB0
+ 887 029b 40000000 		.4byte	.LFE0-.LFB0
+ 888 029f 01       		.uleb128 0x1
+ 889 02a0 9C       		.byte	0x9c
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 22
+
+
+ 890 02a1 17030000 		.4byte	0x317
+ 891 02a5 06       		.uleb128 0x6
+ 892 02a6 06000000 		.4byte	.LVL25
+ 893 02aa 6B050000 		.4byte	0x56b
+ 894 02ae 07       		.uleb128 0x7
+ 895 02af 0C000000 		.4byte	.LVL26
+ 896 02b3 72050000 		.4byte	0x572
+ 897 02b7 C1020000 		.4byte	0x2c1
+ 898 02bb 08       		.uleb128 0x8
+ 899 02bc 01       		.uleb128 0x1
+ 900 02bd 50       		.byte	0x50
+ 901 02be 01       		.uleb128 0x1
+ 902 02bf 32       		.byte	0x32
+ 903 02c0 00       		.byte	0
+ 904 02c1 07       		.uleb128 0x7
+ 905 02c2 12000000 		.4byte	.LVL27
+ 906 02c6 83050000 		.4byte	0x583
+ 907 02ca D4020000 		.4byte	0x2d4
+ 908 02ce 08       		.uleb128 0x8
+ 909 02cf 01       		.uleb128 0x1
+ 910 02d0 50       		.byte	0x50
+ 911 02d1 01       		.uleb128 0x1
+ 912 02d2 34       		.byte	0x34
+ 913 02d3 00       		.byte	0
+ 914 02d4 06       		.uleb128 0x6
+ 915 02d5 16000000 		.4byte	.LVL28
+ 916 02d9 94050000 		.4byte	0x594
+ 917 02dd 06       		.uleb128 0x6
+ 918 02de 1E000000 		.4byte	.LVL29
+ 919 02e2 94050000 		.4byte	0x594
+ 920 02e6 07       		.uleb128 0x7
+ 921 02e7 2A000000 		.4byte	.LVL30
+ 922 02eb 52010000 		.4byte	0x152
+ 923 02ef 00030000 		.4byte	0x300
+ 924 02f3 08       		.uleb128 0x8
+ 925 02f4 01       		.uleb128 0x1
+ 926 02f5 51       		.byte	0x51
+ 927 02f6 02       		.uleb128 0x2
+ 928 02f7 08       		.byte	0x8
+ 929 02f8 32       		.byte	0x32
+ 930 02f9 08       		.uleb128 0x8
+ 931 02fa 01       		.uleb128 0x1
+ 932 02fb 50       		.byte	0x50
+ 933 02fc 02       		.uleb128 0x2
+ 934 02fd 74       		.byte	0x74
+ 935 02fe 00       		.sleb128 0
+ 936 02ff 00       		.byte	0
+ 937 0300 0E       		.uleb128 0xe
+ 938 0301 34000000 		.4byte	.LVL31
+ 939 0305 F5010000 		.4byte	0x1f5
+ 940 0309 08       		.uleb128 0x8
+ 941 030a 01       		.uleb128 0x1
+ 942 030b 51       		.byte	0x51
+ 943 030c 02       		.uleb128 0x2
+ 944 030d 08       		.byte	0x8
+ 945 030e 64       		.byte	0x64
+ 946 030f 08       		.uleb128 0x8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 23
+
+
+ 947 0310 01       		.uleb128 0x1
+ 948 0311 50       		.byte	0x50
+ 949 0312 02       		.uleb128 0x2
+ 950 0313 74       		.byte	0x74
+ 951 0314 34       		.sleb128 52
+ 952 0315 00       		.byte	0
+ 953 0316 00       		.byte	0
+ 954 0317 05       		.uleb128 0x5
+ 955 0318 AC000000 		.4byte	.LASF24
+ 956 031c 01       		.byte	0x1
+ 957 031d 81       		.byte	0x81
+ 958 031e 00000000 		.4byte	.LFB2
+ 959 0322 1C000000 		.4byte	.LFE2-.LFB2
+ 960 0326 01       		.uleb128 0x1
+ 961 0327 9C       		.byte	0x9c
+ 962 0328 3F030000 		.4byte	0x33f
+ 963 032c 06       		.uleb128 0x6
+ 964 032d 0C000000 		.4byte	.LVL32
+ 965 0331 90020000 		.4byte	0x290
+ 966 0335 06       		.uleb128 0x6
+ 967 0336 16000000 		.4byte	.LVL33
+ 968 033a B7000000 		.4byte	0xb7
+ 969 033e 00       		.byte	0
+ 970 033f 05       		.uleb128 0x5
+ 971 0340 F2000000 		.4byte	.LASF25
+ 972 0344 01       		.byte	0x1
+ 973 0345 A3       		.byte	0xa3
+ 974 0346 00000000 		.4byte	.LFB3
+ 975 034a 18000000 		.4byte	.LFE3-.LFB3
+ 976 034e 01       		.uleb128 0x1
+ 977 034f 9C       		.byte	0x9c
+ 978 0350 C9030000 		.4byte	0x3c9
+ 979 0354 09       		.uleb128 0x9
+ 980 0355 BD000000 		.4byte	.LASF26
+ 981 0359 01       		.byte	0x1
+ 982 035a A3       		.byte	0xa3
+ 983 035b EA010000 		.4byte	0x1ea
+ 984 035f 9A000000 		.4byte	.LLST4
+ 985 0363 09       		.uleb128 0x9
+ 986 0364 B8010000 		.4byte	.LASF27
+ 987 0368 01       		.byte	0x1
+ 988 0369 A3       		.byte	0xa3
+ 989 036a 77000000 		.4byte	0x77
+ 990 036e BB000000 		.4byte	.LLST5
+ 991 0372 09       		.uleb128 0x9
+ 992 0373 C6000000 		.4byte	.LASF28
+ 993 0377 01       		.byte	0x1
+ 994 0378 A3       		.byte	0xa3
+ 995 0379 EA010000 		.4byte	0x1ea
+ 996 037d DC000000 		.4byte	.LLST6
+ 997 0381 09       		.uleb128 0x9
+ 998 0382 C4010000 		.4byte	.LASF29
+ 999 0386 01       		.byte	0x1
+ 1000 0387 A3       		.byte	0xa3
+ 1001 0388 77000000 		.4byte	0x77
+ 1002 038c FA000000 		.4byte	.LLST7
+ 1003 0390 07       		.uleb128 0x7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 24
+
+
+ 1004 0391 0A000000 		.4byte	.LVL35
+ 1005 0395 52010000 		.4byte	0x152
+ 1006 0399 A5030000 		.4byte	0x3a5
+ 1007 039d 08       		.uleb128 0x8
+ 1008 039e 01       		.uleb128 0x1
+ 1009 039f 50       		.byte	0x50
+ 1010 03a0 03       		.uleb128 0x3
+ 1011 03a1 F3       		.byte	0xf3
+ 1012 03a2 01       		.uleb128 0x1
+ 1013 03a3 50       		.byte	0x50
+ 1014 03a4 00       		.byte	0
+ 1015 03a5 07       		.uleb128 0x7
+ 1016 03a6 12000000 		.4byte	.LVL36
+ 1017 03aa F5010000 		.4byte	0x1f5
+ 1018 03ae BF030000 		.4byte	0x3bf
+ 1019 03b2 08       		.uleb128 0x8
+ 1020 03b3 01       		.uleb128 0x1
+ 1021 03b4 51       		.byte	0x51
+ 1022 03b5 02       		.uleb128 0x2
+ 1023 03b6 74       		.byte	0x74
+ 1024 03b7 00       		.sleb128 0
+ 1025 03b8 08       		.uleb128 0x8
+ 1026 03b9 01       		.uleb128 0x1
+ 1027 03ba 50       		.byte	0x50
+ 1028 03bb 02       		.uleb128 0x2
+ 1029 03bc 75       		.byte	0x75
+ 1030 03bd 00       		.sleb128 0
+ 1031 03be 00       		.byte	0
+ 1032 03bf 06       		.uleb128 0x6
+ 1033 03c0 16000000 		.4byte	.LVL37
+ 1034 03c4 17030000 		.4byte	0x317
+ 1035 03c8 00       		.byte	0
+ 1036 03c9 0F       		.uleb128 0xf
+ 1037 03ca 30040000 		.4byte	.LASF30
+ 1038 03ce 01       		.byte	0x1
+ 1039 03cf 17       		.byte	0x17
+ 1040 03d0 6B000000 		.4byte	0x6b
+ 1041 03d4 05       		.uleb128 0x5
+ 1042 03d5 03       		.byte	0x3
+ 1043 03d6 00000000 		.4byte	WaveDAC8_1_Wave1Chan
+ 1044 03da 0F       		.uleb128 0xf
+ 1045 03db 36000000 		.4byte	.LASF31
+ 1046 03df 01       		.byte	0x1
+ 1047 03e0 18       		.byte	0x18
+ 1048 03e1 6B000000 		.4byte	0x6b
+ 1049 03e5 05       		.uleb128 0x5
+ 1050 03e6 03       		.byte	0x3
+ 1051 03e7 01000000 		.4byte	WaveDAC8_1_Wave2Chan
+ 1052 03eb 0F       		.uleb128 0xf
+ 1053 03ec 35010000 		.4byte	.LASF32
+ 1054 03f0 01       		.byte	0x1
+ 1055 03f1 19       		.byte	0x19
+ 1056 03f2 6B000000 		.4byte	0x6b
+ 1057 03f6 05       		.uleb128 0x5
+ 1058 03f7 03       		.byte	0x3
+ 1059 03f8 02000000 		.4byte	WaveDAC8_1_Wave1TD
+ 1060 03fc 0F       		.uleb128 0xf
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 25
+
+
+ 1061 03fd 42030000 		.4byte	.LASF33
+ 1062 0401 01       		.byte	0x1
+ 1063 0402 1A       		.byte	0x1a
+ 1064 0403 6B000000 		.4byte	0x6b
+ 1065 0407 05       		.uleb128 0x5
+ 1066 0408 03       		.byte	0x3
+ 1067 0409 03000000 		.4byte	WaveDAC8_1_Wave2TD
+ 1068 040d 10       		.uleb128 0x10
+ 1069 040e 23000000 		.4byte	.LASF34
+ 1070 0412 01       		.byte	0x1
+ 1071 0413 12       		.byte	0x12
+ 1072 0414 6B000000 		.4byte	0x6b
+ 1073 0418 05       		.uleb128 0x5
+ 1074 0419 03       		.byte	0x3
+ 1075 041a 00000000 		.4byte	WaveDAC8_1_initVar
+ 1076 041e 11       		.uleb128 0x11
+ 1077 041f 6B000000 		.4byte	0x6b
+ 1078 0423 2E040000 		.4byte	0x42e
+ 1079 0427 12       		.uleb128 0x12
+ 1080 0428 B0000000 		.4byte	0xb0
+ 1081 042c 31       		.byte	0x31
+ 1082 042d 00       		.byte	0
+ 1083 042e 10       		.uleb128 0x10
+ 1084 042f 0E040000 		.4byte	.LASF35
+ 1085 0433 01       		.byte	0x1
+ 1086 0434 14       		.byte	0x14
+ 1087 0435 3F040000 		.4byte	0x43f
+ 1088 0439 05       		.uleb128 0x5
+ 1089 043a 03       		.byte	0x3
+ 1090 043b 00000000 		.4byte	WaveDAC8_1_wave1
+ 1091 043f 0B       		.uleb128 0xb
+ 1092 0440 1E040000 		.4byte	0x41e
+ 1093 0444 11       		.uleb128 0x11
+ 1094 0445 6B000000 		.4byte	0x6b
+ 1095 0449 54040000 		.4byte	0x454
+ 1096 044d 12       		.uleb128 0x12
+ 1097 044e B0000000 		.4byte	0xb0
+ 1098 0452 63       		.byte	0x63
+ 1099 0453 00       		.byte	0
+ 1100 0454 10       		.uleb128 0x10
+ 1101 0455 1F040000 		.4byte	.LASF36
+ 1102 0459 01       		.byte	0x1
+ 1103 045a 15       		.byte	0x15
+ 1104 045b 65040000 		.4byte	0x465
+ 1105 045f 05       		.uleb128 0x5
+ 1106 0460 03       		.byte	0x3
+ 1107 0461 00000000 		.4byte	WaveDAC8_1_wave2
+ 1108 0465 0B       		.uleb128 0xb
+ 1109 0466 44040000 		.4byte	0x444
+ 1110 046a 13       		.uleb128 0x13
+ 1111 046b 4B000000 		.4byte	.LASF37
+ 1112 046f 03       		.byte	0x3
+ 1113 0470 3A       		.byte	0x3a
+ 1114 0471 14       		.uleb128 0x14
+ 1115 0472 1F020000 		.4byte	.LASF40
+ 1116 0476 05       		.byte	0x5
+ 1117 0477 2A       		.byte	0x2a
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 26
+
+
+ 1118 0478 A4000000 		.4byte	0xa4
+ 1119 047c 8B040000 		.4byte	0x48b
+ 1120 0480 15       		.uleb128 0x15
+ 1121 0481 6B000000 		.4byte	0x6b
+ 1122 0485 15       		.uleb128 0x15
+ 1123 0486 6B000000 		.4byte	0x6b
+ 1124 048a 00       		.byte	0
+ 1125 048b 16       		.uleb128 0x16
+ 1126 048c 6B030000 		.4byte	.LASF49
+ 1127 0490 03       		.byte	0x3
+ 1128 0491 37       		.byte	0x37
+ 1129 0492 9C040000 		.4byte	0x49c
+ 1130 0496 15       		.uleb128 0x15
+ 1131 0497 6B000000 		.4byte	0x6b
+ 1132 049b 00       		.byte	0
+ 1133 049c 13       		.uleb128 0x13
+ 1134 049d E6010000 		.4byte	.LASF38
+ 1135 04a1 04       		.byte	0x4
+ 1136 04a2 27       		.byte	0x27
+ 1137 04a3 13       		.uleb128 0x13
+ 1138 04a4 A1010000 		.4byte	.LASF39
+ 1139 04a8 04       		.byte	0x4
+ 1140 04a9 28       		.byte	0x28
+ 1141 04aa 14       		.uleb128 0x14
+ 1142 04ab 5A040000 		.4byte	.LASF41
+ 1143 04af 05       		.byte	0x5
+ 1144 04b0 2B       		.byte	0x2b
+ 1145 04b1 A4000000 		.4byte	0xa4
+ 1146 04b5 BF040000 		.4byte	0x4bf
+ 1147 04b9 15       		.uleb128 0x15
+ 1148 04ba 6B000000 		.4byte	0x6b
+ 1149 04be 00       		.byte	0
+ 1150 04bf 13       		.uleb128 0x13
+ 1151 04c0 55030000 		.4byte	.LASF42
+ 1152 04c4 03       		.byte	0x3
+ 1153 04c5 34       		.byte	0x34
+ 1154 04c6 14       		.uleb128 0x14
+ 1155 04c7 CF000000 		.4byte	.LASF43
+ 1156 04cb 06       		.byte	0x6
+ 1157 04cc 1E       		.byte	0x1e
+ 1158 04cd 6B000000 		.4byte	0x6b
+ 1159 04d1 EA040000 		.4byte	0x4ea
+ 1160 04d5 15       		.uleb128 0x15
+ 1161 04d6 6B000000 		.4byte	0x6b
+ 1162 04da 15       		.uleb128 0x15
+ 1163 04db 6B000000 		.4byte	0x6b
+ 1164 04df 15       		.uleb128 0x15
+ 1165 04e0 77000000 		.4byte	0x77
+ 1166 04e4 15       		.uleb128 0x15
+ 1167 04e5 77000000 		.4byte	0x77
+ 1168 04e9 00       		.byte	0
+ 1169 04ea 14       		.uleb128 0x14
+ 1170 04eb 69010000 		.4byte	.LASF44
+ 1171 04ef 05       		.byte	0x5
+ 1172 04f0 3C       		.byte	0x3c
+ 1173 04f1 A4000000 		.4byte	0xa4
+ 1174 04f5 0E050000 		.4byte	0x50e
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 27
+
+
+ 1175 04f9 15       		.uleb128 0x15
+ 1176 04fa 6B000000 		.4byte	0x6b
+ 1177 04fe 15       		.uleb128 0x15
+ 1178 04ff 77000000 		.4byte	0x77
+ 1179 0503 15       		.uleb128 0x15
+ 1180 0504 6B000000 		.4byte	0x6b
+ 1181 0508 15       		.uleb128 0x15
+ 1182 0509 6B000000 		.4byte	0x6b
+ 1183 050d 00       		.byte	0
+ 1184 050e 14       		.uleb128 0x14
+ 1185 050f 63000000 		.4byte	.LASF45
+ 1186 0513 05       		.byte	0x5
+ 1187 0514 40       		.byte	0x40
+ 1188 0515 A4000000 		.4byte	0xa4
+ 1189 0519 2D050000 		.4byte	0x52d
+ 1190 051d 15       		.uleb128 0x15
+ 1191 051e 6B000000 		.4byte	0x6b
+ 1192 0522 15       		.uleb128 0x15
+ 1193 0523 77000000 		.4byte	0x77
+ 1194 0527 15       		.uleb128 0x15
+ 1195 0528 77000000 		.4byte	0x77
+ 1196 052c 00       		.byte	0
+ 1197 052d 14       		.uleb128 0x14
+ 1198 052e 98000000 		.4byte	.LASF46
+ 1199 0532 05       		.byte	0x5
+ 1200 0533 30       		.byte	0x30
+ 1201 0534 A4000000 		.4byte	0xa4
+ 1202 0538 47050000 		.4byte	0x547
+ 1203 053c 15       		.uleb128 0x15
+ 1204 053d 6B000000 		.4byte	0x6b
+ 1205 0541 15       		.uleb128 0x15
+ 1206 0542 6B000000 		.4byte	0x6b
+ 1207 0546 00       		.byte	0
+ 1208 0547 14       		.uleb128 0x14
+ 1209 0548 34020000 		.4byte	.LASF47
+ 1210 054c 07       		.byte	0x7
+ 1211 054d 1E       		.byte	0x1e
+ 1212 054e 6B000000 		.4byte	0x6b
+ 1213 0552 6B050000 		.4byte	0x56b
+ 1214 0556 15       		.uleb128 0x15
+ 1215 0557 6B000000 		.4byte	0x6b
+ 1216 055b 15       		.uleb128 0x15
+ 1217 055c 6B000000 		.4byte	0x6b
+ 1218 0560 15       		.uleb128 0x15
+ 1219 0561 77000000 		.4byte	0x77
+ 1220 0565 15       		.uleb128 0x15
+ 1221 0566 77000000 		.4byte	0x77
+ 1222 056a 00       		.byte	0
+ 1223 056b 13       		.uleb128 0x13
+ 1224 056c 53010000 		.4byte	.LASF48
+ 1225 0570 03       		.byte	0x3
+ 1226 0571 39       		.byte	0x39
+ 1227 0572 16       		.uleb128 0x16
+ 1228 0573 15010000 		.4byte	.LASF50
+ 1229 0577 03       		.byte	0x3
+ 1230 0578 35       		.byte	0x35
+ 1231 0579 83050000 		.4byte	0x583
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 28
+
+
+ 1232 057d 15       		.uleb128 0x15
+ 1233 057e 6B000000 		.4byte	0x6b
+ 1234 0582 00       		.byte	0
+ 1235 0583 16       		.uleb128 0x16
+ 1236 0584 00000000 		.4byte	.LASF51
+ 1237 0588 03       		.byte	0x3
+ 1238 0589 36       		.byte	0x36
+ 1239 058a 94050000 		.4byte	0x594
+ 1240 058e 15       		.uleb128 0x15
+ 1241 058f 6B000000 		.4byte	0x6b
+ 1242 0593 00       		.byte	0
+ 1243 0594 17       		.uleb128 0x17
+ 1244 0595 05010000 		.4byte	.LASF55
+ 1245 0599 05       		.byte	0x5
+ 1246 059a 39       		.byte	0x39
+ 1247 059b 6B000000 		.4byte	0x6b
+ 1248 059f 00       		.byte	0
+ 1249              		.section	.debug_abbrev,"",%progbits
+ 1250              	.Ldebug_abbrev0:
+ 1251 0000 01       		.uleb128 0x1
+ 1252 0001 11       		.uleb128 0x11
+ 1253 0002 01       		.byte	0x1
+ 1254 0003 25       		.uleb128 0x25
+ 1255 0004 0E       		.uleb128 0xe
+ 1256 0005 13       		.uleb128 0x13
+ 1257 0006 0B       		.uleb128 0xb
+ 1258 0007 03       		.uleb128 0x3
+ 1259 0008 0E       		.uleb128 0xe
+ 1260 0009 1B       		.uleb128 0x1b
+ 1261 000a 0E       		.uleb128 0xe
+ 1262 000b 55       		.uleb128 0x55
+ 1263 000c 17       		.uleb128 0x17
+ 1264 000d 11       		.uleb128 0x11
+ 1265 000e 01       		.uleb128 0x1
+ 1266 000f 10       		.uleb128 0x10
+ 1267 0010 17       		.uleb128 0x17
+ 1268 0011 00       		.byte	0
+ 1269 0012 00       		.byte	0
+ 1270 0013 02       		.uleb128 0x2
+ 1271 0014 24       		.uleb128 0x24
+ 1272 0015 00       		.byte	0
+ 1273 0016 0B       		.uleb128 0xb
+ 1274 0017 0B       		.uleb128 0xb
+ 1275 0018 3E       		.uleb128 0x3e
+ 1276 0019 0B       		.uleb128 0xb
+ 1277 001a 03       		.uleb128 0x3
+ 1278 001b 0E       		.uleb128 0xe
+ 1279 001c 00       		.byte	0
+ 1280 001d 00       		.byte	0
+ 1281 001e 03       		.uleb128 0x3
+ 1282 001f 24       		.uleb128 0x24
+ 1283 0020 00       		.byte	0
+ 1284 0021 0B       		.uleb128 0xb
+ 1285 0022 0B       		.uleb128 0xb
+ 1286 0023 3E       		.uleb128 0x3e
+ 1287 0024 0B       		.uleb128 0xb
+ 1288 0025 03       		.uleb128 0x3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 29
+
+
+ 1289 0026 08       		.uleb128 0x8
+ 1290 0027 00       		.byte	0
+ 1291 0028 00       		.byte	0
+ 1292 0029 04       		.uleb128 0x4
+ 1293 002a 16       		.uleb128 0x16
+ 1294 002b 00       		.byte	0
+ 1295 002c 03       		.uleb128 0x3
+ 1296 002d 0E       		.uleb128 0xe
+ 1297 002e 3A       		.uleb128 0x3a
+ 1298 002f 0B       		.uleb128 0xb
+ 1299 0030 3B       		.uleb128 0x3b
+ 1300 0031 05       		.uleb128 0x5
+ 1301 0032 49       		.uleb128 0x49
+ 1302 0033 13       		.uleb128 0x13
+ 1303 0034 00       		.byte	0
+ 1304 0035 00       		.byte	0
+ 1305 0036 05       		.uleb128 0x5
+ 1306 0037 2E       		.uleb128 0x2e
+ 1307 0038 01       		.byte	0x1
+ 1308 0039 3F       		.uleb128 0x3f
+ 1309 003a 19       		.uleb128 0x19
+ 1310 003b 03       		.uleb128 0x3
+ 1311 003c 0E       		.uleb128 0xe
+ 1312 003d 3A       		.uleb128 0x3a
+ 1313 003e 0B       		.uleb128 0xb
+ 1314 003f 3B       		.uleb128 0x3b
+ 1315 0040 0B       		.uleb128 0xb
+ 1316 0041 27       		.uleb128 0x27
+ 1317 0042 19       		.uleb128 0x19
+ 1318 0043 11       		.uleb128 0x11
+ 1319 0044 01       		.uleb128 0x1
+ 1320 0045 12       		.uleb128 0x12
+ 1321 0046 06       		.uleb128 0x6
+ 1322 0047 40       		.uleb128 0x40
+ 1323 0048 18       		.uleb128 0x18
+ 1324 0049 9742     		.uleb128 0x2117
+ 1325 004b 19       		.uleb128 0x19
+ 1326 004c 01       		.uleb128 0x1
+ 1327 004d 13       		.uleb128 0x13
+ 1328 004e 00       		.byte	0
+ 1329 004f 00       		.byte	0
+ 1330 0050 06       		.uleb128 0x6
+ 1331 0051 898201   		.uleb128 0x4109
+ 1332 0054 00       		.byte	0
+ 1333 0055 11       		.uleb128 0x11
+ 1334 0056 01       		.uleb128 0x1
+ 1335 0057 31       		.uleb128 0x31
+ 1336 0058 13       		.uleb128 0x13
+ 1337 0059 00       		.byte	0
+ 1338 005a 00       		.byte	0
+ 1339 005b 07       		.uleb128 0x7
+ 1340 005c 898201   		.uleb128 0x4109
+ 1341 005f 01       		.byte	0x1
+ 1342 0060 11       		.uleb128 0x11
+ 1343 0061 01       		.uleb128 0x1
+ 1344 0062 31       		.uleb128 0x31
+ 1345 0063 13       		.uleb128 0x13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 30
+
+
+ 1346 0064 01       		.uleb128 0x1
+ 1347 0065 13       		.uleb128 0x13
+ 1348 0066 00       		.byte	0
+ 1349 0067 00       		.byte	0
+ 1350 0068 08       		.uleb128 0x8
+ 1351 0069 8A8201   		.uleb128 0x410a
+ 1352 006c 00       		.byte	0
+ 1353 006d 02       		.uleb128 0x2
+ 1354 006e 18       		.uleb128 0x18
+ 1355 006f 9142     		.uleb128 0x2111
+ 1356 0071 18       		.uleb128 0x18
+ 1357 0072 00       		.byte	0
+ 1358 0073 00       		.byte	0
+ 1359 0074 09       		.uleb128 0x9
+ 1360 0075 05       		.uleb128 0x5
+ 1361 0076 00       		.byte	0
+ 1362 0077 03       		.uleb128 0x3
+ 1363 0078 0E       		.uleb128 0xe
+ 1364 0079 3A       		.uleb128 0x3a
+ 1365 007a 0B       		.uleb128 0xb
+ 1366 007b 3B       		.uleb128 0x3b
+ 1367 007c 0B       		.uleb128 0xb
+ 1368 007d 49       		.uleb128 0x49
+ 1369 007e 13       		.uleb128 0x13
+ 1370 007f 02       		.uleb128 0x2
+ 1371 0080 17       		.uleb128 0x17
+ 1372 0081 00       		.byte	0
+ 1373 0082 00       		.byte	0
+ 1374 0083 0A       		.uleb128 0xa
+ 1375 0084 0F       		.uleb128 0xf
+ 1376 0085 00       		.byte	0
+ 1377 0086 0B       		.uleb128 0xb
+ 1378 0087 0B       		.uleb128 0xb
+ 1379 0088 49       		.uleb128 0x49
+ 1380 0089 13       		.uleb128 0x13
+ 1381 008a 00       		.byte	0
+ 1382 008b 00       		.byte	0
+ 1383 008c 0B       		.uleb128 0xb
+ 1384 008d 26       		.uleb128 0x26
+ 1385 008e 00       		.byte	0
+ 1386 008f 49       		.uleb128 0x49
+ 1387 0090 13       		.uleb128 0x13
+ 1388 0091 00       		.byte	0
+ 1389 0092 00       		.byte	0
+ 1390 0093 0C       		.uleb128 0xc
+ 1391 0094 2E       		.uleb128 0x2e
+ 1392 0095 01       		.byte	0x1
+ 1393 0096 3F       		.uleb128 0x3f
+ 1394 0097 19       		.uleb128 0x19
+ 1395 0098 03       		.uleb128 0x3
+ 1396 0099 0E       		.uleb128 0xe
+ 1397 009a 3A       		.uleb128 0x3a
+ 1398 009b 0B       		.uleb128 0xb
+ 1399 009c 3B       		.uleb128 0x3b
+ 1400 009d 05       		.uleb128 0x5
+ 1401 009e 27       		.uleb128 0x27
+ 1402 009f 19       		.uleb128 0x19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 31
+
+
+ 1403 00a0 11       		.uleb128 0x11
+ 1404 00a1 01       		.uleb128 0x1
+ 1405 00a2 12       		.uleb128 0x12
+ 1406 00a3 06       		.uleb128 0x6
+ 1407 00a4 40       		.uleb128 0x40
+ 1408 00a5 18       		.uleb128 0x18
+ 1409 00a6 9742     		.uleb128 0x2117
+ 1410 00a8 19       		.uleb128 0x19
+ 1411 00a9 01       		.uleb128 0x1
+ 1412 00aa 13       		.uleb128 0x13
+ 1413 00ab 00       		.byte	0
+ 1414 00ac 00       		.byte	0
+ 1415 00ad 0D       		.uleb128 0xd
+ 1416 00ae 05       		.uleb128 0x5
+ 1417 00af 00       		.byte	0
+ 1418 00b0 03       		.uleb128 0x3
+ 1419 00b1 0E       		.uleb128 0xe
+ 1420 00b2 3A       		.uleb128 0x3a
+ 1421 00b3 0B       		.uleb128 0xb
+ 1422 00b4 3B       		.uleb128 0x3b
+ 1423 00b5 05       		.uleb128 0x5
+ 1424 00b6 49       		.uleb128 0x49
+ 1425 00b7 13       		.uleb128 0x13
+ 1426 00b8 02       		.uleb128 0x2
+ 1427 00b9 17       		.uleb128 0x17
+ 1428 00ba 00       		.byte	0
+ 1429 00bb 00       		.byte	0
+ 1430 00bc 0E       		.uleb128 0xe
+ 1431 00bd 898201   		.uleb128 0x4109
+ 1432 00c0 01       		.byte	0x1
+ 1433 00c1 11       		.uleb128 0x11
+ 1434 00c2 01       		.uleb128 0x1
+ 1435 00c3 31       		.uleb128 0x31
+ 1436 00c4 13       		.uleb128 0x13
+ 1437 00c5 00       		.byte	0
+ 1438 00c6 00       		.byte	0
+ 1439 00c7 0F       		.uleb128 0xf
+ 1440 00c8 34       		.uleb128 0x34
+ 1441 00c9 00       		.byte	0
+ 1442 00ca 03       		.uleb128 0x3
+ 1443 00cb 0E       		.uleb128 0xe
+ 1444 00cc 3A       		.uleb128 0x3a
+ 1445 00cd 0B       		.uleb128 0xb
+ 1446 00ce 3B       		.uleb128 0x3b
+ 1447 00cf 0B       		.uleb128 0xb
+ 1448 00d0 49       		.uleb128 0x49
+ 1449 00d1 13       		.uleb128 0x13
+ 1450 00d2 02       		.uleb128 0x2
+ 1451 00d3 18       		.uleb128 0x18
+ 1452 00d4 00       		.byte	0
+ 1453 00d5 00       		.byte	0
+ 1454 00d6 10       		.uleb128 0x10
+ 1455 00d7 34       		.uleb128 0x34
+ 1456 00d8 00       		.byte	0
+ 1457 00d9 03       		.uleb128 0x3
+ 1458 00da 0E       		.uleb128 0xe
+ 1459 00db 3A       		.uleb128 0x3a
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 32
+
+
+ 1460 00dc 0B       		.uleb128 0xb
+ 1461 00dd 3B       		.uleb128 0x3b
+ 1462 00de 0B       		.uleb128 0xb
+ 1463 00df 49       		.uleb128 0x49
+ 1464 00e0 13       		.uleb128 0x13
+ 1465 00e1 3F       		.uleb128 0x3f
+ 1466 00e2 19       		.uleb128 0x19
+ 1467 00e3 02       		.uleb128 0x2
+ 1468 00e4 18       		.uleb128 0x18
+ 1469 00e5 00       		.byte	0
+ 1470 00e6 00       		.byte	0
+ 1471 00e7 11       		.uleb128 0x11
+ 1472 00e8 01       		.uleb128 0x1
+ 1473 00e9 01       		.byte	0x1
+ 1474 00ea 49       		.uleb128 0x49
+ 1475 00eb 13       		.uleb128 0x13
+ 1476 00ec 01       		.uleb128 0x1
+ 1477 00ed 13       		.uleb128 0x13
+ 1478 00ee 00       		.byte	0
+ 1479 00ef 00       		.byte	0
+ 1480 00f0 12       		.uleb128 0x12
+ 1481 00f1 21       		.uleb128 0x21
+ 1482 00f2 00       		.byte	0
+ 1483 00f3 49       		.uleb128 0x49
+ 1484 00f4 13       		.uleb128 0x13
+ 1485 00f5 2F       		.uleb128 0x2f
+ 1486 00f6 0B       		.uleb128 0xb
+ 1487 00f7 00       		.byte	0
+ 1488 00f8 00       		.byte	0
+ 1489 00f9 13       		.uleb128 0x13
+ 1490 00fa 2E       		.uleb128 0x2e
+ 1491 00fb 00       		.byte	0
+ 1492 00fc 3F       		.uleb128 0x3f
+ 1493 00fd 19       		.uleb128 0x19
+ 1494 00fe 03       		.uleb128 0x3
+ 1495 00ff 0E       		.uleb128 0xe
+ 1496 0100 3A       		.uleb128 0x3a
+ 1497 0101 0B       		.uleb128 0xb
+ 1498 0102 3B       		.uleb128 0x3b
+ 1499 0103 0B       		.uleb128 0xb
+ 1500 0104 27       		.uleb128 0x27
+ 1501 0105 19       		.uleb128 0x19
+ 1502 0106 3C       		.uleb128 0x3c
+ 1503 0107 19       		.uleb128 0x19
+ 1504 0108 00       		.byte	0
+ 1505 0109 00       		.byte	0
+ 1506 010a 14       		.uleb128 0x14
+ 1507 010b 2E       		.uleb128 0x2e
+ 1508 010c 01       		.byte	0x1
+ 1509 010d 3F       		.uleb128 0x3f
+ 1510 010e 19       		.uleb128 0x19
+ 1511 010f 03       		.uleb128 0x3
+ 1512 0110 0E       		.uleb128 0xe
+ 1513 0111 3A       		.uleb128 0x3a
+ 1514 0112 0B       		.uleb128 0xb
+ 1515 0113 3B       		.uleb128 0x3b
+ 1516 0114 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 33
+
+
+ 1517 0115 27       		.uleb128 0x27
+ 1518 0116 19       		.uleb128 0x19
+ 1519 0117 49       		.uleb128 0x49
+ 1520 0118 13       		.uleb128 0x13
+ 1521 0119 3C       		.uleb128 0x3c
+ 1522 011a 19       		.uleb128 0x19
+ 1523 011b 01       		.uleb128 0x1
+ 1524 011c 13       		.uleb128 0x13
+ 1525 011d 00       		.byte	0
+ 1526 011e 00       		.byte	0
+ 1527 011f 15       		.uleb128 0x15
+ 1528 0120 05       		.uleb128 0x5
+ 1529 0121 00       		.byte	0
+ 1530 0122 49       		.uleb128 0x49
+ 1531 0123 13       		.uleb128 0x13
+ 1532 0124 00       		.byte	0
+ 1533 0125 00       		.byte	0
+ 1534 0126 16       		.uleb128 0x16
+ 1535 0127 2E       		.uleb128 0x2e
+ 1536 0128 01       		.byte	0x1
+ 1537 0129 3F       		.uleb128 0x3f
+ 1538 012a 19       		.uleb128 0x19
+ 1539 012b 03       		.uleb128 0x3
+ 1540 012c 0E       		.uleb128 0xe
+ 1541 012d 3A       		.uleb128 0x3a
+ 1542 012e 0B       		.uleb128 0xb
+ 1543 012f 3B       		.uleb128 0x3b
+ 1544 0130 0B       		.uleb128 0xb
+ 1545 0131 27       		.uleb128 0x27
+ 1546 0132 19       		.uleb128 0x19
+ 1547 0133 3C       		.uleb128 0x3c
+ 1548 0134 19       		.uleb128 0x19
+ 1549 0135 01       		.uleb128 0x1
+ 1550 0136 13       		.uleb128 0x13
+ 1551 0137 00       		.byte	0
+ 1552 0138 00       		.byte	0
+ 1553 0139 17       		.uleb128 0x17
+ 1554 013a 2E       		.uleb128 0x2e
+ 1555 013b 00       		.byte	0
+ 1556 013c 3F       		.uleb128 0x3f
+ 1557 013d 19       		.uleb128 0x19
+ 1558 013e 03       		.uleb128 0x3
+ 1559 013f 0E       		.uleb128 0xe
+ 1560 0140 3A       		.uleb128 0x3a
+ 1561 0141 0B       		.uleb128 0xb
+ 1562 0142 3B       		.uleb128 0x3b
+ 1563 0143 0B       		.uleb128 0xb
+ 1564 0144 27       		.uleb128 0x27
+ 1565 0145 19       		.uleb128 0x19
+ 1566 0146 49       		.uleb128 0x49
+ 1567 0147 13       		.uleb128 0x13
+ 1568 0148 3C       		.uleb128 0x3c
+ 1569 0149 19       		.uleb128 0x19
+ 1570 014a 00       		.byte	0
+ 1571 014b 00       		.byte	0
+ 1572 014c 00       		.byte	0
+ 1573              		.section	.debug_loc,"",%progbits
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 34
+
+
+ 1574              	.Ldebug_loc0:
+ 1575              	.LLST0:
+ 1576 0000 00000000 		.4byte	.LVL9
+ 1577 0004 08000000 		.4byte	.LVL10
+ 1578 0008 0100     		.2byte	0x1
+ 1579 000a 50       		.byte	0x50
+ 1580 000b 08000000 		.4byte	.LVL10
+ 1581 000f 3A000000 		.4byte	.LVL16
+ 1582 0013 0100     		.2byte	0x1
+ 1583 0015 55       		.byte	0x55
+ 1584 0016 3A000000 		.4byte	.LVL16
+ 1585 001a 40000000 		.4byte	.LFE5
+ 1586 001e 0400     		.2byte	0x4
+ 1587 0020 F3       		.byte	0xf3
+ 1588 0021 01       		.uleb128 0x1
+ 1589 0022 50       		.byte	0x50
+ 1590 0023 9F       		.byte	0x9f
+ 1591 0024 00000000 		.4byte	0
+ 1592 0028 00000000 		.4byte	0
+ 1593              	.LLST1:
+ 1594 002c 00000000 		.4byte	.LVL9
+ 1595 0030 0A000000 		.4byte	.LVL11
+ 1596 0034 0100     		.2byte	0x1
+ 1597 0036 51       		.byte	0x51
+ 1598 0037 0A000000 		.4byte	.LVL11
+ 1599 003b 40000000 		.4byte	.LFE5
+ 1600 003f 0400     		.2byte	0x4
+ 1601 0041 F3       		.byte	0xf3
+ 1602 0042 01       		.uleb128 0x1
+ 1603 0043 51       		.byte	0x51
+ 1604 0044 9F       		.byte	0x9f
+ 1605 0045 00000000 		.4byte	0
+ 1606 0049 00000000 		.4byte	0
+ 1607              	.LLST2:
+ 1608 004d 00000000 		.4byte	.LVL17
+ 1609 0051 08000000 		.4byte	.LVL18
+ 1610 0055 0100     		.2byte	0x1
+ 1611 0057 50       		.byte	0x50
+ 1612 0058 08000000 		.4byte	.LVL18
+ 1613 005c 3A000000 		.4byte	.LVL24
+ 1614 0060 0100     		.2byte	0x1
+ 1615 0062 55       		.byte	0x55
+ 1616 0063 3A000000 		.4byte	.LVL24
+ 1617 0067 40000000 		.4byte	.LFE6
+ 1618 006b 0400     		.2byte	0x4
+ 1619 006d F3       		.byte	0xf3
+ 1620 006e 01       		.uleb128 0x1
+ 1621 006f 50       		.byte	0x50
+ 1622 0070 9F       		.byte	0x9f
+ 1623 0071 00000000 		.4byte	0
+ 1624 0075 00000000 		.4byte	0
+ 1625              	.LLST3:
+ 1626 0079 00000000 		.4byte	.LVL17
+ 1627 007d 0A000000 		.4byte	.LVL19
+ 1628 0081 0100     		.2byte	0x1
+ 1629 0083 51       		.byte	0x51
+ 1630 0084 0A000000 		.4byte	.LVL19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 35
+
+
+ 1631 0088 40000000 		.4byte	.LFE6
+ 1632 008c 0400     		.2byte	0x4
+ 1633 008e F3       		.byte	0xf3
+ 1634 008f 01       		.uleb128 0x1
+ 1635 0090 51       		.byte	0x51
+ 1636 0091 9F       		.byte	0x9f
+ 1637 0092 00000000 		.4byte	0
+ 1638 0096 00000000 		.4byte	0
+ 1639              	.LLST4:
+ 1640 009a 00000000 		.4byte	.LVL34
+ 1641 009e 09000000 		.4byte	.LVL35-1
+ 1642 00a2 0100     		.2byte	0x1
+ 1643 00a4 50       		.byte	0x50
+ 1644 00a5 09000000 		.4byte	.LVL35-1
+ 1645 00a9 18000000 		.4byte	.LFE3
+ 1646 00ad 0400     		.2byte	0x4
+ 1647 00af F3       		.byte	0xf3
+ 1648 00b0 01       		.uleb128 0x1
+ 1649 00b1 50       		.byte	0x50
+ 1650 00b2 9F       		.byte	0x9f
+ 1651 00b3 00000000 		.4byte	0
+ 1652 00b7 00000000 		.4byte	0
+ 1653              	.LLST5:
+ 1654 00bb 00000000 		.4byte	.LVL34
+ 1655 00bf 09000000 		.4byte	.LVL35-1
+ 1656 00c3 0100     		.2byte	0x1
+ 1657 00c5 51       		.byte	0x51
+ 1658 00c6 09000000 		.4byte	.LVL35-1
+ 1659 00ca 18000000 		.4byte	.LFE3
+ 1660 00ce 0400     		.2byte	0x4
+ 1661 00d0 F3       		.byte	0xf3
+ 1662 00d1 01       		.uleb128 0x1
+ 1663 00d2 51       		.byte	0x51
+ 1664 00d3 9F       		.byte	0x9f
+ 1665 00d4 00000000 		.4byte	0
+ 1666 00d8 00000000 		.4byte	0
+ 1667              	.LLST6:
+ 1668 00dc 00000000 		.4byte	.LVL34
+ 1669 00e0 09000000 		.4byte	.LVL35-1
+ 1670 00e4 0100     		.2byte	0x1
+ 1671 00e6 52       		.byte	0x52
+ 1672 00e7 09000000 		.4byte	.LVL35-1
+ 1673 00eb 18000000 		.4byte	.LFE3
+ 1674 00ef 0100     		.2byte	0x1
+ 1675 00f1 55       		.byte	0x55
+ 1676 00f2 00000000 		.4byte	0
+ 1677 00f6 00000000 		.4byte	0
+ 1678              	.LLST7:
+ 1679 00fa 00000000 		.4byte	.LVL34
+ 1680 00fe 09000000 		.4byte	.LVL35-1
+ 1681 0102 0100     		.2byte	0x1
+ 1682 0104 53       		.byte	0x53
+ 1683 0105 09000000 		.4byte	.LVL35-1
+ 1684 0109 18000000 		.4byte	.LFE3
+ 1685 010d 0400     		.2byte	0x4
+ 1686 010f F3       		.byte	0xf3
+ 1687 0110 01       		.uleb128 0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 36
+
+
+ 1688 0111 53       		.byte	0x53
+ 1689 0112 9F       		.byte	0x9f
+ 1690 0113 00000000 		.4byte	0
+ 1691 0117 00000000 		.4byte	0
+ 1692              		.section	.debug_aranges,"",%progbits
+ 1693 0000 4C000000 		.4byte	0x4c
+ 1694 0004 0200     		.2byte	0x2
+ 1695 0006 00000000 		.4byte	.Ldebug_info0
+ 1696 000a 04       		.byte	0x4
+ 1697 000b 00       		.byte	0
+ 1698 000c 0000     		.2byte	0
+ 1699 000e 0000     		.2byte	0
+ 1700 0010 00000000 		.4byte	.LFB1
+ 1701 0014 28000000 		.4byte	.LFE1-.LFB1
+ 1702 0018 00000000 		.4byte	.LFB4
+ 1703 001c 20000000 		.4byte	.LFE4-.LFB4
+ 1704 0020 00000000 		.4byte	.LFB5
+ 1705 0024 40000000 		.4byte	.LFE5-.LFB5
+ 1706 0028 00000000 		.4byte	.LFB6
+ 1707 002c 40000000 		.4byte	.LFE6-.LFB6
+ 1708 0030 00000000 		.4byte	.LFB0
+ 1709 0034 40000000 		.4byte	.LFE0-.LFB0
+ 1710 0038 00000000 		.4byte	.LFB2
+ 1711 003c 1C000000 		.4byte	.LFE2-.LFB2
+ 1712 0040 00000000 		.4byte	.LFB3
+ 1713 0044 18000000 		.4byte	.LFE3-.LFB3
+ 1714 0048 00000000 		.4byte	0
+ 1715 004c 00000000 		.4byte	0
+ 1716              		.section	.debug_ranges,"",%progbits
+ 1717              	.Ldebug_ranges0:
+ 1718 0000 00000000 		.4byte	.LFB1
+ 1719 0004 28000000 		.4byte	.LFE1
+ 1720 0008 00000000 		.4byte	.LFB4
+ 1721 000c 20000000 		.4byte	.LFE4
+ 1722 0010 00000000 		.4byte	.LFB5
+ 1723 0014 40000000 		.4byte	.LFE5
+ 1724 0018 00000000 		.4byte	.LFB6
+ 1725 001c 40000000 		.4byte	.LFE6
+ 1726 0020 00000000 		.4byte	.LFB0
+ 1727 0024 40000000 		.4byte	.LFE0
+ 1728 0028 00000000 		.4byte	.LFB2
+ 1729 002c 1C000000 		.4byte	.LFE2
+ 1730 0030 00000000 		.4byte	.LFB3
+ 1731 0034 18000000 		.4byte	.LFE3
+ 1732 0038 00000000 		.4byte	0
+ 1733 003c 00000000 		.4byte	0
+ 1734              		.section	.debug_line,"",%progbits
+ 1735              	.Ldebug_line0:
+ 1736 0000 5C010000 		.section	.debug_str,"MS",%progbits,1
+ 1736      0200BC00 
+ 1736      00000201 
+ 1736      FB0E0D00 
+ 1736      01010101 
+ 1737              	.LASF51:
+ 1738 0000 57617665 		.ascii	"WaveDAC8_1_VDAC8_SetRange\000"
+ 1738      44414338 
+ 1738      5F315F56 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 37
+
+
+ 1738      44414338 
+ 1738      5F536574 
+ 1739              	.LASF15:
+ 1740 001a 63797374 		.ascii	"cystatus\000"
+ 1740      61747573 
+ 1740      00
+ 1741              	.LASF34:
+ 1742 0023 57617665 		.ascii	"WaveDAC8_1_initVar\000"
+ 1742      44414338 
+ 1742      5F315F69 
+ 1742      6E697456 
+ 1742      617200
+ 1743              	.LASF31:
+ 1744 0036 57617665 		.ascii	"WaveDAC8_1_Wave2Chan\000"
+ 1744      44414338 
+ 1744      5F315F57 
+ 1744      61766532 
+ 1744      4368616E 
+ 1745              	.LASF37:
+ 1746 004b 57617665 		.ascii	"WaveDAC8_1_VDAC8_Enable\000"
+ 1746      44414338 
+ 1746      5F315F56 
+ 1746      44414338 
+ 1746      5F456E61 
+ 1747              	.LASF45:
+ 1748 0063 4379446D 		.ascii	"CyDmaTdSetAddress\000"
+ 1748      61546453 
+ 1748      65744164 
+ 1748      64726573 
+ 1748      7300
+ 1749              	.LASF23:
+ 1750 0075 57617665 		.ascii	"WaveDAC8_1_Init\000"
+ 1750      44414338 
+ 1750      5F315F49 
+ 1750      6E697400 
+ 1751              	.LASF3:
+ 1752 0085 73686F72 		.ascii	"short unsigned int\000"
+ 1752      7420756E 
+ 1752      7369676E 
+ 1752      65642069 
+ 1752      6E7400
+ 1753              	.LASF46:
+ 1754 0098 4379446D 		.ascii	"CyDmaChSetInitialTd\000"
+ 1754      61436853 
+ 1754      6574496E 
+ 1754      69746961 
+ 1754      6C546400 
+ 1755              	.LASF24:
+ 1756 00ac 57617665 		.ascii	"WaveDAC8_1_Start\000"
+ 1756      44414338 
+ 1756      5F315F53 
+ 1756      74617274 
+ 1756      00
+ 1757              	.LASF26:
+ 1758 00bd 77617665 		.ascii	"wavePtr1\000"
+ 1758      50747231 
+ 1758      00
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 38
+
+
+ 1759              	.LASF28:
+ 1760 00c6 77617665 		.ascii	"wavePtr2\000"
+ 1760      50747232 
+ 1760      00
+ 1761              	.LASF43:
+ 1762 00cf 57617665 		.ascii	"WaveDAC8_1_Wave1_DMA_DmaInitialize\000"
+ 1762      44414338 
+ 1762      5F315F57 
+ 1762      61766531 
+ 1762      5F444D41 
+ 1763              	.LASF25:
+ 1764 00f2 57617665 		.ascii	"WaveDAC8_1_StartEx\000"
+ 1764      44414338 
+ 1764      5F315F53 
+ 1764      74617274 
+ 1764      457800
+ 1765              	.LASF55:
+ 1766 0105 4379446D 		.ascii	"CyDmaTdAllocate\000"
+ 1766      61546441 
+ 1766      6C6C6F63 
+ 1766      61746500 
+ 1767              	.LASF50:
+ 1768 0115 57617665 		.ascii	"WaveDAC8_1_VDAC8_SetSpeed\000"
+ 1768      44414338 
+ 1768      5F315F56 
+ 1768      44414338 
+ 1768      5F536574 
+ 1769              	.LASF12:
+ 1770 012f 666C6F61 		.ascii	"float\000"
+ 1770      7400
+ 1771              	.LASF32:
+ 1772 0135 57617665 		.ascii	"WaveDAC8_1_Wave1TD\000"
+ 1772      44414338 
+ 1772      5F315F57 
+ 1772      61766531 
+ 1772      544400
+ 1773              	.LASF21:
+ 1774 0148 73616D70 		.ascii	"sampleSize\000"
+ 1774      6C655369 
+ 1774      7A6500
+ 1775              	.LASF48:
+ 1776 0153 57617665 		.ascii	"WaveDAC8_1_VDAC8_Init\000"
+ 1776      44414338 
+ 1776      5F315F56 
+ 1776      44414338 
+ 1776      5F496E69 
+ 1777              	.LASF44:
+ 1778 0169 4379446D 		.ascii	"CyDmaTdSetConfiguration\000"
+ 1778      61546453 
+ 1778      6574436F 
+ 1778      6E666967 
+ 1778      75726174 
+ 1779              	.LASF5:
+ 1780 0181 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1780      20756E73 
+ 1780      69676E65 
+ 1780      6420696E 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 39
+
+
+ 1780      7400
+ 1781              	.LASF20:
+ 1782 0193 77617665 		.ascii	"wavePtr\000"
+ 1782      50747200 
+ 1783              	.LASF9:
+ 1784 019b 75696E74 		.ascii	"uint8\000"
+ 1784      3800
+ 1785              	.LASF39:
+ 1786 01a1 57617665 		.ascii	"WaveDAC8_1_DacClk_Stop\000"
+ 1786      44414338 
+ 1786      5F315F44 
+ 1786      6163436C 
+ 1786      6B5F5374 
+ 1787              	.LASF27:
+ 1788 01b8 73616D70 		.ascii	"sampleSize1\000"
+ 1788      6C655369 
+ 1788      7A653100 
+ 1789              	.LASF29:
+ 1790 01c4 73616D70 		.ascii	"sampleSize2\000"
+ 1790      6C655369 
+ 1790      7A653200 
+ 1791              	.LASF19:
+ 1792 01d0 57617665 		.ascii	"WaveDAC8_1_Wave1Setup\000"
+ 1792      44414338 
+ 1792      5F315F57 
+ 1792      61766531 
+ 1792      53657475 
+ 1793              	.LASF38:
+ 1794 01e6 57617665 		.ascii	"WaveDAC8_1_DacClk_Start\000"
+ 1794      44414338 
+ 1794      5F315F44 
+ 1794      6163436C 
+ 1794      6B5F5374 
+ 1795              	.LASF13:
+ 1796 01fe 646F7562 		.ascii	"double\000"
+ 1796      6C6500
+ 1797              	.LASF18:
+ 1798 0205 57617665 		.ascii	"WaveDAC8_1_Stop\000"
+ 1798      44414338 
+ 1798      5F315F53 
+ 1798      746F7000 
+ 1799              	.LASF2:
+ 1800 0215 73686F72 		.ascii	"short int\000"
+ 1800      7420696E 
+ 1800      7400
+ 1801              	.LASF40:
+ 1802 021f 4379446D 		.ascii	"CyDmaChEnable\000"
+ 1802      61436845 
+ 1802      6E61626C 
+ 1802      6500
+ 1803              	.LASF10:
+ 1804 022d 75696E74 		.ascii	"uint16\000"
+ 1804      313600
+ 1805              	.LASF47:
+ 1806 0234 57617665 		.ascii	"WaveDAC8_1_Wave2_DMA_DmaInitialize\000"
+ 1806      44414338 
+ 1806      5F315F57 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 40
+
+
+ 1806      61766532 
+ 1806      5F444D41 
+ 1807              	.LASF11:
+ 1808 0257 75696E74 		.ascii	"uint32\000"
+ 1808      333200
+ 1809              	.LASF52:
+ 1810 025e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1810      4320342E 
+ 1810      392E3320 
+ 1810      32303135 
+ 1810      30333033 
+ 1811 0291 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1811      20726576 
+ 1811      6973696F 
+ 1811      6E203232 
+ 1811      31323230 
+ 1812 02c4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1812      66756E63 
+ 1812      74696F6E 
+ 1812      2D736563 
+ 1812      74696F6E 
+ 1813              	.LASF1:
+ 1814 02ec 756E7369 		.ascii	"unsigned char\000"
+ 1814      676E6564 
+ 1814      20636861 
+ 1814      7200
+ 1815              	.LASF8:
+ 1816 02fa 756E7369 		.ascii	"unsigned int\000"
+ 1816      676E6564 
+ 1816      20696E74 
+ 1816      00
+ 1817              	.LASF53:
+ 1818 0307 47656E65 		.ascii	"Generated_Source\\PSoC5\\WaveDAC8_1.c\000"
+ 1818      72617465 
+ 1818      645F536F 
+ 1818      75726365 
+ 1818      5C50536F 
+ 1819              	.LASF7:
+ 1820 032b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1820      206C6F6E 
+ 1820      6720756E 
+ 1820      7369676E 
+ 1820      65642069 
+ 1821              	.LASF33:
+ 1822 0342 57617665 		.ascii	"WaveDAC8_1_Wave2TD\000"
+ 1822      44414338 
+ 1822      5F315F57 
+ 1822      61766532 
+ 1822      544400
+ 1823              	.LASF42:
+ 1824 0355 57617665 		.ascii	"WaveDAC8_1_VDAC8_Stop\000"
+ 1824      44414338 
+ 1824      5F315F56 
+ 1824      44414338 
+ 1824      5F53746F 
+ 1825              	.LASF49:
+ 1826 036b 57617665 		.ascii	"WaveDAC8_1_VDAC8_SetValue\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 41
+
+
+ 1826      44414338 
+ 1826      5F315F56 
+ 1826      44414338 
+ 1826      5F536574 
+ 1827              	.LASF16:
+ 1828 0385 73697A65 		.ascii	"sizetype\000"
+ 1828      74797065 
+ 1828      00
+ 1829              	.LASF6:
+ 1830 038e 6C6F6E67 		.ascii	"long long int\000"
+ 1830      206C6F6E 
+ 1830      6720696E 
+ 1830      7400
+ 1831              	.LASF54:
+ 1832 039c 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\FE3-DashboardRev1\\FE3-Dashbo"
+ 1832      6F776E6C 
+ 1832      6F616473 
+ 1832      5C465255 
+ 1832      43445C46 
+ 1833 03cb 6172645C 		.ascii	"ard\\Node-Jaguar.cydsn\000"
+ 1833      4E6F6465 
+ 1833      2D4A6167 
+ 1833      7561722E 
+ 1833      63796473 
+ 1834              	.LASF14:
+ 1835 03e1 63686172 		.ascii	"char\000"
+ 1835      00
+ 1836              	.LASF22:
+ 1837 03e6 57617665 		.ascii	"WaveDAC8_1_Wave2Setup\000"
+ 1837      44414338 
+ 1837      5F315F57 
+ 1837      61766532 
+ 1837      53657475 
+ 1838              	.LASF17:
+ 1839 03fc 57617665 		.ascii	"WaveDAC8_1_Enable\000"
+ 1839      44414338 
+ 1839      5F315F45 
+ 1839      6E61626C 
+ 1839      6500
+ 1840              	.LASF35:
+ 1841 040e 57617665 		.ascii	"WaveDAC8_1_wave1\000"
+ 1841      44414338 
+ 1841      5F315F77 
+ 1841      61766531 
+ 1841      00
+ 1842              	.LASF36:
+ 1843 041f 57617665 		.ascii	"WaveDAC8_1_wave2\000"
+ 1843      44414338 
+ 1843      5F315F77 
+ 1843      61766532 
+ 1843      00
+ 1844              	.LASF30:
+ 1845 0430 57617665 		.ascii	"WaveDAC8_1_Wave1Chan\000"
+ 1845      44414338 
+ 1845      5F315F57 
+ 1845      61766531 
+ 1845      4368616E 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccJT4aBm.s 			page 42
+
+
+ 1846              	.LASF4:
+ 1847 0445 6C6F6E67 		.ascii	"long int\000"
+ 1847      20696E74 
+ 1847      00
+ 1848              	.LASF0:
+ 1849 044e 7369676E 		.ascii	"signed char\000"
+ 1849      65642063 
+ 1849      68617200 
+ 1850              	.LASF41:
+ 1851 045a 4379446D 		.ascii	"CyDmaChDisable\000"
+ 1851      61436844 
+ 1851      69736162 
+ 1851      6C6500
+ 1852              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
