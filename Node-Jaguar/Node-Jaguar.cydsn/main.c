@@ -1,6 +1,7 @@
 #include <project.h>
 #include <stdio.h>
 #include "can_manga.h"
+#include "led_manager.h"
 
 #define PWM_PULSE_WIDTH_STEP        (10u)
 #define SWITCH_PRESSED              (0u)
@@ -173,12 +174,12 @@ int main()
         {    
             //CyDelay(1000);
             case Startup:
-  
                 //CyDelay(5000);
-                //Initialize CAN
+                //Initialize CAN & LED Drivers
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
+                led_driver_init();
                 CyDelay(1000);
                 //nodeCheckStart(); EDIT UNCOMMENT
                 
@@ -193,9 +194,16 @@ int main()
                 //UI
                 
                 Buzzer_Write(1);
-                CyDelay(50);
+                write_all_tach(1);
+	            write_all_stat(1);
+	            CyDelay(1000);
+	            write_all_stat(0);
+	            write_all_tach(0);
+                Buzzer_Write(0);
                 
+                state = LV;
                 
+                                
                 /*
                 //Active Low
                 RGB3_1_Write(1);
@@ -227,12 +235,7 @@ int main()
                 RGB1_2_Write(1);
                 */
                 
-                
-                Buzzer_Write(0);
-                
-                state = LV;
-                
-            break;
+                break;
                 
             case LV:
                 can_send_cmd(0,0,0);

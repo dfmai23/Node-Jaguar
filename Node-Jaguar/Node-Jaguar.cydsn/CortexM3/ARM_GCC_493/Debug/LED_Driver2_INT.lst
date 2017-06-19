@@ -1,0 +1,1700 @@
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"LED_Driver2_INT.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.LED_Driver2_ISR,"ax",%progbits
+  19              		.align	2
+  20              		.global	LED_Driver2_ISR
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	LED_Driver2_ISR, %function
+  24              	LED_Driver2_ISR:
+  25              	.LFB0:
+  26              		.file 1 "Generated_Source\\PSoC5\\LED_Driver2_INT.c"
+   1:Generated_Source\PSoC5/LED_Driver2_INT.c **** /*******************************************************************************
+   2:Generated_Source\PSoC5/LED_Driver2_INT.c **** * File Name: LED_Driver2_INT.c
+   3:Generated_Source\PSoC5/LED_Driver2_INT.c **** * Version 3.50
+   4:Generated_Source\PSoC5/LED_Driver2_INT.c **** *
+   5:Generated_Source\PSoC5/LED_Driver2_INT.c **** * Description:
+   6:Generated_Source\PSoC5/LED_Driver2_INT.c **** *  This file provides the source code of Interrupt Service Routine (ISR)
+   7:Generated_Source\PSoC5/LED_Driver2_INT.c **** *  for the I2C component.
+   8:Generated_Source\PSoC5/LED_Driver2_INT.c **** *
+   9:Generated_Source\PSoC5/LED_Driver2_INT.c **** ********************************************************************************
+  10:Generated_Source\PSoC5/LED_Driver2_INT.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation. All rights reserved.
+  11:Generated_Source\PSoC5/LED_Driver2_INT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:Generated_Source\PSoC5/LED_Driver2_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:Generated_Source\PSoC5/LED_Driver2_INT.c **** * the software package with which this file was provided.
+  14:Generated_Source\PSoC5/LED_Driver2_INT.c **** *******************************************************************************/
+  15:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  16:Generated_Source\PSoC5/LED_Driver2_INT.c **** #include "LED_Driver2_PVT.h"
+  17:Generated_Source\PSoC5/LED_Driver2_INT.c **** #include "cyapicallbacks.h"
+  18:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  19:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  20:Generated_Source\PSoC5/LED_Driver2_INT.c **** /*******************************************************************************
+  21:Generated_Source\PSoC5/LED_Driver2_INT.c **** *  Place your includes, defines and code here.
+  22:Generated_Source\PSoC5/LED_Driver2_INT.c **** ********************************************************************************/
+  23:Generated_Source\PSoC5/LED_Driver2_INT.c **** /* `#START LED_Driver2_ISR_intc` */
+  24:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  25:Generated_Source\PSoC5/LED_Driver2_INT.c **** /* `#END` */
+  26:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  27:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  28:Generated_Source\PSoC5/LED_Driver2_INT.c **** /*******************************************************************************
+  29:Generated_Source\PSoC5/LED_Driver2_INT.c **** * Function Name: LED_Driver2_ISR
+  30:Generated_Source\PSoC5/LED_Driver2_INT.c **** ********************************************************************************
+  31:Generated_Source\PSoC5/LED_Driver2_INT.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 2
+
+
+  32:Generated_Source\PSoC5/LED_Driver2_INT.c **** * Summary:
+  33:Generated_Source\PSoC5/LED_Driver2_INT.c **** *  The handler for the I2C interrupt. The slave and master operations are
+  34:Generated_Source\PSoC5/LED_Driver2_INT.c **** *  handled here.
+  35:Generated_Source\PSoC5/LED_Driver2_INT.c **** *
+  36:Generated_Source\PSoC5/LED_Driver2_INT.c **** * Parameters:
+  37:Generated_Source\PSoC5/LED_Driver2_INT.c **** *  None.
+  38:Generated_Source\PSoC5/LED_Driver2_INT.c **** *
+  39:Generated_Source\PSoC5/LED_Driver2_INT.c **** * Return:
+  40:Generated_Source\PSoC5/LED_Driver2_INT.c **** *  None.
+  41:Generated_Source\PSoC5/LED_Driver2_INT.c **** *
+  42:Generated_Source\PSoC5/LED_Driver2_INT.c **** * Reentrant:
+  43:Generated_Source\PSoC5/LED_Driver2_INT.c **** *  No.
+  44:Generated_Source\PSoC5/LED_Driver2_INT.c **** *
+  45:Generated_Source\PSoC5/LED_Driver2_INT.c **** *******************************************************************************/
+  46:Generated_Source\PSoC5/LED_Driver2_INT.c **** CY_ISR(LED_Driver2_ISR)
+  47:Generated_Source\PSoC5/LED_Driver2_INT.c **** {
+  27              		.loc 1 47 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 38B5     		push	{r3, r4, r5, lr}
+  32              		.cfi_def_cfa_offset 16
+  33              		.cfi_offset 3, -16
+  34              		.cfi_offset 4, -12
+  35              		.cfi_offset 5, -8
+  36              		.cfi_offset 14, -4
+  48:Generated_Source\PSoC5/LED_Driver2_INT.c **** #if (LED_Driver2_MODE_SLAVE_ENABLED)
+  49:Generated_Source\PSoC5/LED_Driver2_INT.c ****    uint8  tmp8;
+  50:Generated_Source\PSoC5/LED_Driver2_INT.c **** #endif  /* (LED_Driver2_MODE_SLAVE_ENABLED) */
+  51:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  52:Generated_Source\PSoC5/LED_Driver2_INT.c ****     uint8  tmpCsr;
+  53:Generated_Source\PSoC5/LED_Driver2_INT.c ****     
+  54:Generated_Source\PSoC5/LED_Driver2_INT.c **** #ifdef LED_Driver2_ISR_ENTRY_CALLBACK
+  55:Generated_Source\PSoC5/LED_Driver2_INT.c ****     LED_Driver2_ISR_EntryCallback();
+  56:Generated_Source\PSoC5/LED_Driver2_INT.c **** #endif /* LED_Driver2_ISR_ENTRY_CALLBACK */
+  57:Generated_Source\PSoC5/LED_Driver2_INT.c ****     
+  58:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  59:Generated_Source\PSoC5/LED_Driver2_INT.c **** #if(LED_Driver2_TIMEOUT_FF_ENABLED)
+  60:Generated_Source\PSoC5/LED_Driver2_INT.c ****     if(0u != LED_Driver2_TimeoutGetStatus())
+  61:Generated_Source\PSoC5/LED_Driver2_INT.c ****     {
+  62:Generated_Source\PSoC5/LED_Driver2_INT.c ****         LED_Driver2_TimeoutReset();
+  63:Generated_Source\PSoC5/LED_Driver2_INT.c ****         LED_Driver2_state = LED_Driver2_SM_EXIT_IDLE;
+  64:Generated_Source\PSoC5/LED_Driver2_INT.c ****         /* LED_Driver2_CSR_REG should be cleared after reset */
+  65:Generated_Source\PSoC5/LED_Driver2_INT.c ****     }
+  66:Generated_Source\PSoC5/LED_Driver2_INT.c **** #endif /* (LED_Driver2_TIMEOUT_FF_ENABLED) */
+  67:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  68:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  69:Generated_Source\PSoC5/LED_Driver2_INT.c ****     tmpCsr = LED_Driver2_CSR_REG;      /* Make copy as interrupts clear */
+  37              		.loc 1 69 0
+  38 0002 B04B     		ldr	r3, .L27
+  39 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+  40 0006 E4B2     		uxtb	r4, r4
+  41              	.LVL0:
+  70:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  71:Generated_Source\PSoC5/LED_Driver2_INT.c **** #if(LED_Driver2_MODE_MULTI_MASTER_SLAVE_ENABLED)
+  72:Generated_Source\PSoC5/LED_Driver2_INT.c ****     if(LED_Driver2_CHECK_START_GEN(LED_Driver2_MCSR_REG))
+  73:Generated_Source\PSoC5/LED_Driver2_INT.c ****     {
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 3
+
+
+  74:Generated_Source\PSoC5/LED_Driver2_INT.c ****         LED_Driver2_CLEAR_START_GEN;
+  75:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  76:Generated_Source\PSoC5/LED_Driver2_INT.c ****         /* Set transfer complete and error flags */
+  77:Generated_Source\PSoC5/LED_Driver2_INT.c ****         LED_Driver2_mstrStatus |= (LED_Driver2_MSTAT_ERR_XFER |
+  78:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                         LED_Driver2_GET_MSTAT_CMPLT);
+  79:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  80:Generated_Source\PSoC5/LED_Driver2_INT.c ****         /* Slave was addressed */
+  81:Generated_Source\PSoC5/LED_Driver2_INT.c ****         LED_Driver2_state = LED_Driver2_SM_SLAVE;
+  82:Generated_Source\PSoC5/LED_Driver2_INT.c ****     }
+  83:Generated_Source\PSoC5/LED_Driver2_INT.c **** #endif /* (LED_Driver2_MODE_MULTI_MASTER_SLAVE_ENABLED) */
+  84:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  85:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  86:Generated_Source\PSoC5/LED_Driver2_INT.c **** #if(LED_Driver2_MODE_MULTI_MASTER_ENABLED)
+  87:Generated_Source\PSoC5/LED_Driver2_INT.c ****     if(LED_Driver2_CHECK_LOST_ARB(tmpCsr))
+  88:Generated_Source\PSoC5/LED_Driver2_INT.c ****     {
+  89:Generated_Source\PSoC5/LED_Driver2_INT.c ****         /* Set errors */
+  90:Generated_Source\PSoC5/LED_Driver2_INT.c ****         LED_Driver2_mstrStatus |= (LED_Driver2_MSTAT_ERR_XFER     |
+  91:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                         LED_Driver2_MSTAT_ERR_ARB_LOST |
+  92:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                         LED_Driver2_GET_MSTAT_CMPLT);
+  93:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  94:Generated_Source\PSoC5/LED_Driver2_INT.c ****         LED_Driver2_DISABLE_INT_ON_STOP; /* Interrupt on Stop is enabled by write */
+  95:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+  96:Generated_Source\PSoC5/LED_Driver2_INT.c ****         #if(LED_Driver2_MODE_MULTI_MASTER_SLAVE_ENABLED)
+  97:Generated_Source\PSoC5/LED_Driver2_INT.c ****             if(LED_Driver2_CHECK_ADDRESS_STS(tmpCsr))
+  98:Generated_Source\PSoC5/LED_Driver2_INT.c ****             {
+  99:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 /* Slave was addressed */
+ 100:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_state = LED_Driver2_SM_SLAVE;
+ 101:Generated_Source\PSoC5/LED_Driver2_INT.c ****             }
+ 102:Generated_Source\PSoC5/LED_Driver2_INT.c ****             else
+ 103:Generated_Source\PSoC5/LED_Driver2_INT.c ****             {
+ 104:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_BUS_RELEASE;
+ 105:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 106:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_state = LED_Driver2_SM_EXIT_IDLE;
+ 107:Generated_Source\PSoC5/LED_Driver2_INT.c ****             }
+ 108:Generated_Source\PSoC5/LED_Driver2_INT.c ****         #else
+ 109:Generated_Source\PSoC5/LED_Driver2_INT.c ****             LED_Driver2_BUS_RELEASE;
+ 110:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 111:Generated_Source\PSoC5/LED_Driver2_INT.c ****             LED_Driver2_state = LED_Driver2_SM_EXIT_IDLE;
+ 112:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 113:Generated_Source\PSoC5/LED_Driver2_INT.c ****         #endif /* (LED_Driver2_MODE_MULTI_MASTER_SLAVE_ENABLED) */
+ 114:Generated_Source\PSoC5/LED_Driver2_INT.c ****     }
+ 115:Generated_Source\PSoC5/LED_Driver2_INT.c **** #endif /* (LED_Driver2_MODE_MULTI_MASTER_ENABLED) */
+ 116:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 117:Generated_Source\PSoC5/LED_Driver2_INT.c ****     /* Check for master operation mode */
+ 118:Generated_Source\PSoC5/LED_Driver2_INT.c ****     if(LED_Driver2_CHECK_SM_MASTER)
+  42              		.loc 1 118 0
+  43 0008 AF4B     		ldr	r3, .L27+4
+  44 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  45 000c 13F0400F 		tst	r3, #64
+  46 0010 00F08281 		beq	.L2
+ 119:Generated_Source\PSoC5/LED_Driver2_INT.c ****     {
+ 120:Generated_Source\PSoC5/LED_Driver2_INT.c ****     #if(LED_Driver2_MODE_MASTER_ENABLED)
+ 121:Generated_Source\PSoC5/LED_Driver2_INT.c ****         if(LED_Driver2_CHECK_BYTE_COMPLETE(tmpCsr))
+  47              		.loc 1 121 0
+  48 0014 14F0010F 		tst	r4, #1
+  49 0018 00F04981 		beq	.L3
+ 122:Generated_Source\PSoC5/LED_Driver2_INT.c ****         {
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 4
+
+
+ 123:Generated_Source\PSoC5/LED_Driver2_INT.c ****             switch (LED_Driver2_state)
+  50              		.loc 1 123 0
+  51 001c AA4B     		ldr	r3, .L27+4
+  52 001e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  53 0020 453B     		subs	r3, r3, #69
+  54 0022 052B     		cmp	r3, #5
+  55 0024 00F24081 		bhi	.L4
+  56 0028 DFE813F0 		tbh	[pc, r3, lsl #1]
+  57              	.L6:
+  58 002c 0600     		.2byte	(.L5-.L6)/2
+  59 002e 9600     		.2byte	(.L7-.L6)/2
+  60 0030 3E01     		.2byte	(.L4-.L6)/2
+  61 0032 3E01     		.2byte	(.L4-.L6)/2
+  62 0034 0600     		.2byte	(.L5-.L6)/2
+  63 0036 FF00     		.2byte	(.L8-.L6)/2
+  64              		.p2align 1
+  65              	.L5:
+ 124:Generated_Source\PSoC5/LED_Driver2_INT.c ****             {
+ 125:Generated_Source\PSoC5/LED_Driver2_INT.c ****             case LED_Driver2_SM_MSTR_WR_ADDR:  /* After address is sent, write data */
+ 126:Generated_Source\PSoC5/LED_Driver2_INT.c ****             case LED_Driver2_SM_MSTR_RD_ADDR:  /* After address is sent, read data */
+ 127:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 128:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 tmpCsr &= ((uint8) ~LED_Driver2_CSR_STOP_STATUS); /* Clear Stop bit history on addr
+  66              		.loc 1 128 0
+  67 0038 04F0DF05 		and	r5, r4, #223
+  68              	.LVL1:
+ 129:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 130:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 if(LED_Driver2_CHECK_ADDR_ACK(tmpCsr))
+  69              		.loc 1 130 0
+  70 003c 04F00A04 		and	r4, r4, #10
+  71 0040 082C     		cmp	r4, #8
+  72 0042 53D1     		bne	.L9
+ 131:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 132:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Setup for transmit or receive of data */
+ 133:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     if(LED_Driver2_state == LED_Driver2_SM_MSTR_WR_ADDR)   /* TRANSMIT data */
+  73              		.loc 1 133 0
+  74 0044 A04B     		ldr	r3, .L27+4
+  75 0046 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  76 0048 DBB2     		uxtb	r3, r3
+  77 004a 452B     		cmp	r3, #69
+  78 004c 3FD1     		bne	.L10
+ 134:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 135:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* Check if at least one byte to transfer */
+ 136:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         if(LED_Driver2_mstrWrBufSize > 0u)
+  79              		.loc 1 136 0
+  80 004e 9F4B     		ldr	r3, .L27+8
+  81 0050 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  82 0052 13F0FF0F 		tst	r3, #255
+  83 0056 17D0     		beq	.L11
+ 137:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         {
+ 138:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             /* Load the 1st data byte */
+ 139:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_DATA_REG = LED_Driver2_mstrWrBufPtr[0u];
+  84              		.loc 1 139 0
+  85 0058 9D4B     		ldr	r3, .L27+12
+  86 005a 1B68     		ldr	r3, [r3]
+  87 005c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  88 005e DBB2     		uxtb	r3, r3
+  89 0060 9C4A     		ldr	r2, .L27+16
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 5
+
+
+  90 0062 1370     		strb	r3, [r2]
+ 140:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_TRANSMIT_DATA;
+  91              		.loc 1 140 0
+  92 0064 0622     		movs	r2, #6
+  93 0066 9C4B     		ldr	r3, .L27+20
+  94 0068 1A70     		strb	r2, [r3]
+  95 006a FF22     		movs	r2, #255
+  96 006c A3F5B573 		sub	r3, r3, #362
+  97 0070 1A70     		strb	r2, [r3]
+  98 0072 0022     		movs	r2, #0
+  99 0074 4033     		adds	r3, r3, #64
+ 100 0076 1A70     		strb	r2, [r3]
+ 141:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_mstrWrBufIndex = 1u;   /* Set index to 2nd element */
+ 101              		.loc 1 141 0
+ 102 0078 0122     		movs	r2, #1
+ 103 007a 984B     		ldr	r3, .L27+24
+ 104 007c 1A70     		strb	r2, [r3]
+ 142:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 143:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             /* Set transmit state until done */
+ 144:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_state = LED_Driver2_SM_MSTR_WR_DATA;
+ 105              		.loc 1 144 0
+ 106 007e 4622     		movs	r2, #70
+ 107 0080 914B     		ldr	r3, .L27+4
+ 108 0082 1A70     		strb	r2, [r3]
+ 128:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 109              		.loc 1 128 0
+ 110 0084 2C46     		mov	r4, r5
+ 111 0086 12E1     		b	.L3
+ 112              	.L11:
+ 145:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         }
+ 146:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* End of buffer: complete writing */
+ 147:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         else if(LED_Driver2_CHECK_NO_STOP(LED_Driver2_mstrControl))
+ 113              		.loc 1 147 0
+ 114 0088 954B     		ldr	r3, .L27+28
+ 115 008a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 116 008c 13F0020F 		tst	r3, #2
+ 117 0090 0CD0     		beq	.L12
+ 148:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         {
+ 149:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             /* Set write complete and master halted */
+ 150:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_mstrStatus |= (LED_Driver2_MSTAT_XFER_HALT |
+ 118              		.loc 1 150 0
+ 119 0092 944A     		ldr	r2, .L27+32
+ 120 0094 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 121 0096 43F00A03 		orr	r3, r3, #10
+ 122 009a 1370     		strb	r3, [r2]
+ 151:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                             LED_Driver2_MSTAT_WR_CMPLT);
+ 152:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 153:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_state = LED_Driver2_SM_MSTR_HALT; /* Expect ReStart */
+ 123              		.loc 1 153 0
+ 124 009c 6022     		movs	r2, #96
+ 125 009e 8A4B     		ldr	r3, .L27+4
+ 126 00a0 1A70     		strb	r2, [r3]
+ 154:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_DisableInt();
+ 127              		.loc 1 154 0
+ 128 00a2 0222     		movs	r2, #2
+ 129 00a4 904B     		ldr	r3, .L27+36
+ 130 00a6 1A60     		str	r2, [r3]
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 6
+
+
+ 128:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 131              		.loc 1 128 0
+ 132 00a8 2C46     		mov	r4, r5
+ 133 00aa 00E1     		b	.L3
+ 134              	.L12:
+ 155:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         }
+ 156:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         else
+ 157:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         {
+ 158:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_ENABLE_INT_ON_STOP; /* Enable interrupt on Stop, to catch i
+ 135              		.loc 1 158 0
+ 136 00ac 8F4A     		ldr	r2, .L27+40
+ 137 00ae 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 138 00b0 43F02003 		orr	r3, r3, #32
+ 139 00b4 1370     		strb	r3, [r2]
+ 159:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_GENERATE_STOP;
+ 140              		.loc 1 159 0
+ 141 00b6 5222     		movs	r2, #82
+ 142 00b8 874B     		ldr	r3, .L27+20
+ 143 00ba 1A70     		strb	r2, [r3]
+ 144 00bc FF22     		movs	r2, #255
+ 145 00be A3F5B573 		sub	r3, r3, #362
+ 146 00c2 1A70     		strb	r2, [r3]
+ 147 00c4 0022     		movs	r2, #0
+ 148 00c6 4033     		adds	r3, r3, #64
+ 149 00c8 1A70     		strb	r2, [r3]
+ 128:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 150              		.loc 1 128 0
+ 151 00ca 2C46     		mov	r4, r5
+ 152 00cc EFE0     		b	.L3
+ 153              	.L10:
+ 160:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         }
+ 161:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 162:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     else  /* Master receive data */
+ 163:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 164:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_READY_TO_READ; /* Release bus to read data */
+ 154              		.loc 1 164 0
+ 155 00ce 0222     		movs	r2, #2
+ 156 00d0 814B     		ldr	r3, .L27+20
+ 157 00d2 1A70     		strb	r2, [r3]
+ 158 00d4 FF22     		movs	r2, #255
+ 159 00d6 A3F5B573 		sub	r3, r3, #362
+ 160 00da 1A70     		strb	r2, [r3]
+ 161 00dc 0022     		movs	r2, #0
+ 162 00de 4033     		adds	r3, r3, #64
+ 163 00e0 1A70     		strb	r2, [r3]
+ 165:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 166:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_state  = LED_Driver2_SM_MSTR_RD_DATA;
+ 164              		.loc 1 166 0
+ 165 00e2 4A22     		movs	r2, #74
+ 166 00e4 784B     		ldr	r3, .L27+4
+ 167 00e6 1A70     		strb	r2, [r3]
+ 128:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 168              		.loc 1 128 0
+ 169 00e8 2C46     		mov	r4, r5
+ 170 00ea E0E0     		b	.L3
+ 171              	.L9:
+ 167:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 7
+
+
+ 168:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 169:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 /* Address is NACKed */
+ 170:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else if(LED_Driver2_CHECK_ADDR_NAK(tmpCsr))
+ 172              		.loc 1 170 0
+ 173 00ec 0A2C     		cmp	r4, #10
+ 174 00ee 2ED1     		bne	.L13
+ 171:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 172:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Set Address NAK error */
+ 173:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_mstrStatus |= (LED_Driver2_MSTAT_ERR_XFER |
+ 175              		.loc 1 173 0
+ 176 00f0 7C4A     		ldr	r2, .L27+32
+ 177 00f2 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 178 00f4 43F0A003 		orr	r3, r3, #160
+ 179 00f8 1370     		strb	r3, [r2]
+ 174:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                     LED_Driver2_MSTAT_ERR_ADDR_NAK);
+ 175:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 176:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     if(LED_Driver2_CHECK_NO_STOP(LED_Driver2_mstrControl))
+ 180              		.loc 1 176 0
+ 181 00fa 794B     		ldr	r3, .L27+28
+ 182 00fc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 183 00fe 13F0020F 		tst	r3, #2
+ 184 0102 13D0     		beq	.L14
+ 177:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 178:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_mstrStatus |= (LED_Driver2_MSTAT_XFER_HALT |
+ 179:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                         LED_Driver2_GET_MSTAT_CMPLT);
+ 185              		.loc 1 179 0
+ 186 0104 704B     		ldr	r3, .L27+4
+ 187 0106 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 178:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                         LED_Driver2_GET_MSTAT_CMPLT);
+ 188              		.loc 1 178 0
+ 189 0108 13F0080F 		tst	r3, #8
+ 190 010c 01D0     		beq	.L24
+ 191 010e 0923     		movs	r3, #9
+ 192 0110 00E0     		b	.L15
+ 193              	.L24:
+ 194 0112 0A23     		movs	r3, #10
+ 195              	.L15:
+ 178:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                         LED_Driver2_GET_MSTAT_CMPLT);
+ 196              		.loc 1 178 0 is_stmt 0 discriminator 4
+ 197 0114 734A     		ldr	r2, .L27+32
+ 198 0116 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+ 199 0118 0B43     		orrs	r3, r3, r1
+ 200 011a 1370     		strb	r3, [r2]
+ 180:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 181:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_state = LED_Driver2_SM_MSTR_HALT; /* Expect RESTART */
+ 201              		.loc 1 181 0 is_stmt 1 discriminator 4
+ 202 011c 6022     		movs	r2, #96
+ 203 011e 6A4B     		ldr	r3, .L27+4
+ 204 0120 1A70     		strb	r2, [r3]
+ 182:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_DisableInt();
+ 205              		.loc 1 182 0 discriminator 4
+ 206 0122 0222     		movs	r2, #2
+ 207 0124 704B     		ldr	r3, .L27+36
+ 208 0126 1A60     		str	r2, [r3]
+ 128:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 209              		.loc 1 128 0 discriminator 4
+ 210 0128 2C46     		mov	r4, r5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 8
+
+
+ 211 012a C0E0     		b	.L3
+ 212              	.L14:
+ 183:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 184:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     else  /* Do normal Stop */
+ 185:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 186:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_ENABLE_INT_ON_STOP; /* Enable interrupt on Stop, to catch it */
+ 213              		.loc 1 186 0
+ 214 012c 6F4A     		ldr	r2, .L27+40
+ 215 012e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 216 0130 43F02003 		orr	r3, r3, #32
+ 217 0134 1370     		strb	r3, [r2]
+ 187:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_GENERATE_STOP;
+ 218              		.loc 1 187 0
+ 219 0136 5222     		movs	r2, #82
+ 220 0138 674B     		ldr	r3, .L27+20
+ 221 013a 1A70     		strb	r2, [r3]
+ 222 013c FF22     		movs	r2, #255
+ 223 013e A3F5B573 		sub	r3, r3, #362
+ 224 0142 1A70     		strb	r2, [r3]
+ 225 0144 0022     		movs	r2, #0
+ 226 0146 4033     		adds	r3, r3, #64
+ 227 0148 1A70     		strb	r2, [r3]
+ 128:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 228              		.loc 1 128 0
+ 229 014a 2C46     		mov	r4, r5
+ 230 014c AFE0     		b	.L3
+ 231              	.L13:
+ 188:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 189:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 190:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else
+ 191:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 192:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Address phase is not set for some reason: error */
+ 193:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     #if(LED_Driver2_TIMEOUT_ENABLED)
+ 194:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* Exit interrupt to take chance for timeout timer to handle this case */
+ 195:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_DisableInt();
+ 196:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_ClearPendingInt();
+ 197:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     #else
+ 198:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* Block execution flow: unexpected condition */
+ 199:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         CYASSERT(0u != 0u);
+ 232              		.loc 1 199 0 discriminator 1
+ 233 014e 0020     		movs	r0, #0
+ 234 0150 FFF7FEFF 		bl	CyHalt
+ 235              	.LVL2:
+ 128:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 236              		.loc 1 128 0 discriminator 1
+ 237 0154 2C46     		mov	r4, r5
+ 238 0156 AAE0     		b	.L3
+ 239              	.LVL3:
+ 240              	.L7:
+ 200:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     #endif /* (LED_Driver2_TIMEOUT_ENABLED) */
+ 201:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 202:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 break;
+ 203:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 204:Generated_Source\PSoC5/LED_Driver2_INT.c ****             case LED_Driver2_SM_MSTR_WR_DATA:
+ 205:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 206:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 if(LED_Driver2_CHECK_DATA_ACK(tmpCsr))
+ 241              		.loc 1 206 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 9
+
+
+ 242 0158 14F0020F 		tst	r4, #2
+ 243 015c 3FD1     		bne	.L16
+ 207:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 208:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Check if end of buffer */
+ 209:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     if(LED_Driver2_mstrWrBufIndex  < LED_Driver2_mstrWrBufSize)
+ 244              		.loc 1 209 0
+ 245 015e 5F4B     		ldr	r3, .L27+24
+ 246 0160 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 247 0162 5A4A     		ldr	r2, .L27+8
+ 248 0164 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 249 0166 DBB2     		uxtb	r3, r3
+ 250 0168 9342     		cmp	r3, r2
+ 251 016a 17D2     		bcs	.L17
+ 210:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 211:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_DATA_REG =
+ 212:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                  LED_Driver2_mstrWrBufPtr[LED_Driver2_mstrWrBufInde
+ 252              		.loc 1 212 0
+ 253 016c 5B4A     		ldr	r2, .L27+24
+ 254 016e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 255 0170 DBB2     		uxtb	r3, r3
+ 256 0172 5749     		ldr	r1, .L27+12
+ 257 0174 0968     		ldr	r1, [r1]
+ 258 0176 CB5C     		ldrb	r3, [r1, r3]	@ zero_extendqisi2
+ 259 0178 DBB2     		uxtb	r3, r3
+ 211:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                  LED_Driver2_mstrWrBufPtr[LED_Driver2_mstrWrBufInde
+ 260              		.loc 1 211 0
+ 261 017a 5649     		ldr	r1, .L27+16
+ 262 017c 0B70     		strb	r3, [r1]
+ 213:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_TRANSMIT_DATA;
+ 263              		.loc 1 213 0
+ 264 017e 0621     		movs	r1, #6
+ 265 0180 554B     		ldr	r3, .L27+20
+ 266 0182 1970     		strb	r1, [r3]
+ 267 0184 FF21     		movs	r1, #255
+ 268 0186 A3F5B573 		sub	r3, r3, #362
+ 269 018a 1970     		strb	r1, [r3]
+ 270 018c 0021     		movs	r1, #0
+ 271 018e 4033     		adds	r3, r3, #64
+ 272 0190 1970     		strb	r1, [r3]
+ 214:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_mstrWrBufIndex++;
+ 273              		.loc 1 214 0
+ 274 0192 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 275 0194 0133     		adds	r3, r3, #1
+ 276 0196 DBB2     		uxtb	r3, r3
+ 277 0198 1370     		strb	r3, [r2]
+ 278 019a 88E0     		b	.L3
+ 279              	.L17:
+ 215:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 216:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* End of buffer: complete writing */
+ 217:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     else if(LED_Driver2_CHECK_NO_STOP(LED_Driver2_mstrControl))
+ 280              		.loc 1 217 0
+ 281 019c 504B     		ldr	r3, .L27+28
+ 282 019e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 283 01a0 13F0020F 		tst	r3, #2
+ 284 01a4 0BD0     		beq	.L18
+ 218:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 219:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* Set write complete and master halted */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 10
+
+
+ 220:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_mstrStatus |= (LED_Driver2_MSTAT_XFER_HALT |
+ 285              		.loc 1 220 0
+ 286 01a6 4F4A     		ldr	r2, .L27+32
+ 287 01a8 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 288 01aa 43F00A03 		orr	r3, r3, #10
+ 289 01ae 1370     		strb	r3, [r2]
+ 221:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                         LED_Driver2_MSTAT_WR_CMPLT);
+ 222:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 223:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_state = LED_Driver2_SM_MSTR_HALT;    /* Expect restart */
+ 290              		.loc 1 223 0
+ 291 01b0 6022     		movs	r2, #96
+ 292 01b2 454B     		ldr	r3, .L27+4
+ 293 01b4 1A70     		strb	r2, [r3]
+ 224:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_DisableInt();
+ 294              		.loc 1 224 0
+ 295 01b6 0222     		movs	r2, #2
+ 296 01b8 4B4B     		ldr	r3, .L27+36
+ 297 01ba 1A60     		str	r2, [r3]
+ 298 01bc 77E0     		b	.L3
+ 299              	.L18:
+ 225:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 226:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     else  /* Do normal Stop */
+ 227:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 228:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_ENABLE_INT_ON_STOP;    /* Enable interrupt on Stop, to catch it
+ 300              		.loc 1 228 0
+ 301 01be 4B4A     		ldr	r2, .L27+40
+ 302 01c0 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 303 01c2 43F02003 		orr	r3, r3, #32
+ 304 01c6 1370     		strb	r3, [r2]
+ 229:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_GENERATE_STOP;
+ 305              		.loc 1 229 0
+ 306 01c8 5222     		movs	r2, #82
+ 307 01ca 434B     		ldr	r3, .L27+20
+ 308 01cc 1A70     		strb	r2, [r3]
+ 309 01ce FF22     		movs	r2, #255
+ 310 01d0 A3F5B573 		sub	r3, r3, #362
+ 311 01d4 1A70     		strb	r2, [r3]
+ 312 01d6 0022     		movs	r2, #0
+ 313 01d8 4033     		adds	r3, r3, #64
+ 314 01da 1A70     		strb	r2, [r3]
+ 315 01dc 67E0     		b	.L3
+ 316              	.L16:
+ 230:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 231:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 232:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 /* Last byte NAKed: end writing */
+ 233:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else if(LED_Driver2_CHECK_NO_STOP(LED_Driver2_mstrControl))
+ 317              		.loc 1 233 0
+ 318 01de 404B     		ldr	r3, .L27+28
+ 319 01e0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 320 01e2 13F0020F 		tst	r3, #2
+ 321 01e6 0BD0     		beq	.L19
+ 234:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 235:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Set write complete, short transfer and master halted */
+ 236:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_mstrStatus |= (LED_Driver2_MSTAT_ERR_XFER       |
+ 322              		.loc 1 236 0
+ 323 01e8 3E4A     		ldr	r2, .L27+32
+ 324 01ea 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 11
+
+
+ 325 01ec 43F09A03 		orr	r3, r3, #154
+ 326 01f0 1370     		strb	r3, [r2]
+ 237:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                     LED_Driver2_MSTAT_ERR_SHORT_XFER |
+ 238:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                     LED_Driver2_MSTAT_XFER_HALT      |
+ 239:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                     LED_Driver2_MSTAT_WR_CMPLT);
+ 240:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 241:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_state = LED_Driver2_SM_MSTR_HALT;    /* Expect ReStart */
+ 327              		.loc 1 241 0
+ 328 01f2 6022     		movs	r2, #96
+ 329 01f4 344B     		ldr	r3, .L27+4
+ 330 01f6 1A70     		strb	r2, [r3]
+ 242:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_DisableInt();
+ 331              		.loc 1 242 0
+ 332 01f8 0222     		movs	r2, #2
+ 333 01fa 3B4B     		ldr	r3, .L27+36
+ 334 01fc 1A60     		str	r2, [r3]
+ 335 01fe 56E0     		b	.L3
+ 336              	.L19:
+ 243:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 244:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else  /* Do normal Stop */
+ 245:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 246:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_ENABLE_INT_ON_STOP;    /* Enable interrupt on Stop, to catch it */
+ 337              		.loc 1 246 0
+ 338 0200 3A4A     		ldr	r2, .L27+40
+ 339 0202 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 340 0204 43F02003 		orr	r3, r3, #32
+ 341 0208 1370     		strb	r3, [r2]
+ 247:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_GENERATE_STOP;
+ 342              		.loc 1 247 0
+ 343 020a 5222     		movs	r2, #82
+ 344 020c 324B     		ldr	r3, .L27+20
+ 345 020e 1A70     		strb	r2, [r3]
+ 346 0210 FF22     		movs	r2, #255
+ 347 0212 A3F5B573 		sub	r3, r3, #362
+ 348 0216 1A70     		strb	r2, [r3]
+ 349 0218 0022     		movs	r2, #0
+ 350 021a 4033     		adds	r3, r3, #64
+ 351 021c 1A70     		strb	r2, [r3]
+ 248:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 249:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Set short transfer and error flag */
+ 250:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_mstrStatus |= (LED_Driver2_MSTAT_ERR_SHORT_XFER |
+ 352              		.loc 1 250 0
+ 353 021e 314A     		ldr	r2, .L27+32
+ 354 0220 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 355 0222 43F09003 		orr	r3, r3, #144
+ 356 0226 1370     		strb	r3, [r2]
+ 357 0228 41E0     		b	.L3
+ 358              	.L8:
+ 251:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                     LED_Driver2_MSTAT_ERR_XFER);
+ 252:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 253:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 254:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 break;
+ 255:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 256:Generated_Source\PSoC5/LED_Driver2_INT.c ****             case LED_Driver2_SM_MSTR_RD_DATA:
+ 257:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 258:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_mstrRdBufPtr[LED_Driver2_mstrRdBufIndex] = LED_Driver2_DATA_REG;
+ 359              		.loc 1 258 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 12
+
+
+ 360 022a 314A     		ldr	r2, .L27+44
+ 361 022c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 362 022e DBB2     		uxtb	r3, r3
+ 363 0230 3049     		ldr	r1, .L27+48
+ 364 0232 0868     		ldr	r0, [r1]
+ 365 0234 2749     		ldr	r1, .L27+16
+ 366 0236 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 367 0238 C9B2     		uxtb	r1, r1
+ 368 023a C154     		strb	r1, [r0, r3]
+ 259:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_mstrRdBufIndex++;
+ 369              		.loc 1 259 0
+ 370 023c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 371 023e 0133     		adds	r3, r3, #1
+ 372 0240 DBB2     		uxtb	r3, r3
+ 373 0242 1370     		strb	r3, [r2]
+ 260:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 261:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 /* Check if end of buffer */
+ 262:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 if(LED_Driver2_mstrRdBufIndex < LED_Driver2_mstrRdBufSize)
+ 374              		.loc 1 262 0
+ 375 0244 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 376 0246 2C4A     		ldr	r2, .L27+52
+ 377 0248 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 378 024a DBB2     		uxtb	r3, r3
+ 379 024c 9342     		cmp	r3, r2
+ 380 024e 0AD2     		bcs	.L20
+ 263:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 264:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_ACK_AND_RECEIVE;       /* ACK and receive byte */
+ 381              		.loc 1 264 0
+ 382 0250 0222     		movs	r2, #2
+ 383 0252 214B     		ldr	r3, .L27+20
+ 384 0254 1A70     		strb	r2, [r3]
+ 385 0256 FF22     		movs	r2, #255
+ 386 0258 A3F5B573 		sub	r3, r3, #362
+ 387 025c 1A70     		strb	r2, [r3]
+ 388 025e 0022     		movs	r2, #0
+ 389 0260 4033     		adds	r3, r3, #64
+ 390 0262 1A70     		strb	r2, [r3]
+ 391 0264 23E0     		b	.L3
+ 392              	.L20:
+ 265:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 266:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 /* End of buffer: complete reading */
+ 267:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else if(LED_Driver2_CHECK_NO_STOP(LED_Driver2_mstrControl))
+ 393              		.loc 1 267 0
+ 394 0266 1E4B     		ldr	r3, .L27+28
+ 395 0268 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 396 026a 13F0020F 		tst	r3, #2
+ 397 026e 0BD0     		beq	.L21
+ 268:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 269:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Set read complete and master halted */
+ 270:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_mstrStatus |= (LED_Driver2_MSTAT_XFER_HALT |
+ 398              		.loc 1 270 0
+ 399 0270 1C4A     		ldr	r2, .L27+32
+ 400 0272 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 401 0274 43F00903 		orr	r3, r3, #9
+ 402 0278 1370     		strb	r3, [r2]
+ 271:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                     LED_Driver2_MSTAT_RD_CMPLT);
+ 272:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 13
+
+
+ 273:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_state = LED_Driver2_SM_MSTR_HALT;    /* Expect ReStart */
+ 403              		.loc 1 273 0
+ 404 027a 6022     		movs	r2, #96
+ 405 027c 124B     		ldr	r3, .L27+4
+ 406 027e 1A70     		strb	r2, [r3]
+ 274:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_DisableInt();
+ 407              		.loc 1 274 0
+ 408 0280 0222     		movs	r2, #2
+ 409 0282 194B     		ldr	r3, .L27+36
+ 410 0284 1A60     		str	r2, [r3]
+ 411 0286 12E0     		b	.L3
+ 412              	.L21:
+ 275:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 276:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else
+ 277:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 278:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_ENABLE_INT_ON_STOP;
+ 413              		.loc 1 278 0
+ 414 0288 184A     		ldr	r2, .L27+40
+ 415 028a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 416 028c 43F02003 		orr	r3, r3, #32
+ 417 0290 1370     		strb	r3, [r2]
+ 279:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_NAK_AND_RECEIVE;       /* NACK and TRY to generate Stop */
+ 418              		.loc 1 279 0
+ 419 0292 1222     		movs	r2, #18
+ 420 0294 104B     		ldr	r3, .L27+20
+ 421 0296 1A70     		strb	r2, [r3]
+ 422 0298 FF22     		movs	r2, #255
+ 423 029a A3F5B573 		sub	r3, r3, #362
+ 424 029e 1A70     		strb	r2, [r3]
+ 425 02a0 0022     		movs	r2, #0
+ 426 02a2 4033     		adds	r3, r3, #64
+ 427 02a4 1A70     		strb	r2, [r3]
+ 428 02a6 02E0     		b	.L3
+ 429              	.L4:
+ 280:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 281:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 break;
+ 282:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 283:Generated_Source\PSoC5/LED_Driver2_INT.c ****             default: /* This is an invalid state and should not occur */
+ 284:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 285:Generated_Source\PSoC5/LED_Driver2_INT.c ****             #if(LED_Driver2_TIMEOUT_ENABLED)
+ 286:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 /* Exit interrupt to take chance for timeout timer to handles this case */
+ 287:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_DisableInt();
+ 288:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_ClearPendingInt();
+ 289:Generated_Source\PSoC5/LED_Driver2_INT.c ****             #else
+ 290:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 /* Block execution flow: unexpected condition */
+ 291:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 CYASSERT(0u != 0u);
+ 430              		.loc 1 291 0 discriminator 1
+ 431 02a8 0020     		movs	r0, #0
+ 432 02aa FFF7FEFF 		bl	CyHalt
+ 433              	.LVL4:
+ 434              	.L3:
+ 292:Generated_Source\PSoC5/LED_Driver2_INT.c ****             #endif /* (LED_Driver2_TIMEOUT_ENABLED) */
+ 293:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 294:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 break;
+ 295:Generated_Source\PSoC5/LED_Driver2_INT.c ****             }
+ 296:Generated_Source\PSoC5/LED_Driver2_INT.c ****         }
+ 297:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 14
+
+
+ 298:Generated_Source\PSoC5/LED_Driver2_INT.c ****         /* Catches Stop: end of transaction */
+ 299:Generated_Source\PSoC5/LED_Driver2_INT.c ****         if(LED_Driver2_CHECK_STOP_STS(tmpCsr))
+ 435              		.loc 1 299 0
+ 436 02ae 14F0200F 		tst	r4, #32
+ 437 02b2 39D0     		beq	.L1
+ 300:Generated_Source\PSoC5/LED_Driver2_INT.c ****         {
+ 301:Generated_Source\PSoC5/LED_Driver2_INT.c ****             LED_Driver2_mstrStatus |= LED_Driver2_GET_MSTAT_CMPLT;
+ 438              		.loc 1 301 0
+ 439 02b4 044B     		ldr	r3, .L27+4
+ 440 02b6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 441 02b8 13F0080F 		tst	r3, #8
+ 442 02bc 1ED0     		beq	.L25
+ 443 02be 0123     		movs	r3, #1
+ 444 02c0 1DE0     		b	.L23
+ 445              	.L28:
+ 446 02c2 00BF     		.align	2
+ 447              	.L27:
+ 448 02c4 6E640040 		.word	1073767534
+ 449 02c8 00000000 		.word	LED_Driver2_state
+ 450 02cc 00000000 		.word	LED_Driver2_mstrWrBufSize
+ 451 02d0 00000000 		.word	LED_Driver2_mstrWrBufPtr
+ 452 02d4 00640040 		.word	1073767424
+ 453 02d8 7A650040 		.word	1073767802
+ 454 02dc 00000000 		.word	LED_Driver2_mstrWrBufIndex
+ 455 02e0 00000000 		.word	LED_Driver2_mstrControl
+ 456 02e4 00000000 		.word	LED_Driver2_mstrStatus
+ 457 02e8 80E100E0 		.word	-536813184
+ 458 02ec 8E640040 		.word	1073767566
+ 459 02f0 00000000 		.word	LED_Driver2_mstrRdBufIndex
+ 460 02f4 00000000 		.word	LED_Driver2_mstrRdBufPtr
+ 461 02f8 00000000 		.word	LED_Driver2_mstrRdBufSize
+ 462              	.L25:
+ 463 02fc 0223     		movs	r3, #2
+ 464              	.L23:
+ 465              		.loc 1 301 0 is_stmt 0 discriminator 4
+ 466 02fe 0B4A     		ldr	r2, .L29
+ 467 0300 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
+ 468 0302 0B43     		orrs	r3, r3, r1
+ 469 0304 1370     		strb	r3, [r2]
+ 302:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 303:Generated_Source\PSoC5/LED_Driver2_INT.c ****             LED_Driver2_DISABLE_INT_ON_STOP;
+ 470              		.loc 1 303 0 is_stmt 1 discriminator 4
+ 471 0306 0A4A     		ldr	r2, .L29+4
+ 472 0308 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 473 030a 03F0DF03 		and	r3, r3, #223
+ 474 030e 1370     		strb	r3, [r2]
+ 304:Generated_Source\PSoC5/LED_Driver2_INT.c ****             LED_Driver2_state = LED_Driver2_SM_IDLE;
+ 475              		.loc 1 304 0 discriminator 4
+ 476 0310 1022     		movs	r2, #16
+ 477 0312 084B     		ldr	r3, .L29+8
+ 478 0314 1A70     		strb	r2, [r3]
+ 479 0316 38BD     		pop	{r3, r4, r5, pc}
+ 480              	.LVL5:
+ 481              	.L2:
+ 305:Generated_Source\PSoC5/LED_Driver2_INT.c ****         }
+ 306:Generated_Source\PSoC5/LED_Driver2_INT.c ****     #endif /* (LED_Driver2_MODE_MASTER_ENABLED) */
+ 307:Generated_Source\PSoC5/LED_Driver2_INT.c ****     }
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 15
+
+
+ 308:Generated_Source\PSoC5/LED_Driver2_INT.c ****     else if(LED_Driver2_CHECK_SM_SLAVE)
+ 482              		.loc 1 308 0
+ 483 0318 064B     		ldr	r3, .L29+8
+ 484 031a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 485 031c 13F0100F 		tst	r3, #16
+ 486 0320 02D1     		bne	.L1
+ 309:Generated_Source\PSoC5/LED_Driver2_INT.c ****     {
+ 310:Generated_Source\PSoC5/LED_Driver2_INT.c ****     #if(LED_Driver2_MODE_SLAVE_ENABLED)
+ 311:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 312:Generated_Source\PSoC5/LED_Driver2_INT.c ****         if((LED_Driver2_CHECK_STOP_STS(tmpCsr)) || /* Stop || Restart */
+ 313:Generated_Source\PSoC5/LED_Driver2_INT.c ****            (LED_Driver2_CHECK_BYTE_COMPLETE(tmpCsr) && LED_Driver2_CHECK_ADDRESS_STS(tmpCsr)))
+ 314:Generated_Source\PSoC5/LED_Driver2_INT.c ****         {
+ 315:Generated_Source\PSoC5/LED_Driver2_INT.c ****             /* Catch end of master write transaction: use interrupt on Stop */
+ 316:Generated_Source\PSoC5/LED_Driver2_INT.c ****             /* The Stop bit history on address phase does not have correct state */
+ 317:Generated_Source\PSoC5/LED_Driver2_INT.c ****             if(LED_Driver2_SM_SL_WR_DATA == LED_Driver2_state)
+ 318:Generated_Source\PSoC5/LED_Driver2_INT.c ****             {
+ 319:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_DISABLE_INT_ON_STOP;
+ 320:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 321:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_slStatus &= ((uint8) ~LED_Driver2_SSTAT_WR_BUSY);
+ 322:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_slStatus |= ((uint8)  LED_Driver2_SSTAT_WR_CMPLT);
+ 323:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 324:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_state = LED_Driver2_SM_IDLE;
+ 325:Generated_Source\PSoC5/LED_Driver2_INT.c ****             }
+ 326:Generated_Source\PSoC5/LED_Driver2_INT.c ****         }
+ 327:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 328:Generated_Source\PSoC5/LED_Driver2_INT.c ****         if(LED_Driver2_CHECK_BYTE_COMPLETE(tmpCsr))
+ 329:Generated_Source\PSoC5/LED_Driver2_INT.c ****         {
+ 330:Generated_Source\PSoC5/LED_Driver2_INT.c ****             /* The address only issued after Start or ReStart: so check the address
+ 331:Generated_Source\PSoC5/LED_Driver2_INT.c ****                to catch these events:
+ 332:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 FF : sets an address phase with a byte_complete interrupt trigger.
+ 333:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 UDB: sets an address phase immediately after Start or ReStart. */
+ 334:Generated_Source\PSoC5/LED_Driver2_INT.c ****             if(LED_Driver2_CHECK_ADDRESS_STS(tmpCsr))
+ 335:Generated_Source\PSoC5/LED_Driver2_INT.c ****             {
+ 336:Generated_Source\PSoC5/LED_Driver2_INT.c ****             /* Check for software address detection */
+ 337:Generated_Source\PSoC5/LED_Driver2_INT.c ****             #if(LED_Driver2_SW_ADRR_DECODE)
+ 338:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 tmp8 = LED_Driver2_GET_SLAVE_ADDR(LED_Driver2_DATA_REG);
+ 339:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 340:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 if(tmp8 == LED_Driver2_slAddress)   /* Check for address match */
+ 341:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 342:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     if(0u != (LED_Driver2_DATA_REG & LED_Driver2_READ_FLAG))
+ 343:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 344:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* Place code to prepare read buffer here                  */
+ 345:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* `#START LED_Driver2_SW_PREPARE_READ_BUF_interrupt` */
+ 346:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 347:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* `#END` */
+ 348:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 349:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     #ifdef LED_Driver2_SW_PREPARE_READ_BUF_CALLBACK
+ 350:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_SwPrepareReadBuf_Callback();
+ 351:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     #endif /* LED_Driver2_SW_PREPARE_READ_BUF_CALLBACK */
+ 352:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         
+ 353:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* Prepare next operation to read, get data and place in data register */
+ 354:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         if(LED_Driver2_slRdBufIndex < LED_Driver2_slRdBufSize)
+ 355:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         {
+ 356:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             /* Load first data byte from array */
+ 357:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_DATA_REG = LED_Driver2_slRdBufPtr[LED_Driver2_slRdBufIndex]
+ 358:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_ACK_AND_TRANSMIT;
+ 359:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_slRdBufIndex++;
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 16
+
+
+ 360:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 361:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_slStatus |= LED_Driver2_SSTAT_RD_BUSY;
+ 362:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         }
+ 363:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         else    /* Overflow: provide 0xFF on bus */
+ 364:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         {
+ 365:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_DATA_REG = LED_Driver2_OVERFLOW_RETURN;
+ 366:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_ACK_AND_TRANSMIT;
+ 367:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 368:Generated_Source\PSoC5/LED_Driver2_INT.c ****                             LED_Driver2_slStatus  |= (LED_Driver2_SSTAT_RD_BUSY |
+ 369:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                            LED_Driver2_SSTAT_RD_ERR_OVFL);
+ 370:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         }
+ 371:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 372:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_state = LED_Driver2_SM_SL_RD_DATA;
+ 373:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 374:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     else  /* Write transaction: receive 1st byte */
+ 375:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 376:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_ACK_AND_RECEIVE;
+ 377:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_state = LED_Driver2_SM_SL_WR_DATA;
+ 378:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 379:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_slStatus |= LED_Driver2_SSTAT_WR_BUSY;
+ 380:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_ENABLE_INT_ON_STOP;
+ 381:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 382:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 383:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else
+ 384:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 385:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /*     Place code to compare for additional address here    */
+ 386:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* `#START LED_Driver2_SW_ADDR_COMPARE_interruptStart` */
+ 387:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 388:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* `#END` */
+ 389:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 390:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 #ifdef LED_Driver2_SW_ADDR_COMPARE_ENTRY_CALLBACK
+ 391:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_SwAddrCompare_EntryCallback();
+ 392:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 #endif /* LED_Driver2_SW_ADDR_COMPARE_ENTRY_CALLBACK */
+ 393:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     
+ 394:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_NAK_AND_RECEIVE;   /* NACK address */
+ 395:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 396:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Place code to end of condition for NACK generation here */
+ 397:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* `#START LED_Driver2_SW_ADDR_COMPARE_interruptEnd`  */
+ 398:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 399:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* `#END` */
+ 400:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 401:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 #ifdef LED_Driver2_SW_ADDR_COMPARE_EXIT_CALLBACK
+ 402:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_SwAddrCompare_ExitCallback();
+ 403:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 #endif /* LED_Driver2_SW_ADDR_COMPARE_EXIT_CALLBACK */
+ 404:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 405:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 406:Generated_Source\PSoC5/LED_Driver2_INT.c ****             #else /* (LED_Driver2_HW_ADRR_DECODE) */
+ 407:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 408:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 if(0u != (LED_Driver2_DATA_REG & LED_Driver2_READ_FLAG))
+ 409:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 410:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Place code to prepare read buffer here                  */
+ 411:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* `#START LED_Driver2_HW_PREPARE_READ_BUF_interrupt` */
+ 412:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 413:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* `#END` */
+ 414:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     
+ 415:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 #ifdef LED_Driver2_HW_PREPARE_READ_BUF_CALLBACK
+ 416:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_HwPrepareReadBuf_Callback();
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 17
+
+
+ 417:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 #endif /* LED_Driver2_HW_PREPARE_READ_BUF_CALLBACK */
+ 418:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 419:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Prepare next operation to read, get data and place in data register */
+ 420:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     if(LED_Driver2_slRdBufIndex < LED_Driver2_slRdBufSize)
+ 421:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 422:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         /* Load first data byte from array */
+ 423:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_DATA_REG = LED_Driver2_slRdBufPtr[LED_Driver2_slRdBufIndex];
+ 424:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_ACK_AND_TRANSMIT;
+ 425:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_slRdBufIndex++;
+ 426:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 427:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_slStatus |= LED_Driver2_SSTAT_RD_BUSY;
+ 428:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 429:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     else    /* Overflow: provide 0xFF on bus */
+ 430:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 431:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_DATA_REG = LED_Driver2_OVERFLOW_RETURN;
+ 432:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_ACK_AND_TRANSMIT;
+ 433:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 434:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_slStatus  |= (LED_Driver2_SSTAT_RD_BUSY |
+ 435:Generated_Source\PSoC5/LED_Driver2_INT.c ****                                                        LED_Driver2_SSTAT_RD_ERR_OVFL);
+ 436:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 437:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 438:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_state = LED_Driver2_SM_SL_RD_DATA;
+ 439:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 440:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else  /* Write transaction: receive 1st byte */
+ 441:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 442:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_ACK_AND_RECEIVE;
+ 443:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_state = LED_Driver2_SM_SL_WR_DATA;
+ 444:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 445:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_slStatus |= LED_Driver2_SSTAT_WR_BUSY;
+ 446:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_ENABLE_INT_ON_STOP;
+ 447:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 448:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 449:Generated_Source\PSoC5/LED_Driver2_INT.c ****             #endif /* (LED_Driver2_SW_ADRR_DECODE) */
+ 450:Generated_Source\PSoC5/LED_Driver2_INT.c ****             }
+ 451:Generated_Source\PSoC5/LED_Driver2_INT.c ****             /* Data states */
+ 452:Generated_Source\PSoC5/LED_Driver2_INT.c ****             /* Data master writes into slave */
+ 453:Generated_Source\PSoC5/LED_Driver2_INT.c ****             else if(LED_Driver2_state == LED_Driver2_SM_SL_WR_DATA)
+ 454:Generated_Source\PSoC5/LED_Driver2_INT.c ****             {
+ 455:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 if(LED_Driver2_slWrBufIndex < LED_Driver2_slWrBufSize)
+ 456:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 457:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     tmp8 = LED_Driver2_DATA_REG;
+ 458:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_ACK_AND_RECEIVE;
+ 459:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_slWrBufPtr[LED_Driver2_slWrBufIndex] = tmp8;
+ 460:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_slWrBufIndex++;
+ 461:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 462:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else  /* of array: complete write, send NACK */
+ 463:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 464:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_NAK_AND_RECEIVE;
+ 465:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 466:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_slStatus |= LED_Driver2_SSTAT_WR_ERR_OVFL;
+ 467:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 468:Generated_Source\PSoC5/LED_Driver2_INT.c ****             }
+ 469:Generated_Source\PSoC5/LED_Driver2_INT.c ****             /* Data master reads from slave */
+ 470:Generated_Source\PSoC5/LED_Driver2_INT.c ****             else if(LED_Driver2_state == LED_Driver2_SM_SL_RD_DATA)
+ 471:Generated_Source\PSoC5/LED_Driver2_INT.c ****             {
+ 472:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 if(LED_Driver2_CHECK_DATA_ACK(tmpCsr))
+ 473:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 18
+
+
+ 474:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     if(LED_Driver2_slRdBufIndex < LED_Driver2_slRdBufSize)
+ 475:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 476:Generated_Source\PSoC5/LED_Driver2_INT.c ****                          /* Get data from array */
+ 477:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_DATA_REG = LED_Driver2_slRdBufPtr[LED_Driver2_slRdBufIndex];
+ 478:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_TRANSMIT_DATA;
+ 479:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_slRdBufIndex++;
+ 480:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 481:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     else   /* Overflow: provide 0xFF on bus */
+ 482:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     {
+ 483:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_DATA_REG = LED_Driver2_OVERFLOW_RETURN;
+ 484:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_TRANSMIT_DATA;
+ 485:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 486:Generated_Source\PSoC5/LED_Driver2_INT.c ****                         LED_Driver2_slStatus |= LED_Driver2_SSTAT_RD_ERR_OVFL;
+ 487:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     }
+ 488:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 489:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 else  /* Last byte was NACKed: read complete */
+ 490:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 {
+ 491:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     /* Only NACK appears on bus */
+ 492:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_DATA_REG = LED_Driver2_OVERFLOW_RETURN;
+ 493:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_NAK_AND_TRANSMIT;
+ 494:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 495:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_slStatus &= ((uint8) ~LED_Driver2_SSTAT_RD_BUSY);
+ 496:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_slStatus |= ((uint8)  LED_Driver2_SSTAT_RD_CMPLT);
+ 497:Generated_Source\PSoC5/LED_Driver2_INT.c **** 
+ 498:Generated_Source\PSoC5/LED_Driver2_INT.c ****                     LED_Driver2_state = LED_Driver2_SM_IDLE;
+ 499:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 }
+ 500:Generated_Source\PSoC5/LED_Driver2_INT.c ****             }
+ 501:Generated_Source\PSoC5/LED_Driver2_INT.c ****             else
+ 502:Generated_Source\PSoC5/LED_Driver2_INT.c ****             {
+ 503:Generated_Source\PSoC5/LED_Driver2_INT.c ****             #if(LED_Driver2_TIMEOUT_ENABLED)
+ 504:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 /* Exit interrupt to take chance for timeout timer to handle this case */
+ 505:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_DisableInt();
+ 506:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 LED_Driver2_ClearPendingInt();
+ 507:Generated_Source\PSoC5/LED_Driver2_INT.c ****             #else
+ 508:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 /* Block execution flow: unexpected condition */
+ 509:Generated_Source\PSoC5/LED_Driver2_INT.c ****                 CYASSERT(0u != 0u);
+ 510:Generated_Source\PSoC5/LED_Driver2_INT.c ****             #endif /* (LED_Driver2_TIMEOUT_ENABLED) */
+ 511:Generated_Source\PSoC5/LED_Driver2_INT.c ****             }
+ 512:Generated_Source\PSoC5/LED_Driver2_INT.c ****         }
+ 513:Generated_Source\PSoC5/LED_Driver2_INT.c ****     #endif /* (LED_Driver2_MODE_SLAVE_ENABLED) */
+ 514:Generated_Source\PSoC5/LED_Driver2_INT.c ****     }
+ 515:Generated_Source\PSoC5/LED_Driver2_INT.c ****     else
+ 516:Generated_Source\PSoC5/LED_Driver2_INT.c ****     {
+ 517:Generated_Source\PSoC5/LED_Driver2_INT.c ****         /* The FSM skips master and slave processing: return to IDLE */
+ 518:Generated_Source\PSoC5/LED_Driver2_INT.c ****         LED_Driver2_state = LED_Driver2_SM_IDLE;
+ 487              		.loc 1 518 0
+ 488 0322 1022     		movs	r2, #16
+ 489 0324 034B     		ldr	r3, .L29+8
+ 490 0326 1A70     		strb	r2, [r3]
+ 491              	.L1:
+ 492 0328 38BD     		pop	{r3, r4, r5, pc}
+ 493              	.LVL6:
+ 494              	.L30:
+ 495 032a 00BF     		.align	2
+ 496              	.L29:
+ 497 032c 00000000 		.word	LED_Driver2_mstrStatus
+ 498 0330 8E640040 		.word	1073767566
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 19
+
+
+ 499 0334 00000000 		.word	LED_Driver2_state
+ 500              		.cfi_endproc
+ 501              	.LFE0:
+ 502              		.size	LED_Driver2_ISR, .-LED_Driver2_ISR
+ 503              		.text
+ 504              	.Letext0:
+ 505              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 506              		.file 3 "Generated_Source\\PSoC5\\LED_Driver2_PVT.h"
+ 507              		.file 4 "Generated_Source\\PSoC5\\CyLib.h"
+ 508              		.section	.debug_info,"",%progbits
+ 509              	.Ldebug_info0:
+ 510 0000 7B010000 		.4byte	0x17b
+ 511 0004 0400     		.2byte	0x4
+ 512 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 513 000a 04       		.byte	0x4
+ 514 000b 01       		.uleb128 0x1
+ 515 000c D1000000 		.4byte	.LASF26
+ 516 0010 01       		.byte	0x1
+ 517 0011 D2010000 		.4byte	.LASF27
+ 518 0015 FB010000 		.4byte	.LASF28
+ 519 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 520 001d 00000000 		.4byte	0
+ 521 0021 00000000 		.4byte	.Ldebug_line0
+ 522 0025 02       		.uleb128 0x2
+ 523 0026 01       		.byte	0x1
+ 524 0027 06       		.byte	0x6
+ 525 0028 38020000 		.4byte	.LASF0
+ 526 002c 02       		.uleb128 0x2
+ 527 002d 01       		.byte	0x1
+ 528 002e 08       		.byte	0x8
+ 529 002f 66000000 		.4byte	.LASF1
+ 530 0033 02       		.uleb128 0x2
+ 531 0034 02       		.byte	0x2
+ 532 0035 05       		.byte	0x5
+ 533 0036 BF010000 		.4byte	.LASF2
+ 534 003a 02       		.uleb128 0x2
+ 535 003b 02       		.byte	0x2
+ 536 003c 07       		.byte	0x7
+ 537 003d 21000000 		.4byte	.LASF3
+ 538 0041 02       		.uleb128 0x2
+ 539 0042 04       		.byte	0x4
+ 540 0043 05       		.byte	0x5
+ 541 0044 C9010000 		.4byte	.LASF4
+ 542 0048 02       		.uleb128 0x2
+ 543 0049 04       		.byte	0x4
+ 544 004a 07       		.byte	0x7
+ 545 004b 94000000 		.4byte	.LASF5
+ 546 004f 02       		.uleb128 0x2
+ 547 0050 08       		.byte	0x8
+ 548 0051 05       		.byte	0x5
+ 549 0052 AC010000 		.4byte	.LASF6
+ 550 0056 02       		.uleb128 0x2
+ 551 0057 08       		.byte	0x8
+ 552 0058 07       		.byte	0x7
+ 553 0059 6C010000 		.4byte	.LASF7
+ 554 005d 03       		.uleb128 0x3
+ 555 005e 04       		.byte	0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 20
+
+
+ 556 005f 05       		.byte	0x5
+ 557 0060 696E7400 		.ascii	"int\000"
+ 558 0064 02       		.uleb128 0x2
+ 559 0065 04       		.byte	0x4
+ 560 0066 07       		.byte	0x7
+ 561 0067 5F010000 		.4byte	.LASF8
+ 562 006b 04       		.uleb128 0x4
+ 563 006c A6000000 		.4byte	.LASF9
+ 564 0070 02       		.byte	0x2
+ 565 0071 3801     		.2byte	0x138
+ 566 0073 2C000000 		.4byte	0x2c
+ 567 0077 04       		.uleb128 0x4
+ 568 0078 CA000000 		.4byte	.LASF10
+ 569 007c 02       		.byte	0x2
+ 570 007d 3A01     		.2byte	0x13a
+ 571 007f 48000000 		.4byte	0x48
+ 572 0083 02       		.uleb128 0x2
+ 573 0084 04       		.byte	0x4
+ 574 0085 04       		.byte	0x4
+ 575 0086 60000000 		.4byte	.LASF11
+ 576 008a 02       		.uleb128 0x2
+ 577 008b 08       		.byte	0x8
+ 578 008c 04       		.byte	0x4
+ 579 008d B3000000 		.4byte	.LASF12
+ 580 0091 02       		.uleb128 0x2
+ 581 0092 01       		.byte	0x1
+ 582 0093 08       		.byte	0x8
+ 583 0094 BA010000 		.4byte	.LASF13
+ 584 0098 04       		.uleb128 0x4
+ 585 0099 74000000 		.4byte	.LASF14
+ 586 009d 02       		.byte	0x2
+ 587 009e E201     		.2byte	0x1e2
+ 588 00a0 A4000000 		.4byte	0xa4
+ 589 00a4 05       		.uleb128 0x5
+ 590 00a5 6B000000 		.4byte	0x6b
+ 591 00a9 04       		.uleb128 0x4
+ 592 00aa 1B000000 		.4byte	.LASF15
+ 593 00ae 02       		.byte	0x2
+ 594 00af E401     		.2byte	0x1e4
+ 595 00b1 B5000000 		.4byte	0xb5
+ 596 00b5 05       		.uleb128 0x5
+ 597 00b6 77000000 		.4byte	0x77
+ 598 00ba 02       		.uleb128 0x2
+ 599 00bb 04       		.byte	0x4
+ 600 00bc 07       		.byte	0x7
+ 601 00bd A3010000 		.4byte	.LASF16
+ 602 00c1 06       		.uleb128 0x6
+ 603 00c2 BA000000 		.4byte	.LASF29
+ 604 00c6 01       		.byte	0x1
+ 605 00c7 2E       		.byte	0x2e
+ 606 00c8 00000000 		.4byte	.LFB0
+ 607 00cc 38030000 		.4byte	.LFE0-.LFB0
+ 608 00d0 01       		.uleb128 0x1
+ 609 00d1 9C       		.byte	0x9c
+ 610 00d2 08010000 		.4byte	0x108
+ 611 00d6 07       		.uleb128 0x7
+ 612 00d7 AC000000 		.4byte	.LASF30
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 21
+
+
+ 613 00db 01       		.byte	0x1
+ 614 00dc 34       		.byte	0x34
+ 615 00dd 6B000000 		.4byte	0x6b
+ 616 00e1 00000000 		.4byte	.LLST0
+ 617 00e5 08       		.uleb128 0x8
+ 618 00e6 54010000 		.4byte	.LVL2
+ 619 00ea 71010000 		.4byte	0x171
+ 620 00ee F8000000 		.4byte	0xf8
+ 621 00f2 09       		.uleb128 0x9
+ 622 00f3 01       		.uleb128 0x1
+ 623 00f4 50       		.byte	0x50
+ 624 00f5 01       		.uleb128 0x1
+ 625 00f6 30       		.byte	0x30
+ 626 00f7 00       		.byte	0
+ 627 00f8 0A       		.uleb128 0xa
+ 628 00f9 AE020000 		.4byte	.LVL4
+ 629 00fd 71010000 		.4byte	0x171
+ 630 0101 09       		.uleb128 0x9
+ 631 0102 01       		.uleb128 0x1
+ 632 0103 50       		.byte	0x50
+ 633 0104 01       		.uleb128 0x1
+ 634 0105 30       		.byte	0x30
+ 635 0106 00       		.byte	0
+ 636 0107 00       		.byte	0
+ 637 0108 0B       		.uleb128 0xb
+ 638 0109 4E000000 		.4byte	.LASF17
+ 639 010d 03       		.byte	0x3
+ 640 010e 23       		.byte	0x23
+ 641 010f A4000000 		.4byte	0xa4
+ 642 0113 0B       		.uleb128 0xb
+ 643 0114 5E020000 		.4byte	.LASF18
+ 644 0118 03       		.byte	0x3
+ 645 0119 27       		.byte	0x27
+ 646 011a A4000000 		.4byte	0xa4
+ 647 011e 0B       		.uleb128 0xb
+ 648 011f 75020000 		.4byte	.LASF19
+ 649 0123 03       		.byte	0x3
+ 650 0124 28       		.byte	0x28
+ 651 0125 A4000000 		.4byte	0xa4
+ 652 0129 0B       		.uleb128 0xb
+ 653 012a 83010000 		.4byte	.LASF20
+ 654 012e 03       		.byte	0x3
+ 655 012f 2B       		.byte	0x2b
+ 656 0130 34010000 		.4byte	0x134
+ 657 0134 0C       		.uleb128 0xc
+ 658 0135 04       		.byte	0x4
+ 659 0136 A4000000 		.4byte	0xa4
+ 660 013a 0B       		.uleb128 0xb
+ 661 013b 44020000 		.4byte	.LASF21
+ 662 013f 03       		.byte	0x3
+ 663 0140 2C       		.byte	0x2c
+ 664 0141 A4000000 		.4byte	0xa4
+ 665 0145 0B       		.uleb128 0xb
+ 666 0146 79000000 		.4byte	.LASF22
+ 667 014a 03       		.byte	0x3
+ 668 014b 2D       		.byte	0x2d
+ 669 014c A4000000 		.4byte	0xa4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 22
+
+
+ 670 0150 0B       		.uleb128 0xb
+ 671 0151 8D020000 		.4byte	.LASF23
+ 672 0155 03       		.byte	0x3
+ 673 0156 30       		.byte	0x30
+ 674 0157 34010000 		.4byte	0x134
+ 675 015b 0B       		.uleb128 0xb
+ 676 015c 34000000 		.4byte	.LASF24
+ 677 0160 03       		.byte	0x3
+ 678 0161 31       		.byte	0x31
+ 679 0162 A4000000 		.4byte	0xa4
+ 680 0166 0B       		.uleb128 0xb
+ 681 0167 00000000 		.4byte	.LASF25
+ 682 016b 03       		.byte	0x3
+ 683 016c 32       		.byte	0x32
+ 684 016d A4000000 		.4byte	0xa4
+ 685 0171 0D       		.uleb128 0xd
+ 686 0172 9C010000 		.4byte	.LASF31
+ 687 0176 04       		.byte	0x4
+ 688 0177 80       		.byte	0x80
+ 689 0178 0E       		.uleb128 0xe
+ 690 0179 6B000000 		.4byte	0x6b
+ 691 017d 00       		.byte	0
+ 692 017e 00       		.byte	0
+ 693              		.section	.debug_abbrev,"",%progbits
+ 694              	.Ldebug_abbrev0:
+ 695 0000 01       		.uleb128 0x1
+ 696 0001 11       		.uleb128 0x11
+ 697 0002 01       		.byte	0x1
+ 698 0003 25       		.uleb128 0x25
+ 699 0004 0E       		.uleb128 0xe
+ 700 0005 13       		.uleb128 0x13
+ 701 0006 0B       		.uleb128 0xb
+ 702 0007 03       		.uleb128 0x3
+ 703 0008 0E       		.uleb128 0xe
+ 704 0009 1B       		.uleb128 0x1b
+ 705 000a 0E       		.uleb128 0xe
+ 706 000b 55       		.uleb128 0x55
+ 707 000c 17       		.uleb128 0x17
+ 708 000d 11       		.uleb128 0x11
+ 709 000e 01       		.uleb128 0x1
+ 710 000f 10       		.uleb128 0x10
+ 711 0010 17       		.uleb128 0x17
+ 712 0011 00       		.byte	0
+ 713 0012 00       		.byte	0
+ 714 0013 02       		.uleb128 0x2
+ 715 0014 24       		.uleb128 0x24
+ 716 0015 00       		.byte	0
+ 717 0016 0B       		.uleb128 0xb
+ 718 0017 0B       		.uleb128 0xb
+ 719 0018 3E       		.uleb128 0x3e
+ 720 0019 0B       		.uleb128 0xb
+ 721 001a 03       		.uleb128 0x3
+ 722 001b 0E       		.uleb128 0xe
+ 723 001c 00       		.byte	0
+ 724 001d 00       		.byte	0
+ 725 001e 03       		.uleb128 0x3
+ 726 001f 24       		.uleb128 0x24
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 23
+
+
+ 727 0020 00       		.byte	0
+ 728 0021 0B       		.uleb128 0xb
+ 729 0022 0B       		.uleb128 0xb
+ 730 0023 3E       		.uleb128 0x3e
+ 731 0024 0B       		.uleb128 0xb
+ 732 0025 03       		.uleb128 0x3
+ 733 0026 08       		.uleb128 0x8
+ 734 0027 00       		.byte	0
+ 735 0028 00       		.byte	0
+ 736 0029 04       		.uleb128 0x4
+ 737 002a 16       		.uleb128 0x16
+ 738 002b 00       		.byte	0
+ 739 002c 03       		.uleb128 0x3
+ 740 002d 0E       		.uleb128 0xe
+ 741 002e 3A       		.uleb128 0x3a
+ 742 002f 0B       		.uleb128 0xb
+ 743 0030 3B       		.uleb128 0x3b
+ 744 0031 05       		.uleb128 0x5
+ 745 0032 49       		.uleb128 0x49
+ 746 0033 13       		.uleb128 0x13
+ 747 0034 00       		.byte	0
+ 748 0035 00       		.byte	0
+ 749 0036 05       		.uleb128 0x5
+ 750 0037 35       		.uleb128 0x35
+ 751 0038 00       		.byte	0
+ 752 0039 49       		.uleb128 0x49
+ 753 003a 13       		.uleb128 0x13
+ 754 003b 00       		.byte	0
+ 755 003c 00       		.byte	0
+ 756 003d 06       		.uleb128 0x6
+ 757 003e 2E       		.uleb128 0x2e
+ 758 003f 01       		.byte	0x1
+ 759 0040 3F       		.uleb128 0x3f
+ 760 0041 19       		.uleb128 0x19
+ 761 0042 03       		.uleb128 0x3
+ 762 0043 0E       		.uleb128 0xe
+ 763 0044 3A       		.uleb128 0x3a
+ 764 0045 0B       		.uleb128 0xb
+ 765 0046 3B       		.uleb128 0x3b
+ 766 0047 0B       		.uleb128 0xb
+ 767 0048 27       		.uleb128 0x27
+ 768 0049 19       		.uleb128 0x19
+ 769 004a 11       		.uleb128 0x11
+ 770 004b 01       		.uleb128 0x1
+ 771 004c 12       		.uleb128 0x12
+ 772 004d 06       		.uleb128 0x6
+ 773 004e 40       		.uleb128 0x40
+ 774 004f 18       		.uleb128 0x18
+ 775 0050 9742     		.uleb128 0x2117
+ 776 0052 19       		.uleb128 0x19
+ 777 0053 01       		.uleb128 0x1
+ 778 0054 13       		.uleb128 0x13
+ 779 0055 00       		.byte	0
+ 780 0056 00       		.byte	0
+ 781 0057 07       		.uleb128 0x7
+ 782 0058 34       		.uleb128 0x34
+ 783 0059 00       		.byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 24
+
+
+ 784 005a 03       		.uleb128 0x3
+ 785 005b 0E       		.uleb128 0xe
+ 786 005c 3A       		.uleb128 0x3a
+ 787 005d 0B       		.uleb128 0xb
+ 788 005e 3B       		.uleb128 0x3b
+ 789 005f 0B       		.uleb128 0xb
+ 790 0060 49       		.uleb128 0x49
+ 791 0061 13       		.uleb128 0x13
+ 792 0062 02       		.uleb128 0x2
+ 793 0063 17       		.uleb128 0x17
+ 794 0064 00       		.byte	0
+ 795 0065 00       		.byte	0
+ 796 0066 08       		.uleb128 0x8
+ 797 0067 898201   		.uleb128 0x4109
+ 798 006a 01       		.byte	0x1
+ 799 006b 11       		.uleb128 0x11
+ 800 006c 01       		.uleb128 0x1
+ 801 006d 31       		.uleb128 0x31
+ 802 006e 13       		.uleb128 0x13
+ 803 006f 01       		.uleb128 0x1
+ 804 0070 13       		.uleb128 0x13
+ 805 0071 00       		.byte	0
+ 806 0072 00       		.byte	0
+ 807 0073 09       		.uleb128 0x9
+ 808 0074 8A8201   		.uleb128 0x410a
+ 809 0077 00       		.byte	0
+ 810 0078 02       		.uleb128 0x2
+ 811 0079 18       		.uleb128 0x18
+ 812 007a 9142     		.uleb128 0x2111
+ 813 007c 18       		.uleb128 0x18
+ 814 007d 00       		.byte	0
+ 815 007e 00       		.byte	0
+ 816 007f 0A       		.uleb128 0xa
+ 817 0080 898201   		.uleb128 0x4109
+ 818 0083 01       		.byte	0x1
+ 819 0084 11       		.uleb128 0x11
+ 820 0085 01       		.uleb128 0x1
+ 821 0086 31       		.uleb128 0x31
+ 822 0087 13       		.uleb128 0x13
+ 823 0088 00       		.byte	0
+ 824 0089 00       		.byte	0
+ 825 008a 0B       		.uleb128 0xb
+ 826 008b 34       		.uleb128 0x34
+ 827 008c 00       		.byte	0
+ 828 008d 03       		.uleb128 0x3
+ 829 008e 0E       		.uleb128 0xe
+ 830 008f 3A       		.uleb128 0x3a
+ 831 0090 0B       		.uleb128 0xb
+ 832 0091 3B       		.uleb128 0x3b
+ 833 0092 0B       		.uleb128 0xb
+ 834 0093 49       		.uleb128 0x49
+ 835 0094 13       		.uleb128 0x13
+ 836 0095 3F       		.uleb128 0x3f
+ 837 0096 19       		.uleb128 0x19
+ 838 0097 3C       		.uleb128 0x3c
+ 839 0098 19       		.uleb128 0x19
+ 840 0099 00       		.byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 25
+
+
+ 841 009a 00       		.byte	0
+ 842 009b 0C       		.uleb128 0xc
+ 843 009c 0F       		.uleb128 0xf
+ 844 009d 00       		.byte	0
+ 845 009e 0B       		.uleb128 0xb
+ 846 009f 0B       		.uleb128 0xb
+ 847 00a0 49       		.uleb128 0x49
+ 848 00a1 13       		.uleb128 0x13
+ 849 00a2 00       		.byte	0
+ 850 00a3 00       		.byte	0
+ 851 00a4 0D       		.uleb128 0xd
+ 852 00a5 2E       		.uleb128 0x2e
+ 853 00a6 01       		.byte	0x1
+ 854 00a7 3F       		.uleb128 0x3f
+ 855 00a8 19       		.uleb128 0x19
+ 856 00a9 03       		.uleb128 0x3
+ 857 00aa 0E       		.uleb128 0xe
+ 858 00ab 3A       		.uleb128 0x3a
+ 859 00ac 0B       		.uleb128 0xb
+ 860 00ad 3B       		.uleb128 0x3b
+ 861 00ae 0B       		.uleb128 0xb
+ 862 00af 27       		.uleb128 0x27
+ 863 00b0 19       		.uleb128 0x19
+ 864 00b1 3C       		.uleb128 0x3c
+ 865 00b2 19       		.uleb128 0x19
+ 866 00b3 00       		.byte	0
+ 867 00b4 00       		.byte	0
+ 868 00b5 0E       		.uleb128 0xe
+ 869 00b6 05       		.uleb128 0x5
+ 870 00b7 00       		.byte	0
+ 871 00b8 49       		.uleb128 0x49
+ 872 00b9 13       		.uleb128 0x13
+ 873 00ba 00       		.byte	0
+ 874 00bb 00       		.byte	0
+ 875 00bc 00       		.byte	0
+ 876              		.section	.debug_loc,"",%progbits
+ 877              	.Ldebug_loc0:
+ 878              	.LLST0:
+ 879 0000 08000000 		.4byte	.LVL0
+ 880 0004 3C000000 		.4byte	.LVL1
+ 881 0008 0100     		.2byte	0x1
+ 882 000a 54       		.byte	0x54
+ 883 000b 3C000000 		.4byte	.LVL1
+ 884 000f 58010000 		.4byte	.LVL3
+ 885 0013 0100     		.2byte	0x1
+ 886 0015 55       		.byte	0x55
+ 887 0016 58010000 		.4byte	.LVL3
+ 888 001a 2A030000 		.4byte	.LVL6
+ 889 001e 0100     		.2byte	0x1
+ 890 0020 54       		.byte	0x54
+ 891 0021 00000000 		.4byte	0
+ 892 0025 00000000 		.4byte	0
+ 893              		.section	.debug_aranges,"",%progbits
+ 894 0000 1C000000 		.4byte	0x1c
+ 895 0004 0200     		.2byte	0x2
+ 896 0006 00000000 		.4byte	.Ldebug_info0
+ 897 000a 04       		.byte	0x4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 26
+
+
+ 898 000b 00       		.byte	0
+ 899 000c 0000     		.2byte	0
+ 900 000e 0000     		.2byte	0
+ 901 0010 00000000 		.4byte	.LFB0
+ 902 0014 38030000 		.4byte	.LFE0-.LFB0
+ 903 0018 00000000 		.4byte	0
+ 904 001c 00000000 		.4byte	0
+ 905              		.section	.debug_ranges,"",%progbits
+ 906              	.Ldebug_ranges0:
+ 907 0000 00000000 		.4byte	.LFB0
+ 908 0004 38030000 		.4byte	.LFE0
+ 909 0008 00000000 		.4byte	0
+ 910 000c 00000000 		.4byte	0
+ 911              		.section	.debug_line,"",%progbits
+ 912              	.Ldebug_line0:
+ 913 0000 22010000 		.section	.debug_str,"MS",%progbits,1
+ 913      02006C00 
+ 913      00000201 
+ 913      FB0E0D00 
+ 913      01010101 
+ 914              	.LASF25:
+ 915 0000 4C45445F 		.ascii	"LED_Driver2_mstrWrBufIndex\000"
+ 915      44726976 
+ 915      6572325F 
+ 915      6D737472 
+ 915      57724275 
+ 916              	.LASF15:
+ 917 001b 72656733 		.ascii	"reg32\000"
+ 917      3200
+ 918              	.LASF3:
+ 919 0021 73686F72 		.ascii	"short unsigned int\000"
+ 919      7420756E 
+ 919      7369676E 
+ 919      65642069 
+ 919      6E7400
+ 920              	.LASF24:
+ 921 0034 4C45445F 		.ascii	"LED_Driver2_mstrWrBufSize\000"
+ 921      44726976 
+ 921      6572325F 
+ 921      6D737472 
+ 921      57724275 
+ 922              	.LASF17:
+ 923 004e 4C45445F 		.ascii	"LED_Driver2_state\000"
+ 923      44726976 
+ 923      6572325F 
+ 923      73746174 
+ 923      6500
+ 924              	.LASF11:
+ 925 0060 666C6F61 		.ascii	"float\000"
+ 925      7400
+ 926              	.LASF1:
+ 927 0066 756E7369 		.ascii	"unsigned char\000"
+ 927      676E6564 
+ 927      20636861 
+ 927      7200
+ 928              	.LASF14:
+ 929 0074 72656738 		.ascii	"reg8\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 27
+
+
+ 929      00
+ 930              	.LASF22:
+ 931 0079 4C45445F 		.ascii	"LED_Driver2_mstrRdBufIndex\000"
+ 931      44726976 
+ 931      6572325F 
+ 931      6D737472 
+ 931      52644275 
+ 932              	.LASF5:
+ 933 0094 6C6F6E67 		.ascii	"long unsigned int\000"
+ 933      20756E73 
+ 933      69676E65 
+ 933      6420696E 
+ 933      7400
+ 934              	.LASF9:
+ 935 00a6 75696E74 		.ascii	"uint8\000"
+ 935      3800
+ 936              	.LASF30:
+ 937 00ac 746D7043 		.ascii	"tmpCsr\000"
+ 937      737200
+ 938              	.LASF12:
+ 939 00b3 646F7562 		.ascii	"double\000"
+ 939      6C6500
+ 940              	.LASF29:
+ 941 00ba 4C45445F 		.ascii	"LED_Driver2_ISR\000"
+ 941      44726976 
+ 941      6572325F 
+ 941      49535200 
+ 942              	.LASF10:
+ 943 00ca 75696E74 		.ascii	"uint32\000"
+ 943      333200
+ 944              	.LASF26:
+ 945 00d1 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 945      4320342E 
+ 945      392E3320 
+ 945      32303135 
+ 945      30333033 
+ 946 0104 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 946      20726576 
+ 946      6973696F 
+ 946      6E203232 
+ 946      31323230 
+ 947 0137 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 947      66756E63 
+ 947      74696F6E 
+ 947      2D736563 
+ 947      74696F6E 
+ 948              	.LASF8:
+ 949 015f 756E7369 		.ascii	"unsigned int\000"
+ 949      676E6564 
+ 949      20696E74 
+ 949      00
+ 950              	.LASF7:
+ 951 016c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 951      206C6F6E 
+ 951      6720756E 
+ 951      7369676E 
+ 951      65642069 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 28
+
+
+ 952              	.LASF20:
+ 953 0183 4C45445F 		.ascii	"LED_Driver2_mstrRdBufPtr\000"
+ 953      44726976 
+ 953      6572325F 
+ 953      6D737472 
+ 953      52644275 
+ 954              	.LASF31:
+ 955 019c 43794861 		.ascii	"CyHalt\000"
+ 955      6C7400
+ 956              	.LASF16:
+ 957 01a3 73697A65 		.ascii	"sizetype\000"
+ 957      74797065 
+ 957      00
+ 958              	.LASF6:
+ 959 01ac 6C6F6E67 		.ascii	"long long int\000"
+ 959      206C6F6E 
+ 959      6720696E 
+ 959      7400
+ 960              	.LASF13:
+ 961 01ba 63686172 		.ascii	"char\000"
+ 961      00
+ 962              	.LASF2:
+ 963 01bf 73686F72 		.ascii	"short int\000"
+ 963      7420696E 
+ 963      7400
+ 964              	.LASF4:
+ 965 01c9 6C6F6E67 		.ascii	"long int\000"
+ 965      20696E74 
+ 965      00
+ 966              	.LASF27:
+ 967 01d2 47656E65 		.ascii	"Generated_Source\\PSoC5\\LED_Driver2_INT.c\000"
+ 967      72617465 
+ 967      645F536F 
+ 967      75726365 
+ 967      5C50536F 
+ 968              	.LASF28:
+ 969 01fb 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 969      6F776E6C 
+ 969      6F616473 
+ 969      5C465255 
+ 969      43445C4E 
+ 970 0229 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 970      67756172 
+ 970      2E637964 
+ 970      736E00
+ 971              	.LASF0:
+ 972 0238 7369676E 		.ascii	"signed char\000"
+ 972      65642063 
+ 972      68617200 
+ 973              	.LASF21:
+ 974 0244 4C45445F 		.ascii	"LED_Driver2_mstrRdBufSize\000"
+ 974      44726976 
+ 974      6572325F 
+ 974      6D737472 
+ 974      52644275 
+ 975              	.LASF18:
+ 976 025e 4C45445F 		.ascii	"LED_Driver2_mstrStatus\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccZIuKii.s 			page 29
+
+
+ 976      44726976 
+ 976      6572325F 
+ 976      6D737472 
+ 976      53746174 
+ 977              	.LASF19:
+ 978 0275 4C45445F 		.ascii	"LED_Driver2_mstrControl\000"
+ 978      44726976 
+ 978      6572325F 
+ 978      6D737472 
+ 978      436F6E74 
+ 979              	.LASF23:
+ 980 028d 4C45445F 		.ascii	"LED_Driver2_mstrWrBufPtr\000"
+ 980      44726976 
+ 980      6572325F 
+ 980      6D737472 
+ 980      57724275 
+ 981              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
