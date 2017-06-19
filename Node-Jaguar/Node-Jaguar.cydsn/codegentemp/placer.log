@@ -6,7 +6,7 @@
 
 #Build Date:         Apr 29 2016 09:00:55
 
-#File Generated:     Jun 17 2017 20:22:43
+#File Generated:     Jun 19 2017 15:00:06
 
 #Purpose:            
 
@@ -55,7 +55,7 @@ Design Statistics after Packing
 Device Utilization Summary after Packing
     Macrocells                  :	2/192
     UDBS                        :	4/24
-    IOs                         :	20/72
+    IOs                         :	9/72
 
 
 D2088: Phase 3, elapsed time : 0.0 (sec)
@@ -79,15 +79,13 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 10
+Number of clocks: 8
 Clock: CyBUS_CLK            | Frequency:  43.5 MHz | Target:  24.0 MHz
 Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: WaveDAC8_1_DacClk    | Frequency: N/A       | Target:   0.2 MHz
-Clock: WaveDAC8_1_DacClk(routed) | Frequency: N/A       | Target:   0.2 MHz
 Clock: timer_clock          | Frequency: N/A       | Target:   0.0 MHz
 Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
 
@@ -101,111 +99,13 @@ Phase 7
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 10
+Number of clocks: 8
 Clock: CyBUS_CLK            | Frequency:  43.5 MHz | Target:  24.0 MHz
 Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: WaveDAC8_1_DacClk    | Frequency: N/A       | Target:   0.2 MHz
-Clock: WaveDAC8_1_DacClk(routed) | Frequency: N/A       | Target:   0.2 MHz
-Clock: timer_clock          | Frequency: N/A       | Target:   0.0 MHz
-Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
-
-======================================================================
-                     End of Clock Summary
-######################################################################
-D2088: Phase 7, elapsed time : 0.1 (sec)
-
-Final Design Statistics
-    Number of Combinational MCs 	:	2
-    Number of Sequential MCs    	:	0
-    Number of DPs               	:	3
-    Number of Controls          	:	1
-    Number of Status            	:	1
-    Number of SyncCells         	:	0
-    Number of count7cells       	:	0
-    Number of IOs       	:	20
-
-Device Utilization Summary
-    Macrocells                  :	2/192
-    IOs                         :	20/72
-
-
-
-######################################################################
-Placement Timing Summary
-
-The timing summary is based on estimated routing delays after
-placement. For final timing report, please carry out the timing
-analysis after routing.
-======================================================================
-
-
-######################################################################
-                     Clock Summary 
-======================================================================
-Number of clocks: 10
-Clock: CyBUS_CLK            | Frequency:  43.5 MHz | Target:  26.3 MHz
-Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
-Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
-Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
-Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
-Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: WaveDAC8_1_DacClk    | Frequency: N/A       | Target:   0.2 MHz
-Clock: WaveDAC8_1_DacClk(routed) | Frequency: N/A       | Target:   0.2 MHz
-Clock: timer_clock          | Frequency: N/A       | Target:   0.0 MHz
-Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
-
-======================================================================
-                     End of Clock Summary
-######################################################################
-
-Phase 6
-
-######################################################################
-Placement Timing Summary
-
-The timing summary is based on estimated routing delays after
-placement. For final timing report, please carry out the timing
-analysis after routing.
-======================================================================
-
-######################################################################
-                     Clock Summary 
-======================================================================
-Number of clocks: 10
-Clock: CyBUS_CLK            | Frequency:  43.5 MHz | Target:  26.3 MHz
-Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
-Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
-Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
-Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
-Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: WaveDAC8_1_DacClk    | Frequency: N/A       | Target:   0.2 MHz
-Clock: WaveDAC8_1_DacClk(routed) | Frequency: N/A       | Target:   0.2 MHz
-Clock: timer_clock          | Frequency: N/A       | Target:   0.0 MHz
-Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
-
-======================================================================
-                     End of Clock Summary
-######################################################################
-
-D2088: Phase 6, elapsed time : 0.0 (sec)
-
-Phase 7
-######################################################################
-                     Clock Summary 
-======================================================================
-Number of clocks: 10
-Clock: CyBUS_CLK            | Frequency:  43.5 MHz | Target:  28.6 MHz
-Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
-Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
-Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
-Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
-Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: WaveDAC8_1_DacClk    | Frequency: N/A       | Target:   0.2 MHz
-Clock: WaveDAC8_1_DacClk(routed) | Frequency: N/A       | Target:   0.2 MHz
 Clock: timer_clock          | Frequency: N/A       | Target:   0.0 MHz
 Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
 
@@ -222,11 +122,11 @@ Final Design Statistics
     Number of Status            	:	1
     Number of SyncCells         	:	0
     Number of count7cells       	:	0
-    Number of IOs       	:	20
+    Number of IOs       	:	9
 
 Device Utilization Summary
     Macrocells                  :	2/192
-    IOs                         :	20/72
+    IOs                         :	9/72
 
 
 
@@ -242,15 +142,13 @@ analysis after routing.
 ######################################################################
                      Clock Summary 
 ======================================================================
-Number of clocks: 10
-Clock: CyBUS_CLK            | Frequency:  43.5 MHz | Target:  31.3 MHz
+Number of clocks: 8
+Clock: CyBUS_CLK            | Frequency:  43.5 MHz | Target:  26.3 MHz
 Clock: CyBUS_CLK(fixed-function) | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.1 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: WaveDAC8_1_DacClk    | Frequency: N/A       | Target:   0.2 MHz
-Clock: WaveDAC8_1_DacClk(routed) | Frequency: N/A       | Target:   0.2 MHz
 Clock: timer_clock          | Frequency: N/A       | Target:   0.0 MHz
 Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   0.0 MHz
 
@@ -263,5 +161,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 1.8 sec.
+I2076: Total run-time: 1.6 sec.
 

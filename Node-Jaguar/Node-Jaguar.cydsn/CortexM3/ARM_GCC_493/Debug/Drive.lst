@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
   29:Generated_Source\PSoC5/Drive.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/Drive.c **** *  and shifting the bits appropriately. 
   31:Generated_Source\PSoC5/Drive.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 2
 
 
   32:Generated_Source\PSoC5/Drive.c **** * The data output register controls the signal applied to the physical pin in 
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
   52              		.align	2
   53              		.global	Drive_SetDriveMode
   54              		.thumb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 3
 
 
   55              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
   77 0014 18500040 		.word	1073762328
   78              		.cfi_endproc
   79              	.LFE1:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 4
 
 
   80              		.size	Drive_SetDriveMode, .-Drive_SetDriveMode
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  110              		.thumb
  111              		.thumb_func
  112              		.type	Drive_ReadDataReg, %function
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 5
 
 
  113              	Drive_ReadDataReg:
@@ -298,21 +298,21 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  139 0004 0400     		.2byte	0x4
  140 0006 00000000 		.4byte	.Ldebug_abbrev0
  141 000a 04       		.byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 6
 
 
  142 000b 01       		.uleb128 0x1
  143 000c 80000000 		.4byte	.LASF20
  144 0010 01       		.byte	0x1
- 145 0011 A1010000 		.4byte	.LASF21
- 146 0015 45010000 		.4byte	.LASF22
+ 145 0011 5C010000 		.4byte	.LASF21
+ 146 0015 94010000 		.4byte	.LASF22
  147 0019 00000000 		.4byte	.Ldebug_ranges0+0
  148 001d 00000000 		.4byte	0
  149 0021 00000000 		.4byte	.Ldebug_line0
  150 0025 02       		.uleb128 0x2
  151 0026 01       		.byte	0x1
  152 0027 06       		.byte	0x6
- 153 0028 D9010000 		.4byte	.LASF0
+ 153 0028 D1010000 		.4byte	.LASF0
  154 002c 02       		.uleb128 0x2
  155 002d 01       		.byte	0x1
  156 002e 08       		.byte	0x8
@@ -320,7 +320,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  158 0033 02       		.uleb128 0x2
  159 0034 02       		.byte	0x2
  160 0035 05       		.byte	0x5
- 161 0036 C0010000 		.4byte	.LASF2
+ 161 0036 7B010000 		.4byte	.LASF2
  162 003a 02       		.uleb128 0x2
  163 003b 02       		.byte	0x2
  164 003c 07       		.byte	0x7
@@ -328,7 +328,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  166 0041 02       		.uleb128 0x2
  167 0042 04       		.byte	0x4
  168 0043 05       		.byte	0x5
- 169 0044 D0010000 		.4byte	.LASF4
+ 169 0044 8B010000 		.4byte	.LASF4
  170 0048 02       		.uleb128 0x2
  171 0049 04       		.byte	0x4
  172 004a 07       		.byte	0x7
@@ -350,7 +350,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  188 0066 07       		.byte	0x7
  189 0067 0E010000 		.4byte	.LASF8
  190 006b 04       		.uleb128 0x4
- 191 006c CA010000 		.4byte	.LASF12
+ 191 006c 85010000 		.4byte	.LASF12
  192 0070 02       		.byte	0x2
  193 0071 3801     		.2byte	0x138
  194 0073 2C000000 		.4byte	0x2c
@@ -358,7 +358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  196 0078 04       		.byte	0x4
  197 0079 04       		.byte	0x4
  198 007a 2F000000 		.4byte	.LASF9
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 7
 
 
  199 007e 02       		.uleb128 0x2
@@ -368,7 +368,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  203 0085 02       		.uleb128 0x2
  204 0086 01       		.byte	0x1
  205 0087 08       		.byte	0x8
- 206 0088 8A010000 		.4byte	.LASF11
+ 206 0088 45010000 		.4byte	.LASF11
  207 008c 04       		.uleb128 0x4
  208 008d 43000000 		.4byte	.LASF13
  209 0091 02       		.byte	0x2
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  253 00f4 09       		.uleb128 0x9
  254 00f5 24000000 		.4byte	.LASF18
  255 00f9 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 8
 
 
  256 00fa 71       		.byte	0x71
@@ -428,7 +428,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  260 0107 01       		.uleb128 0x1
  261 0108 9C       		.byte	0x9c
  262 0109 09       		.uleb128 0x9
- 263 010a 8F010000 		.4byte	.LASF19
+ 263 010a 4A010000 		.4byte	.LASF19
  264 010e 01       		.byte	0x1
  265 010f 8D       		.byte	0x8d
  266 0110 6B000000 		.4byte	0x6b
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  310 0024 0B       		.uleb128 0xb
  311 0025 03       		.uleb128 0x3
  312 0026 08       		.uleb128 0x8
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 9
 
 
  313 0027 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  367 005e 3B       		.uleb128 0x3b
  368 005f 0B       		.uleb128 0xb
  369 0060 49       		.uleb128 0x49
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 10
 
 
  370 0061 13       		.uleb128 0x13
@@ -598,7 +598,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  424 000f 18000000 		.4byte	.LFE0
  425 0013 0400     		.2byte	0x4
  426 0015 F3       		.byte	0xf3
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 11
 
 
  427 0016 01       		.uleb128 0x1
@@ -658,7 +658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  478      FB0E0D00 
  478      01010101 
  479              	.LASF16:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 12
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 12
 
 
  480 0000 76616C75 		.ascii	"value\000"
@@ -718,7 +718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  503      6973696F 
  503      6E203232 
  503      31323230 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 13
 
 
  504 00e6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
@@ -745,48 +745,47 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 1
  512      206C6F6E 
  512      6720696E 
  512      7400
- 513              	.LASF22:
- 514 0145 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\FE3-DashboardRev1\\FE3-Dashbo"
- 514      6F776E6C 
- 514      6F616473 
- 514      5C465255 
- 514      43445C46 
- 515 0174 6172645C 		.ascii	"ard\\Node-Jaguar.cydsn\000"
- 515      4E6F6465 
- 515      2D4A6167 
- 515      7561722E 
- 515      63796473 
- 516              	.LASF11:
- 517 018a 63686172 		.ascii	"char\000"
- 517      00
- 518              	.LASF19:
- 519 018f 44726976 		.ascii	"Drive_ReadDataReg\000"
- 519      655F5265 
- 519      61644461 
- 519      74615265 
- 519      6700
- 520              	.LASF21:
- 521 01a1 47656E65 		.ascii	"Generated_Source\\PSoC5\\Drive.c\000"
- 521      72617465 
- 521      645F536F 
- 521      75726365 
- 521      5C50536F 
- 522              	.LASF2:
- 523 01c0 73686F72 		.ascii	"short int\000"
- 523      7420696E 
- 523      7400
- 524              	.LASF12:
- 525 01ca 75696E74 		.ascii	"uint8\000"
- 525      3800
-ARM GAS  D:\Windows\AppData\Local\Temp\ccyQAlOk.s 			page 14
+ 513              	.LASF11:
+ 514 0145 63686172 		.ascii	"char\000"
+ 514      00
+ 515              	.LASF19:
+ 516 014a 44726976 		.ascii	"Drive_ReadDataReg\000"
+ 516      655F5265 
+ 516      61644461 
+ 516      74615265 
+ 516      6700
+ 517              	.LASF21:
+ 518 015c 47656E65 		.ascii	"Generated_Source\\PSoC5\\Drive.c\000"
+ 518      72617465 
+ 518      645F536F 
+ 518      75726365 
+ 518      5C50536F 
+ 519              	.LASF2:
+ 520 017b 73686F72 		.ascii	"short int\000"
+ 520      7420696E 
+ 520      7400
+ 521              	.LASF12:
+ 522 0185 75696E74 		.ascii	"uint8\000"
+ 522      3800
+ 523              	.LASF4:
+ 524 018b 6C6F6E67 		.ascii	"long int\000"
+ 524      20696E74 
+ 524      00
+ 525              	.LASF22:
+ 526 0194 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 526      6F776E6C 
+ 526      6F616473 
+ 526      5C465255 
+ 526      43445C4E 
+ 527 01c2 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccc3LhC6.s 			page 14
 
 
- 526              	.LASF4:
- 527 01d0 6C6F6E67 		.ascii	"long int\000"
- 527      20696E74 
- 527      00
+ 527      67756172 
+ 527      2E637964 
+ 527      736E00
  528              	.LASF0:
- 529 01d9 7369676E 		.ascii	"signed char\000"
+ 529 01d1 7369676E 		.ascii	"signed char\000"
  529      65642063 
  529      68617200 
  530              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

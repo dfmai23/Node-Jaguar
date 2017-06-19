@@ -106,11 +106,6 @@ int main()
     Dash_State state = Startup;
     Error_State error_state = OK;
     
-    //Tach Meter Stuff
-    uint8_t value=0; // replace the value with 
-    int8_t direction=1;
-    WaveDAC8_1_Start();
-    
     //precharging time counter
     volatile uint32_t PrechargingTimeCount = 0;
     uint32_t DriveTimeCount = 0;
@@ -143,8 +138,6 @@ int main()
     //messagePWM.msg = &dataPWM;
     //messagePWM.rtr = PWM_MESSAGE_RTR;
 
-    ////LCD_Start();
-
     
     /* Display value of ADC output on LCD */
     //LCD_Position(0u, 0u);
@@ -168,11 +161,6 @@ int main()
         
         //can_send_status(state);
         //CyDelay(2000);
-        
-        RGB3_2_Write(1);
-        RGB2_2_Write(1);
-        RGB1_2_Write(1);
-        
         // Check if all nodes are OK
         if (pedalOK > PEDAL_TIMEOUT)
         {
@@ -200,12 +188,11 @@ int main()
                 //CyGlobalIntEnable;
                 //CAN_GlobalIntDisable();
                 //CyGlobalIntDisable;
-                LCD_Start();
+                //LCD_Start();
                 
                 //UI
                 
                 Buzzer_Write(1);
-                WaveDAC8_1_SetValue(253);
                 CyDelay(50);
                 
                 
@@ -242,16 +229,12 @@ int main()
                 
                 
                 Buzzer_Write(0);
-                WaveDAC8_1_SetValue(250);
-                //CyDelay(5000);
-                WaveDAC8_1_SetValue(0);
                 
                 state = LV;
                 
             break;
                 
             case LV:
-                
                 can_send_cmd(0,0,0);
                 CAN_GlobalIntEnable();
                 CAN_Init();
@@ -276,27 +259,16 @@ int main()
                 temp = can_read(data_queue, data_head, data_tail, 0x07FF, 2);
                 LCD_Position(0u, 10u);
                 LCD_PrintInt8(temp);
-                */
-                
-                
+                */                
                 //UI
                 
                 Buzzer_Write(0);
                 
-                
-                //
-                // RGB code goes here
-                // pick a color
-                // all on. 
-                
+                // pick a color, all on. 
                 RGB3_1_Write(0);
                 RGB2_1_Write(1);
                 RGB1_1_Write(0);
-                
-                RGB3_2_Write(1);
-                RGB2_2_Write(1);
-                RGB1_2_Write(1);
-                
+
                 if (Drive_Read())
                 {
                     state = Fault;
@@ -323,14 +295,9 @@ int main()
                 RGB3_1_Write(0);
                 RGB2_1_Write(0);
                 RGB1_1_Write(1);
-                
-                RGB3_2_Write(1);
-                RGB2_2_Write(1);
-                RGB1_2_Write(1);
-                
+
                 Buzzer_Write(0);
-                
-                
+                                
                 PrechargingTimeCount = 0;
                 
                 while(1)
@@ -363,7 +330,6 @@ int main()
             break;
 	        
             case HV_Enabled:
-
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
@@ -372,16 +338,10 @@ int main()
                 
                 can_send_status(state, error_state);
                 
-                //
-                // RGB code goes here
                 // Blue
                 RGB3_1_Write(1);
                 RGB2_1_Write(1);
                 RGB1_1_Write(0);
-                
-                RGB3_2_Write(1);
-                RGB2_2_Write(1);
-                RGB1_2_Write(1);
                 //CyDelay(5000); ///for debug
                 
                 Buzzer_Write(0);
@@ -421,17 +381,10 @@ int main()
                 //CAN_Start();
                 
                 can_send_status(state, error_state);
-                //
-                // RGB code goes here
                 // Green
                 RGB3_1_Write(1);
                 RGB2_1_Write(0);
                 RGB1_1_Write(1);
-                
-                RGB3_2_Write(1);
-                RGB2_2_Write(1);
-                RGB1_2_Write(1);
-                
                 //CyDelay(10000); // debug
                 
                 //Buzzer_Write(1);
@@ -453,8 +406,6 @@ int main()
                 uint8_t ABS_Motor_RPM = getABSMotorRPM();
                 uint8_t Throttle_High = getPedalHigh();//manga_getThrottleHigh(); // use 123 for pedal node place holder
                 uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
-                
-                WaveDAC8_1_SetValue(ABS_Motor_RPM);
                 can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock 
                 
                 //check if everything is going well
@@ -505,10 +456,6 @@ int main()
                 RGB3_1_Write(1);
                 RGB2_1_Write(1);
                 RGB1_1_Write(1);
-                
-                RGB3_2_Write(1);
-                RGB2_2_Write(1);
-                RGB1_2_Write(1);
                 
                 RGB3_1_Write(0);
                 CyDelay(1000);
@@ -571,11 +518,6 @@ int main()
                 RGB3_1_Write(1);
                 RGB2_1_Write(1);
                 RGB1_1_Write(1);
-                
-                RGB3_2_Write(1);
-                RGB2_2_Write(1);
-                RGB1_2_Write(1);
-
         }// end of switch
         
         

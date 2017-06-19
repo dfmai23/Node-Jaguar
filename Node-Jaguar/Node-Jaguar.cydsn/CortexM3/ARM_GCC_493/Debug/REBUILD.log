@@ -1,4 +1,4 @@
---------------- Rebuild Started: 06/17/2017 20:22:32 Project: Node-Jaguar, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Rebuild Started: 06/19/2017 14:59:56 Project: Node-Jaguar, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\main.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\can_manga.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o"
@@ -9,9 +9,6 @@ Deleting file ".\CortexM3\ARM_GCC_493\Debug\CAN.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CAN_INT.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CAN_PM.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CAN_TX_RX_func.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\LCD.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\LCD_PM.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\LCD_LCDPort.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\Cm3Start.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CyDmac.o"
@@ -24,20 +21,9 @@ Deleting file ".\CortexM3\ARM_GCC_493\Debug\LED.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\Buzzer.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\HV.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\Drive.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_PM.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_DacClk.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_Wave1_DMA_dma.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_Wave2_DMA_dma.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_VDAC8.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_VDAC8_PM.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\Tach.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\RGB3_1.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\RGB2_1.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\RGB1_1.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\RGB3_2.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\RGB2_2.o"
-Deleting file ".\CortexM3\ARM_GCC_493\Debug\RGB1_2.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\timer_clock.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CAN_Timer.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\CAN_Timer_PM.o"
@@ -45,20 +31,23 @@ Deleting file ".\CortexM3\ARM_GCC_493\Debug\isr_can.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\Node_Timer.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\Node_Timer_PM.o"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\isr_nodeok.o"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.hex"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.elf"
+Deleting file ".\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.map"
+Deleting file ".\Node-Jaguar.cycdx"
+Deleting file ".\Node-Jaguar.svd"
+Deleting file ".\Node-Jaguar.rpt"
+Deleting file ".\Node-Jaguar_timing.html"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\.deps\SOURCE_C__ARM_GCC_GENERIC.P"
 Deleting file ".\CortexM3\ARM_GCC_493\Debug\.deps\SOURCE_ASM__ARM_GCC_GENERIC.P"
-cydsfit.exe -.appdatapath "C:\Users\DFM\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p D:\Downloads\FRUCD\FE3-DashboardRev1\FE3-Dashboard\Node-Jaguar.cydsn\Node-Jaguar.cyprj -d CY8C5868AXI-LP035 -s D:\Downloads\FRUCD\FE3-DashboardRev1\FE3-Dashboard\Node-Jaguar.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+cydsfit.exe -.appdatapath "C:\Users\DFM\AppData\Local\Cypress Semiconductor\PSoC Creator\4.0" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\Node-Jaguar.cyprj -d CY8C5868AXI-LP035 -s D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
-ADD: pft.M0074: information: A (re)build is required to use the analog device editor. Unable to load the necessary information from the cyfit file. Partial/wrong data will be displayed until this has been resolved.
- * D:\Downloads\FRUCD\FE3-DashboardRev1\FE3-Dashboard\Node-Jaguar.cydsn\Node-Jaguar.cydwr ()
 ADD: sdb.M0060: warning: Warning in component: CAN. The BUS_CLK clock accuracy should be 0.5% or better. Please, use an external XTAL or external clock source to meet the CAN accurate clocking requirements.
- * D:\Downloads\FRUCD\FE3-DashboardRev1\FE3-Dashboard\Node-Jaguar.cydsn\TopDesign\TopDesign.cysch (Instance:CAN)
+ * D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\TopDesign\TopDesign.cysch (Instance:CAN)
 HDL Generation...
 Synthesis...
 Tech Mapping...
-ADD: pft.M0040: information: The following 10 pin(s) will be assigned a location by the fitter: \LCD:LCDPort(0)\, \LCD:LCDPort(1)\, \LCD:LCDPort(2)\, \LCD:LCDPort(3)\, \LCD:LCDPort(4)\, \LCD:LCDPort(5)\, \LCD:LCDPort(6)\, RGB1_2(0), RGB2_2(0), RGB3_2(0)
 Analog Placement...
-Log: apr.M0058: The analog placement iterative improvement is 42% done. (App=cydsfit)
 Analog Routing...
 Analog Code Generation...
 Digital Placement...
@@ -67,30 +56,25 @@ Bitstream Generation...
 Bitstream Verification...
 Static timing analysis...
 API Generation...
-DEL: pft.M0074: information: A (re)build is required to use the analog device editor. Unable to load the necessary information from the cyfit file. Partial/wrong data will be displayed until this has been resolved.
- * D:\Downloads\FRUCD\FE3-DashboardRev1\FE3-Dashboard\Node-Jaguar.cydsn\Node-Jaguar.cydwr ()
 Dependency Generation...
 Cleanup...
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
 main.c: In function 'main':
-main.c:409:55: warning: suggest parentheses around comparison in operand of '|' [-Wparentheses]
+main.c:370:55: warning: suggest parentheses around comparison in operand of '|' [-Wparentheses]
                  if(!HV_Read() | getCapacitorVoltage() < 0x16)
                                                        ^
-main.c:111:12: warning: unused variable 'direction' [-Wunused-variable]
-     int8_t direction=1;
-            ^
-main.c:110:13: warning: unused variable 'value' [-Wunused-variable]
-     uint8_t value=0; // replace the value with 
-             ^
+main.c:407:25: warning: unused variable 'ABS_Motor_RPM' [-Wunused-variable]
+                 uint8_t ABS_Motor_RPM = getABSMotorRPM();
+                         ^
 main.c: At top level:
 main.c:68:15: warning: 'ReadSwSwitch' declared 'static' but never defined [-Wunused-function]
  static uint32 ReadSwSwitch(void);
                ^
 main.c: In function 'main':
-main.c:546:21: warning: 'Throttle_Low' may be used uninitialized in this function [-Wmaybe-uninitialized]
+main.c:494:21: warning: 'Throttle_Low' may be used uninitialized in this function [-Wmaybe-uninitialized]
                      can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock
                      ^
-main.c:546:21: warning: 'Throttle_High' may be used uninitialized in this function [-Wmaybe-uninitialized]
+main.c:494:21: warning: 'Throttle_High' may be used uninitialized in this function [-Wmaybe-uninitialized]
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/can_manga.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c can_manga.c -o .\CortexM3\ARM_GCC_493\Debug\can_manga.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cyfitter_cfg.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/cymetadata.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
@@ -104,9 +88,6 @@ Generated_Source\PSoC5\CAN_TX_RX_func.c: In function 'CAN_ReceiveMsg':
 Generated_Source\PSoC5\CAN_TX_RX_func.c:645:27: warning: unused variable 'test' [-Wunused-variable]
              CAN_RX_STRUCT test = CAN_RX[rxMailbox]; 
                            ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\LCD.c -o .\CortexM3\ARM_GCC_493\Debug\LCD.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_PM.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\LCD_PM.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/LCD_LCDPort.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\LCD_LCDPort.c -o .\CortexM3\ARM_GCC_493\Debug\LCD_LCDPort.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Cm3Start.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CyDmac.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CyFlash.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o
@@ -118,20 +99,9 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Buzzer.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\Buzzer.c -o .\CortexM3\ARM_GCC_493\Debug\Buzzer.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/HV.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\HV.c -o .\CortexM3\ARM_GCC_493\Debug\HV.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Drive.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\Drive.c -o .\CortexM3\ARM_GCC_493\Debug\Drive.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/WaveDAC8_1.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\WaveDAC8_1.c -o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/WaveDAC8_1_PM.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\WaveDAC8_1_PM.c -o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/WaveDAC8_1_DacClk.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\WaveDAC8_1_DacClk.c -o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_DacClk.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/WaveDAC8_1_Wave1_DMA_dma.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\WaveDAC8_1_Wave1_DMA_dma.c -o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_Wave1_DMA_dma.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/WaveDAC8_1_Wave2_DMA_dma.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\WaveDAC8_1_Wave2_DMA_dma.c -o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_Wave2_DMA_dma.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/WaveDAC8_1_VDAC8.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\WaveDAC8_1_VDAC8.c -o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_VDAC8.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/WaveDAC8_1_VDAC8_PM.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\WaveDAC8_1_VDAC8_PM.c -o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_VDAC8_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Tach.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\Tach.c -o .\CortexM3\ARM_GCC_493\Debug\Tach.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/RGB3_1.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\RGB3_1.c -o .\CortexM3\ARM_GCC_493\Debug\RGB3_1.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/RGB2_1.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\RGB2_1.c -o .\CortexM3\ARM_GCC_493\Debug\RGB2_1.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/RGB1_1.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\RGB1_1.c -o .\CortexM3\ARM_GCC_493\Debug\RGB1_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/RGB3_2.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\RGB3_2.c -o .\CortexM3\ARM_GCC_493\Debug\RGB3_2.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/RGB2_2.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\RGB2_2.c -o .\CortexM3\ARM_GCC_493\Debug\RGB2_2.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/RGB1_2.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\RGB1_2.c -o .\CortexM3\ARM_GCC_493\Debug\RGB1_2.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/timer_clock.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\timer_clock.c -o .\CortexM3\ARM_GCC_493\Debug\timer_clock.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CAN_Timer.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\CAN_Timer.c -o .\CortexM3\ARM_GCC_493\Debug\CAN_Timer.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/CAN_Timer_PM.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\CAN_Timer_PM.c -o .\CortexM3\ARM_GCC_493\Debug\CAN_Timer_PM.o
@@ -140,11 +110,11 @@ arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/Node_Timer_PM.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\Node_Timer_PM.c -o .\CortexM3\ARM_GCC_493\Debug\Node_Timer_PM.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/isr_nodeok.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c Generated_Source\PSoC5\isr_nodeok.c -o .\CortexM3\ARM_GCC_493\Debug\isr_nodeok.o
 arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_493\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o Generated_Source\PSoC5\CyBootAsmGnu.s
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\RX.o .\CortexM3\ARM_GCC_493\Debug\TX.o .\CortexM3\ARM_GCC_493\Debug\CAN.o .\CortexM3\ARM_GCC_493\Debug\CAN_INT.o .\CortexM3\ARM_GCC_493\Debug\CAN_PM.o .\CortexM3\ARM_GCC_493\Debug\CAN_TX_RX_func.o .\CortexM3\ARM_GCC_493\Debug\LCD.o .\CortexM3\ARM_GCC_493\Debug\LCD_PM.o .\CortexM3\ARM_GCC_493\Debug\LCD_LCDPort.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\LED.o .\CortexM3\ARM_GCC_493\Debug\Buzzer.o .\CortexM3\ARM_GCC_493\Debug\HV.o .\CortexM3\ARM_GCC_493\Debug\Drive.o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1.o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_PM.o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_DacClk.o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_Wave1_DMA_dma.o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_Wave2_DMA_dma.o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_VDAC8.o .\CortexM3\ARM_GCC_493\Debug\WaveDAC8_1_VDAC8_PM.o .\CortexM3\ARM_GCC_493\Debug\Tach.o .\CortexM3\ARM_GCC_493\Debug\RGB3_1.o .\CortexM3\ARM_GCC_493\Debug\RGB2_1.o .\CortexM3\ARM_GCC_493\Debug\RGB1_1.o .\CortexM3\ARM_GCC_493\Debug\RGB3_2.o .\CortexM3\ARM_GCC_493\Debug\RGB2_2.o .\CortexM3\ARM_GCC_493\Debug\RGB1_2.o .\CortexM3\ARM_GCC_493\Debug\timer_clock.o .\CortexM3\ARM_GCC_493\Debug\CAN_Timer.o .\CortexM3\ARM_GCC_493\Debug\CAN_Timer_PM.o .\CortexM3\ARM_GCC_493\Debug\isr_can.o .\CortexM3\ARM_GCC_493\Debug\Node_Timer.o .\CortexM3\ARM_GCC_493\Debug\Node_Timer_PM.o .\CortexM3\ARM_GCC_493\Debug\isr_nodeok.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a .\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_493\Debug\RX.o .\CortexM3\ARM_GCC_493\Debug\TX.o .\CortexM3\ARM_GCC_493\Debug\CAN.o .\CortexM3\ARM_GCC_493\Debug\CAN_INT.o .\CortexM3\ARM_GCC_493\Debug\CAN_PM.o .\CortexM3\ARM_GCC_493\Debug\CAN_TX_RX_func.o .\CortexM3\ARM_GCC_493\Debug\CyDmac.o .\CortexM3\ARM_GCC_493\Debug\CyFlash.o .\CortexM3\ARM_GCC_493\Debug\CyLib.o .\CortexM3\ARM_GCC_493\Debug\cyPm.o .\CortexM3\ARM_GCC_493\Debug\CySpc.o .\CortexM3\ARM_GCC_493\Debug\cyutils.o .\CortexM3\ARM_GCC_493\Debug\LED.o .\CortexM3\ARM_GCC_493\Debug\Buzzer.o .\CortexM3\ARM_GCC_493\Debug\HV.o .\CortexM3\ARM_GCC_493\Debug\Drive.o .\CortexM3\ARM_GCC_493\Debug\RGB3_1.o .\CortexM3\ARM_GCC_493\Debug\RGB2_1.o .\CortexM3\ARM_GCC_493\Debug\RGB1_1.o .\CortexM3\ARM_GCC_493\Debug\timer_clock.o .\CortexM3\ARM_GCC_493\Debug\CAN_Timer.o .\CortexM3\ARM_GCC_493\Debug\CAN_Timer_PM.o .\CortexM3\ARM_GCC_493\Debug\isr_can.o .\CortexM3\ARM_GCC_493\Debug\Node_Timer.o .\CortexM3\ARM_GCC_493\Debug\Node_Timer_PM.o .\CortexM3\ARM_GCC_493\Debug\isr_nodeok.o .\CortexM3\ARM_GCC_493\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.elf .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\can_manga.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a "D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -Og -ffat-lto-objects -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Node-Jaguar.map -T D:\Downloads\FRUCD\FE3-DashboardRev1\FE3-Dashboard\Node-Jaguar.cydsn\Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
-cyelftool.exe -C D:\Downloads\FRUCD\FE3-DashboardRev1\FE3-Dashboard\Node-Jaguar.cydsn\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.elf --flash_row_size 256 --flash_size 262144
-cyelftool.exe -S D:\Downloads\FRUCD\FE3-DashboardRev1\FE3-Dashboard\Node-Jaguar.cydsn\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.elf
-Flash used: 6742 of 262144 bytes (2.6 %).
-SRAM used: 2525 of 65536 bytes (3.9 %). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Rebuild Succeeded: 06/17/2017 20:23:12 ---------------
+arm-none-eabi-gcc.exe -Wl,--start-group -o .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.elf .\CortexM3\ARM_GCC_493\Debug\main.o .\CortexM3\ARM_GCC_493\Debug\can_manga.o .\CortexM3\ARM_GCC_493\Debug\cymetadata.o .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a "D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -g -ffunction-sections -Og -ffat-lto-objects -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_493\Debug/Node-Jaguar.map -T D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
+cyelftool.exe -C D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.elf --flash_row_size 256 --flash_size 262144
+cyelftool.exe -S D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.elf
+Flash used: 4790 of 262144 bytes (1.8 %).
+SRAM used: 2509 of 65536 bytes (3.8 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Rebuild Succeeded: 06/19/2017 15:00:28 ---------------

@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
   32              		.loc 1 23 0
   33 0000 014B     		ldr	r3, .L2
   34 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 2
 
 
   24:can_manga.c   **** }
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
   80              		@ frame_needed = 0, uses_anonymous_args = 0
   81              		@ link register save eliminated.
   33:can_manga.c   ****     return CURTIS_HEART_BEAT_CHECK;
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 3
 
 
   82              		.loc 1 33 0
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  127              		.loc 1 42 0
  128              		.cfi_startproc
  129              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 4
 
 
  130              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
   50:can_manga.c   **** 
   51:can_manga.c   **** uint8_t getPedalLow()
   52:can_manga.c   **** {
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 5
 
 
  177              		.loc 1 52 0
@@ -298,7 +298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  224              		.type	can_receive, %function
  225              	can_receive:
  226              	.LFB8:
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 6
 
 
   60:can_manga.c   **** 
@@ -358,7 +358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  268 002c 15D0     		beq	.L31
  269 002e B5F5007F 		cmp	r5, #512
  270 0032 22D0     		beq	.L32
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 7
 
 
  271 0034 2BE0     		b	.L28
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  311 0070 0DE0     		b	.L28
  312              	.L29:
   85:can_manga.c   ****          case 0x0201:
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 8
 
 
   86:can_manga.c   ****             ERROR_TOLERANCE = msg[CAN_DATA_BYTE_1];
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  356              	.LFB9:
   97:can_manga.c   **** 
   98:can_manga.c   **** void can_test_send()
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 9
 
 
   99:can_manga.c   **** {
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  394              		.loc 1 115 0
  395 0032 039A     		ldr	r2, [sp, #12]
  396 0034 5371     		strb	r3, [r2, #5]
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 10
 
 
  116:can_manga.c   ****     HeartB.msg->byte[6] = (uint8) 1;
@@ -598,7 +598,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  129:can_manga.c   **** 	message.ide = 0;
  438              		.loc 1 129 0
  439 000c 8DF81130 		strb	r3, [sp, #17]
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 11
 
 
  130:can_manga.c   **** 	message.dlc = 0x08;
@@ -658,7 +658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  485              		.type	can_send_status, %function
  486              	can_send_status:
  487              	.LFB11:
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 12
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 12
 
 
  137:can_manga.c   **** 
@@ -718,7 +718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  157:can_manga.c   **** 
  158:can_manga.c   ****         
  159:can_manga.c   **** } // can_send_status()
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 13
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 13
 
 
  522              		.loc 1 159 0
@@ -778,7 +778,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  558 0016 8DF80430 		strb	r3, [sp, #4]
  178:can_manga.c   ****         
  179:can_manga.c   ****         data[5] = 0;
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 14
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 14
 
 
  559              		.loc 1 179 0
@@ -838,7 +838,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  606              		.type	ACK_RX, %object
  607              		.size	ACK_RX, 1
  608              	ACK_RX:
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 15
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 15
 
 
  609 0003 00       		.space	1
@@ -872,10 +872,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  637 0006 00000000 		.4byte	.Ldebug_abbrev0
  638 000a 04       		.byte	0x4
  639 000b 01       		.uleb128 0x1
- 640 000c FE020000 		.4byte	.LASF55
+ 640 000c B9020000 		.4byte	.LASF55
  641 0010 01       		.byte	0x1
- 642 0011 01020000 		.4byte	.LASF56
- 643 0015 27010000 		.4byte	.LASF57
+ 642 0011 BC010000 		.4byte	.LASF56
+ 643 0015 47030000 		.4byte	.LASF57
  644 0019 00000000 		.4byte	.Ldebug_ranges0+0
  645 001d 00000000 		.4byte	0
  646 0021 00000000 		.4byte	.Ldebug_line0
@@ -891,14 +891,14 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  656 0037 02       		.uleb128 0x2
  657 0038 01       		.byte	0x1
  658 0039 08       		.byte	0x8
- 659 003a 24020000 		.4byte	.LASF1
+ 659 003a DF010000 		.4byte	.LASF1
  660 003e 02       		.uleb128 0x2
  661 003f 02       		.byte	0x2
  662 0040 05       		.byte	0x5
- 663 0041 32020000 		.4byte	.LASF2
+ 663 0041 ED010000 		.4byte	.LASF2
  664 0045 03       		.uleb128 0x3
- 665 0046 AD020000 		.4byte	.LASF4
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 16
+ 665 0046 68020000 		.4byte	.LASF4
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 16
 
 
  666 004a 02       		.byte	0x2
@@ -907,7 +907,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  669 0050 02       		.uleb128 0x2
  670 0051 02       		.byte	0x2
  671 0052 07       		.byte	0x7
- 672 0053 B4010000 		.4byte	.LASF5
+ 672 0053 6F010000 		.4byte	.LASF5
  673 0057 02       		.uleb128 0x2
  674 0058 04       		.byte	0x4
  675 0059 05       		.byte	0x5
@@ -920,7 +920,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  682 0069 02       		.uleb128 0x2
  683 006a 04       		.byte	0x4
  684 006b 07       		.byte	0x7
- 685 006c 6C010000 		.4byte	.LASF8
+ 685 006c 27010000 		.4byte	.LASF8
  686 0070 02       		.uleb128 0x2
  687 0071 08       		.byte	0x8
  688 0072 05       		.byte	0x5
@@ -938,7 +938,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  700 0087 07       		.byte	0x7
  701 0088 1A010000 		.4byte	.LASF11
  702 008c 03       		.uleb128 0x3
- 703 008d 98030000 		.4byte	.LASF12
+ 703 008d 90030000 		.4byte	.LASF12
  704 0091 03       		.byte	0x3
  705 0092 15       		.byte	0x15
  706 0093 2C000000 		.4byte	0x2c
@@ -948,7 +948,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  710 009d 21       		.byte	0x21
  711 009e 45000000 		.4byte	0x45
  712 00a2 03       		.uleb128 0x3
- 713 00a3 76020000 		.4byte	.LASF14
+ 713 00a3 31020000 		.4byte	.LASF14
  714 00a7 03       		.byte	0x3
  715 00a8 2D       		.byte	0x2d
  716 00a9 5E000000 		.4byte	0x5e
@@ -958,7 +958,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  720 00b3 3801     		.2byte	0x138
  721 00b5 37000000 		.4byte	0x37
  722 00b9 05       		.uleb128 0x5
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 17
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 17
 
 
  723 00ba D6000000 		.4byte	.LASF16
@@ -968,7 +968,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  727 00c5 02       		.uleb128 0x2
  728 00c6 04       		.byte	0x4
  729 00c7 04       		.byte	0x4
- 730 00c8 0D020000 		.4byte	.LASF17
+ 730 00c8 C8010000 		.4byte	.LASF17
  731 00cc 02       		.uleb128 0x2
  732 00cd 08       		.byte	0x8
  733 00ce 04       		.byte	0x4
@@ -976,11 +976,11 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  735 00d3 02       		.uleb128 0x2
  736 00d4 01       		.byte	0x1
  737 00d5 08       		.byte	0x8
- 738 00d6 9B020000 		.4byte	.LASF19
+ 738 00d6 56020000 		.4byte	.LASF19
  739 00da 02       		.uleb128 0x2
  740 00db 04       		.byte	0x4
  741 00dc 07       		.byte	0x7
- 742 00dd E8010000 		.4byte	.LASF20
+ 742 00dd A3010000 		.4byte	.LASF20
  743 00e1 06       		.uleb128 0x6
  744 00e2 08       		.byte	0x8
  745 00e3 05       		.byte	0x5
@@ -1001,7 +1001,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  760 0104 07       		.byte	0x7
  761 0105 00       		.byte	0
  762 0106 03       		.uleb128 0x3
- 763 0107 4E020000 		.4byte	.LASF21
+ 763 0107 09020000 		.4byte	.LASF21
  764 010b 05       		.byte	0x5
  765 010c 72       		.byte	0x72
  766 010d E1000000 		.4byte	0xe1
@@ -1018,7 +1018,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  777 0123 00       		.byte	0
  778 0124 0A       		.uleb128 0xa
  779 0125 72747200 		.ascii	"rtr\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 18
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 18
 
 
  780 0129 05       		.byte	0x5
@@ -1054,12 +1054,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  810 0162 04       		.byte	0x4
  811 0163 06010000 		.4byte	0x106
  812 0167 03       		.uleb128 0x3
- 813 0168 F3020000 		.4byte	.LASF23
+ 813 0168 AE020000 		.4byte	.LASF23
  814 016c 05       		.byte	0x5
  815 016d 8C       		.byte	0x8c
  816 016e 11010000 		.4byte	0x111
  817 0172 0C       		.uleb128 0xc
- 818 0173 AF030000 		.4byte	.LASF24
+ 818 0173 A7030000 		.4byte	.LASF24
  819 0177 01       		.byte	0x1
  820 0178 15       		.byte	0x15
  821 0179 8C000000 		.4byte	0x8c
@@ -1078,7 +1078,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  834 019b 9C       		.byte	0x9c
  835 019c 0C       		.uleb128 0xc
  836 019d 67000000 		.4byte	.LASF26
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 19
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 19
 
 
  837 01a1 01       		.byte	0x1
@@ -1089,7 +1089,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  842 01af 01       		.uleb128 0x1
  843 01b0 9C       		.byte	0x9c
  844 01b1 0C       		.uleb128 0xc
- 845 01b2 C3030000 		.4byte	.LASF27
+ 845 01b2 BB030000 		.4byte	.LASF27
  846 01b6 01       		.byte	0x1
  847 01b7 24       		.byte	0x24
  848 01b8 8C000000 		.4byte	0x8c
@@ -1098,7 +1098,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  851 01c4 01       		.uleb128 0x1
  852 01c5 9C       		.byte	0x9c
  853 01c6 0C       		.uleb128 0xc
- 854 01c7 B8020000 		.4byte	.LASF28
+ 854 01c7 73020000 		.4byte	.LASF28
  855 01cb 01       		.byte	0x1
  856 01cc 29       		.byte	0x29
  857 01cd 8C000000 		.4byte	0x8c
@@ -1116,7 +1116,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  869 01ee 01       		.uleb128 0x1
  870 01ef 9C       		.byte	0x9c
  871 01f0 0C       		.uleb128 0xc
- 872 01f1 8F020000 		.4byte	.LASF30
+ 872 01f1 4A020000 		.4byte	.LASF30
  873 01f5 01       		.byte	0x1
  874 01f6 33       		.byte	0x33
  875 01f7 8C000000 		.4byte	0x8c
@@ -1125,7 +1125,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  878 0203 01       		.uleb128 0x1
  879 0204 9C       		.byte	0x9c
  880 0205 0C       		.uleb128 0xc
- 881 0206 DB010000 		.4byte	.LASF31
+ 881 0206 96010000 		.4byte	.LASF31
  882 020a 01       		.byte	0x1
  883 020b 38       		.byte	0x38
  884 020c 8C000000 		.4byte	0x8c
@@ -1134,11 +1134,11 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  887 0218 01       		.uleb128 0x1
  888 0219 9C       		.byte	0x9c
  889 021a 0D       		.uleb128 0xd
- 890 021b 8C030000 		.4byte	.LASF35
+ 890 021b 84030000 		.4byte	.LASF35
  891 021f 01       		.byte	0x1
  892 0220 3D       		.byte	0x3d
  893 0221 00000000 		.4byte	.LFB8
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 20
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 20
 
 
  894 0225 A0000000 		.4byte	.LFE8-.LFB8
@@ -1158,13 +1158,13 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  908 0244 7E000000 		.4byte	0x7e
  909 0248 2C000000 		.4byte	.LLST1
  910 024c 0F       		.uleb128 0xf
- 911 024d A0030000 		.4byte	.LASF32
+ 911 024d 98030000 		.4byte	.LASF32
  912 0251 01       		.byte	0x1
  913 0252 3F       		.byte	0x3f
  914 0253 AD000000 		.4byte	0xad
  915 0257 58000000 		.4byte	.LLST2
  916 025b 10       		.uleb128 0x10
- 917 025c AF010000 		.4byte	.LASF33
+ 917 025c 6A010000 		.4byte	.LASF33
  918 0260 01       		.byte	0x1
  919 0261 41       		.byte	0x41
  920 0262 8F020000 		.4byte	0x28f
@@ -1195,10 +1195,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  945 029d 07       		.byte	0x7
  946 029e 00       		.byte	0
  947 029f 13       		.uleb128 0x13
- 948 02a0 7E010000 		.4byte	.LASF58
+ 948 02a0 39010000 		.4byte	.LASF58
  949 02a4 01       		.byte	0x1
  950 02a5 62       		.byte	0x62
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 21
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 21
 
 
  951 02a6 00000000 		.4byte	.LFB9
@@ -1207,7 +1207,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  954 02af 9C       		.byte	0x9c
  955 02b0 D3020000 		.4byte	0x2d3
  956 02b4 10       		.uleb128 0x10
- 957 02b5 C7010000 		.4byte	.LASF34
+ 957 02b5 82010000 		.4byte	.LASF34
  958 02b9 01       		.byte	0x1
  959 02ba 65       		.byte	0x65
  960 02bb 67010000 		.4byte	0x167
@@ -1226,7 +1226,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  973 02d1 00       		.byte	0
  974 02d2 00       		.byte	0
  975 02d3 0D       		.uleb128 0xd
- 976 02d4 1B020000 		.4byte	.LASF36
+ 976 02d4 D6010000 		.4byte	.LASF36
  977 02d8 01       		.byte	0x1
  978 02d9 7A       		.byte	0x7a
  979 02da 00000000 		.4byte	.LFB10
@@ -1235,7 +1235,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  982 02e3 9C       		.byte	0x9c
  983 02e4 3F030000 		.4byte	0x33f
  984 02e8 16       		.uleb128 0x16
- 985 02e9 AF010000 		.4byte	.LASF33
+ 985 02e9 6A010000 		.4byte	.LASF33
  986 02ed 01       		.byte	0x1
  987 02ee 7A       		.byte	0x7a
  988 02ef 89020000 		.4byte	0x289
@@ -1253,18 +1253,18 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1000 030a 8C000000 		.4byte	0x8c
  1001 030e E4000000 		.4byte	.LLST6
  1002 0312 10       		.uleb128 0x10
- 1003 0313 F9010000 		.4byte	.LASF37
+ 1003 0313 B4010000 		.4byte	.LASF37
  1004 0317 01       		.byte	0x1
  1005 0318 7D       		.byte	0x7d
  1006 0319 67010000 		.4byte	0x167
  1007 031d 02       		.uleb128 0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 22
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 22
 
 
  1008 031e 91       		.byte	0x91
  1009 031f 6C       		.sleb128 -20
  1010 0320 10       		.uleb128 0x10
- 1011 0321 F1010000 		.4byte	.LASF38
+ 1011 0321 AC010000 		.4byte	.LASF38
  1012 0325 01       		.byte	0x1
  1013 0326 7E       		.byte	0x7e
  1014 0327 06010000 		.4byte	0x106
@@ -1283,7 +1283,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1027 033d 00       		.byte	0
  1028 033e 00       		.byte	0
  1029 033f 0D       		.uleb128 0xd
- 1030 0340 CA020000 		.4byte	.LASF39
+ 1030 0340 85020000 		.4byte	.LASF39
  1031 0344 01       		.byte	0x1
  1032 0345 8A       		.byte	0x8a
  1033 0346 00000000 		.4byte	.LFB11
@@ -1304,7 +1304,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1048 036a 8C000000 		.4byte	0x8c
  1049 036e 3B010000 		.4byte	.LLST8
  1050 0372 10       		.uleb128 0x10
- 1051 0373 AF010000 		.4byte	.LASF33
+ 1051 0373 6A010000 		.4byte	.LASF33
  1052 0377 01       		.byte	0x1
  1053 0378 8F       		.byte	0x8f
  1054 0379 8F020000 		.4byte	0x28f
@@ -1318,7 +1318,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1062 038a 01       		.uleb128 0x1
  1063 038b 51       		.byte	0x51
  1064 038c 03       		.uleb128 0x3
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 23
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 23
 
 
  1065 038d 0A       		.byte	0xa
@@ -1332,7 +1332,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1073 0396 00       		.byte	0
  1074 0397 00       		.byte	0
  1075 0398 0D       		.uleb128 0xd
- 1076 0399 CE010000 		.4byte	.LASF42
+ 1076 0399 89010000 		.4byte	.LASF42
  1077 039d 01       		.byte	0x1
  1078 039e A1       		.byte	0xa1
  1079 039f 00000000 		.4byte	.LFB12
@@ -1341,25 +1341,25 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1082 03a8 9C       		.byte	0x9c
  1083 03a9 13040000 		.4byte	0x413
  1084 03ad 16       		.uleb128 0x16
- 1085 03ae A0020000 		.4byte	.LASF43
+ 1085 03ae 5B020000 		.4byte	.LASF43
  1086 03b2 01       		.byte	0x1
  1087 03b3 A2       		.byte	0xa2
  1088 03b4 8C000000 		.4byte	0x8c
  1089 03b8 68010000 		.4byte	.LLST9
  1090 03bc 16       		.uleb128 0x16
- 1091 03bd 3C020000 		.4byte	.LASF44
+ 1091 03bd F7010000 		.4byte	.LASF44
  1092 03c1 01       		.byte	0x1
  1093 03c2 A3       		.byte	0xa3
  1094 03c3 97000000 		.4byte	0x97
  1095 03c7 95010000 		.4byte	.LLST10
  1096 03cb 16       		.uleb128 0x16
- 1097 03cc DA020000 		.4byte	.LASF45
+ 1097 03cc 95020000 		.4byte	.LASF45
  1098 03d0 01       		.byte	0x1
  1099 03d1 A4       		.byte	0xa4
  1100 03d2 97000000 		.4byte	0x97
  1101 03d6 B6010000 		.4byte	.LLST11
  1102 03da 10       		.uleb128 0x10
- 1103 03db AF010000 		.4byte	.LASF33
+ 1103 03db 6A010000 		.4byte	.LASF33
  1104 03df 01       		.byte	0x1
  1105 03e0 A9       		.byte	0xa9
  1106 03e1 8F020000 		.4byte	0x28f
@@ -1378,7 +1378,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1119 03fa 6607     		.2byte	0x766
  1120 03fc 15       		.uleb128 0x15
  1121 03fd 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 24
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 24
 
 
  1122 03fe 50       		.byte	0x50
@@ -1397,7 +1397,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1135 0411 00       		.byte	0
  1136 0412 00       		.byte	0
  1137 0413 18       		.uleb128 0x18
- 1138 0414 13020000 		.4byte	.LASF46
+ 1138 0414 CE010000 		.4byte	.LASF46
  1139 0418 01       		.byte	0x1
  1140 0419 0A       		.byte	0xa
  1141 041a 1E040000 		.4byte	0x41e
@@ -1430,7 +1430,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1168 0456 03       		.byte	0x3
  1169 0457 00000000 		.4byte	CURTIS_HEART_BEAT_CHECK
  1170 045b 1A       		.uleb128 0x1a
- 1171 045c 6F020000 		.4byte	.LASF50
+ 1171 045c 2A020000 		.4byte	.LASF50
  1172 0460 01       		.byte	0x1
  1173 0461 0F       		.byte	0xf
  1174 0462 34040000 		.4byte	0x434
@@ -1438,10 +1438,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1176 0467 03       		.byte	0x3
  1177 0468 00000000 		.4byte	ACK_RX
  1178 046c 1A       		.uleb128 0x1a
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 25
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 25
 
 
- 1179 046d 7F020000 		.4byte	.LASF51
+ 1179 046d 3A020000 		.4byte	.LASF51
  1180 0471 01       		.byte	0x1
  1181 0472 10       		.byte	0x10
  1182 0473 34040000 		.4byte	0x434
@@ -1449,7 +1449,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1184 0478 03       		.byte	0x3
  1185 0479 00000000 		.4byte	ERROR_TOLERANCE
  1186 047d 1A       		.uleb128 0x1a
- 1187 047e CC030000 		.4byte	.LASF52
+ 1187 047e C4030000 		.4byte	.LASF52
  1188 0482 01       		.byte	0x1
  1189 0483 11       		.byte	0x11
  1190 0484 34040000 		.4byte	0x434
@@ -1457,7 +1457,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1192 0489 03       		.byte	0x3
  1193 048a 00000000 		.4byte	ABS_MOTOR_RPM
  1194 048e 1A       		.uleb128 0x1a
- 1195 048f 61020000 		.4byte	.LASF53
+ 1195 048f 1C020000 		.4byte	.LASF53
  1196 0493 01       		.byte	0x1
  1197 0494 12       		.byte	0x12
  1198 0495 34040000 		.4byte	0x434
@@ -1473,7 +1473,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1208 04ab 03       		.byte	0x3
  1209 04ac 00000000 		.4byte	THROTTLE_LOW
  1210 04b0 1B       		.uleb128 0x1b
- 1211 04b1 8C010000 		.4byte	.LASF59
+ 1211 04b1 47010000 		.4byte	.LASF59
  1212 04b5 06       		.byte	0x6
  1213 04b6 7E       		.byte	0x7e
  1214 04b7 AD000000 		.4byte	0xad
@@ -1486,7 +1486,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1221 04c7 AD000000 		.4byte	0xad
  1222 04cb 00       		.byte	0
  1223 04cc 1E       		.uleb128 0x1e
- 1224 04cd A3010000 		.4byte	.LASF61
+ 1224 04cd 5E010000 		.4byte	.LASF61
  1225 04d1 05       		.byte	0x5
  1226 04d2 1801     		.2byte	0x118
  1227 04d4 AD000000 		.4byte	0xad
@@ -1498,12 +1498,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1233 04e3 04       		.byte	0x4
  1234 04e4 E8040000 		.4byte	0x4e8
  1235 04e8 1F       		.uleb128 0x1f
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 26
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 26
 
 
  1236 04e9 67010000 		.4byte	0x167
  1237 04ed 20       		.uleb128 0x20
- 1238 04ee EB020000 		.4byte	.LASF62
+ 1238 04ee A6020000 		.4byte	.LASF62
  1239 04f2 06       		.byte	0x6
  1240 04f3 77       		.byte	0x77
  1241 04f4 1D       		.uleb128 0x1d
@@ -1558,7 +1558,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1290 002b 04       		.uleb128 0x4
  1291 002c 24       		.uleb128 0x24
  1292 002d 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 27
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 27
 
 
  1293 002e 0B       		.uleb128 0xb
@@ -1618,7 +1618,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1347 0064 01       		.uleb128 0x1
  1348 0065 13       		.uleb128 0x13
  1349 0066 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 28
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 28
 
 
  1350 0067 00       		.byte	0
@@ -1678,7 +1678,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1404 009e 19       		.uleb128 0x19
  1405 009f 00       		.byte	0
  1406 00a0 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 29
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 29
 
 
  1407 00a1 0D       		.uleb128 0xd
@@ -1738,7 +1738,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1461 00d8 00       		.byte	0
  1462 00d9 10       		.uleb128 0x10
  1463 00da 34       		.uleb128 0x34
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 30
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 30
 
 
  1464 00db 00       		.byte	0
@@ -1798,7 +1798,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1518 0113 9742     		.uleb128 0x2117
  1519 0115 19       		.uleb128 0x19
  1520 0116 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 31
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 31
 
 
  1521 0117 13       		.uleb128 0x13
@@ -1858,7 +1858,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1575 0154 3B       		.uleb128 0x3b
  1576 0155 0B       		.uleb128 0xb
  1577 0156 49       		.uleb128 0x49
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 32
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 32
 
 
  1578 0157 13       		.uleb128 0x13
@@ -1918,7 +1918,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1632 018d 19       		.uleb128 0x19
  1633 018e 03       		.uleb128 0x3
  1634 018f 0E       		.uleb128 0xe
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 33
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 33
 
 
  1635 0190 3A       		.uleb128 0x3a
@@ -1978,7 +1978,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1689 01c6 3A       		.uleb128 0x3a
  1690 01c7 0B       		.uleb128 0xb
  1691 01c8 3B       		.uleb128 0x3b
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 34
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 34
 
 
  1692 01c9 0B       		.uleb128 0xb
@@ -2038,7 +2038,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1746 006b 0C000000 		.4byte	.LVL1
  1747 006f 10000000 		.4byte	.LVL2
  1748 0073 0200     		.2byte	0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 35
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 35
 
 
  1749 0075 30       		.byte	0x30
@@ -2098,7 +2098,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1803 00f8 0100     		.2byte	0x1
  1804 00fa 53       		.byte	0x53
  1805 00fb 2E000000 		.4byte	.LVL12
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 36
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 36
 
 
  1806 00ff 37000000 		.4byte	.LVL14-1
@@ -2158,7 +2158,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1860 0183 3C000000 		.4byte	.LFE12
  1861 0187 0400     		.2byte	0x4
  1862 0189 F3       		.byte	0xf3
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 37
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 37
 
 
  1863 018a 01       		.uleb128 0x1
@@ -2218,7 +2218,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1917 0044 0C000000 		.4byte	.LFE6-.LFB6
  1918 0048 00000000 		.4byte	.LFB7
  1919 004c 0C000000 		.4byte	.LFE7-.LFB7
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 38
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 38
 
 
  1920 0050 00000000 		.4byte	.LFB8
@@ -2278,7 +2278,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1967              	.LASF25:
  1968 000d 67657443 		.ascii	"getCurtisFaultCheck\000"
  1968      75727469 
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 39
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 39
 
 
  1968      73466175 
@@ -2338,7 +2338,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  1992 00b7 646F7562 		.ascii	"double\000"
  1992      6C6500
  1993              	.LASF49:
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 40
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 40
 
 
  1994 00be 43555254 		.ascii	"CURTIS_HEART_BEAT_CHECK\000"
@@ -2376,214 +2376,213 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 1
  2008      676E6564 
  2008      20696E74 
  2008      00
- 2009              	.LASF57:
- 2010 0127 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\FE3-DashboardRev1\\FE3-Dashbo"
- 2010      6F776E6C 
- 2010      6F616473 
- 2010      5C465255 
- 2010      43445C46 
- 2011 0156 6172645C 		.ascii	"ard\\Node-Jaguar.cydsn\000"
- 2011      4E6F6465 
- 2011      2D4A6167 
- 2011      7561722E 
- 2011      63796473 
- 2012              	.LASF8:
- 2013 016c 6C6F6E67 		.ascii	"long unsigned int\000"
- 2013      20756E73 
- 2013      69676E65 
- 2013      6420696E 
- 2013      7400
- 2014              	.LASF58:
- 2015 017e 63616E5F 		.ascii	"can_test_send\000"
- 2015      74657374 
- 2015      5F73656E 
- 2015      6400
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 41
+ 2009              	.LASF8:
+ 2010 0127 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2010      20756E73 
+ 2010      69676E65 
+ 2010      6420696E 
+ 2010      7400
+ 2011              	.LASF58:
+ 2012 0139 63616E5F 		.ascii	"can_test_send\000"
+ 2012      74657374 
+ 2012      5F73656E 
+ 2012      6400
+ 2013              	.LASF59:
+ 2014 0147 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 2014      74657243 
+ 2014      72697469 
+ 2014      63616C53 
+ 2014      65637469 
+ 2015              	.LASF61:
+ 2016 015e 43414E5F 		.ascii	"CAN_SendMsg\000"
+ 2016      53656E64 
+ 2016      4D736700 
+ 2017              	.LASF33:
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 41
 
 
- 2016              	.LASF59:
- 2017 018c 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 2017      74657243 
- 2017      72697469 
- 2017      63616C53 
- 2017      65637469 
- 2018              	.LASF61:
- 2019 01a3 43414E5F 		.ascii	"CAN_SendMsg\000"
- 2019      53656E64 
- 2019      4D736700 
- 2020              	.LASF33:
- 2021 01af 64617461 		.ascii	"data\000"
- 2021      00
- 2022              	.LASF5:
- 2023 01b4 73686F72 		.ascii	"short unsigned int\000"
- 2023      7420756E 
- 2023      7369676E 
- 2023      65642069 
- 2023      6E7400
- 2024              	.LASF34:
- 2025 01c7 48656172 		.ascii	"HeartB\000"
- 2025      744200
- 2026              	.LASF42:
- 2027 01ce 63616E5F 		.ascii	"can_send_cmd\000"
- 2027      73656E64 
- 2027      5F636D64 
- 2027      00
- 2028              	.LASF31:
- 2029 01db 67657450 		.ascii	"getPedalHigh\000"
- 2029      6564616C 
- 2029      48696768 
- 2029      00
- 2030              	.LASF20:
- 2031 01e8 73697A65 		.ascii	"sizetype\000"
- 2031      74797065 
- 2031      00
- 2032              	.LASF38:
- 2033 01f1 7061796C 		.ascii	"payload\000"
- 2033      6F616400 
- 2034              	.LASF37:
- 2035 01f9 6D657373 		.ascii	"message\000"
- 2035      61676500 
- 2036              	.LASF56:
- 2037 0201 63616E5F 		.ascii	"can_manga.c\000"
- 2037      6D616E67 
- 2037      612E6300 
- 2038              	.LASF17:
- 2039 020d 666C6F61 		.ascii	"float\000"
- 2039      7400
- 2040              	.LASF46:
- 2041 0213 70656461 		.ascii	"pedalOK\000"
- 2041      6C4F4B00 
- 2042              	.LASF36:
- 2043 021b 63616E5F 		.ascii	"can_send\000"
- 2043      73656E64 
- 2043      00
- 2044              	.LASF1:
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 42
+ 2018 016a 64617461 		.ascii	"data\000"
+ 2018      00
+ 2019              	.LASF5:
+ 2020 016f 73686F72 		.ascii	"short unsigned int\000"
+ 2020      7420756E 
+ 2020      7369676E 
+ 2020      65642069 
+ 2020      6E7400
+ 2021              	.LASF34:
+ 2022 0182 48656172 		.ascii	"HeartB\000"
+ 2022      744200
+ 2023              	.LASF42:
+ 2024 0189 63616E5F 		.ascii	"can_send_cmd\000"
+ 2024      73656E64 
+ 2024      5F636D64 
+ 2024      00
+ 2025              	.LASF31:
+ 2026 0196 67657450 		.ascii	"getPedalHigh\000"
+ 2026      6564616C 
+ 2026      48696768 
+ 2026      00
+ 2027              	.LASF20:
+ 2028 01a3 73697A65 		.ascii	"sizetype\000"
+ 2028      74797065 
+ 2028      00
+ 2029              	.LASF38:
+ 2030 01ac 7061796C 		.ascii	"payload\000"
+ 2030      6F616400 
+ 2031              	.LASF37:
+ 2032 01b4 6D657373 		.ascii	"message\000"
+ 2032      61676500 
+ 2033              	.LASF56:
+ 2034 01bc 63616E5F 		.ascii	"can_manga.c\000"
+ 2034      6D616E67 
+ 2034      612E6300 
+ 2035              	.LASF17:
+ 2036 01c8 666C6F61 		.ascii	"float\000"
+ 2036      7400
+ 2037              	.LASF46:
+ 2038 01ce 70656461 		.ascii	"pedalOK\000"
+ 2038      6C4F4B00 
+ 2039              	.LASF36:
+ 2040 01d6 63616E5F 		.ascii	"can_send\000"
+ 2040      73656E64 
+ 2040      00
+ 2041              	.LASF1:
+ 2042 01df 756E7369 		.ascii	"unsigned char\000"
+ 2042      676E6564 
+ 2042      20636861 
+ 2042      7200
+ 2043              	.LASF2:
+ 2044 01ed 73686F72 		.ascii	"short int\000"
+ 2044      7420696E 
+ 2044      7400
+ 2045              	.LASF44:
+ 2046 01f7 56434C5F 		.ascii	"VCL_Throttle_High\000"
+ 2046      5468726F 
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 42
 
 
- 2045 0224 756E7369 		.ascii	"unsigned char\000"
- 2045      676E6564 
- 2045      20636861 
- 2045      7200
- 2046              	.LASF2:
- 2047 0232 73686F72 		.ascii	"short int\000"
- 2047      7420696E 
- 2047      7400
- 2048              	.LASF44:
- 2049 023c 56434C5F 		.ascii	"VCL_Throttle_High\000"
- 2049      5468726F 
- 2049      74746C65 
- 2049      5F486967 
- 2049      6800
- 2050              	.LASF21:
- 2051 024e 43414E5F 		.ascii	"CAN_DATA_BYTES_MSG\000"
- 2051      44415441 
- 2051      5F425954 
- 2051      45535F4D 
- 2051      534700
- 2052              	.LASF53:
- 2053 0261 5448524F 		.ascii	"THROTTLE_HIGH\000"
- 2053      54544C45 
- 2053      5F484947 
- 2053      4800
- 2054              	.LASF50:
- 2055 026f 41434B5F 		.ascii	"ACK_RX\000"
- 2055      525800
- 2056              	.LASF14:
- 2057 0276 75696E74 		.ascii	"uint32_t\000"
- 2057      33325F74 
- 2057      00
- 2058              	.LASF51:
- 2059 027f 4552524F 		.ascii	"ERROR_TOLERANCE\000"
- 2059      525F544F 
- 2059      4C455241 
- 2059      4E434500 
- 2060              	.LASF30:
- 2061 028f 67657450 		.ascii	"getPedalLow\000"
- 2061      6564616C 
- 2061      4C6F7700 
- 2062              	.LASF19:
- 2063 029b 63686172 		.ascii	"char\000"
- 2063      00
- 2064              	.LASF43:
- 2065 02a0 53657449 		.ascii	"SetInterlock\000"
- 2065      6E746572 
- 2065      6C6F636B 
- 2065      00
- 2066              	.LASF4:
- 2067 02ad 5F5F7569 		.ascii	"__uint16_t\000"
- 2067      6E743136 
- 2067      5F7400
- 2068              	.LASF28:
- 2069 02b8 67657445 		.ascii	"getErrorTolerance\000"
- 2069      72726F72 
- 2069      546F6C65 
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 43
+ 2046      74746C65 
+ 2046      5F486967 
+ 2046      6800
+ 2047              	.LASF21:
+ 2048 0209 43414E5F 		.ascii	"CAN_DATA_BYTES_MSG\000"
+ 2048      44415441 
+ 2048      5F425954 
+ 2048      45535F4D 
+ 2048      534700
+ 2049              	.LASF53:
+ 2050 021c 5448524F 		.ascii	"THROTTLE_HIGH\000"
+ 2050      54544C45 
+ 2050      5F484947 
+ 2050      4800
+ 2051              	.LASF50:
+ 2052 022a 41434B5F 		.ascii	"ACK_RX\000"
+ 2052      525800
+ 2053              	.LASF14:
+ 2054 0231 75696E74 		.ascii	"uint32_t\000"
+ 2054      33325F74 
+ 2054      00
+ 2055              	.LASF51:
+ 2056 023a 4552524F 		.ascii	"ERROR_TOLERANCE\000"
+ 2056      525F544F 
+ 2056      4C455241 
+ 2056      4E434500 
+ 2057              	.LASF30:
+ 2058 024a 67657450 		.ascii	"getPedalLow\000"
+ 2058      6564616C 
+ 2058      4C6F7700 
+ 2059              	.LASF19:
+ 2060 0256 63686172 		.ascii	"char\000"
+ 2060      00
+ 2061              	.LASF43:
+ 2062 025b 53657449 		.ascii	"SetInterlock\000"
+ 2062      6E746572 
+ 2062      6C6F636B 
+ 2062      00
+ 2063              	.LASF4:
+ 2064 0268 5F5F7569 		.ascii	"__uint16_t\000"
+ 2064      6E743136 
+ 2064      5F7400
+ 2065              	.LASF28:
+ 2066 0273 67657445 		.ascii	"getErrorTolerance\000"
+ 2066      72726F72 
+ 2066      546F6C65 
+ 2066      72616E63 
+ 2066      6500
+ 2067              	.LASF39:
+ 2068 0285 63616E5F 		.ascii	"can_send_status\000"
+ 2068      73656E64 
+ 2068      5F737461 
+ 2068      74757300 
+ 2069              	.LASF45:
+ 2070 0295 56434C5F 		.ascii	"VCL_Throttle_Low\000"
+ 2070      5468726F 
+ 2070      74746C65 
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 43
 
 
- 2069      72616E63 
- 2069      6500
- 2070              	.LASF39:
- 2071 02ca 63616E5F 		.ascii	"can_send_status\000"
- 2071      73656E64 
- 2071      5F737461 
- 2071      74757300 
- 2072              	.LASF45:
- 2073 02da 56434C5F 		.ascii	"VCL_Throttle_Low\000"
- 2073      5468726F 
- 2073      74746C65 
- 2073      5F4C6F77 
- 2073      00
- 2074              	.LASF62:
- 2075 02eb 43794465 		.ascii	"CyDelay\000"
- 2075      6C617900 
- 2076              	.LASF23:
- 2077 02f3 43414E5F 		.ascii	"CAN_TX_MSG\000"
- 2077      54585F4D 
- 2077      534700
- 2078              	.LASF55:
- 2079 02fe 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 2079      4320342E 
- 2079      392E3320 
- 2079      32303135 
- 2079      30333033 
- 2080 0331 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 2080      20726576 
- 2080      6973696F 
- 2080      6E203232 
- 2080      31323230 
- 2081 0364 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 2081      66756E63 
- 2081      74696F6E 
- 2081      2D736563 
- 2081      74696F6E 
+ 2070      5F4C6F77 
+ 2070      00
+ 2071              	.LASF62:
+ 2072 02a6 43794465 		.ascii	"CyDelay\000"
+ 2072      6C617900 
+ 2073              	.LASF23:
+ 2074 02ae 43414E5F 		.ascii	"CAN_TX_MSG\000"
+ 2074      54585F4D 
+ 2074      534700
+ 2075              	.LASF55:
+ 2076 02b9 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2076      4320342E 
+ 2076      392E3320 
+ 2076      32303135 
+ 2076      30333033 
+ 2077 02ec 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2077      20726576 
+ 2077      6973696F 
+ 2077      6E203232 
+ 2077      31323230 
+ 2078 031f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2078      66756E63 
+ 2078      74696F6E 
+ 2078      2D736563 
+ 2078      74696F6E 
+ 2079              	.LASF57:
+ 2080 0347 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 2080      6F776E6C 
+ 2080      6F616473 
+ 2080      5C465255 
+ 2080      43445C4E 
+ 2081 0375 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 2081      67756172 
+ 2081      2E637964 
+ 2081      736E00
  2082              	.LASF35:
- 2083 038c 63616E5F 		.ascii	"can_receive\000"
+ 2083 0384 63616E5F 		.ascii	"can_receive\000"
  2083      72656365 
  2083      69766500 
  2084              	.LASF12:
- 2085 0398 75696E74 		.ascii	"uint8_t\000"
+ 2085 0390 75696E74 		.ascii	"uint8_t\000"
  2085      385F7400 
  2086              	.LASF32:
- 2087 03a0 496E7465 		.ascii	"InterruptState\000"
+ 2087 0398 496E7465 		.ascii	"InterruptState\000"
  2087      72727570 
  2087      74537461 
  2087      746500
  2088              	.LASF24:
- 2089 03af 67657443 		.ascii	"getCapacitorVoltage\000"
+ 2089 03a7 67657443 		.ascii	"getCapacitorVoltage\000"
  2089      61706163 
  2089      69746F72 
  2089      566F6C74 
  2089      61676500 
  2090              	.LASF27:
- 2091 03c3 67657441 		.ascii	"getAckRx\000"
+ 2091 03bb 67657441 		.ascii	"getAckRx\000"
  2091      636B5278 
-ARM GAS  D:\Windows\AppData\Local\Temp\cciwzSG5.s 			page 44
-
-
  2091      00
+ARM GAS  D:\Windows\AppData\Local\Temp\cctlgSy9.s 			page 44
+
+
  2092              	.LASF52:
- 2093 03cc 4142535F 		.ascii	"ABS_MOTOR_RPM\000"
+ 2093 03c4 4142535F 		.ascii	"ABS_MOTOR_RPM\000"
  2093      4D4F544F 
  2093      525F5250 
  2093      4D00

@@ -13,7 +13,7 @@ I1206: Completed Reading of file Node-Jaguar.sdc
 I1204: Reading architecture from file D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/route_arch-rrg.cydata
 I1206: Completed Reading of file D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/route_arch-rrg.cydata
 I1209: Started routing
-I1223: Total Nets : 39 
+I1223: Total Nets : 38 
 I1212: Iteration  1 :     3 unrouted : 0 seconds
 I1212: Iteration  2 :     0 unrouted : 0 seconds
 I1215: Routing is successful

@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
   29:Generated_Source\PSoC5/CAN.c **** * Summary:
   30:Generated_Source\PSoC5/CAN.c **** *  Inits/Restores default CAN Rx and Tx Buffers control registers configuration
   31:Generated_Source\PSoC5/CAN.c **** *  provided by the customizer.
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 2
 
 
   32:Generated_Source\PSoC5/CAN.c **** *
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
   86:Generated_Source\PSoC5/CAN.c ****     for (i = 0u; i < CAN_NUMBER_OF_TX_MAILBOXES; i++)
   87:Generated_Source\PSoC5/CAN.c ****     {
   88:Generated_Source\PSoC5/CAN.c ****         if (CAN_TxBufConfig((const CAN_TX_CFG *)
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 3
 
 
   89:Generated_Source\PSoC5/CAN.c ****             (&CAN_TXConfigStruct[i])) != CYRET_SUCCESS)
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  143:Generated_Source\PSoC5/CAN.c ****     #if (CY_PSOC3 || CY_PSOC5)
  144:Generated_Source\PSoC5/CAN.c ****         uint8 enableInterrupts;
  145:Generated_Source\PSoC5/CAN.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 4
 
 
  146:Generated_Source\PSoC5/CAN.c ****         enableInterrupts = CyEnterCriticalSection();
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  200:Generated_Source\PSoC5/CAN.c ****                                     {
  201:Generated_Source\PSoC5/CAN.c ****                                         localResult = CYRET_SUCCESS;
  202:Generated_Source\PSoC5/CAN.c ****                                     }
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 5
 
 
  203:Generated_Source\PSoC5/CAN.c ****                                 }
@@ -298,7 +298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  257:Generated_Source\PSoC5/CAN.c ****     uint8 result = CAN_FAIL;
  258:Generated_Source\PSoC5/CAN.c **** 
  259:Generated_Source\PSoC5/CAN.c ****     #if (CY_PSOC3 || CY_PSOC5)
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 6
 
 
  260:Generated_Source\PSoC5/CAN.c ****         uint8 enableInterrupts;
@@ -358,7 +358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  314:Generated_Source\PSoC5/CAN.c **** *
  315:Generated_Source\PSoC5/CAN.c **** * Global variables:
  316:Generated_Source\PSoC5/CAN.c **** *  CAN_initVar - used to check the initial configuration, modified
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 7
 
 
  317:Generated_Source\PSoC5/CAN.c **** *  on the first function call.
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31 0000 08B5     		push	{r3, lr}
   32              		.cfi_def_cfa_offset 8
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 8
 
 
   33              		.cfi_offset 3, -8
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  390:Generated_Source\PSoC5/CAN.c ****         /* Disable isr */
  391:Generated_Source\PSoC5/CAN.c ****     CyIntDisable(CAN_ISR_NUMBER);
   62              		.loc 1 391 0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 9
 
 
   63 0022 4FF48032 		mov	r2, #65536
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
   99 0058 A6430040 		.word	1073759142
  100              		.cfi_endproc
  101              	.LFE4:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 10
 
 
  102              		.size	CAN_Stop, .-CAN_Stop
@@ -598,7 +598,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  127 0012 0120     		movs	r0, #1
  128 0014 7047     		bx	lr
  129              	.L12:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 11
 
 
  436:Generated_Source\PSoC5/CAN.c ****         {
@@ -658,7 +658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  268:Generated_Source\PSoC5/CAN.c **** 
  167              		.loc 1 268 0
  168 0010 1032     		adds	r2, r2, #16
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 12
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 12
 
 
  169 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -718,7 +718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  211              		.loc 1 257 0
  212 0052 0120     		movs	r0, #1
  213 0054 08BD     		pop	{r3, pc}
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 13
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 13
 
 
  214              	.LVL18:
@@ -778,7 +778,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  245              	.LVL21:
  471:Generated_Source\PSoC5/CAN.c ****     uint8 result = CAN_FAIL;
  472:Generated_Source\PSoC5/CAN.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 14
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 14
 
 
  473:Generated_Source\PSoC5/CAN.c ****     #if (CY_PSOC3 || CY_PSOC5)
@@ -838,7 +838,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  493:Generated_Source\PSoC5/CAN.c **** 
  494:Generated_Source\PSoC5/CAN.c **** 
  495:Generated_Source\PSoC5/CAN.c **** /*******************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 15
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 15
 
 
  496:Generated_Source\PSoC5/CAN.c **** * FUNCTION NAME:   CAN_SetPreScaler
@@ -898,7 +898,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  296 0010 03D0     		beq	.L32
  525:Generated_Source\PSoC5/CAN.c **** 
  297              		.loc 1 525 0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 16
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 16
 
 
  298 0012 0120     		movs	r0, #1
@@ -958,7 +958,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  555:Generated_Source\PSoC5/CAN.c **** * FUNCTION NAME:   CAN_SetArbiter
  556:Generated_Source\PSoC5/CAN.c **** ********************************************************************************
  557:Generated_Source\PSoC5/CAN.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 17
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 17
 
 
  558:Generated_Source\PSoC5/CAN.c **** * Summary:
@@ -1018,7 +1018,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  588:Generated_Source\PSoC5/CAN.c ****             }
  589:Generated_Source\PSoC5/CAN.c ****         }
  590:Generated_Source\PSoC5/CAN.c ****         else    /* Fixed Priority */
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 18
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 18
 
 
  591:Generated_Source\PSoC5/CAN.c ****         {
@@ -1078,7 +1078,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  619:Generated_Source\PSoC5/CAN.c ****             }
  620:Generated_Source\PSoC5/CAN.c ****         }
  621:Generated_Source\PSoC5/CAN.c ****     #endif /* CY_PSOC3 || CY_PSOC5 */
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 19
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 19
 
 
  622:Generated_Source\PSoC5/CAN.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  397              		@ link register save eliminated.
  398              	.LVL38:
  399 0000 30B4     		push	{r4, r5}
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 20
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 20
 
 
  400              		.cfi_def_cfa_offset 8
@@ -1198,7 +1198,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  672:Generated_Source\PSoC5/CAN.c ****                     cfgTemp |= cfgTseg1;
  437              		.loc 1 672 0
  438 002c 2843     		orrs	r0, r0, r5
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 21
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 21
 
 
  439              	.LVL43:
@@ -1258,7 +1258,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  691:Generated_Source\PSoC5/CAN.c **** 
  692:Generated_Source\PSoC5/CAN.c ****                         /* Verify 1st byte of CAN_CFG_REG register */
  693:Generated_Source\PSoC5/CAN.c ****                         if (CAN_CFG_REG.byte[0u] == cfgTemp)
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 22
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 22
 
 
  473              		.loc 1 693 0
@@ -1318,7 +1318,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  522              	.LVL64:
  523              	.L43:
  696:Generated_Source\PSoC5/CAN.c ****                         }
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 23
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 23
 
 
  697:Generated_Source\PSoC5/CAN.c ****                     }
@@ -1378,7 +1378,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  533 0080 14A00040 		.word	1073782804
  534              		.cfi_endproc
  535              	.LFE9:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 24
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 24
 
 
  536              		.size	CAN_SetTsegSample, .-CAN_SetTsegSample
@@ -1438,7 +1438,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  555 0004 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
  556 0006 02F0EF02 		and	r2, r2, #239
  557 000a 1A70     		strb	r2, [r3]
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 25
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 25
 
 
  777:Generated_Source\PSoC5/CAN.c **** 
@@ -1498,7 +1498,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  794:Generated_Source\PSoC5/CAN.c ****     #else  /* CY_PSOC4 */
  795:Generated_Source\PSoC5/CAN.c ****         if (reset == CAN_MANUAL_RESTART)
  796:Generated_Source\PSoC5/CAN.c ****         {
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 26
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 26
 
 
  797:Generated_Source\PSoC5/CAN.c ****             CAN_CFG_REG &= (uint32) (~((uint32) CAN_RESET_MASK));
@@ -1558,7 +1558,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  834:Generated_Source\PSoC5/CAN.c **** *    CAN_BOTH_EDGES        Both edges are used
  835:Generated_Source\PSoC5/CAN.c **** *
  836:Generated_Source\PSoC5/CAN.c **** * Return:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 27
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 27
 
 
  837:Generated_Source\PSoC5/CAN.c **** *  The indication whether the register is written and verified.
@@ -1618,7 +1618,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  636 0020 1A70     		strb	r2, [r3]
  863:Generated_Source\PSoC5/CAN.c **** 
  864:Generated_Source\PSoC5/CAN.c ****             /* Verify that bit is set */
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 28
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 28
 
 
  865:Generated_Source\PSoC5/CAN.c ****             if ((CAN_CFG_REG.byte[0u] & CAN_EDGE_MODE_MASK) != 0u)
@@ -1678,7 +1678,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  657 0034 7047     		bx	lr
  658              	.L71:
  659 0036 00BF     		.align	2
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 29
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 29
 
 
  660              	.L70:
@@ -1738,7 +1738,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  938:Generated_Source\PSoC5/CAN.c **** uint8 CAN_SetOpMode(uint8 opMode) 
  939:Generated_Source\PSoC5/CAN.c **** {
  673              		.loc 1 939 0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 30
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 30
 
 
  674              		.cfi_startproc
@@ -1798,7 +1798,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  709 0024 00E0     		b	.L74
  710              	.LVL85:
  711              	.L76:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 31
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 31
 
 
  958:Generated_Source\PSoC5/CAN.c ****             (timeout != 0u) && ((CAN_CMD_REG.byte[0u] & CAN_ACTIVE_RUN_MODE) != 0u);
@@ -1858,7 +1858,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  974:Generated_Source\PSoC5/CAN.c **** 
  975:Generated_Source\PSoC5/CAN.c ****             if (runState == CAN_ACTIVE_RUN_MODE)
  747              		.loc 1 975 0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 32
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 32
 
 
  748 004a 84B1     		cbz	r4, .L78
@@ -1918,7 +1918,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  998:Generated_Source\PSoC5/CAN.c **** 
  999:Generated_Source\PSoC5/CAN.c ****         /* Sets CAN Component into the Stop mode */
 1000:Generated_Source\PSoC5/CAN.c ****         if (CAN_Stop() == CYRET_SUCCESS)
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 33
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 33
 
 
 1001:Generated_Source\PSoC5/CAN.c ****         {
@@ -1978,7 +1978,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1032:Generated_Source\PSoC5/CAN.c **** * FUNCTION NAME:   CAN_RXRegisterInit
 1033:Generated_Source\PSoC5/CAN.c **** ********************************************************************************
 1034:Generated_Source\PSoC5/CAN.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 34
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 34
 
 
 1035:Generated_Source\PSoC5/CAN.c **** * Summary:
@@ -2038,7 +2038,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1067:Generated_Source\PSoC5/CAN.c ****     CyIntDisable(CAN_ISR_NUMBER);
  822              		.loc 1 1067 0
  823 0018 4FF48033 		mov	r3, #65536
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 35
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 35
 
 
  824 001c 0E4A     		ldr	r2, .L96
@@ -2098,7 +2098,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1093:Generated_Source\PSoC5/CAN.c **** 
 1094:Generated_Source\PSoC5/CAN.c ****             /* Verify register */
 1095:Generated_Source\PSoC5/CAN.c ****             if (CY_GET_REG32(regAddr) == config)
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 36
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 36
 
 
  852              		.loc 1 1095 0
@@ -2158,7 +2158,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1105:Generated_Source\PSoC5/CAN.c **** 
 1106:Generated_Source\PSoC5/CAN.c **** /*******************************************************************************
 1107:Generated_Source\PSoC5/CAN.c **** * FUNCTION NAME:   CAN_SetIrqMask
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 37
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 37
 
 
 1108:Generated_Source\PSoC5/CAN.c **** ********************************************************************************
@@ -2218,7 +2218,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  904 0004 1B88     		ldrh	r3, [r3]
  905 0006 9BB2     		uxth	r3, r3
  906 0008 8342     		cmp	r3, r0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 38
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 38
 
 
  907 000a 01D0     		beq	.L100
@@ -2278,7 +2278,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1178:Generated_Source\PSoC5/CAN.c **** * Parameters:
 1179:Generated_Source\PSoC5/CAN.c **** *  None.
 1180:Generated_Source\PSoC5/CAN.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 39
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 39
 
 
 1181:Generated_Source\PSoC5/CAN.c **** * Return:
@@ -2338,7 +2338,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1205:Generated_Source\PSoC5/CAN.c **** *  This function returns the bit that indicates if the number of RX errors
 1206:Generated_Source\PSoC5/CAN.c **** *  exceeds 0x60.
 1207:Generated_Source\PSoC5/CAN.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 40
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 40
 
 
 1208:Generated_Source\PSoC5/CAN.c **** * Parameters:
@@ -2398,7 +2398,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1232:Generated_Source\PSoC5/CAN.c **** ********************************************************************************
 1233:Generated_Source\PSoC5/CAN.c **** *
 1234:Generated_Source\PSoC5/CAN.c **** * Summary:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 41
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 41
 
 
 1235:Generated_Source\PSoC5/CAN.c **** *  This function returns the number of Transmit Errors.
@@ -2458,7 +2458,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1264:Generated_Source\PSoC5/CAN.c **** *  None.
 1265:Generated_Source\PSoC5/CAN.c **** *
 1266:Generated_Source\PSoC5/CAN.c **** * Return:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 42
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 42
 
 
 1267:Generated_Source\PSoC5/CAN.c **** *  The number of Receive Errors.
@@ -2518,7 +2518,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1296:Generated_Source\PSoC5/CAN.c **** *******************************************************************************/
 1297:Generated_Source\PSoC5/CAN.c **** uint8 CAN_GetErrorState(void) 
 1298:Generated_Source\PSoC5/CAN.c **** {
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 43
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 43
 
 
  1044              		.loc 1 1298 0
@@ -2578,7 +2578,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1327:Generated_Source\PSoC5/CAN.c **** *******************************************************************************/
 1328:Generated_Source\PSoC5/CAN.c **** uint8 CAN_RxBufConfig(const CAN_RX_CFG *rxConfig)
 1329:Generated_Source\PSoC5/CAN.c ****                                    
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 44
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 44
 
 
 1330:Generated_Source\PSoC5/CAN.c **** {
@@ -2638,7 +2638,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1108 003a 5A61     		str	r2, [r3, #20]
 1345:Generated_Source\PSoC5/CAN.c ****             if (CY_GET_REG32((reg32 *) (&CAN_RX[rxConfig->rxmailbox].rxacr)) == rxConfig->rxacr)
  1109              		.loc 1 1345 0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 45
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 45
 
 
  1110 003c 0278     		ldrb	r2, [r0]	@ zero_extendqisi2
@@ -2698,7 +2698,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1155              	.LVL120:
  1156              	.L125:
  1157 0082 0120     		movs	r0, #1
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 46
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 46
 
 
  1158              	.LVL121:
@@ -2758,7 +2758,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
 1384:Generated_Source\PSoC5/CAN.c **** *******************************************************************************/
 1385:Generated_Source\PSoC5/CAN.c **** uint8 CAN_TxBufConfig(const CAN_TX_CFG *txConfig)
 1386:Generated_Source\PSoC5/CAN.c ****                                    
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 47
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 47
 
 
 1387:Generated_Source\PSoC5/CAN.c **** {
@@ -2818,7 +2818,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1223              	.LVL125:
  1224 0042 7047     		bx	lr
  1225              	.LVL126:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 48
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 48
 
 
  1226              	.L131:
@@ -2878,7 +2878,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1270 0006 04EB4403 		add	r3, r4, r4, lsl #1
  1271 000a 9B00     		lsls	r3, r3, #2
  1272 000c 0E48     		ldr	r0, .L146
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 49
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 49
 
 
  1273 000e 1844     		add	r0, r0, r3
@@ -2938,7 +2938,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  104:Generated_Source\PSoC5/CAN.c ****                 break;
  1319              		.loc 1 104 0 is_stmt 1
  1320 0042 0125     		movs	r5, #1
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 50
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 50
 
 
  1321              	.LVL140:
@@ -2998,7 +2998,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1368              		.loc 1 154 0
  1369 001e 2D4A     		ldr	r2, .L165+4
  1370 0020 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 51
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 51
 
 
  1371 0022 03F0FE03 		and	r3, r3, #254
@@ -3058,7 +3058,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1414              		.loc 1 187 0
  1415 0060 FFF7FEFF 		bl	CAN_SetArbiter
  1416              	.LVL151:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 52
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 52
 
 
  1417 0064 80B9     		cbnz	r0, .L156
@@ -3118,7 +3118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1463              	.LVL157:
  1464 00a6 70B9     		cbnz	r0, .L162
  219:Generated_Source\PSoC5/CAN.c ****                             if ((CAN_CMD_REG.byte[0u] & CAN_MODE_MASK) == 0u)
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 53
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 53
 
 
  1465              		.loc 1 219 0
@@ -3178,7 +3178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  324:Generated_Source\PSoC5/CAN.c ****     uint8 result = CYRET_SUCCESS;
  1515              		.loc 1 324 0
  1516              		.cfi_startproc
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 54
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 54
 
 
  1517              		@ args = 0, pretend = 0, frame = 0
@@ -3238,7 +3238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1564 0000 00       		.byte	0
  1565 0001 000000   		.space	3
  1566 0004 00000100 		.word	65536
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 55
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 55
 
 
  1567 0008 0000C0C4 		.word	-994050048
@@ -3298,7 +3298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1621 00a4 A8008000 		.word	8388776
  1622 00a8 FFFFFFFF 		.word	-1
  1623 00ac 00000000 		.word	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 56
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 56
 
 
  1624 00b0 05       		.byte	5
@@ -3358,7 +3358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1678 015c 00000000 		.word	0
  1679              		.bss
  1680              		.set	.LANCHOR1,. + 0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 57
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 57
 
 
  1681              		.type	CAN_initVar, %object
@@ -3377,10 +3377,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1694 0006 00000000 		.4byte	.Ldebug_abbrev0
  1695 000a 04       		.byte	0x4
  1696 000b 01       		.uleb128 0x1
- 1697 000c 18040000 		.4byte	.LASF81
+ 1697 000c D8030000 		.4byte	.LASF81
  1698 0010 01       		.byte	0x1
- 1699 0011 35030000 		.4byte	.LASF82
- 1700 0015 4E010000 		.4byte	.LASF83
+ 1699 0011 F5020000 		.4byte	.LASF82
+ 1700 0015 66040000 		.4byte	.LASF83
  1701 0019 00000000 		.4byte	.Ldebug_ranges0+0
  1702 001d 00000000 		.4byte	0
  1703 0021 00000000 		.4byte	.Ldebug_line0
@@ -3391,15 +3391,15 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1708 002c 02       		.uleb128 0x2
  1709 002d 01       		.byte	0x1
  1710 002e 08       		.byte	0x8
- 1711 002f F1020000 		.4byte	.LASF1
+ 1711 002f B1020000 		.4byte	.LASF1
  1712 0033 02       		.uleb128 0x2
  1713 0034 02       		.byte	0x2
  1714 0035 05       		.byte	0x5
- 1715 0036 FF020000 		.4byte	.LASF2
+ 1715 0036 BF020000 		.4byte	.LASF2
  1716 003a 02       		.uleb128 0x2
  1717 003b 02       		.byte	0x2
  1718 003c 07       		.byte	0x7
- 1719 003d D2010000 		.4byte	.LASF3
+ 1719 003d 8D010000 		.4byte	.LASF3
  1720 0041 02       		.uleb128 0x2
  1721 0042 04       		.byte	0x4
  1722 0043 05       		.byte	0x5
@@ -3407,7 +3407,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1724 0048 02       		.uleb128 0x2
  1725 0049 04       		.byte	0x4
  1726 004a 07       		.byte	0x7
- 1727 004b 93010000 		.4byte	.LASF5
+ 1727 004b 4E010000 		.4byte	.LASF5
  1728 004f 02       		.uleb128 0x2
  1729 0050 08       		.byte	0x8
  1730 0051 05       		.byte	0x5
@@ -3418,7 +3418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1735 0059 65000000 		.4byte	.LASF7
  1736 005d 03       		.uleb128 0x3
  1737 005e 04       		.byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 58
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 58
 
 
  1738 005f 05       		.byte	0x5
@@ -3445,7 +3445,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1759 008f 02       		.uleb128 0x2
  1760 0090 04       		.byte	0x4
  1761 0091 04       		.byte	0x4
- 1762 0092 E6020000 		.4byte	.LASF12
+ 1762 0092 A6020000 		.4byte	.LASF12
  1763 0096 02       		.uleb128 0x2
  1764 0097 08       		.byte	0x8
  1765 0098 04       		.byte	0x4
@@ -3453,9 +3453,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1767 009d 02       		.uleb128 0x2
  1768 009e 01       		.byte	0x1
  1769 009f 08       		.byte	0x8
- 1770 00a0 63030000 		.4byte	.LASF14
+ 1770 00a0 23030000 		.4byte	.LASF14
  1771 00a4 04       		.uleb128 0x4
- 1772 00a5 EC020000 		.4byte	.LASF15
+ 1772 00a5 AC020000 		.4byte	.LASF15
  1773 00a9 02       		.byte	0x2
  1774 00aa E201     		.2byte	0x1e2
  1775 00ac B0000000 		.4byte	0xb0
@@ -3469,16 +3469,16 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1783 00c1 05       		.uleb128 0x5
  1784 00c2 77000000 		.4byte	0x77
  1785 00c6 04       		.uleb128 0x4
- 1786 00c7 6E020000 		.4byte	.LASF17
+ 1786 00c7 2E020000 		.4byte	.LASF17
  1787 00cb 02       		.byte	0x2
  1788 00cc E401     		.2byte	0x1e4
  1789 00ce D2000000 		.4byte	0xd2
  1790 00d2 05       		.uleb128 0x5
  1791 00d3 83000000 		.4byte	0x83
  1792 00d7 04       		.uleb128 0x4
- 1793 00d8 68030000 		.4byte	.LASF18
+ 1793 00d8 28030000 		.4byte	.LASF18
  1794 00dc 02       		.byte	0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 59
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 59
 
 
  1795 00dd F401     		.2byte	0x1f4
@@ -3490,7 +3490,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1801 00ea 02       		.uleb128 0x2
  1802 00eb 04       		.byte	0x4
  1803 00ec 07       		.byte	0x7
- 1804 00ed A2020000 		.4byte	.LASF19
+ 1804 00ed 62020000 		.4byte	.LASF19
  1805 00f1 08       		.uleb128 0x8
  1806 00f2 08       		.byte	0x8
  1807 00f3 03       		.byte	0x3
@@ -3513,7 +3513,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1824 0116 05       		.uleb128 0x5
  1825 0117 06010000 		.4byte	0x106
  1826 011b 0C       		.uleb128 0xc
- 1827 011c AB030000 		.4byte	.LASF20
+ 1827 011c 6B030000 		.4byte	.LASF20
  1828 0120 03       		.byte	0x3
  1829 0121 78       		.byte	0x78
  1830 0122 F1000000 		.4byte	0xf1
@@ -3538,11 +3538,11 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1849 014a 00       		.byte	0
  1850 014b 05       		.uleb128 0x5
  1851 014c 3B010000 		.4byte	0x13b
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 60
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 60
 
 
  1852 0150 0C       		.uleb128 0xc
- 1853 0151 97020000 		.4byte	.LASF22
+ 1853 0151 57020000 		.4byte	.LASF22
  1854 0155 03       		.byte	0x3
  1855 0156 7E       		.byte	0x7e
  1856 0157 26010000 		.4byte	0x126
@@ -3552,13 +3552,13 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1860 015e 8F       		.byte	0x8f
  1861 015f 94010000 		.4byte	0x194
  1862 0163 09       		.uleb128 0x9
- 1863 0164 8D020000 		.4byte	.LASF23
+ 1863 0164 4D020000 		.4byte	.LASF23
  1864 0168 03       		.byte	0x3
  1865 0169 91       		.byte	0x91
  1866 016a 6B000000 		.4byte	0x6b
  1867 016e 00       		.byte	0
  1868 016f 09       		.uleb128 0x9
- 1869 0170 E8030000 		.4byte	.LASF24
+ 1869 0170 A8030000 		.4byte	.LASF24
  1870 0174 03       		.byte	0x3
  1871 0175 92       		.byte	0x92
  1872 0176 83000000 		.4byte	0x83
@@ -3570,14 +3570,14 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1878 0182 83000000 		.4byte	0x83
  1879 0186 08       		.byte	0x8
  1880 0187 09       		.uleb128 0x9
- 1881 0188 AB040000 		.4byte	.LASF26
+ 1881 0188 A3040000 		.4byte	.LASF26
  1882 018c 03       		.byte	0x3
  1883 018d 94       		.byte	0x94
  1884 018e 83000000 		.4byte	0x83
  1885 0192 0C       		.byte	0xc
  1886 0193 00       		.byte	0
  1887 0194 0C       		.uleb128 0xc
- 1888 0195 29020000 		.4byte	.LASF27
+ 1888 0195 E4010000 		.4byte	.LASF27
  1889 0199 03       		.byte	0x3
  1890 019a 95       		.byte	0x95
  1891 019b 5B010000 		.4byte	0x15b
@@ -3587,7 +3587,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1895 01a2 98       		.byte	0x98
  1896 01a3 CC010000 		.4byte	0x1cc
  1897 01a7 09       		.uleb128 0x9
- 1898 01a8 BA030000 		.4byte	.LASF28
+ 1898 01a8 7A030000 		.4byte	.LASF28
  1899 01ac 03       		.byte	0x3
  1900 01ad 9A       		.byte	0x9a
  1901 01ae 6B000000 		.4byte	0x6b
@@ -3598,18 +3598,18 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1906 01b9 9B       		.byte	0x9b
  1907 01ba 83000000 		.4byte	0x83
  1908 01be 04       		.byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 61
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 61
 
 
  1909 01bf 09       		.uleb128 0x9
- 1910 01c0 A6040000 		.4byte	.LASF30
+ 1910 01c0 19020000 		.4byte	.LASF30
  1911 01c4 03       		.byte	0x3
  1912 01c5 9C       		.byte	0x9c
  1913 01c6 83000000 		.4byte	0x83
  1914 01ca 08       		.byte	0x8
  1915 01cb 00       		.byte	0
  1916 01cc 0C       		.uleb128 0xc
- 1917 01cd C0040000 		.4byte	.LASF31
+ 1917 01cd B8040000 		.4byte	.LASF31
  1918 01d1 03       		.byte	0x3
  1919 01d2 9D       		.byte	0x9d
  1920 01d3 9F010000 		.4byte	0x19f
@@ -3619,13 +3619,13 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1924 01da A0       		.byte	0xa0
  1925 01db 34020000 		.4byte	0x234
  1926 01df 09       		.uleb128 0x9
- 1927 01e0 E8030000 		.4byte	.LASF24
+ 1927 01e0 A8030000 		.4byte	.LASF24
  1928 01e4 03       		.byte	0x3
  1929 01e5 A2       		.byte	0xa2
  1930 01e6 50010000 		.4byte	0x150
  1931 01ea 00       		.byte	0
  1932 01eb 09       		.uleb128 0x9
- 1933 01ec BD020000 		.4byte	.LASF32
+ 1933 01ec 7D020000 		.4byte	.LASF32
  1934 01f0 03       		.byte	0x3
  1935 01f1 A3       		.byte	0xa3
  1936 01f2 50010000 		.4byte	0x150
@@ -3643,7 +3643,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1948 020a 50010000 		.4byte	0x150
  1949 020e 10       		.byte	0x10
  1950 020f 09       		.uleb128 0x9
- 1951 0210 AB040000 		.4byte	.LASF26
+ 1951 0210 A3040000 		.4byte	.LASF26
  1952 0214 03       		.byte	0x3
  1953 0215 A6       		.byte	0xa6
  1954 0216 50010000 		.4byte	0x150
@@ -3655,17 +3655,17 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1960 0222 50010000 		.4byte	0x150
  1961 0226 18       		.byte	0x18
  1962 0227 09       		.uleb128 0x9
- 1963 0228 B9040000 		.4byte	.LASF35
+ 1963 0228 B1040000 		.4byte	.LASF35
  1964 022c 03       		.byte	0x3
  1965 022d A8       		.byte	0xa8
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 62
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 62
 
 
  1966 022e 50010000 		.4byte	0x150
  1967 0232 1C       		.byte	0x1c
  1968 0233 00       		.byte	0
  1969 0234 0C       		.uleb128 0xc
- 1970 0235 E5010000 		.4byte	.LASF36
+ 1970 0235 A0010000 		.4byte	.LASF36
  1971 0239 03       		.byte	0x3
  1972 023a A9       		.byte	0xa9
  1973 023b D7010000 		.4byte	0x1d7
@@ -3681,20 +3681,20 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  1983 024e 50010000 		.4byte	0x150
  1984 0252 00       		.byte	0
  1985 0253 09       		.uleb128 0x9
- 1986 0254 A6040000 		.4byte	.LASF30
+ 1986 0254 19020000 		.4byte	.LASF30
  1987 0258 03       		.byte	0x3
  1988 0259 AF       		.byte	0xaf
  1989 025a 50010000 		.4byte	0x150
  1990 025e 04       		.byte	0x4
  1991 025f 09       		.uleb128 0x9
- 1992 0260 67020000 		.4byte	.LASF37
+ 1992 0260 27020000 		.4byte	.LASF37
  1993 0264 03       		.byte	0x3
  1994 0265 B0       		.byte	0xb0
  1995 0266 1B010000 		.4byte	0x11b
  1996 026a 08       		.byte	0x8
  1997 026b 00       		.byte	0
  1998 026c 0C       		.uleb128 0xc
- 1999 026d 27030000 		.4byte	.LASF38
+ 1999 026d E7020000 		.4byte	.LASF38
  2000 0271 03       		.byte	0x3
  2001 0272 B1       		.byte	0xb1
  2002 0273 3F020000 		.4byte	0x23f
@@ -3709,22 +3709,22 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2011 028c 9C       		.byte	0x9c
  2012 028d D4020000 		.4byte	0x2d4
  2013 0291 0E       		.uleb128 0xe
- 2014 0292 A5010000 		.4byte	.LASF39
+ 2014 0292 60010000 		.4byte	.LASF39
  2015 0296 01       		.byte	0x1
  2016 0297 7001     		.2byte	0x170
  2017 0299 83000000 		.4byte	0x83
  2018 029d 00000000 		.4byte	.LLST0
  2019 02a1 0E       		.uleb128 0xe
- 2020 02a2 CB040000 		.4byte	.LASF40
+ 2020 02a2 C3040000 		.4byte	.LASF40
  2021 02a6 01       		.byte	0x1
  2022 02a7 7101     		.2byte	0x171
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 63
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 63
 
 
  2023 02a9 6B000000 		.4byte	0x6b
  2024 02ad 2C000000 		.4byte	.LLST1
  2025 02b1 0E       		.uleb128 0xe
- 2026 02b2 F7030000 		.4byte	.LASF41
+ 2026 02b2 B7030000 		.4byte	.LASF41
  2027 02b6 01       		.byte	0x1
  2028 02b7 7401     		.2byte	0x174
  2029 02b9 6B000000 		.4byte	0x6b
@@ -3737,7 +3737,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2036 02cf E5080000 		.4byte	0x8e5
  2037 02d3 00       		.byte	0
  2038 02d4 0D       		.uleb128 0xd
- 2039 02d5 06020000 		.4byte	.LASF43
+ 2039 02d5 C1010000 		.4byte	.LASF43
  2040 02d9 01       		.byte	0x1
  2041 02da AB01     		.2byte	0x1ab
  2042 02dc 6B000000 		.4byte	0x6b
@@ -3747,14 +3747,14 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2046 02e9 9C       		.byte	0x9c
  2047 02ea FF020000 		.4byte	0x2ff
  2048 02ee 0E       		.uleb128 0xe
- 2049 02ef CB040000 		.4byte	.LASF40
+ 2049 02ef C3040000 		.4byte	.LASF40
  2050 02f3 01       		.byte	0x1
  2051 02f4 AD01     		.2byte	0x1ad
  2052 02f6 6B000000 		.4byte	0x6b
  2053 02fa 76000000 		.4byte	.LLST3
  2054 02fe 00       		.byte	0
  2055 02ff 10       		.uleb128 0x10
- 2056 0300 1C030000 		.4byte	.LASF44
+ 2056 0300 DC020000 		.4byte	.LASF44
  2057 0304 01       		.byte	0x1
  2058 0305 FE       		.byte	0xfe
  2059 0306 6B000000 		.4byte	0x6b
@@ -3764,21 +3764,21 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2063 0313 9C       		.byte	0x9c
  2064 0314 64030000 		.4byte	0x364
  2065 0318 0E       		.uleb128 0xe
- 2066 0319 A5010000 		.4byte	.LASF39
+ 2066 0319 60010000 		.4byte	.LASF39
  2067 031d 01       		.byte	0x1
  2068 031e 0001     		.2byte	0x100
  2069 0320 83000000 		.4byte	0x83
  2070 0324 95000000 		.4byte	.LLST4
  2071 0328 0E       		.uleb128 0xe
- 2072 0329 CB040000 		.4byte	.LASF40
+ 2072 0329 C3040000 		.4byte	.LASF40
  2073 032d 01       		.byte	0x1
  2074 032e 0101     		.2byte	0x101
  2075 0330 6B000000 		.4byte	0x6b
  2076 0334 B6000000 		.4byte	.LLST5
  2077 0338 0E       		.uleb128 0xe
- 2078 0339 F7030000 		.4byte	.LASF41
+ 2078 0339 B7030000 		.4byte	.LASF41
  2079 033d 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 64
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 64
 
 
  2080 033e 0401     		.2byte	0x104
@@ -3805,14 +3805,14 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2101 0379 9C       		.byte	0x9c
  2102 037a 8F030000 		.4byte	0x38f
  2103 037e 0E       		.uleb128 0xe
- 2104 037f CB040000 		.4byte	.LASF40
+ 2104 037f C3040000 		.4byte	.LASF40
  2105 0383 01       		.byte	0x1
  2106 0384 D701     		.2byte	0x1d7
  2107 0386 6B000000 		.4byte	0x6b
  2108 038a E8000000 		.4byte	.LLST7
  2109 038e 00       		.byte	0
  2110 038f 0D       		.uleb128 0xd
- 2111 0390 52030000 		.4byte	.LASF46
+ 2111 0390 12030000 		.4byte	.LASF46
  2112 0394 01       		.byte	0x1
  2113 0395 0702     		.2byte	0x207
  2114 0397 6B000000 		.4byte	0x6b
@@ -3828,17 +3828,17 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2124 03b1 77000000 		.4byte	0x77
  2125 03b5 07010000 		.4byte	.LLST8
  2126 03b9 0E       		.uleb128 0xe
- 2127 03ba CB040000 		.4byte	.LASF40
+ 2127 03ba C3040000 		.4byte	.LASF40
  2128 03be 01       		.byte	0x1
  2129 03bf 0902     		.2byte	0x209
  2130 03c1 6B000000 		.4byte	0x6b
  2131 03c5 5C010000 		.4byte	.LLST9
  2132 03c9 00       		.byte	0
  2133 03ca 0D       		.uleb128 0xd
- 2134 03cb 3B020000 		.4byte	.LASF47
+ 2134 03cb F6010000 		.4byte	.LASF47
  2135 03cf 01       		.byte	0x1
  2136 03d0 3F02     		.2byte	0x23f
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 65
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 65
 
 
  2137 03d2 6B000000 		.4byte	0x6b
@@ -3848,20 +3848,20 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2141 03df 9C       		.byte	0x9c
  2142 03e0 05040000 		.4byte	0x405
  2143 03e4 11       		.uleb128 0x11
- 2144 03e5 B1040000 		.4byte	.LASF49
+ 2144 03e5 A9040000 		.4byte	.LASF49
  2145 03e9 01       		.byte	0x1
  2146 03ea 3F02     		.2byte	0x23f
  2147 03ec 6B000000 		.4byte	0x6b
  2148 03f0 9F010000 		.4byte	.LLST10
  2149 03f4 0E       		.uleb128 0xe
- 2150 03f5 CB040000 		.4byte	.LASF40
+ 2150 03f5 C3040000 		.4byte	.LASF40
  2151 03f9 01       		.byte	0x1
  2152 03fa 4102     		.2byte	0x241
  2153 03fc 6B000000 		.4byte	0x6b
  2154 0400 0B020000 		.4byte	.LLST11
  2155 0404 00       		.byte	0
  2156 0405 0D       		.uleb128 0xd
- 2157 0406 D6030000 		.4byte	.LASF50
+ 2157 0406 96030000 		.4byte	.LASF50
  2158 040a 01       		.byte	0x1
  2159 040b 8C02     		.2byte	0x28c
  2160 040d 6B000000 		.4byte	0x6b
@@ -3871,13 +3871,13 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2164 041a 9C       		.byte	0x9c
  2165 041b 7D040000 		.4byte	0x47d
  2166 041f 11       		.uleb128 0x11
- 2167 0420 C4030000 		.4byte	.LASF51
+ 2167 0420 84030000 		.4byte	.LASF51
  2168 0424 01       		.byte	0x1
  2169 0425 8C02     		.2byte	0x28c
  2170 0427 6B000000 		.4byte	0x6b
  2171 042b 2A020000 		.4byte	.LLST12
  2172 042f 12       		.uleb128 0x12
- 2173 0430 CD030000 		.4byte	.LASF52
+ 2173 0430 8D030000 		.4byte	.LASF52
  2174 0434 01       		.byte	0x1
  2175 0435 8C02     		.2byte	0x28c
  2176 0437 6B000000 		.4byte	0x6b
@@ -3896,23 +3896,23 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2189 0454 6B000000 		.4byte	0x6b
  2190 0458 1B030000 		.4byte	.LLST14
  2191 045c 0E       		.uleb128 0xe
- 2192 045d CB040000 		.4byte	.LASF40
+ 2192 045d C3040000 		.4byte	.LASF40
  2193 0461 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 66
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 66
 
 
  2194 0462 8F02     		.2byte	0x28f
  2195 0464 6B000000 		.4byte	0x6b
  2196 0468 55030000 		.4byte	.LLST15
  2197 046c 0E       		.uleb128 0xe
- 2198 046d 85020000 		.4byte	.LASF53
+ 2198 046d 45020000 		.4byte	.LASF53
  2199 0471 01       		.byte	0x1
  2200 0472 9002     		.2byte	0x290
  2201 0474 6B000000 		.4byte	0x6b
  2202 0478 98030000 		.4byte	.LLST16
  2203 047c 00       		.byte	0
  2204 047d 0D       		.uleb128 0xd
- 2205 047e D2040000 		.4byte	.LASF54
+ 2205 047e CA040000 		.4byte	.LASF54
  2206 0482 01       		.byte	0x1
  2207 0483 0103     		.2byte	0x301
  2208 0485 6B000000 		.4byte	0x6b
@@ -3928,7 +3928,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2218 049f 6B000000 		.4byte	0x6b
  2219 04a3 FD030000 		.4byte	.LLST17
  2220 04a7 0E       		.uleb128 0xe
- 2221 04a8 CB040000 		.4byte	.LASF40
+ 2221 04a8 C3040000 		.4byte	.LASF40
  2222 04ac 01       		.byte	0x1
  2223 04ad 0303     		.2byte	0x303
  2224 04af 6B000000 		.4byte	0x6b
@@ -3951,17 +3951,17 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2241 04da 6B000000 		.4byte	0x6b
  2242 04de 88040000 		.4byte	.LLST19
  2243 04e2 0E       		.uleb128 0xe
- 2244 04e3 CB040000 		.4byte	.LASF40
+ 2244 04e3 C3040000 		.4byte	.LASF40
  2245 04e7 01       		.byte	0x1
  2246 04e8 4D03     		.2byte	0x34d
  2247 04ea 6B000000 		.4byte	0x6b
  2248 04ee F4040000 		.4byte	.LLST20
  2249 04f2 00       		.byte	0
  2250 04f3 0D       		.uleb128 0xd
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 67
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 67
 
 
- 2251 04f4 AD010000 		.4byte	.LASF58
+ 2251 04f4 68010000 		.4byte	.LASF58
  2252 04f8 01       		.byte	0x1
  2253 04f9 AA03     		.2byte	0x3aa
  2254 04fb 6B000000 		.4byte	0x6b
@@ -3971,19 +3971,19 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2258 0508 9C       		.byte	0x9c
  2259 0509 4E050000 		.4byte	0x54e
  2260 050d 11       		.uleb128 0x11
- 2261 050e 34020000 		.4byte	.LASF59
+ 2261 050e EF010000 		.4byte	.LASF59
  2262 0512 01       		.byte	0x1
  2263 0513 AA03     		.2byte	0x3aa
  2264 0515 6B000000 		.4byte	0x6b
  2265 0519 13050000 		.4byte	.LLST21
  2266 051d 0E       		.uleb128 0xe
- 2267 051e A5010000 		.4byte	.LASF39
+ 2267 051e 60010000 		.4byte	.LASF39
  2268 0522 01       		.byte	0x1
  2269 0523 AD03     		.2byte	0x3ad
  2270 0525 83000000 		.4byte	0x83
  2271 0529 34050000 		.4byte	.LLST22
  2272 052d 0E       		.uleb128 0xe
- 2273 052e CB040000 		.4byte	.LASF40
+ 2273 052e C3040000 		.4byte	.LASF40
  2274 0532 01       		.byte	0x1
  2275 0533 AF03     		.2byte	0x3af
  2276 0535 6B000000 		.4byte	0x6b
@@ -3996,7 +3996,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2283 0549 8D050000 		.4byte	.LLST24
  2284 054d 00       		.byte	0
  2285 054e 0D       		.uleb128 0xd
- 2286 054f D3020000 		.4byte	.LASF61
+ 2286 054f 93020000 		.4byte	.LASF61
  2287 0553 01       		.byte	0x1
  2288 0554 1A04     		.2byte	0x41a
  2289 0556 6B000000 		.4byte	0x6b
@@ -4006,22 +4006,22 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2293 0563 9C       		.byte	0x9c
  2294 0564 99050000 		.4byte	0x599
  2295 0568 11       		.uleb128 0x11
- 2296 0569 7D020000 		.4byte	.LASF62
+ 2296 0569 3D020000 		.4byte	.LASF62
  2297 056d 01       		.byte	0x1
  2298 056e 1A04     		.2byte	0x41a
  2299 0570 99050000 		.4byte	0x599
  2300 0574 AC050000 		.4byte	.LLST25
  2301 0578 11       		.uleb128 0x11
- 2302 0579 75030000 		.4byte	.LASF63
+ 2302 0579 35030000 		.4byte	.LASF63
  2303 057d 01       		.byte	0x1
  2304 057e 1A04     		.2byte	0x41a
  2305 0580 83000000 		.4byte	0x83
  2306 0584 31060000 		.4byte	.LLST26
  2307 0588 0E       		.uleb128 0xe
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 68
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 68
 
 
- 2308 0589 CB040000 		.4byte	.LASF40
+ 2308 0589 C3040000 		.4byte	.LASF40
  2309 058d 01       		.byte	0x1
  2310 058e 1D04     		.2byte	0x41d
  2311 0590 6B000000 		.4byte	0x6b
@@ -4047,14 +4047,14 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2331 05c1 77000000 		.4byte	0x77
  2332 05c5 D0060000 		.4byte	.LLST28
  2333 05c9 0E       		.uleb128 0xe
- 2334 05ca CB040000 		.4byte	.LASF40
+ 2334 05ca C3040000 		.4byte	.LASF40
  2335 05ce 01       		.byte	0x1
  2336 05cf 7804     		.2byte	0x478
  2337 05d1 6B000000 		.4byte	0x6b
  2338 05d5 0C070000 		.4byte	.LLST29
  2339 05d9 00       		.byte	0
  2340 05da 14       		.uleb128 0x14
- 2341 05db 09030000 		.4byte	.LASF66
+ 2341 05db C9020000 		.4byte	.LASF66
  2342 05df 01       		.byte	0x1
  2343 05e0 A104     		.2byte	0x4a1
  2344 05e2 6B000000 		.4byte	0x6b
@@ -4072,13 +4072,13 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2356 0604 01       		.uleb128 0x1
  2357 0605 9C       		.byte	0x9c
  2358 0606 14       		.uleb128 0x14
- 2359 0607 4A020000 		.4byte	.LASF68
+ 2359 0607 05020000 		.4byte	.LASF68
  2360 060b 01       		.byte	0x1
  2361 060c DC04     		.2byte	0x4dc
  2362 060e 6B000000 		.4byte	0x6b
  2363 0612 00000000 		.4byte	.LFB17
  2364 0616 0C000000 		.4byte	.LFE17-.LFB17
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 69
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 69
 
 
  2365 061a 01       		.uleb128 0x1
@@ -4093,7 +4093,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2374 0630 01       		.uleb128 0x1
  2375 0631 9C       		.byte	0x9c
  2376 0632 14       		.uleb128 0x14
- 2377 0633 AB020000 		.4byte	.LASF70
+ 2377 0633 6B020000 		.4byte	.LASF70
  2378 0637 01       		.byte	0x1
  2379 0638 1105     		.2byte	0x511
  2380 063a 6B000000 		.4byte	0x6b
@@ -4102,7 +4102,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2383 0646 01       		.uleb128 0x1
  2384 0647 9C       		.byte	0x9c
  2385 0648 0D       		.uleb128 0xd
- 2386 0649 08040000 		.4byte	.LASF71
+ 2386 0649 C8030000 		.4byte	.LASF71
  2387 064d 01       		.byte	0x1
  2388 064e 3005     		.2byte	0x530
  2389 0650 6B000000 		.4byte	0x6b
@@ -4112,13 +4112,13 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2393 065d 9C       		.byte	0x9c
  2394 065e 83060000 		.4byte	0x683
  2395 0662 11       		.uleb128 0x11
- 2396 0663 5E020000 		.4byte	.LASF72
+ 2396 0663 1E020000 		.4byte	.LASF72
  2397 0667 01       		.byte	0x1
  2398 0668 3005     		.2byte	0x530
  2399 066a 83060000 		.4byte	0x683
  2400 066e 2B070000 		.4byte	.LLST30
  2401 0672 0E       		.uleb128 0xe
- 2402 0673 CB040000 		.4byte	.LASF40
+ 2402 0673 C3040000 		.4byte	.LASF40
  2403 0677 01       		.byte	0x1
  2404 0678 3305     		.2byte	0x533
  2405 067a 6B000000 		.4byte	0x6b
@@ -4130,7 +4130,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2411 0689 15       		.uleb128 0x15
  2412 068a 94010000 		.4byte	0x194
  2413 068e 0D       		.uleb128 0xd
- 2414 068f 7C030000 		.4byte	.LASF73
+ 2414 068f 3C030000 		.4byte	.LASF73
  2415 0693 01       		.byte	0x1
  2416 0694 6905     		.2byte	0x569
  2417 0696 6B000000 		.4byte	0x6b
@@ -4138,18 +4138,18 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2419 069e 54000000 		.4byte	.LFE21-.LFB21
  2420 06a2 01       		.uleb128 0x1
  2421 06a3 9C       		.byte	0x9c
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 70
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 70
 
 
  2422 06a4 C9060000 		.4byte	0x6c9
  2423 06a8 11       		.uleb128 0x11
- 2424 06a9 EE030000 		.4byte	.LASF74
+ 2424 06a9 AE030000 		.4byte	.LASF74
  2425 06ad 01       		.byte	0x1
  2426 06ae 6905     		.2byte	0x569
  2427 06b0 C9060000 		.4byte	0x6c9
  2428 06b4 E8070000 		.4byte	.LLST32
  2429 06b8 0E       		.uleb128 0xe
- 2430 06b9 CB040000 		.4byte	.LASF40
+ 2430 06b9 C3040000 		.4byte	.LASF40
  2431 06bd 01       		.byte	0x1
  2432 06be 6C05     		.2byte	0x56c
  2433 06c0 6B000000 		.4byte	0x6b
@@ -4171,7 +4171,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2449 06e8 9C       		.byte	0x9c
  2450 06e9 65070000 		.4byte	0x765
  2451 06ed 16       		.uleb128 0x16
- 2452 06ee F3010000 		.4byte	.LASF76
+ 2452 06ee AE010000 		.4byte	.LASF76
  2453 06f2 01       		.byte	0x1
  2454 06f3 32       		.byte	0x32
  2455 06f4 75070000 		.4byte	0x775
@@ -4179,7 +4179,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2457 06f9 03       		.byte	0x3
  2458 06fa 60000000 		.4byte	CAN_RXConfigStruct.4921
  2459 06fe 16       		.uleb128 0x16
- 2460 06ff 98030000 		.4byte	.LASF77
+ 2460 06ff 58030000 		.4byte	.LASF77
  2461 0703 01       		.byte	0x1
  2462 0704 46       		.byte	0x46
  2463 0705 8A070000 		.4byte	0x78a
@@ -4187,7 +4187,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2465 070a 03       		.byte	0x3
  2466 070b 00000000 		.4byte	CAN_TXConfigStruct.4922
  2467 070f 17       		.uleb128 0x17
- 2468 0710 CB040000 		.4byte	.LASF40
+ 2468 0710 C3040000 		.4byte	.LASF40
  2469 0714 01       		.byte	0x1
  2470 0715 52       		.byte	0x52
  2471 0716 6B000000 		.4byte	0x6b
@@ -4198,7 +4198,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2476 0722 53       		.byte	0x53
  2477 0723 6B000000 		.4byte	0x6b
  2478 0727 79080000 		.4byte	.LLST35
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 71
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 71
 
 
  2479 072b 19       		.uleb128 0x19
@@ -4257,8 +4257,8 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2532 078a 15       		.uleb128 0x15
  2533 078b 7A070000 		.4byte	0x77a
  2534 078f 10       		.uleb128 0x10
- 2535 0790 74020000 		.4byte	.LASF78
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 72
+ 2535 0790 34020000 		.4byte	.LASF78
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 72
 
 
  2536 0794 01       		.byte	0x1
@@ -4270,25 +4270,25 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2542 07a3 9C       		.byte	0x9c
  2543 07a4 8C080000 		.4byte	0x88c
  2544 07a8 17       		.uleb128 0x17
- 2545 07a9 A5010000 		.4byte	.LASF39
+ 2545 07a9 60010000 		.4byte	.LASF39
  2546 07ad 01       		.byte	0x1
  2547 07ae 8B       		.byte	0x8b
  2548 07af 83000000 		.4byte	0x83
  2549 07b3 AE080000 		.4byte	.LLST36
  2550 07b7 17       		.uleb128 0x17
- 2551 07b8 CB040000 		.4byte	.LASF40
+ 2551 07b8 C3040000 		.4byte	.LASF40
  2552 07bc 01       		.byte	0x1
  2553 07bd 8C       		.byte	0x8c
  2554 07be 6B000000 		.4byte	0x6b
  2555 07c2 DA080000 		.4byte	.LLST37
  2556 07c6 17       		.uleb128 0x17
- 2557 07c7 8C030000 		.4byte	.LASF79
+ 2557 07c7 4C030000 		.4byte	.LASF79
  2558 07cb 01       		.byte	0x1
  2559 07cc 8D       		.byte	0x8d
  2560 07cd 6B000000 		.4byte	0x6b
  2561 07d1 F9080000 		.4byte	.LLST38
  2562 07d5 17       		.uleb128 0x17
- 2563 07d6 F7030000 		.4byte	.LASF41
+ 2563 07d6 B7030000 		.4byte	.LASF41
  2564 07da 01       		.byte	0x1
  2565 07db 90       		.byte	0x90
  2566 07dc 6B000000 		.4byte	0x6b
@@ -4318,7 +4318,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2590 0818 51       		.byte	0x51
  2591 0819 01       		.uleb128 0x1
  2592 081a 37       		.byte	0x37
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 73
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 73
 
 
  2593 081b 1A       		.uleb128 0x1a
@@ -4378,7 +4378,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2647 087b A6000000 		.4byte	.LVL157
  2648 087f 9F050000 		.4byte	0x59f
  2649 0883 1A       		.uleb128 0x1a
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 74
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 74
 
 
  2650 0884 01       		.uleb128 0x1
@@ -4399,7 +4399,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2665 08a1 9C       		.byte	0x9c
  2666 08a2 C9080000 		.4byte	0x8c9
  2667 08a6 0E       		.uleb128 0xe
- 2668 08a7 CB040000 		.4byte	.LASF40
+ 2668 08a7 C3040000 		.4byte	.LASF40
  2669 08ab 01       		.byte	0x1
  2670 08ac 4501     		.2byte	0x145
  2671 08ae 6B000000 		.4byte	0x6b
@@ -4420,7 +4420,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2686 08d5 03       		.byte	0x3
  2687 08d6 00000000 		.4byte	CAN_initVar
  2688 08da 1D       		.uleb128 0x1d
- 2689 08db BB010000 		.4byte	.LASF85
+ 2689 08db 76010000 		.4byte	.LASF85
  2690 08df 04       		.byte	0x4
  2691 08e0 7E       		.byte	0x7e
  2692 08e1 6B000000 		.4byte	0x6b
@@ -4433,12 +4433,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2699 08f1 6B000000 		.4byte	0x6b
  2700 08f5 00       		.byte	0
  2701 08f6 20       		.uleb128 0x20
- 2702 08f7 1A020000 		.4byte	.LASF87
+ 2702 08f7 D5010000 		.4byte	.LASF87
  2703 08fb 04       		.byte	0x4
  2704 08fc 89       		.byte	0x89
  2705 08fd D7000000 		.4byte	0xd7
  2706 0901 10090000 		.4byte	0x910
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 75
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 75
 
 
  2707 0905 1F       		.uleb128 0x1f
@@ -4447,7 +4447,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2710 090b D7000000 		.4byte	0xd7
  2711 090f 00       		.byte	0
  2712 0910 21       		.uleb128 0x21
- 2713 0911 C2020000 		.4byte	.LASF88
+ 2713 0911 82020000 		.4byte	.LASF88
  2714 0915 04       		.byte	0x4
  2715 0916 8C       		.byte	0x8c
  2716 0917 1F       		.uleb128 0x1f
@@ -4498,7 +4498,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2761 0025 03       		.uleb128 0x3
  2762 0026 08       		.uleb128 0x8
  2763 0027 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 76
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 76
 
 
  2764 0028 00       		.byte	0
@@ -4558,7 +4558,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2818 005e 0E       		.uleb128 0xe
  2819 005f 3A       		.uleb128 0x3a
  2820 0060 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 77
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 77
 
 
  2821 0061 3B       		.uleb128 0x3b
@@ -4618,7 +4618,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2875 0097 11       		.uleb128 0x11
  2876 0098 01       		.uleb128 0x1
  2877 0099 12       		.uleb128 0x12
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 78
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 78
 
 
  2878 009a 06       		.uleb128 0x6
@@ -4678,7 +4678,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2932 00d3 9742     		.uleb128 0x2117
  2933 00d5 19       		.uleb128 0x19
  2934 00d6 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 79
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 79
 
 
  2935 00d7 13       		.uleb128 0x13
@@ -4738,7 +4738,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  2989 010d 0E       		.uleb128 0xe
  2990 010e 3A       		.uleb128 0x3a
  2991 010f 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 80
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 80
 
 
  2992 0110 3B       		.uleb128 0x3b
@@ -4798,7 +4798,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3046 0147 34       		.uleb128 0x34
  3047 0148 00       		.byte	0
  3048 0149 03       		.uleb128 0x3
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 81
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 81
 
 
  3049 014a 08       		.uleb128 0x8
@@ -4858,7 +4858,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3103 0187 18       		.uleb128 0x18
  3104 0188 00       		.byte	0
  3105 0189 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 82
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 82
 
 
  3106 018a 1D       		.uleb128 0x1d
@@ -4918,7 +4918,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3160 01c0 3B       		.uleb128 0x3b
  3161 01c1 0B       		.uleb128 0xb
  3162 01c2 27       		.uleb128 0x27
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 83
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 83
 
 
  3163 01c3 19       		.uleb128 0x19
@@ -4978,7 +4978,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3217 0040 0200     		.2byte	0x2
  3218 0042 30       		.byte	0x30
  3219 0043 9F       		.byte	0x9f
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 84
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 84
 
 
  3220 0044 4A000000 		.4byte	.LVL7
@@ -5038,7 +5038,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3274 00d1 00000000 		.4byte	0
  3275              	.LLST6:
  3276 00d5 06000000 		.4byte	.LVL13
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 85
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 85
 
 
  3277 00d9 1D000000 		.4byte	.LVL14-1
@@ -5098,7 +5098,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3331 0167 9F       		.byte	0x9f
  3332 0168 06000000 		.4byte	.LVL24
  3333 016c 16000000 		.4byte	.LVL26
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 86
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 86
 
 
  3334 0170 0200     		.2byte	0x2
@@ -5158,7 +5158,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3388 01ee 34000000 		.4byte	.LVL37
  3389 01f2 0100     		.2byte	0x1
  3390 01f4 50       		.byte	0x50
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 87
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 87
 
 
  3391 01f5 34000000 		.4byte	.LVL37
@@ -5218,7 +5218,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3445 0274 9F       		.byte	0x9f
  3446 0275 64000000 		.4byte	.LVL53
  3447 0279 66000000 		.4byte	.LVL54
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 88
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 88
 
 
  3448 027d 0100     		.2byte	0x1
@@ -5278,7 +5278,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3502 02f8 52       		.byte	0x52
  3503 02f9 9F       		.byte	0x9f
  3504 02fa 5C000000 		.4byte	.LVL49
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 89
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 89
 
 
  3505 02fe 78000000 		.4byte	.LVL63
@@ -5338,7 +5338,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3559 037d 7A000000 		.4byte	.LVL64
  3560 0381 0200     		.2byte	0x2
  3561 0383 31       		.byte	0x31
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 90
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 90
 
 
  3562 0384 9F       		.byte	0x9f
@@ -5398,7 +5398,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3616 0414 50       		.byte	0x50
  3617 0415 9F       		.byte	0x9f
  3618 0416 18000000 		.4byte	.LVL67
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 91
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 91
 
 
  3619 041a 2C000000 		.4byte	.LVL68
@@ -5458,7 +5458,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3673 049d F3       		.byte	0xf3
  3674 049e 01       		.uleb128 0x1
  3675 049f 50       		.byte	0x50
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 92
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 92
 
 
  3676 04a0 9F       		.byte	0x9f
@@ -5518,7 +5518,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3730 0522 7C000000 		.4byte	.LFE12
  3731 0526 0400     		.2byte	0x4
  3732 0528 F3       		.byte	0xf3
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 93
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 93
 
 
  3733 0529 01       		.uleb128 0x1
@@ -5578,7 +5578,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3787 05b0 32000000 		.4byte	.LVL99
  3788 05b4 0100     		.2byte	0x1
  3789 05b6 50       		.byte	0x50
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 94
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 94
 
 
  3790 05b7 32000000 		.4byte	.LVL99
@@ -5638,7 +5638,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3844 0631 00000000 		.4byte	.LVL95
  3845 0635 18000000 		.4byte	.LVL97
  3846 0639 0100     		.2byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 95
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 95
 
 
  3847 063b 51       		.byte	0x51
@@ -5698,7 +5698,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3901 06bb 31       		.byte	0x31
  3902 06bc 9F       		.byte	0x9f
  3903 06bd 56000000 		.4byte	.LVL107
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 96
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 96
 
 
  3904 06c1 5C000000 		.4byte	.LFE13
@@ -5758,7 +5758,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  3958 074f 78000000 		.4byte	.LVL115
  3959 0753 7A000000 		.4byte	.LVL116
  3960 0757 0400     		.2byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 97
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 97
 
 
  3961 0759 F3       		.byte	0xf3
@@ -5818,7 +5818,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  4015 07d3 31       		.byte	0x31
  4016 07d4 9F       		.byte	0x9f
  4017 07d5 88000000 		.4byte	.LVL123
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 98
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 98
 
 
  4018 07d9 90000000 		.4byte	.LFE20
@@ -5878,7 +5878,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  4072 085a 02000000 		.4byte	.LVL130
  4073 085e 24000000 		.4byte	.LVL135
  4074 0862 0200     		.2byte	0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 99
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 99
 
 
  4075 0864 30       		.byte	0x30
@@ -5938,7 +5938,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  4129 08f0 50       		.byte	0x50
  4130 08f1 00000000 		.4byte	0
  4131 08f5 00000000 		.4byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 100
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 100
 
 
  4132              	.LLST38:
@@ -5998,7 +5998,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  4186 0000 C4000000 		.4byte	0xc4
  4187 0004 0200     		.2byte	0x2
  4188 0006 00000000 		.4byte	.Ldebug_info0
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 101
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 101
 
 
  4189 000a 04       		.byte	0x4
@@ -6058,7 +6058,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  4243 0008 00000000 		.4byte	.LFB5
  4244 000c 20000000 		.4byte	.LFE5
  4245 0010 00000000 		.4byte	.LFB2
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 102
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 102
 
 
  4246 0014 6C000000 		.4byte	.LFE2
@@ -6118,7 +6118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  4292              	.LASF10:
  4293 0014 75696E74 		.ascii	"uint16\000"
  4293      313600
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 103
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 103
 
 
  4294              	.LASF55:
@@ -6178,7 +6178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  4320              	.LASF45:
  4321 00b7 43414E5F 		.ascii	"CAN_GlobalIntDisable\000"
  4321      476C6F62 
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 104
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 104
 
 
  4321      616C496E 
@@ -6237,297 +6237,296 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 1
  4349      53657445 
  4349      6467654D 
  4349      6F646500 
- 4350              	.LASF83:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 105
+ 4350              	.LASF5:
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 105
 
 
- 4351 014e 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\FE3-DashboardRev1\\FE3-Dashbo"
- 4351      6F776E6C 
- 4351      6F616473 
- 4351      5C465255 
- 4351      43445C46 
- 4352 017d 6172645C 		.ascii	"ard\\Node-Jaguar.cydsn\000"
- 4352      4E6F6465 
- 4352      2D4A6167 
- 4352      7561722E 
- 4352      63796473 
- 4353              	.LASF5:
- 4354 0193 6C6F6E67 		.ascii	"long unsigned int\000"
- 4354      20756E73 
- 4354      69676E65 
- 4354      6420696E 
- 4354      7400
- 4355              	.LASF39:
- 4356 01a5 74696D65 		.ascii	"timeout\000"
- 4356      6F757400 
- 4357              	.LASF58:
- 4358 01ad 43414E5F 		.ascii	"CAN_SetOpMode\000"
- 4358      5365744F 
- 4358      704D6F64 
- 4358      6500
- 4359              	.LASF85:
- 4360 01bb 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 4360      74657243 
- 4360      72697469 
- 4360      63616C53 
- 4360      65637469 
- 4361              	.LASF3:
- 4362 01d2 73686F72 		.ascii	"short unsigned int\000"
- 4362      7420756E 
- 4362      7369676E 
- 4362      65642069 
- 4362      6E7400
- 4363              	.LASF36:
- 4364 01e5 43414E5F 		.ascii	"CAN_RX_STRUCT\000"
- 4364      52585F53 
- 4364      54525543 
- 4364      5400
- 4365              	.LASF76:
- 4366 01f3 43414E5F 		.ascii	"CAN_RXConfigStruct\000"
- 4366      5258436F 
- 4366      6E666967 
- 4366      53747275 
- 4366      637400
- 4367              	.LASF43:
- 4368 0206 43414E5F 		.ascii	"CAN_GlobalIntEnable\000"
- 4368      476C6F62 
- 4368      616C496E 
- 4368      74456E61 
- 4368      626C6500 
- 4369              	.LASF87:
- 4370 021a 4379496E 		.ascii	"CyIntSetVector\000"
- 4370      74536574 
- 4370      56656374 
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 106
+ 4351 014e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4351      20756E73 
+ 4351      69676E65 
+ 4351      6420696E 
+ 4351      7400
+ 4352              	.LASF39:
+ 4353 0160 74696D65 		.ascii	"timeout\000"
+ 4353      6F757400 
+ 4354              	.LASF58:
+ 4355 0168 43414E5F 		.ascii	"CAN_SetOpMode\000"
+ 4355      5365744F 
+ 4355      704D6F64 
+ 4355      6500
+ 4356              	.LASF85:
+ 4357 0176 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 4357      74657243 
+ 4357      72697469 
+ 4357      63616C53 
+ 4357      65637469 
+ 4358              	.LASF3:
+ 4359 018d 73686F72 		.ascii	"short unsigned int\000"
+ 4359      7420756E 
+ 4359      7369676E 
+ 4359      65642069 
+ 4359      6E7400
+ 4360              	.LASF36:
+ 4361 01a0 43414E5F 		.ascii	"CAN_RX_STRUCT\000"
+ 4361      52585F53 
+ 4361      54525543 
+ 4361      5400
+ 4362              	.LASF76:
+ 4363 01ae 43414E5F 		.ascii	"CAN_RXConfigStruct\000"
+ 4363      5258436F 
+ 4363      6E666967 
+ 4363      53747275 
+ 4363      637400
+ 4364              	.LASF43:
+ 4365 01c1 43414E5F 		.ascii	"CAN_GlobalIntEnable\000"
+ 4365      476C6F62 
+ 4365      616C496E 
+ 4365      74456E61 
+ 4365      626C6500 
+ 4366              	.LASF87:
+ 4367 01d5 4379496E 		.ascii	"CyIntSetVector\000"
+ 4367      74536574 
+ 4367      56656374 
+ 4367      6F7200
+ 4368              	.LASF27:
+ 4369 01e4 43414E5F 		.ascii	"CAN_RX_CFG\000"
+ 4369      52585F43 
+ 4369      464700
+ 4370              	.LASF59:
+ 4371 01ef 6F704D6F 		.ascii	"opMode\000"
+ 4371      646500
+ 4372              	.LASF47:
+ 4373 01f6 43414E5F 		.ascii	"CAN_SetArbiter\000"
+ 4373      53657441 
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 106
 
 
- 4370      6F7200
- 4371              	.LASF27:
- 4372 0229 43414E5F 		.ascii	"CAN_RX_CFG\000"
- 4372      52585F43 
- 4372      464700
- 4373              	.LASF59:
- 4374 0234 6F704D6F 		.ascii	"opMode\000"
- 4374      646500
- 4375              	.LASF47:
- 4376 023b 43414E5F 		.ascii	"CAN_SetArbiter\000"
- 4376      53657441 
- 4376      72626974 
- 4376      657200
- 4377              	.LASF68:
- 4378 024a 43414E5F 		.ascii	"CAN_GetTXErrorCount\000"
- 4378      47657454 
- 4378      58457272 
- 4378      6F72436F 
- 4378      756E7400 
- 4379              	.LASF72:
- 4380 025e 7278436F 		.ascii	"rxConfig\000"
- 4380      6E666967 
- 4380      00
- 4381              	.LASF37:
- 4382 0267 74786461 		.ascii	"txdata\000"
- 4382      746100
- 4383              	.LASF17:
- 4384 026e 72656733 		.ascii	"reg32\000"
- 4384      3200
- 4385              	.LASF78:
- 4386 0274 43414E5F 		.ascii	"CAN_Init\000"
- 4386      496E6974 
- 4386      00
- 4387              	.LASF62:
- 4388 027d 72656741 		.ascii	"regAddr\000"
- 4388      64647200 
- 4389              	.LASF53:
- 4390 0285 63666754 		.ascii	"cfgTemp\000"
- 4390      656D7000 
- 4391              	.LASF23:
- 4392 028d 72786D61 		.ascii	"rxmailbox\000"
- 4392      696C626F 
- 4392      7800
- 4393              	.LASF22:
- 4394 0297 43414E5F 		.ascii	"CAN_REG_32\000"
- 4394      5245475F 
- 4394      333200
- 4395              	.LASF19:
- 4396 02a2 73697A65 		.ascii	"sizetype\000"
- 4396      74797065 
- 4396      00
- 4397              	.LASF70:
- 4398 02ab 43414E5F 		.ascii	"CAN_GetErrorState\000"
- 4398      47657445 
- 4398      72726F72 
- 4398      53746174 
- 4398      6500
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 107
+ 4373      72626974 
+ 4373      657200
+ 4374              	.LASF68:
+ 4375 0205 43414E5F 		.ascii	"CAN_GetTXErrorCount\000"
+ 4375      47657454 
+ 4375      58457272 
+ 4375      6F72436F 
+ 4375      756E7400 
+ 4376              	.LASF30:
+ 4377 0219 74786964 		.ascii	"txid\000"
+ 4377      00
+ 4378              	.LASF72:
+ 4379 021e 7278436F 		.ascii	"rxConfig\000"
+ 4379      6E666967 
+ 4379      00
+ 4380              	.LASF37:
+ 4381 0227 74786461 		.ascii	"txdata\000"
+ 4381      746100
+ 4382              	.LASF17:
+ 4383 022e 72656733 		.ascii	"reg32\000"
+ 4383      3200
+ 4384              	.LASF78:
+ 4385 0234 43414E5F 		.ascii	"CAN_Init\000"
+ 4385      496E6974 
+ 4385      00
+ 4386              	.LASF62:
+ 4387 023d 72656741 		.ascii	"regAddr\000"
+ 4387      64647200 
+ 4388              	.LASF53:
+ 4389 0245 63666754 		.ascii	"cfgTemp\000"
+ 4389      656D7000 
+ 4390              	.LASF23:
+ 4391 024d 72786D61 		.ascii	"rxmailbox\000"
+ 4391      696C626F 
+ 4391      7800
+ 4392              	.LASF22:
+ 4393 0257 43414E5F 		.ascii	"CAN_REG_32\000"
+ 4393      5245475F 
+ 4393      333200
+ 4394              	.LASF19:
+ 4395 0262 73697A65 		.ascii	"sizetype\000"
+ 4395      74797065 
+ 4395      00
+ 4396              	.LASF70:
+ 4397 026b 43414E5F 		.ascii	"CAN_GetErrorState\000"
+ 4397      47657445 
+ 4397      72726F72 
+ 4397      53746174 
+ 4397      6500
+ 4398              	.LASF32:
+ 4399 027d 72786964 		.ascii	"rxid\000"
+ 4399      00
+ 4400              	.LASF88:
+ 4401 0282 4379496E 		.ascii	"CyIntSetPriority\000"
+ 4401      74536574 
+ 4401      5072696F 
+ 4401      72697479 
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 107
 
 
- 4399              	.LASF32:
- 4400 02bd 72786964 		.ascii	"rxid\000"
- 4400      00
- 4401              	.LASF88:
- 4402 02c2 4379496E 		.ascii	"CyIntSetPriority\000"
- 4402      74536574 
- 4402      5072696F 
- 4402      72697479 
- 4402      00
- 4403              	.LASF61:
- 4404 02d3 43414E5F 		.ascii	"CAN_RXRegisterInit\000"
- 4404      52585265 
- 4404      67697374 
- 4404      6572496E 
- 4404      697400
- 4405              	.LASF12:
- 4406 02e6 666C6F61 		.ascii	"float\000"
- 4406      7400
- 4407              	.LASF15:
- 4408 02ec 72656738 		.ascii	"reg8\000"
- 4408      00
- 4409              	.LASF1:
- 4410 02f1 756E7369 		.ascii	"unsigned char\000"
- 4410      676E6564 
- 4410      20636861 
- 4410      7200
- 4411              	.LASF2:
- 4412 02ff 73686F72 		.ascii	"short int\000"
- 4412      7420696E 
- 4412      7400
- 4413              	.LASF66:
- 4414 0309 43414E5F 		.ascii	"CAN_GetTXErrorFlag\000"
- 4414      47657454 
- 4414      58457272 
- 4414      6F72466C 
- 4414      616700
- 4415              	.LASF44:
- 4416 031c 43414E5F 		.ascii	"CAN_Enable\000"
- 4416      456E6162 
- 4416      6C6500
- 4417              	.LASF38:
- 4418 0327 43414E5F 		.ascii	"CAN_TX_STRUCT\000"
- 4418      54585F53 
- 4418      54525543 
- 4418      5400
- 4419              	.LASF82:
- 4420 0335 47656E65 		.ascii	"Generated_Source\\PSoC5\\CAN.c\000"
- 4420      72617465 
- 4420      645F536F 
- 4420      75726365 
- 4420      5C50536F 
- 4421              	.LASF46:
- 4422 0352 43414E5F 		.ascii	"CAN_SetPreScaler\000"
- 4422      53657450 
- 4422      72655363 
- 4422      616C6572 
- 4422      00
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 108
+ 4401      00
+ 4402              	.LASF61:
+ 4403 0293 43414E5F 		.ascii	"CAN_RXRegisterInit\000"
+ 4403      52585265 
+ 4403      67697374 
+ 4403      6572496E 
+ 4403      697400
+ 4404              	.LASF12:
+ 4405 02a6 666C6F61 		.ascii	"float\000"
+ 4405      7400
+ 4406              	.LASF15:
+ 4407 02ac 72656738 		.ascii	"reg8\000"
+ 4407      00
+ 4408              	.LASF1:
+ 4409 02b1 756E7369 		.ascii	"unsigned char\000"
+ 4409      676E6564 
+ 4409      20636861 
+ 4409      7200
+ 4410              	.LASF2:
+ 4411 02bf 73686F72 		.ascii	"short int\000"
+ 4411      7420696E 
+ 4411      7400
+ 4412              	.LASF66:
+ 4413 02c9 43414E5F 		.ascii	"CAN_GetTXErrorFlag\000"
+ 4413      47657454 
+ 4413      58457272 
+ 4413      6F72466C 
+ 4413      616700
+ 4414              	.LASF44:
+ 4415 02dc 43414E5F 		.ascii	"CAN_Enable\000"
+ 4415      456E6162 
+ 4415      6C6500
+ 4416              	.LASF38:
+ 4417 02e7 43414E5F 		.ascii	"CAN_TX_STRUCT\000"
+ 4417      54585F53 
+ 4417      54525543 
+ 4417      5400
+ 4418              	.LASF82:
+ 4419 02f5 47656E65 		.ascii	"Generated_Source\\PSoC5\\CAN.c\000"
+ 4419      72617465 
+ 4419      645F536F 
+ 4419      75726365 
+ 4419      5C50536F 
+ 4420              	.LASF46:
+ 4421 0312 43414E5F 		.ascii	"CAN_SetPreScaler\000"
+ 4421      53657450 
+ 4421      72655363 
+ 4421      616C6572 
+ 4421      00
+ 4422              	.LASF14:
+ 4423 0323 63686172 		.ascii	"char\000"
+ 4423      00
+ 4424              	.LASF18:
+ 4425 0328 63796973 		.ascii	"cyisraddress\000"
+ 4425      72616464 
+ 4425      72657373 
+ 4425      00
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 108
 
 
- 4423              	.LASF14:
- 4424 0363 63686172 		.ascii	"char\000"
- 4424      00
- 4425              	.LASF18:
- 4426 0368 63796973 		.ascii	"cyisraddress\000"
- 4426      72616464 
- 4426      72657373 
- 4426      00
- 4427              	.LASF63:
- 4428 0375 636F6E66 		.ascii	"config\000"
- 4428      696700
- 4429              	.LASF73:
- 4430 037c 43414E5F 		.ascii	"CAN_TxBufConfig\000"
- 4430      54784275 
- 4430      66436F6E 
- 4430      66696700 
- 4431              	.LASF79:
- 4432 038c 6C6F6361 		.ascii	"localResult\000"
- 4432      6C526573 
- 4432      756C7400 
- 4433              	.LASF77:
- 4434 0398 43414E5F 		.ascii	"CAN_TXConfigStruct\000"
- 4434      5458436F 
- 4434      6E666967 
- 4434      53747275 
- 4434      637400
- 4435              	.LASF20:
- 4436 03ab 43414E5F 		.ascii	"CAN_DATA_BYTES\000"
- 4436      44415441 
- 4436      5F425954 
- 4436      455300
- 4437              	.LASF28:
- 4438 03ba 74786D61 		.ascii	"txmailbox\000"
- 4438      696C626F 
- 4438      7800
- 4439              	.LASF51:
- 4440 03c4 63666754 		.ascii	"cfgTseg1\000"
- 4440      73656731 
- 4440      00
- 4441              	.LASF52:
- 4442 03cd 63666754 		.ascii	"cfgTseg2\000"
- 4442      73656732 
- 4442      00
- 4443              	.LASF50:
- 4444 03d6 43414E5F 		.ascii	"CAN_SetTsegSample\000"
- 4444      53657454 
- 4444      73656753 
- 4444      616D706C 
- 4444      6500
- 4445              	.LASF24:
- 4446 03e8 7278636D 		.ascii	"rxcmd\000"
- 4446      6400
- 4447              	.LASF74:
- 4448 03ee 7478436F 		.ascii	"txConfig\000"
- 4448      6E666967 
- 4448      00
- 4449              	.LASF41:
-ARM GAS  D:\Windows\AppData\Local\Temp\cck46LYg.s 			page 109
+ 4426              	.LASF63:
+ 4427 0335 636F6E66 		.ascii	"config\000"
+ 4427      696700
+ 4428              	.LASF73:
+ 4429 033c 43414E5F 		.ascii	"CAN_TxBufConfig\000"
+ 4429      54784275 
+ 4429      66436F6E 
+ 4429      66696700 
+ 4430              	.LASF79:
+ 4431 034c 6C6F6361 		.ascii	"localResult\000"
+ 4431      6C526573 
+ 4431      756C7400 
+ 4432              	.LASF77:
+ 4433 0358 43414E5F 		.ascii	"CAN_TXConfigStruct\000"
+ 4433      5458436F 
+ 4433      6E666967 
+ 4433      53747275 
+ 4433      637400
+ 4434              	.LASF20:
+ 4435 036b 43414E5F 		.ascii	"CAN_DATA_BYTES\000"
+ 4435      44415441 
+ 4435      5F425954 
+ 4435      455300
+ 4436              	.LASF28:
+ 4437 037a 74786D61 		.ascii	"txmailbox\000"
+ 4437      696C626F 
+ 4437      7800
+ 4438              	.LASF51:
+ 4439 0384 63666754 		.ascii	"cfgTseg1\000"
+ 4439      73656731 
+ 4439      00
+ 4440              	.LASF52:
+ 4441 038d 63666754 		.ascii	"cfgTseg2\000"
+ 4441      73656732 
+ 4441      00
+ 4442              	.LASF50:
+ 4443 0396 43414E5F 		.ascii	"CAN_SetTsegSample\000"
+ 4443      53657454 
+ 4443      73656753 
+ 4443      616D706C 
+ 4443      6500
+ 4444              	.LASF24:
+ 4445 03a8 7278636D 		.ascii	"rxcmd\000"
+ 4445      6400
+ 4446              	.LASF74:
+ 4447 03ae 7478436F 		.ascii	"txConfig\000"
+ 4447      6E666967 
+ 4447      00
+ 4448              	.LASF41:
+ 4449 03b7 656E6162 		.ascii	"enableInterrupts\000"
+ 4449      6C65496E 
+ 4449      74657272 
+ 4449      75707473 
+ 4449      00
+ 4450              	.LASF71:
+ 4451 03c8 43414E5F 		.ascii	"CAN_RxBufConfig\000"
+ 4451      52784275 
+ARM GAS  D:\Windows\AppData\Local\Temp\cc7Scmqa.s 			page 109
 
 
- 4450 03f7 656E6162 		.ascii	"enableInterrupts\000"
- 4450      6C65496E 
- 4450      74657272 
- 4450      75707473 
- 4450      00
- 4451              	.LASF71:
- 4452 0408 43414E5F 		.ascii	"CAN_RxBufConfig\000"
- 4452      52784275 
- 4452      66436F6E 
- 4452      66696700 
- 4453              	.LASF81:
- 4454 0418 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 4454      4320342E 
- 4454      392E3320 
- 4454      32303135 
- 4454      30333033 
- 4455 044b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 4455      20726576 
- 4455      6973696F 
- 4455      6E203232 
- 4455      31323230 
- 4456 047e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 4456      66756E63 
- 4456      74696F6E 
- 4456      2D736563 
- 4456      74696F6E 
- 4457              	.LASF30:
- 4458 04a6 74786964 		.ascii	"txid\000"
- 4458      00
+ 4451      66436F6E 
+ 4451      66696700 
+ 4452              	.LASF81:
+ 4453 03d8 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 4453      4320342E 
+ 4453      392E3320 
+ 4453      32303135 
+ 4453      30333033 
+ 4454 040b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 4454      20726576 
+ 4454      6973696F 
+ 4454      6E203232 
+ 4454      31323230 
+ 4455 043e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 4455      66756E63 
+ 4455      74696F6E 
+ 4455      2D736563 
+ 4455      74696F6E 
+ 4456              	.LASF83:
+ 4457 0466 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 4457      6F776E6C 
+ 4457      6F616473 
+ 4457      5C465255 
+ 4457      43445C4E 
+ 4458 0494 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 4458      67756172 
+ 4458      2E637964 
+ 4458      736E00
  4459              	.LASF26:
- 4460 04ab 72786163 		.ascii	"rxacr\000"
+ 4460 04a3 72786163 		.ascii	"rxacr\000"
  4460      7200
  4461              	.LASF49:
- 4462 04b1 61726269 		.ascii	"arbiter\000"
+ 4462 04a9 61726269 		.ascii	"arbiter\000"
  4462      74657200 
  4463              	.LASF35:
- 4464 04b9 72786163 		.ascii	"rxacrd\000"
+ 4464 04b1 72786163 		.ascii	"rxacrd\000"
  4464      726400
  4465              	.LASF31:
- 4466 04c0 43414E5F 		.ascii	"CAN_TX_CFG\000"
+ 4466 04b8 43414E5F 		.ascii	"CAN_TX_CFG\000"
  4466      54585F43 
  4466      464700
  4467              	.LASF40:
- 4468 04cb 72657375 		.ascii	"result\000"
+ 4468 04c3 72657375 		.ascii	"result\000"
  4468      6C7400
  4469              	.LASF54:
- 4470 04d2 43414E5F 		.ascii	"CAN_SetRestartType\000"
+ 4470 04ca 43414E5F 		.ascii	"CAN_SetRestartType\000"
  4470      53657452 
  4470      65737461 
  4470      72745479 
