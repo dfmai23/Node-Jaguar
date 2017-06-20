@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
   29:Generated_Source\PSoC5/b3_critical_timer_PM.c **** *     Save the current user configuration
   30:Generated_Source\PSoC5/b3_critical_timer_PM.c **** *
   31:Generated_Source\PSoC5/b3_critical_timer_PM.c **** * Parameters:
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 2
 
 
   32:Generated_Source\PSoC5/b3_critical_timer_PM.c **** *  void
@@ -88,12 +88,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
   36 0002 FFF7FEFF 		bl	b3_critical_timer_ReadCounter
   37              	.LVL0:
   38 0006 044C     		ldr	r4, .L3
-  39 0008 6060     		str	r0, [r4, #4]
+  39 0008 6080     		strh	r0, [r4, #2]	@ movhi
   47:Generated_Source\PSoC5/b3_critical_timer_PM.c ****         b3_critical_timer_backup.InterruptMaskValue = b3_critical_timer_STATUS_MASK;
   40              		.loc 1 47 0
   41 000a 044B     		ldr	r3, .L3+4
   42 000c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  43 000e 2372     		strb	r3, [r4, #8]
+  43 000e 2371     		strb	r3, [r4, #4]
   48:Generated_Source\PSoC5/b3_critical_timer_PM.c ****         #if (b3_critical_timer_UsingHWCaptureCounter)
   49:Generated_Source\PSoC5/b3_critical_timer_PM.c ****             b3_critical_timer_backup.TimerCaptureCounter = b3_critical_timer_ReadCaptureCount();
   50:Generated_Source\PSoC5/b3_critical_timer_PM.c ****         #endif /* Back Up capture counter register  */
@@ -103,13 +103,13 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
   44              		.loc 1 53 0
   45 0010 FFF7FEFF 		bl	b3_critical_timer_ReadControlRegister
   46              	.LVL1:
-  47 0014 6072     		strb	r0, [r4, #9]
+  47 0014 6071     		strb	r0, [r4, #5]
   48 0016 10BD     		pop	{r4, pc}
   49              	.L4:
   50              		.align	2
   51              	.L3:
   52 0018 00000000 		.word	.LANCHOR0
-  53 001c 87650040 		.word	1073767815
+  53 001c 81640040 		.word	1073767553
   54              		.cfi_endproc
   55              	.LFE0:
   56              		.size	b3_critical_timer_SaveConfig, .-b3_critical_timer_SaveConfig
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
   59              		.global	b3_critical_timer_RestoreConfig
   60              		.thumb
   61              		.thumb_func
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 3
 
 
   62              		.type	b3_critical_timer_RestoreConfig, %function
@@ -162,12 +162,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
   81:Generated_Source\PSoC5/b3_critical_timer_PM.c ****         b3_critical_timer_WriteCounter(b3_critical_timer_backup.TimerUdb);
   73              		.loc 1 81 0
   74 0002 054C     		ldr	r4, .L7
-  75 0004 6068     		ldr	r0, [r4, #4]
+  75 0004 6088     		ldrh	r0, [r4, #2]
   76 0006 FFF7FEFF 		bl	b3_critical_timer_WriteCounter
   77              	.LVL2:
   82:Generated_Source\PSoC5/b3_critical_timer_PM.c ****         b3_critical_timer_STATUS_MASK =b3_critical_timer_backup.InterruptMaskValue;
   78              		.loc 1 82 0
-  79 000a 227A     		ldrb	r2, [r4, #8]	@ zero_extendqisi2
+  79 000a 2279     		ldrb	r2, [r4, #4]	@ zero_extendqisi2
   80 000c 034B     		ldr	r3, .L7+4
   81 000e 1A70     		strb	r2, [r3]
   83:Generated_Source\PSoC5/b3_critical_timer_PM.c ****         #if (b3_critical_timer_UsingHWCaptureCounter)
@@ -177,8 +177,8 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
   87:Generated_Source\PSoC5/b3_critical_timer_PM.c ****         #if(!b3_critical_timer_UDB_CONTROL_REG_REMOVED)
   88:Generated_Source\PSoC5/b3_critical_timer_PM.c ****             b3_critical_timer_WriteControlRegister(b3_critical_timer_backup.TimerControlRegister);
   82              		.loc 1 88 0
-  83 0010 607A     		ldrb	r0, [r4, #9]	@ zero_extendqisi2
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 4
+  83 0010 6079     		ldrb	r0, [r4, #5]	@ zero_extendqisi2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 4
 
 
   84 0012 FFF7FEFF 		bl	b3_critical_timer_WriteControlRegister
@@ -188,7 +188,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
   88              		.align	2
   89              	.L7:
   90 0018 00000000 		.word	.LANCHOR0
-  91 001c 87650040 		.word	1073767815
+  91 001c 81640040 		.word	1073767553
   92              		.cfi_endproc
   93              	.LFE1:
   94              		.size	b3_critical_timer_RestoreConfig, .-b3_critical_timer_RestoreConfig
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  116:Generated_Source\PSoC5/b3_critical_timer_PM.c ****         if(b3_critical_timer_CTRL_ENABLE == (b3_critical_timer_CONTROL & b3_critical_timer_CTRL_ENA
  111              		.loc 1 116 0
  112 0002 084B     		ldr	r3, .L13
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 5
 
 
  113 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
@@ -277,7 +277,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  134              	.L14:
  135              		.align	2
  136              	.L13:
- 137 0024 74650040 		.word	1073767796
+ 137 0024 70640040 		.word	1073767536
  138 0028 00000000 		.word	.LANCHOR0
  139              		.cfi_endproc
  140              	.LFE2:
@@ -298,7 +298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  134:Generated_Source\PSoC5/b3_critical_timer_PM.c **** ********************************************************************************
  135:Generated_Source\PSoC5/b3_critical_timer_PM.c **** *
  136:Generated_Source\PSoC5/b3_critical_timer_PM.c **** * Summary:
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 6
 
 
  137:Generated_Source\PSoC5/b3_critical_timer_PM.c **** *  Restores and enables the user configuration
@@ -353,15 +353,14 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  179              		.align	2
  180              		.set	.LANCHOR0,. + 0
  181              		.type	b3_critical_timer_backup, %object
- 182              		.size	b3_critical_timer_backup, 12
+ 182              		.size	b3_critical_timer_backup, 6
  183              	b3_critical_timer_backup:
- 184 0000 00000000 		.space	12
- 184      00000000 
- 184      00000000 
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 7
+ 184 0000 00000000 		.space	6
+ 184      0000
+ 185 0006 0000     		.text
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 7
 
 
- 185              		.text
  186              	.Letext0:
  187              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
  188              		.file 3 "Generated_Source\\PSoC5\\b3_critical_timer.h"
@@ -418,20 +417,20 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  239 0064 02       		.uleb128 0x2
  240 0065 04       		.byte	0x4
  241 0066 07       		.byte	0x7
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 8
-
-
  242 0067 07020000 		.4byte	.LASF8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 8
+
+
  243 006b 04       		.uleb128 0x4
  244 006c 20010000 		.4byte	.LASF9
  245 0070 02       		.byte	0x2
  246 0071 3801     		.2byte	0x138
  247 0073 2C000000 		.4byte	0x2c
  248 0077 04       		.uleb128 0x4
- 249 0078 72010000 		.4byte	.LASF10
+ 249 0078 4C010000 		.4byte	.LASF10
  250 007c 02       		.byte	0x2
- 251 007d 3A01     		.2byte	0x13a
- 252 007f 48000000 		.4byte	0x48
+ 251 007d 3901     		.2byte	0x139
+ 252 007f 3A000000 		.4byte	0x3a
  253 0083 02       		.uleb128 0x2
  254 0084 04       		.byte	0x4
  255 0085 04       		.byte	0x4
@@ -456,7 +455,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  274 00ab 07       		.byte	0x7
  275 00ac 44020000 		.4byte	.LASF15
  276 00b0 06       		.uleb128 0x6
- 277 00b1 0C       		.byte	0xc
+ 277 00b1 06       		.byte	0x6
  278 00b2 03       		.byte	0x3
  279 00b3 43       		.byte	0x43
  280 00b4 E9000000 		.4byte	0xe9
@@ -471,22 +470,22 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  289 00c9 03       		.byte	0x3
  290 00ca 48       		.byte	0x48
  291 00cb 77000000 		.4byte	0x77
- 292 00cf 04       		.byte	0x4
+ 292 00cf 02       		.byte	0x2
  293 00d0 07       		.uleb128 0x7
  294 00d1 24030000 		.4byte	.LASF18
  295 00d5 03       		.byte	0x3
  296 00d6 49       		.byte	0x49
  297 00d7 6B000000 		.4byte	0x6b
- 298 00db 08       		.byte	0x8
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 9
-
-
+ 298 00db 04       		.byte	0x4
  299 00dc 07       		.uleb128 0x7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 9
+
+
  300 00dd 37030000 		.4byte	.LASF19
  301 00e1 03       		.byte	0x3
  302 00e2 4F       		.byte	0x4f
  303 00e3 6B000000 		.4byte	0x6b
- 304 00e7 09       		.byte	0x9
+ 304 00e7 05       		.byte	0x5
  305 00e8 00       		.byte	0
  306 00e9 08       		.uleb128 0x8
  307 00ea 2D010000 		.4byte	.LASF20
@@ -538,10 +537,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  353 015a 1E000000 		.4byte	.LVL4
  354 015e DD010000 		.4byte	0x1dd
  355 0162 0A       		.uleb128 0xa
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 10
-
-
  356 0163 22000000 		.4byte	.LVL5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 10
+
+
  357 0167 F4000000 		.4byte	0xf4
  358 016b 00       		.byte	0
  359 016c 09       		.uleb128 0x9
@@ -574,7 +573,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  386 01ab 69       		.byte	0x69
  387 01ac 77000000 		.4byte	0x77
  388 01b0 0C       		.uleb128 0xc
- 389 01b1 4C010000 		.4byte	.LASF26
+ 389 01b1 53010000 		.4byte	.LASF26
  390 01b5 03       		.byte	0x3
  391 01b6 63       		.byte	0x63
  392 01b7 6B000000 		.4byte	0x6b
@@ -598,10 +597,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  410 01de BB020000 		.4byte	.LASF29
  411 01e2 03       		.byte	0x3
  412 01e3 5B       		.byte	0x5b
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 11
-
-
  413 01e4 0F       		.uleb128 0xf
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 11
+
+
  414 01e5 E2000000 		.4byte	.LASF30
  415 01e9 03       		.byte	0x3
  416 01ea 8B       		.byte	0x8b
@@ -658,10 +657,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  467 002f 0B       		.uleb128 0xb
  468 0030 3B       		.uleb128 0x3b
  469 0031 05       		.uleb128 0x5
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 12
-
-
  470 0032 49       		.uleb128 0x49
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 12
+
+
  471 0033 13       		.uleb128 0x13
  472 0034 00       		.byte	0
  473 0035 00       		.byte	0
@@ -718,10 +717,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  524 0068 01       		.byte	0x1
  525 0069 3F       		.uleb128 0x3f
  526 006a 19       		.uleb128 0x19
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 13
-
-
  527 006b 03       		.uleb128 0x3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 13
+
+
  528 006c 0E       		.uleb128 0xe
  529 006d 3A       		.uleb128 0x3a
  530 006e 0B       		.uleb128 0xb
@@ -778,10 +777,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  581 00a4 0B       		.uleb128 0xb
  582 00a5 27       		.uleb128 0x27
  583 00a6 19       		.uleb128 0x19
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 14
-
-
  584 00a7 49       		.uleb128 0x49
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 14
+
+
  585 00a8 13       		.uleb128 0x13
  586 00a9 3C       		.uleb128 0x3c
  587 00aa 19       		.uleb128 0x19
@@ -838,10 +837,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  638 000a 04       		.byte	0x4
  639 000b 00       		.byte	0
  640 000c 0000     		.2byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 15
-
-
  641 000e 0000     		.2byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 15
+
+
  642 0010 00000000 		.4byte	.LFB0
  643 0014 20000000 		.4byte	.LFE0-.LFB0
  644 0018 00000000 		.4byte	.LFB1
@@ -898,10 +897,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  675              	.LASF32:
  676 0060 47656E65 		.ascii	"Generated_Source\\PSoC5\\b3_critical_timer_PM.c\000"
  676      72617465 
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 16
-
-
  676      645F536F 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 16
+
+
  676      75726365 
  676      5C50536F 
  677              	.LASF28:
@@ -955,18 +954,18 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  698      63616C5F 
  698      74696D65 
  698      725F6261 
- 699              	.LASF26:
- 700 014c 62335F63 		.ascii	"b3_critical_timer_ReadControlRegister\000"
- 700      72697469 
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 17
+ 699              	.LASF10:
+ 700 014c 75696E74 		.ascii	"uint16\000"
+ 700      313600
+ 701              	.LASF26:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 17
 
 
- 700      63616C5F 
- 700      74696D65 
- 700      725F5265 
- 701              	.LASF10:
- 702 0172 75696E74 		.ascii	"uint32\000"
- 702      333200
+ 702 0153 62335F63 		.ascii	"b3_critical_timer_ReadControlRegister\000"
+ 702      72697469 
+ 702      63616C5F 
+ 702      74696D65 
+ 702      725F5265 
  703              	.LASF31:
  704 0179 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  704      4320342E 
@@ -1018,10 +1017,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 1
  719              	.LASF24:
  720 0273 62335F63 		.ascii	"b3_critical_timer_Wakeup\000"
  720      72697469 
-ARM GAS  D:\Windows\AppData\Local\Temp\cc20g8Hf.s 			page 18
-
-
  720      63616C5F 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmAiNE2.s 			page 18
+
+
  720      74696D65 
  720      725F5761 
  721              	.LASF13:

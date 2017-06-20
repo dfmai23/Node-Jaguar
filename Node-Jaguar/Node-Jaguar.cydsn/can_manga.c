@@ -1,11 +1,12 @@
 /* ========================================
  * Can API for FRUCD
- * Schuyler Alschuler 2016 - 2017
+ * Dustin Mai, Schuyler Alschuler 2016 - 2017
  * ========================================
 */
 
 #include "CAN.h"
 #include "can_manga.h"
+#include "led_manager.h"
 
 extern volatile uint32_t pedalOK;
 
@@ -14,52 +15,46 @@ volatile uint8_t CURTIS_FAULT_CHECK = 0;
 volatile uint8_t CURTIS_HEART_BEAT_CHECK = 0;
 volatile uint8_t ACK_RX = 0;
 volatile uint8_t ERROR_TOLERANCE = 0;
-volatile uint8_t ABS_MOTOR_RPM = 0;
+volatile uint16_t ABS_MOTOR_RPM = 0;
 volatile uint8_t THROTTLE_HIGH = 0;
 volatile uint8_t THROTTLE_LOW = 0;
+volatile uint8_t BMS_TEMP = 0x00;
+volatile uint8_t MTR_TEMP = 0x00;
+volatile uint8_t MTR_CTRL_TEMP = 0x00;
 
-uint8_t getCapacitorVoltage()
-{
+uint8_t getCapacitorVoltage() {
     return CAPACITOR_VOLT;
 }
 
-uint8_t getCurtisFaultCheck()
-{
+uint8_t getCurtisFaultCheck() {
     return CURTIS_FAULT_CHECK;
 }
 
-uint8_t getCurtisHeartBeatCheck()
-{
+uint8_t getCurtisHeartBeatCheck() {
     return CURTIS_HEART_BEAT_CHECK;
 }
 
-uint8_t getAckRx()
-{
+uint8_t getAckRx() {
     return ACK_RX;
 }
 
-uint8_t getErrorTolerance()
-{
+uint8_t getErrorTolerance() {
     return ERROR_TOLERANCE;
 }
 
-uint8_t getABSMotorRPM()
-{
+uint8_t getABSMotorRPM() {
     return ABS_MOTOR_RPM;
 }
 
-uint8_t getPedalLow()
-{
+uint8_t getPedalLow() {
     return THROTTLE_LOW;
 }
 
-uint8_t getPedalHigh()
-{
+uint8_t getPedalHigh() {
     return THROTTLE_HIGH;
 }
 
-void can_receive(uint8_t *msg, int ID)
-{
+void can_receive(uint8_t *msg, int ID) {
     uint8 InterruptState = CyEnterCriticalSection();
     
     uint8_t data[8];
@@ -67,31 +62,41 @@ void can_receive(uint8_t *msg, int ID)
     for (i = 0; i < 8; i++)
         data[i] = msg[i];
         
-    switch (ID) 
-    {
-        case 0x0566: // Curtis Status
+    switch (ID) {
+        case 0x566:    //Curtis Status
             CAPACITOR_VOLT = msg[CAN_DATA_BYTE_1];
-            ABS_MOTOR_RPM = msg[CAN_DATA_BYTE_5];
+            ABS_MOTOR_RPM = msg[CAN_DATA_BYTE_3] << 8;  //high byte
+            ABS_MOTOR_RPM = msg[CAN_DATA_BYTE_4];       //low byte
+            MTR_TEMP = msg[CAN_DATA_BYTE_6];
+            led_write_tach(ABS_MOTOR_RPM);
+            led_write_b2(MTR_TEMP);
             break;
-        case 0xA6:
+        case 0x0A6:
             CURTIS_FAULT_CHECK = 0x1;
             break;
         case 0x726:
             CURTIS_HEART_BEAT_CHECK = 0x1;
             break;
-        case 0x0666:
+        case 0x666:    //Curtis Recieve
             ACK_RX = msg[CAN_DATA_BYTE_1];
+            MTR_CTRL_TEMP = msg[CAN_DATA_BYTE_8];
+            led_write_b3(MTR_CTRL_TEMP);
             break;
-         case 0x0201:
+        case 0x201:
             ERROR_TOLERANCE = msg[CAN_DATA_BYTE_1];
             break;
-        case 0x0200: 
+        case 0x200: 
             pedalOK = 0x0;
             THROTTLE_HIGH = data[CAN_DATA_BYTE_2];
             THROTTLE_LOW = data[CAN_DATA_BYTE_3];
             break;
-    }
-    
+        case 0x488:     //BMS_TEMP
+            BMS_TEMP = msg[CAN_DATA_BYTE_8];    //recieved as hex, read in decimal
+            led_write_b1(BMS_TEMP);
+            break;
+        default:
+            break;
+    } //switch
     CyExitCriticalSection(InterruptState);
 }
 

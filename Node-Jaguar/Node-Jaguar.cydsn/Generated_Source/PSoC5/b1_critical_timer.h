@@ -36,7 +36,7 @@ extern uint8 b1_critical_timer_initVar;
 *           Parameter Defaults
 **************************************/
 
-#define b1_critical_timer_Resolution                 32u
+#define b1_critical_timer_Resolution                 16u
 #define b1_critical_timer_UsingFixedFunction         0u
 #define b1_critical_timer_UsingHWCaptureCounter      0u
 #define b1_critical_timer_SoftwareCaptureMode        0u
@@ -69,7 +69,7 @@ typedef struct
     uint8 TimerEnableState;
     #if(!b1_critical_timer_UsingFixedFunction)
 
-        uint32 TimerUdb;
+        uint16 TimerUdb;
         uint8 InterruptMaskValue;
         #if (b1_critical_timer_UsingHWCaptureCounter)
             uint8 TimerCaptureCounter;
@@ -100,11 +100,11 @@ uint8   b1_critical_timer_ReadStatusRegister(void) ;
     void    b1_critical_timer_WriteControlRegister(uint8 control) ;
 #endif /* (!b1_critical_timer_UDB_CONTROL_REG_REMOVED) */
 
-uint32  b1_critical_timer_ReadPeriod(void) ;
-void    b1_critical_timer_WritePeriod(uint32 period) ;
-uint32  b1_critical_timer_ReadCounter(void) ;
-void    b1_critical_timer_WriteCounter(uint32 counter) ;
-uint32  b1_critical_timer_ReadCapture(void) ;
+uint16  b1_critical_timer_ReadPeriod(void) ;
+void    b1_critical_timer_WritePeriod(uint16 period) ;
+uint16  b1_critical_timer_ReadCounter(void) ;
+void    b1_critical_timer_WriteCounter(uint16 counter) ;
+uint16  b1_critical_timer_ReadCapture(void) ;
 void    b1_critical_timer_SoftwareCapture(void) ;
 
 #if(!b1_critical_timer_UsingFixedFunction) /* UDB Prototypes */
@@ -313,54 +313,54 @@ void b1_critical_timer_Wakeup(void)        ;
     #define b1_critical_timer_CONTROL             (* (reg8 *) b1_critical_timer_TimerUDB_sCTRLReg_SyncCtl_ctrlreg__CONTROL_REG )
     
     #if(b1_critical_timer_Resolution <= 8u) /* 8-bit Timer */
-        #define b1_critical_timer_CAPTURE_LSB         (* (reg8 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-        #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg8 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-        #define b1_critical_timer_PERIOD_LSB          (* (reg8 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-        #define b1_critical_timer_PERIOD_LSB_PTR        ((reg8 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-        #define b1_critical_timer_COUNTER_LSB         (* (reg8 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__A0_REG )
-        #define b1_critical_timer_COUNTER_LSB_PTR       ((reg8 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+        #define b1_critical_timer_CAPTURE_LSB         (* (reg8 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg8 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define b1_critical_timer_PERIOD_LSB          (* (reg8 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define b1_critical_timer_PERIOD_LSB_PTR        ((reg8 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define b1_critical_timer_COUNTER_LSB         (* (reg8 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+        #define b1_critical_timer_COUNTER_LSB_PTR       ((reg8 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
     #elif(b1_critical_timer_Resolution <= 16u) /* 8-bit Timer */
         #if(CY_PSOC3) /* 8-bit addres space */
-            #define b1_critical_timer_CAPTURE_LSB         (* (reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-            #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-            #define b1_critical_timer_PERIOD_LSB          (* (reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-            #define b1_critical_timer_PERIOD_LSB_PTR        ((reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-            #define b1_critical_timer_COUNTER_LSB         (* (reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__A0_REG )
-            #define b1_critical_timer_COUNTER_LSB_PTR       ((reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+            #define b1_critical_timer_CAPTURE_LSB         (* (reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define b1_critical_timer_PERIOD_LSB          (* (reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define b1_critical_timer_PERIOD_LSB_PTR        ((reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define b1_critical_timer_COUNTER_LSB         (* (reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+            #define b1_critical_timer_COUNTER_LSB_PTR       ((reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
         #else /* 16-bit address space */
-            #define b1_critical_timer_CAPTURE_LSB         (* (reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__16BIT_F0_REG )
-            #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__16BIT_F0_REG )
-            #define b1_critical_timer_PERIOD_LSB          (* (reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__16BIT_D0_REG )
-            #define b1_critical_timer_PERIOD_LSB_PTR        ((reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__16BIT_D0_REG )
-            #define b1_critical_timer_COUNTER_LSB         (* (reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__16BIT_A0_REG )
-            #define b1_critical_timer_COUNTER_LSB_PTR       ((reg16 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__16BIT_A0_REG )
+            #define b1_critical_timer_CAPTURE_LSB         (* (reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__16BIT_F0_REG )
+            #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__16BIT_F0_REG )
+            #define b1_critical_timer_PERIOD_LSB          (* (reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__16BIT_D0_REG )
+            #define b1_critical_timer_PERIOD_LSB_PTR        ((reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__16BIT_D0_REG )
+            #define b1_critical_timer_COUNTER_LSB         (* (reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__16BIT_A0_REG )
+            #define b1_critical_timer_COUNTER_LSB_PTR       ((reg16 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__16BIT_A0_REG )
         #endif /* CY_PSOC3 */
     #elif(b1_critical_timer_Resolution <= 24u)/* 24-bit Timer */
-        #define b1_critical_timer_CAPTURE_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-        #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-        #define b1_critical_timer_PERIOD_LSB          (* (reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-        #define b1_critical_timer_PERIOD_LSB_PTR        ((reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-        #define b1_critical_timer_COUNTER_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__A0_REG )
-        #define b1_critical_timer_COUNTER_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+        #define b1_critical_timer_CAPTURE_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+        #define b1_critical_timer_PERIOD_LSB          (* (reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define b1_critical_timer_PERIOD_LSB_PTR        ((reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+        #define b1_critical_timer_COUNTER_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+        #define b1_critical_timer_COUNTER_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
     #else /* 32-bit Timer */
         #if(CY_PSOC3 || CY_PSOC5) /* 8-bit address space */
-            #define b1_critical_timer_CAPTURE_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-            #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__F0_REG )
-            #define b1_critical_timer_PERIOD_LSB          (* (reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-            #define b1_critical_timer_PERIOD_LSB_PTR        ((reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__D0_REG )
-            #define b1_critical_timer_COUNTER_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__A0_REG )
-            #define b1_critical_timer_COUNTER_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+            #define b1_critical_timer_CAPTURE_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__F0_REG )
+            #define b1_critical_timer_PERIOD_LSB          (* (reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define b1_critical_timer_PERIOD_LSB_PTR        ((reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__D0_REG )
+            #define b1_critical_timer_COUNTER_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
+            #define b1_critical_timer_COUNTER_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
         #else /* 32-bit address space */
-            #define b1_critical_timer_CAPTURE_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__32BIT_F0_REG )
-            #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__32BIT_F0_REG )
-            #define b1_critical_timer_PERIOD_LSB          (* (reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__32BIT_D0_REG )
-            #define b1_critical_timer_PERIOD_LSB_PTR        ((reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__32BIT_D0_REG )
-            #define b1_critical_timer_COUNTER_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__32BIT_A0_REG )
-            #define b1_critical_timer_COUNTER_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__32BIT_A0_REG )
+            #define b1_critical_timer_CAPTURE_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__32BIT_F0_REG )
+            #define b1_critical_timer_CAPTURE_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__32BIT_F0_REG )
+            #define b1_critical_timer_PERIOD_LSB          (* (reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__32BIT_D0_REG )
+            #define b1_critical_timer_PERIOD_LSB_PTR        ((reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__32BIT_D0_REG )
+            #define b1_critical_timer_COUNTER_LSB         (* (reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__32BIT_A0_REG )
+            #define b1_critical_timer_COUNTER_LSB_PTR       ((reg32 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__32BIT_A0_REG )
         #endif /* CY_PSOC3 || CY_PSOC5 */ 
     #endif
 
-    #define b1_critical_timer_COUNTER_LSB_PTR_8BIT       ((reg8 *) b1_critical_timer_TimerUDB_sT32_timerdp_u0__A0_REG )
+    #define b1_critical_timer_COUNTER_LSB_PTR_8BIT       ((reg8 *) b1_critical_timer_TimerUDB_sT16_timerdp_u0__A0_REG )
     
     #if (b1_critical_timer_UsingHWCaptureCounter)
         #define b1_critical_timer_CAP_COUNT              (*(reg8 *) b1_critical_timer_TimerUDB_sCapCount_counter__PERIOD_REG )

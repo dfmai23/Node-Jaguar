@@ -31,27 +31,27 @@
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\CAN_INT.c" value="SOURCE_C;CortexM3;;;;CAN" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\CAN_PM.c" value="SOURCE_C;CortexM3;;;;CAN" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\CAN_TX_RX_func.c" value="SOURCE_C;CortexM3;;;;CAN" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\LED_aliases.h" value="HEADER;;;;;LED" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\LED.c" value="SOURCE_C;CortexM3;;;;LED" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\LED.h" value="HEADER;;;;;LED" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Buzzer_aliases.h" value="HEADER;;;;;Buzzer" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Buzzer.c" value="SOURCE_C;CortexM3;;;;Buzzer" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Buzzer.h" value="HEADER;;;;;Buzzer" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB1_1_aliases.h" value="HEADER;;;;;RGB1_1" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB1_1.c" value="SOURCE_C;CortexM3;;;;RGB1_1" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB1_1.h" value="HEADER;;;;;RGB1_1" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\HV_aliases.h" value="HEADER;;;;;HV" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\HV.c" value="SOURCE_C;CortexM3;;;;HV" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\HV.h" value="HEADER;;;;;HV" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Drive_aliases.h" value="HEADER;;;;;Drive" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Drive.c" value="SOURCE_C;CortexM3;;;;Drive" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Drive.h" value="HEADER;;;;;Drive" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB3_1_aliases.h" value="HEADER;;;;;RGB3_1" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB3_1.c" value="SOURCE_C;CortexM3;;;;RGB3_1" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB3_1.h" value="HEADER;;;;;RGB3_1" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB2_1_aliases.h" value="HEADER;;;;;RGB2_1" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB2_1.c" value="SOURCE_C;CortexM3;;;;RGB2_1" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB2_1.h" value="HEADER;;;;;RGB2_1" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB1_1_aliases.h" value="HEADER;;;;;RGB1_1" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB1_1.c" value="SOURCE_C;CortexM3;;;;RGB1_1" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB1_1.h" value="HEADER;;;;;RGB1_1" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB3_1_aliases.h" value="HEADER;;;;;RGB3_1" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB3_1.c" value="SOURCE_C;CortexM3;;;;RGB3_1" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\RGB3_1.h" value="HEADER;;;;;RGB3_1" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Buzzer_aliases.h" value="HEADER;;;;;Buzzer" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Buzzer.c" value="SOURCE_C;CortexM3;;;;Buzzer" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Buzzer.h" value="HEADER;;;;;Buzzer" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\LED_aliases.h" value="HEADER;;;;;LED" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\LED.c" value="SOURCE_C;CortexM3;;;;LED" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\LED.h" value="HEADER;;;;;LED" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\CAN_Timer.c" value="SOURCE_C;CortexM3;;;;CAN_Timer" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\CAN_Timer.h" value="HEADER;;;;;CAN_Timer" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\CAN_Timer_PM.c" value="SOURCE_C;CortexM3;;;;CAN_Timer" />
@@ -122,6 +122,11 @@
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\c1_critical_timer_PM.c" value="SOURCE_C;CortexM3;;;;c1_critical_timer" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\c1_crit_int.c" value="SOURCE_C;CortexM3;;;;c1_crit_int" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\c1_crit_int.h" value="HEADER;;;;;c1_crit_int" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\tach_critical_timer.c" value="SOURCE_C;CortexM3;;;;tach_critical_timer" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\tach_critical_timer.h" value="HEADER;;;;;tach_critical_timer" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\tach_critical_timer_PM.c" value="SOURCE_C;CortexM3;;;;tach_critical_timer" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\tach_crit_int.c" value="SOURCE_C;CortexM3;;;;tach_crit_int" />
+  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\tach_crit_int.h" value="HEADER;;;;;tach_crit_int" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Cm3RealView.scat" value="LINKER_SCRIPT;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;;cy_boot" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Cm3Start.c" value="SOURCE_C;CortexM3;;;;cy_boot" />

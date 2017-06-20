@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
   29:Generated_Source\PSoC5/LED_Driver2.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/LED_Driver2.c **** * Function Name: LED_Driver2_Init
   31:Generated_Source\PSoC5/LED_Driver2.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 2
 
 
   32:Generated_Source\PSoC5/LED_Driver2.c **** *
@@ -110,7 +110,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
   64:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_INT_MASK_REG = LED_Driver2_DEFAULT_INT_MASK;
   41              		.loc 1 64 0
   42 0008 0125     		movs	r5, #1
-  43 000a EC3B     		subs	r3, r3, #236
+  43 000a 0C33     		adds	r3, r3, #12
   44 000c 1D70     		strb	r5, [r3]
   65:Generated_Source\PSoC5/LED_Driver2.c **** 
   66:Generated_Source\PSoC5/LED_Driver2.c ****     /* Enable interrupt generation in status */
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
   45              		.loc 1 67 0
   46 000e FFF7FEFF 		bl	CyEnterCriticalSection
   47              	.LVL0:
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 3
 
 
   68:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_INT_ENABLE_REG |= LED_Driver2_INTR_ENABLE;
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
   92:Generated_Source\PSoC5/LED_Driver2.c ****     #endif /* (LED_Driver2_INTERN_I2C_INTR_HANDLER) */
   93:Generated_Source\PSoC5/LED_Driver2.c **** 
   94:Generated_Source\PSoC5/LED_Driver2.c ****     /* Set FSM to default state */
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 4
 
 
   95:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_state = LED_Driver2_SM_IDLE;
@@ -215,9 +215,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
   92              	.L4:
   93 0056 00BF     		.align	2
   94              	.L3:
-  95 0058 7A650040 		.word	1073767802
-  96 005c 9E640040 		.word	1073767582
-  97 0060 23640040 		.word	1073767459
+  95 0058 7F640040 		.word	1073767551
+  96 005c 9B640040 		.word	1073767579
+  97 0060 2B650040 		.word	1073767723
   98 0064 80E100E0 		.word	-536813184
   99 0068 00000000 		.word	LED_Driver2_ISR
  100 006c 00000000 		.word	LED_Driver2_state
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  112:Generated_Source\PSoC5/LED_Driver2.c **** #endif /* (LED_Driver2_MODE_MASTER_ENABLED) */
  113:Generated_Source\PSoC5/LED_Driver2.c **** }
  114:Generated_Source\PSoC5/LED_Driver2.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 5
 
 
  115:Generated_Source\PSoC5/LED_Driver2.c **** 
@@ -293,12 +293,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  126              	.L7:
  127              		.align	2
  128              	.L6:
- 129 000c 7A650040 		.word	1073767802
+ 129 000c 7F640040 		.word	1073767551
  130              		.cfi_endproc
  131              	.LFE1:
  132              		.size	LED_Driver2_Enable, .-LED_Driver2_Enable
  133              		.section	.text.LED_Driver2_Start,"ax",%progbits
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 6
 
 
  134              		.align	2
@@ -358,7 +358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  149              		.loc 1 191 0
  150 0002 074B     		ldr	r3, .L11
  151 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 7
 
 
  152 0006 23B9     		cbnz	r3, .L9
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  213:Generated_Source\PSoC5/LED_Driver2.c **** * Return:
  214:Generated_Source\PSoC5/LED_Driver2.c **** *  None.
  215:Generated_Source\PSoC5/LED_Driver2.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 8
 
 
  216:Generated_Source\PSoC5/LED_Driver2.c **** *******************************************************************************/
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  261:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_CFG_REG &= (uint8) ~LED_Driver2_ENABLE_MS;
  194              		.loc 1 261 0
  195 0006 0A49     		ldr	r1, .L14+4
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 9
 
 
  196 0008 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
@@ -504,7 +504,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  276:Generated_Source\PSoC5/LED_Driver2.c ****     /* Disable interrupt on stop (enabled by write transaction) */
  277:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_DISABLE_INT_ON_STOP;
  202              		.loc 1 277 0
- 203 0014 EC39     		subs	r1, r1, #236
+ 203 0014 0C31     		adds	r1, r1, #12
  204 0016 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
  205 0018 03F0DF03 		and	r3, r3, #223
  206 001c 0B70     		strb	r3, [r1]
@@ -524,8 +524,8 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  216 002a 00BF     		.align	2
  217              	.L14:
  218 002c 80E100E0 		.word	-536813184
- 219 0030 7A650040 		.word	1073767802
- 220 0034 6E640040 		.word	1073767534
+ 219 0030 7F640040 		.word	1073767551
+ 220 0034 6B640040 		.word	1073767531
  221 0038 80E200E0 		.word	-536812928
  222 003c 00000000 		.word	LED_Driver2_state
  223              		.cfi_endproc
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  230              		.type	LED_Driver2_initVar, %object
  231              		.size	LED_Driver2_initVar, 1
  232              	LED_Driver2_initVar:
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 10
 
 
  233 0000 00       		.space	1
@@ -598,7 +598,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  287 005f 05       		.byte	0x5
  288 0060 696E7400 		.ascii	"int\000"
  289 0064 02       		.uleb128 0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 11
 
 
  290 0065 04       		.byte	0x4
@@ -658,7 +658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  344 00d9 01       		.byte	0x1
  345 00da 31       		.byte	0x31
  346 00db 00000000 		.4byte	.LFB0
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 12
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 12
 
 
  347 00df 7C000000 		.4byte	.LFE0-.LFB0
@@ -718,7 +718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  401 014b BD       		.byte	0xbd
  402 014c 00000000 		.4byte	.LFB2
  403 0150 28000000 		.4byte	.LFE2-.LFB2
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 13
 
 
  404 0154 01       		.uleb128 0x1
@@ -778,7 +778,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  458 01cc 12       		.uleb128 0x12
  459 01cd D7010000 		.4byte	.LASF27
  460 01d1 04       		.byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 14
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 14
 
 
  461 01d2 7F       		.byte	0x7f
@@ -838,7 +838,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  515 001a 03       		.uleb128 0x3
  516 001b 0E       		.uleb128 0xe
  517 001c 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 15
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 15
 
 
  518 001d 00       		.byte	0
@@ -898,7 +898,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  572 0053 0E       		.uleb128 0xe
  573 0054 3A       		.uleb128 0x3a
  574 0055 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 16
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 16
 
 
  575 0056 3B       		.uleb128 0x3b
@@ -958,7 +958,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  629 0093 02       		.uleb128 0x2
  630 0094 18       		.uleb128 0x18
  631 0095 9142     		.uleb128 0x2111
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 17
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 17
 
 
  632 0097 18       		.uleb128 0x18
@@ -1018,7 +1018,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  686 00d0 00       		.byte	0
  687 00d1 03       		.uleb128 0x3
  688 00d2 0E       		.uleb128 0xe
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 18
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 18
 
 
  689 00d3 3A       		.uleb128 0x3a
@@ -1078,7 +1078,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  743 0109 13       		.uleb128 0x13
  744 010a 00       		.byte	0
  745 010b 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 19
 
 
  746 010c 14       		.uleb128 0x14
@@ -1138,7 +1138,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  800 0014 28000000 		.4byte	.LFE2
  801 0018 00000000 		.4byte	.LFB3
  802 001c 40000000 		.4byte	.LFE3
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 20
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 20
 
 
  803 0020 00000000 		.4byte	0
@@ -1198,7 +1198,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  825 009f 666C6F61 		.ascii	"float\000"
  825      7400
  826              	.LASF7:
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 21
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 21
 
 
  827 00a5 6C6F6E67 		.ascii	"long long unsigned int\000"
@@ -1258,7 +1258,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  848      6973696F 
  848      6E203232 
  848      31323230 
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 22
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 22
 
 
  849 0199 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
@@ -1318,7 +1318,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 1
  871 0248 6C6F6E67 		.ascii	"long int\000"
  871      20696E74 
  871      00
-ARM GAS  D:\Windows\AppData\Local\Temp\cchO4K8L.s 			page 23
+ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 23
 
 
  872              	.LASF32:

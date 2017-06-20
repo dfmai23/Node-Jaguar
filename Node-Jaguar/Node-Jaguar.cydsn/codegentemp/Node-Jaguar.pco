@@ -1,5 +1,5 @@
 # Node-Jaguar
-# 2017-06-19 22:40:18Z
+# 2017-06-20 20:38:40Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -11,143 +11,137 @@ dont_use_io iocell 1 3
 dont_use_io iocell 15 0
 # IO_1@[IOP=(15)][IoId=(1)] is reserved: MhzXtalEnabled
 dont_use_io iocell 15 1
-set_location "\LED_Driver1:bI2C_UDB:m_state_4_split\" 1 1 0 0
+set_location "\LED_Driver1:bI2C_UDB:m_state_4_split\" 3 4 1 0
 set_location "ClockBlock" clockblockcell -1 -1 0
 set_io "RX(0)" iocell 2 5
 set_io "TX(0)" iocell 2 6
-set_io "LED(0)" iocell 6 0
-set_io "Buzzer(0)" iocell 1 6
+set_io "RGB1_1(0)" iocell 0 4
 set_io "HV(0)" iocell 3 1
 set_io "Drive(0)" iocell 3 0
-set_io "RGB3_1(0)" iocell 0 6
 set_io "RGB2_1(0)" iocell 0 5
-set_io "RGB1_1(0)" iocell 0 4
+set_io "RGB3_1(0)" iocell 0 6
+set_io "Buzzer(0)" iocell 1 6
+set_io "LED(0)" iocell 6 0
 set_io "SDA_1(0)" iocell 12 1
 set_io "SCL_1(0)" iocell 12 0
 set_io "RST_1(0)" iocell 15 2
 set_io "SDA_2(0)" iocell 12 4
 set_io "SCL_2(0)" iocell 12 5
 set_io "RST_2(0)" iocell 6 4
-set_location "\Node_Timer:TimerUDB:status_tc\" 3 1 1 1
-set_location "\LED_Driver1:bI2C_UDB:status_5\" 2 3 0 3
-set_location "\LED_Driver1:bI2C_UDB:status_4\" 2 1 1 1
-set_location "\LED_Driver1:bI2C_UDB:cnt_reset\" 3 3 1 1
-set_location "\LED_Driver1:bI2C_UDB:cs_addr_clkgen_1\" 3 5 0 2
-set_location "\LED_Driver1:bI2C_UDB:cs_addr_clkgen_0\" 3 2 0 3
-set_location "\LED_Driver1:bI2C_UDB:cs_addr_shifter_1\" 3 3 0 1
-set_location "\LED_Driver1:bI2C_UDB:cs_addr_shifter_0\" 3 4 0 1
-set_location "\LED_Driver2:bI2C_UDB:status_5\" 0 4 0 2
-set_location "\LED_Driver2:bI2C_UDB:status_4\" 0 3 0 1
-set_location "\LED_Driver2:bI2C_UDB:cnt_reset\" 1 4 0 1
-set_location "\LED_Driver2:bI2C_UDB:cs_addr_clkgen_1\" 2 4 1 0
-set_location "\LED_Driver2:bI2C_UDB:cs_addr_clkgen_0\" 2 4 0 0
-set_location "\LED_Driver2:bI2C_UDB:m_state_0_split\" 0 0 0 1
-set_location "\LED_Driver2:bI2C_UDB:cs_addr_shifter_1\" 2 5 1 0
-set_location "\LED_Driver2:bI2C_UDB:cs_addr_shifter_0\" 2 5 0 2
-set_location "\LED_Driver2:bI2C_UDB:m_state_2_split\" 0 2 0 0
-set_location "\b1_critical_timer:TimerUDB:status_tc\" 2 3 1 0
-set_location "\b2_critical_timer:TimerUDB:status_tc\" 1 3 1 1
-set_location "\b3_critical_timer:TimerUDB:status_tc\" 2 0 0 3
-set_location "\c1_critical_timer:TimerUDB:status_tc\" 1 3 0 3
+set_location "\LED_Driver1:bI2C_UDB:status_5\" 3 1 0 0
+set_location "\LED_Driver1:bI2C_UDB:status_4\" 3 1 1 1
+set_location "\LED_Driver1:bI2C_UDB:cnt_reset\" 2 2 1 0
+set_location "\LED_Driver1:bI2C_UDB:cs_addr_clkgen_1\" 2 1 0 0
+set_location "\LED_Driver1:bI2C_UDB:cs_addr_clkgen_0\" 2 1 0 3
+set_location "\LED_Driver1:bI2C_UDB:cs_addr_shifter_1\" 1 1 1 2
+set_location "\LED_Driver1:bI2C_UDB:cs_addr_shifter_0\" 2 0 1 1
+set_location "\LED_Driver2:bI2C_UDB:status_5\" 0 3 0 0
+set_location "\LED_Driver2:bI2C_UDB:status_4\" 2 4 1 2
+set_location "\LED_Driver2:bI2C_UDB:cnt_reset\" 0 2 1 3
+set_location "\LED_Driver2:bI2C_UDB:cs_addr_clkgen_1\" 1 0 0 0
+set_location "\LED_Driver2:bI2C_UDB:cs_addr_clkgen_0\" 0 4 1 3
+set_location "\LED_Driver2:bI2C_UDB:m_state_0_split\" 1 4 1 3
+set_location "\LED_Driver2:bI2C_UDB:cs_addr_shifter_1\" 0 3 1 1
+set_location "\LED_Driver2:bI2C_UDB:cs_addr_shifter_0\" 1 1 1 1
+set_location "\LED_Driver2:bI2C_UDB:m_state_2_split\" 1 4 0 0
+set_location "\b1_critical_timer:TimerUDB:status_tc\" 0 0 1 1
+set_location "\b2_critical_timer:TimerUDB:status_tc\" 3 2 0 2
+set_location "\b3_critical_timer:TimerUDB:status_tc\" 3 5 0 3
+set_location "\c1_critical_timer:TimerUDB:status_tc\" 2 2 1 3
+set_location "\tach_critical_timer:TimerUDB:status_tc\" 0 2 1 2
 set_location "\CAN:CanIP\" cancell -1 -1 0
 set_location "\CAN:isr\" interrupt -1 -1 16
 set_location "\CAN_Timer:TimerHW\" timercell -1 -1 0
-set_location "\LED_Driver2:bI2C_UDB:m_state_4_split\" 0 1 1 2
-set_location "__ONE__" 2 1 0 1
+set_location "\LED_Driver2:bI2C_UDB:m_state_4_split\" 2 5 0 0
+set_location "__ONE__" 2 2 0 3
 set_location "isr_can" interrupt -1 -1 6
-set_location "\Node_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 2 3 6
-set_location "\Node_Timer:TimerUDB:rstSts:stsreg\" 3 0 4
-set_location "\Node_Timer:TimerUDB:sT24:timerdp:u0\" 2 3 2
-set_location "\Node_Timer:TimerUDB:sT24:timerdp:u1\" 3 3 2
-set_location "\Node_Timer:TimerUDB:sT24:timerdp:u2\" 3 2 2
-set_location "isr_nodeok" interrupt -1 -1 7
+set_location "\Node_Timer:TimerHW\" timercell -1 -1 1
+set_location "isr_nodeok" interrupt -1 -1 18
 set_location "\LED_Driver1:I2C_IRQ\" interrupt -1 -1 0
-set_location "\LED_Driver1:bI2C_UDB:SyncCtl:CtrlReg\" 2 2 6
-set_location "\LED_Driver1:bI2C_UDB:StsReg\" 3 1 4
-set_location "\LED_Driver1:bI2C_UDB:Shifter:u0\" 3 4 2
-set_location "\LED_Driver1:bI2C_UDB:Master:ClkGen:u0\" 3 5 2
+set_location "\LED_Driver1:bI2C_UDB:SyncCtl:CtrlReg\" 3 3 6
+set_location "\LED_Driver1:bI2C_UDB:StsReg\" 1 0 4
+set_location "\LED_Driver1:bI2C_UDB:Shifter:u0\" 2 0 2
+set_location "\LED_Driver1:bI2C_UDB:Master:ClkGen:u0\" 2 1 2
 set_location "\LED_Driver2:I2C_IRQ\" interrupt -1 -1 1
-set_location "\LED_Driver2:bI2C_UDB:SyncCtl:CtrlReg\" 0 0 6
-set_location "\LED_Driver2:bI2C_UDB:StsReg\" 0 5 4
-set_location "\LED_Driver2:bI2C_UDB:Shifter:u0\" 2 5 2
-set_location "\LED_Driver2:bI2C_UDB:Master:ClkGen:u0\" 2 4 2
-set_location "\b1_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 2 4 6
-set_location "\b1_critical_timer:TimerUDB:rstSts:stsreg\" 2 3 4
-set_location "\b1_critical_timer:TimerUDB:sT32:timerdp:u0\" 1 4 2
-set_location "\b1_critical_timer:TimerUDB:sT32:timerdp:u1\" 0 4 2
-set_location "\b1_critical_timer:TimerUDB:sT32:timerdp:u2\" 0 5 2
-set_location "\b1_critical_timer:TimerUDB:sT32:timerdp:u3\" 1 5 2
+set_location "\LED_Driver2:bI2C_UDB:SyncCtl:CtrlReg\" 1 5 6
+set_location "\LED_Driver2:bI2C_UDB:StsReg\" 1 3 4
+set_location "\LED_Driver2:bI2C_UDB:Shifter:u0\" 1 1 2
+set_location "\LED_Driver2:bI2C_UDB:Master:ClkGen:u0\" 1 0 2
+set_location "\b1_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 0 1 6
+set_location "\b1_critical_timer:TimerUDB:rstSts:stsreg\" 0 0 4
+set_location "\b1_critical_timer:TimerUDB:sT16:timerdp:u0\" 0 1 2
+set_location "\b1_critical_timer:TimerUDB:sT16:timerdp:u1\" 0 0 2
 set_location "b1_crit_int" interrupt -1 -1 2
-set_location "\b2_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 0 1 6
-set_location "\b2_critical_timer:TimerUDB:rstSts:stsreg\" 1 1 4
-set_location "\b2_critical_timer:TimerUDB:sT32:timerdp:u0\" 1 1 2
-set_location "\b2_critical_timer:TimerUDB:sT32:timerdp:u1\" 0 1 2
-set_location "\b2_critical_timer:TimerUDB:sT32:timerdp:u2\" 0 0 2
-set_location "\b2_critical_timer:TimerUDB:sT32:timerdp:u3\" 1 0 2
+set_location "\b2_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 3 1 6
+set_location "\b2_critical_timer:TimerUDB:rstSts:stsreg\" 3 2 4
+set_location "\b2_critical_timer:TimerUDB:sT16:timerdp:u0\" 2 3 2
+set_location "\b2_critical_timer:TimerUDB:sT16:timerdp:u1\" 3 3 2
 set_location "b2_crit_int" interrupt -1 -1 3
-set_location "\b3_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 2 0 6
-set_location "\b3_critical_timer:TimerUDB:rstSts:stsreg\" 2 1 4
-set_location "\b3_critical_timer:TimerUDB:sT32:timerdp:u0\" 2 0 2
-set_location "\b3_critical_timer:TimerUDB:sT32:timerdp:u1\" 3 0 2
-set_location "\b3_critical_timer:TimerUDB:sT32:timerdp:u2\" 3 1 2
-set_location "\b3_critical_timer:TimerUDB:sT32:timerdp:u3\" 2 1 2
+set_location "\b3_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 2 5 6
+set_location "\b3_critical_timer:TimerUDB:rstSts:stsreg\" 3 5 4
+set_location "\b3_critical_timer:TimerUDB:sT16:timerdp:u0\" 2 5 2
+set_location "\b3_critical_timer:TimerUDB:sT16:timerdp:u1\" 3 5 2
 set_location "b3_crit_int" interrupt -1 -1 4
-set_location "\c1_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 0 2 6
-set_location "\c1_critical_timer:TimerUDB:rstSts:stsreg\" 1 3 4
-set_location "\c1_critical_timer:TimerUDB:sT32:timerdp:u0\" 1 2 2
-set_location "\c1_critical_timer:TimerUDB:sT32:timerdp:u1\" 0 2 2
-set_location "\c1_critical_timer:TimerUDB:sT32:timerdp:u2\" 0 3 2
-set_location "\c1_critical_timer:TimerUDB:sT32:timerdp:u3\" 1 3 2
+set_location "\c1_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 3 2 6
+set_location "\c1_critical_timer:TimerUDB:rstSts:stsreg\" 2 3 4
+set_location "\c1_critical_timer:TimerUDB:sT16:timerdp:u0\" 3 2 2
+set_location "\c1_critical_timer:TimerUDB:sT16:timerdp:u1\" 2 2 2
 set_location "c1_crit_int" interrupt -1 -1 5
-set_location "\LED_Driver1:bI2C_UDB:sda_in_reg\" 3 0 0 1
-set_location "\LED_Driver1:bI2C_UDB:m_state_4\" 1 2 0 2
-set_location "\LED_Driver1:bI2C_UDB:m_state_3\" 1 1 1 3
-set_location "\LED_Driver1:bI2C_UDB:m_state_2\" 3 2 1 0
-set_location "\LED_Driver1:bI2C_UDB:m_state_1\" 3 4 1 0
-set_location "\LED_Driver1:bI2C_UDB:m_state_0\" 1 3 0 1
-set_location "\LED_Driver1:bI2C_UDB:status_3\" 3 1 1 0
-set_location "\LED_Driver1:bI2C_UDB:status_2\" 3 5 1 0
-set_location "\LED_Driver1:bI2C_UDB:status_1\" 3 0 0 0
-set_location "\LED_Driver1:bI2C_UDB:status_0\" 3 1 0 0
-set_location "\LED_Driver1:bI2C_UDB:scl_in_reg\" 3 0 0 2
-set_location "\LED_Driver1:bI2C_UDB:scl_in_last_reg\" 2 3 1 2
-set_location "\LED_Driver1:bI2C_UDB:scl_in_last2_reg\" 2 3 1 3
-set_location "\LED_Driver1:bI2C_UDB:sda_in_last_reg\" 3 2 1 1
-set_location "\LED_Driver1:bI2C_UDB:sda_in_last2_reg\" 2 3 1 1
-set_location "\LED_Driver1:bI2C_UDB:clkgen_tc1_reg\" 3 3 0 3
-set_location "\LED_Driver1:bI2C_UDB:lost_arb_reg\" 2 0 0 1
-set_location "\LED_Driver1:bI2C_UDB:m_state_0_split\" 1 2 1 0
-set_location "\LED_Driver1:bI2C_UDB:clkgen_tc2_reg\" 2 0 1 2
-set_location "\LED_Driver1:bI2C_UDB:bus_busy_reg\" 2 2 1 3
-set_location "\LED_Driver1:bI2C_UDB:clk_eq_reg\" 3 0 0 3
-set_location "\LED_Driver1:Net_643_3\" 3 5 0 1
-set_location "\LED_Driver1:sda_x_wire\" 2 0 1 0
-set_location "\LED_Driver1:bI2C_UDB:m_reset\" 2 1 1 3
-set_location "\LED_Driver2:bI2C_UDB:sda_in_reg\" 0 5 0 2
-set_location "\LED_Driver2:bI2C_UDB:m_state_4\" 0 2 1 3
-set_location "\LED_Driver2:bI2C_UDB:m_state_3\" 0 0 1 0
-set_location "\LED_Driver2:bI2C_UDB:m_state_2\" 0 3 0 2
-set_location "\LED_Driver2:bI2C_UDB:m_state_1\" 0 3 1 3
-set_location "\LED_Driver2:bI2C_UDB:m_state_0\" 1 0 1 0
-set_location "\LED_Driver2:bI2C_UDB:status_3\" 2 5 0 0
-set_location "\LED_Driver2:bI2C_UDB:status_2\" 0 4 1 0
-set_location "\LED_Driver2:bI2C_UDB:status_1\" 0 5 0 0
-set_location "\LED_Driver2:bI2C_UDB:status_0\" 0 5 1 0
-set_location "\LED_Driver2:bI2C_UDB:scl_in_reg\" 0 5 1 3
-set_location "\LED_Driver2:bI2C_UDB:scl_in_last_reg\" 1 4 1 1
-set_location "\LED_Driver2:bI2C_UDB:scl_in_last2_reg\" 0 4 1 3
-set_location "\LED_Driver2:bI2C_UDB:sda_in_last_reg\" 0 5 0 3
-set_location "\LED_Driver2:bI2C_UDB:sda_in_last2_reg\" 0 4 1 1
-set_location "\LED_Driver2:bI2C_UDB:clkgen_tc1_reg\" 2 4 0 1
-set_location "\LED_Driver2:bI2C_UDB:lost_arb_reg\" 1 5 1 2
-set_location "\LED_Driver1:bI2C_UDB:m_state_2_split\" 2 2 0 0
-set_location "\LED_Driver2:bI2C_UDB:clkgen_tc2_reg\" 2 1 0 0
-set_location "\LED_Driver2:bI2C_UDB:bus_busy_reg\" 0 4 0 0
-set_location "\LED_Driver2:bI2C_UDB:clk_eq_reg\" 0 5 1 1
-set_location "\LED_Driver2:Net_643_3\" 2 4 1 2
-set_location "\LED_Driver2:sda_x_wire\" 1 4 1 0
-set_location "\LED_Driver2:bI2C_UDB:m_reset\" 0 5 1 2
-set_location "Net_111" 2 3 0 0
-set_location "Net_154" 1 5 0 2
-set_location "Net_164" 3 0 1 1
-set_location "Net_174" 1 3 1 3
+set_location "\tach_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 1 1 6
+set_location "\tach_critical_timer:TimerUDB:rstSts:stsreg\" 0 2 4
+set_location "\tach_critical_timer:TimerUDB:sT16:timerdp:u0\" 1 2 2
+set_location "\tach_critical_timer:TimerUDB:sT16:timerdp:u1\" 0 2 2
+set_location "tach_crit_int" interrupt -1 -1 7
+set_location "\LED_Driver1:bI2C_UDB:sda_in_reg\" 3 0 0 3
+set_location "\LED_Driver1:bI2C_UDB:m_state_4\" 2 4 1 0
+set_location "\LED_Driver1:bI2C_UDB:m_state_3\" 3 4 0 0
+set_location "\LED_Driver1:bI2C_UDB:m_state_2\" 2 3 1 2
+set_location "\LED_Driver1:bI2C_UDB:m_state_1\" 2 4 0 1
+set_location "\LED_Driver1:bI2C_UDB:m_state_0\" 3 2 0 0
+set_location "\LED_Driver1:bI2C_UDB:status_3\" 1 1 0 3
+set_location "\LED_Driver1:bI2C_UDB:status_2\" 1 0 1 0
+set_location "\LED_Driver1:bI2C_UDB:status_1\" 3 0 0 2
+set_location "\LED_Driver1:bI2C_UDB:status_0\" 1 0 0 1
+set_location "\LED_Driver1:bI2C_UDB:scl_in_reg\" 2 0 0 1
+set_location "\LED_Driver1:bI2C_UDB:scl_in_last_reg\" 3 2 1 1
+set_location "\LED_Driver1:bI2C_UDB:scl_in_last2_reg\" 3 0 0 0
+set_location "\LED_Driver1:bI2C_UDB:sda_in_last_reg\" 3 0 1 1
+set_location "\LED_Driver1:bI2C_UDB:sda_in_last2_reg\" 3 0 0 1
+set_location "\LED_Driver1:bI2C_UDB:clkgen_tc1_reg\" 2 0 0 3
+set_location "\LED_Driver1:bI2C_UDB:lost_arb_reg\" 2 0 0 0
+set_location "\LED_Driver1:bI2C_UDB:m_state_0_split\" 3 3 1 0
+set_location "\LED_Driver1:bI2C_UDB:clkgen_tc2_reg\" 2 1 1 2
+set_location "\LED_Driver1:bI2C_UDB:bus_busy_reg\" 3 0 1 0
+set_location "\LED_Driver1:bI2C_UDB:clk_eq_reg\" 2 0 0 2
+set_location "\LED_Driver1:Net_643_3\" 2 2 0 1
+set_location "\LED_Driver1:sda_x_wire\" 2 1 1 0
+set_location "\LED_Driver1:bI2C_UDB:m_reset\" 3 1 1 0
+set_location "\LED_Driver2:bI2C_UDB:sda_in_reg\" 0 5 1 2
+set_location "\LED_Driver2:bI2C_UDB:m_state_4\" 1 5 0 1
+set_location "\LED_Driver2:bI2C_UDB:m_state_3\" 2 5 1 1
+set_location "\LED_Driver2:bI2C_UDB:m_state_2\" 1 3 0 3
+set_location "\LED_Driver2:bI2C_UDB:m_state_1\" 1 2 1 1
+set_location "\LED_Driver2:bI2C_UDB:m_state_0\" 0 4 0 3
+set_location "\LED_Driver2:bI2C_UDB:status_3\" 1 3 1 0
+set_location "\LED_Driver2:bI2C_UDB:status_2\" 1 2 0 2
+set_location "\LED_Driver2:bI2C_UDB:status_1\" 0 5 1 3
+set_location "\LED_Driver2:bI2C_UDB:status_0\" 0 3 0 2
+set_location "\LED_Driver2:bI2C_UDB:scl_in_reg\" 0 5 1 1
+set_location "\LED_Driver2:bI2C_UDB:scl_in_last_reg\" 0 3 1 0
+set_location "\LED_Driver2:bI2C_UDB:scl_in_last2_reg\" 0 1 0 0
+set_location "\LED_Driver2:bI2C_UDB:sda_in_last_reg\" 0 5 0 2
+set_location "\LED_Driver2:bI2C_UDB:sda_in_last2_reg\" 0 3 1 2
+set_location "\LED_Driver2:bI2C_UDB:clkgen_tc1_reg\" 0 1 1 1
+set_location "\LED_Driver2:bI2C_UDB:lost_arb_reg\" 0 4 1 2
+set_location "\LED_Driver1:bI2C_UDB:m_state_2_split\" 3 3 0 0
+set_location "\LED_Driver2:bI2C_UDB:clkgen_tc2_reg\" 1 5 0 0
+set_location "\LED_Driver2:bI2C_UDB:bus_busy_reg\" 0 2 0 3
+set_location "\LED_Driver2:bI2C_UDB:clk_eq_reg\" 0 5 1 0
+set_location "\LED_Driver2:Net_643_3\" 0 1 0 2
+set_location "\LED_Driver2:sda_x_wire\" 1 5 1 0
+set_location "\LED_Driver2:bI2C_UDB:m_reset\" 1 5 0 2
+set_location "Net_111" 0 0 0 2
+set_location "Net_154" 2 1 0 2
+set_location "Net_164" 3 5 1 0
+set_location "Net_174" 3 5 0 0
+set_location "Net_138" 0 0 0 1

@@ -1,5 +1,5 @@
-D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\Node-Jaguar.cyprj|5930c3c7-fd26-466c-bc3d-007ac32b8f85
-D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|626688f1-feb3-45c4-8f20-467a18d0167e
-D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|5c3facf7-82c4-4716-b2b2-56c84ef19e35
-D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|4f5f5795-31cd-482f-a47d-658789f48a38
-D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|7e1c0265-463b-4531-8a41-5cd5c149d420
+D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\Node-Jaguar.cyprj|95809ba4-b6b2-4ee8-8651-27b82bf0388a
+D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|eef6c206-7842-4932-a9ab-c6f0214528dd
+D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d7387480-d708-4e31-aa9b-bc7cb47d69fd
+D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b3917e3d-f843-47f5-b101-1dad7cddea1c
+D:\Programming\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|24004af8-b971-437f-8764-d0a78ba420c7

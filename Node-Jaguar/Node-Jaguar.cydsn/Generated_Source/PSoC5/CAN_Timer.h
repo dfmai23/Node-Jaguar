@@ -168,7 +168,7 @@ void CAN_Timer_Wakeup(void)        ;
 *    Initialial Parameter Constants
 ***************************************/
 
-#define CAN_Timer_INIT_PERIOD             9u
+#define CAN_Timer_INIT_PERIOD             99u
 #define CAN_Timer_INIT_CAPTURE_MODE       ((uint8)((uint8)1u << CAN_Timer_CTRL_CAP_MODE_SHIFT))
 #define CAN_Timer_INIT_TRIGGER_MODE       ((uint8)((uint8)0u << CAN_Timer_CTRL_TRIG_MODE_SHIFT))
 #if (CAN_Timer_UsingFixedFunction)

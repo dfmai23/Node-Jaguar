@@ -1,6 +1,8 @@
 /*	Recieves CAN information for motor RPM, BMS temp, motor temp, motor controller temp 
 	and SoC and displatys on LED's.
-
+    
+    Dustin Mai, 2016-2017 FRUCD
+    
 	tach = RPM
 	b1 = BMS temp
 	b2 = motor temp
@@ -8,8 +10,12 @@
 	c1 = SoC
 */
 
-
 #include "led_manager.h"
+
+//temperature (C), step points for each 5-LED monitor set
+int bms_temp_map[] = {0x40, 0x45, 0x50, 0x55, 0x60};
+int mtr_temp_map[] = {50, 75, 100, 125, 150};
+int mtr_ctrl_temp_map[] = {60, 70, 80, 90, 100};
 
 //byte of LED address which holds which led's are on/off
 uint8_t byte05 = 0x00;
@@ -22,21 +28,52 @@ uint8_t byte06_2 = 0x00;
 uint8_t byte07_2 = 0x00;
 uint8_t byte08_2 = 0x00;
 
+//holds which led's are on/off
 int tach_arr[22] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 int b1_arr[5] = {0,0,0,0,0};
 int b2_arr[5] = {0,0,0,0,0};
 int b3_arr[5] = {0,0,0,0,0};
 int c1_arr[5] = {0,0,0,0,0};
 
+int tach_critical = 0;
 int b1_critical = 0;
 int b2_critical = 0;
 int b3_critical = 0;
 int c1_critical = 0;
 
-int b1_crit_led = 0;	//led status to toggle them on/off when monitor reaches critical
+int tach_crit_led = 0;  //led status to toggle them on/off when monitor reaches critical
+int b1_crit_led = 0;	
 int b2_crit_led = 0;
 int b3_crit_led = 0;
 int c1_crit_led = 0;
+
+CY_ISR(tach_crit_isr) {
+    tach_crit_led = tach_crit_led == 0 ? 1:0;
+    d1_write(tach_crit_led);
+    d2_write(tach_crit_led);
+    d3_write(tach_crit_led);
+    d4_write(tach_crit_led);
+    d5_write(tach_crit_led);
+    d6_write(tach_crit_led);
+    d7_write(tach_crit_led);
+    d8_write(tach_crit_led);
+    d9_write(tach_crit_led);
+    d10_write(tach_crit_led);
+    d11_write(tach_crit_led);
+    d12_write(tach_crit_led);
+    d13_write(tach_crit_led);
+    d14_write(tach_crit_led);
+    d15_write(tach_crit_led);
+    d16_write(tach_crit_led);
+    d17_write(tach_crit_led);
+    d18_write(tach_crit_led);
+    d19_write(tach_crit_led);
+    d20_write(tach_crit_led);
+    d21_write(tach_crit_led);
+    d22_write(tach_crit_led);
+    led_update_tach(0);
+}
+
 
 CY_ISR(b1_crit_isr) {
 	b1_crit_led = b1_crit_led == 0 ? 1:0;
@@ -45,6 +82,7 @@ CY_ISR(b1_crit_isr) {
 	b13_write(b1_crit_led);
 	b14_write(b1_crit_led);
 	b15_write(b1_crit_led);
+    led_update_stat();
 
 }
 CY_ISR(b2_crit_isr) {
@@ -54,6 +92,7 @@ CY_ISR(b2_crit_isr) {
 	b23_write(b2_crit_led);
 	b24_write(b2_crit_led);
 	b25_write(b2_crit_led);
+    led_update_stat();
 
 }
 CY_ISR(b3_crit_isr) {
@@ -63,6 +102,7 @@ CY_ISR(b3_crit_isr) {
 	b33_write(b3_crit_led);
 	b34_write(b3_crit_led);
 	b35_write(b3_crit_led);
+    led_update_stat();
 
 }
 CY_ISR(c1_crit_isr) {
@@ -72,6 +112,7 @@ CY_ISR(c1_crit_isr) {
 	c3_write(c1_crit_led);
 	c4_write(c1_crit_led);
 	c5_write(c1_crit_led);
+    led_update_stat();
 }
 
 
@@ -130,11 +171,23 @@ void led_driver_init() {
 
 //calculates and writes RPM to tach led bar based on the maxed RPM
 void led_write_tach(uint16_t MTR_RPM) {
-	int tach_pct = MTR_RPM / MAX_RPM;	//tach percent
+	long tach_pct = MTR_RPM / MAX_RPM;	//tach percent
 	int steps = 0;
-	
+    
+    if(tach_pct < 100) { //not full rpm anymore
+        if(tach_critical) {
+            tach_critical = 0;
+            tach_crit_int_Stop();
+            tach_critical_timer_Stop();
+            d22_write(0);   //actually not using last led for anything but full rpm blinking
+            led_update_tach();
+        } //if 
+    } //if
+    
 	//using TACH_MAX_STEPS = 20 leds, 5% per step
-	if(tach_pct <= 5)
+    if (tach_pct == 0)
+        steps = 0;
+	else if(tach_pct > 0 && tach_pct <= 5)
 		steps = 2;	//first step lights up first 2 led's
 	else if(tach_pct > 5 && tach_pct <= 10)
 		steps = 3;
@@ -172,50 +225,68 @@ void led_write_tach(uint16_t MTR_RPM) {
 		steps = 19;
 	else if(tach_pct > 90 && tach_pct <= 95)
 		steps = 20;
-	else //(tach_pct > 95 && tach_pct <= 100)
+	else if(tach_pct > 95 && tach_pct <= 99)
 		steps = 21;
+    else { //(tach_pct = 100)
+        if(!tach_critical) {	//start blinking
+			tach_critical_timer_Start();
+			tach_crit_int_StartEx(tach_crit_isr);
+			tach_critical = 1;
+		} //if
+	} //else
 	
-	int i;
-	for(i=0; i<steps; i++)
-		tach_arr[i] = 1;	//on leds
-	for(i=steps; i<TACH_MAX_STEPS+2; i++)	//+2 to get d22
-		tach_arr[i] = 0;	//off leds
-	
-	d1_write(tach_arr[0]);
-	d2_write(tach_arr[1]);
-	d3_write(tach_arr[2]);
-	d4_write(tach_arr[3]);
-	d5_write(tach_arr[4]);
-	d6_write(tach_arr[5]);
-	d7_write(tach_arr[6]);
-	d8_write(tach_arr[7]);
-	d9_write(tach_arr[8]);
-	d10_write(tach_arr[9]);
-	d11_write(tach_arr[10]);
-	d12_write(tach_arr[11]);
-	d13_write(tach_arr[12]);
-	d14_write(tach_arr[13]);
-	d15_write(tach_arr[14]);
-	d16_write(tach_arr[15]);
-	d17_write(tach_arr[16]);
-	d18_write(tach_arr[17]);
-	d19_write(tach_arr[18]);
-	d20_write(tach_arr[19]);
-	d21_write(tach_arr[20]);
-	d22_write(tach_arr[21]);
+	if(!tach_critical) {
+    	int i;
+    	for(i=0; i<steps; i++)
+    		tach_arr[i] = 1;	//on leds
+    	for(i=steps; i<TACH_MAX_STEPS+2; i++)	//+2 to get d1 and d22
+    		tach_arr[i] = 0;	//off leds
+    	
+    	d1_write(tach_arr[0]);
+    	d2_write(tach_arr[1]);
+    	d3_write(tach_arr[2]);
+    	d4_write(tach_arr[3]);
+    	d5_write(tach_arr[4]);
+    	d6_write(tach_arr[5]);
+    	d7_write(tach_arr[6]);
+    	d8_write(tach_arr[7]);
+    	d9_write(tach_arr[8]);
+    	d10_write(tach_arr[9]);
+    	d11_write(tach_arr[10]);
+    	d12_write(tach_arr[11]);
+    	d13_write(tach_arr[12]);
+    	d14_write(tach_arr[13]);
+    	d15_write(tach_arr[14]);
+    	d16_write(tach_arr[15]);
+    	d17_write(tach_arr[16]);
+    	d18_write(tach_arr[17]);
+    	d19_write(tach_arr[18]);
+    	d20_write(tach_arr[19]);
+    	d21_write(tach_arr[20]);
+    	d22_write(tach_arr[21]);
+        led_update_tach();
+    } //if
 } //led_write_tach
 
 void led_write_b1(uint8_t BMS_TEMP) {	//left vertical bar, 5 leds
-	int steps = 0;
-	if (BMS_TEMP <= 0x40)
+    if(BMS_TEMP < mtr_temp_map[4]) { //temperature has cooled down, stop blinking
+        if(b1_critical) {
+            b1_critical = 0;
+            b1_crit_int_Stop();
+            b1_critical_timer_Stop();
+        } //if 
+    } //if
+
+    int steps = 0;
+	if (BMS_TEMP <= bms_temp_map[0])
 		steps = 1;
-	else if (BMS_TEMP > 0x40 && BMS_TEMP <= 0x45)
+	else if (BMS_TEMP > bms_temp_map[0] && BMS_TEMP <= bms_temp_map[1])
 		steps = 2;
-	else if (BMS_TEMP > 0x45 && BMS_TEMP <= 0x50)
+	else if (BMS_TEMP > bms_temp_map[1] && BMS_TEMP <= bms_temp_map[2])
 		steps = 3;
-	else if (BMS_TEMP > 0x50 && BMS_TEMP <= 0x55)
+	else if (BMS_TEMP > bms_temp_map[2] && BMS_TEMP <= bms_temp_map[3])
 		steps = 4;
-	else if (BMS_TEMP > 0x55 && BMS_TEMP < 0x60)
+	else if (BMS_TEMP > bms_temp_map[3] && BMS_TEMP < bms_temp_map[4])
 		steps = 5;
 	else {	//(BMS_TEMP >= 60)
 		if(!b1_critical) {	//start blinking
@@ -237,20 +308,29 @@ void led_write_b1(uint8_t BMS_TEMP) {	//left vertical bar, 5 leds
 		b13_write(b1_arr[2]);
 		b14_write(b1_arr[3]);
 		b15_write(b1_arr[4]);
+        led_update_stat();
 	} //if
 }	//led_write_b1()
 
 void led_write_b2(uint8_t MTR_TEMP) {	//center vertical bar, 5 leds
+    if(MTR_TEMP < mtr_temp_map[4]) { //temperature has cooled down, stop blinking
+        if(b2_critical) {
+            b2_critical = 0;
+            b2_crit_int_Stop();
+            b2_critical_timer_Stop();
+        } //if 
+    } //if
+    
 	int steps = 0;
-	if (MTR_TEMP <= 40)
+	if (MTR_TEMP <= mtr_temp_map[0])
 		steps = 1;
-	else if (MTR_TEMP > 40 && MTR_TEMP <= 45)
+	else if (MTR_TEMP > mtr_temp_map[0] && MTR_TEMP <= mtr_temp_map[1])
 		steps = 2;
-	else if (MTR_TEMP > 45 && MTR_TEMP <= 50)
+	else if (MTR_TEMP > mtr_temp_map[1] && MTR_TEMP <= mtr_temp_map[2])
 		steps = 3;
-	else if (MTR_TEMP > 50 && MTR_TEMP <= 55)
+	else if (MTR_TEMP > mtr_temp_map[2] && MTR_TEMP <= mtr_temp_map[3])
 		steps = 4;
-	else if (MTR_TEMP > 55 && MTR_TEMP <= 60)
+	else if (MTR_TEMP > mtr_temp_map[3] && MTR_TEMP <= mtr_temp_map[4])
 		steps = 5;
 	else {	//(MTR_TEMP >= 60)
 		if(!b2_critical) {	//start blinking
@@ -271,21 +351,30 @@ void led_write_b2(uint8_t MTR_TEMP) {	//center vertical bar, 5 leds
 		b22_write(b2_arr[1]);
 		b23_write(b2_arr[2]);
 		b24_write(b2_arr[3]);
-		b25_write(b2_arr[4]);	
+		b25_write(b2_arr[4]);
+        led_update_stat();
 	} //if
 } //led_write_b2()
 
 void led_write_b3(uint8_t MTR_CTRL_TEMP) {	//right vertical bar, 5 leds
+    if(MTR_CTRL_TEMP < mtr_ctrl_temp_map[4]) { //temperature has cooled down, stop blinking
+        if(b3_critical) {
+            b3_critical = 0;
+            b3_crit_int_Stop();
+            b3_critical_timer_Stop();
+        } //if 
+    } //if
+    
 	int steps = 0;
-	if (MTR_CTRL_TEMP <= 40)
+	if (MTR_CTRL_TEMP <= mtr_ctrl_temp_map[0])
 		steps = 1;
-	else if (MTR_CTRL_TEMP > 40 && MTR_CTRL_TEMP <= 45)
+	else if (MTR_CTRL_TEMP > mtr_ctrl_temp_map[0] && MTR_CTRL_TEMP <= mtr_ctrl_temp_map[1])
 		steps = 2;
-	else if (MTR_CTRL_TEMP > 45 && MTR_CTRL_TEMP <= 50)
+	else if (MTR_CTRL_TEMP > mtr_ctrl_temp_map[1] && MTR_CTRL_TEMP <= mtr_ctrl_temp_map[2])
 		steps = 3;
-	else if (MTR_CTRL_TEMP > 50 && MTR_CTRL_TEMP <= 55)
+	else if (MTR_CTRL_TEMP > mtr_ctrl_temp_map[2] && MTR_CTRL_TEMP <= mtr_ctrl_temp_map[3])
 		steps = 4;
-	else if (MTR_CTRL_TEMP > 55 && MTR_CTRL_TEMP <= 59)
+	else if (MTR_CTRL_TEMP > mtr_ctrl_temp_map[3] && MTR_CTRL_TEMP <= mtr_ctrl_temp_map[4])
 		steps = 5;
 	else {	//(MTR_CTRL_TEMP >= 59)
 		if(!b3_critical) {	//start blinking
@@ -307,6 +396,7 @@ void led_write_b3(uint8_t MTR_CTRL_TEMP) {	//right vertical bar, 5 leds
 		b33_write(b3_arr[2]);
 		b34_write(b3_arr[3]);
 		b35_write(b3_arr[4]);
+        led_update_stat();
 	} //if
 } //led_write_b3()
 
@@ -342,8 +432,136 @@ void led_write_c1(uint8_t SoC) {	//horizontal bar, 5 leds
 		c3_write(c1_arr[2]);
 		c4_write(c1_arr[3]);
 		c5_write(c1_arr[4]);
+        led_update_stat();
 	} //if
 } //led_write_c3()
+
+void write_all_tach(int bool) {
+	uint8_t allon = 0x77;
+	
+	LED_Driver1_MasterSendStart(LED_ADDR, 0);
+	LED_Driver1_MasterWriteByte(LED05);
+	if(bool == 1) {
+		LED_Driver1_MasterWriteByte(allon);			//0x05 addr
+		LED_Driver1_MasterWriteByte(allon);			//0x06 addr
+		LED_Driver1_MasterWriteByte(allon);			//0x07 addr
+		LED_Driver1_MasterWriteByte(allon);			//0x08 addr
+	}
+	else {
+		LED_Driver1_MasterWriteByte(0x00);
+		LED_Driver1_MasterWriteByte(0x00);
+		LED_Driver1_MasterWriteByte(0x00);
+		LED_Driver1_MasterWriteByte(0x00);
+	}
+	LED_Driver1_MasterSendStop();
+}
+
+void write_all_stat(int bool) {
+	uint8_t allon = 0x77;
+	
+	LED_Driver2_MasterSendStart(LED_ADDR, 0);
+	LED_Driver2_MasterWriteByte(LED05);	
+	if(bool == 1) {
+		LED_Driver2_MasterWriteByte(allon);			//0x05 addr
+		LED_Driver2_MasterWriteByte(allon);			//0x06 addr
+		LED_Driver2_MasterWriteByte(allon);			//0x07 addr
+		LED_Driver2_MasterWriteByte(allon);			//0x08 addr
+	}
+	else {
+		LED_Driver2_MasterWriteByte(0x00);
+		LED_Driver2_MasterWriteByte(0x00);
+		LED_Driver2_MasterWriteByte(0x00);
+		LED_Driver2_MasterWriteByte(0x00);
+	}
+	LED_Driver2_MasterSendStop();
+}
+
+//display updated LED's to dashboard
+void led_update_tach() {
+	LED_Driver1_MasterSendStart(LED_ADDR, 0);	// 0 = send write command, 1 = send read command
+	LED_Driver1_MasterWriteByte(LED05);		//move to LED addr
+	LED_Driver1_MasterWriteByte(byte05);	//write byte to addr
+    LED_Driver1_MasterWriteByte(byte06);
+    LED_Driver1_MasterWriteByte(byte07);
+    LED_Driver1_MasterWriteByte(byte08);
+	LED_Driver1_MasterSendStop();  
+}
+
+void led_update_stat() {
+	LED_Driver2_MasterSendStart(LED_ADDR, 0);	// 0 = send write command, 1 = send read command
+	LED_Driver2_MasterWriteByte(LED05);		//move to LED addr
+	LED_Driver2_MasterWriteByte(byte05_2);	//write byte to addr
+    LED_Driver2_MasterWriteByte(byte06_2);
+    LED_Driver2_MasterWriteByte(byte07_2);
+    LED_Driver2_MasterWriteByte(byte08_2);
+	LED_Driver2_MasterSendStop();
+}
+
+
+void write_startup_tach() { //based on max rpm = 6000
+    //rev to max and back
+    led_write_tach(0);      CyDelay(TACH_STEP_DELAY);
+    led_write_tach(300);    CyDelay(TACH_STEP_DELAY);
+    led_write_tach(600);    CyDelay(TACH_STEP_DELAY);
+    led_write_tach(900);    CyDelay(TACH_STEP_DELAY);
+    led_write_tach(1200);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(1500);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(1800);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(2100);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(2400);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(2700);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(3000);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(3300);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(3600);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(3900);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(4200);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(4500);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(4800);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(5100);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(5400);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(5700);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(6000);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(5700);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(5400);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(5100);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(4800);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(4500);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(4200);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(3900);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(3600);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(3300);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(3000);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(2700);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(2400);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(2100);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(1800);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(1500);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(1200);   CyDelay(TACH_STEP_DELAY);
+    led_write_tach(900);    CyDelay(TACH_STEP_DELAY);
+    led_write_tach(600);    CyDelay(TACH_STEP_DELAY);
+    led_write_tach(300);    CyDelay(TACH_STEP_DELAY);
+    led_write_tach(0);      CyDelay(TACH_STEP_DELAY);
+}
+void write_startup_stat() {
+    //slowly turns on all bars of each monitor at a time
+    LED_Driver2_MasterSendStart(LED_ADDR, 0);       //max fade 
+    LED_Driver2_MasterWriteByte(0x01);
+    LED_Driver2_MasterWriteByte(0x77);
+    LED_Driver2_MasterSendStop();
+    
+    led_write_b1(59);
+    CyDelay(500);
+    led_write_b2(59);
+    CyDelay(500);
+    led_write_b3(59);
+    CyDelay(500);
+    led_write_c1(99);
+    
+    LED_Driver2_MasterSendStart(LED_ADDR, 0);       //zero fade 
+    LED_Driver2_MasterWriteByte(0x01);
+    LED_Driver2_MasterWriteByte(0x00);
+    LED_Driver2_MasterSendStop();
+}
 
 
 //test stuff
@@ -448,44 +666,6 @@ void led_off() {
 	c5_write(0);
 	*/
 }
-void write_all_tach(int bool) {
-	uint8_t allon = 0x77;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED05);
-	if(bool == 1) {
-		LED_Driver1_MasterWriteByte(allon);			//0x05 addr
-		LED_Driver1_MasterWriteByte(allon);			//0x06 addr
-		LED_Driver1_MasterWriteByte(allon);			//0x07 addr
-		LED_Driver1_MasterWriteByte(allon);			//0x08 addr
-	}
-	else {
-		LED_Driver1_MasterWriteByte(0x00);
-		LED_Driver1_MasterWriteByte(0x00);
-		LED_Driver1_MasterWriteByte(0x00);
-		LED_Driver1_MasterWriteByte(0x00);
-	}
-	LED_Driver1_MasterSendStop();
-}
-void write_all_stat(int bool) {
-	uint8_t allon = 0x77;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED05);	
-	if(bool == 1) {
-		LED_Driver2_MasterWriteByte(allon);			//0x05 addr
-		LED_Driver2_MasterWriteByte(allon);			//0x06 addr
-		LED_Driver2_MasterWriteByte(allon);			//0x07 addr
-		LED_Driver2_MasterWriteByte(allon);			//0x08 addr
-	}
-	else {
-		LED_Driver2_MasterWriteByte(0x00);
-		LED_Driver2_MasterWriteByte(0x00);
-		LED_Driver2_MasterWriteByte(0x00);
-		LED_Driver2_MasterWriteByte(0x00);
-	}
-	LED_Driver2_MasterSendStop();
-}
 int led_writetest(int i, int* arr) {
 	d1_write(arr[0]);
 	d2_write(arr[1]);
@@ -525,11 +705,6 @@ void d1_write(int bool) {
 		byte05 = byte05 | bit;
 	else			//led off
 		byte05 = byte05 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);	// 0 = send write command, 1 = send read command
-	LED_Driver1_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte05);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d2_write(int bool) {
 	uint8_t bit = 0x10;
@@ -537,23 +712,14 @@ void d2_write(int bool) {
 		byte05 = byte05 | bit;
 	else			//led off
 		byte05 = byte05 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);	
-	LED_Driver1_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte05);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d3_write(int bool) {
 	uint8_t bit = 0x01;
 	if(bool == 1) 	//led on
 		byte06 = byte06 | bit;
-	else			//led off
+	else
+    //led off
 		byte06 = byte06 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte06);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d4_write(int bool) {
 	uint8_t bit = 0x10;
@@ -561,11 +727,6 @@ void d4_write(int bool) {
 		byte06 = byte06 | bit;
 	else			//led off
 		byte06 = byte06 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte06);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d5_write(int bool) {
 	uint8_t bit = 0x01;
@@ -573,11 +734,6 @@ void d5_write(int bool) {
 		byte07 = byte07 | bit;
 	else			//led off
 		byte07 = byte07 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte07);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d6_write(int bool) {
 	uint8_t bit = 0x10;
@@ -585,11 +741,6 @@ void d6_write(int bool) {
 		byte07 = byte07 | bit;
 	else			//led off
 		byte07 = byte07 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte07);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d7_write(int bool) {
 	uint8_t bit = 0x01;
@@ -597,11 +748,6 @@ void d7_write(int bool) {
 		byte08 = byte08 | bit;
 	else			//led off
 		byte08 = byte08 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED08);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte08);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d8_write(int bool) {
 	uint8_t bit = 0x10;
@@ -609,11 +755,6 @@ void d8_write(int bool) {
 		byte08 = byte08 | bit;
 	else			//led off
 		byte08 = byte08 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED08);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte08);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d9_write(int bool) {
 	uint8_t bit = 0x02;
@@ -621,11 +762,6 @@ void d9_write(int bool) {
 		byte05 = byte05 | bit;
 	else			//led off
 		byte05 = byte05 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte05);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d10_write(int bool) {
 	uint8_t bit = 0x20;
@@ -633,11 +769,6 @@ void d10_write(int bool) {
 		byte05 = byte05 | bit;
 	else			//led off
 		byte05 = byte05 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte05);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d11_write(int bool) {
 	uint8_t bit = 0x02;
@@ -645,11 +776,6 @@ void d11_write(int bool) {
 		byte06 = byte06 | bit;
 	else			//led off
 		byte06 = byte06 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte06);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d12_write(int bool) {
 	uint8_t bit = 0x20;
@@ -657,11 +783,6 @@ void d12_write(int bool) {
 		byte06 = byte06 | bit;
 	else			//led off
 		byte06 = byte06 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte06);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d13_write(int bool) {
 	uint8_t bit = 0x02;
@@ -669,11 +790,6 @@ void d13_write(int bool) {
 		byte07 = byte07 | bit;
 	else			//led off
 		byte07 = byte07 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte07);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d14_write(int bool) {
 	uint8_t bit = 0x20;
@@ -681,11 +797,6 @@ void d14_write(int bool) {
 		byte07 = byte07 | bit;
 	else			//led off
 		byte07 = byte07 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte07);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d15_write(int bool) {
 	uint8_t bit = 0x02;
@@ -693,11 +804,6 @@ void d15_write(int bool) {
 		byte08 = byte08 | bit;
 	else			//led off
 		byte08 = byte08 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED08);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte08);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d16_write(int bool) {
 	uint8_t bit = 0x20;
@@ -705,11 +811,6 @@ void d16_write(int bool) {
 		byte08 = byte08 | bit;
 	else			//led off
 		byte08 = byte08 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED08);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte08);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d17_write(int bool) {
 	uint8_t bit = 0x04;
@@ -717,11 +818,6 @@ void d17_write(int bool) {
 		byte05 = byte05 | bit;
 	else			//led off
 		byte05 = byte05 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte05);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d18_write(int bool) {
 	uint8_t bit = 0x40;
@@ -729,11 +825,6 @@ void d18_write(int bool) {
 		byte05 = byte05 | bit;
 	else			//led off
 		byte05 = byte05 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte05);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d19_write(int bool) {
 	uint8_t bit = 0x04;
@@ -741,11 +832,6 @@ void d19_write(int bool) {
 		byte06 = byte06 | bit;
 	else			//led off
 		byte06 = byte06 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte06);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d20_write(int bool) {
 	uint8_t bit = 0x40;
@@ -753,11 +839,6 @@ void d20_write(int bool) {
 		byte06 = byte06 | bit;
 	else			//led off
 		byte06 = byte06 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte06);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d21_write(int bool) {
 	uint8_t bit = 0x04;
@@ -765,11 +846,6 @@ void d21_write(int bool) {
 		byte07 = byte07 | bit;
 	else			//led off
 		byte07 = byte07 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte07);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 void d22_write(int bool) {
 	uint8_t bit = 0x40;
@@ -777,11 +853,6 @@ void d22_write(int bool) {
 		byte07 = byte07 | bit;
 	else			//led off
 		byte07 = byte07 & ~bit;
-	
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver1_MasterWriteByte(byte07);	//write byte to addr
-	LED_Driver1_MasterSendStop();
 }
 
 //side bars
@@ -792,11 +863,6 @@ void b11_write(int bool) {
 		byte05_2 = byte05_2 | bit;
 	else			//led off
 		byte05_2 = byte05_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);	// 0 = send write command, 1 = send read command
-	LED_Driver2_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte05_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b12_write(int bool) {
 	uint8_t bit = 0x10;
@@ -804,11 +870,6 @@ void b12_write(int bool) {
 		byte05_2 = byte05_2 | bit;
 	else			//led off
 		byte05_2 = byte05_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);	
-	LED_Driver2_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte05_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b13_write(int bool) {
 	uint8_t bit = 0x01;
@@ -816,11 +877,6 @@ void b13_write(int bool) {
 		byte06_2 = byte06_2 | bit;
 	else			//led off
 		byte06_2 = byte06_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte06_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b14_write(int bool) {
 	uint8_t bit = 0x10;
@@ -828,11 +884,6 @@ void b14_write(int bool) {
 		byte06_2 = byte06_2 | bit;
 	else			//led off
 		byte06_2 = byte06_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte06_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b15_write(int bool) {
 	uint8_t bit = 0x01;
@@ -840,11 +891,6 @@ void b15_write(int bool) {
 		byte07_2 = byte07_2 | bit;
 	else			//led off
 		byte07_2 = byte07_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte07_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 
 //center vertical bar
@@ -854,11 +900,6 @@ void b21_write(int bool) {
 		byte07_2 = byte07_2 | bit;
 	else			//led off
 		byte07_2 = byte07_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte07_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b22_write(int bool) {
 	uint8_t bit = 0x01;
@@ -866,11 +907,6 @@ void b22_write(int bool) {
 		byte08_2 = byte08_2 | bit;
 	else			//led off
 		byte08_2 = byte08_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED08);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte08_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b23_write(int bool) {
 	uint8_t bit = 0x10;
@@ -878,11 +914,6 @@ void b23_write(int bool) {
 		byte08_2 = byte08_2 | bit;
 	else			//led off
 		byte08_2 = byte08_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED08);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte08_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b24_write(int bool) {
 	uint8_t bit = 0x02;
@@ -890,11 +921,6 @@ void b24_write(int bool) {
 		byte05_2 = byte05_2 | bit;
 	else			//led off
 		byte05_2 = byte05_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);	// 0 = send write command, 1 = send read command
-	LED_Driver2_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte05_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b25_write(int bool) {
 	uint8_t bit = 0x20;
@@ -902,11 +928,6 @@ void b25_write(int bool) {
 		byte05_2 = byte05_2 | bit;
 	else			//led off
 		byte05_2 = byte05_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);	// 0 = send write command, 1 = send read command
-	LED_Driver2_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte05_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 
 //right bar
@@ -916,11 +937,6 @@ void b31_write(int bool) {
 		byte06_2 = byte06_2 | bit;
 	else			//led off
 		byte06_2 = byte06_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte06_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b32_write(int bool) {
 	uint8_t bit = 0x20;
@@ -928,11 +944,6 @@ void b32_write(int bool) {
 		byte06_2 = byte06_2 | bit;
 	else			//led off
 		byte06_2 = byte06_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte06_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b33_write(int bool) {
 	uint8_t bit = 0x02;
@@ -940,11 +951,6 @@ void b33_write(int bool) {
 		byte07_2 = byte07_2 | bit;
 	else			//led off
 		byte07_2 = byte07_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte07_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b34_write(int bool) {
 	uint8_t bit = 0x20;
@@ -952,11 +958,6 @@ void b34_write(int bool) {
 		byte07_2 = byte07_2 | bit;
 	else			//led off
 		byte07_2 = byte07_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED07);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte07_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void b35_write(int bool) {
 	uint8_t bit = 0x02;
@@ -964,11 +965,6 @@ void b35_write(int bool) {
 		byte08_2 = byte08_2 | bit;
 	else			//led off
 		byte08_2 = byte08_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED08);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte08_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 
 //main center horizontal bar
@@ -978,11 +974,6 @@ void c5_write(int bool) {
 		byte08_2 = byte08_2 | bit;
 	else			//led off
 		byte08_2 = byte08_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED08);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte08_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void c4_write(int bool) {
 	uint8_t bit = 0x04;
@@ -990,11 +981,6 @@ void c4_write(int bool) {
 		byte05_2 = byte05_2 | bit;
 	else			//led off
 		byte05_2 = byte05_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);	// 0 = send write command, 1 = send read command
-	LED_Driver2_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte05_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 void c3_write(int bool) {
 	uint8_t bit = 0x40;
@@ -1002,11 +988,6 @@ void c3_write(int bool) {
 		byte05_2 = byte05_2 | bit;
 	else			//led off
 		byte05_2 = byte05_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);	// 0 = send write command, 1 = send read command
-	LED_Driver2_MasterWriteByte(LED05);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte05_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 //right bar
 void c2_write(int bool) {
@@ -1015,11 +996,6 @@ void c2_write(int bool) {
 		byte06_2 = byte06_2 | bit;
 	else			//led off
 		byte06_2 = byte06_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte06_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }
 //right bar
 void c1_write(int bool) {
@@ -1028,9 +1004,4 @@ void c1_write(int bool) {
 		byte06_2 = byte06_2 | bit;
 	else			//led off
 		byte06_2 = byte06_2 & ~bit;
-	
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);
-	LED_Driver2_MasterWriteByte(LED06);		//move to LED addr
-	LED_Driver2_MasterWriteByte(byte06_2);	//write byte to addr
-	LED_Driver2_MasterSendStop();
 }

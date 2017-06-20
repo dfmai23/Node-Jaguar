@@ -193,16 +193,23 @@ int main()
                 
                 //UI
                 
+                //uint8 atomic = CyEnterCriticalSection();
                 Buzzer_Write(1);
                 write_all_tach(1);
 	            write_all_stat(1);
-	            CyDelay(1000);
+                CyDelay(100);
 	            write_all_stat(0);
 	            write_all_tach(0);
                 Buzzer_Write(0);
                 
-                state = LV;
+                CyDelay(1000);
+                write_startup_stat();
+                write_startup_tach();
+                write_all_stat(0);
+                CyDelay(1000);
+                //CyExitCriticalSection(atomic);
                 
+                state = LV;
                                 
                 /*
                 //Active Low
@@ -267,10 +274,10 @@ int main()
                 
                 Buzzer_Write(0);
                 
-                // pick a color, all on. 
-                RGB3_1_Write(0);
-                RGB2_1_Write(1);
-                RGB1_1_Write(0);
+                //purple
+                RGB3_1_Write(0);        //red
+                RGB2_1_Write(1);        //green
+                RGB1_1_Write(0);        //blue
 
                 if (Drive_Read())
                 {
@@ -295,6 +302,7 @@ int main()
                 
                 can_send_status(state, error_state);
                 
+                //yellow
                 RGB3_1_Write(0);
                 RGB2_1_Write(0);
                 RGB1_1_Write(1);
@@ -445,7 +453,6 @@ int main()
             break;
                 
 	        case Fault:
-                
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
@@ -453,8 +460,6 @@ int main()
                 
                 can_send_status(state, error_state);
                 
-                //
-                // RGB code goes here
                 // flashing red
                 RGB3_1_Write(1);
                 RGB2_1_Write(1);

@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
   29:Generated_Source\PSoC5/CAN_Timer.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/CAN_Timer.c **** * Function Name: CAN_Timer_Init
   31:Generated_Source\PSoC5/CAN_Timer.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 2
 
 
   32:Generated_Source\PSoC5/CAN_Timer.c **** *
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
   86:Generated_Source\PSoC5/CAN_Timer.c ****                 /* Set the default Run Mode of the Timer to Continuous */
   87:Generated_Source\PSoC5/CAN_Timer.c ****                 CAN_Timer_CONTROL2 |= CAN_Timer_CTRL_MODE_PULSEWIDTH;
   88:Generated_Source\PSoC5/CAN_Timer.c ****             #endif /* Set Continuous Run Mode in CONTROL2 for PSoC5A */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 3
 
 
   89:Generated_Source\PSoC5/CAN_Timer.c **** 
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  143:Generated_Source\PSoC5/CAN_Timer.c **** 
  144:Generated_Source\PSoC5/CAN_Timer.c ****         /* Use the interrupt output of the status register for IRQ output */
  145:Generated_Source\PSoC5/CAN_Timer.c ****         CAN_Timer_STATUS_AUX_CTRL |= CAN_Timer_STATUS_ACTL_INT_EN_MASK;
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 4
 
 
  146:Generated_Source\PSoC5/CAN_Timer.c **** 
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
   41 0012 1370     		strb	r3, [r2]
  186:Generated_Source\PSoC5/CAN_Timer.c ****     #endif /* Set Enable bit for enabling Fixed function timer*/
  187:Generated_Source\PSoC5/CAN_Timer.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 5
 
 
  188:Generated_Source\PSoC5/CAN_Timer.c ****     /* Remove assignment if control register is removed */
@@ -298,7 +298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  221:Generated_Source\PSoC5/CAN_Timer.c ****         CAN_Timer_initVar = 1u;   /* Clear this bit for Initialization */
  222:Generated_Source\PSoC5/CAN_Timer.c ****     }
  223:Generated_Source\PSoC5/CAN_Timer.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 6
 
 
  224:Generated_Source\PSoC5/CAN_Timer.c ****     /* Enable the Timer */
@@ -358,7 +358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
   83 0020 7047     		bx	lr
   84              	.L6:
   85 0022 00BF     		.align	2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 7
 
 
   86              	.L5:
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  116              		.section	.text.CAN_Timer_SoftwareCapture,"ax",%progbits
  117              		.align	2
  118              		.global	CAN_Timer_SoftwareCapture
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 8
 
 
  119              		.thumb
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  307:Generated_Source\PSoC5/CAN_Timer.c ****     #else
  308:Generated_Source\PSoC5/CAN_Timer.c ****         (void)CY_GET_REG8(CAN_Timer_COUNTER_LSB_PTR_8BIT);
  309:Generated_Source\PSoC5/CAN_Timer.c ****     #endif/* (CAN_Timer_UsingFixedFunction) */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 9
 
 
  310:Generated_Source\PSoC5/CAN_Timer.c ****     /* Capture Data is now in the FIFO */
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  339:Generated_Source\PSoC5/CAN_Timer.c **** #if (!CAN_Timer_UDB_CONTROL_REG_REMOVED) /* Remove API if control register is unused */
  340:Generated_Source\PSoC5/CAN_Timer.c **** 
  341:Generated_Source\PSoC5/CAN_Timer.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 10
 
 
  342:Generated_Source\PSoC5/CAN_Timer.c **** /*******************************************************************************
@@ -598,7 +598,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  371:Generated_Source\PSoC5/CAN_Timer.c **** *  Sets the bit-field of the control register.
  372:Generated_Source\PSoC5/CAN_Timer.c **** *
  373:Generated_Source\PSoC5/CAN_Timer.c **** * Parameters:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 11
 
 
  374:Generated_Source\PSoC5/CAN_Timer.c **** *  control: The contents of the control register
@@ -658,7 +658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  403:Generated_Source\PSoC5/CAN_Timer.c **** *
  404:Generated_Source\PSoC5/CAN_Timer.c **** *******************************************************************************/
  405:Generated_Source\PSoC5/CAN_Timer.c **** uint8 CAN_Timer_ReadPeriod(void) 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 12
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 12
 
 
  406:Generated_Source\PSoC5/CAN_Timer.c **** {
@@ -718,7 +718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  250              		.cfi_startproc
  251              		@ args = 0, pretend = 0, frame = 0
  252              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 13
 
 
  253              		@ link register save eliminated.
@@ -778,7 +778,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  280 0000 014B     		ldr	r3, .L29
  281 0002 1888     		ldrh	r0, [r3]
  460:Generated_Source\PSoC5/CAN_Timer.c ****    #else
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 14
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 14
 
 
  461:Generated_Source\PSoC5/CAN_Timer.c ****        return (CY_GET_REG8(CAN_Timer_CAPTURE_LSB_PTR));
@@ -838,7 +838,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  310              	.L33:
  311 0006 00BF     		.align	2
  312              	.L32:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 15
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 15
 
 
  313 0008 064F0040 		.word	1073762054
@@ -898,7 +898,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  114:Generated_Source\PSoC5/CAN_Timer.c ****     #endif /* Configuring registers of fixed function implementation */
  360              		.loc 1 114 0
  361 0038 094A     		ldr	r2, .L36+8
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 16
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 16
 
 
  362 003a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
@@ -906,12 +906,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  364 0040 1370     		strb	r3, [r2]
  118:Generated_Source\PSoC5/CAN_Timer.c ****     CAN_Timer_WriteCounter(CAN_Timer_INIT_PERIOD);
  365              		.loc 1 118 0
- 366 0042 0920     		movs	r0, #9
+ 366 0042 6320     		movs	r0, #99
  367 0044 FFF7FEFF 		bl	CAN_Timer_WritePeriod
  368              	.LVL4:
  119:Generated_Source\PSoC5/CAN_Timer.c **** 
  369              		.loc 1 119 0
- 370 0048 0920     		movs	r0, #9
+ 370 0048 6320     		movs	r0, #99
  371 004a FFF7FEFF 		bl	CAN_Timer_WriteCounter
  372              	.LVL5:
  162:Generated_Source\PSoC5/CAN_Timer.c **** }
@@ -958,7 +958,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  221:Generated_Source\PSoC5/CAN_Timer.c ****     }
  410              		.loc 1 221 0
  411 000c 0122     		movs	r2, #1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 17
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 17
 
 
  412 000e 024B     		ldr	r3, .L41
@@ -1018,7 +1018,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  513:Generated_Source\PSoC5/CAN_Timer.c ****     #if(CAN_Timer_UsingFixedFunction)
  514:Generated_Source\PSoC5/CAN_Timer.c ****         (void)CY_GET_REG16(CAN_Timer_COUNTER_LSB_PTR);
  439              		.loc 1 514 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 18
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 18
 
 
  440 0000 024B     		ldr	r3, .L44
@@ -1060,7 +1060,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  465              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
  466              		.section	.debug_info,"",%progbits
  467              	.Ldebug_info0:
- 468 0000 86020000 		.4byte	0x286
+ 468 0000 88020000 		.4byte	0x288
  469 0004 0400     		.2byte	0x4
  470 0006 00000000 		.4byte	.Ldebug_abbrev0
  471 000a 04       		.byte	0x4
@@ -1078,7 +1078,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  483 0028 CC020000 		.4byte	.LASF0
  484 002c 02       		.uleb128 0x2
  485 002d 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 19
 
 
  486 002e 08       		.byte	0x8
@@ -1138,7 +1138,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  540 0093 08       		.byte	0x8
  541 0094 B8020000 		.4byte	.LASF13
  542 0098 04       		.uleb128 0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 20
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 20
 
 
  543 0099 C8000000 		.4byte	.LASF14
@@ -1198,7 +1198,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  597 0110 00000000 		.4byte	.LFB5
  598 0114 0C000000 		.4byte	.LFE5-.LFB5
  599 0118 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 21
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 21
 
 
  600 0119 9C       		.byte	0x9c
@@ -1258,7 +1258,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  654 0197 08       		.uleb128 0x8
  655 0198 65000000 		.4byte	.LASF28
  656 019c 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 22
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 22
 
 
  657 019d AF01     		.2byte	0x1af
@@ -1307,656 +1307,658 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 1
  700 01fa 64000000 		.4byte	.LFE0-.LFB0
  701 01fe 01       		.uleb128 0x1
  702 01ff 9C       		.byte	0x9c
- 703 0200 3A020000 		.4byte	0x23a
+ 703 0200 3C020000 		.4byte	0x23c
  704 0204 0D       		.uleb128 0xd
  705 0205 48000000 		.4byte	.LVL4
  706 0209 81010000 		.4byte	0x181
- 707 020d 17020000 		.4byte	0x217
+ 707 020d 18020000 		.4byte	0x218
  708 0211 0E       		.uleb128 0xe
  709 0212 01       		.uleb128 0x1
  710 0213 50       		.byte	0x50
- 711 0214 01       		.uleb128 0x1
- 712 0215 39       		.byte	0x39
- 713 0216 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 23
+ 711 0214 02       		.uleb128 0x2
+ 712 0215 08       		.byte	0x8
+ 713 0216 63       		.byte	0x63
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 23
 
 
- 714 0217 0D       		.uleb128 0xd
- 715 0218 4E000000 		.4byte	.LVL5
- 716 021c CA010000 		.4byte	0x1ca
- 717 0220 2A020000 		.4byte	0x22a
- 718 0224 0E       		.uleb128 0xe
- 719 0225 01       		.uleb128 0x1
- 720 0226 50       		.byte	0x50
- 721 0227 01       		.uleb128 0x1
- 722 0228 39       		.byte	0x39
- 723 0229 00       		.byte	0
- 724 022a 0F       		.uleb128 0xf
- 725 022b 54000000 		.4byte	.LVL6
- 726 022f E3000000 		.4byte	0xe3
- 727 0233 0E       		.uleb128 0xe
- 728 0234 01       		.uleb128 0x1
- 729 0235 50       		.byte	0x50
+ 714 0217 00       		.byte	0
+ 715 0218 0D       		.uleb128 0xd
+ 716 0219 4E000000 		.4byte	.LVL5
+ 717 021d CA010000 		.4byte	0x1ca
+ 718 0221 2C020000 		.4byte	0x22c
+ 719 0225 0E       		.uleb128 0xe
+ 720 0226 01       		.uleb128 0x1
+ 721 0227 50       		.byte	0x50
+ 722 0228 02       		.uleb128 0x2
+ 723 0229 08       		.byte	0x8
+ 724 022a 63       		.byte	0x63
+ 725 022b 00       		.byte	0
+ 726 022c 0F       		.uleb128 0xf
+ 727 022d 54000000 		.4byte	.LVL6
+ 728 0231 E3000000 		.4byte	0xe3
+ 729 0235 0E       		.uleb128 0xe
  730 0236 01       		.uleb128 0x1
- 731 0237 30       		.byte	0x30
- 732 0238 00       		.byte	0
- 733 0239 00       		.byte	0
- 734 023a 0C       		.uleb128 0xc
- 735 023b 9F020000 		.4byte	.LASF33
- 736 023f 01       		.byte	0x1
- 737 0240 D7       		.byte	0xd7
- 738 0241 00000000 		.4byte	.LFB2
- 739 0245 1C000000 		.4byte	.LFE2-.LFB2
- 740 0249 01       		.uleb128 0x1
- 741 024a 9C       		.byte	0x9c
- 742 024b 62020000 		.4byte	0x262
- 743 024f 10       		.uleb128 0x10
- 744 0250 0C000000 		.4byte	.LVL7
- 745 0254 EF010000 		.4byte	0x1ef
- 746 0258 10       		.uleb128 0x10
- 747 0259 16000000 		.4byte	.LVL8
- 748 025d C1000000 		.4byte	0xc1
- 749 0261 00       		.byte	0
- 750 0262 0A       		.uleb128 0xa
- 751 0263 4F000000 		.4byte	.LASF34
- 752 0267 01       		.byte	0x1
- 753 0268 FC01     		.2byte	0x1fc
- 754 026a 6B000000 		.4byte	0x6b
- 755 026e 00000000 		.4byte	.LFB13
- 756 0272 14000000 		.4byte	.LFE13-.LFB13
- 757 0276 01       		.uleb128 0x1
- 758 0277 9C       		.byte	0x9c
- 759 0278 11       		.uleb128 0x11
- 760 0279 9A000000 		.4byte	.LASF39
- 761 027d 01       		.byte	0x1
- 762 027e 1A       		.byte	0x1a
- 763 027f 6B000000 		.4byte	0x6b
- 764 0283 05       		.uleb128 0x5
- 765 0284 03       		.byte	0x3
- 766 0285 00000000 		.4byte	CAN_Timer_initVar
- 767 0289 00       		.byte	0
- 768              		.section	.debug_abbrev,"",%progbits
- 769              	.Ldebug_abbrev0:
- 770 0000 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 24
+ 731 0237 50       		.byte	0x50
+ 732 0238 01       		.uleb128 0x1
+ 733 0239 30       		.byte	0x30
+ 734 023a 00       		.byte	0
+ 735 023b 00       		.byte	0
+ 736 023c 0C       		.uleb128 0xc
+ 737 023d 9F020000 		.4byte	.LASF33
+ 738 0241 01       		.byte	0x1
+ 739 0242 D7       		.byte	0xd7
+ 740 0243 00000000 		.4byte	.LFB2
+ 741 0247 1C000000 		.4byte	.LFE2-.LFB2
+ 742 024b 01       		.uleb128 0x1
+ 743 024c 9C       		.byte	0x9c
+ 744 024d 64020000 		.4byte	0x264
+ 745 0251 10       		.uleb128 0x10
+ 746 0252 0C000000 		.4byte	.LVL7
+ 747 0256 EF010000 		.4byte	0x1ef
+ 748 025a 10       		.uleb128 0x10
+ 749 025b 16000000 		.4byte	.LVL8
+ 750 025f C1000000 		.4byte	0xc1
+ 751 0263 00       		.byte	0
+ 752 0264 0A       		.uleb128 0xa
+ 753 0265 4F000000 		.4byte	.LASF34
+ 754 0269 01       		.byte	0x1
+ 755 026a FC01     		.2byte	0x1fc
+ 756 026c 6B000000 		.4byte	0x6b
+ 757 0270 00000000 		.4byte	.LFB13
+ 758 0274 14000000 		.4byte	.LFE13-.LFB13
+ 759 0278 01       		.uleb128 0x1
+ 760 0279 9C       		.byte	0x9c
+ 761 027a 11       		.uleb128 0x11
+ 762 027b 9A000000 		.4byte	.LASF39
+ 763 027f 01       		.byte	0x1
+ 764 0280 1A       		.byte	0x1a
+ 765 0281 6B000000 		.4byte	0x6b
+ 766 0285 05       		.uleb128 0x5
+ 767 0286 03       		.byte	0x3
+ 768 0287 00000000 		.4byte	CAN_Timer_initVar
+ 769 028b 00       		.byte	0
+ 770              		.section	.debug_abbrev,"",%progbits
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 24
 
 
- 771 0001 11       		.uleb128 0x11
- 772 0002 01       		.byte	0x1
- 773 0003 25       		.uleb128 0x25
- 774 0004 0E       		.uleb128 0xe
- 775 0005 13       		.uleb128 0x13
- 776 0006 0B       		.uleb128 0xb
- 777 0007 03       		.uleb128 0x3
- 778 0008 0E       		.uleb128 0xe
- 779 0009 1B       		.uleb128 0x1b
- 780 000a 0E       		.uleb128 0xe
- 781 000b 55       		.uleb128 0x55
- 782 000c 17       		.uleb128 0x17
- 783 000d 11       		.uleb128 0x11
- 784 000e 01       		.uleb128 0x1
- 785 000f 10       		.uleb128 0x10
- 786 0010 17       		.uleb128 0x17
- 787 0011 00       		.byte	0
- 788 0012 00       		.byte	0
- 789 0013 02       		.uleb128 0x2
- 790 0014 24       		.uleb128 0x24
- 791 0015 00       		.byte	0
- 792 0016 0B       		.uleb128 0xb
- 793 0017 0B       		.uleb128 0xb
- 794 0018 3E       		.uleb128 0x3e
- 795 0019 0B       		.uleb128 0xb
- 796 001a 03       		.uleb128 0x3
- 797 001b 0E       		.uleb128 0xe
- 798 001c 00       		.byte	0
- 799 001d 00       		.byte	0
- 800 001e 03       		.uleb128 0x3
- 801 001f 24       		.uleb128 0x24
- 802 0020 00       		.byte	0
- 803 0021 0B       		.uleb128 0xb
- 804 0022 0B       		.uleb128 0xb
- 805 0023 3E       		.uleb128 0x3e
- 806 0024 0B       		.uleb128 0xb
- 807 0025 03       		.uleb128 0x3
- 808 0026 08       		.uleb128 0x8
- 809 0027 00       		.byte	0
- 810 0028 00       		.byte	0
- 811 0029 04       		.uleb128 0x4
- 812 002a 16       		.uleb128 0x16
- 813 002b 00       		.byte	0
- 814 002c 03       		.uleb128 0x3
- 815 002d 0E       		.uleb128 0xe
- 816 002e 3A       		.uleb128 0x3a
- 817 002f 0B       		.uleb128 0xb
- 818 0030 3B       		.uleb128 0x3b
- 819 0031 05       		.uleb128 0x5
- 820 0032 49       		.uleb128 0x49
- 821 0033 13       		.uleb128 0x13
- 822 0034 00       		.byte	0
- 823 0035 00       		.byte	0
- 824 0036 05       		.uleb128 0x5
- 825 0037 35       		.uleb128 0x35
- 826 0038 00       		.byte	0
- 827 0039 49       		.uleb128 0x49
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 25
+ 771              	.Ldebug_abbrev0:
+ 772 0000 01       		.uleb128 0x1
+ 773 0001 11       		.uleb128 0x11
+ 774 0002 01       		.byte	0x1
+ 775 0003 25       		.uleb128 0x25
+ 776 0004 0E       		.uleb128 0xe
+ 777 0005 13       		.uleb128 0x13
+ 778 0006 0B       		.uleb128 0xb
+ 779 0007 03       		.uleb128 0x3
+ 780 0008 0E       		.uleb128 0xe
+ 781 0009 1B       		.uleb128 0x1b
+ 782 000a 0E       		.uleb128 0xe
+ 783 000b 55       		.uleb128 0x55
+ 784 000c 17       		.uleb128 0x17
+ 785 000d 11       		.uleb128 0x11
+ 786 000e 01       		.uleb128 0x1
+ 787 000f 10       		.uleb128 0x10
+ 788 0010 17       		.uleb128 0x17
+ 789 0011 00       		.byte	0
+ 790 0012 00       		.byte	0
+ 791 0013 02       		.uleb128 0x2
+ 792 0014 24       		.uleb128 0x24
+ 793 0015 00       		.byte	0
+ 794 0016 0B       		.uleb128 0xb
+ 795 0017 0B       		.uleb128 0xb
+ 796 0018 3E       		.uleb128 0x3e
+ 797 0019 0B       		.uleb128 0xb
+ 798 001a 03       		.uleb128 0x3
+ 799 001b 0E       		.uleb128 0xe
+ 800 001c 00       		.byte	0
+ 801 001d 00       		.byte	0
+ 802 001e 03       		.uleb128 0x3
+ 803 001f 24       		.uleb128 0x24
+ 804 0020 00       		.byte	0
+ 805 0021 0B       		.uleb128 0xb
+ 806 0022 0B       		.uleb128 0xb
+ 807 0023 3E       		.uleb128 0x3e
+ 808 0024 0B       		.uleb128 0xb
+ 809 0025 03       		.uleb128 0x3
+ 810 0026 08       		.uleb128 0x8
+ 811 0027 00       		.byte	0
+ 812 0028 00       		.byte	0
+ 813 0029 04       		.uleb128 0x4
+ 814 002a 16       		.uleb128 0x16
+ 815 002b 00       		.byte	0
+ 816 002c 03       		.uleb128 0x3
+ 817 002d 0E       		.uleb128 0xe
+ 818 002e 3A       		.uleb128 0x3a
+ 819 002f 0B       		.uleb128 0xb
+ 820 0030 3B       		.uleb128 0x3b
+ 821 0031 05       		.uleb128 0x5
+ 822 0032 49       		.uleb128 0x49
+ 823 0033 13       		.uleb128 0x13
+ 824 0034 00       		.byte	0
+ 825 0035 00       		.byte	0
+ 826 0036 05       		.uleb128 0x5
+ 827 0037 35       		.uleb128 0x35
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 25
 
 
- 828 003a 13       		.uleb128 0x13
- 829 003b 00       		.byte	0
- 830 003c 00       		.byte	0
- 831 003d 06       		.uleb128 0x6
- 832 003e 2E       		.uleb128 0x2e
- 833 003f 00       		.byte	0
- 834 0040 3F       		.uleb128 0x3f
- 835 0041 19       		.uleb128 0x19
- 836 0042 03       		.uleb128 0x3
- 837 0043 0E       		.uleb128 0xe
- 838 0044 3A       		.uleb128 0x3a
- 839 0045 0B       		.uleb128 0xb
- 840 0046 3B       		.uleb128 0x3b
- 841 0047 0B       		.uleb128 0xb
- 842 0048 27       		.uleb128 0x27
- 843 0049 19       		.uleb128 0x19
- 844 004a 11       		.uleb128 0x11
- 845 004b 01       		.uleb128 0x1
- 846 004c 12       		.uleb128 0x12
- 847 004d 06       		.uleb128 0x6
- 848 004e 40       		.uleb128 0x40
- 849 004f 18       		.uleb128 0x18
- 850 0050 9742     		.uleb128 0x2117
- 851 0052 19       		.uleb128 0x19
- 852 0053 00       		.byte	0
- 853 0054 00       		.byte	0
- 854 0055 07       		.uleb128 0x7
- 855 0056 2E       		.uleb128 0x2e
- 856 0057 01       		.byte	0x1
- 857 0058 3F       		.uleb128 0x3f
- 858 0059 19       		.uleb128 0x19
- 859 005a 03       		.uleb128 0x3
- 860 005b 0E       		.uleb128 0xe
- 861 005c 3A       		.uleb128 0x3a
- 862 005d 0B       		.uleb128 0xb
- 863 005e 3B       		.uleb128 0x3b
- 864 005f 05       		.uleb128 0x5
- 865 0060 27       		.uleb128 0x27
- 866 0061 19       		.uleb128 0x19
- 867 0062 11       		.uleb128 0x11
- 868 0063 01       		.uleb128 0x1
- 869 0064 12       		.uleb128 0x12
- 870 0065 06       		.uleb128 0x6
- 871 0066 40       		.uleb128 0x40
- 872 0067 18       		.uleb128 0x18
- 873 0068 9742     		.uleb128 0x2117
- 874 006a 19       		.uleb128 0x19
- 875 006b 01       		.uleb128 0x1
- 876 006c 13       		.uleb128 0x13
- 877 006d 00       		.byte	0
- 878 006e 00       		.byte	0
- 879 006f 08       		.uleb128 0x8
- 880 0070 05       		.uleb128 0x5
- 881 0071 00       		.byte	0
- 882 0072 03       		.uleb128 0x3
- 883 0073 0E       		.uleb128 0xe
- 884 0074 3A       		.uleb128 0x3a
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 26
+ 828 0038 00       		.byte	0
+ 829 0039 49       		.uleb128 0x49
+ 830 003a 13       		.uleb128 0x13
+ 831 003b 00       		.byte	0
+ 832 003c 00       		.byte	0
+ 833 003d 06       		.uleb128 0x6
+ 834 003e 2E       		.uleb128 0x2e
+ 835 003f 00       		.byte	0
+ 836 0040 3F       		.uleb128 0x3f
+ 837 0041 19       		.uleb128 0x19
+ 838 0042 03       		.uleb128 0x3
+ 839 0043 0E       		.uleb128 0xe
+ 840 0044 3A       		.uleb128 0x3a
+ 841 0045 0B       		.uleb128 0xb
+ 842 0046 3B       		.uleb128 0x3b
+ 843 0047 0B       		.uleb128 0xb
+ 844 0048 27       		.uleb128 0x27
+ 845 0049 19       		.uleb128 0x19
+ 846 004a 11       		.uleb128 0x11
+ 847 004b 01       		.uleb128 0x1
+ 848 004c 12       		.uleb128 0x12
+ 849 004d 06       		.uleb128 0x6
+ 850 004e 40       		.uleb128 0x40
+ 851 004f 18       		.uleb128 0x18
+ 852 0050 9742     		.uleb128 0x2117
+ 853 0052 19       		.uleb128 0x19
+ 854 0053 00       		.byte	0
+ 855 0054 00       		.byte	0
+ 856 0055 07       		.uleb128 0x7
+ 857 0056 2E       		.uleb128 0x2e
+ 858 0057 01       		.byte	0x1
+ 859 0058 3F       		.uleb128 0x3f
+ 860 0059 19       		.uleb128 0x19
+ 861 005a 03       		.uleb128 0x3
+ 862 005b 0E       		.uleb128 0xe
+ 863 005c 3A       		.uleb128 0x3a
+ 864 005d 0B       		.uleb128 0xb
+ 865 005e 3B       		.uleb128 0x3b
+ 866 005f 05       		.uleb128 0x5
+ 867 0060 27       		.uleb128 0x27
+ 868 0061 19       		.uleb128 0x19
+ 869 0062 11       		.uleb128 0x11
+ 870 0063 01       		.uleb128 0x1
+ 871 0064 12       		.uleb128 0x12
+ 872 0065 06       		.uleb128 0x6
+ 873 0066 40       		.uleb128 0x40
+ 874 0067 18       		.uleb128 0x18
+ 875 0068 9742     		.uleb128 0x2117
+ 876 006a 19       		.uleb128 0x19
+ 877 006b 01       		.uleb128 0x1
+ 878 006c 13       		.uleb128 0x13
+ 879 006d 00       		.byte	0
+ 880 006e 00       		.byte	0
+ 881 006f 08       		.uleb128 0x8
+ 882 0070 05       		.uleb128 0x5
+ 883 0071 00       		.byte	0
+ 884 0072 03       		.uleb128 0x3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 26
 
 
- 885 0075 0B       		.uleb128 0xb
- 886 0076 3B       		.uleb128 0x3b
- 887 0077 05       		.uleb128 0x5
- 888 0078 49       		.uleb128 0x49
- 889 0079 13       		.uleb128 0x13
- 890 007a 02       		.uleb128 0x2
- 891 007b 18       		.uleb128 0x18
- 892 007c 00       		.byte	0
- 893 007d 00       		.byte	0
- 894 007e 09       		.uleb128 0x9
- 895 007f 2E       		.uleb128 0x2e
- 896 0080 00       		.byte	0
- 897 0081 3F       		.uleb128 0x3f
- 898 0082 19       		.uleb128 0x19
- 899 0083 03       		.uleb128 0x3
- 900 0084 0E       		.uleb128 0xe
- 901 0085 3A       		.uleb128 0x3a
- 902 0086 0B       		.uleb128 0xb
- 903 0087 3B       		.uleb128 0x3b
- 904 0088 05       		.uleb128 0x5
- 905 0089 27       		.uleb128 0x27
- 906 008a 19       		.uleb128 0x19
- 907 008b 11       		.uleb128 0x11
- 908 008c 01       		.uleb128 0x1
- 909 008d 12       		.uleb128 0x12
- 910 008e 06       		.uleb128 0x6
- 911 008f 40       		.uleb128 0x40
- 912 0090 18       		.uleb128 0x18
- 913 0091 9742     		.uleb128 0x2117
- 914 0093 19       		.uleb128 0x19
- 915 0094 00       		.byte	0
- 916 0095 00       		.byte	0
- 917 0096 0A       		.uleb128 0xa
- 918 0097 2E       		.uleb128 0x2e
- 919 0098 00       		.byte	0
- 920 0099 3F       		.uleb128 0x3f
- 921 009a 19       		.uleb128 0x19
- 922 009b 03       		.uleb128 0x3
- 923 009c 0E       		.uleb128 0xe
- 924 009d 3A       		.uleb128 0x3a
- 925 009e 0B       		.uleb128 0xb
- 926 009f 3B       		.uleb128 0x3b
- 927 00a0 05       		.uleb128 0x5
- 928 00a1 27       		.uleb128 0x27
- 929 00a2 19       		.uleb128 0x19
- 930 00a3 49       		.uleb128 0x49
- 931 00a4 13       		.uleb128 0x13
- 932 00a5 11       		.uleb128 0x11
- 933 00a6 01       		.uleb128 0x1
- 934 00a7 12       		.uleb128 0x12
- 935 00a8 06       		.uleb128 0x6
- 936 00a9 40       		.uleb128 0x40
- 937 00aa 18       		.uleb128 0x18
- 938 00ab 9742     		.uleb128 0x2117
- 939 00ad 19       		.uleb128 0x19
- 940 00ae 00       		.byte	0
- 941 00af 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 27
+ 885 0073 0E       		.uleb128 0xe
+ 886 0074 3A       		.uleb128 0x3a
+ 887 0075 0B       		.uleb128 0xb
+ 888 0076 3B       		.uleb128 0x3b
+ 889 0077 05       		.uleb128 0x5
+ 890 0078 49       		.uleb128 0x49
+ 891 0079 13       		.uleb128 0x13
+ 892 007a 02       		.uleb128 0x2
+ 893 007b 18       		.uleb128 0x18
+ 894 007c 00       		.byte	0
+ 895 007d 00       		.byte	0
+ 896 007e 09       		.uleb128 0x9
+ 897 007f 2E       		.uleb128 0x2e
+ 898 0080 00       		.byte	0
+ 899 0081 3F       		.uleb128 0x3f
+ 900 0082 19       		.uleb128 0x19
+ 901 0083 03       		.uleb128 0x3
+ 902 0084 0E       		.uleb128 0xe
+ 903 0085 3A       		.uleb128 0x3a
+ 904 0086 0B       		.uleb128 0xb
+ 905 0087 3B       		.uleb128 0x3b
+ 906 0088 05       		.uleb128 0x5
+ 907 0089 27       		.uleb128 0x27
+ 908 008a 19       		.uleb128 0x19
+ 909 008b 11       		.uleb128 0x11
+ 910 008c 01       		.uleb128 0x1
+ 911 008d 12       		.uleb128 0x12
+ 912 008e 06       		.uleb128 0x6
+ 913 008f 40       		.uleb128 0x40
+ 914 0090 18       		.uleb128 0x18
+ 915 0091 9742     		.uleb128 0x2117
+ 916 0093 19       		.uleb128 0x19
+ 917 0094 00       		.byte	0
+ 918 0095 00       		.byte	0
+ 919 0096 0A       		.uleb128 0xa
+ 920 0097 2E       		.uleb128 0x2e
+ 921 0098 00       		.byte	0
+ 922 0099 3F       		.uleb128 0x3f
+ 923 009a 19       		.uleb128 0x19
+ 924 009b 03       		.uleb128 0x3
+ 925 009c 0E       		.uleb128 0xe
+ 926 009d 3A       		.uleb128 0x3a
+ 927 009e 0B       		.uleb128 0xb
+ 928 009f 3B       		.uleb128 0x3b
+ 929 00a0 05       		.uleb128 0x5
+ 930 00a1 27       		.uleb128 0x27
+ 931 00a2 19       		.uleb128 0x19
+ 932 00a3 49       		.uleb128 0x49
+ 933 00a4 13       		.uleb128 0x13
+ 934 00a5 11       		.uleb128 0x11
+ 935 00a6 01       		.uleb128 0x1
+ 936 00a7 12       		.uleb128 0x12
+ 937 00a8 06       		.uleb128 0x6
+ 938 00a9 40       		.uleb128 0x40
+ 939 00aa 18       		.uleb128 0x18
+ 940 00ab 9742     		.uleb128 0x2117
+ 941 00ad 19       		.uleb128 0x19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 27
 
 
- 942 00b0 0B       		.uleb128 0xb
- 943 00b1 34       		.uleb128 0x34
- 944 00b2 00       		.byte	0
- 945 00b3 03       		.uleb128 0x3
- 946 00b4 0E       		.uleb128 0xe
- 947 00b5 3A       		.uleb128 0x3a
- 948 00b6 0B       		.uleb128 0xb
- 949 00b7 3B       		.uleb128 0x3b
- 950 00b8 05       		.uleb128 0x5
- 951 00b9 49       		.uleb128 0x49
- 952 00ba 13       		.uleb128 0x13
- 953 00bb 02       		.uleb128 0x2
- 954 00bc 18       		.uleb128 0x18
- 955 00bd 00       		.byte	0
- 956 00be 00       		.byte	0
- 957 00bf 0C       		.uleb128 0xc
- 958 00c0 2E       		.uleb128 0x2e
- 959 00c1 01       		.byte	0x1
- 960 00c2 3F       		.uleb128 0x3f
- 961 00c3 19       		.uleb128 0x19
- 962 00c4 03       		.uleb128 0x3
- 963 00c5 0E       		.uleb128 0xe
- 964 00c6 3A       		.uleb128 0x3a
- 965 00c7 0B       		.uleb128 0xb
- 966 00c8 3B       		.uleb128 0x3b
- 967 00c9 0B       		.uleb128 0xb
- 968 00ca 27       		.uleb128 0x27
- 969 00cb 19       		.uleb128 0x19
- 970 00cc 11       		.uleb128 0x11
- 971 00cd 01       		.uleb128 0x1
- 972 00ce 12       		.uleb128 0x12
- 973 00cf 06       		.uleb128 0x6
- 974 00d0 40       		.uleb128 0x40
- 975 00d1 18       		.uleb128 0x18
- 976 00d2 9742     		.uleb128 0x2117
- 977 00d4 19       		.uleb128 0x19
- 978 00d5 01       		.uleb128 0x1
- 979 00d6 13       		.uleb128 0x13
- 980 00d7 00       		.byte	0
- 981 00d8 00       		.byte	0
- 982 00d9 0D       		.uleb128 0xd
- 983 00da 898201   		.uleb128 0x4109
- 984 00dd 01       		.byte	0x1
- 985 00de 11       		.uleb128 0x11
- 986 00df 01       		.uleb128 0x1
- 987 00e0 31       		.uleb128 0x31
- 988 00e1 13       		.uleb128 0x13
- 989 00e2 01       		.uleb128 0x1
- 990 00e3 13       		.uleb128 0x13
- 991 00e4 00       		.byte	0
- 992 00e5 00       		.byte	0
- 993 00e6 0E       		.uleb128 0xe
- 994 00e7 8A8201   		.uleb128 0x410a
- 995 00ea 00       		.byte	0
- 996 00eb 02       		.uleb128 0x2
- 997 00ec 18       		.uleb128 0x18
- 998 00ed 9142     		.uleb128 0x2111
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 28
+ 942 00ae 00       		.byte	0
+ 943 00af 00       		.byte	0
+ 944 00b0 0B       		.uleb128 0xb
+ 945 00b1 34       		.uleb128 0x34
+ 946 00b2 00       		.byte	0
+ 947 00b3 03       		.uleb128 0x3
+ 948 00b4 0E       		.uleb128 0xe
+ 949 00b5 3A       		.uleb128 0x3a
+ 950 00b6 0B       		.uleb128 0xb
+ 951 00b7 3B       		.uleb128 0x3b
+ 952 00b8 05       		.uleb128 0x5
+ 953 00b9 49       		.uleb128 0x49
+ 954 00ba 13       		.uleb128 0x13
+ 955 00bb 02       		.uleb128 0x2
+ 956 00bc 18       		.uleb128 0x18
+ 957 00bd 00       		.byte	0
+ 958 00be 00       		.byte	0
+ 959 00bf 0C       		.uleb128 0xc
+ 960 00c0 2E       		.uleb128 0x2e
+ 961 00c1 01       		.byte	0x1
+ 962 00c2 3F       		.uleb128 0x3f
+ 963 00c3 19       		.uleb128 0x19
+ 964 00c4 03       		.uleb128 0x3
+ 965 00c5 0E       		.uleb128 0xe
+ 966 00c6 3A       		.uleb128 0x3a
+ 967 00c7 0B       		.uleb128 0xb
+ 968 00c8 3B       		.uleb128 0x3b
+ 969 00c9 0B       		.uleb128 0xb
+ 970 00ca 27       		.uleb128 0x27
+ 971 00cb 19       		.uleb128 0x19
+ 972 00cc 11       		.uleb128 0x11
+ 973 00cd 01       		.uleb128 0x1
+ 974 00ce 12       		.uleb128 0x12
+ 975 00cf 06       		.uleb128 0x6
+ 976 00d0 40       		.uleb128 0x40
+ 977 00d1 18       		.uleb128 0x18
+ 978 00d2 9742     		.uleb128 0x2117
+ 979 00d4 19       		.uleb128 0x19
+ 980 00d5 01       		.uleb128 0x1
+ 981 00d6 13       		.uleb128 0x13
+ 982 00d7 00       		.byte	0
+ 983 00d8 00       		.byte	0
+ 984 00d9 0D       		.uleb128 0xd
+ 985 00da 898201   		.uleb128 0x4109
+ 986 00dd 01       		.byte	0x1
+ 987 00de 11       		.uleb128 0x11
+ 988 00df 01       		.uleb128 0x1
+ 989 00e0 31       		.uleb128 0x31
+ 990 00e1 13       		.uleb128 0x13
+ 991 00e2 01       		.uleb128 0x1
+ 992 00e3 13       		.uleb128 0x13
+ 993 00e4 00       		.byte	0
+ 994 00e5 00       		.byte	0
+ 995 00e6 0E       		.uleb128 0xe
+ 996 00e7 8A8201   		.uleb128 0x410a
+ 997 00ea 00       		.byte	0
+ 998 00eb 02       		.uleb128 0x2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 28
 
 
- 999 00ef 18       		.uleb128 0x18
- 1000 00f0 00       		.byte	0
- 1001 00f1 00       		.byte	0
- 1002 00f2 0F       		.uleb128 0xf
- 1003 00f3 898201   		.uleb128 0x4109
- 1004 00f6 01       		.byte	0x1
- 1005 00f7 11       		.uleb128 0x11
- 1006 00f8 01       		.uleb128 0x1
- 1007 00f9 31       		.uleb128 0x31
- 1008 00fa 13       		.uleb128 0x13
- 1009 00fb 00       		.byte	0
- 1010 00fc 00       		.byte	0
- 1011 00fd 10       		.uleb128 0x10
- 1012 00fe 898201   		.uleb128 0x4109
- 1013 0101 00       		.byte	0
- 1014 0102 11       		.uleb128 0x11
- 1015 0103 01       		.uleb128 0x1
- 1016 0104 31       		.uleb128 0x31
- 1017 0105 13       		.uleb128 0x13
- 1018 0106 00       		.byte	0
- 1019 0107 00       		.byte	0
- 1020 0108 11       		.uleb128 0x11
- 1021 0109 34       		.uleb128 0x34
- 1022 010a 00       		.byte	0
- 1023 010b 03       		.uleb128 0x3
- 1024 010c 0E       		.uleb128 0xe
- 1025 010d 3A       		.uleb128 0x3a
- 1026 010e 0B       		.uleb128 0xb
- 1027 010f 3B       		.uleb128 0x3b
- 1028 0110 0B       		.uleb128 0xb
- 1029 0111 49       		.uleb128 0x49
- 1030 0112 13       		.uleb128 0x13
- 1031 0113 3F       		.uleb128 0x3f
- 1032 0114 19       		.uleb128 0x19
- 1033 0115 02       		.uleb128 0x2
- 1034 0116 18       		.uleb128 0x18
- 1035 0117 00       		.byte	0
- 1036 0118 00       		.byte	0
- 1037 0119 00       		.byte	0
- 1038              		.section	.debug_aranges,"",%progbits
- 1039 0000 84000000 		.4byte	0x84
- 1040 0004 0200     		.2byte	0x2
- 1041 0006 00000000 		.4byte	.Ldebug_info0
- 1042 000a 04       		.byte	0x4
- 1043 000b 00       		.byte	0
- 1044 000c 0000     		.2byte	0
- 1045 000e 0000     		.2byte	0
- 1046 0010 00000000 		.4byte	.LFB1
- 1047 0014 28000000 		.4byte	.LFE1-.LFB1
- 1048 0018 00000000 		.4byte	.LFB3
- 1049 001c 28000000 		.4byte	.LFE3-.LFB3
- 1050 0020 00000000 		.4byte	.LFB4
- 1051 0024 0C000000 		.4byte	.LFE4-.LFB4
- 1052 0028 00000000 		.4byte	.LFB5
- 1053 002c 0C000000 		.4byte	.LFE5-.LFB5
- 1054 0030 00000000 		.4byte	.LFB6
- 1055 0034 0C000000 		.4byte	.LFE6-.LFB6
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 29
+ 999 00ec 18       		.uleb128 0x18
+ 1000 00ed 9142     		.uleb128 0x2111
+ 1001 00ef 18       		.uleb128 0x18
+ 1002 00f0 00       		.byte	0
+ 1003 00f1 00       		.byte	0
+ 1004 00f2 0F       		.uleb128 0xf
+ 1005 00f3 898201   		.uleb128 0x4109
+ 1006 00f6 01       		.byte	0x1
+ 1007 00f7 11       		.uleb128 0x11
+ 1008 00f8 01       		.uleb128 0x1
+ 1009 00f9 31       		.uleb128 0x31
+ 1010 00fa 13       		.uleb128 0x13
+ 1011 00fb 00       		.byte	0
+ 1012 00fc 00       		.byte	0
+ 1013 00fd 10       		.uleb128 0x10
+ 1014 00fe 898201   		.uleb128 0x4109
+ 1015 0101 00       		.byte	0
+ 1016 0102 11       		.uleb128 0x11
+ 1017 0103 01       		.uleb128 0x1
+ 1018 0104 31       		.uleb128 0x31
+ 1019 0105 13       		.uleb128 0x13
+ 1020 0106 00       		.byte	0
+ 1021 0107 00       		.byte	0
+ 1022 0108 11       		.uleb128 0x11
+ 1023 0109 34       		.uleb128 0x34
+ 1024 010a 00       		.byte	0
+ 1025 010b 03       		.uleb128 0x3
+ 1026 010c 0E       		.uleb128 0xe
+ 1027 010d 3A       		.uleb128 0x3a
+ 1028 010e 0B       		.uleb128 0xb
+ 1029 010f 3B       		.uleb128 0x3b
+ 1030 0110 0B       		.uleb128 0xb
+ 1031 0111 49       		.uleb128 0x49
+ 1032 0112 13       		.uleb128 0x13
+ 1033 0113 3F       		.uleb128 0x3f
+ 1034 0114 19       		.uleb128 0x19
+ 1035 0115 02       		.uleb128 0x2
+ 1036 0116 18       		.uleb128 0x18
+ 1037 0117 00       		.byte	0
+ 1038 0118 00       		.byte	0
+ 1039 0119 00       		.byte	0
+ 1040              		.section	.debug_aranges,"",%progbits
+ 1041 0000 84000000 		.4byte	0x84
+ 1042 0004 0200     		.2byte	0x2
+ 1043 0006 00000000 		.4byte	.Ldebug_info0
+ 1044 000a 04       		.byte	0x4
+ 1045 000b 00       		.byte	0
+ 1046 000c 0000     		.2byte	0
+ 1047 000e 0000     		.2byte	0
+ 1048 0010 00000000 		.4byte	.LFB1
+ 1049 0014 28000000 		.4byte	.LFE1-.LFB1
+ 1050 0018 00000000 		.4byte	.LFB3
+ 1051 001c 28000000 		.4byte	.LFE3-.LFB3
+ 1052 0020 00000000 		.4byte	.LFB4
+ 1053 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1054 0028 00000000 		.4byte	.LFB5
+ 1055 002c 0C000000 		.4byte	.LFE5-.LFB5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 29
 
 
- 1056 0038 00000000 		.4byte	.LFB7
- 1057 003c 0C000000 		.4byte	.LFE7-.LFB7
- 1058 0040 00000000 		.4byte	.LFB8
- 1059 0044 0C000000 		.4byte	.LFE8-.LFB8
- 1060 0048 00000000 		.4byte	.LFB9
- 1061 004c 0C000000 		.4byte	.LFE9-.LFB9
- 1062 0050 00000000 		.4byte	.LFB10
- 1063 0054 0C000000 		.4byte	.LFE10-.LFB10
- 1064 0058 00000000 		.4byte	.LFB11
- 1065 005c 0C000000 		.4byte	.LFE11-.LFB11
- 1066 0060 00000000 		.4byte	.LFB12
- 1067 0064 0C000000 		.4byte	.LFE12-.LFB12
- 1068 0068 00000000 		.4byte	.LFB0
- 1069 006c 64000000 		.4byte	.LFE0-.LFB0
- 1070 0070 00000000 		.4byte	.LFB2
- 1071 0074 1C000000 		.4byte	.LFE2-.LFB2
- 1072 0078 00000000 		.4byte	.LFB13
- 1073 007c 14000000 		.4byte	.LFE13-.LFB13
- 1074 0080 00000000 		.4byte	0
- 1075 0084 00000000 		.4byte	0
- 1076              		.section	.debug_ranges,"",%progbits
- 1077              	.Ldebug_ranges0:
- 1078 0000 00000000 		.4byte	.LFB1
- 1079 0004 28000000 		.4byte	.LFE1
- 1080 0008 00000000 		.4byte	.LFB3
- 1081 000c 28000000 		.4byte	.LFE3
- 1082 0010 00000000 		.4byte	.LFB4
- 1083 0014 0C000000 		.4byte	.LFE4
- 1084 0018 00000000 		.4byte	.LFB5
- 1085 001c 0C000000 		.4byte	.LFE5
- 1086 0020 00000000 		.4byte	.LFB6
- 1087 0024 0C000000 		.4byte	.LFE6
- 1088 0028 00000000 		.4byte	.LFB7
- 1089 002c 0C000000 		.4byte	.LFE7
- 1090 0030 00000000 		.4byte	.LFB8
- 1091 0034 0C000000 		.4byte	.LFE8
- 1092 0038 00000000 		.4byte	.LFB9
- 1093 003c 0C000000 		.4byte	.LFE9
- 1094 0040 00000000 		.4byte	.LFB10
- 1095 0044 0C000000 		.4byte	.LFE10
- 1096 0048 00000000 		.4byte	.LFB11
- 1097 004c 0C000000 		.4byte	.LFE11
- 1098 0050 00000000 		.4byte	.LFB12
- 1099 0054 0C000000 		.4byte	.LFE12
- 1100 0058 00000000 		.4byte	.LFB0
- 1101 005c 64000000 		.4byte	.LFE0
- 1102 0060 00000000 		.4byte	.LFB2
- 1103 0064 1C000000 		.4byte	.LFE2
- 1104 0068 00000000 		.4byte	.LFB13
- 1105 006c 14000000 		.4byte	.LFE13
- 1106 0070 00000000 		.4byte	0
- 1107 0074 00000000 		.4byte	0
- 1108              		.section	.debug_line,"",%progbits
- 1109              	.Ldebug_line0:
- 1110 0000 53010000 		.section	.debug_str,"MS",%progbits,1
- 1110      02004600 
- 1110      00000201 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 30
+ 1056 0030 00000000 		.4byte	.LFB6
+ 1057 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1058 0038 00000000 		.4byte	.LFB7
+ 1059 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1060 0040 00000000 		.4byte	.LFB8
+ 1061 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1062 0048 00000000 		.4byte	.LFB9
+ 1063 004c 0C000000 		.4byte	.LFE9-.LFB9
+ 1064 0050 00000000 		.4byte	.LFB10
+ 1065 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1066 0058 00000000 		.4byte	.LFB11
+ 1067 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1068 0060 00000000 		.4byte	.LFB12
+ 1069 0064 0C000000 		.4byte	.LFE12-.LFB12
+ 1070 0068 00000000 		.4byte	.LFB0
+ 1071 006c 64000000 		.4byte	.LFE0-.LFB0
+ 1072 0070 00000000 		.4byte	.LFB2
+ 1073 0074 1C000000 		.4byte	.LFE2-.LFB2
+ 1074 0078 00000000 		.4byte	.LFB13
+ 1075 007c 14000000 		.4byte	.LFE13-.LFB13
+ 1076 0080 00000000 		.4byte	0
+ 1077 0084 00000000 		.4byte	0
+ 1078              		.section	.debug_ranges,"",%progbits
+ 1079              	.Ldebug_ranges0:
+ 1080 0000 00000000 		.4byte	.LFB1
+ 1081 0004 28000000 		.4byte	.LFE1
+ 1082 0008 00000000 		.4byte	.LFB3
+ 1083 000c 28000000 		.4byte	.LFE3
+ 1084 0010 00000000 		.4byte	.LFB4
+ 1085 0014 0C000000 		.4byte	.LFE4
+ 1086 0018 00000000 		.4byte	.LFB5
+ 1087 001c 0C000000 		.4byte	.LFE5
+ 1088 0020 00000000 		.4byte	.LFB6
+ 1089 0024 0C000000 		.4byte	.LFE6
+ 1090 0028 00000000 		.4byte	.LFB7
+ 1091 002c 0C000000 		.4byte	.LFE7
+ 1092 0030 00000000 		.4byte	.LFB8
+ 1093 0034 0C000000 		.4byte	.LFE8
+ 1094 0038 00000000 		.4byte	.LFB9
+ 1095 003c 0C000000 		.4byte	.LFE9
+ 1096 0040 00000000 		.4byte	.LFB10
+ 1097 0044 0C000000 		.4byte	.LFE10
+ 1098 0048 00000000 		.4byte	.LFB11
+ 1099 004c 0C000000 		.4byte	.LFE11
+ 1100 0050 00000000 		.4byte	.LFB12
+ 1101 0054 0C000000 		.4byte	.LFE12
+ 1102 0058 00000000 		.4byte	.LFB0
+ 1103 005c 64000000 		.4byte	.LFE0
+ 1104 0060 00000000 		.4byte	.LFB2
+ 1105 0064 1C000000 		.4byte	.LFE2
+ 1106 0068 00000000 		.4byte	.LFB13
+ 1107 006c 14000000 		.4byte	.LFE13
+ 1108 0070 00000000 		.4byte	0
+ 1109 0074 00000000 		.4byte	0
+ 1110              		.section	.debug_line,"",%progbits
+ 1111              	.Ldebug_line0:
+ 1112 0000 53010000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 30
 
 
- 1110      FB0E0D00 
- 1110      01010101 
- 1111              	.LASF15:
- 1112 0000 72656731 		.ascii	"reg16\000"
- 1112      3600
- 1113              	.LASF17:
- 1114 0006 43414E5F 		.ascii	"CAN_Timer_Enable\000"
- 1114      54696D65 
- 1114      725F456E 
- 1114      61626C65 
- 1114      00
- 1115              	.LASF26:
- 1116 0017 43414E5F 		.ascii	"CAN_Timer_ReadPeriod\000"
+ 1112      02004600 
+ 1112      00000201 
+ 1112      FB0E0D00 
+ 1112      01010101 
+ 1113              	.LASF15:
+ 1114 0000 72656731 		.ascii	"reg16\000"
+ 1114      3600
+ 1115              	.LASF17:
+ 1116 0006 43414E5F 		.ascii	"CAN_Timer_Enable\000"
  1116      54696D65 
- 1116      725F5265 
- 1116      61645065 
- 1116      72696F64 
- 1117              	.LASF36:
- 1118 002c 47656E65 		.ascii	"Generated_Source\\PSoC5\\CAN_Timer.c\000"
- 1118      72617465 
- 1118      645F536F 
- 1118      75726365 
- 1118      5C50536F 
- 1119              	.LASF34:
- 1120 004f 43414E5F 		.ascii	"CAN_Timer_ReadCounter\000"
- 1120      54696D65 
- 1120      725F5265 
- 1120      6164436F 
- 1120      756E7465 
- 1121              	.LASF28:
- 1122 0065 70657269 		.ascii	"period\000"
- 1122      6F6400
- 1123              	.LASF3:
- 1124 006c 73686F72 		.ascii	"short unsigned int\000"
- 1124      7420756E 
- 1124      7369676E 
- 1124      65642069 
- 1124      6E7400
- 1125              	.LASF22:
- 1126 007f 43414E5F 		.ascii	"CAN_Timer_SetInterruptMode\000"
- 1126      54696D65 
- 1126      725F5365 
- 1126      74496E74 
- 1126      65727275 
- 1127              	.LASF39:
- 1128 009a 43414E5F 		.ascii	"CAN_Timer_initVar\000"
+ 1116      725F456E 
+ 1116      61626C65 
+ 1116      00
+ 1117              	.LASF26:
+ 1118 0017 43414E5F 		.ascii	"CAN_Timer_ReadPeriod\000"
+ 1118      54696D65 
+ 1118      725F5265 
+ 1118      61645065 
+ 1118      72696F64 
+ 1119              	.LASF36:
+ 1120 002c 47656E65 		.ascii	"Generated_Source\\PSoC5\\CAN_Timer.c\000"
+ 1120      72617465 
+ 1120      645F536F 
+ 1120      75726365 
+ 1120      5C50536F 
+ 1121              	.LASF34:
+ 1122 004f 43414E5F 		.ascii	"CAN_Timer_ReadCounter\000"
+ 1122      54696D65 
+ 1122      725F5265 
+ 1122      6164436F 
+ 1122      756E7465 
+ 1123              	.LASF28:
+ 1124 0065 70657269 		.ascii	"period\000"
+ 1124      6F6400
+ 1125              	.LASF3:
+ 1126 006c 73686F72 		.ascii	"short unsigned int\000"
+ 1126      7420756E 
+ 1126      7369676E 
+ 1126      65642069 
+ 1126      6E7400
+ 1127              	.LASF22:
+ 1128 007f 43414E5F 		.ascii	"CAN_Timer_SetInterruptMode\000"
  1128      54696D65 
- 1128      725F696E 
- 1128      69745661 
- 1128      7200
- 1129              	.LASF11:
- 1130 00ac 666C6F61 		.ascii	"float\000"
- 1130      7400
- 1131              	.LASF31:
- 1132 00b2 636F756E 		.ascii	"counter\000"
- 1132      74657200 
- 1133              	.LASF1:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 31
+ 1128      725F5365 
+ 1128      74496E74 
+ 1128      65727275 
+ 1129              	.LASF39:
+ 1130 009a 43414E5F 		.ascii	"CAN_Timer_initVar\000"
+ 1130      54696D65 
+ 1130      725F696E 
+ 1130      69745661 
+ 1130      7200
+ 1131              	.LASF11:
+ 1132 00ac 666C6F61 		.ascii	"float\000"
+ 1132      7400
+ 1133              	.LASF31:
+ 1134 00b2 636F756E 		.ascii	"counter\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 31
 
 
- 1134 00ba 756E7369 		.ascii	"unsigned char\000"
- 1134      676E6564 
- 1134      20636861 
- 1134      7200
- 1135              	.LASF14:
- 1136 00c8 72656738 		.ascii	"reg8\000"
- 1136      00
- 1137              	.LASF5:
- 1138 00cd 6C6F6E67 		.ascii	"long unsigned int\000"
- 1138      20756E73 
- 1138      69676E65 
- 1138      6420696E 
- 1138      7400
- 1139              	.LASF9:
- 1140 00df 75696E74 		.ascii	"uint8\000"
- 1140      3800
- 1141              	.LASF25:
- 1142 00e5 636F6E74 		.ascii	"control\000"
- 1142      726F6C00 
- 1143              	.LASF27:
- 1144 00ed 43414E5F 		.ascii	"CAN_Timer_WritePeriod\000"
- 1144      54696D65 
- 1144      725F5772 
- 1144      69746550 
- 1144      6572696F 
- 1145              	.LASF20:
- 1146 0103 43414E5F 		.ascii	"CAN_Timer_ReadStatusRegister\000"
+ 1134      74657200 
+ 1135              	.LASF1:
+ 1136 00ba 756E7369 		.ascii	"unsigned char\000"
+ 1136      676E6564 
+ 1136      20636861 
+ 1136      7200
+ 1137              	.LASF14:
+ 1138 00c8 72656738 		.ascii	"reg8\000"
+ 1138      00
+ 1139              	.LASF5:
+ 1140 00cd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1140      20756E73 
+ 1140      69676E65 
+ 1140      6420696E 
+ 1140      7400
+ 1141              	.LASF9:
+ 1142 00df 75696E74 		.ascii	"uint8\000"
+ 1142      3800
+ 1143              	.LASF25:
+ 1144 00e5 636F6E74 		.ascii	"control\000"
+ 1144      726F6C00 
+ 1145              	.LASF27:
+ 1146 00ed 43414E5F 		.ascii	"CAN_Timer_WritePeriod\000"
  1146      54696D65 
- 1146      725F5265 
- 1146      61645374 
- 1146      61747573 
- 1147              	.LASF12:
- 1148 0120 646F7562 		.ascii	"double\000"
- 1148      6C6500
- 1149              	.LASF10:
- 1150 0127 75696E74 		.ascii	"uint16\000"
- 1150      313600
- 1151              	.LASF19:
- 1152 012e 43414E5F 		.ascii	"CAN_Timer_SoftwareCapture\000"
- 1152      54696D65 
- 1152      725F536F 
- 1152      66747761 
- 1152      72654361 
- 1153              	.LASF35:
- 1154 0148 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1154      4320342E 
- 1154      392E3320 
- 1154      32303135 
- 1154      30333033 
- 1155 017b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1155      20726576 
- 1155      6973696F 
- 1155      6E203232 
- 1155      31323230 
- 1156 01ae 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1156      66756E63 
- 1156      74696F6E 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 32
+ 1146      725F5772 
+ 1146      69746550 
+ 1146      6572696F 
+ 1147              	.LASF20:
+ 1148 0103 43414E5F 		.ascii	"CAN_Timer_ReadStatusRegister\000"
+ 1148      54696D65 
+ 1148      725F5265 
+ 1148      61645374 
+ 1148      61747573 
+ 1149              	.LASF12:
+ 1150 0120 646F7562 		.ascii	"double\000"
+ 1150      6C6500
+ 1151              	.LASF10:
+ 1152 0127 75696E74 		.ascii	"uint16\000"
+ 1152      313600
+ 1153              	.LASF19:
+ 1154 012e 43414E5F 		.ascii	"CAN_Timer_SoftwareCapture\000"
+ 1154      54696D65 
+ 1154      725F536F 
+ 1154      66747761 
+ 1154      72654361 
+ 1155              	.LASF35:
+ 1156 0148 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1156      4320342E 
+ 1156      392E3320 
+ 1156      32303135 
+ 1156      30333033 
+ 1157 017b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1157      20726576 
+ 1157      6973696F 
+ 1157      6E203232 
+ 1157      31323230 
+ 1158 01ae 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 32
 
 
- 1156      2D736563 
- 1156      74696F6E 
- 1157              	.LASF32:
- 1158 01d6 43414E5F 		.ascii	"CAN_Timer_Init\000"
- 1158      54696D65 
- 1158      725F496E 
- 1158      697400
- 1159              	.LASF8:
- 1160 01e5 756E7369 		.ascii	"unsigned int\000"
- 1160      676E6564 
- 1160      20696E74 
- 1160      00
- 1161              	.LASF21:
- 1162 01f2 43414E5F 		.ascii	"CAN_Timer_ReadControlRegister\000"
- 1162      54696D65 
- 1162      725F5265 
- 1162      6164436F 
- 1162      6E74726F 
- 1163              	.LASF7:
- 1164 0210 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1164      206C6F6E 
- 1164      6720756E 
- 1164      7369676E 
- 1164      65642069 
- 1165              	.LASF38:
- 1166 0227 70657269 		.ascii	"period_temp\000"
- 1166      6F645F74 
- 1166      656D7000 
- 1167              	.LASF16:
- 1168 0233 73697A65 		.ascii	"sizetype\000"
- 1168      74797065 
- 1168      00
- 1169              	.LASF6:
- 1170 023c 6C6F6E67 		.ascii	"long long int\000"
- 1170      206C6F6E 
- 1170      6720696E 
- 1170      7400
- 1171              	.LASF24:
- 1172 024a 696E7465 		.ascii	"interruptMode\000"
- 1172      72727570 
- 1172      744D6F64 
- 1172      6500
- 1173              	.LASF37:
- 1174 0258 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
- 1174      6F776E6C 
- 1174      6F616473 
- 1174      5C465255 
- 1174      43445C4E 
- 1175 0286 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
- 1175      67756172 
- 1175      2E637964 
- 1175      736E00
- 1176              	.LASF2:
- 1177 0295 73686F72 		.ascii	"short int\000"
- 1177      7420696E 
- 1177      7400
- 1178              	.LASF33:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccg8OSxB.s 			page 33
+ 1158      66756E63 
+ 1158      74696F6E 
+ 1158      2D736563 
+ 1158      74696F6E 
+ 1159              	.LASF32:
+ 1160 01d6 43414E5F 		.ascii	"CAN_Timer_Init\000"
+ 1160      54696D65 
+ 1160      725F496E 
+ 1160      697400
+ 1161              	.LASF8:
+ 1162 01e5 756E7369 		.ascii	"unsigned int\000"
+ 1162      676E6564 
+ 1162      20696E74 
+ 1162      00
+ 1163              	.LASF21:
+ 1164 01f2 43414E5F 		.ascii	"CAN_Timer_ReadControlRegister\000"
+ 1164      54696D65 
+ 1164      725F5265 
+ 1164      6164436F 
+ 1164      6E74726F 
+ 1165              	.LASF7:
+ 1166 0210 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1166      206C6F6E 
+ 1166      6720756E 
+ 1166      7369676E 
+ 1166      65642069 
+ 1167              	.LASF38:
+ 1168 0227 70657269 		.ascii	"period_temp\000"
+ 1168      6F645F74 
+ 1168      656D7000 
+ 1169              	.LASF16:
+ 1170 0233 73697A65 		.ascii	"sizetype\000"
+ 1170      74797065 
+ 1170      00
+ 1171              	.LASF6:
+ 1172 023c 6C6F6E67 		.ascii	"long long int\000"
+ 1172      206C6F6E 
+ 1172      6720696E 
+ 1172      7400
+ 1173              	.LASF24:
+ 1174 024a 696E7465 		.ascii	"interruptMode\000"
+ 1174      72727570 
+ 1174      744D6F64 
+ 1174      6500
+ 1175              	.LASF37:
+ 1176 0258 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 1176      6F776E6C 
+ 1176      6F616473 
+ 1176      5C465255 
+ 1176      43445C4E 
+ 1177 0286 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 1177      67756172 
+ 1177      2E637964 
+ 1177      736E00
+ 1178              	.LASF2:
+ 1179 0295 73686F72 		.ascii	"short int\000"
+ 1179      7420696E 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQwOLbD.s 			page 33
 
 
- 1179 029f 43414E5F 		.ascii	"CAN_Timer_Start\000"
- 1179      54696D65 
- 1179      725F5374 
- 1179      61727400 
- 1180              	.LASF4:
- 1181 02af 6C6F6E67 		.ascii	"long int\000"
- 1181      20696E74 
- 1181      00
- 1182              	.LASF13:
- 1183 02b8 63686172 		.ascii	"char\000"
+ 1179      7400
+ 1180              	.LASF33:
+ 1181 029f 43414E5F 		.ascii	"CAN_Timer_Start\000"
+ 1181      54696D65 
+ 1181      725F5374 
+ 1181      61727400 
+ 1182              	.LASF4:
+ 1183 02af 6C6F6E67 		.ascii	"long int\000"
+ 1183      20696E74 
  1183      00
- 1184              	.LASF18:
- 1185 02bd 43414E5F 		.ascii	"CAN_Timer_Stop\000"
- 1185      54696D65 
- 1185      725F5374 
- 1185      6F7000
- 1186              	.LASF0:
- 1187 02cc 7369676E 		.ascii	"signed char\000"
- 1187      65642063 
- 1187      68617200 
- 1188              	.LASF23:
- 1189 02d8 43414E5F 		.ascii	"CAN_Timer_WriteControlRegister\000"
- 1189      54696D65 
- 1189      725F5772 
- 1189      69746543 
- 1189      6F6E7472 
- 1190              	.LASF29:
- 1191 02f7 43414E5F 		.ascii	"CAN_Timer_ReadCapture\000"
+ 1184              	.LASF13:
+ 1185 02b8 63686172 		.ascii	"char\000"
+ 1185      00
+ 1186              	.LASF18:
+ 1187 02bd 43414E5F 		.ascii	"CAN_Timer_Stop\000"
+ 1187      54696D65 
+ 1187      725F5374 
+ 1187      6F7000
+ 1188              	.LASF0:
+ 1189 02cc 7369676E 		.ascii	"signed char\000"
+ 1189      65642063 
+ 1189      68617200 
+ 1190              	.LASF23:
+ 1191 02d8 43414E5F 		.ascii	"CAN_Timer_WriteControlRegister\000"
  1191      54696D65 
- 1191      725F5265 
- 1191      61644361 
- 1191      70747572 
- 1192              	.LASF30:
- 1193 030d 43414E5F 		.ascii	"CAN_Timer_WriteCounter\000"
+ 1191      725F5772 
+ 1191      69746543 
+ 1191      6F6E7472 
+ 1192              	.LASF29:
+ 1193 02f7 43414E5F 		.ascii	"CAN_Timer_ReadCapture\000"
  1193      54696D65 
- 1193      725F5772 
- 1193      69746543 
- 1193      6F756E74 
- 1194              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1193      725F5265 
+ 1193      61644361 
+ 1193      70747572 
+ 1194              	.LASF30:
+ 1195 030d 43414E5F 		.ascii	"CAN_Timer_WriteCounter\000"
+ 1195      54696D65 
+ 1195      725F5772 
+ 1195      69746543 
+ 1195      6F756E74 
+ 1196              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

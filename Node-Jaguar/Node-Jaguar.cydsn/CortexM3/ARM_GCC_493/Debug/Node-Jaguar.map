@@ -41,29 +41,31 @@ Archive member included because of file (symbol)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
                               .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o) (LED_Driver2_mstrStatus)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
-                              .\CortexM3\ARM_GCC_493\Debug\led_manager.o (b1_critical_timer_Start)
+                              .\CortexM3\ARM_GCC_493\Debug\led_manager.o (b1_critical_timer_Stop)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
                               .\CortexM3\ARM_GCC_493\Debug\led_manager.o (b1_crit_int_StartEx)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
-                              .\CortexM3\ARM_GCC_493\Debug\led_manager.o (b2_critical_timer_Start)
+                              .\CortexM3\ARM_GCC_493\Debug\led_manager.o (b2_critical_timer_Stop)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
                               .\CortexM3\ARM_GCC_493\Debug\led_manager.o (b2_crit_int_StartEx)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
-                              .\CortexM3\ARM_GCC_493\Debug\led_manager.o (b3_critical_timer_Start)
+                              .\CortexM3\ARM_GCC_493\Debug\led_manager.o (b3_critical_timer_Stop)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
                               .\CortexM3\ARM_GCC_493\Debug\led_manager.o (b3_crit_int_StartEx)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
                               .\CortexM3\ARM_GCC_493\Debug\led_manager.o (c1_critical_timer_Start)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
                               .\CortexM3\ARM_GCC_493\Debug\led_manager.o (c1_crit_int_StartEx)
+.\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                              .\CortexM3\ARM_GCC_493\Debug\led_manager.o (tach_critical_timer_Stop)
+.\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+                              .\CortexM3\ARM_GCC_493\Debug\led_manager.o (tach_crit_int_StartEx)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
                               .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o) (CyDelayCycles)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
                               .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o) (CyFlash_SetWaitCycles)
 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
                               .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o) (CySpcStart)
-.\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
-                              .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o) (CySetReg24)
 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
                               .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o (__errno)
 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
@@ -137,114 +139,10 @@ Discarded input sections
  .text.can_test_send
                 0x00000000       0x4c .\CortexM3\ARM_GCC_493\Debug\can_manga.o
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .bss           0x00000000       0xd4 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d1_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d2_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d3_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d4_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d5_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d6_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d7_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d8_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d9_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d10_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d11_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d12_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d13_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d14_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d15_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d16_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d17_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d18_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d19_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
  .text.led_on   0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
  .text.led_off  0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d20_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d21_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.d22_write
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.led_write_tach
-                0x00000000      0x1a0 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
  .text.led_writetest
                 0x00000000       0xb8 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b11_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b12_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b13_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b14_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b15_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b1_crit_isr
-                0x00000000       0x30 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.led_write_b1
-                0x00000000       0xb4 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b21_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b22_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b23_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b24_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b25_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b2_crit_isr
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.led_write_b2
-                0x00000000       0xc8 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b31_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b32_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b33_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b34_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b35_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.b3_crit_isr
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.led_write_b3
-                0x00000000       0xc8 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.c5_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.c4_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.c3_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.c2_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.c1_write
-                0x00000000       0x48 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.c1_crit_isr
-                0x00000000       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .text.led_write_c1
-                0x00000000       0xd0 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
@@ -537,7 +435,7 @@ Discarded input sections
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
  .text.Node_Timer_Stop
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x00000000       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
  .text.Node_Timer_SoftwareCapture
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
  .text.Node_Timer_ReadControlRegister
@@ -545,14 +443,16 @@ Discarded input sections
  .text.Node_Timer_WriteControlRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
  .text.Node_Timer_ReadPeriod
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+ .text.Node_Timer_ReadCapture
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
  .text.Node_Timer_ReadCounter
-                0x00000000       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
  .text.isr_nodeok_GetVector
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
  .text.isr_nodeok_GetPriority
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
  .text.isr_nodeok_GetState
@@ -562,9 +462,9 @@ Discarded input sections
  .text.isr_nodeok_Stop
                 0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
  .text.isr_nodeok_SetPending
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
  .text.isr_nodeok_ClearPending
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
  .text.LED_Driver1_Stop
@@ -606,13 +506,13 @@ Discarded input sections
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
  .text.LED_Driver2_MasterWriteBuf
-                0x00000000       0xe0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+                0x00000000       0xdc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
  .text.LED_Driver2_MasterReadBuf
-                0x00000000       0xe4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+                0x00000000       0xe0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
  .text.LED_Driver2_MasterSendRestart
-                0x00000000       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+                0x00000000       0x7c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
  .text.LED_Driver2_MasterReadByte
-                0x00000000       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+                0x00000000       0x88 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
  .text.LED_Driver2_MasterStatus
                 0x00000000       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
  .text.LED_Driver2_MasterClearStatus
@@ -627,16 +527,7 @@ Discarded input sections
                 0x00000000       0x2c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .bss           0x00000000        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_Enable
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_Stop
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_SetInterruptMode
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
  .text.b1_critical_timer_SoftwareCapture
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_ReadStatusRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
  .text.b1_critical_timer_ReadControlRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
@@ -644,61 +535,28 @@ Discarded input sections
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
  .text.b1_critical_timer_ReadPeriod
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_WritePeriod
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_ReadCapture
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_WriteCounter
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
  .text.b1_critical_timer_ReadCounter
                 0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_ClearFIFO
-                0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_Init
-                0x00000000       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .text.b1_critical_timer_Start
-                0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .text.b1_crit_int_Interrupt
                 0x00000000        0x4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .text.b1_crit_int_SetVector
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .text.b1_crit_int_GetVector
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .text.b1_crit_int_SetPriority
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .text.b1_crit_int_GetPriority
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .text.b1_crit_int_Enable
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .text.b1_crit_int_GetState
                 0x00000000       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .text.b1_crit_int_Disable
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .text.b1_crit_int_Start
                 0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .text.b1_crit_int_StartEx
-                0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .text.b1_crit_int_Stop
-                0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .text.b1_crit_int_SetPending
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .text.b1_crit_int_ClearPending
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .bss           0x00000000        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_Enable
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_Stop
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_SetInterruptMode
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
  .text.b2_critical_timer_SoftwareCapture
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_ReadStatusRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
  .text.b2_critical_timer_ReadControlRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
@@ -706,61 +564,28 @@ Discarded input sections
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
  .text.b2_critical_timer_ReadPeriod
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_WritePeriod
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_ReadCapture
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_WriteCounter
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
  .text.b2_critical_timer_ReadCounter
                 0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_ClearFIFO
-                0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_Init
-                0x00000000       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .text.b2_critical_timer_Start
-                0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .text.b2_crit_int_Interrupt
                 0x00000000        0x4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .text.b2_crit_int_SetVector
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .text.b2_crit_int_GetVector
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .text.b2_crit_int_SetPriority
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .text.b2_crit_int_GetPriority
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .text.b2_crit_int_Enable
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .text.b2_crit_int_GetState
                 0x00000000       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .text.b2_crit_int_Disable
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .text.b2_crit_int_Start
                 0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .text.b2_crit_int_StartEx
-                0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .text.b2_crit_int_Stop
-                0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .text.b2_crit_int_SetPending
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .text.b2_crit_int_ClearPending
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .bss           0x00000000        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_Enable
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_Stop
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_SetInterruptMode
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
  .text.b3_critical_timer_SoftwareCapture
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_ReadStatusRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
  .text.b3_critical_timer_ReadControlRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
@@ -768,61 +593,30 @@ Discarded input sections
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
  .text.b3_critical_timer_ReadPeriod
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_WritePeriod
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_ReadCapture
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_WriteCounter
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
  .text.b3_critical_timer_ReadCounter
                 0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_ClearFIFO
-                0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_Init
-                0x00000000       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .text.b3_critical_timer_Start
-                0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .text.b3_crit_int_Interrupt
                 0x00000000        0x4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .text.b3_crit_int_SetVector
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .text.b3_crit_int_GetVector
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .text.b3_crit_int_SetPriority
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .text.b3_crit_int_GetPriority
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .text.b3_crit_int_Enable
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .text.b3_crit_int_GetState
                 0x00000000       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .text.b3_crit_int_Disable
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .text.b3_crit_int_Start
                 0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .text.b3_crit_int_StartEx
-                0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .text.b3_crit_int_Stop
-                0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .text.b3_crit_int_SetPending
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .text.b3_crit_int_ClearPending
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .bss           0x00000000        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .text.c1_critical_timer_Enable
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
  .text.c1_critical_timer_Stop
                 0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .text.c1_critical_timer_SetInterruptMode
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
  .text.c1_critical_timer_SoftwareCapture
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .text.c1_critical_timer_ReadStatusRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
  .text.c1_critical_timer_ReadControlRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
@@ -830,42 +624,20 @@ Discarded input sections
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
  .text.c1_critical_timer_ReadPeriod
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .text.c1_critical_timer_WritePeriod
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .text.c1_critical_timer_ReadCapture
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .text.c1_critical_timer_WriteCounter
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
  .text.c1_critical_timer_ReadCounter
                 0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .text.c1_critical_timer_ClearFIFO
-                0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .text.c1_critical_timer_Init
-                0x00000000       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .text.c1_critical_timer_Start
-                0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .text.c1_crit_int_Interrupt
                 0x00000000        0x4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .text.c1_crit_int_SetVector
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .text.c1_crit_int_GetVector
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .text.c1_crit_int_SetPriority
-                0x00000000       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .text.c1_crit_int_GetPriority
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .text.c1_crit_int_Enable
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .text.c1_crit_int_GetState
                 0x00000000       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .text.c1_crit_int_Disable
-                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .text.c1_crit_int_Start
-                0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .text.c1_crit_int_StartEx
                 0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .text.c1_crit_int_Stop
                 0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
@@ -873,6 +645,35 @@ Discarded input sections
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .text.c1_crit_int_ClearPending
                 0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .text.tach_critical_timer_SoftwareCapture
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .text.tach_critical_timer_ReadControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .text.tach_critical_timer_WriteControlRegister
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .text.tach_critical_timer_ReadPeriod
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .text.tach_critical_timer_ReadCounter
+                0x00000000       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .text.tach_crit_int_Interrupt
+                0x00000000        0x4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .text.tach_crit_int_GetVector
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .text.tach_crit_int_GetPriority
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .text.tach_crit_int_GetState
+                0x00000000       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .text.tach_crit_int_Start
+                0x00000000       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .text.tach_crit_int_SetPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .text.tach_crit_int_ClearPending
+                0x00000000        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
@@ -932,9 +733,6 @@ Discarded input sections
                 0x00000000       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
  .text.CySpcGetAlgorithm
                 0x00000000       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
- .text          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
- .data          0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
- .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
  .text          0x00000000        0x0 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
  .data          0x00000000        0x0 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
  .bss           0x00000000        0x0 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
@@ -1018,7 +816,7 @@ END GROUP
                 0x00000040                CY_METADATA_SIZE = 0x40
                 0x00000000                CY_APPL_LOADABLE = 0x0
                 0x00000000                CY_CHECKSUM_EXCLUDE_SIZE = ALIGN (0x0, CY_FLASH_ROW_SIZE)
-                0x1fff8180                PROVIDE (__cy_heap_start, _end)
+                0x1fff8298                PROVIDE (__cy_heap_start, _end)
                 0x00000001                PROVIDE (__cy_region_num, ((__cy_regions_end - __cy_regions) / 0x10))
                 0x20008000                PROVIDE (__cy_stack, (ORIGIN (ram) + 0x10000))
                 0x20007800                PROVIDE (__cy_heap_end, (__cy_stack - 0x800))
@@ -1033,7 +831,7 @@ END GROUP
                 0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
                 0x00000000                PROVIDE (CY_ECC_OFFSET, ecc_offset)
 
-.text           0x00000000     0x1d86
+.text           0x00000000     0x3322
  CREATE_OBJECT_SYMBOLS
                 0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
  *(.romvectors)
@@ -1053,251 +851,644 @@ END GROUP
  .text.nodeCheckStart
                 0x00000084        0xc .\CortexM3\ARM_GCC_493\Debug\main.o
                 0x00000084                nodeCheckStart
- .text.main     0x00000090      0x304 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .text.main     0x00000090      0x32c .\CortexM3\ARM_GCC_493\Debug\main.o
                 0x00000090                main
  .text.getCapacitorVoltage
-                0x00000394        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x00000394                getCapacitorVoltage
+                0x000003bc        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x000003bc                getCapacitorVoltage
  .text.getCurtisHeartBeatCheck
-                0x000003a0        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x000003a0                getCurtisHeartBeatCheck
+                0x000003c8        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x000003c8                getCurtisHeartBeatCheck
  .text.getAckRx
-                0x000003ac        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x000003ac                getAckRx
+                0x000003d4        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x000003d4                getAckRx
  .text.getErrorTolerance
-                0x000003b8        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x000003b8                getErrorTolerance
+                0x000003e0        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x000003e0                getErrorTolerance
  .text.getABSMotorRPM
-                0x000003c4        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x000003c4                getABSMotorRPM
+                0x000003ec        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x000003ec                getABSMotorRPM
  .text.getPedalLow
-                0x000003d0        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x000003d0                getPedalLow
+                0x000003f8        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x000003f8                getPedalLow
  .text.getPedalHigh
-                0x000003dc        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x000003dc                getPedalHigh
+                0x00000404        0xc .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x00000404                getPedalHigh
  .text.can_receive
-                0x000003e8       0xa0 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x000003e8                can_receive
+                0x00000410       0xd8 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x00000410                can_receive
  .text.can_send
-                0x00000488       0x40 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x00000488                can_send
+                0x000004e8       0x40 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x000004e8                can_send
  .text.can_send_status
-                0x000004c8       0x38 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x000004c8                can_send_status
+                0x00000528       0x38 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x00000528                can_send_status
  .text.can_send_cmd
-                0x00000500       0x3c .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x00000500                can_send_cmd
+                0x00000560       0x3c .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x00000560                can_send_cmd
  .text.write_all_tach
-                0x0000053c       0x50 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
-                0x0000053c                write_all_tach
+                0x0000059c       0x50 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000059c                write_all_tach
  .text.write_all_stat
-                0x0000058c       0x50 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
-                0x0000058c                write_all_stat
+                0x000005ec       0x50 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000005ec                write_all_stat
  .text.led_driver_init
-                0x000005dc      0x108 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
-                0x000005dc                led_driver_init
+                0x0000063c      0x108 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000063c                led_driver_init
+ .text.led_update_tach
+                0x00000744       0x34 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000744                led_update_tach
+ .text.led_update_stat
+                0x00000778       0x34 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000778                led_update_stat
+ .text.d1_write
+                0x000007ac       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000007ac                d1_write
+ .text.d2_write
+                0x000007cc       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000007cc                d2_write
+ .text.d3_write
+                0x000007ec       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000007ec                d3_write
+ .text.d4_write
+                0x0000080c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000080c                d4_write
+ .text.d5_write
+                0x0000082c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000082c                d5_write
+ .text.d6_write
+                0x0000084c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000084c                d6_write
+ .text.d7_write
+                0x0000086c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000086c                d7_write
+ .text.d8_write
+                0x0000088c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000088c                d8_write
+ .text.d9_write
+                0x000008ac       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000008ac                d9_write
+ .text.d10_write
+                0x000008cc       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000008cc                d10_write
+ .text.d11_write
+                0x000008ec       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000008ec                d11_write
+ .text.d12_write
+                0x0000090c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000090c                d12_write
+ .text.d13_write
+                0x0000092c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000092c                d13_write
+ .text.d14_write
+                0x0000094c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000094c                d14_write
+ .text.d15_write
+                0x0000096c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000096c                d15_write
+ .text.d16_write
+                0x0000098c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000098c                d16_write
+ .text.d17_write
+                0x000009ac       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000009ac                d17_write
+ .text.d18_write
+                0x000009cc       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000009cc                d18_write
+ .text.d19_write
+                0x000009ec       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000009ec                d19_write
+ .text.d20_write
+                0x00000a0c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000a0c                d20_write
+ .text.d21_write
+                0x00000a2c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000a2c                d21_write
+ .text.d22_write
+                0x00000a4c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000a4c                d22_write
+ .text.tach_crit_isr
+                0x00000a6c       0x9c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000a6c                tach_crit_isr
+ .text.led_write_tach
+                0x00000b08      0x1fc .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000b08                led_write_tach
+ .text.write_startup_tach
+                0x00000d04      0x240 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000d04                write_startup_tach
+ .text.b11_write
+                0x00000f44       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000f44                b11_write
+ .text.b12_write
+                0x00000f64       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000f64                b12_write
+ .text.b13_write
+                0x00000f84       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000f84                b13_write
+ .text.b14_write
+                0x00000fa4       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000fa4                b14_write
+ .text.b15_write
+                0x00000fc4       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000fc4                b15_write
+ .text.b1_crit_isr
+                0x00000fe4       0x34 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00000fe4                b1_crit_isr
+ .text.led_write_b1
+                0x00001018       0xf4 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001018                led_write_b1
+ .text.b21_write
+                0x0000110c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000110c                b21_write
+ .text.b22_write
+                0x0000112c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000112c                b22_write
+ .text.b23_write
+                0x0000114c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000114c                b23_write
+ .text.b24_write
+                0x0000116c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000116c                b24_write
+ .text.b25_write
+                0x0000118c       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x0000118c                b25_write
+ .text.b2_crit_isr
+                0x000011ac       0x40 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000011ac                b2_crit_isr
+ .text.led_write_b2
+                0x000011ec      0x10c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000011ec                led_write_b2
+ .text.b31_write
+                0x000012f8       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000012f8                b31_write
+ .text.b32_write
+                0x00001318       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001318                b32_write
+ .text.b33_write
+                0x00001338       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001338                b33_write
+ .text.b34_write
+                0x00001358       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001358                b34_write
+ .text.b35_write
+                0x00001378       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001378                b35_write
+ .text.b3_crit_isr
+                0x00001398       0x40 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001398                b3_crit_isr
+ .text.led_write_b3
+                0x000013d8      0x10c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000013d8                led_write_b3
+ .text.c5_write
+                0x000014e4       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000014e4                c5_write
+ .text.c4_write
+                0x00001504       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001504                c4_write
+ .text.c3_write
+                0x00001524       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001524                c3_write
+ .text.c2_write
+                0x00001544       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001544                c2_write
+ .text.c1_write
+                0x00001564       0x20 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001564                c1_write
+ .text.c1_crit_isr
+                0x00001584       0x40 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001584                c1_crit_isr
+ .text.led_write_c1
+                0x000015c4       0xd4 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000015c4                led_write_c1
+ .text.write_startup_stat
+                0x00001698       0x64 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x00001698                write_startup_stat
  .text.IntDefaultHandler
-                0x000006e4        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
-                0x000006e4                IntDefaultHandler
- .text.Start_c  0x000006e8       0x4c .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
-                0x000006e8                Start_c
+                0x000016fc        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x000016fc                IntDefaultHandler
+ .text.Start_c  0x00001700       0x4c .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x00001700                Start_c
  .text.initialize_psoc
-                0x00000734       0x74 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
-                0x00000734                initialize_psoc
+                0x0000174c       0x74 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x0000174c                initialize_psoc
  .text.CyClockStartupError
-                0x000007a8        0x4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+                0x000017c0        0x4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
  .text.cfg_write_bytes32
-                0x000007ac       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+                0x000017c4       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
  .text.AnalogSetDefault
-                0x000007e0       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+                0x000017f8       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
  .text.CYMEMZERO
-                0x00000808        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+                0x00001820        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
  .text.ClockSetup
-                0x00000814       0xfc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+                0x0000182c       0xfc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
  .text.CYCONFIGCPY
-                0x00000910        0x8 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+                0x00001928        0x8 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
  .text.cyfitter_cfg
-                0x00000918      0x154 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
-                0x00000918                cyfitter_cfg
+                0x00001930      0x154 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+                0x00001930                cyfitter_cfg
  .text.CAN_GlobalIntEnable
-                0x00000a6c       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000a6c                CAN_GlobalIntEnable
+                0x00001a84       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001a84                CAN_GlobalIntEnable
  .text.CAN_Enable
-                0x00000a8c       0x6c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000a8c                CAN_Enable
+                0x00001aa4       0x6c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001aa4                CAN_Enable
  .text.CAN_SetPreScaler
-                0x00000af8       0x24 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000af8                CAN_SetPreScaler
+                0x00001b10       0x24 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001b10                CAN_SetPreScaler
  .text.CAN_SetArbiter
-                0x00000b1c       0x3c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000b1c                CAN_SetArbiter
+                0x00001b34       0x3c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001b34                CAN_SetArbiter
  .text.CAN_SetTsegSample
-                0x00000b58       0x84 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000b58                CAN_SetTsegSample
+                0x00001b70       0x84 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001b70                CAN_SetTsegSample
  .text.CAN_SetRestartType
-                0x00000bdc       0x3c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000bdc                CAN_SetRestartType
+                0x00001bf4       0x3c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001bf4                CAN_SetRestartType
  .text.CAN_SetEdgeMode
-                0x00000c18       0x3c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000c18                CAN_SetEdgeMode
+                0x00001c30       0x3c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001c30                CAN_SetEdgeMode
  .text.CAN_SetIrqMask
-                0x00000c54       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000c54                CAN_SetIrqMask
+                0x00001c6c       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001c6c                CAN_SetIrqMask
  .text.CAN_RxBufConfig
-                0x00000c6c       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000c6c                CAN_RxBufConfig
+                0x00001c84       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001c84                CAN_RxBufConfig
  .text.CAN_TxBufConfig
-                0x00000cfc       0x54 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000cfc                CAN_TxBufConfig
+                0x00001d14       0x54 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001d14                CAN_TxBufConfig
  .text.CAN_RxTxBuffersConfig
-                0x00000d50       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000d50                CAN_RxTxBuffersConfig
+                0x00001d68       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001d68                CAN_RxTxBuffersConfig
  .text.CAN_Init
-                0x00000da0       0xe0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000da0                CAN_Init
+                0x00001db8       0xe0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001db8                CAN_Init
  .text.CAN_Start
-                0x00000e80       0x24 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00000e80                CAN_Start
+                0x00001e98       0x24 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00001e98                CAN_Start
  .text.CAN_MsgRXIsr
-                0x00000ea4       0x44 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
-                0x00000ea4                CAN_MsgRXIsr
- .text.CAN_ISR  0x00000ee8       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
-                0x00000ee8                CAN_ISR
+                0x00001ebc       0x44 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+                0x00001ebc                CAN_MsgRXIsr
+ .text.CAN_ISR  0x00001f00       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+                0x00001f00                CAN_ISR
  .text.CAN_SendMsg
-                0x00000f00       0xdc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
-                0x00000f00                CAN_SendMsg
+                0x00001f18       0xdc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+                0x00001f18                CAN_SendMsg
  .text.CAN_ReceiveMsg
-                0x00000fdc       0x68 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
-                0x00000fdc                CAN_ReceiveMsg
- .text.CyHalt   0x00001044        0x4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
-                0x00001044                CyHalt
- .text.CyDelay  0x00001048       0x2c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
-                0x00001048                CyDelay
+                0x00001ff4       0x68 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+                0x00001ff4                CAN_ReceiveMsg
+ .text.CyHalt   0x0000205c        0x4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+                0x0000205c                CyHalt
+ .text.CyDelay  0x00002060       0x2c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+                0x00002060                CyDelay
  .text.CyIntSetVector
-                0x00001074       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
-                0x00001074                CyIntSetVector
+                0x0000208c       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+                0x0000208c                CyIntSetVector
  .text.CyIntSetPriority
-                0x0000109c       0x30 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
-                0x0000109c                CyIntSetPriority
+                0x000020b4       0x30 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+                0x000020b4                CyIntSetPriority
  .text.Buzzer_Write
-                0x000010cc       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
-                0x000010cc                Buzzer_Write
- .text.HV_Read  0x000010e4       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
-                0x000010e4                HV_Read
+                0x000020e4       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
+                0x000020e4                Buzzer_Write
+ .text.HV_Read  0x000020fc       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
+                0x000020fc                HV_Read
  .text.Drive_Read
-                0x000010f4       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
-                0x000010f4                Drive_Read
+                0x0000210c       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
+                0x0000210c                Drive_Read
  .text.RGB3_1_Write
-                0x00001104       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
-                0x00001104                RGB3_1_Write
+                0x0000211c       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
+                0x0000211c                RGB3_1_Write
  .text.RGB2_1_Write
-                0x0000111c       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
-                0x0000111c                RGB2_1_Write
+                0x00002134       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
+                0x00002134                RGB2_1_Write
  .text.RGB1_1_Write
-                0x00001134       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
-                0x00001134                RGB1_1_Write
+                0x0000214c       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
+                0x0000214c                RGB1_1_Write
  .text.Node_Timer_Enable
-                0x0000114c       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x0000114c                Node_Timer_Enable
+                0x00002164       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x00002164                Node_Timer_Enable
  .text.Node_Timer_SetInterruptMode
-                0x0000115c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x0000115c                Node_Timer_SetInterruptMode
+                0x0000218c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x0000218c                Node_Timer_SetInterruptMode
  .text.Node_Timer_ReadStatusRegister
-                0x00001168        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x00001168                Node_Timer_ReadStatusRegister
+                0x00002198        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x00002198                Node_Timer_ReadStatusRegister
  .text.Node_Timer_WritePeriod
-                0x00001174       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x00001174                Node_Timer_WritePeriod
- .text.Node_Timer_ReadCapture
-                0x00001184       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x00001184                Node_Timer_ReadCapture
+                0x000021a4        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x000021a4                Node_Timer_WritePeriod
  .text.Node_Timer_WriteCounter
-                0x00001194       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x00001194                Node_Timer_WriteCounter
- .text.Node_Timer_ClearFIFO
-                0x000011a4       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x000011a4                Node_Timer_ClearFIFO
+                0x000021b0        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x000021b0                Node_Timer_WriteCounter
  .text.Node_Timer_Init
-                0x000011b8       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x000011b8                Node_Timer_Init
+                0x000021bc       0x64 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x000021bc                Node_Timer_Init
  .text.Node_Timer_Start
-                0x000011f0       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x000011f0                Node_Timer_Start
+                0x00002220       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x00002220                Node_Timer_Start
  .text.isr_nodeok_Interrupt
-                0x0000120c       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
-                0x0000120c                isr_nodeok_Interrupt
+                0x0000223c       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x0000223c                isr_nodeok_Interrupt
  .text.isr_nodeok_SetVector
-                0x00001228        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
-                0x00001228                isr_nodeok_SetVector
+                0x00002258       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x00002258                isr_nodeok_SetVector
  .text.isr_nodeok_SetPriority
-                0x00001234       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
-                0x00001234                isr_nodeok_SetPriority
+                0x00002268       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x00002268                isr_nodeok_SetPriority
  .text.isr_nodeok_Enable
-                0x00001244        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
-                0x00001244                isr_nodeok_Enable
+                0x00002278       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x00002278                isr_nodeok_Enable
  .text.isr_nodeok_Disable
-                0x00001250        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
-                0x00001250                isr_nodeok_Disable
+                0x00002288       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x00002288                isr_nodeok_Disable
  .text.isr_nodeok_Start
-                0x0000125c       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
-                0x0000125c                isr_nodeok_Start
+                0x00002298       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x00002298                isr_nodeok_Start
  .text.LED_Driver1_Init
-                0x00001278       0x7c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
-                0x00001278                LED_Driver1_Init
+                0x000022b4       0x7c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+                0x000022b4                LED_Driver1_Init
  .text.LED_Driver1_Enable
-                0x000012f4       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
-                0x000012f4                LED_Driver1_Enable
+                0x00002330       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+                0x00002330                LED_Driver1_Enable
  .text.LED_Driver1_Start
-                0x00001304       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
-                0x00001304                LED_Driver1_Start
+                0x00002340       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+                0x00002340                LED_Driver1_Start
  .text.LED_Driver1_ISR
-                0x0000132c      0x324 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
-                0x0000132c                LED_Driver1_ISR
+                0x00002368      0x324 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
+                0x00002368                LED_Driver1_ISR
  .text.LED_Driver1_MasterSendStart
-                0x00001650       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
-                0x00001650                LED_Driver1_MasterSendStart
+                0x0000268c       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+                0x0000268c                LED_Driver1_MasterSendStart
  .text.LED_Driver1_MasterSendStop
-                0x000016e0       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
-                0x000016e0                LED_Driver1_MasterSendStop
+                0x0000271c       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+                0x0000271c                LED_Driver1_MasterSendStop
  .text.LED_Driver1_MasterWriteByte
-                0x00001730       0x6c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
-                0x00001730                LED_Driver1_MasterWriteByte
+                0x0000276c       0x6c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+                0x0000276c                LED_Driver1_MasterWriteByte
  .text.LED_Driver2_Init
-                0x0000179c       0x7c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
-                0x0000179c                LED_Driver2_Init
+                0x000027d8       0x7c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+                0x000027d8                LED_Driver2_Init
  .text.LED_Driver2_Enable
-                0x00001818       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
-                0x00001818                LED_Driver2_Enable
+                0x00002854       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+                0x00002854                LED_Driver2_Enable
  .text.LED_Driver2_Start
-                0x00001828       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
-                0x00001828                LED_Driver2_Start
+                0x00002864       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+                0x00002864                LED_Driver2_Start
  .text.LED_Driver2_ISR
-                0x00001850      0x338 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
-                0x00001850                LED_Driver2_ISR
+                0x0000288c      0x324 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
+                0x0000288c                LED_Driver2_ISR
  .text.LED_Driver2_MasterSendStart
-                0x00001b88       0x98 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
-                0x00001b88                LED_Driver2_MasterSendStart
+                0x00002bb0       0x94 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+                0x00002bb0                LED_Driver2_MasterSendStart
  .text.LED_Driver2_MasterSendStop
-                0x00001c20       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
-                0x00001c20                LED_Driver2_MasterSendStop
+                0x00002c44       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+                0x00002c44                LED_Driver2_MasterSendStop
  .text.LED_Driver2_MasterWriteByte
-                0x00001c70       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
-                0x00001c70                LED_Driver2_MasterWriteByte
- .text          0x00001ce0       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
-                0x00001ce0                CyDelayCycles
-                0x00001cf0                CyEnterCriticalSection
-                0x00001cf8                CyExitCriticalSection
- .text.CySetReg24
-                0x00001d00       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
-                0x00001d00                CySetReg24
+                0x00002c94       0x6c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+                0x00002c94                LED_Driver2_MasterWriteByte
+ .text.b1_critical_timer_Enable
+                0x00002d00       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002d00                b1_critical_timer_Enable
+ .text.b1_critical_timer_Stop
+                0x00002d10       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002d10                b1_critical_timer_Stop
+ .text.b1_critical_timer_SetInterruptMode
+                0x00002d20        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002d20                b1_critical_timer_SetInterruptMode
+ .text.b1_critical_timer_ReadStatusRegister
+                0x00002d2c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002d2c                b1_critical_timer_ReadStatusRegister
+ .text.b1_critical_timer_WritePeriod
+                0x00002d38        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002d38                b1_critical_timer_WritePeriod
+ .text.b1_critical_timer_ReadCapture
+                0x00002d44        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002d44                b1_critical_timer_ReadCapture
+ .text.b1_critical_timer_WriteCounter
+                0x00002d50        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002d50                b1_critical_timer_WriteCounter
+ .text.b1_critical_timer_ClearFIFO
+                0x00002d5c       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002d5c                b1_critical_timer_ClearFIFO
+ .text.b1_critical_timer_Init
+                0x00002d70       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002d70                b1_critical_timer_Init
+ .text.b1_critical_timer_Start
+                0x00002da4       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00002da4                b1_critical_timer_Start
+ .text.b1_crit_int_SetVector
+                0x00002dc0        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+                0x00002dc0                b1_crit_int_SetVector
+ .text.b1_crit_int_SetPriority
+                0x00002dcc       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+                0x00002dcc                b1_crit_int_SetPriority
+ .text.b1_crit_int_Enable
+                0x00002ddc        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+                0x00002ddc                b1_crit_int_Enable
+ .text.b1_crit_int_Disable
+                0x00002de8        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+                0x00002de8                b1_crit_int_Disable
+ .text.b1_crit_int_StartEx
+                0x00002df4       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+                0x00002df4                b1_crit_int_StartEx
+ .text.b1_crit_int_Stop
+                0x00002e10       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+                0x00002e10                b1_crit_int_Stop
+ .text.b2_critical_timer_Enable
+                0x00002e24       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002e24                b2_critical_timer_Enable
+ .text.b2_critical_timer_Stop
+                0x00002e34       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002e34                b2_critical_timer_Stop
+ .text.b2_critical_timer_SetInterruptMode
+                0x00002e44        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002e44                b2_critical_timer_SetInterruptMode
+ .text.b2_critical_timer_ReadStatusRegister
+                0x00002e50        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002e50                b2_critical_timer_ReadStatusRegister
+ .text.b2_critical_timer_WritePeriod
+                0x00002e5c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002e5c                b2_critical_timer_WritePeriod
+ .text.b2_critical_timer_ReadCapture
+                0x00002e68        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002e68                b2_critical_timer_ReadCapture
+ .text.b2_critical_timer_WriteCounter
+                0x00002e74        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002e74                b2_critical_timer_WriteCounter
+ .text.b2_critical_timer_ClearFIFO
+                0x00002e80       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002e80                b2_critical_timer_ClearFIFO
+ .text.b2_critical_timer_Init
+                0x00002e94       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002e94                b2_critical_timer_Init
+ .text.b2_critical_timer_Start
+                0x00002ec8       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00002ec8                b2_critical_timer_Start
+ .text.b2_crit_int_SetVector
+                0x00002ee4        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+                0x00002ee4                b2_crit_int_SetVector
+ .text.b2_crit_int_SetPriority
+                0x00002ef0       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+                0x00002ef0                b2_crit_int_SetPriority
+ .text.b2_crit_int_Enable
+                0x00002f00        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+                0x00002f00                b2_crit_int_Enable
+ .text.b2_crit_int_Disable
+                0x00002f0c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+                0x00002f0c                b2_crit_int_Disable
+ .text.b2_crit_int_StartEx
+                0x00002f18       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+                0x00002f18                b2_crit_int_StartEx
+ .text.b2_crit_int_Stop
+                0x00002f34       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+                0x00002f34                b2_crit_int_Stop
+ .text.b3_critical_timer_Enable
+                0x00002f48       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002f48                b3_critical_timer_Enable
+ .text.b3_critical_timer_Stop
+                0x00002f58       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002f58                b3_critical_timer_Stop
+ .text.b3_critical_timer_SetInterruptMode
+                0x00002f68        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002f68                b3_critical_timer_SetInterruptMode
+ .text.b3_critical_timer_ReadStatusRegister
+                0x00002f74        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002f74                b3_critical_timer_ReadStatusRegister
+ .text.b3_critical_timer_WritePeriod
+                0x00002f80        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002f80                b3_critical_timer_WritePeriod
+ .text.b3_critical_timer_ReadCapture
+                0x00002f8c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002f8c                b3_critical_timer_ReadCapture
+ .text.b3_critical_timer_WriteCounter
+                0x00002f98        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002f98                b3_critical_timer_WriteCounter
+ .text.b3_critical_timer_ClearFIFO
+                0x00002fa4       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002fa4                b3_critical_timer_ClearFIFO
+ .text.b3_critical_timer_Init
+                0x00002fb8       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002fb8                b3_critical_timer_Init
+ .text.b3_critical_timer_Start
+                0x00002fec       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00002fec                b3_critical_timer_Start
+ .text.b3_crit_int_SetVector
+                0x00003008        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+                0x00003008                b3_crit_int_SetVector
+ .text.b3_crit_int_SetPriority
+                0x00003014       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+                0x00003014                b3_crit_int_SetPriority
+ .text.b3_crit_int_Enable
+                0x00003024        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+                0x00003024                b3_crit_int_Enable
+ .text.b3_crit_int_Disable
+                0x00003030        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+                0x00003030                b3_crit_int_Disable
+ .text.b3_crit_int_StartEx
+                0x0000303c       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+                0x0000303c                b3_crit_int_StartEx
+ .text.b3_crit_int_Stop
+                0x00003058       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+                0x00003058                b3_crit_int_Stop
+ .text.c1_critical_timer_Enable
+                0x0000306c       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x0000306c                c1_critical_timer_Enable
+ .text.c1_critical_timer_SetInterruptMode
+                0x0000307c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x0000307c                c1_critical_timer_SetInterruptMode
+ .text.c1_critical_timer_ReadStatusRegister
+                0x00003088        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x00003088                c1_critical_timer_ReadStatusRegister
+ .text.c1_critical_timer_WritePeriod
+                0x00003094        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x00003094                c1_critical_timer_WritePeriod
+ .text.c1_critical_timer_ReadCapture
+                0x000030a0        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x000030a0                c1_critical_timer_ReadCapture
+ .text.c1_critical_timer_WriteCounter
+                0x000030ac        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x000030ac                c1_critical_timer_WriteCounter
+ .text.c1_critical_timer_ClearFIFO
+                0x000030b8       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x000030b8                c1_critical_timer_ClearFIFO
+ .text.c1_critical_timer_Init
+                0x000030cc       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x000030cc                c1_critical_timer_Init
+ .text.c1_critical_timer_Start
+                0x00003100       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x00003100                c1_critical_timer_Start
+ .text.c1_crit_int_SetVector
+                0x0000311c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+                0x0000311c                c1_crit_int_SetVector
+ .text.c1_crit_int_SetPriority
+                0x00003128       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+                0x00003128                c1_crit_int_SetPriority
+ .text.c1_crit_int_Enable
+                0x00003138        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+                0x00003138                c1_crit_int_Enable
+ .text.c1_crit_int_Disable
+                0x00003144        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+                0x00003144                c1_crit_int_Disable
+ .text.c1_crit_int_StartEx
+                0x00003150       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+                0x00003150                c1_crit_int_StartEx
+ .text.tach_critical_timer_Enable
+                0x0000316c       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x0000316c                tach_critical_timer_Enable
+ .text.tach_critical_timer_Stop
+                0x0000317c       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x0000317c                tach_critical_timer_Stop
+ .text.tach_critical_timer_SetInterruptMode
+                0x0000318c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x0000318c                tach_critical_timer_SetInterruptMode
+ .text.tach_critical_timer_ReadStatusRegister
+                0x00003198        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x00003198                tach_critical_timer_ReadStatusRegister
+ .text.tach_critical_timer_WritePeriod
+                0x000031a4        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x000031a4                tach_critical_timer_WritePeriod
+ .text.tach_critical_timer_ReadCapture
+                0x000031b0        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x000031b0                tach_critical_timer_ReadCapture
+ .text.tach_critical_timer_WriteCounter
+                0x000031bc        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x000031bc                tach_critical_timer_WriteCounter
+ .text.tach_critical_timer_ClearFIFO
+                0x000031c8       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x000031c8                tach_critical_timer_ClearFIFO
+ .text.tach_critical_timer_Init
+                0x000031dc       0x34 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x000031dc                tach_critical_timer_Init
+ .text.tach_critical_timer_Start
+                0x00003210       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x00003210                tach_critical_timer_Start
+ .text.tach_crit_int_SetVector
+                0x0000322c        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+                0x0000322c                tach_crit_int_SetVector
+ .text.tach_crit_int_SetPriority
+                0x00003238       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+                0x00003238                tach_crit_int_SetPriority
+ .text.tach_crit_int_Enable
+                0x00003248        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+                0x00003248                tach_crit_int_Enable
+ .text.tach_crit_int_Disable
+                0x00003254        0xc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+                0x00003254                tach_crit_int_Disable
+ .text.tach_crit_int_StartEx
+                0x00003260       0x1c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+                0x00003260                tach_crit_int_StartEx
+ .text.tach_crit_int_Stop
+                0x0000327c       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+                0x0000327c                tach_crit_int_Stop
+ .text          0x00003290       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
+                0x00003290                CyDelayCycles
+                0x000032a0                CyEnterCriticalSection
+                0x000032a8                CyExitCriticalSection
  .text.__libc_init_array
-                0x00001d14       0x4c d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
-                0x00001d14                __libc_init_array
- .text.memcpy   0x00001d60       0x16 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
-                0x00001d60                memcpy
- .text.memset   0x00001d76       0x10 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
-                0x00001d76                memset
+                0x000032b0       0x4c d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x000032b0                __libc_init_array
+ .text.memcpy   0x000032fc       0x16 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
+                0x000032fc                memcpy
+ .text.memset   0x00003312       0x10 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x00003312                memset
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
@@ -1310,78 +1501,78 @@ END GROUP
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  *(.gcc_except_table)
 
-.v4_bx          0x00001d88        0x0
+.v4_bx          0x00003324        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x00001d88        0x0
+.iplt           0x00003324        0x0
  .iplt          0x00000000        0x0 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x00001d88        0x4
+.eh_frame       0x00003324        0x4
  *(.eh_frame)
- .eh_frame      0x00001d88        0x0 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
- .eh_frame      0x00001d88        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
-                0x00001d8c                PROVIDE (__exidx_start, .)
+ .eh_frame      0x00003324        0x0 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ .eh_frame      0x00003324        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
+                0x00003328                PROVIDE (__exidx_start, .)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00001d8c                __exidx_end = .
+                0x00003328                __exidx_end = .
 
-.rodata         0x00001d8c      0x1cc
+.rodata         0x00003328      0x1d0
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x00001d8c       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
- .rodata        0x00001dc4      0x160 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x00001f24                . = ALIGN (0x4)
+ .rodata        0x00003328       0x3c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+ .rodata        0x00003364      0x160 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x000034c4                . = ALIGN (0x4)
  *(.init)
- .init          0x00001f24        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
-                0x00001f24                _init
- .init          0x00001f28        0x8 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
-                0x00001f30                . = ALIGN (0x4)
-                0x00001f30                __preinit_array_start = .
+ .init          0x000034c4        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
+                0x000034c4                _init
+ .init          0x000034c8        0x8 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+                0x000034d0                . = ALIGN (0x4)
+                0x000034d0                __preinit_array_start = .
  *(.preinit_array)
-                0x00001f30                __preinit_array_end = .
-                0x00001f30                . = ALIGN (0x4)
-                0x00001f30                __init_array_start = .
+                0x000034d0                __preinit_array_end = .
+                0x000034d0                . = ALIGN (0x4)
+                0x000034d0                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00001f30        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
- .init_array    0x00001f34        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
-                0x00001f38                __init_array_end = .
-                0x00001f38                . = ALIGN (0x4)
+ .init_array    0x000034d0        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ .init_array    0x000034d4        0x4 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x000034d8                __init_array_end = .
+                0x000034d8                . = ALIGN (0x4)
  *(.fini)
- .fini          0x00001f38        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
-                0x00001f38                _fini
- .fini          0x00001f3c        0x8 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
-                0x00001f44                . = ALIGN (0x4)
-                0x00001f44                __fini_array_start = .
+ .fini          0x000034d8        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crti.o
+                0x000034d8                _fini
+ .fini          0x000034dc        0x8 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+                0x000034e4                . = ALIGN (0x4)
+                0x000034e4                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00001f44        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ .fini_array    0x000034e4        0x4 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x00001f48                __fini_array_end = .
-                0x00001f48                . = ALIGN (0x4)
+                0x000034e8                __fini_array_end = .
+                0x000034e8                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x00001f48                . = ALIGN (0x4)
+                0x000034e8                . = ALIGN (0x4)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x00001f48                . = ALIGN (0x4)
-                0x00001f48                __cy_regions = .
-                0x00001f48        0x4 LONG 0x1f58 __cy_region_init_ram
-                0x00001f4c        0x4 LONG 0x1fff8108 __cy_region_start_data
-                0x00001f50        0x4 LONG 0x18 __cy_region_init_size_ram
-                0x00001f54        0x4 LONG 0x60 __cy_region_zero_size_ram
-                0x00001f58                __cy_regions_end = .
-                0x00001f58                . = ALIGN (0x8)
-                0x00001f58                _etext = .
+                0x000034e8                . = ALIGN (0x4)
+                0x000034e8                __cy_regions = .
+                0x000034e8        0x4 LONG 0x34f8 __cy_region_init_ram
+                0x000034ec        0x4 LONG 0x1fff8108 __cy_region_start_data
+                0x000034f0        0x4 LONG 0x50 __cy_region_init_size_ram
+                0x000034f4        0x4 LONG 0x140 __cy_region_zero_size_ram
+                0x000034f8                __cy_regions_end = .
+                0x000034f8                . = ALIGN (0x8)
+                0x000034f8                _etext = .
 
 .cy_checksum_exclude
-                0x00001f58        0x0
+                0x000034f8        0x0
  *(.cy_checksum_exclude)
 
 .ramvectors     0x1fff8000      0x100
@@ -1396,7 +1587,7 @@ END GROUP
  .noinit        0x1fff8104        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
                 0x1fff8104                CyResetStatus
 
-.data           0x1fff8108       0x18 load address 0x00001f58
+.data           0x1fff8108       0x50 load address 0x000034f8
                 0x1fff8108                __cy_region_start_data = .
  *(.jcr)
  .jcr           0x1fff8108        0x0 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
@@ -1405,86 +1596,126 @@ END GROUP
  *(.got)
  *(.shdata)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x1fff810c       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
-                0x1fff810c                cydelay_32k_ms
-                0x1fff8110                cydelay_freq_khz
-                0x1fff8114                cydelay_freq_mhz
-                0x1fff8118                cydelay_freq_hz
-                0x1fff8120                . = ALIGN (0x8)
- *fill*         0x1fff811c        0x4 
+ .data          0x1fff810c       0x3c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x1fff810c                mtr_temp_map
+                0x1fff8120                bms_temp_map
+                0x1fff8134                mtr_ctrl_temp_map
+ .data          0x1fff8148       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+                0x1fff8148                cydelay_32k_ms
+                0x1fff814c                cydelay_freq_khz
+                0x1fff8150                cydelay_freq_mhz
+                0x1fff8154                cydelay_freq_hz
+                0x1fff8158                . = ALIGN (0x8)
  *(.ram)
-                0x1fff8120                _edata = .
+                0x1fff8158                _edata = .
 
-.igot.plt       0x1fff8120        0x0 load address 0x00001f70
+.igot.plt       0x1fff8158        0x0 load address 0x00003548
  .igot.plt      0x00000000        0x0 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
-.bss            0x1fff8120       0x60 load address 0x00001f70
-                0x1fff8120                PROVIDE (__bss_start__, .)
+.bss            0x1fff8158      0x140 load address 0x00003548
+                0x1fff8158                PROVIDE (__bss_start__, .)
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x1fff8120       0x1c d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
- .bss           0x1fff813c        0x8 .\CortexM3\ARM_GCC_493\Debug\main.o
-                0x1fff813c                pedalOK
-                0x1fff8140                DriveSwitch
-                0x1fff8141                HVSwitch
- .bss           0x1fff8144        0x8 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                0x1fff8144                CAPACITOR_VOLT
-                0x1fff8145                CURTIS_FAULT_CHECK
-                0x1fff8146                CURTIS_HEART_BEAT_CHECK
-                0x1fff8147                ACK_RX
-                0x1fff8148                ERROR_TOLERANCE
-                0x1fff8149                ABS_MOTOR_RPM
-                0x1fff814a                THROTTLE_LOW
-                0x1fff814b                THROTTLE_HIGH
- .bss           0x1fff814c        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
-                0x1fff814c                CAN_initVar
- .bss           0x1fff814d        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                0x1fff814d                Node_Timer_initVar
- .bss           0x1fff814e        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
-                0x1fff814e                LED_Driver1_initVar
- .bss           0x1fff814f        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
-                0x1fff814f                LED_Driver2_initVar
+ .bss           0x1fff8158       0x1c d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
+ .bss           0x1fff8174        0x8 .\CortexM3\ARM_GCC_493\Debug\main.o
+                0x1fff8174                pedalOK
+                0x1fff8178                DriveSwitch
+                0x1fff8179                HVSwitch
+ .bss           0x1fff817c        0xe .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                0x1fff817c                CAPACITOR_VOLT
+                0x1fff817d                CURTIS_FAULT_CHECK
+                0x1fff817e                CURTIS_HEART_BEAT_CHECK
+                0x1fff817f                ACK_RX
+                0x1fff8180                ERROR_TOLERANCE
+                0x1fff8182                ABS_MOTOR_RPM
+                0x1fff8184                THROTTLE_LOW
+                0x1fff8185                THROTTLE_HIGH
+                0x1fff8186                MTR_TEMP
+                0x1fff8187                MTR_CTRL_TEMP
+                0x1fff8188                BMS_TEMP
+ *fill*         0x1fff818a        0x2 
+ .bss           0x1fff818c       0xd8 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x1fff818c                byte05
+                0x1fff818d                byte06
+                0x1fff818e                byte07
+                0x1fff818f                byte08
+                0x1fff8190                byte05_2
+                0x1fff8191                byte06_2
+                0x1fff8192                byte07_2
+                0x1fff8193                byte08_2
+                0x1fff8194                tach_crit_led
+                0x1fff8198                tach_critical
+                0x1fff819c                tach_arr
+                0x1fff81f4                b1_crit_led
+                0x1fff81f8                b1_critical
+                0x1fff81fc                b1_arr
+                0x1fff8210                b2_crit_led
+                0x1fff8214                b2_critical
+                0x1fff8218                b2_arr
+                0x1fff822c                b3_crit_led
+                0x1fff8230                b3_critical
+                0x1fff8234                b3_arr
+                0x1fff8248                c1_crit_led
+                0x1fff824c                c1_critical
+                0x1fff8250                c1_arr
+ .bss           0x1fff8264        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x1fff8264                CAN_initVar
+ .bss           0x1fff8265        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x1fff8265                Node_Timer_initVar
+ .bss           0x1fff8266        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+                0x1fff8266                LED_Driver1_initVar
+ .bss           0x1fff8267        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+                0x1fff8267                LED_Driver2_initVar
+ .bss           0x1fff8268        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x1fff8268                b1_critical_timer_initVar
+ .bss           0x1fff8269        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x1fff8269                b2_critical_timer_initVar
+ .bss           0x1fff826a        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x1fff826a                b3_critical_timer_initVar
+ .bss           0x1fff826b        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x1fff826b                c1_critical_timer_initVar
+ .bss           0x1fff826c        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                0x1fff826c                tach_critical_timer_initVar
  *(COMMON)
- COMMON         0x1fff8150        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
-                0x1fff8150                LED_Driver1_state
- *fill*         0x1fff8151        0x3 
- COMMON         0x1fff8154       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
-                0x1fff8154                LED_Driver1_mstrWrBufIndex
-                0x1fff8155                LED_Driver1_mstrWrBufSize
-                0x1fff8156                LED_Driver1_mstrStatus
-                0x1fff8157                LED_Driver1_mstrRdBufSize
-                0x1fff8158                LED_Driver1_mstrRdBufIndex
-                0x1fff815c                LED_Driver1_mstrRdBufPtr
-                0x1fff8160                LED_Driver1_mstrControl
-                0x1fff8164                LED_Driver1_mstrWrBufPtr
- COMMON         0x1fff8168        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
-                0x1fff8168                LED_Driver2_state
- *fill*         0x1fff8169        0x3 
- COMMON         0x1fff816c       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
-                0x1fff816c                LED_Driver2_mstrRdBufSize
-                0x1fff816d                LED_Driver2_mstrRdBufIndex
-                0x1fff8170                LED_Driver2_mstrRdBufPtr
-                0x1fff8174                LED_Driver2_mstrStatus
-                0x1fff8175                LED_Driver2_mstrWrBufIndex
-                0x1fff8176                LED_Driver2_mstrWrBufSize
-                0x1fff8177                LED_Driver2_mstrControl
-                0x1fff8178                LED_Driver2_mstrWrBufPtr
-                0x1fff8180                . = ALIGN (0x8)
- *fill*         0x1fff817c        0x4 
+ COMMON         0x1fff826d        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+                0x1fff826d                LED_Driver1_state
+ *fill*         0x1fff826e        0x2 
+ COMMON         0x1fff8270       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+                0x1fff8270                LED_Driver1_mstrWrBufIndex
+                0x1fff8271                LED_Driver1_mstrWrBufSize
+                0x1fff8272                LED_Driver1_mstrStatus
+                0x1fff8273                LED_Driver1_mstrRdBufSize
+                0x1fff8274                LED_Driver1_mstrRdBufIndex
+                0x1fff8278                LED_Driver1_mstrRdBufPtr
+                0x1fff827c                LED_Driver1_mstrControl
+                0x1fff8280                LED_Driver1_mstrWrBufPtr
+ COMMON         0x1fff8284        0x1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+                0x1fff8284                LED_Driver2_state
+ *fill*         0x1fff8285        0x3 
+ COMMON         0x1fff8288       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+                0x1fff8288                LED_Driver2_mstrRdBufSize
+                0x1fff8289                LED_Driver2_mstrRdBufIndex
+                0x1fff828c                LED_Driver2_mstrRdBufPtr
+                0x1fff8290                LED_Driver2_mstrStatus
+                0x1fff8291                LED_Driver2_mstrWrBufIndex
+                0x1fff8292                LED_Driver2_mstrWrBufSize
+                0x1fff8293                LED_Driver2_mstrControl
+                0x1fff8294                LED_Driver2_mstrWrBufPtr
+                0x1fff8298                . = ALIGN (0x8)
  *(.ram.b)
-                0x1fff8180                _end = .
-                0x1fff8180                __end = .
-                0x1fff8180                PROVIDE (end, .)
-                0x1fff8180                PROVIDE (__bss_end__, .)
-                0x00001f58                __cy_region_init_ram = LOADADDR (.data)
-                0x00000018                __cy_region_init_size_ram = (_edata - ADDR (.data))
-                0x00000060                __cy_region_zero_size_ram = (_end - _edata)
+                0x1fff8298                _end = .
+                0x1fff8298                __end = .
+                0x1fff8298                PROVIDE (end, .)
+                0x1fff8298                PROVIDE (__bss_end__, .)
+                0x000034f8                __cy_region_init_ram = LOADADDR (.data)
+                0x00000050                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00000140                __cy_region_zero_size_ram = (_end - _edata)
 
-.heap           0x1fff8180       0x80 load address 0x00001f70
-                0x1fff8180                . = _end
-                0x1fff8200                . = (. + 0x80)
- *fill*         0x1fff8180       0x80 
-                0x1fff8200                __cy_heap_limit = .
+.heap           0x1fff8298       0x80 load address 0x00003548
+                0x1fff8298                . = _end
+                0x1fff8318                . = (. + 0x80)
+ *fill*         0x1fff8298       0x80 
+                0x1fff8318                __cy_heap_limit = .
 
 .stack          0x20007800      0x800
                 0x20007800                __cy_stack_limit = .
@@ -1500,9 +1731,9 @@ END GROUP
 .cyloadablemeta
  *(.cyloadablemeta)
 
-.cyconfigecc    0x80000000     0x126c
+.cyconfigecc    0x80000000     0x10c0
  *(.cyconfigecc)
- .cyconfigecc   0x80000000     0x126c .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .cyconfigecc   0x80000000     0x10c0 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
                 0x80000000                cy_meta_configecc
 
 .cycustnvl      0x90000000        0x4
@@ -1531,7 +1762,7 @@ END GROUP
  .cymeta        0x90500000        0xc .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
                 0x90500000                cy_metadata
 
-.rel.dyn        0x00001f70        0x0 load address 0x9050000c
+.rel.dyn        0x00003548        0x0 load address 0x9050000c
  .rel.iplt      0x00000000        0x0 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtbegin.o
 
 .stab
@@ -1552,402 +1783,411 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000     0x1130
+.debug_aranges  0x00000000     0x1240
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x30 .\CortexM3\ARM_GCC_493\Debug\main.o
  .debug_aranges
                 0x00000030       0x80 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
  .debug_aranges
-                0x000000b0      0x1e0 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                0x000000b0      0x208 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
  .debug_aranges
-                0x00000290       0x18 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+                0x000002b8       0x18 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
  .debug_aranges
-                0x000002a8       0x48 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+                0x000002d0       0x48 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
  .debug_aranges
-                0x000002f0       0x58 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+                0x00000318       0x58 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
  .debug_aranges
-                0x00000348       0xc8 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+                0x00000370       0xc8 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
  .debug_aranges
-                0x00000410       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+                0x00000438       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
  .debug_aranges
-                0x00000438       0x40 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+                0x00000460       0x40 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
  .debug_aranges
-                0x00000478      0x298 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+                0x000004a0      0x298 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
  .debug_aranges
-                0x00000710       0x98 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
+                0x00000738       0x98 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
  .debug_aranges
-                0x000007a8       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
+                0x000007d0       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
  .debug_aranges
-                0x000007e0       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
+                0x00000808       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
  .debug_aranges
-                0x00000818       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
+                0x00000840       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
  .debug_aranges
-                0x00000850       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
+                0x00000878       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
  .debug_aranges
-                0x00000888       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
+                0x000008b0       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
  .debug_aranges
-                0x000008c0       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
+                0x000008e8       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
  .debug_aranges
-                0x000008f8       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                0x00000920       0x88 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
  .debug_aranges
-                0x00000988       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+                0x000009a8       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
  .debug_aranges
-                0x00000a08       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+                0x00000a28       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
  .debug_aranges
-                0x00000a40       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
+                0x00000a60       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
  .debug_aranges
-                0x00000a60       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+                0x00000a80       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
  .debug_aranges
-                0x00000ae0       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+                0x00000b00       0x38 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
  .debug_aranges
-                0x00000b18       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
+                0x00000b38       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
  .debug_aranges
-                0x00000b38       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+                0x00000b58       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
  .debug_aranges
-                0x00000bb8       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+                0x00000bd8       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
  .debug_aranges
-                0x00000c48       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+                0x00000c68       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
  .debug_aranges
-                0x00000cc8       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+                0x00000ce8       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
  .debug_aranges
-                0x00000d58       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+                0x00000d78       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
  .debug_aranges
-                0x00000dd8       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+                0x00000df8       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
  .debug_aranges
-                0x00000e68       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+                0x00000e88       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .debug_aranges
-                0x00000ee8       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+                0x00000f08       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
  .debug_aranges
-                0x00000f78       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+                0x00000f98       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .debug_aranges
-                0x00000ff8       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
+                0x00001018       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
  .debug_aranges
-                0x00001018       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+                0x000010a8       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
  .debug_aranges
-                0x00001098       0x78 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
+                0x00001128       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
  .debug_aranges
-                0x00001110       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
+                0x00001148       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+ .debug_aranges
+                0x000011c8       0x78 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xa917
+.debug_info     0x00000000     0xaf2b
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0xa4d .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_info    0x00000a4d      0x4fb .\CortexM3\ARM_GCC_493\Debug\can_manga.o
- .debug_info    0x00000f48     0x219d .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .debug_info    0x000030e5      0x13f .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_info    0x00003224      0x3a5 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_info    0x000035c9      0x65a .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
- .debug_info    0x00003c23      0x923 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
- .debug_info    0x00004546      0x209 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
- .debug_info    0x0000474f      0x463 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
- .debug_info    0x00004bb2     0x1371 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
- .debug_info    0x00005f23      0xa58 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
- .debug_info    0x0000697b      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
- .debug_info    0x00006a9a      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
- .debug_info    0x00006bb9      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
- .debug_info    0x00006cd8      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
- .debug_info    0x00006df7      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
- .debug_info    0x00006f16      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
- .debug_info    0x00007035      0x33e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
- .debug_info    0x00007373      0x347 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
- .debug_info    0x000076ba      0x20a .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
- .debug_info    0x000078c4      0x17f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
- .debug_info    0x00007a43      0x400 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
- .debug_info    0x00007e43      0x20a .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
- .debug_info    0x0000804d      0x17f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
- .debug_info    0x000081cc      0x400 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
- .debug_info    0x000085cc      0x2eb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .debug_info    0x000088b7      0x2cb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .debug_info    0x00008b82      0x2eb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .debug_info    0x00008e6d      0x2cb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .debug_info    0x00009138      0x2eb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .debug_info    0x00009423      0x2cb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .debug_info    0x000096ee      0x2eb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .debug_info    0x000099d9      0x2cb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .debug_info    0x00009ca4       0x8b .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
- .debug_info    0x00009d2f      0x60a .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
- .debug_info    0x0000a339      0x4f0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
- .debug_info    0x0000a829       0xee .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
+ .debug_info    0x00000000      0xab5 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_info    0x00000ab5      0x5c9 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+ .debug_info    0x0000107e     0x2264 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+ .debug_info    0x000032e2      0x13f .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_info    0x00003421      0x3a5 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_info    0x000037c6      0x65b .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+ .debug_info    0x00003e21      0x923 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+ .debug_info    0x00004744      0x209 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+ .debug_info    0x0000494d      0x463 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+ .debug_info    0x00004db0     0x1371 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+ .debug_info    0x00006121      0xa58 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
+ .debug_info    0x00006b79      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
+ .debug_info    0x00006c98      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
+ .debug_info    0x00006db7      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
+ .debug_info    0x00006ed6      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
+ .debug_info    0x00006ff5      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
+ .debug_info    0x00007114      0x11f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
+ .debug_info    0x00007233      0x28c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+ .debug_info    0x000074bf      0x347 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+ .debug_info    0x00007806      0x20a .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+ .debug_info    0x00007a10      0x17f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
+ .debug_info    0x00007b8f      0x400 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+ .debug_info    0x00007f8f      0x20a .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+ .debug_info    0x00008199      0x17f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
+ .debug_info    0x00008318      0x400 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+ .debug_info    0x00008718      0x2eb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+ .debug_info    0x00008a03      0x2cb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+ .debug_info    0x00008cce      0x2eb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+ .debug_info    0x00008fb9      0x2cb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+ .debug_info    0x00009284      0x2eb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+ .debug_info    0x0000956f      0x2cb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+ .debug_info    0x0000983a      0x2eb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+ .debug_info    0x00009b25      0x2cb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+ .debug_info    0x00009df0      0x2eb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .debug_info    0x0000a0db      0x2cb .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .debug_info    0x0000a3a6       0x8b .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
+ .debug_info    0x0000a431      0x60a .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+ .debug_info    0x0000aa3b      0x4f0 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
 
-.debug_abbrev   0x00000000     0x2f6c
+.debug_abbrev   0x00000000     0x3160
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x20c .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_abbrev  0x0000020c      0x1d1 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
- .debug_abbrev  0x000003dd      0x232 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .debug_abbrev  0x0000060f       0x77 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_abbrev  0x00000686      0x20f .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_abbrev  0x00000895      0x212 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
- .debug_abbrev  0x00000aa7      0x1de .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
- .debug_abbrev  0x00000c85       0xdc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
- .debug_abbrev  0x00000d61      0x1bd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
- .debug_abbrev  0x00000f1e      0x296 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
- .debug_abbrev  0x000011b4      0x1ed .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
- .debug_abbrev  0x000013a1       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
- .debug_abbrev  0x00001431       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
- .debug_abbrev  0x000014c1       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
- .debug_abbrev  0x00001551       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
- .debug_abbrev  0x000015e1       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
- .debug_abbrev  0x00001671       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
- .debug_abbrev  0x00001701      0x170 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
- .debug_abbrev  0x00001871      0x1b5 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
- .debug_abbrev  0x00001a26      0x120 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
- .debug_abbrev  0x00001b46       0xbd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
- .debug_abbrev  0x00001c03      0x13c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
- .debug_abbrev  0x00001d3f      0x120 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
- .debug_abbrev  0x00001e5f       0xbd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
- .debug_abbrev  0x00001f1c      0x13c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
- .debug_abbrev  0x00002058      0x145 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .debug_abbrev  0x0000219d      0x173 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .debug_abbrev  0x00002310      0x145 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .debug_abbrev  0x00002455      0x173 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .debug_abbrev  0x000025c8      0x145 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .debug_abbrev  0x0000270d      0x173 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .debug_abbrev  0x00002880      0x145 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .debug_abbrev  0x000029c5      0x173 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .debug_abbrev  0x00002b38       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
- .debug_abbrev  0x00002b4c      0x1d1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
- .debug_abbrev  0x00002d1d      0x1c1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
- .debug_abbrev  0x00002ede       0x8e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
+ .debug_abbrev  0x0000020c      0x1e2 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+ .debug_abbrev  0x000003ee      0x241 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+ .debug_abbrev  0x0000062f       0x77 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_abbrev  0x000006a6      0x20f .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_abbrev  0x000008b5      0x212 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+ .debug_abbrev  0x00000ac7      0x1de .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+ .debug_abbrev  0x00000ca5       0xdc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+ .debug_abbrev  0x00000d81      0x1bd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+ .debug_abbrev  0x00000f3e      0x296 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+ .debug_abbrev  0x000011d4      0x1ed .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
+ .debug_abbrev  0x000013c1       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
+ .debug_abbrev  0x00001451       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
+ .debug_abbrev  0x000014e1       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
+ .debug_abbrev  0x00001571       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
+ .debug_abbrev  0x00001601       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
+ .debug_abbrev  0x00001691       0x90 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
+ .debug_abbrev  0x00001721      0x11a .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+ .debug_abbrev  0x0000183b      0x1b5 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+ .debug_abbrev  0x000019f0      0x120 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+ .debug_abbrev  0x00001b10       0xbd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
+ .debug_abbrev  0x00001bcd      0x13c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+ .debug_abbrev  0x00001d09      0x120 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+ .debug_abbrev  0x00001e29       0xbd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
+ .debug_abbrev  0x00001ee6      0x13c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+ .debug_abbrev  0x00002022      0x145 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+ .debug_abbrev  0x00002167      0x173 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+ .debug_abbrev  0x000022da      0x145 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+ .debug_abbrev  0x0000241f      0x173 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+ .debug_abbrev  0x00002592      0x145 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+ .debug_abbrev  0x000026d7      0x173 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+ .debug_abbrev  0x0000284a      0x145 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+ .debug_abbrev  0x0000298f      0x173 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+ .debug_abbrev  0x00002b02      0x145 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .debug_abbrev  0x00002c47      0x173 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .debug_abbrev  0x00002dba       0x14 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x00002dce      0x1d1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+ .debug_abbrev  0x00002f9f      0x1c1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
 
-.debug_line     0x00000000     0x43d6
+.debug_line     0x00000000     0x46f9
  *(.debug_line)
- .debug_line    0x00000000      0x2c5 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_line    0x000002c5      0x286 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
- .debug_line    0x0000054b      0x8a1 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .debug_line    0x00000dec       0x51 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_line    0x00000e3d      0x237 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_line    0x00001074      0x213 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
- .debug_line    0x00001287      0x37e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
- .debug_line    0x00001605       0x9c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
- .debug_line    0x000016a1      0x285 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
- .debug_line    0x00001926      0x804 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
- .debug_line    0x0000212a      0x364 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
- .debug_line    0x0000248e       0x93 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
- .debug_line    0x00002521       0x8f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
- .debug_line    0x000025b0       0x92 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
- .debug_line    0x00002642       0x93 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
- .debug_line    0x000026d5       0x93 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
- .debug_line    0x00002768       0x93 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
- .debug_line    0x000027fb      0x175 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
- .debug_line    0x00002970      0x23e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
- .debug_line    0x00002bae       0xd9 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
- .debug_line    0x00002c87      0x126 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
- .debug_line    0x00002dad      0x237 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
- .debug_line    0x00002fe4       0xd9 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
- .debug_line    0x000030bd      0x126 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
- .debug_line    0x000031e3      0x237 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
- .debug_line    0x0000341a      0x17c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .debug_line    0x00003596      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .debug_line    0x000036ce      0x17c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .debug_line    0x0000384a      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .debug_line    0x00003982      0x17c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .debug_line    0x00003afe      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .debug_line    0x00003c36      0x17c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .debug_line    0x00003db2      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .debug_line    0x00003eea       0x66 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
- .debug_line    0x00003f50      0x1ea .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
- .debug_line    0x0000413a      0x23c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
- .debug_line    0x00004376       0x60 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
+ .debug_line    0x00000000      0x2ca .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_line    0x000002ca      0x2ae .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+ .debug_line    0x00000578      0x95c .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+ .debug_line    0x00000ed4       0x51 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_line    0x00000f25      0x237 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_line    0x0000115c      0x213 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+ .debug_line    0x0000136f      0x37e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+ .debug_line    0x000016ed       0x9c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+ .debug_line    0x00001789      0x285 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+ .debug_line    0x00001a0e      0x804 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+ .debug_line    0x00002212      0x364 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
+ .debug_line    0x00002576       0x93 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
+ .debug_line    0x00002609       0x8f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
+ .debug_line    0x00002698       0x92 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
+ .debug_line    0x0000272a       0x93 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
+ .debug_line    0x000027bd       0x93 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
+ .debug_line    0x00002850       0x93 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
+ .debug_line    0x000028e3      0x158 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+ .debug_line    0x00002a3b      0x23e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+ .debug_line    0x00002c79       0xd9 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+ .debug_line    0x00002d52      0x126 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
+ .debug_line    0x00002e78      0x237 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+ .debug_line    0x000030af       0xd9 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+ .debug_line    0x00003188      0x126 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
+ .debug_line    0x000032ae      0x237 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+ .debug_line    0x000034e5      0x17c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+ .debug_line    0x00003661      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+ .debug_line    0x00003799      0x17c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+ .debug_line    0x00003915      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+ .debug_line    0x00003a4d      0x17c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+ .debug_line    0x00003bc9      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+ .debug_line    0x00003d01      0x17c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+ .debug_line    0x00003e7d      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+ .debug_line    0x00003fb5      0x17e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .debug_line    0x00004133      0x13a .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .debug_line    0x0000426d       0x66 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
+ .debug_line    0x000042d3      0x1ea .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+ .debug_line    0x000044bd      0x23c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
 
-.debug_frame    0x00000000     0x2954
+.debug_frame    0x00000000     0x29c4
  *(.debug_frame)
  .debug_frame   0x00000000       0x68 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_frame   0x00000068      0x124 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
- .debug_frame   0x0000018c      0x650 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .debug_frame   0x000007dc       0xac .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_frame   0x00000888       0xe4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
- .debug_frame   0x0000096c      0x1cc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
- .debug_frame   0x00000b38       0x4c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
- .debug_frame   0x00000b84       0x8c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
- .debug_frame   0x00000c10      0x728 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
- .debug_frame   0x00001338      0x1f8 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
- .debug_frame   0x00001530       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
- .debug_frame   0x00001580       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
- .debug_frame   0x000015d0       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
- .debug_frame   0x00001620       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
- .debug_frame   0x00001670       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
- .debug_frame   0x000016c0       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
- .debug_frame   0x00001710      0x13c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
- .debug_frame   0x0000184c      0x110 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
- .debug_frame   0x0000195c       0x6c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
- .debug_frame   0x000019c8       0x30 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
- .debug_frame   0x000019f8      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
- .debug_frame   0x00001b30       0x6c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
- .debug_frame   0x00001b9c       0x30 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
- .debug_frame   0x00001bcc      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
- .debug_frame   0x00001d04      0x124 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .debug_frame   0x00001e28      0x104 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .debug_frame   0x00001f2c      0x124 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .debug_frame   0x00002050      0x104 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .debug_frame   0x00002154      0x124 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .debug_frame   0x00002278      0x104 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .debug_frame   0x0000237c      0x124 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .debug_frame   0x000024a0      0x104 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .debug_frame   0x000025a4      0x174 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
- .debug_frame   0x00002718      0x160 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
- .debug_frame   0x00002878       0x20 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
- .debug_frame   0x00002898       0x20 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x000028b8       0x28 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
- .debug_frame   0x000028e0       0x2c d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
- .debug_frame   0x0000290c       0x28 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
- .debug_frame   0x00002934       0x20 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000068      0x128 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+ .debug_frame   0x00000190      0x4e8 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+ .debug_frame   0x00000678       0xac .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_frame   0x00000724       0xe4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+ .debug_frame   0x00000808      0x1cc .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+ .debug_frame   0x000009d4       0x4c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+ .debug_frame   0x00000a20       0x8c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+ .debug_frame   0x00000aac      0x728 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+ .debug_frame   0x000011d4      0x1f8 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
+ .debug_frame   0x000013cc       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
+ .debug_frame   0x0000141c       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
+ .debug_frame   0x0000146c       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
+ .debug_frame   0x000014bc       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
+ .debug_frame   0x0000150c       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
+ .debug_frame   0x0000155c       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
+ .debug_frame   0x000015ac      0x108 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+ .debug_frame   0x000016b4      0x110 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+ .debug_frame   0x000017c4       0x6c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+ .debug_frame   0x00001830       0x30 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
+ .debug_frame   0x00001860      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+ .debug_frame   0x00001998       0x6c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+ .debug_frame   0x00001a04       0x30 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
+ .debug_frame   0x00001a34      0x138 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+ .debug_frame   0x00001b6c      0x124 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+ .debug_frame   0x00001c90      0x104 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+ .debug_frame   0x00001d94      0x124 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+ .debug_frame   0x00001eb8      0x104 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+ .debug_frame   0x00001fbc      0x124 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+ .debug_frame   0x000020e0      0x104 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+ .debug_frame   0x000021e4      0x124 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+ .debug_frame   0x00002308      0x104 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+ .debug_frame   0x0000240c      0x124 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .debug_frame   0x00002530      0x104 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .debug_frame   0x00002634      0x174 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+ .debug_frame   0x000027a8      0x160 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
+ .debug_frame   0x00002908       0x20 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x00002928       0x28 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00002950       0x2c d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x0000297c       0x28 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
+ .debug_frame   0x000029a4       0x20 d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x364a
+.debug_str      0x00000000     0x3a32
  *(.debug_str)
- .debug_str     0x00000000      0x40e .\CortexM3\ARM_GCC_493\Debug\main.o
-                                0x4b5 (size before relaxing)
- .debug_str     0x0000040e      0x175 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
-                                0x3d2 (size before relaxing)
- .debug_str     0x00000583      0x4c2 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
-                                0x6a5 (size before relaxing)
- .debug_str     0x00000a45       0x75 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_str     0x00000000      0x434 .\CortexM3\ARM_GCC_493\Debug\main.o
+                                0x4db (size before relaxing)
+ .debug_str     0x00000434      0x1cb .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+                                0x447 (size before relaxing)
+ .debug_str     0x000005ff      0x5b6 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+                                0x824 (size before relaxing)
+ .debug_str     0x00000bb5       0x75 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
                                 0x1e5 (size before relaxing)
- .debug_str     0x00000aba      0x14c .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_str     0x00000c2a      0x14c .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
                                 0x2f9 (size before relaxing)
- .debug_str     0x00000c06      0x190 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+ .debug_str     0x00000d76      0x190 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
                                 0x333 (size before relaxing)
- .debug_str     0x00000d96      0x28c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+ .debug_str     0x00000f06      0x28c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
                                 0x4dd (size before relaxing)
- .debug_str     0x00001022       0x59 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+ .debug_str     0x00001192       0x59 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
                                 0x234 (size before relaxing)
- .debug_str     0x0000107b       0x8c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+ .debug_str     0x000011eb       0x8c .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
                                 0x2fd (size before relaxing)
- .debug_str     0x00001107      0x7c7 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+ .debug_str     0x00001277      0x7c7 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
                                 0xa1e (size before relaxing)
- .debug_str     0x000018ce      0x359 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
+ .debug_str     0x00001a3e      0x359 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
                                 0x716 (size before relaxing)
- .debug_str     0x00001c27       0x5e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
+ .debug_str     0x00001d97       0x5e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
                                 0x1e2 (size before relaxing)
- .debug_str     0x00001c85       0x44 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
+ .debug_str     0x00001df5       0x44 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
                                 0x1ce (size before relaxing)
- .debug_str     0x00001cc9       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
+ .debug_str     0x00001e39       0x50 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
                                 0x1dd (size before relaxing)
- .debug_str     0x00001d19       0x53 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
+ .debug_str     0x00001e89       0x53 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
                                 0x1e2 (size before relaxing)
- .debug_str     0x00001d6c       0x53 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
+ .debug_str     0x00001edc       0x53 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
                                 0x1e2 (size before relaxing)
- .debug_str     0x00001dbf       0x53 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
+ .debug_str     0x00001f2f       0x53 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
                                 0x1e2 (size before relaxing)
- .debug_str     0x00001e12      0x1cf .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
-                                0x38f (size before relaxing)
- .debug_str     0x00001fe1      0x11b .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+ .debug_str     0x00001f82      0x1a1 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+                                0x334 (size before relaxing)
+ .debug_str     0x00002123      0x11b .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
                                 0x351 (size before relaxing)
- .debug_str     0x000020fc       0xcd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+ .debug_str     0x0000223e       0xcd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
                                 0x2c4 (size before relaxing)
- .debug_str     0x000021c9       0xbe .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
+ .debug_str     0x0000230b       0xbe .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
                                 0x2a6 (size before relaxing)
- .debug_str     0x00002287      0x18d .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+ .debug_str     0x000023c9      0x18d .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
                                 0x44b (size before relaxing)
- .debug_str     0x00002414       0xcd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+ .debug_str     0x00002556       0xcd .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
                                 0x2c4 (size before relaxing)
- .debug_str     0x000024e1       0xb7 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
+ .debug_str     0x00002623       0xb7 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
                                 0x2a6 (size before relaxing)
- .debug_str     0x00002598      0x153 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+ .debug_str     0x000026da      0x153 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
                                 0x44b (size before relaxing)
- .debug_str     0x000026eb      0x216 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+ .debug_str     0x0000282d      0x1ff .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
                                 0x402 (size before relaxing)
- .debug_str     0x00002901      0x126 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+ .debug_str     0x00002a2c      0x115 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
                                 0x2e9 (size before relaxing)
- .debug_str     0x00002a27      0x216 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+ .debug_str     0x00002b41      0x1ff .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
                                 0x402 (size before relaxing)
- .debug_str     0x00002c3d      0x126 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+ .debug_str     0x00002d40      0x115 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
                                 0x2e9 (size before relaxing)
- .debug_str     0x00002d63      0x216 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+ .debug_str     0x00002e55      0x1ff .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
                                 0x402 (size before relaxing)
- .debug_str     0x00002f79      0x126 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+ .debug_str     0x00003054      0x115 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
                                 0x2e9 (size before relaxing)
- .debug_str     0x0000309f      0x216 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+ .debug_str     0x00003169      0x216 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
                                 0x402 (size before relaxing)
- .debug_str     0x000032b5      0x126 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+ .debug_str     0x0000337f      0x126 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
                                 0x2e9 (size before relaxing)
- .debug_str     0x000033db      0x195 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+ .debug_str     0x000034a5      0x21f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+                                0x426 (size before relaxing)
+ .debug_str     0x000036c4      0x12d .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+                                0x305 (size before relaxing)
+ .debug_str     0x000037f1      0x195 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
                                 0x390 (size before relaxing)
- .debug_str     0x00003570       0xac .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
+ .debug_str     0x00003986       0xac .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
                                 0x319 (size before relaxing)
- .debug_str     0x0000361c       0x2e .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
-                                0x1ad (size before relaxing)
 
-.debug_loc      0x00000000     0x4240
+.debug_loc      0x00000000     0x3ac1
  *(.debug_loc)
  .debug_loc     0x00000000      0x1f7 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_loc     0x000001f7      0x1d7 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
- .debug_loc     0x000003ce      0xa88 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .debug_loc     0x00000e56      0x144 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_loc     0x00000f9a      0x272 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
- .debug_loc     0x0000120c      0x983 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
- .debug_loc     0x00001b8f       0x54 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
- .debug_loc     0x00001be3      0x220 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
- .debug_loc     0x00001e03      0xa11 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
- .debug_loc     0x00002814      0x1e4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
- .debug_loc     0x000029f8       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
- .debug_loc     0x00002a3a       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
- .debug_loc     0x00002a7c       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
- .debug_loc     0x00002abe       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
- .debug_loc     0x00002b00       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
- .debug_loc     0x00002b42       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
- .debug_loc     0x00002b84       0x6b .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
- .debug_loc     0x00002bef       0x69 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
- .debug_loc     0x00002c58       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
- .debug_loc     0x00002c6b       0x29 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
- .debug_loc     0x00002c94      0x52f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
- .debug_loc     0x000031c3       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
- .debug_loc     0x000031d6       0x29 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
- .debug_loc     0x000031ff      0x52f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
- .debug_loc     0x0000372e       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .debug_loc     0x00003741       0x56 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .debug_loc     0x00003797       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .debug_loc     0x000037aa       0x56 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .debug_loc     0x00003800       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .debug_loc     0x00003813       0x56 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .debug_loc     0x00003869       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .debug_loc     0x0000387c       0x56 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .debug_loc     0x000038d2      0x300 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
- .debug_loc     0x00003bd2      0x64d .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
- .debug_loc     0x0000421f       0x21 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
+ .debug_loc     0x000001f7      0x211 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
+ .debug_loc     0x00000408      0x2f1 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+ .debug_loc     0x000006f9      0x144 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_loc     0x0000083d      0x273 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+ .debug_loc     0x00000ab0      0x983 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+ .debug_loc     0x00001433       0x54 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+ .debug_loc     0x00001487      0x220 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+ .debug_loc     0x000016a7      0xa11 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+ .debug_loc     0x000020b8      0x1e4 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
+ .debug_loc     0x0000229c       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
+ .debug_loc     0x000022de       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
+ .debug_loc     0x00002320       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
+ .debug_loc     0x00002362       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
+ .debug_loc     0x000023a4       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
+ .debug_loc     0x000023e6       0x42 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
+ .debug_loc     0x00002428       0x69 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+ .debug_loc     0x00002491       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+ .debug_loc     0x000024a4       0x29 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
+ .debug_loc     0x000024cd      0x52f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+ .debug_loc     0x000029fc       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+ .debug_loc     0x00002a0f       0x29 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
+ .debug_loc     0x00002a38      0x52f .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+ .debug_loc     0x00002f67       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+ .debug_loc     0x00002f7a       0x56 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+ .debug_loc     0x00002fd0       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+ .debug_loc     0x00002fe3       0x56 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+ .debug_loc     0x00003039       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+ .debug_loc     0x0000304c       0x56 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+ .debug_loc     0x000030a2       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+ .debug_loc     0x000030b5       0x56 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+ .debug_loc     0x0000310b       0x13 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .debug_loc     0x0000311e       0x56 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .debug_loc     0x00003174      0x300 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+ .debug_loc     0x00003474      0x64d .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
 
 .debug_macinfo
  *(.debug_macinfo)
 
-.debug_ranges   0x00000000      0xf58
+.debug_ranges   0x00000000     0x1070
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x50 .\CortexM3\ARM_GCC_493\Debug\main.o
  .debug_ranges  0x00000050       0x70 .\CortexM3\ARM_GCC_493\Debug\can_manga.o
- .debug_ranges  0x000000c0      0x230 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
- .debug_ranges  0x000002f0       0x38 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_ranges  0x00000328       0x48 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
- .debug_ranges  0x00000370       0xb8 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
- .debug_ranges  0x00000428       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
- .debug_ranges  0x00000440       0x30 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
- .debug_ranges  0x00000470      0x288 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
- .debug_ranges  0x000006f8       0x88 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
- .debug_ranges  0x00000780       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
- .debug_ranges  0x000007a8       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
- .debug_ranges  0x000007d0       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
- .debug_ranges  0x000007f8       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
- .debug_ranges  0x00000820       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
- .debug_ranges  0x00000848       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
- .debug_ranges  0x00000870       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
- .debug_ranges  0x000008f0       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
- .debug_ranges  0x00000960       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
- .debug_ranges  0x00000988       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
- .debug_ranges  0x00000998       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
- .debug_ranges  0x00000a08       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
- .debug_ranges  0x00000a30       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
- .debug_ranges  0x00000a40       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
- .debug_ranges  0x00000ab0       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
- .debug_ranges  0x00000b30       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
- .debug_ranges  0x00000ba0       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
- .debug_ranges  0x00000c20       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
- .debug_ranges  0x00000c90       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
- .debug_ranges  0x00000d10       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
- .debug_ranges  0x00000d80       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
- .debug_ranges  0x00000e00       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
- .debug_ranges  0x00000e70       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
- .debug_ranges  0x00000ee0       0x68 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
- .debug_ranges  0x00000f48       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
+ .debug_ranges  0x000000c0      0x270 .\CortexM3\ARM_GCC_493\Debug\led_manager.o
+ .debug_ranges  0x00000330       0x38 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_ranges  0x00000368       0x48 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyfitter_cfg.o)
+ .debug_ranges  0x000003b0       0xb8 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN.o)
+ .debug_ranges  0x00000468       0x18 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_INT.o)
+ .debug_ranges  0x00000480       0x30 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CAN_TX_RX_func.o)
+ .debug_ranges  0x000004b0      0x288 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyLib.o)
+ .debug_ranges  0x00000738       0x88 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyPm.o)
+ .debug_ranges  0x000007c0       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Buzzer.o)
+ .debug_ranges  0x000007e8       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(HV.o)
+ .debug_ranges  0x00000810       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Drive.o)
+ .debug_ranges  0x00000838       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB3_1.o)
+ .debug_ranges  0x00000860       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB2_1.o)
+ .debug_ranges  0x00000888       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(RGB1_1.o)
+ .debug_ranges  0x000008b0       0x78 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(Node_Timer.o)
+ .debug_ranges  0x00000928       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(isr_nodeok.o)
+ .debug_ranges  0x00000998       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1.o)
+ .debug_ranges  0x000009c0       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_INT.o)
+ .debug_ranges  0x000009d0       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver1_MASTER.o)
+ .debug_ranges  0x00000a40       0x28 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2.o)
+ .debug_ranges  0x00000a68       0x10 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_INT.o)
+ .debug_ranges  0x00000a78       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(LED_Driver2_MASTER.o)
+ .debug_ranges  0x00000ae8       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_critical_timer.o)
+ .debug_ranges  0x00000b68       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b1_crit_int.o)
+ .debug_ranges  0x00000bd8       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_critical_timer.o)
+ .debug_ranges  0x00000c58       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b2_crit_int.o)
+ .debug_ranges  0x00000cc8       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_critical_timer.o)
+ .debug_ranges  0x00000d48       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
+ .debug_ranges  0x00000db8       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
+ .debug_ranges  0x00000e38       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+ .debug_ranges  0x00000ea8       0x80 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .debug_ranges  0x00000f28       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
+ .debug_ranges  0x00000f98       0x70 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+ .debug_ranges  0x00001008       0x68 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 .\CortexM3\ARM_GCC_493\Debug\main.o
@@ -1984,9 +2224,10 @@ END GROUP
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(b3_crit_int.o)
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_critical_timer.o)
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
+ .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
+ .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
  .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
- .comment       0x00000000       0x71 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
 
 .debug_weaknames
  *(.debug_weaknames)
@@ -2079,29 +2320,31 @@ END GROUP
  .ARM.attributes
                 0x000006c5       0x33 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(c1_crit_int.o)
  .ARM.attributes
-                0x000006f8       0x21 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
+                0x000006f8       0x33 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_critical_timer.o)
  .ARM.attributes
-                0x00000719       0x33 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
+                0x0000072b       0x33 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(tach_crit_int.o)
  .ARM.attributes
-                0x0000074c       0x33 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
+                0x0000075e       0x21 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyBootAsmGnu.o)
  .ARM.attributes
-                0x0000077f       0x33 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(cyutils.o)
+                0x0000077f       0x33 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CyFlash.o)
  .ARM.attributes
-                0x000007b2       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x000007b2       0x33 .\CortexM3\ARM_GCC_493\Debug\Node-Jaguar.a(CySpc.o)
  .ARM.attributes
-                0x000007df       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+                0x000007e5       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x0000080c       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x00000812       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
  .ARM.attributes
-                0x00000839       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x0000083f       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000866       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
+                0x0000086c       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x00000893       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x00000899       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy.o)
  .ARM.attributes
-                0x000008c0       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
+                0x000008c6       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x000008ed       0x1d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
+                0x000008f3       0x2d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtend.o
+ .ARM.attributes
+                0x00000920       0x1d d:/programming/cypress/psoc creator/4.0/psoc creator/import/gnu/arm/4.9.3/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7-m/crtn.o
 
 /DISCARD/
  *(.note.GNU-stack)

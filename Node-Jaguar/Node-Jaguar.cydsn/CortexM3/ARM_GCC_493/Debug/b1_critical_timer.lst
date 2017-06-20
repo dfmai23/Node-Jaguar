@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
   29:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/b1_critical_timer.c **** * Function Name: b1_critical_timer_Init
   31:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 2
 
 
   32:Generated_Source\PSoC5/b1_critical_timer.c **** *
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
   86:Generated_Source\PSoC5/b1_critical_timer.c ****                 /* Set the default Run Mode of the Timer to Continuous */
   87:Generated_Source\PSoC5/b1_critical_timer.c ****                 b1_critical_timer_CONTROL2 |= b1_critical_timer_CTRL_MODE_PULSEWIDTH;
   88:Generated_Source\PSoC5/b1_critical_timer.c ****             #endif /* Set Continuous Run Mode in CONTROL2 for PSoC5A */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 3
 
 
   89:Generated_Source\PSoC5/b1_critical_timer.c **** 
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  143:Generated_Source\PSoC5/b1_critical_timer.c **** 
  144:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Use the interrupt output of the status register for IRQ output */
  145:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_STATUS_AUX_CTRL |= b1_critical_timer_STATUS_ACTL_INT_EN_MASK;
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 4
 
 
  146:Generated_Source\PSoC5/b1_critical_timer.c **** 
@@ -238,12 +238,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
   36 0008 1370     		strb	r3, [r2]
   37 000a 7047     		bx	lr
   38              	.L3:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 5
 
 
   39              		.align	2
   40              	.L2:
-  41 000c 73640040 		.word	1073767539
+  41 000c 79650040 		.word	1073767801
   42              		.cfi_endproc
   43              	.LFE1:
   44              		.size	b1_critical_timer_Enable, .-b1_critical_timer_Enable
@@ -298,7 +298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  231:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
  232:Generated_Source\PSoC5/b1_critical_timer.c **** *
  233:Generated_Source\PSoC5/b1_critical_timer.c **** * Summary:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 6
 
 
  234:Generated_Source\PSoC5/b1_critical_timer.c **** *  The stop function halts the timer, but does not change any modes or disable
@@ -333,7 +333,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
   64              	.L6:
   65              		.align	2
   66              	.L5:
-  67 000c 73640040 		.word	1073767539
+  67 000c 79650040 		.word	1073767801
   68              		.cfi_endproc
   69              	.LFE3:
   70              		.size	b1_critical_timer_Stop, .-b1_critical_timer_Stop
@@ -358,7 +358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  262:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
  263:Generated_Source\PSoC5/b1_critical_timer.c **** * Function Name: b1_critical_timer_SetInterruptMode
  264:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 7
 
 
  265:Generated_Source\PSoC5/b1_critical_timer.c **** *
@@ -391,7 +391,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
   89              	.L9:
   90 0006 00BF     		.align	2
   91              	.L8:
-  92 0008 84640040 		.word	1073767556
+  92 0008 8A650040 		.word	1073767818
   93              		.cfi_endproc
   94              	.LFE4:
   95              		.size	b1_critical_timer_SetInterruptMode, .-b1_critical_timer_SetInterruptMode
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  294:Generated_Source\PSoC5/b1_critical_timer.c **** *
  295:Generated_Source\PSoC5/b1_critical_timer.c **** * Return:
  296:Generated_Source\PSoC5/b1_critical_timer.c **** *  void
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 8
 
 
  297:Generated_Source\PSoC5/b1_critical_timer.c **** *
@@ -445,7 +445,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  113              	.L12:
  114 0006 00BF     		.align	2
  115              	.L11:
- 116 0008 0C640040 		.word	1073767436
+ 116 0008 09650040 		.word	1073767689
  117              		.cfi_endproc
  118              	.LFE5:
  119              		.size	b1_critical_timer_SoftwareCapture, .-b1_critical_timer_SoftwareCapture
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  327:Generated_Source\PSoC5/b1_critical_timer.c **** *  The contents of the status register
  328:Generated_Source\PSoC5/b1_critical_timer.c **** *
  329:Generated_Source\PSoC5/b1_critical_timer.c **** * Side Effects:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 9
 
 
  330:Generated_Source\PSoC5/b1_critical_timer.c **** *  Status register bits may be clear on read.
@@ -501,7 +501,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  138              	.L15:
  139 0006 00BF     		.align	2
  140              	.L14:
- 141 0008 64640040 		.word	1073767524
+ 141 0008 6A650040 		.word	1073767786
  142              		.cfi_endproc
  143              	.LFE6:
  144              		.size	b1_critical_timer_ReadStatusRegister, .-b1_critical_timer_ReadStatusRegister
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  154              		.cfi_startproc
  155              		@ args = 0, pretend = 0, frame = 0
  156              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 10
 
 
  157              		@ link register save eliminated.
@@ -556,7 +556,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  163              	.L18:
  164 0006 00BF     		.align	2
  165              	.L17:
- 166 0008 73640040 		.word	1073767539
+ 166 0008 79650040 		.word	1073767801
  167              		.cfi_endproc
  168              	.LFE7:
  169              		.size	b1_critical_timer_ReadControlRegister, .-b1_critical_timer_ReadControlRegister
@@ -598,12 +598,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  186 0002 1870     		strb	r0, [r3]
  187 0004 7047     		bx	lr
  188              	.L21:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 11
 
 
  189 0006 00BF     		.align	2
  190              	.L20:
- 191 0008 73640040 		.word	1073767539
+ 191 0008 79650040 		.word	1073767801
  192              		.cfi_endproc
  193              	.LFE8:
  194              		.size	b1_critical_timer_WriteControlRegister, .-b1_critical_timer_WriteControlRegister
@@ -637,7 +637,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  402:Generated_Source\PSoC5/b1_critical_timer.c **** *  The present value of the counter.
  403:Generated_Source\PSoC5/b1_critical_timer.c **** *
  404:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
- 405:Generated_Source\PSoC5/b1_critical_timer.c **** uint32 b1_critical_timer_ReadPeriod(void) 
+ 405:Generated_Source\PSoC5/b1_critical_timer.c **** uint16 b1_critical_timer_ReadPeriod(void) 
  406:Generated_Source\PSoC5/b1_critical_timer.c **** {
  203              		.loc 1 406 0
  204              		.cfi_startproc
@@ -645,34 +645,35 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  206              		@ frame_needed = 0, uses_anonymous_args = 0
  207              		@ link register save eliminated.
  407:Generated_Source\PSoC5/b1_critical_timer.c ****    #if(b1_critical_timer_UsingFixedFunction)
- 408:Generated_Source\PSoC5/b1_critical_timer.c ****        return ((uint32)CY_GET_REG16(b1_critical_timer_PERIOD_LSB_PTR));
+ 408:Generated_Source\PSoC5/b1_critical_timer.c ****        return ((uint16)CY_GET_REG16(b1_critical_timer_PERIOD_LSB_PTR));
  409:Generated_Source\PSoC5/b1_critical_timer.c ****    #else
- 410:Generated_Source\PSoC5/b1_critical_timer.c ****        return (CY_GET_REG32(b1_critical_timer_PERIOD_LSB_PTR));
+ 410:Generated_Source\PSoC5/b1_critical_timer.c ****        return (CY_GET_REG16(b1_critical_timer_PERIOD_LSB_PTR));
  208              		.loc 1 410 0
  209 0000 014B     		ldr	r3, .L23
- 210 0002 1868     		ldr	r0, [r3]
+ 210 0002 1888     		ldrh	r0, [r3]
  411:Generated_Source\PSoC5/b1_critical_timer.c ****    #endif /* (b1_critical_timer_UsingFixedFunction) */
  412:Generated_Source\PSoC5/b1_critical_timer.c **** }
  211              		.loc 1 412 0
- 212 0004 7047     		bx	lr
- 213              	.L24:
- 214 0006 00BF     		.align	2
- 215              	.L23:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 12
+ 212 0004 80B2     		uxth	r0, r0
+ 213 0006 7047     		bx	lr
+ 214              	.L24:
+ 215              		.align	2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 12
 
 
- 216 0008 2C640040 		.word	1073767468
- 217              		.cfi_endproc
- 218              	.LFE9:
- 219              		.size	b1_critical_timer_ReadPeriod, .-b1_critical_timer_ReadPeriod
- 220              		.section	.text.b1_critical_timer_WritePeriod,"ax",%progbits
- 221              		.align	2
- 222              		.global	b1_critical_timer_WritePeriod
- 223              		.thumb
- 224              		.thumb_func
- 225              		.type	b1_critical_timer_WritePeriod, %function
- 226              	b1_critical_timer_WritePeriod:
- 227              	.LFB10:
+ 216              	.L23:
+ 217 0008 526A0040 		.word	1073769042
+ 218              		.cfi_endproc
+ 219              	.LFE9:
+ 220              		.size	b1_critical_timer_ReadPeriod, .-b1_critical_timer_ReadPeriod
+ 221              		.section	.text.b1_critical_timer_WritePeriod,"ax",%progbits
+ 222              		.align	2
+ 223              		.global	b1_critical_timer_WritePeriod
+ 224              		.thumb
+ 225              		.thumb_func
+ 226              		.type	b1_critical_timer_WritePeriod, %function
+ 227              	b1_critical_timer_WritePeriod:
+ 228              	.LFB10:
  413:Generated_Source\PSoC5/b1_critical_timer.c **** 
  414:Generated_Source\PSoC5/b1_critical_timer.c **** 
  415:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -691,41 +692,41 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  428:Generated_Source\PSoC5/b1_critical_timer.c **** *  void
  429:Generated_Source\PSoC5/b1_critical_timer.c **** *
  430:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
- 431:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_WritePeriod(uint32 period) 
+ 431:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_WritePeriod(uint16 period) 
  432:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 228              		.loc 1 432 0
- 229              		.cfi_startproc
- 230              		@ args = 0, pretend = 0, frame = 0
- 231              		@ frame_needed = 0, uses_anonymous_args = 0
- 232              		@ link register save eliminated.
- 233              	.LVL2:
+ 229              		.loc 1 432 0
+ 230              		.cfi_startproc
+ 231              		@ args = 0, pretend = 0, frame = 0
+ 232              		@ frame_needed = 0, uses_anonymous_args = 0
+ 233              		@ link register save eliminated.
+ 234              	.LVL2:
  433:Generated_Source\PSoC5/b1_critical_timer.c ****     #if(b1_critical_timer_UsingFixedFunction)
  434:Generated_Source\PSoC5/b1_critical_timer.c ****         uint16 period_temp = (uint16)period;
  435:Generated_Source\PSoC5/b1_critical_timer.c ****         CY_SET_REG16(b1_critical_timer_PERIOD_LSB_PTR, period_temp);
  436:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
- 437:Generated_Source\PSoC5/b1_critical_timer.c ****         CY_SET_REG32(b1_critical_timer_PERIOD_LSB_PTR, period);
- 234              		.loc 1 437 0
- 235 0000 014B     		ldr	r3, .L26
- 236 0002 1860     		str	r0, [r3]
- 237 0004 7047     		bx	lr
- 238              	.L27:
- 239 0006 00BF     		.align	2
- 240              	.L26:
- 241 0008 2C640040 		.word	1073767468
- 242              		.cfi_endproc
- 243              	.LFE10:
- 244              		.size	b1_critical_timer_WritePeriod, .-b1_critical_timer_WritePeriod
- 245              		.section	.text.b1_critical_timer_ReadCapture,"ax",%progbits
- 246              		.align	2
- 247              		.global	b1_critical_timer_ReadCapture
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 13
+ 437:Generated_Source\PSoC5/b1_critical_timer.c ****         CY_SET_REG16(b1_critical_timer_PERIOD_LSB_PTR, period);
+ 235              		.loc 1 437 0
+ 236 0000 014B     		ldr	r3, .L26
+ 237 0002 1880     		strh	r0, [r3]	@ movhi
+ 238 0004 7047     		bx	lr
+ 239              	.L27:
+ 240 0006 00BF     		.align	2
+ 241              	.L26:
+ 242 0008 526A0040 		.word	1073769042
+ 243              		.cfi_endproc
+ 244              	.LFE10:
+ 245              		.size	b1_critical_timer_WritePeriod, .-b1_critical_timer_WritePeriod
+ 246              		.section	.text.b1_critical_timer_ReadCapture,"ax",%progbits
+ 247              		.align	2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 13
 
 
- 248              		.thumb
- 249              		.thumb_func
- 250              		.type	b1_critical_timer_ReadCapture, %function
- 251              	b1_critical_timer_ReadCapture:
- 252              	.LFB11:
+ 248              		.global	b1_critical_timer_ReadCapture
+ 249              		.thumb
+ 250              		.thumb_func
+ 251              		.type	b1_critical_timer_ReadCapture, %function
+ 252              	b1_critical_timer_ReadCapture:
+ 253              	.LFB11:
  438:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed functi
  439:Generated_Source\PSoC5/b1_critical_timer.c **** }
  440:Generated_Source\PSoC5/b1_critical_timer.c **** 
@@ -744,43 +745,44 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  453:Generated_Source\PSoC5/b1_critical_timer.c **** *  Present Capture value.
  454:Generated_Source\PSoC5/b1_critical_timer.c **** *
  455:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
- 456:Generated_Source\PSoC5/b1_critical_timer.c **** uint32 b1_critical_timer_ReadCapture(void) 
+ 456:Generated_Source\PSoC5/b1_critical_timer.c **** uint16 b1_critical_timer_ReadCapture(void) 
  457:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 253              		.loc 1 457 0
- 254              		.cfi_startproc
- 255              		@ args = 0, pretend = 0, frame = 0
- 256              		@ frame_needed = 0, uses_anonymous_args = 0
- 257              		@ link register save eliminated.
+ 254              		.loc 1 457 0
+ 255              		.cfi_startproc
+ 256              		@ args = 0, pretend = 0, frame = 0
+ 257              		@ frame_needed = 0, uses_anonymous_args = 0
+ 258              		@ link register save eliminated.
  458:Generated_Source\PSoC5/b1_critical_timer.c ****    #if(b1_critical_timer_UsingFixedFunction)
- 459:Generated_Source\PSoC5/b1_critical_timer.c ****        return ((uint32)CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
+ 459:Generated_Source\PSoC5/b1_critical_timer.c ****        return ((uint16)CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
  460:Generated_Source\PSoC5/b1_critical_timer.c ****    #else
- 461:Generated_Source\PSoC5/b1_critical_timer.c ****        return (CY_GET_REG32(b1_critical_timer_CAPTURE_LSB_PTR));
- 258              		.loc 1 461 0
- 259 0000 014B     		ldr	r3, .L29
- 260 0002 1868     		ldr	r0, [r3]
+ 461:Generated_Source\PSoC5/b1_critical_timer.c ****        return (CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
+ 259              		.loc 1 461 0
+ 260 0000 014B     		ldr	r3, .L29
+ 261 0002 1888     		ldrh	r0, [r3]
  462:Generated_Source\PSoC5/b1_critical_timer.c ****    #endif /* (b1_critical_timer_UsingFixedFunction) */
  463:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 261              		.loc 1 463 0
- 262 0004 7047     		bx	lr
- 263              	.L30:
- 264 0006 00BF     		.align	2
- 265              	.L29:
- 266 0008 4C640040 		.word	1073767500
- 267              		.cfi_endproc
- 268              	.LFE11:
- 269              		.size	b1_critical_timer_ReadCapture, .-b1_critical_timer_ReadCapture
- 270              		.section	.text.b1_critical_timer_WriteCounter,"ax",%progbits
- 271              		.align	2
- 272              		.global	b1_critical_timer_WriteCounter
- 273              		.thumb
- 274              		.thumb_func
- 275              		.type	b1_critical_timer_WriteCounter, %function
- 276              	b1_critical_timer_WriteCounter:
- 277              	.LFB12:
+ 262              		.loc 1 463 0
+ 263 0004 80B2     		uxth	r0, r0
+ 264 0006 7047     		bx	lr
+ 265              	.L30:
+ 266              		.align	2
+ 267              	.L29:
+ 268 0008 926A0040 		.word	1073769106
+ 269              		.cfi_endproc
+ 270              	.LFE11:
+ 271              		.size	b1_critical_timer_ReadCapture, .-b1_critical_timer_ReadCapture
+ 272              		.section	.text.b1_critical_timer_WriteCounter,"ax",%progbits
+ 273              		.align	2
+ 274              		.global	b1_critical_timer_WriteCounter
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.type	b1_critical_timer_WriteCounter, %function
+ 278              	b1_critical_timer_WriteCounter:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 14
+
+
+ 279              	.LFB12:
  464:Generated_Source\PSoC5/b1_critical_timer.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 14
-
-
  465:Generated_Source\PSoC5/b1_critical_timer.c **** 
  466:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
  467:Generated_Source\PSoC5/b1_critical_timer.c **** * Function Name: b1_critical_timer_WriteCounter
@@ -796,14 +798,14 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  477:Generated_Source\PSoC5/b1_critical_timer.c **** *  void
  478:Generated_Source\PSoC5/b1_critical_timer.c **** *
  479:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
- 480:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_WriteCounter(uint32 counter) 
+ 480:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_WriteCounter(uint16 counter) 
  481:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 278              		.loc 1 481 0
- 279              		.cfi_startproc
- 280              		@ args = 0, pretend = 0, frame = 0
- 281              		@ frame_needed = 0, uses_anonymous_args = 0
- 282              		@ link register save eliminated.
- 283              	.LVL3:
+ 280              		.loc 1 481 0
+ 281              		.cfi_startproc
+ 282              		@ args = 0, pretend = 0, frame = 0
+ 283              		@ frame_needed = 0, uses_anonymous_args = 0
+ 284              		@ link register save eliminated.
+ 285              	.LVL3:
  482:Generated_Source\PSoC5/b1_critical_timer.c ****    #if(b1_critical_timer_UsingFixedFunction)
  483:Generated_Source\PSoC5/b1_critical_timer.c ****         /* This functionality is removed until a FixedFunction HW update to
  484:Generated_Source\PSoC5/b1_critical_timer.c ****          * allow this register to be written
@@ -811,36 +813,36 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  486:Generated_Source\PSoC5/b1_critical_timer.c ****         CY_SET_REG16(b1_critical_timer_COUNTER_LSB_PTR, (uint16)counter);
  487:Generated_Source\PSoC5/b1_critical_timer.c ****         
  488:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
- 489:Generated_Source\PSoC5/b1_critical_timer.c ****         CY_SET_REG32(b1_critical_timer_COUNTER_LSB_PTR, counter);
- 284              		.loc 1 489 0
- 285 0000 014B     		ldr	r3, .L32
- 286 0002 1860     		str	r0, [r3]
- 287 0004 7047     		bx	lr
- 288              	.L33:
- 289 0006 00BF     		.align	2
- 290              	.L32:
- 291 0008 0C640040 		.word	1073767436
- 292              		.cfi_endproc
- 293              	.LFE12:
- 294              		.size	b1_critical_timer_WriteCounter, .-b1_critical_timer_WriteCounter
- 295              		.section	.text.b1_critical_timer_ReadCounter,"ax",%progbits
- 296              		.align	2
- 297              		.global	b1_critical_timer_ReadCounter
- 298              		.thumb
- 299              		.thumb_func
- 300              		.type	b1_critical_timer_ReadCounter, %function
- 301              	b1_critical_timer_ReadCounter:
- 302              	.LFB13:
+ 489:Generated_Source\PSoC5/b1_critical_timer.c ****         CY_SET_REG16(b1_critical_timer_COUNTER_LSB_PTR, counter);
+ 286              		.loc 1 489 0
+ 287 0000 014B     		ldr	r3, .L32
+ 288 0002 1880     		strh	r0, [r3]	@ movhi
+ 289 0004 7047     		bx	lr
+ 290              	.L33:
+ 291 0006 00BF     		.align	2
+ 292              	.L32:
+ 293 0008 126A0040 		.word	1073768978
+ 294              		.cfi_endproc
+ 295              	.LFE12:
+ 296              		.size	b1_critical_timer_WriteCounter, .-b1_critical_timer_WriteCounter
+ 297              		.section	.text.b1_critical_timer_ReadCounter,"ax",%progbits
+ 298              		.align	2
+ 299              		.global	b1_critical_timer_ReadCounter
+ 300              		.thumb
+ 301              		.thumb_func
+ 302              		.type	b1_critical_timer_ReadCounter, %function
+ 303              	b1_critical_timer_ReadCounter:
+ 304              	.LFB13:
  490:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
  491:Generated_Source\PSoC5/b1_critical_timer.c **** }
  492:Generated_Source\PSoC5/b1_critical_timer.c **** 
  493:Generated_Source\PSoC5/b1_critical_timer.c **** 
  494:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 15
+
+
  495:Generated_Source\PSoC5/b1_critical_timer.c **** * Function Name: b1_critical_timer_ReadCounter
  496:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 15
-
-
  497:Generated_Source\PSoC5/b1_critical_timer.c **** *
  498:Generated_Source\PSoC5/b1_critical_timer.c **** * Summary:
  499:Generated_Source\PSoC5/b1_critical_timer.c **** *  This function returns the current counter value.
@@ -852,13 +854,13 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  505:Generated_Source\PSoC5/b1_critical_timer.c **** *  Present compare value.
  506:Generated_Source\PSoC5/b1_critical_timer.c **** *
  507:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
- 508:Generated_Source\PSoC5/b1_critical_timer.c **** uint32 b1_critical_timer_ReadCounter(void) 
+ 508:Generated_Source\PSoC5/b1_critical_timer.c **** uint16 b1_critical_timer_ReadCounter(void) 
  509:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 303              		.loc 1 509 0
- 304              		.cfi_startproc
- 305              		@ args = 0, pretend = 0, frame = 0
- 306              		@ frame_needed = 0, uses_anonymous_args = 0
- 307              		@ link register save eliminated.
+ 305              		.loc 1 509 0
+ 306              		.cfi_startproc
+ 307              		@ args = 0, pretend = 0, frame = 0
+ 308              		@ frame_needed = 0, uses_anonymous_args = 0
+ 309              		@ link register save eliminated.
  510:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Force capture by reading Accumulator */
  511:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Must first do a software capture to be able to read the counter */
  512:Generated_Source\PSoC5/b1_critical_timer.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
@@ -866,42 +868,43 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  514:Generated_Source\PSoC5/b1_critical_timer.c ****         (void)CY_GET_REG16(b1_critical_timer_COUNTER_LSB_PTR);
  515:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
  516:Generated_Source\PSoC5/b1_critical_timer.c ****         (void)CY_GET_REG8(b1_critical_timer_COUNTER_LSB_PTR_8BIT);
- 308              		.loc 1 516 0
- 309 0000 024B     		ldr	r3, .L35
- 310 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 310              		.loc 1 516 0
+ 311 0000 024B     		ldr	r3, .L35
+ 312 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  517:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif/* (b1_critical_timer_UsingFixedFunction) */
  518:Generated_Source\PSoC5/b1_critical_timer.c **** 
  519:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
  520:Generated_Source\PSoC5/b1_critical_timer.c ****     #if(b1_critical_timer_UsingFixedFunction)
- 521:Generated_Source\PSoC5/b1_critical_timer.c ****         return ((uint32)CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
+ 521:Generated_Source\PSoC5/b1_critical_timer.c ****         return ((uint16)CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
  522:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
- 523:Generated_Source\PSoC5/b1_critical_timer.c ****         return (CY_GET_REG32(b1_critical_timer_CAPTURE_LSB_PTR));
- 311              		.loc 1 523 0
- 312 0004 024B     		ldr	r3, .L35+4
- 313 0006 1868     		ldr	r0, [r3]
+ 523:Generated_Source\PSoC5/b1_critical_timer.c ****         return (CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
+ 313              		.loc 1 523 0
+ 314 0004 024B     		ldr	r3, .L35+4
+ 315 0006 1888     		ldrh	r0, [r3]
  524:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* (b1_critical_timer_UsingFixedFunction) */
  525:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 314              		.loc 1 525 0
- 315 0008 7047     		bx	lr
- 316              	.L36:
- 317 000a 00BF     		.align	2
- 318              	.L35:
- 319 000c 0C640040 		.word	1073767436
- 320 0010 4C640040 		.word	1073767500
- 321              		.cfi_endproc
- 322              	.LFE13:
- 323              		.size	b1_critical_timer_ReadCounter, .-b1_critical_timer_ReadCounter
- 324              		.section	.text.b1_critical_timer_ClearFIFO,"ax",%progbits
- 325              		.align	2
- 326              		.global	b1_critical_timer_ClearFIFO
- 327              		.thumb
- 328              		.thumb_func
- 329              		.type	b1_critical_timer_ClearFIFO, %function
- 330              	b1_critical_timer_ClearFIFO:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 16
+ 316              		.loc 1 525 0
+ 317 0008 80B2     		uxth	r0, r0
+ 318 000a 7047     		bx	lr
+ 319              	.L36:
+ 320              		.align	2
+ 321              	.L35:
+ 322 000c 09650040 		.word	1073767689
+ 323 0010 926A0040 		.word	1073769106
+ 324              		.cfi_endproc
+ 325              	.LFE13:
+ 326              		.size	b1_critical_timer_ReadCounter, .-b1_critical_timer_ReadCounter
+ 327              		.section	.text.b1_critical_timer_ClearFIFO,"ax",%progbits
+ 328              		.align	2
+ 329              		.global	b1_critical_timer_ClearFIFO
+ 330              		.thumb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 16
 
 
- 331              	.LFB14:
+ 331              		.thumb_func
+ 332              		.type	b1_critical_timer_ClearFIFO, %function
+ 333              	b1_critical_timer_ClearFIFO:
+ 334              	.LFB14:
  526:Generated_Source\PSoC5/b1_critical_timer.c **** 
  527:Generated_Source\PSoC5/b1_critical_timer.c **** 
  528:Generated_Source\PSoC5/b1_critical_timer.c **** #if(!b1_critical_timer_UsingFixedFunction) /* UDB Specific Functions */
@@ -955,12 +958,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  576:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Write The New Setting */
  577:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CONTROL |= captureMode;
  578:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* (!b1_critical_timer_UDB_CONTROL_REG_REMOVED) */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 17
+
+
  579:Generated_Source\PSoC5/b1_critical_timer.c **** }
  580:Generated_Source\PSoC5/b1_critical_timer.c **** #endif /* Remove API if Capture Mode is not Software Controlled */
  581:Generated_Source\PSoC5/b1_critical_timer.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 17
-
-
  582:Generated_Source\PSoC5/b1_critical_timer.c **** 
  583:Generated_Source\PSoC5/b1_critical_timer.c **** #if (b1_critical_timer_SoftwareTriggerMode)
  584:Generated_Source\PSoC5/b1_critical_timer.c **** 
@@ -1015,12 +1018,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  633:Generated_Source\PSoC5/b1_critical_timer.c **** *
  634:Generated_Source\PSoC5/b1_critical_timer.c **** * Return:
  635:Generated_Source\PSoC5/b1_critical_timer.c **** *  void
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 18
+
+
  636:Generated_Source\PSoC5/b1_critical_timer.c **** *
  637:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  638:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_EnableTrigger(void) 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 18
-
-
  639:Generated_Source\PSoC5/b1_critical_timer.c **** {
  640:Generated_Source\PSoC5/b1_critical_timer.c ****     #if (!b1_critical_timer_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is 
  641:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CONTROL |= b1_critical_timer_CTRL_TRIG_EN;
@@ -1075,12 +1078,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  690:Generated_Source\PSoC5/b1_critical_timer.c ****     /* This must only set to two bits of the control register associated */
  691:Generated_Source\PSoC5/b1_critical_timer.c ****     interruptCount &= b1_critical_timer_CTRL_INTCNT_MASK;
  692:Generated_Source\PSoC5/b1_critical_timer.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 19
+
+
  693:Generated_Source\PSoC5/b1_critical_timer.c ****     #if (!b1_critical_timer_UDB_CONTROL_REG_REMOVED)
  694:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Clear the Current Setting */
  695:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CONTROL &= ((uint8)(~b1_critical_timer_CTRL_INTCNT_MASK));
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 19
-
-
  696:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Write The New Setting */
  697:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CONTROL |= interruptCount;
  698:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* (!b1_critical_timer_UDB_CONTROL_REG_REMOVED) */
@@ -1135,12 +1138,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  747:Generated_Source\PSoC5/b1_critical_timer.c **** 
  748:Generated_Source\PSoC5/b1_critical_timer.c **** 
  749:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 20
+
+
  750:Generated_Source\PSoC5/b1_critical_timer.c **** * Function Name: b1_critical_timer_ClearFIFO
  751:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
  752:Generated_Source\PSoC5/b1_critical_timer.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 20
-
-
  753:Generated_Source\PSoC5/b1_critical_timer.c **** * Summary:
  754:Generated_Source\PSoC5/b1_critical_timer.c **** *  This function clears all capture data from the capture FIFO
  755:Generated_Source\PSoC5/b1_critical_timer.c **** *
@@ -1153,1178 +1156,1178 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 1
  762:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  763:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_ClearFIFO(void) 
  764:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 332              		.loc 1 764 0
- 333              		.cfi_startproc
- 334              		@ args = 0, pretend = 0, frame = 0
- 335              		@ frame_needed = 0, uses_anonymous_args = 0
- 336 0000 08B5     		push	{r3, lr}
- 337              		.cfi_def_cfa_offset 8
- 338              		.cfi_offset 3, -8
- 339              		.cfi_offset 14, -4
+ 335              		.loc 1 764 0
+ 336              		.cfi_startproc
+ 337              		@ args = 0, pretend = 0, frame = 0
+ 338              		@ frame_needed = 0, uses_anonymous_args = 0
+ 339 0000 08B5     		push	{r3, lr}
+ 340              		.cfi_def_cfa_offset 8
+ 341              		.cfi_offset 3, -8
+ 342              		.cfi_offset 14, -4
  765:Generated_Source\PSoC5/b1_critical_timer.c ****     while(0u != (b1_critical_timer_ReadStatusRegister() & b1_critical_timer_STATUS_FIFONEMP))
- 340              		.loc 1 765 0
- 341 0002 01E0     		b	.L38
- 342              	.L39:
+ 343              		.loc 1 765 0
+ 344 0002 01E0     		b	.L38
+ 345              	.L39:
  766:Generated_Source\PSoC5/b1_critical_timer.c ****     {
  767:Generated_Source\PSoC5/b1_critical_timer.c ****         (void)b1_critical_timer_ReadCapture();
- 343              		.loc 1 767 0
- 344 0004 FFF7FEFF 		bl	b1_critical_timer_ReadCapture
- 345              	.LVL4:
- 346              	.L38:
+ 346              		.loc 1 767 0
+ 347 0004 FFF7FEFF 		bl	b1_critical_timer_ReadCapture
+ 348              	.LVL4:
+ 349              	.L38:
  765:Generated_Source\PSoC5/b1_critical_timer.c ****     while(0u != (b1_critical_timer_ReadStatusRegister() & b1_critical_timer_STATUS_FIFONEMP))
- 347              		.loc 1 765 0
- 348 0008 FFF7FEFF 		bl	b1_critical_timer_ReadStatusRegister
- 349              	.LVL5:
- 350 000c 10F0080F 		tst	r0, #8
- 351 0010 F8D1     		bne	.L39
+ 350              		.loc 1 765 0
+ 351 0008 FFF7FEFF 		bl	b1_critical_timer_ReadStatusRegister
+ 352              	.LVL5:
+ 353 000c 10F0080F 		tst	r0, #8
+ 354 0010 F8D1     		bne	.L39
  768:Generated_Source\PSoC5/b1_critical_timer.c ****     }
  769:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 352              		.loc 1 769 0
- 353 0012 08BD     		pop	{r3, pc}
- 354              		.cfi_endproc
- 355              	.LFE14:
- 356              		.size	b1_critical_timer_ClearFIFO, .-b1_critical_timer_ClearFIFO
- 357              		.section	.text.b1_critical_timer_Init,"ax",%progbits
- 358              		.align	2
- 359              		.global	b1_critical_timer_Init
- 360              		.thumb
- 361              		.thumb_func
- 362              		.type	b1_critical_timer_Init, %function
- 363              	b1_critical_timer_Init:
- 364              	.LFB0:
+ 355              		.loc 1 769 0
+ 356 0012 08BD     		pop	{r3, pc}
+ 357              		.cfi_endproc
+ 358              	.LFE14:
+ 359              		.size	b1_critical_timer_ClearFIFO, .-b1_critical_timer_ClearFIFO
+ 360              		.section	.text.b1_critical_timer_Init,"ax",%progbits
+ 361              		.align	2
+ 362              		.global	b1_critical_timer_Init
+ 363              		.thumb
+ 364              		.thumb_func
+ 365              		.type	b1_critical_timer_Init, %function
+ 366              	b1_critical_timer_Init:
+ 367              	.LFB0:
   44:Generated_Source\PSoC5/b1_critical_timer.c ****     #if(!b1_critical_timer_UsingFixedFunction)
- 365              		.loc 1 44 0
- 366              		.cfi_startproc
- 367              		@ args = 0, pretend = 0, frame = 0
- 368              		@ frame_needed = 0, uses_anonymous_args = 0
- 369 0000 08B5     		push	{r3, lr}
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 21
+ 368              		.loc 1 44 0
+ 369              		.cfi_startproc
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 21
 
 
- 370              		.cfi_def_cfa_offset 8
- 371              		.cfi_offset 3, -8
- 372              		.cfi_offset 14, -4
+ 370              		@ args = 0, pretend = 0, frame = 0
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372 0000 08B5     		push	{r3, lr}
+ 373              		.cfi_def_cfa_offset 8
+ 374              		.cfi_offset 3, -8
+ 375              		.cfi_offset 14, -4
  118:Generated_Source\PSoC5/b1_critical_timer.c ****     b1_critical_timer_WriteCounter(b1_critical_timer_INIT_PERIOD);
- 373              		.loc 1 118 0
- 374 0002 41F28730 		movw	r0, #4999
- 375 0006 FFF7FEFF 		bl	b1_critical_timer_WritePeriod
- 376              	.LVL6:
+ 376              		.loc 1 118 0
+ 377 0002 41F28730 		movw	r0, #4999
+ 378 0006 FFF7FEFF 		bl	b1_critical_timer_WritePeriod
+ 379              	.LVL6:
  119:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 377              		.loc 1 119 0
- 378 000a 41F28730 		movw	r0, #4999
- 379 000e FFF7FEFF 		bl	b1_critical_timer_WriteCounter
- 380              	.LVL7:
+ 380              		.loc 1 119 0
+ 381 000a 41F28730 		movw	r0, #4999
+ 382 000e FFF7FEFF 		bl	b1_critical_timer_WriteCounter
+ 383              	.LVL7:
  142:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 381              		.loc 1 142 0
- 382 0012 FFF7FEFF 		bl	CyEnterCriticalSection
- 383              	.LVL8:
+ 384              		.loc 1 142 0
+ 385 0012 FFF7FEFF 		bl	CyEnterCriticalSection
+ 386              	.LVL8:
  145:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 384              		.loc 1 145 0
- 385 0016 064A     		ldr	r2, .L43
- 386 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 387 001a 43F01003 		orr	r3, r3, #16
- 388 001e 1370     		strb	r3, [r2]
+ 387              		.loc 1 145 0
+ 388 0016 064A     		ldr	r2, .L43
+ 389 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 390 001a 43F01003 		orr	r3, r3, #16
+ 391 001e 1370     		strb	r3, [r2]
  148:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 389              		.loc 1 148 0
- 390 0020 FFF7FEFF 		bl	CyExitCriticalSection
- 391              	.LVL9:
+ 392              		.loc 1 148 0
+ 393 0020 FFF7FEFF 		bl	CyExitCriticalSection
+ 394              	.LVL9:
  159:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* Configure additional features of UDB implementation */
- 392              		.loc 1 159 0
- 393 0024 FFF7FEFF 		bl	b1_critical_timer_ClearFIFO
- 394              	.LVL10:
+ 395              		.loc 1 159 0
+ 396 0024 FFF7FEFF 		bl	b1_critical_timer_ClearFIFO
+ 397              	.LVL10:
  162:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 395              		.loc 1 162 0
- 396 0028 0020     		movs	r0, #0
- 397 002a FFF7FEFF 		bl	b1_critical_timer_SetInterruptMode
- 398              	.LVL11:
- 399 002e 08BD     		pop	{r3, pc}
- 400              	.L44:
- 401              		.align	2
- 402              	.L43:
- 403 0030 94640040 		.word	1073767572
- 404              		.cfi_endproc
- 405              	.LFE0:
- 406              		.size	b1_critical_timer_Init, .-b1_critical_timer_Init
- 407              		.section	.text.b1_critical_timer_Start,"ax",%progbits
- 408              		.align	2
- 409              		.global	b1_critical_timer_Start
- 410              		.thumb
- 411              		.thumb_func
- 412              		.type	b1_critical_timer_Start, %function
- 413              	b1_critical_timer_Start:
- 414              	.LFB2:
+ 398              		.loc 1 162 0
+ 399 0028 0020     		movs	r0, #0
+ 400 002a FFF7FEFF 		bl	b1_critical_timer_SetInterruptMode
+ 401              	.LVL11:
+ 402 002e 08BD     		pop	{r3, pc}
+ 403              	.L44:
+ 404              		.align	2
+ 405              	.L43:
+ 406 0030 9A650040 		.word	1073767834
+ 407              		.cfi_endproc
+ 408              	.LFE0:
+ 409              		.size	b1_critical_timer_Init, .-b1_critical_timer_Init
+ 410              		.section	.text.b1_critical_timer_Start,"ax",%progbits
+ 411              		.align	2
+ 412              		.global	b1_critical_timer_Start
+ 413              		.thumb
+ 414              		.thumb_func
+ 415              		.type	b1_critical_timer_Start, %function
+ 416              	b1_critical_timer_Start:
+ 417              	.LFB2:
  216:Generated_Source\PSoC5/b1_critical_timer.c ****     if(b1_critical_timer_initVar == 0u)
- 415              		.loc 1 216 0
- 416              		.cfi_startproc
- 417              		@ args = 0, pretend = 0, frame = 0
- 418              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 22
+ 418              		.loc 1 216 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 22
 
 
- 419 0000 08B5     		push	{r3, lr}
- 420              		.cfi_def_cfa_offset 8
- 421              		.cfi_offset 3, -8
- 422              		.cfi_offset 14, -4
+ 419              		.cfi_startproc
+ 420              		@ args = 0, pretend = 0, frame = 0
+ 421              		@ frame_needed = 0, uses_anonymous_args = 0
+ 422 0000 08B5     		push	{r3, lr}
+ 423              		.cfi_def_cfa_offset 8
+ 424              		.cfi_offset 3, -8
+ 425              		.cfi_offset 14, -4
  217:Generated_Source\PSoC5/b1_critical_timer.c ****     {
- 423              		.loc 1 217 0
- 424 0002 054B     		ldr	r3, .L48
- 425 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 426 0006 23B9     		cbnz	r3, .L46
+ 426              		.loc 1 217 0
+ 427 0002 054B     		ldr	r3, .L48
+ 428 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 429 0006 23B9     		cbnz	r3, .L46
  219:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 427              		.loc 1 219 0
- 428 0008 FFF7FEFF 		bl	b1_critical_timer_Init
- 429              	.LVL12:
+ 430              		.loc 1 219 0
+ 431 0008 FFF7FEFF 		bl	b1_critical_timer_Init
+ 432              	.LVL12:
  221:Generated_Source\PSoC5/b1_critical_timer.c ****     }
- 430              		.loc 1 221 0
- 431 000c 0122     		movs	r2, #1
- 432 000e 024B     		ldr	r3, .L48
- 433 0010 1A70     		strb	r2, [r3]
- 434              	.L46:
+ 433              		.loc 1 221 0
+ 434 000c 0122     		movs	r2, #1
+ 435 000e 024B     		ldr	r3, .L48
+ 436 0010 1A70     		strb	r2, [r3]
+ 437              	.L46:
  225:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 435              		.loc 1 225 0
- 436 0012 FFF7FEFF 		bl	b1_critical_timer_Enable
- 437              	.LVL13:
- 438 0016 08BD     		pop	{r3, pc}
- 439              	.L49:
- 440              		.align	2
- 441              	.L48:
- 442 0018 00000000 		.word	.LANCHOR0
- 443              		.cfi_endproc
- 444              	.LFE2:
- 445              		.size	b1_critical_timer_Start, .-b1_critical_timer_Start
- 446              		.global	b1_critical_timer_initVar
- 447              		.bss
- 448              		.set	.LANCHOR0,. + 0
- 449              		.type	b1_critical_timer_initVar, %object
- 450              		.size	b1_critical_timer_initVar, 1
- 451              	b1_critical_timer_initVar:
- 452 0000 00       		.space	1
- 453              		.text
- 454              	.Letext0:
- 455              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 456              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
- 457              		.section	.debug_info,"",%progbits
- 458              	.Ldebug_info0:
- 459 0000 E7020000 		.4byte	0x2e7
- 460 0004 0400     		.2byte	0x4
- 461 0006 00000000 		.4byte	.Ldebug_abbrev0
- 462 000a 04       		.byte	0x4
- 463 000b 01       		.uleb128 0x1
- 464 000c E8010000 		.4byte	.LASF36
- 465 0010 01       		.byte	0x1
- 466 0011 2C000000 		.4byte	.LASF37
- 467 0015 8F030000 		.4byte	.LASF38
- 468 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 469 001d 00000000 		.4byte	0
- 470 0021 00000000 		.4byte	.Ldebug_line0
- 471 0025 02       		.uleb128 0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 23
+ 438              		.loc 1 225 0
+ 439 0012 FFF7FEFF 		bl	b1_critical_timer_Enable
+ 440              	.LVL13:
+ 441 0016 08BD     		pop	{r3, pc}
+ 442              	.L49:
+ 443              		.align	2
+ 444              	.L48:
+ 445 0018 00000000 		.word	.LANCHOR0
+ 446              		.cfi_endproc
+ 447              	.LFE2:
+ 448              		.size	b1_critical_timer_Start, .-b1_critical_timer_Start
+ 449              		.global	b1_critical_timer_initVar
+ 450              		.bss
+ 451              		.set	.LANCHOR0,. + 0
+ 452              		.type	b1_critical_timer_initVar, %object
+ 453              		.size	b1_critical_timer_initVar, 1
+ 454              	b1_critical_timer_initVar:
+ 455 0000 00       		.space	1
+ 456              		.text
+ 457              	.Letext0:
+ 458              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 459              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
+ 460              		.section	.debug_info,"",%progbits
+ 461              	.Ldebug_info0:
+ 462 0000 E7020000 		.4byte	0x2e7
+ 463 0004 0400     		.2byte	0x4
+ 464 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 465 000a 04       		.byte	0x4
+ 466 000b 01       		.uleb128 0x1
+ 467 000c E8010000 		.4byte	.LASF36
+ 468 0010 01       		.byte	0x1
+ 469 0011 06000000 		.4byte	.LASF37
+ 470 0015 8F030000 		.4byte	.LASF38
+ 471 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 23
 
 
- 472 0026 01       		.byte	0x1
- 473 0027 06       		.byte	0x6
- 474 0028 CC030000 		.4byte	.LASF0
- 475 002c 02       		.uleb128 0x2
- 476 002d 01       		.byte	0x1
- 477 002e 08       		.byte	0x8
- 478 002f 14010000 		.4byte	.LASF1
- 479 0033 02       		.uleb128 0x2
- 480 0034 02       		.byte	0x2
- 481 0035 05       		.byte	0x5
- 482 0036 42030000 		.4byte	.LASF2
- 483 003a 02       		.uleb128 0x2
- 484 003b 02       		.byte	0x2
- 485 003c 07       		.byte	0x7
- 486 003d D8030000 		.4byte	.LASF3
- 487 0041 02       		.uleb128 0x2
- 488 0042 04       		.byte	0x4
- 489 0043 05       		.byte	0x5
- 490 0044 81030000 		.4byte	.LASF4
- 491 0048 02       		.uleb128 0x2
- 492 0049 04       		.byte	0x4
- 493 004a 07       		.byte	0x7
- 494 004b 40010000 		.4byte	.LASF5
- 495 004f 02       		.uleb128 0x2
- 496 0050 08       		.byte	0x8
- 497 0051 05       		.byte	0x5
- 498 0052 01030000 		.4byte	.LASF6
- 499 0056 02       		.uleb128 0x2
- 500 0057 08       		.byte	0x8
- 501 0058 07       		.byte	0x7
- 502 0059 EB030000 		.4byte	.LASF7
- 503 005d 03       		.uleb128 0x3
- 504 005e 04       		.byte	0x4
- 505 005f 05       		.byte	0x5
- 506 0060 696E7400 		.ascii	"int\000"
- 507 0064 02       		.uleb128 0x2
- 508 0065 04       		.byte	0x4
- 509 0066 07       		.byte	0x7
- 510 0067 8D020000 		.4byte	.LASF8
- 511 006b 04       		.uleb128 0x4
- 512 006c 52010000 		.4byte	.LASF9
- 513 0070 02       		.byte	0x2
- 514 0071 3801     		.2byte	0x138
- 515 0073 2C000000 		.4byte	0x2c
- 516 0077 04       		.uleb128 0x4
- 517 0078 E1010000 		.4byte	.LASF10
- 518 007c 02       		.byte	0x2
- 519 007d 3A01     		.2byte	0x13a
- 520 007f 48000000 		.4byte	0x48
- 521 0083 02       		.uleb128 0x2
- 522 0084 04       		.byte	0x4
- 523 0085 04       		.byte	0x4
- 524 0086 E3000000 		.4byte	.LASF11
- 525 008a 02       		.uleb128 0x2
- 526 008b 08       		.byte	0x8
- 527 008c 04       		.byte	0x4
- 528 008d 9E010000 		.4byte	.LASF12
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 24
+ 472 001d 00000000 		.4byte	0
+ 473 0021 00000000 		.4byte	.Ldebug_line0
+ 474 0025 02       		.uleb128 0x2
+ 475 0026 01       		.byte	0x1
+ 476 0027 06       		.byte	0x6
+ 477 0028 CC030000 		.4byte	.LASF0
+ 478 002c 02       		.uleb128 0x2
+ 479 002d 01       		.byte	0x1
+ 480 002e 08       		.byte	0x8
+ 481 002f EE000000 		.4byte	.LASF1
+ 482 0033 02       		.uleb128 0x2
+ 483 0034 02       		.byte	0x2
+ 484 0035 05       		.byte	0x5
+ 485 0036 42030000 		.4byte	.LASF2
+ 486 003a 02       		.uleb128 0x2
+ 487 003b 02       		.byte	0x2
+ 488 003c 07       		.byte	0x7
+ 489 003d D8030000 		.4byte	.LASF3
+ 490 0041 02       		.uleb128 0x2
+ 491 0042 04       		.byte	0x4
+ 492 0043 05       		.byte	0x5
+ 493 0044 81030000 		.4byte	.LASF4
+ 494 0048 02       		.uleb128 0x2
+ 495 0049 04       		.byte	0x4
+ 496 004a 07       		.byte	0x7
+ 497 004b 1A010000 		.4byte	.LASF5
+ 498 004f 02       		.uleb128 0x2
+ 499 0050 08       		.byte	0x8
+ 500 0051 05       		.byte	0x5
+ 501 0052 01030000 		.4byte	.LASF6
+ 502 0056 02       		.uleb128 0x2
+ 503 0057 08       		.byte	0x8
+ 504 0058 07       		.byte	0x7
+ 505 0059 EB030000 		.4byte	.LASF7
+ 506 005d 03       		.uleb128 0x3
+ 507 005e 04       		.byte	0x4
+ 508 005f 05       		.byte	0x5
+ 509 0060 696E7400 		.ascii	"int\000"
+ 510 0064 02       		.uleb128 0x2
+ 511 0065 04       		.byte	0x4
+ 512 0066 07       		.byte	0x7
+ 513 0067 8D020000 		.4byte	.LASF8
+ 514 006b 04       		.uleb128 0x4
+ 515 006c 2C010000 		.4byte	.LASF9
+ 516 0070 02       		.byte	0x2
+ 517 0071 3801     		.2byte	0x138
+ 518 0073 2C000000 		.4byte	0x2c
+ 519 0077 04       		.uleb128 0x4
+ 520 0078 E1010000 		.4byte	.LASF10
+ 521 007c 02       		.byte	0x2
+ 522 007d 3901     		.2byte	0x139
+ 523 007f 3A000000 		.4byte	0x3a
+ 524 0083 02       		.uleb128 0x2
+ 525 0084 04       		.byte	0x4
+ 526 0085 04       		.byte	0x4
+ 527 0086 BD000000 		.4byte	.LASF11
+ 528 008a 02       		.uleb128 0x2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 24
 
 
- 529 0091 02       		.uleb128 0x2
- 530 0092 01       		.byte	0x1
- 531 0093 08       		.byte	0x8
- 532 0094 8A030000 		.4byte	.LASF13
- 533 0098 04       		.uleb128 0x4
- 534 0099 CC020000 		.4byte	.LASF14
- 535 009d 02       		.byte	0x2
- 536 009e E201     		.2byte	0x1e2
- 537 00a0 A4000000 		.4byte	0xa4
- 538 00a4 05       		.uleb128 0x5
- 539 00a5 6B000000 		.4byte	0x6b
- 540 00a9 04       		.uleb128 0x4
- 541 00aa 26000000 		.4byte	.LASF15
- 542 00ae 02       		.byte	0x2
- 543 00af E401     		.2byte	0x1e4
- 544 00b1 B5000000 		.4byte	0xb5
- 545 00b5 05       		.uleb128 0x5
- 546 00b6 77000000 		.4byte	0x77
- 547 00ba 02       		.uleb128 0x2
- 548 00bb 04       		.byte	0x4
- 549 00bc 07       		.byte	0x7
- 550 00bd F8020000 		.4byte	.LASF16
- 551 00c1 06       		.uleb128 0x6
- 552 00c2 CA000000 		.4byte	.LASF17
- 553 00c6 01       		.byte	0x1
- 554 00c7 B4       		.byte	0xb4
- 555 00c8 00000000 		.4byte	.LFB1
- 556 00cc 10000000 		.4byte	.LFE1-.LFB1
- 557 00d0 01       		.uleb128 0x1
- 558 00d1 9C       		.byte	0x9c
- 559 00d2 06       		.uleb128 0x6
- 560 00d3 57000000 		.4byte	.LASF18
- 561 00d7 01       		.byte	0x1
- 562 00d8 F7       		.byte	0xf7
- 563 00d9 00000000 		.4byte	.LFB3
- 564 00dd 10000000 		.4byte	.LFE3-.LFB3
- 565 00e1 01       		.uleb128 0x1
- 566 00e2 9C       		.byte	0x9c
- 567 00e3 07       		.uleb128 0x7
- 568 00e4 F1000000 		.4byte	.LASF22
- 569 00e8 01       		.byte	0x1
- 570 00e9 1701     		.2byte	0x117
- 571 00eb 00000000 		.4byte	.LFB4
- 572 00ef 0C000000 		.4byte	.LFE4-.LFB4
- 573 00f3 01       		.uleb128 0x1
- 574 00f4 9C       		.byte	0x9c
- 575 00f5 08010000 		.4byte	0x108
- 576 00f9 08       		.uleb128 0x8
- 577 00fa 0F030000 		.4byte	.LASF24
- 578 00fe 01       		.byte	0x1
- 579 00ff 1701     		.2byte	0x117
- 580 0101 6B000000 		.4byte	0x6b
- 581 0105 01       		.uleb128 0x1
- 582 0106 50       		.byte	0x50
- 583 0107 00       		.byte	0
- 584 0108 09       		.uleb128 0x9
- 585 0109 BF010000 		.4byte	.LASF19
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 25
+ 529 008b 08       		.byte	0x8
+ 530 008c 04       		.byte	0x4
+ 531 008d 9E010000 		.4byte	.LASF12
+ 532 0091 02       		.uleb128 0x2
+ 533 0092 01       		.byte	0x1
+ 534 0093 08       		.byte	0x8
+ 535 0094 8A030000 		.4byte	.LASF13
+ 536 0098 04       		.uleb128 0x4
+ 537 0099 CC020000 		.4byte	.LASF14
+ 538 009d 02       		.byte	0x2
+ 539 009e E201     		.2byte	0x1e2
+ 540 00a0 A4000000 		.4byte	0xa4
+ 541 00a4 05       		.uleb128 0x5
+ 542 00a5 6B000000 		.4byte	0x6b
+ 543 00a9 04       		.uleb128 0x4
+ 544 00aa 00000000 		.4byte	.LASF15
+ 545 00ae 02       		.byte	0x2
+ 546 00af E301     		.2byte	0x1e3
+ 547 00b1 B5000000 		.4byte	0xb5
+ 548 00b5 05       		.uleb128 0x5
+ 549 00b6 77000000 		.4byte	0x77
+ 550 00ba 02       		.uleb128 0x2
+ 551 00bb 04       		.byte	0x4
+ 552 00bc 07       		.byte	0x7
+ 553 00bd F8020000 		.4byte	.LASF16
+ 554 00c1 06       		.uleb128 0x6
+ 555 00c2 A4000000 		.4byte	.LASF17
+ 556 00c6 01       		.byte	0x1
+ 557 00c7 B4       		.byte	0xb4
+ 558 00c8 00000000 		.4byte	.LFB1
+ 559 00cc 10000000 		.4byte	.LFE1-.LFB1
+ 560 00d0 01       		.uleb128 0x1
+ 561 00d1 9C       		.byte	0x9c
+ 562 00d2 06       		.uleb128 0x6
+ 563 00d3 31000000 		.4byte	.LASF18
+ 564 00d7 01       		.byte	0x1
+ 565 00d8 F7       		.byte	0xf7
+ 566 00d9 00000000 		.4byte	.LFB3
+ 567 00dd 10000000 		.4byte	.LFE3-.LFB3
+ 568 00e1 01       		.uleb128 0x1
+ 569 00e2 9C       		.byte	0x9c
+ 570 00e3 07       		.uleb128 0x7
+ 571 00e4 CB000000 		.4byte	.LASF22
+ 572 00e8 01       		.byte	0x1
+ 573 00e9 1701     		.2byte	0x117
+ 574 00eb 00000000 		.4byte	.LFB4
+ 575 00ef 0C000000 		.4byte	.LFE4-.LFB4
+ 576 00f3 01       		.uleb128 0x1
+ 577 00f4 9C       		.byte	0x9c
+ 578 00f5 08010000 		.4byte	0x108
+ 579 00f9 08       		.uleb128 0x8
+ 580 00fa 0F030000 		.4byte	.LASF24
+ 581 00fe 01       		.byte	0x1
+ 582 00ff 1701     		.2byte	0x117
+ 583 0101 6B000000 		.4byte	0x6b
+ 584 0105 01       		.uleb128 0x1
+ 585 0106 50       		.byte	0x50
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 25
 
 
- 586 010d 01       		.byte	0x1
- 587 010e 2E01     		.2byte	0x12e
- 588 0110 00000000 		.4byte	.LFB5
- 589 0114 0C000000 		.4byte	.LFE5-.LFB5
- 590 0118 01       		.uleb128 0x1
- 591 0119 9C       		.byte	0x9c
- 592 011a 0A       		.uleb128 0xa
- 593 011b 1D030000 		.4byte	.LASF20
- 594 011f 01       		.byte	0x1
- 595 0120 4D01     		.2byte	0x14d
- 596 0122 6B000000 		.4byte	0x6b
- 597 0126 00000000 		.4byte	.LFB6
- 598 012a 0C000000 		.4byte	.LFE6-.LFB6
- 599 012e 01       		.uleb128 0x1
- 600 012f 9C       		.byte	0x9c
- 601 0130 0A       		.uleb128 0xa
- 602 0131 00000000 		.4byte	.LASF21
- 603 0135 01       		.byte	0x1
- 604 0136 6401     		.2byte	0x164
- 605 0138 6B000000 		.4byte	0x6b
- 606 013c 00000000 		.4byte	.LFB7
- 607 0140 0C000000 		.4byte	.LFE7-.LFB7
- 608 0144 01       		.uleb128 0x1
- 609 0145 9C       		.byte	0x9c
- 610 0146 07       		.uleb128 0x7
- 611 0147 D1020000 		.4byte	.LASF23
- 612 014b 01       		.byte	0x1
- 613 014c 7B01     		.2byte	0x17b
- 614 014e 00000000 		.4byte	.LFB8
- 615 0152 0C000000 		.4byte	.LFE8-.LFB8
- 616 0156 01       		.uleb128 0x1
- 617 0157 9C       		.byte	0x9c
- 618 0158 6B010000 		.4byte	0x16b
- 619 015c 08       		.uleb128 0x8
- 620 015d 58010000 		.4byte	.LASF25
- 621 0161 01       		.byte	0x1
- 622 0162 7B01     		.2byte	0x17b
- 623 0164 6B000000 		.4byte	0x6b
- 624 0168 01       		.uleb128 0x1
- 625 0169 50       		.byte	0x50
- 626 016a 00       		.byte	0
- 627 016b 0A       		.uleb128 0xa
- 628 016c 81010000 		.4byte	.LASF26
- 629 0170 01       		.byte	0x1
- 630 0171 9501     		.2byte	0x195
- 631 0173 77000000 		.4byte	0x77
- 632 0177 00000000 		.4byte	.LFB9
- 633 017b 0C000000 		.4byte	.LFE9-.LFB9
- 634 017f 01       		.uleb128 0x1
- 635 0180 9C       		.byte	0x9c
- 636 0181 07       		.uleb128 0x7
- 637 0182 22010000 		.4byte	.LASF27
- 638 0186 01       		.byte	0x1
- 639 0187 AF01     		.2byte	0x1af
- 640 0189 00000000 		.4byte	.LFB10
- 641 018d 0C000000 		.4byte	.LFE10-.LFB10
- 642 0191 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 26
+ 586 0107 00       		.byte	0
+ 587 0108 09       		.uleb128 0x9
+ 588 0109 BF010000 		.4byte	.LASF19
+ 589 010d 01       		.byte	0x1
+ 590 010e 2E01     		.2byte	0x12e
+ 591 0110 00000000 		.4byte	.LFB5
+ 592 0114 0C000000 		.4byte	.LFE5-.LFB5
+ 593 0118 01       		.uleb128 0x1
+ 594 0119 9C       		.byte	0x9c
+ 595 011a 0A       		.uleb128 0xa
+ 596 011b 1D030000 		.4byte	.LASF20
+ 597 011f 01       		.byte	0x1
+ 598 0120 4D01     		.2byte	0x14d
+ 599 0122 6B000000 		.4byte	0x6b
+ 600 0126 00000000 		.4byte	.LFB6
+ 601 012a 0C000000 		.4byte	.LFE6-.LFB6
+ 602 012e 01       		.uleb128 0x1
+ 603 012f 9C       		.byte	0x9c
+ 604 0130 0A       		.uleb128 0xa
+ 605 0131 5B010000 		.4byte	.LASF21
+ 606 0135 01       		.byte	0x1
+ 607 0136 6401     		.2byte	0x164
+ 608 0138 6B000000 		.4byte	0x6b
+ 609 013c 00000000 		.4byte	.LFB7
+ 610 0140 0C000000 		.4byte	.LFE7-.LFB7
+ 611 0144 01       		.uleb128 0x1
+ 612 0145 9C       		.byte	0x9c
+ 613 0146 07       		.uleb128 0x7
+ 614 0147 D1020000 		.4byte	.LASF23
+ 615 014b 01       		.byte	0x1
+ 616 014c 7B01     		.2byte	0x17b
+ 617 014e 00000000 		.4byte	.LFB8
+ 618 0152 0C000000 		.4byte	.LFE8-.LFB8
+ 619 0156 01       		.uleb128 0x1
+ 620 0157 9C       		.byte	0x9c
+ 621 0158 6B010000 		.4byte	0x16b
+ 622 015c 08       		.uleb128 0x8
+ 623 015d 32010000 		.4byte	.LASF25
+ 624 0161 01       		.byte	0x1
+ 625 0162 7B01     		.2byte	0x17b
+ 626 0164 6B000000 		.4byte	0x6b
+ 627 0168 01       		.uleb128 0x1
+ 628 0169 50       		.byte	0x50
+ 629 016a 00       		.byte	0
+ 630 016b 0A       		.uleb128 0xa
+ 631 016c 81010000 		.4byte	.LASF26
+ 632 0170 01       		.byte	0x1
+ 633 0171 9501     		.2byte	0x195
+ 634 0173 77000000 		.4byte	0x77
+ 635 0177 00000000 		.4byte	.LFB9
+ 636 017b 0C000000 		.4byte	.LFE9-.LFB9
+ 637 017f 01       		.uleb128 0x1
+ 638 0180 9C       		.byte	0x9c
+ 639 0181 07       		.uleb128 0x7
+ 640 0182 FC000000 		.4byte	.LASF27
+ 641 0186 01       		.byte	0x1
+ 642 0187 AF01     		.2byte	0x1af
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 26
 
 
- 643 0192 9C       		.byte	0x9c
- 644 0193 A6010000 		.4byte	0x1a6
- 645 0197 08       		.uleb128 0x8
- 646 0198 86000000 		.4byte	.LASF28
- 647 019c 01       		.byte	0x1
- 648 019d AF01     		.2byte	0x1af
- 649 019f 77000000 		.4byte	0x77
- 650 01a3 01       		.uleb128 0x1
- 651 01a4 50       		.byte	0x50
- 652 01a5 00       		.byte	0
- 653 01a6 0A       		.uleb128 0xa
- 654 01a7 63030000 		.4byte	.LASF29
- 655 01ab 01       		.byte	0x1
- 656 01ac C801     		.2byte	0x1c8
- 657 01ae 77000000 		.4byte	0x77
- 658 01b2 00000000 		.4byte	.LFB11
- 659 01b6 0C000000 		.4byte	.LFE11-.LFB11
- 660 01ba 01       		.uleb128 0x1
- 661 01bb 9C       		.byte	0x9c
- 662 01bc 07       		.uleb128 0x7
- 663 01bd AB000000 		.4byte	.LASF30
- 664 01c1 01       		.byte	0x1
- 665 01c2 E001     		.2byte	0x1e0
- 666 01c4 00000000 		.4byte	.LFB12
- 667 01c8 0C000000 		.4byte	.LFE12-.LFB12
- 668 01cc 01       		.uleb128 0x1
- 669 01cd 9C       		.byte	0x9c
- 670 01ce E1010000 		.4byte	0x1e1
- 671 01d2 08       		.uleb128 0x8
- 672 01d3 E9000000 		.4byte	.LASF31
- 673 01d7 01       		.byte	0x1
- 674 01d8 E001     		.2byte	0x1e0
- 675 01da 77000000 		.4byte	0x77
- 676 01de 01       		.uleb128 0x1
- 677 01df 50       		.byte	0x50
- 678 01e0 00       		.byte	0
- 679 01e1 0A       		.uleb128 0xa
- 680 01e2 8D000000 		.4byte	.LASF32
- 681 01e6 01       		.byte	0x1
- 682 01e7 FC01     		.2byte	0x1fc
- 683 01e9 77000000 		.4byte	0x77
- 684 01ed 00000000 		.4byte	.LFB13
- 685 01f1 14000000 		.4byte	.LFE13-.LFB13
- 686 01f5 01       		.uleb128 0x1
- 687 01f6 9C       		.byte	0x9c
- 688 01f7 07       		.uleb128 0x7
- 689 01f8 B0020000 		.4byte	.LASF33
- 690 01fc 01       		.byte	0x1
- 691 01fd FB02     		.2byte	0x2fb
- 692 01ff 00000000 		.4byte	.LFB14
- 693 0203 14000000 		.4byte	.LFE14-.LFB14
- 694 0207 01       		.uleb128 0x1
- 695 0208 9C       		.byte	0x9c
- 696 0209 20020000 		.4byte	0x220
- 697 020d 0B       		.uleb128 0xb
- 698 020e 08000000 		.4byte	.LVL4
- 699 0212 A6010000 		.4byte	0x1a6
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 27
+ 643 0189 00000000 		.4byte	.LFB10
+ 644 018d 0C000000 		.4byte	.LFE10-.LFB10
+ 645 0191 01       		.uleb128 0x1
+ 646 0192 9C       		.byte	0x9c
+ 647 0193 A6010000 		.4byte	0x1a6
+ 648 0197 08       		.uleb128 0x8
+ 649 0198 60000000 		.4byte	.LASF28
+ 650 019c 01       		.byte	0x1
+ 651 019d AF01     		.2byte	0x1af
+ 652 019f 77000000 		.4byte	0x77
+ 653 01a3 01       		.uleb128 0x1
+ 654 01a4 50       		.byte	0x50
+ 655 01a5 00       		.byte	0
+ 656 01a6 0A       		.uleb128 0xa
+ 657 01a7 63030000 		.4byte	.LASF29
+ 658 01ab 01       		.byte	0x1
+ 659 01ac C801     		.2byte	0x1c8
+ 660 01ae 77000000 		.4byte	0x77
+ 661 01b2 00000000 		.4byte	.LFB11
+ 662 01b6 0C000000 		.4byte	.LFE11-.LFB11
+ 663 01ba 01       		.uleb128 0x1
+ 664 01bb 9C       		.byte	0x9c
+ 665 01bc 07       		.uleb128 0x7
+ 666 01bd 85000000 		.4byte	.LASF30
+ 667 01c1 01       		.byte	0x1
+ 668 01c2 E001     		.2byte	0x1e0
+ 669 01c4 00000000 		.4byte	.LFB12
+ 670 01c8 0C000000 		.4byte	.LFE12-.LFB12
+ 671 01cc 01       		.uleb128 0x1
+ 672 01cd 9C       		.byte	0x9c
+ 673 01ce E1010000 		.4byte	0x1e1
+ 674 01d2 08       		.uleb128 0x8
+ 675 01d3 C3000000 		.4byte	.LASF31
+ 676 01d7 01       		.byte	0x1
+ 677 01d8 E001     		.2byte	0x1e0
+ 678 01da 77000000 		.4byte	0x77
+ 679 01de 01       		.uleb128 0x1
+ 680 01df 50       		.byte	0x50
+ 681 01e0 00       		.byte	0
+ 682 01e1 0A       		.uleb128 0xa
+ 683 01e2 67000000 		.4byte	.LASF32
+ 684 01e6 01       		.byte	0x1
+ 685 01e7 FC01     		.2byte	0x1fc
+ 686 01e9 77000000 		.4byte	0x77
+ 687 01ed 00000000 		.4byte	.LFB13
+ 688 01f1 14000000 		.4byte	.LFE13-.LFB13
+ 689 01f5 01       		.uleb128 0x1
+ 690 01f6 9C       		.byte	0x9c
+ 691 01f7 07       		.uleb128 0x7
+ 692 01f8 B0020000 		.4byte	.LASF33
+ 693 01fc 01       		.byte	0x1
+ 694 01fd FB02     		.2byte	0x2fb
+ 695 01ff 00000000 		.4byte	.LFB14
+ 696 0203 14000000 		.4byte	.LFE14-.LFB14
+ 697 0207 01       		.uleb128 0x1
+ 698 0208 9C       		.byte	0x9c
+ 699 0209 20020000 		.4byte	0x220
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 27
 
 
- 700 0216 0B       		.uleb128 0xb
- 701 0217 0C000000 		.4byte	.LVL5
- 702 021b 1A010000 		.4byte	0x11a
- 703 021f 00       		.byte	0
- 704 0220 0C       		.uleb128 0xc
- 705 0221 4C030000 		.4byte	.LASF34
- 706 0225 01       		.byte	0x1
- 707 0226 2B       		.byte	0x2b
- 708 0227 00000000 		.4byte	.LFB0
- 709 022b 34000000 		.4byte	.LFE0-.LFB0
- 710 022f 01       		.uleb128 0x1
- 711 0230 9C       		.byte	0x9c
- 712 0231 99020000 		.4byte	0x299
- 713 0235 0D       		.uleb128 0xd
- 714 0236 60010000 		.4byte	.LASF39
- 715 023a 01       		.byte	0x1
- 716 023b 2F       		.byte	0x2f
- 717 023c 6B000000 		.4byte	0x6b
- 718 0240 00000000 		.4byte	.LLST0
- 719 0244 0E       		.uleb128 0xe
- 720 0245 0A000000 		.4byte	.LVL6
- 721 0249 81010000 		.4byte	0x181
- 722 024d 59020000 		.4byte	0x259
- 723 0251 0F       		.uleb128 0xf
- 724 0252 01       		.uleb128 0x1
- 725 0253 50       		.byte	0x50
- 726 0254 03       		.uleb128 0x3
- 727 0255 0A       		.byte	0xa
- 728 0256 8713     		.2byte	0x1387
- 729 0258 00       		.byte	0
- 730 0259 0E       		.uleb128 0xe
- 731 025a 12000000 		.4byte	.LVL7
- 732 025e BC010000 		.4byte	0x1bc
- 733 0262 6E020000 		.4byte	0x26e
- 734 0266 0F       		.uleb128 0xf
- 735 0267 01       		.uleb128 0x1
- 736 0268 50       		.byte	0x50
- 737 0269 03       		.uleb128 0x3
- 738 026a 0A       		.byte	0xa
- 739 026b 8713     		.2byte	0x1387
- 740 026d 00       		.byte	0
- 741 026e 0B       		.uleb128 0xb
- 742 026f 16000000 		.4byte	.LVL8
- 743 0273 D2020000 		.4byte	0x2d2
- 744 0277 0B       		.uleb128 0xb
- 745 0278 24000000 		.4byte	.LVL9
- 746 027c DD020000 		.4byte	0x2dd
- 747 0280 0B       		.uleb128 0xb
- 748 0281 28000000 		.4byte	.LVL10
- 749 0285 F7010000 		.4byte	0x1f7
- 750 0289 10       		.uleb128 0x10
- 751 028a 2E000000 		.4byte	.LVL11
- 752 028e E3000000 		.4byte	0xe3
- 753 0292 0F       		.uleb128 0xf
- 754 0293 01       		.uleb128 0x1
- 755 0294 50       		.byte	0x50
- 756 0295 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 28
+ 700 020d 0B       		.uleb128 0xb
+ 701 020e 08000000 		.4byte	.LVL4
+ 702 0212 A6010000 		.4byte	0x1a6
+ 703 0216 0B       		.uleb128 0xb
+ 704 0217 0C000000 		.4byte	.LVL5
+ 705 021b 1A010000 		.4byte	0x11a
+ 706 021f 00       		.byte	0
+ 707 0220 0C       		.uleb128 0xc
+ 708 0221 4C030000 		.4byte	.LASF34
+ 709 0225 01       		.byte	0x1
+ 710 0226 2B       		.byte	0x2b
+ 711 0227 00000000 		.4byte	.LFB0
+ 712 022b 34000000 		.4byte	.LFE0-.LFB0
+ 713 022f 01       		.uleb128 0x1
+ 714 0230 9C       		.byte	0x9c
+ 715 0231 99020000 		.4byte	0x299
+ 716 0235 0D       		.uleb128 0xd
+ 717 0236 3A010000 		.4byte	.LASF39
+ 718 023a 01       		.byte	0x1
+ 719 023b 2F       		.byte	0x2f
+ 720 023c 6B000000 		.4byte	0x6b
+ 721 0240 00000000 		.4byte	.LLST0
+ 722 0244 0E       		.uleb128 0xe
+ 723 0245 0A000000 		.4byte	.LVL6
+ 724 0249 81010000 		.4byte	0x181
+ 725 024d 59020000 		.4byte	0x259
+ 726 0251 0F       		.uleb128 0xf
+ 727 0252 01       		.uleb128 0x1
+ 728 0253 50       		.byte	0x50
+ 729 0254 03       		.uleb128 0x3
+ 730 0255 0A       		.byte	0xa
+ 731 0256 8713     		.2byte	0x1387
+ 732 0258 00       		.byte	0
+ 733 0259 0E       		.uleb128 0xe
+ 734 025a 12000000 		.4byte	.LVL7
+ 735 025e BC010000 		.4byte	0x1bc
+ 736 0262 6E020000 		.4byte	0x26e
+ 737 0266 0F       		.uleb128 0xf
+ 738 0267 01       		.uleb128 0x1
+ 739 0268 50       		.byte	0x50
+ 740 0269 03       		.uleb128 0x3
+ 741 026a 0A       		.byte	0xa
+ 742 026b 8713     		.2byte	0x1387
+ 743 026d 00       		.byte	0
+ 744 026e 0B       		.uleb128 0xb
+ 745 026f 16000000 		.4byte	.LVL8
+ 746 0273 D2020000 		.4byte	0x2d2
+ 747 0277 0B       		.uleb128 0xb
+ 748 0278 24000000 		.4byte	.LVL9
+ 749 027c DD020000 		.4byte	0x2dd
+ 750 0280 0B       		.uleb128 0xb
+ 751 0281 28000000 		.4byte	.LVL10
+ 752 0285 F7010000 		.4byte	0x1f7
+ 753 0289 10       		.uleb128 0x10
+ 754 028a 2E000000 		.4byte	.LVL11
+ 755 028e E3000000 		.4byte	0xe3
+ 756 0292 0F       		.uleb128 0xf
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 28
 
 
- 757 0296 30       		.byte	0x30
- 758 0297 00       		.byte	0
- 759 0298 00       		.byte	0
- 760 0299 0C       		.uleb128 0xc
- 761 029a 6E000000 		.4byte	.LASF35
- 762 029e 01       		.byte	0x1
- 763 029f D7       		.byte	0xd7
- 764 02a0 00000000 		.4byte	.LFB2
- 765 02a4 1C000000 		.4byte	.LFE2-.LFB2
- 766 02a8 01       		.uleb128 0x1
- 767 02a9 9C       		.byte	0x9c
- 768 02aa C1020000 		.4byte	0x2c1
- 769 02ae 0B       		.uleb128 0xb
- 770 02af 0C000000 		.4byte	.LVL12
- 771 02b3 20020000 		.4byte	0x220
- 772 02b7 0B       		.uleb128 0xb
- 773 02b8 16000000 		.4byte	.LVL13
- 774 02bc C1000000 		.4byte	0xc1
- 775 02c0 00       		.byte	0
- 776 02c1 11       		.uleb128 0x11
- 777 02c2 A5010000 		.4byte	.LASF40
- 778 02c6 01       		.byte	0x1
- 779 02c7 1A       		.byte	0x1a
- 780 02c8 6B000000 		.4byte	0x6b
- 781 02cc 05       		.uleb128 0x5
- 782 02cd 03       		.byte	0x3
- 783 02ce 00000000 		.4byte	b1_critical_timer_initVar
- 784 02d2 12       		.uleb128 0x12
- 785 02d3 76020000 		.4byte	.LASF41
- 786 02d7 03       		.byte	0x3
- 787 02d8 7E       		.byte	0x7e
- 788 02d9 6B000000 		.4byte	0x6b
- 789 02dd 13       		.uleb128 0x13
- 790 02de 9A020000 		.4byte	.LASF42
- 791 02e2 03       		.byte	0x3
- 792 02e3 7F       		.byte	0x7f
- 793 02e4 14       		.uleb128 0x14
- 794 02e5 6B000000 		.4byte	0x6b
- 795 02e9 00       		.byte	0
- 796 02ea 00       		.byte	0
- 797              		.section	.debug_abbrev,"",%progbits
- 798              	.Ldebug_abbrev0:
- 799 0000 01       		.uleb128 0x1
- 800 0001 11       		.uleb128 0x11
- 801 0002 01       		.byte	0x1
- 802 0003 25       		.uleb128 0x25
- 803 0004 0E       		.uleb128 0xe
- 804 0005 13       		.uleb128 0x13
- 805 0006 0B       		.uleb128 0xb
- 806 0007 03       		.uleb128 0x3
- 807 0008 0E       		.uleb128 0xe
- 808 0009 1B       		.uleb128 0x1b
- 809 000a 0E       		.uleb128 0xe
- 810 000b 55       		.uleb128 0x55
- 811 000c 17       		.uleb128 0x17
- 812 000d 11       		.uleb128 0x11
- 813 000e 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 29
+ 757 0293 01       		.uleb128 0x1
+ 758 0294 50       		.byte	0x50
+ 759 0295 01       		.uleb128 0x1
+ 760 0296 30       		.byte	0x30
+ 761 0297 00       		.byte	0
+ 762 0298 00       		.byte	0
+ 763 0299 0C       		.uleb128 0xc
+ 764 029a 48000000 		.4byte	.LASF35
+ 765 029e 01       		.byte	0x1
+ 766 029f D7       		.byte	0xd7
+ 767 02a0 00000000 		.4byte	.LFB2
+ 768 02a4 1C000000 		.4byte	.LFE2-.LFB2
+ 769 02a8 01       		.uleb128 0x1
+ 770 02a9 9C       		.byte	0x9c
+ 771 02aa C1020000 		.4byte	0x2c1
+ 772 02ae 0B       		.uleb128 0xb
+ 773 02af 0C000000 		.4byte	.LVL12
+ 774 02b3 20020000 		.4byte	0x220
+ 775 02b7 0B       		.uleb128 0xb
+ 776 02b8 16000000 		.4byte	.LVL13
+ 777 02bc C1000000 		.4byte	0xc1
+ 778 02c0 00       		.byte	0
+ 779 02c1 11       		.uleb128 0x11
+ 780 02c2 A5010000 		.4byte	.LASF40
+ 781 02c6 01       		.byte	0x1
+ 782 02c7 1A       		.byte	0x1a
+ 783 02c8 6B000000 		.4byte	0x6b
+ 784 02cc 05       		.uleb128 0x5
+ 785 02cd 03       		.byte	0x3
+ 786 02ce 00000000 		.4byte	b1_critical_timer_initVar
+ 787 02d2 12       		.uleb128 0x12
+ 788 02d3 76020000 		.4byte	.LASF41
+ 789 02d7 03       		.byte	0x3
+ 790 02d8 7E       		.byte	0x7e
+ 791 02d9 6B000000 		.4byte	0x6b
+ 792 02dd 13       		.uleb128 0x13
+ 793 02de 9A020000 		.4byte	.LASF42
+ 794 02e2 03       		.byte	0x3
+ 795 02e3 7F       		.byte	0x7f
+ 796 02e4 14       		.uleb128 0x14
+ 797 02e5 6B000000 		.4byte	0x6b
+ 798 02e9 00       		.byte	0
+ 799 02ea 00       		.byte	0
+ 800              		.section	.debug_abbrev,"",%progbits
+ 801              	.Ldebug_abbrev0:
+ 802 0000 01       		.uleb128 0x1
+ 803 0001 11       		.uleb128 0x11
+ 804 0002 01       		.byte	0x1
+ 805 0003 25       		.uleb128 0x25
+ 806 0004 0E       		.uleb128 0xe
+ 807 0005 13       		.uleb128 0x13
+ 808 0006 0B       		.uleb128 0xb
+ 809 0007 03       		.uleb128 0x3
+ 810 0008 0E       		.uleb128 0xe
+ 811 0009 1B       		.uleb128 0x1b
+ 812 000a 0E       		.uleb128 0xe
+ 813 000b 55       		.uleb128 0x55
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 29
 
 
- 814 000f 10       		.uleb128 0x10
- 815 0010 17       		.uleb128 0x17
- 816 0011 00       		.byte	0
- 817 0012 00       		.byte	0
- 818 0013 02       		.uleb128 0x2
- 819 0014 24       		.uleb128 0x24
- 820 0015 00       		.byte	0
- 821 0016 0B       		.uleb128 0xb
- 822 0017 0B       		.uleb128 0xb
- 823 0018 3E       		.uleb128 0x3e
- 824 0019 0B       		.uleb128 0xb
- 825 001a 03       		.uleb128 0x3
- 826 001b 0E       		.uleb128 0xe
- 827 001c 00       		.byte	0
- 828 001d 00       		.byte	0
- 829 001e 03       		.uleb128 0x3
- 830 001f 24       		.uleb128 0x24
- 831 0020 00       		.byte	0
- 832 0021 0B       		.uleb128 0xb
- 833 0022 0B       		.uleb128 0xb
- 834 0023 3E       		.uleb128 0x3e
- 835 0024 0B       		.uleb128 0xb
- 836 0025 03       		.uleb128 0x3
- 837 0026 08       		.uleb128 0x8
- 838 0027 00       		.byte	0
- 839 0028 00       		.byte	0
- 840 0029 04       		.uleb128 0x4
- 841 002a 16       		.uleb128 0x16
- 842 002b 00       		.byte	0
- 843 002c 03       		.uleb128 0x3
- 844 002d 0E       		.uleb128 0xe
- 845 002e 3A       		.uleb128 0x3a
- 846 002f 0B       		.uleb128 0xb
- 847 0030 3B       		.uleb128 0x3b
- 848 0031 05       		.uleb128 0x5
- 849 0032 49       		.uleb128 0x49
- 850 0033 13       		.uleb128 0x13
- 851 0034 00       		.byte	0
- 852 0035 00       		.byte	0
- 853 0036 05       		.uleb128 0x5
- 854 0037 35       		.uleb128 0x35
- 855 0038 00       		.byte	0
- 856 0039 49       		.uleb128 0x49
- 857 003a 13       		.uleb128 0x13
- 858 003b 00       		.byte	0
- 859 003c 00       		.byte	0
- 860 003d 06       		.uleb128 0x6
- 861 003e 2E       		.uleb128 0x2e
- 862 003f 00       		.byte	0
- 863 0040 3F       		.uleb128 0x3f
- 864 0041 19       		.uleb128 0x19
- 865 0042 03       		.uleb128 0x3
- 866 0043 0E       		.uleb128 0xe
- 867 0044 3A       		.uleb128 0x3a
- 868 0045 0B       		.uleb128 0xb
- 869 0046 3B       		.uleb128 0x3b
- 870 0047 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 30
+ 814 000c 17       		.uleb128 0x17
+ 815 000d 11       		.uleb128 0x11
+ 816 000e 01       		.uleb128 0x1
+ 817 000f 10       		.uleb128 0x10
+ 818 0010 17       		.uleb128 0x17
+ 819 0011 00       		.byte	0
+ 820 0012 00       		.byte	0
+ 821 0013 02       		.uleb128 0x2
+ 822 0014 24       		.uleb128 0x24
+ 823 0015 00       		.byte	0
+ 824 0016 0B       		.uleb128 0xb
+ 825 0017 0B       		.uleb128 0xb
+ 826 0018 3E       		.uleb128 0x3e
+ 827 0019 0B       		.uleb128 0xb
+ 828 001a 03       		.uleb128 0x3
+ 829 001b 0E       		.uleb128 0xe
+ 830 001c 00       		.byte	0
+ 831 001d 00       		.byte	0
+ 832 001e 03       		.uleb128 0x3
+ 833 001f 24       		.uleb128 0x24
+ 834 0020 00       		.byte	0
+ 835 0021 0B       		.uleb128 0xb
+ 836 0022 0B       		.uleb128 0xb
+ 837 0023 3E       		.uleb128 0x3e
+ 838 0024 0B       		.uleb128 0xb
+ 839 0025 03       		.uleb128 0x3
+ 840 0026 08       		.uleb128 0x8
+ 841 0027 00       		.byte	0
+ 842 0028 00       		.byte	0
+ 843 0029 04       		.uleb128 0x4
+ 844 002a 16       		.uleb128 0x16
+ 845 002b 00       		.byte	0
+ 846 002c 03       		.uleb128 0x3
+ 847 002d 0E       		.uleb128 0xe
+ 848 002e 3A       		.uleb128 0x3a
+ 849 002f 0B       		.uleb128 0xb
+ 850 0030 3B       		.uleb128 0x3b
+ 851 0031 05       		.uleb128 0x5
+ 852 0032 49       		.uleb128 0x49
+ 853 0033 13       		.uleb128 0x13
+ 854 0034 00       		.byte	0
+ 855 0035 00       		.byte	0
+ 856 0036 05       		.uleb128 0x5
+ 857 0037 35       		.uleb128 0x35
+ 858 0038 00       		.byte	0
+ 859 0039 49       		.uleb128 0x49
+ 860 003a 13       		.uleb128 0x13
+ 861 003b 00       		.byte	0
+ 862 003c 00       		.byte	0
+ 863 003d 06       		.uleb128 0x6
+ 864 003e 2E       		.uleb128 0x2e
+ 865 003f 00       		.byte	0
+ 866 0040 3F       		.uleb128 0x3f
+ 867 0041 19       		.uleb128 0x19
+ 868 0042 03       		.uleb128 0x3
+ 869 0043 0E       		.uleb128 0xe
+ 870 0044 3A       		.uleb128 0x3a
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 30
 
 
- 871 0048 27       		.uleb128 0x27
- 872 0049 19       		.uleb128 0x19
- 873 004a 11       		.uleb128 0x11
- 874 004b 01       		.uleb128 0x1
- 875 004c 12       		.uleb128 0x12
- 876 004d 06       		.uleb128 0x6
- 877 004e 40       		.uleb128 0x40
- 878 004f 18       		.uleb128 0x18
- 879 0050 9742     		.uleb128 0x2117
- 880 0052 19       		.uleb128 0x19
- 881 0053 00       		.byte	0
- 882 0054 00       		.byte	0
- 883 0055 07       		.uleb128 0x7
- 884 0056 2E       		.uleb128 0x2e
- 885 0057 01       		.byte	0x1
- 886 0058 3F       		.uleb128 0x3f
- 887 0059 19       		.uleb128 0x19
- 888 005a 03       		.uleb128 0x3
- 889 005b 0E       		.uleb128 0xe
- 890 005c 3A       		.uleb128 0x3a
- 891 005d 0B       		.uleb128 0xb
- 892 005e 3B       		.uleb128 0x3b
- 893 005f 05       		.uleb128 0x5
- 894 0060 27       		.uleb128 0x27
- 895 0061 19       		.uleb128 0x19
- 896 0062 11       		.uleb128 0x11
- 897 0063 01       		.uleb128 0x1
- 898 0064 12       		.uleb128 0x12
- 899 0065 06       		.uleb128 0x6
- 900 0066 40       		.uleb128 0x40
- 901 0067 18       		.uleb128 0x18
- 902 0068 9742     		.uleb128 0x2117
- 903 006a 19       		.uleb128 0x19
- 904 006b 01       		.uleb128 0x1
- 905 006c 13       		.uleb128 0x13
- 906 006d 00       		.byte	0
- 907 006e 00       		.byte	0
- 908 006f 08       		.uleb128 0x8
- 909 0070 05       		.uleb128 0x5
- 910 0071 00       		.byte	0
- 911 0072 03       		.uleb128 0x3
- 912 0073 0E       		.uleb128 0xe
- 913 0074 3A       		.uleb128 0x3a
- 914 0075 0B       		.uleb128 0xb
- 915 0076 3B       		.uleb128 0x3b
- 916 0077 05       		.uleb128 0x5
- 917 0078 49       		.uleb128 0x49
- 918 0079 13       		.uleb128 0x13
- 919 007a 02       		.uleb128 0x2
- 920 007b 18       		.uleb128 0x18
- 921 007c 00       		.byte	0
- 922 007d 00       		.byte	0
- 923 007e 09       		.uleb128 0x9
- 924 007f 2E       		.uleb128 0x2e
- 925 0080 00       		.byte	0
- 926 0081 3F       		.uleb128 0x3f
- 927 0082 19       		.uleb128 0x19
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 31
+ 871 0045 0B       		.uleb128 0xb
+ 872 0046 3B       		.uleb128 0x3b
+ 873 0047 0B       		.uleb128 0xb
+ 874 0048 27       		.uleb128 0x27
+ 875 0049 19       		.uleb128 0x19
+ 876 004a 11       		.uleb128 0x11
+ 877 004b 01       		.uleb128 0x1
+ 878 004c 12       		.uleb128 0x12
+ 879 004d 06       		.uleb128 0x6
+ 880 004e 40       		.uleb128 0x40
+ 881 004f 18       		.uleb128 0x18
+ 882 0050 9742     		.uleb128 0x2117
+ 883 0052 19       		.uleb128 0x19
+ 884 0053 00       		.byte	0
+ 885 0054 00       		.byte	0
+ 886 0055 07       		.uleb128 0x7
+ 887 0056 2E       		.uleb128 0x2e
+ 888 0057 01       		.byte	0x1
+ 889 0058 3F       		.uleb128 0x3f
+ 890 0059 19       		.uleb128 0x19
+ 891 005a 03       		.uleb128 0x3
+ 892 005b 0E       		.uleb128 0xe
+ 893 005c 3A       		.uleb128 0x3a
+ 894 005d 0B       		.uleb128 0xb
+ 895 005e 3B       		.uleb128 0x3b
+ 896 005f 05       		.uleb128 0x5
+ 897 0060 27       		.uleb128 0x27
+ 898 0061 19       		.uleb128 0x19
+ 899 0062 11       		.uleb128 0x11
+ 900 0063 01       		.uleb128 0x1
+ 901 0064 12       		.uleb128 0x12
+ 902 0065 06       		.uleb128 0x6
+ 903 0066 40       		.uleb128 0x40
+ 904 0067 18       		.uleb128 0x18
+ 905 0068 9742     		.uleb128 0x2117
+ 906 006a 19       		.uleb128 0x19
+ 907 006b 01       		.uleb128 0x1
+ 908 006c 13       		.uleb128 0x13
+ 909 006d 00       		.byte	0
+ 910 006e 00       		.byte	0
+ 911 006f 08       		.uleb128 0x8
+ 912 0070 05       		.uleb128 0x5
+ 913 0071 00       		.byte	0
+ 914 0072 03       		.uleb128 0x3
+ 915 0073 0E       		.uleb128 0xe
+ 916 0074 3A       		.uleb128 0x3a
+ 917 0075 0B       		.uleb128 0xb
+ 918 0076 3B       		.uleb128 0x3b
+ 919 0077 05       		.uleb128 0x5
+ 920 0078 49       		.uleb128 0x49
+ 921 0079 13       		.uleb128 0x13
+ 922 007a 02       		.uleb128 0x2
+ 923 007b 18       		.uleb128 0x18
+ 924 007c 00       		.byte	0
+ 925 007d 00       		.byte	0
+ 926 007e 09       		.uleb128 0x9
+ 927 007f 2E       		.uleb128 0x2e
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 31
 
 
- 928 0083 03       		.uleb128 0x3
- 929 0084 0E       		.uleb128 0xe
- 930 0085 3A       		.uleb128 0x3a
- 931 0086 0B       		.uleb128 0xb
- 932 0087 3B       		.uleb128 0x3b
- 933 0088 05       		.uleb128 0x5
- 934 0089 27       		.uleb128 0x27
- 935 008a 19       		.uleb128 0x19
- 936 008b 11       		.uleb128 0x11
- 937 008c 01       		.uleb128 0x1
- 938 008d 12       		.uleb128 0x12
- 939 008e 06       		.uleb128 0x6
- 940 008f 40       		.uleb128 0x40
- 941 0090 18       		.uleb128 0x18
- 942 0091 9742     		.uleb128 0x2117
- 943 0093 19       		.uleb128 0x19
- 944 0094 00       		.byte	0
- 945 0095 00       		.byte	0
- 946 0096 0A       		.uleb128 0xa
- 947 0097 2E       		.uleb128 0x2e
- 948 0098 00       		.byte	0
- 949 0099 3F       		.uleb128 0x3f
- 950 009a 19       		.uleb128 0x19
- 951 009b 03       		.uleb128 0x3
- 952 009c 0E       		.uleb128 0xe
- 953 009d 3A       		.uleb128 0x3a
- 954 009e 0B       		.uleb128 0xb
- 955 009f 3B       		.uleb128 0x3b
- 956 00a0 05       		.uleb128 0x5
- 957 00a1 27       		.uleb128 0x27
- 958 00a2 19       		.uleb128 0x19
- 959 00a3 49       		.uleb128 0x49
- 960 00a4 13       		.uleb128 0x13
- 961 00a5 11       		.uleb128 0x11
- 962 00a6 01       		.uleb128 0x1
- 963 00a7 12       		.uleb128 0x12
- 964 00a8 06       		.uleb128 0x6
- 965 00a9 40       		.uleb128 0x40
- 966 00aa 18       		.uleb128 0x18
- 967 00ab 9742     		.uleb128 0x2117
- 968 00ad 19       		.uleb128 0x19
- 969 00ae 00       		.byte	0
- 970 00af 00       		.byte	0
- 971 00b0 0B       		.uleb128 0xb
- 972 00b1 898201   		.uleb128 0x4109
- 973 00b4 00       		.byte	0
- 974 00b5 11       		.uleb128 0x11
- 975 00b6 01       		.uleb128 0x1
- 976 00b7 31       		.uleb128 0x31
- 977 00b8 13       		.uleb128 0x13
- 978 00b9 00       		.byte	0
- 979 00ba 00       		.byte	0
- 980 00bb 0C       		.uleb128 0xc
- 981 00bc 2E       		.uleb128 0x2e
- 982 00bd 01       		.byte	0x1
- 983 00be 3F       		.uleb128 0x3f
- 984 00bf 19       		.uleb128 0x19
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 32
+ 928 0080 00       		.byte	0
+ 929 0081 3F       		.uleb128 0x3f
+ 930 0082 19       		.uleb128 0x19
+ 931 0083 03       		.uleb128 0x3
+ 932 0084 0E       		.uleb128 0xe
+ 933 0085 3A       		.uleb128 0x3a
+ 934 0086 0B       		.uleb128 0xb
+ 935 0087 3B       		.uleb128 0x3b
+ 936 0088 05       		.uleb128 0x5
+ 937 0089 27       		.uleb128 0x27
+ 938 008a 19       		.uleb128 0x19
+ 939 008b 11       		.uleb128 0x11
+ 940 008c 01       		.uleb128 0x1
+ 941 008d 12       		.uleb128 0x12
+ 942 008e 06       		.uleb128 0x6
+ 943 008f 40       		.uleb128 0x40
+ 944 0090 18       		.uleb128 0x18
+ 945 0091 9742     		.uleb128 0x2117
+ 946 0093 19       		.uleb128 0x19
+ 947 0094 00       		.byte	0
+ 948 0095 00       		.byte	0
+ 949 0096 0A       		.uleb128 0xa
+ 950 0097 2E       		.uleb128 0x2e
+ 951 0098 00       		.byte	0
+ 952 0099 3F       		.uleb128 0x3f
+ 953 009a 19       		.uleb128 0x19
+ 954 009b 03       		.uleb128 0x3
+ 955 009c 0E       		.uleb128 0xe
+ 956 009d 3A       		.uleb128 0x3a
+ 957 009e 0B       		.uleb128 0xb
+ 958 009f 3B       		.uleb128 0x3b
+ 959 00a0 05       		.uleb128 0x5
+ 960 00a1 27       		.uleb128 0x27
+ 961 00a2 19       		.uleb128 0x19
+ 962 00a3 49       		.uleb128 0x49
+ 963 00a4 13       		.uleb128 0x13
+ 964 00a5 11       		.uleb128 0x11
+ 965 00a6 01       		.uleb128 0x1
+ 966 00a7 12       		.uleb128 0x12
+ 967 00a8 06       		.uleb128 0x6
+ 968 00a9 40       		.uleb128 0x40
+ 969 00aa 18       		.uleb128 0x18
+ 970 00ab 9742     		.uleb128 0x2117
+ 971 00ad 19       		.uleb128 0x19
+ 972 00ae 00       		.byte	0
+ 973 00af 00       		.byte	0
+ 974 00b0 0B       		.uleb128 0xb
+ 975 00b1 898201   		.uleb128 0x4109
+ 976 00b4 00       		.byte	0
+ 977 00b5 11       		.uleb128 0x11
+ 978 00b6 01       		.uleb128 0x1
+ 979 00b7 31       		.uleb128 0x31
+ 980 00b8 13       		.uleb128 0x13
+ 981 00b9 00       		.byte	0
+ 982 00ba 00       		.byte	0
+ 983 00bb 0C       		.uleb128 0xc
+ 984 00bc 2E       		.uleb128 0x2e
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 32
 
 
- 985 00c0 03       		.uleb128 0x3
- 986 00c1 0E       		.uleb128 0xe
- 987 00c2 3A       		.uleb128 0x3a
- 988 00c3 0B       		.uleb128 0xb
- 989 00c4 3B       		.uleb128 0x3b
- 990 00c5 0B       		.uleb128 0xb
- 991 00c6 27       		.uleb128 0x27
- 992 00c7 19       		.uleb128 0x19
- 993 00c8 11       		.uleb128 0x11
- 994 00c9 01       		.uleb128 0x1
- 995 00ca 12       		.uleb128 0x12
- 996 00cb 06       		.uleb128 0x6
- 997 00cc 40       		.uleb128 0x40
- 998 00cd 18       		.uleb128 0x18
- 999 00ce 9742     		.uleb128 0x2117
- 1000 00d0 19       		.uleb128 0x19
- 1001 00d1 01       		.uleb128 0x1
- 1002 00d2 13       		.uleb128 0x13
- 1003 00d3 00       		.byte	0
- 1004 00d4 00       		.byte	0
- 1005 00d5 0D       		.uleb128 0xd
- 1006 00d6 34       		.uleb128 0x34
- 1007 00d7 00       		.byte	0
- 1008 00d8 03       		.uleb128 0x3
- 1009 00d9 0E       		.uleb128 0xe
- 1010 00da 3A       		.uleb128 0x3a
- 1011 00db 0B       		.uleb128 0xb
- 1012 00dc 3B       		.uleb128 0x3b
- 1013 00dd 0B       		.uleb128 0xb
- 1014 00de 49       		.uleb128 0x49
- 1015 00df 13       		.uleb128 0x13
- 1016 00e0 02       		.uleb128 0x2
- 1017 00e1 17       		.uleb128 0x17
- 1018 00e2 00       		.byte	0
- 1019 00e3 00       		.byte	0
- 1020 00e4 0E       		.uleb128 0xe
- 1021 00e5 898201   		.uleb128 0x4109
- 1022 00e8 01       		.byte	0x1
- 1023 00e9 11       		.uleb128 0x11
- 1024 00ea 01       		.uleb128 0x1
- 1025 00eb 31       		.uleb128 0x31
- 1026 00ec 13       		.uleb128 0x13
- 1027 00ed 01       		.uleb128 0x1
- 1028 00ee 13       		.uleb128 0x13
- 1029 00ef 00       		.byte	0
- 1030 00f0 00       		.byte	0
- 1031 00f1 0F       		.uleb128 0xf
- 1032 00f2 8A8201   		.uleb128 0x410a
- 1033 00f5 00       		.byte	0
- 1034 00f6 02       		.uleb128 0x2
- 1035 00f7 18       		.uleb128 0x18
- 1036 00f8 9142     		.uleb128 0x2111
- 1037 00fa 18       		.uleb128 0x18
- 1038 00fb 00       		.byte	0
- 1039 00fc 00       		.byte	0
- 1040 00fd 10       		.uleb128 0x10
- 1041 00fe 898201   		.uleb128 0x4109
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 33
+ 985 00bd 01       		.byte	0x1
+ 986 00be 3F       		.uleb128 0x3f
+ 987 00bf 19       		.uleb128 0x19
+ 988 00c0 03       		.uleb128 0x3
+ 989 00c1 0E       		.uleb128 0xe
+ 990 00c2 3A       		.uleb128 0x3a
+ 991 00c3 0B       		.uleb128 0xb
+ 992 00c4 3B       		.uleb128 0x3b
+ 993 00c5 0B       		.uleb128 0xb
+ 994 00c6 27       		.uleb128 0x27
+ 995 00c7 19       		.uleb128 0x19
+ 996 00c8 11       		.uleb128 0x11
+ 997 00c9 01       		.uleb128 0x1
+ 998 00ca 12       		.uleb128 0x12
+ 999 00cb 06       		.uleb128 0x6
+ 1000 00cc 40       		.uleb128 0x40
+ 1001 00cd 18       		.uleb128 0x18
+ 1002 00ce 9742     		.uleb128 0x2117
+ 1003 00d0 19       		.uleb128 0x19
+ 1004 00d1 01       		.uleb128 0x1
+ 1005 00d2 13       		.uleb128 0x13
+ 1006 00d3 00       		.byte	0
+ 1007 00d4 00       		.byte	0
+ 1008 00d5 0D       		.uleb128 0xd
+ 1009 00d6 34       		.uleb128 0x34
+ 1010 00d7 00       		.byte	0
+ 1011 00d8 03       		.uleb128 0x3
+ 1012 00d9 0E       		.uleb128 0xe
+ 1013 00da 3A       		.uleb128 0x3a
+ 1014 00db 0B       		.uleb128 0xb
+ 1015 00dc 3B       		.uleb128 0x3b
+ 1016 00dd 0B       		.uleb128 0xb
+ 1017 00de 49       		.uleb128 0x49
+ 1018 00df 13       		.uleb128 0x13
+ 1019 00e0 02       		.uleb128 0x2
+ 1020 00e1 17       		.uleb128 0x17
+ 1021 00e2 00       		.byte	0
+ 1022 00e3 00       		.byte	0
+ 1023 00e4 0E       		.uleb128 0xe
+ 1024 00e5 898201   		.uleb128 0x4109
+ 1025 00e8 01       		.byte	0x1
+ 1026 00e9 11       		.uleb128 0x11
+ 1027 00ea 01       		.uleb128 0x1
+ 1028 00eb 31       		.uleb128 0x31
+ 1029 00ec 13       		.uleb128 0x13
+ 1030 00ed 01       		.uleb128 0x1
+ 1031 00ee 13       		.uleb128 0x13
+ 1032 00ef 00       		.byte	0
+ 1033 00f0 00       		.byte	0
+ 1034 00f1 0F       		.uleb128 0xf
+ 1035 00f2 8A8201   		.uleb128 0x410a
+ 1036 00f5 00       		.byte	0
+ 1037 00f6 02       		.uleb128 0x2
+ 1038 00f7 18       		.uleb128 0x18
+ 1039 00f8 9142     		.uleb128 0x2111
+ 1040 00fa 18       		.uleb128 0x18
+ 1041 00fb 00       		.byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 33
 
 
- 1042 0101 01       		.byte	0x1
- 1043 0102 11       		.uleb128 0x11
- 1044 0103 01       		.uleb128 0x1
- 1045 0104 31       		.uleb128 0x31
- 1046 0105 13       		.uleb128 0x13
- 1047 0106 00       		.byte	0
- 1048 0107 00       		.byte	0
- 1049 0108 11       		.uleb128 0x11
- 1050 0109 34       		.uleb128 0x34
- 1051 010a 00       		.byte	0
- 1052 010b 03       		.uleb128 0x3
- 1053 010c 0E       		.uleb128 0xe
- 1054 010d 3A       		.uleb128 0x3a
- 1055 010e 0B       		.uleb128 0xb
- 1056 010f 3B       		.uleb128 0x3b
- 1057 0110 0B       		.uleb128 0xb
- 1058 0111 49       		.uleb128 0x49
- 1059 0112 13       		.uleb128 0x13
- 1060 0113 3F       		.uleb128 0x3f
- 1061 0114 19       		.uleb128 0x19
- 1062 0115 02       		.uleb128 0x2
- 1063 0116 18       		.uleb128 0x18
- 1064 0117 00       		.byte	0
- 1065 0118 00       		.byte	0
- 1066 0119 12       		.uleb128 0x12
- 1067 011a 2E       		.uleb128 0x2e
- 1068 011b 00       		.byte	0
- 1069 011c 3F       		.uleb128 0x3f
- 1070 011d 19       		.uleb128 0x19
- 1071 011e 03       		.uleb128 0x3
- 1072 011f 0E       		.uleb128 0xe
- 1073 0120 3A       		.uleb128 0x3a
- 1074 0121 0B       		.uleb128 0xb
- 1075 0122 3B       		.uleb128 0x3b
- 1076 0123 0B       		.uleb128 0xb
- 1077 0124 27       		.uleb128 0x27
- 1078 0125 19       		.uleb128 0x19
- 1079 0126 49       		.uleb128 0x49
- 1080 0127 13       		.uleb128 0x13
- 1081 0128 3C       		.uleb128 0x3c
- 1082 0129 19       		.uleb128 0x19
- 1083 012a 00       		.byte	0
- 1084 012b 00       		.byte	0
- 1085 012c 13       		.uleb128 0x13
- 1086 012d 2E       		.uleb128 0x2e
- 1087 012e 01       		.byte	0x1
- 1088 012f 3F       		.uleb128 0x3f
- 1089 0130 19       		.uleb128 0x19
- 1090 0131 03       		.uleb128 0x3
- 1091 0132 0E       		.uleb128 0xe
- 1092 0133 3A       		.uleb128 0x3a
- 1093 0134 0B       		.uleb128 0xb
- 1094 0135 3B       		.uleb128 0x3b
- 1095 0136 0B       		.uleb128 0xb
- 1096 0137 27       		.uleb128 0x27
- 1097 0138 19       		.uleb128 0x19
- 1098 0139 3C       		.uleb128 0x3c
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 34
+ 1042 00fc 00       		.byte	0
+ 1043 00fd 10       		.uleb128 0x10
+ 1044 00fe 898201   		.uleb128 0x4109
+ 1045 0101 01       		.byte	0x1
+ 1046 0102 11       		.uleb128 0x11
+ 1047 0103 01       		.uleb128 0x1
+ 1048 0104 31       		.uleb128 0x31
+ 1049 0105 13       		.uleb128 0x13
+ 1050 0106 00       		.byte	0
+ 1051 0107 00       		.byte	0
+ 1052 0108 11       		.uleb128 0x11
+ 1053 0109 34       		.uleb128 0x34
+ 1054 010a 00       		.byte	0
+ 1055 010b 03       		.uleb128 0x3
+ 1056 010c 0E       		.uleb128 0xe
+ 1057 010d 3A       		.uleb128 0x3a
+ 1058 010e 0B       		.uleb128 0xb
+ 1059 010f 3B       		.uleb128 0x3b
+ 1060 0110 0B       		.uleb128 0xb
+ 1061 0111 49       		.uleb128 0x49
+ 1062 0112 13       		.uleb128 0x13
+ 1063 0113 3F       		.uleb128 0x3f
+ 1064 0114 19       		.uleb128 0x19
+ 1065 0115 02       		.uleb128 0x2
+ 1066 0116 18       		.uleb128 0x18
+ 1067 0117 00       		.byte	0
+ 1068 0118 00       		.byte	0
+ 1069 0119 12       		.uleb128 0x12
+ 1070 011a 2E       		.uleb128 0x2e
+ 1071 011b 00       		.byte	0
+ 1072 011c 3F       		.uleb128 0x3f
+ 1073 011d 19       		.uleb128 0x19
+ 1074 011e 03       		.uleb128 0x3
+ 1075 011f 0E       		.uleb128 0xe
+ 1076 0120 3A       		.uleb128 0x3a
+ 1077 0121 0B       		.uleb128 0xb
+ 1078 0122 3B       		.uleb128 0x3b
+ 1079 0123 0B       		.uleb128 0xb
+ 1080 0124 27       		.uleb128 0x27
+ 1081 0125 19       		.uleb128 0x19
+ 1082 0126 49       		.uleb128 0x49
+ 1083 0127 13       		.uleb128 0x13
+ 1084 0128 3C       		.uleb128 0x3c
+ 1085 0129 19       		.uleb128 0x19
+ 1086 012a 00       		.byte	0
+ 1087 012b 00       		.byte	0
+ 1088 012c 13       		.uleb128 0x13
+ 1089 012d 2E       		.uleb128 0x2e
+ 1090 012e 01       		.byte	0x1
+ 1091 012f 3F       		.uleb128 0x3f
+ 1092 0130 19       		.uleb128 0x19
+ 1093 0131 03       		.uleb128 0x3
+ 1094 0132 0E       		.uleb128 0xe
+ 1095 0133 3A       		.uleb128 0x3a
+ 1096 0134 0B       		.uleb128 0xb
+ 1097 0135 3B       		.uleb128 0x3b
+ 1098 0136 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 34
 
 
- 1099 013a 19       		.uleb128 0x19
- 1100 013b 00       		.byte	0
- 1101 013c 00       		.byte	0
- 1102 013d 14       		.uleb128 0x14
- 1103 013e 05       		.uleb128 0x5
- 1104 013f 00       		.byte	0
- 1105 0140 49       		.uleb128 0x49
- 1106 0141 13       		.uleb128 0x13
- 1107 0142 00       		.byte	0
- 1108 0143 00       		.byte	0
- 1109 0144 00       		.byte	0
- 1110              		.section	.debug_loc,"",%progbits
- 1111              	.Ldebug_loc0:
- 1112              	.LLST0:
- 1113 0000 16000000 		.4byte	.LVL8
- 1114 0004 23000000 		.4byte	.LVL9-1
- 1115 0008 0100     		.2byte	0x1
- 1116 000a 50       		.byte	0x50
- 1117 000b 00000000 		.4byte	0
- 1118 000f 00000000 		.4byte	0
- 1119              		.section	.debug_aranges,"",%progbits
- 1120 0000 8C000000 		.4byte	0x8c
- 1121 0004 0200     		.2byte	0x2
- 1122 0006 00000000 		.4byte	.Ldebug_info0
- 1123 000a 04       		.byte	0x4
- 1124 000b 00       		.byte	0
- 1125 000c 0000     		.2byte	0
- 1126 000e 0000     		.2byte	0
- 1127 0010 00000000 		.4byte	.LFB1
- 1128 0014 10000000 		.4byte	.LFE1-.LFB1
- 1129 0018 00000000 		.4byte	.LFB3
- 1130 001c 10000000 		.4byte	.LFE3-.LFB3
- 1131 0020 00000000 		.4byte	.LFB4
- 1132 0024 0C000000 		.4byte	.LFE4-.LFB4
- 1133 0028 00000000 		.4byte	.LFB5
- 1134 002c 0C000000 		.4byte	.LFE5-.LFB5
- 1135 0030 00000000 		.4byte	.LFB6
- 1136 0034 0C000000 		.4byte	.LFE6-.LFB6
- 1137 0038 00000000 		.4byte	.LFB7
- 1138 003c 0C000000 		.4byte	.LFE7-.LFB7
- 1139 0040 00000000 		.4byte	.LFB8
- 1140 0044 0C000000 		.4byte	.LFE8-.LFB8
- 1141 0048 00000000 		.4byte	.LFB9
- 1142 004c 0C000000 		.4byte	.LFE9-.LFB9
- 1143 0050 00000000 		.4byte	.LFB10
- 1144 0054 0C000000 		.4byte	.LFE10-.LFB10
- 1145 0058 00000000 		.4byte	.LFB11
- 1146 005c 0C000000 		.4byte	.LFE11-.LFB11
- 1147 0060 00000000 		.4byte	.LFB12
- 1148 0064 0C000000 		.4byte	.LFE12-.LFB12
- 1149 0068 00000000 		.4byte	.LFB13
- 1150 006c 14000000 		.4byte	.LFE13-.LFB13
- 1151 0070 00000000 		.4byte	.LFB14
- 1152 0074 14000000 		.4byte	.LFE14-.LFB14
- 1153 0078 00000000 		.4byte	.LFB0
- 1154 007c 34000000 		.4byte	.LFE0-.LFB0
- 1155 0080 00000000 		.4byte	.LFB2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 35
+ 1099 0137 27       		.uleb128 0x27
+ 1100 0138 19       		.uleb128 0x19
+ 1101 0139 3C       		.uleb128 0x3c
+ 1102 013a 19       		.uleb128 0x19
+ 1103 013b 00       		.byte	0
+ 1104 013c 00       		.byte	0
+ 1105 013d 14       		.uleb128 0x14
+ 1106 013e 05       		.uleb128 0x5
+ 1107 013f 00       		.byte	0
+ 1108 0140 49       		.uleb128 0x49
+ 1109 0141 13       		.uleb128 0x13
+ 1110 0142 00       		.byte	0
+ 1111 0143 00       		.byte	0
+ 1112 0144 00       		.byte	0
+ 1113              		.section	.debug_loc,"",%progbits
+ 1114              	.Ldebug_loc0:
+ 1115              	.LLST0:
+ 1116 0000 16000000 		.4byte	.LVL8
+ 1117 0004 23000000 		.4byte	.LVL9-1
+ 1118 0008 0100     		.2byte	0x1
+ 1119 000a 50       		.byte	0x50
+ 1120 000b 00000000 		.4byte	0
+ 1121 000f 00000000 		.4byte	0
+ 1122              		.section	.debug_aranges,"",%progbits
+ 1123 0000 8C000000 		.4byte	0x8c
+ 1124 0004 0200     		.2byte	0x2
+ 1125 0006 00000000 		.4byte	.Ldebug_info0
+ 1126 000a 04       		.byte	0x4
+ 1127 000b 00       		.byte	0
+ 1128 000c 0000     		.2byte	0
+ 1129 000e 0000     		.2byte	0
+ 1130 0010 00000000 		.4byte	.LFB1
+ 1131 0014 10000000 		.4byte	.LFE1-.LFB1
+ 1132 0018 00000000 		.4byte	.LFB3
+ 1133 001c 10000000 		.4byte	.LFE3-.LFB3
+ 1134 0020 00000000 		.4byte	.LFB4
+ 1135 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1136 0028 00000000 		.4byte	.LFB5
+ 1137 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1138 0030 00000000 		.4byte	.LFB6
+ 1139 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1140 0038 00000000 		.4byte	.LFB7
+ 1141 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1142 0040 00000000 		.4byte	.LFB8
+ 1143 0044 0C000000 		.4byte	.LFE8-.LFB8
+ 1144 0048 00000000 		.4byte	.LFB9
+ 1145 004c 0C000000 		.4byte	.LFE9-.LFB9
+ 1146 0050 00000000 		.4byte	.LFB10
+ 1147 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1148 0058 00000000 		.4byte	.LFB11
+ 1149 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1150 0060 00000000 		.4byte	.LFB12
+ 1151 0064 0C000000 		.4byte	.LFE12-.LFB12
+ 1152 0068 00000000 		.4byte	.LFB13
+ 1153 006c 14000000 		.4byte	.LFE13-.LFB13
+ 1154 0070 00000000 		.4byte	.LFB14
+ 1155 0074 14000000 		.4byte	.LFE14-.LFB14
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 35
 
 
- 1156 0084 1C000000 		.4byte	.LFE2-.LFB2
- 1157 0088 00000000 		.4byte	0
- 1158 008c 00000000 		.4byte	0
- 1159              		.section	.debug_ranges,"",%progbits
- 1160              	.Ldebug_ranges0:
- 1161 0000 00000000 		.4byte	.LFB1
- 1162 0004 10000000 		.4byte	.LFE1
- 1163 0008 00000000 		.4byte	.LFB3
- 1164 000c 10000000 		.4byte	.LFE3
- 1165 0010 00000000 		.4byte	.LFB4
- 1166 0014 0C000000 		.4byte	.LFE4
- 1167 0018 00000000 		.4byte	.LFB5
- 1168 001c 0C000000 		.4byte	.LFE5
- 1169 0020 00000000 		.4byte	.LFB6
- 1170 0024 0C000000 		.4byte	.LFE6
- 1171 0028 00000000 		.4byte	.LFB7
- 1172 002c 0C000000 		.4byte	.LFE7
- 1173 0030 00000000 		.4byte	.LFB8
- 1174 0034 0C000000 		.4byte	.LFE8
- 1175 0038 00000000 		.4byte	.LFB9
- 1176 003c 0C000000 		.4byte	.LFE9
- 1177 0040 00000000 		.4byte	.LFB10
- 1178 0044 0C000000 		.4byte	.LFE10
- 1179 0048 00000000 		.4byte	.LFB11
- 1180 004c 0C000000 		.4byte	.LFE11
- 1181 0050 00000000 		.4byte	.LFB12
- 1182 0054 0C000000 		.4byte	.LFE12
- 1183 0058 00000000 		.4byte	.LFB13
- 1184 005c 14000000 		.4byte	.LFE13
- 1185 0060 00000000 		.4byte	.LFB14
- 1186 0064 14000000 		.4byte	.LFE14
- 1187 0068 00000000 		.4byte	.LFB0
- 1188 006c 34000000 		.4byte	.LFE0
- 1189 0070 00000000 		.4byte	.LFB2
- 1190 0074 1C000000 		.4byte	.LFE2
- 1191 0078 00000000 		.4byte	0
- 1192 007c 00000000 		.4byte	0
- 1193              		.section	.debug_line,"",%progbits
- 1194              	.Ldebug_line0:
- 1195 0000 78010000 		.section	.debug_str,"MS",%progbits,1
- 1195      02005900 
- 1195      00000201 
- 1195      FB0E0D00 
- 1195      01010101 
- 1196              	.LASF21:
- 1197 0000 62315F63 		.ascii	"b1_critical_timer_ReadControlRegister\000"
- 1197      72697469 
- 1197      63616C5F 
- 1197      74696D65 
- 1197      725F5265 
- 1198              	.LASF15:
- 1199 0026 72656733 		.ascii	"reg32\000"
- 1199      3200
- 1200              	.LASF37:
- 1201 002c 47656E65 		.ascii	"Generated_Source\\PSoC5\\b1_critical_timer.c\000"
- 1201      72617465 
- 1201      645F536F 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 36
+ 1156 0078 00000000 		.4byte	.LFB0
+ 1157 007c 34000000 		.4byte	.LFE0-.LFB0
+ 1158 0080 00000000 		.4byte	.LFB2
+ 1159 0084 1C000000 		.4byte	.LFE2-.LFB2
+ 1160 0088 00000000 		.4byte	0
+ 1161 008c 00000000 		.4byte	0
+ 1162              		.section	.debug_ranges,"",%progbits
+ 1163              	.Ldebug_ranges0:
+ 1164 0000 00000000 		.4byte	.LFB1
+ 1165 0004 10000000 		.4byte	.LFE1
+ 1166 0008 00000000 		.4byte	.LFB3
+ 1167 000c 10000000 		.4byte	.LFE3
+ 1168 0010 00000000 		.4byte	.LFB4
+ 1169 0014 0C000000 		.4byte	.LFE4
+ 1170 0018 00000000 		.4byte	.LFB5
+ 1171 001c 0C000000 		.4byte	.LFE5
+ 1172 0020 00000000 		.4byte	.LFB6
+ 1173 0024 0C000000 		.4byte	.LFE6
+ 1174 0028 00000000 		.4byte	.LFB7
+ 1175 002c 0C000000 		.4byte	.LFE7
+ 1176 0030 00000000 		.4byte	.LFB8
+ 1177 0034 0C000000 		.4byte	.LFE8
+ 1178 0038 00000000 		.4byte	.LFB9
+ 1179 003c 0C000000 		.4byte	.LFE9
+ 1180 0040 00000000 		.4byte	.LFB10
+ 1181 0044 0C000000 		.4byte	.LFE10
+ 1182 0048 00000000 		.4byte	.LFB11
+ 1183 004c 0C000000 		.4byte	.LFE11
+ 1184 0050 00000000 		.4byte	.LFB12
+ 1185 0054 0C000000 		.4byte	.LFE12
+ 1186 0058 00000000 		.4byte	.LFB13
+ 1187 005c 14000000 		.4byte	.LFE13
+ 1188 0060 00000000 		.4byte	.LFB14
+ 1189 0064 14000000 		.4byte	.LFE14
+ 1190 0068 00000000 		.4byte	.LFB0
+ 1191 006c 34000000 		.4byte	.LFE0
+ 1192 0070 00000000 		.4byte	.LFB2
+ 1193 0074 1C000000 		.4byte	.LFE2
+ 1194 0078 00000000 		.4byte	0
+ 1195 007c 00000000 		.4byte	0
+ 1196              		.section	.debug_line,"",%progbits
+ 1197              	.Ldebug_line0:
+ 1198 0000 78010000 		.section	.debug_str,"MS",%progbits,1
+ 1198      02005900 
+ 1198      00000201 
+ 1198      FB0E0D00 
+ 1198      01010101 
+ 1199              	.LASF15:
+ 1200 0000 72656731 		.ascii	"reg16\000"
+ 1200      3600
+ 1201              	.LASF37:
+ 1202 0006 47656E65 		.ascii	"Generated_Source\\PSoC5\\b1_critical_timer.c\000"
+ 1202      72617465 
+ 1202      645F536F 
+ 1202      75726365 
+ 1202      5C50536F 
+ 1203              	.LASF18:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 36
 
 
- 1201      75726365 
- 1201      5C50536F 
- 1202              	.LASF18:
- 1203 0057 62315F63 		.ascii	"b1_critical_timer_Stop\000"
- 1203      72697469 
- 1203      63616C5F 
- 1203      74696D65 
- 1203      725F5374 
- 1204              	.LASF35:
- 1205 006e 62315F63 		.ascii	"b1_critical_timer_Start\000"
- 1205      72697469 
- 1205      63616C5F 
- 1205      74696D65 
- 1205      725F5374 
- 1206              	.LASF28:
- 1207 0086 70657269 		.ascii	"period\000"
- 1207      6F6400
- 1208              	.LASF32:
- 1209 008d 62315F63 		.ascii	"b1_critical_timer_ReadCounter\000"
- 1209      72697469 
- 1209      63616C5F 
- 1209      74696D65 
- 1209      725F5265 
- 1210              	.LASF30:
- 1211 00ab 62315F63 		.ascii	"b1_critical_timer_WriteCounter\000"
- 1211      72697469 
- 1211      63616C5F 
- 1211      74696D65 
- 1211      725F5772 
- 1212              	.LASF17:
- 1213 00ca 62315F63 		.ascii	"b1_critical_timer_Enable\000"
- 1213      72697469 
- 1213      63616C5F 
- 1213      74696D65 
- 1213      725F456E 
- 1214              	.LASF11:
- 1215 00e3 666C6F61 		.ascii	"float\000"
- 1215      7400
- 1216              	.LASF31:
- 1217 00e9 636F756E 		.ascii	"counter\000"
- 1217      74657200 
- 1218              	.LASF22:
- 1219 00f1 62315F63 		.ascii	"b1_critical_timer_SetInterruptMode\000"
- 1219      72697469 
- 1219      63616C5F 
- 1219      74696D65 
- 1219      725F5365 
- 1220              	.LASF1:
- 1221 0114 756E7369 		.ascii	"unsigned char\000"
- 1221      676E6564 
- 1221      20636861 
- 1221      7200
- 1222              	.LASF27:
- 1223 0122 62315F63 		.ascii	"b1_critical_timer_WritePeriod\000"
- 1223      72697469 
- 1223      63616C5F 
- 1223      74696D65 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 37
+ 1204 0031 62315F63 		.ascii	"b1_critical_timer_Stop\000"
+ 1204      72697469 
+ 1204      63616C5F 
+ 1204      74696D65 
+ 1204      725F5374 
+ 1205              	.LASF35:
+ 1206 0048 62315F63 		.ascii	"b1_critical_timer_Start\000"
+ 1206      72697469 
+ 1206      63616C5F 
+ 1206      74696D65 
+ 1206      725F5374 
+ 1207              	.LASF28:
+ 1208 0060 70657269 		.ascii	"period\000"
+ 1208      6F6400
+ 1209              	.LASF32:
+ 1210 0067 62315F63 		.ascii	"b1_critical_timer_ReadCounter\000"
+ 1210      72697469 
+ 1210      63616C5F 
+ 1210      74696D65 
+ 1210      725F5265 
+ 1211              	.LASF30:
+ 1212 0085 62315F63 		.ascii	"b1_critical_timer_WriteCounter\000"
+ 1212      72697469 
+ 1212      63616C5F 
+ 1212      74696D65 
+ 1212      725F5772 
+ 1213              	.LASF17:
+ 1214 00a4 62315F63 		.ascii	"b1_critical_timer_Enable\000"
+ 1214      72697469 
+ 1214      63616C5F 
+ 1214      74696D65 
+ 1214      725F456E 
+ 1215              	.LASF11:
+ 1216 00bd 666C6F61 		.ascii	"float\000"
+ 1216      7400
+ 1217              	.LASF31:
+ 1218 00c3 636F756E 		.ascii	"counter\000"
+ 1218      74657200 
+ 1219              	.LASF22:
+ 1220 00cb 62315F63 		.ascii	"b1_critical_timer_SetInterruptMode\000"
+ 1220      72697469 
+ 1220      63616C5F 
+ 1220      74696D65 
+ 1220      725F5365 
+ 1221              	.LASF1:
+ 1222 00ee 756E7369 		.ascii	"unsigned char\000"
+ 1222      676E6564 
+ 1222      20636861 
+ 1222      7200
+ 1223              	.LASF27:
+ 1224 00fc 62315F63 		.ascii	"b1_critical_timer_WritePeriod\000"
+ 1224      72697469 
+ 1224      63616C5F 
+ 1224      74696D65 
+ 1224      725F5772 
+ 1225              	.LASF5:
+ 1226 011a 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 37
 
 
- 1223      725F5772 
- 1224              	.LASF5:
- 1225 0140 6C6F6E67 		.ascii	"long unsigned int\000"
- 1225      20756E73 
- 1225      69676E65 
- 1225      6420696E 
- 1225      7400
- 1226              	.LASF9:
- 1227 0152 75696E74 		.ascii	"uint8\000"
- 1227      3800
- 1228              	.LASF25:
- 1229 0158 636F6E74 		.ascii	"control\000"
- 1229      726F6C00 
- 1230              	.LASF39:
- 1231 0160 62315F63 		.ascii	"b1_critical_timer_interruptState\000"
- 1231      72697469 
- 1231      63616C5F 
- 1231      74696D65 
- 1231      725F696E 
- 1232              	.LASF26:
- 1233 0181 62315F63 		.ascii	"b1_critical_timer_ReadPeriod\000"
- 1233      72697469 
- 1233      63616C5F 
- 1233      74696D65 
- 1233      725F5265 
- 1234              	.LASF12:
- 1235 019e 646F7562 		.ascii	"double\000"
- 1235      6C6500
- 1236              	.LASF40:
- 1237 01a5 62315F63 		.ascii	"b1_critical_timer_initVar\000"
- 1237      72697469 
- 1237      63616C5F 
- 1237      74696D65 
- 1237      725F696E 
- 1238              	.LASF19:
- 1239 01bf 62315F63 		.ascii	"b1_critical_timer_SoftwareCapture\000"
- 1239      72697469 
- 1239      63616C5F 
- 1239      74696D65 
- 1239      725F536F 
- 1240              	.LASF10:
- 1241 01e1 75696E74 		.ascii	"uint32\000"
- 1241      333200
- 1242              	.LASF36:
- 1243 01e8 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1243      4320342E 
- 1243      392E3320 
- 1243      32303135 
- 1243      30333033 
- 1244 021b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1244      20726576 
- 1244      6973696F 
- 1244      6E203232 
- 1244      31323230 
- 1245 024e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1245      66756E63 
- 1245      74696F6E 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 38
+ 1226      20756E73 
+ 1226      69676E65 
+ 1226      6420696E 
+ 1226      7400
+ 1227              	.LASF9:
+ 1228 012c 75696E74 		.ascii	"uint8\000"
+ 1228      3800
+ 1229              	.LASF25:
+ 1230 0132 636F6E74 		.ascii	"control\000"
+ 1230      726F6C00 
+ 1231              	.LASF39:
+ 1232 013a 62315F63 		.ascii	"b1_critical_timer_interruptState\000"
+ 1232      72697469 
+ 1232      63616C5F 
+ 1232      74696D65 
+ 1232      725F696E 
+ 1233              	.LASF21:
+ 1234 015b 62315F63 		.ascii	"b1_critical_timer_ReadControlRegister\000"
+ 1234      72697469 
+ 1234      63616C5F 
+ 1234      74696D65 
+ 1234      725F5265 
+ 1235              	.LASF26:
+ 1236 0181 62315F63 		.ascii	"b1_critical_timer_ReadPeriod\000"
+ 1236      72697469 
+ 1236      63616C5F 
+ 1236      74696D65 
+ 1236      725F5265 
+ 1237              	.LASF12:
+ 1238 019e 646F7562 		.ascii	"double\000"
+ 1238      6C6500
+ 1239              	.LASF40:
+ 1240 01a5 62315F63 		.ascii	"b1_critical_timer_initVar\000"
+ 1240      72697469 
+ 1240      63616C5F 
+ 1240      74696D65 
+ 1240      725F696E 
+ 1241              	.LASF19:
+ 1242 01bf 62315F63 		.ascii	"b1_critical_timer_SoftwareCapture\000"
+ 1242      72697469 
+ 1242      63616C5F 
+ 1242      74696D65 
+ 1242      725F536F 
+ 1243              	.LASF10:
+ 1244 01e1 75696E74 		.ascii	"uint16\000"
+ 1244      313600
+ 1245              	.LASF36:
+ 1246 01e8 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1246      4320342E 
+ 1246      392E3320 
+ 1246      32303135 
+ 1246      30333033 
+ 1247 021b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1247      20726576 
+ 1247      6973696F 
+ 1247      6E203232 
+ 1247      31323230 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 38
 
 
- 1245      2D736563 
- 1245      74696F6E 
- 1246              	.LASF41:
- 1247 0276 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1247      74657243 
- 1247      72697469 
- 1247      63616C53 
- 1247      65637469 
- 1248              	.LASF8:
- 1249 028d 756E7369 		.ascii	"unsigned int\000"
- 1249      676E6564 
- 1249      20696E74 
- 1249      00
- 1250              	.LASF42:
- 1251 029a 43794578 		.ascii	"CyExitCriticalSection\000"
- 1251      69744372 
- 1251      69746963 
- 1251      616C5365 
- 1251      6374696F 
- 1252              	.LASF33:
- 1253 02b0 62315F63 		.ascii	"b1_critical_timer_ClearFIFO\000"
- 1253      72697469 
- 1253      63616C5F 
- 1253      74696D65 
- 1253      725F436C 
- 1254              	.LASF14:
- 1255 02cc 72656738 		.ascii	"reg8\000"
- 1255      00
- 1256              	.LASF23:
- 1257 02d1 62315F63 		.ascii	"b1_critical_timer_WriteControlRegister\000"
- 1257      72697469 
- 1257      63616C5F 
- 1257      74696D65 
- 1257      725F5772 
- 1258              	.LASF16:
- 1259 02f8 73697A65 		.ascii	"sizetype\000"
- 1259      74797065 
- 1259      00
- 1260              	.LASF6:
- 1261 0301 6C6F6E67 		.ascii	"long long int\000"
- 1261      206C6F6E 
- 1261      6720696E 
- 1261      7400
- 1262              	.LASF24:
- 1263 030f 696E7465 		.ascii	"interruptMode\000"
- 1263      72727570 
- 1263      744D6F64 
- 1263      6500
- 1264              	.LASF20:
- 1265 031d 62315F63 		.ascii	"b1_critical_timer_ReadStatusRegister\000"
- 1265      72697469 
- 1265      63616C5F 
- 1265      74696D65 
- 1265      725F5265 
- 1266              	.LASF2:
- 1267 0342 73686F72 		.ascii	"short int\000"
- 1267      7420696E 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccJnhJWc.s 			page 39
+ 1248 024e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1248      66756E63 
+ 1248      74696F6E 
+ 1248      2D736563 
+ 1248      74696F6E 
+ 1249              	.LASF41:
+ 1250 0276 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1250      74657243 
+ 1250      72697469 
+ 1250      63616C53 
+ 1250      65637469 
+ 1251              	.LASF8:
+ 1252 028d 756E7369 		.ascii	"unsigned int\000"
+ 1252      676E6564 
+ 1252      20696E74 
+ 1252      00
+ 1253              	.LASF42:
+ 1254 029a 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1254      69744372 
+ 1254      69746963 
+ 1254      616C5365 
+ 1254      6374696F 
+ 1255              	.LASF33:
+ 1256 02b0 62315F63 		.ascii	"b1_critical_timer_ClearFIFO\000"
+ 1256      72697469 
+ 1256      63616C5F 
+ 1256      74696D65 
+ 1256      725F436C 
+ 1257              	.LASF14:
+ 1258 02cc 72656738 		.ascii	"reg8\000"
+ 1258      00
+ 1259              	.LASF23:
+ 1260 02d1 62315F63 		.ascii	"b1_critical_timer_WriteControlRegister\000"
+ 1260      72697469 
+ 1260      63616C5F 
+ 1260      74696D65 
+ 1260      725F5772 
+ 1261              	.LASF16:
+ 1262 02f8 73697A65 		.ascii	"sizetype\000"
+ 1262      74797065 
+ 1262      00
+ 1263              	.LASF6:
+ 1264 0301 6C6F6E67 		.ascii	"long long int\000"
+ 1264      206C6F6E 
+ 1264      6720696E 
+ 1264      7400
+ 1265              	.LASF24:
+ 1266 030f 696E7465 		.ascii	"interruptMode\000"
+ 1266      72727570 
+ 1266      744D6F64 
+ 1266      6500
+ 1267              	.LASF20:
+ 1268 031d 62315F63 		.ascii	"b1_critical_timer_ReadStatusRegister\000"
+ 1268      72697469 
+ 1268      63616C5F 
+ 1268      74696D65 
+ 1268      725F5265 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 39
 
 
- 1267      7400
- 1268              	.LASF34:
- 1269 034c 62315F63 		.ascii	"b1_critical_timer_Init\000"
- 1269      72697469 
- 1269      63616C5F 
- 1269      74696D65 
- 1269      725F496E 
- 1270              	.LASF29:
- 1271 0363 62315F63 		.ascii	"b1_critical_timer_ReadCapture\000"
- 1271      72697469 
- 1271      63616C5F 
- 1271      74696D65 
- 1271      725F5265 
- 1272              	.LASF4:
- 1273 0381 6C6F6E67 		.ascii	"long int\000"
- 1273      20696E74 
- 1273      00
- 1274              	.LASF13:
- 1275 038a 63686172 		.ascii	"char\000"
- 1275      00
- 1276              	.LASF38:
- 1277 038f 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
- 1277      6F776E6C 
- 1277      6F616473 
- 1277      5C465255 
- 1277      43445C4E 
- 1278 03bd 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
- 1278      67756172 
- 1278      2E637964 
- 1278      736E00
- 1279              	.LASF0:
- 1280 03cc 7369676E 		.ascii	"signed char\000"
- 1280      65642063 
- 1280      68617200 
- 1281              	.LASF3:
- 1282 03d8 73686F72 		.ascii	"short unsigned int\000"
- 1282      7420756E 
- 1282      7369676E 
- 1282      65642069 
- 1282      6E7400
- 1283              	.LASF7:
- 1284 03eb 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1284      206C6F6E 
- 1284      6720756E 
- 1284      7369676E 
- 1284      65642069 
- 1285              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1269              	.LASF2:
+ 1270 0342 73686F72 		.ascii	"short int\000"
+ 1270      7420696E 
+ 1270      7400
+ 1271              	.LASF34:
+ 1272 034c 62315F63 		.ascii	"b1_critical_timer_Init\000"
+ 1272      72697469 
+ 1272      63616C5F 
+ 1272      74696D65 
+ 1272      725F496E 
+ 1273              	.LASF29:
+ 1274 0363 62315F63 		.ascii	"b1_critical_timer_ReadCapture\000"
+ 1274      72697469 
+ 1274      63616C5F 
+ 1274      74696D65 
+ 1274      725F5265 
+ 1275              	.LASF4:
+ 1276 0381 6C6F6E67 		.ascii	"long int\000"
+ 1276      20696E74 
+ 1276      00
+ 1277              	.LASF13:
+ 1278 038a 63686172 		.ascii	"char\000"
+ 1278      00
+ 1279              	.LASF38:
+ 1280 038f 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 1280      6F776E6C 
+ 1280      6F616473 
+ 1280      5C465255 
+ 1280      43445C4E 
+ 1281 03bd 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 1281      67756172 
+ 1281      2E637964 
+ 1281      736E00
+ 1282              	.LASF0:
+ 1283 03cc 7369676E 		.ascii	"signed char\000"
+ 1283      65642063 
+ 1283      68617200 
+ 1284              	.LASF3:
+ 1285 03d8 73686F72 		.ascii	"short unsigned int\000"
+ 1285      7420756E 
+ 1285      7369676E 
+ 1285      65642069 
+ 1285      6E7400
+ 1286              	.LASF7:
+ 1287 03eb 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1287      206C6F6E 
+ 1287      6720756E 
+ 1287      7369676E 
+ 1287      65642069 
+ 1288              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

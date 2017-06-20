@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
   29:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** volatile uint8   LED_Driver1_mstrRdBufIndex;   /* Master Read buffer Index      */
   30:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** 
   31:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** /* Receive buffer variables */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 2
 
 
   32:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** volatile uint8 * LED_Driver1_mstrWrBufPtr;     /* Pointer to Master Write buffer */
@@ -118,7 +118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              		@ link register save eliminated.
   32              	.LVL0:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 3
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 3
 
 
   83:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****     uint8 errStatus;
@@ -178,7 +178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  103:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         {
  104:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             /* Master is ready and waiting for ReStart */
  105:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             errStatus = LED_Driver1_MSTR_NO_ERROR;
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 4
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 4
 
 
  106:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** 
@@ -238,7 +238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  100 0054 2A70     		strb	r2, [r5]
  123:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             LED_Driver1_mstrWrBufPtr   = (volatile uint8 *) wrData;
  101              		.loc 1 123 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 5
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 5
 
 
  102 0056 1C4A     		ldr	r2, .L12+24
@@ -283,7 +283,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  128              	.LVL10:
  129 007a 1A70     		strb	r2, [r3]
  130 007c FF22     		movs	r2, #255
- 131 007e 653B     		subs	r3, r3, #101
+ 131 007e 9F33     		adds	r3, r3, #159
  132 0080 1A70     		strb	r2, [r3]
  133 0082 4033     		adds	r3, r3, #64
  134 0084 1E70     		strb	r6, [r3]
@@ -298,12 +298,12 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  139 0088 8222     		movs	r2, #130
  140 008a 124B     		ldr	r3, .L12+36
  141              	.LVL12:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 6
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 6
 
 
  142 008c 1A70     		strb	r2, [r3]
  143 008e FF22     		movs	r2, #255
- 144 0090 653B     		subs	r3, r3, #101
+ 144 0090 9F33     		adds	r3, r3, #159
  145 0092 1A70     		strb	r2, [r3]
  146 0094 0022     		movs	r2, #0
  147 0096 4033     		adds	r3, r3, #64
@@ -354,18 +354,18 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  182 00ae 00BF     		.align	2
  183              	.L12:
  184 00b0 00000000 		.word	LED_Driver1_state
- 185 00b4 66650040 		.word	1073767782
+ 185 00b4 6B650040 		.word	1073767787
  186 00b8 80E200E0 		.word	-536812928
  187 00bc 00000000 		.word	LED_Driver1_mstrStatus
  188 00c0 00000000 		.word	LED_Driver1_mstrWrBufIndex
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 7
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 7
 
 
  189 00c4 00000000 		.word	LED_Driver1_mstrWrBufSize
  190 00c8 00000000 		.word	LED_Driver1_mstrWrBufPtr
  191 00cc 00000000 		.word	LED_Driver1_mstrControl
- 192 00d0 02640040 		.word	1073767426
- 193 00d4 77640040 		.word	1073767543
+ 192 00d0 04650040 		.word	1073767684
+ 193 00d4 75640040 		.word	1073767541
  194 00d8 00E100E0 		.word	-536813312
  195              		.cfi_endproc
  196              	.LFE0:
@@ -418,7 +418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  187:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *                                    current index within the master
  188:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *                                    write buffer.
  189:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *  LED_Driver1_mstrRdBufSize - The global variable used to store a master
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 8
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 8
 
 
  190:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *                                   write buffer size.
@@ -478,7 +478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  237              	.L16:
  212:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             }
  213:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             else
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 9
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 9
 
 
  214:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             {
@@ -538,7 +538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  233:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             /* Set state to start write transaction */
  234:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             LED_Driver1_state = LED_Driver1_SM_MSTR_RD_ADDR;
  270              		.loc 1 234 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 10
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 10
 
 
  271 0048 4926     		movs	r6, #73
@@ -598,13 +598,13 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  306              		.loc 1 253 0
  307 007c 3222     		movs	r2, #50
  308 007e 164B     		ldr	r3, .L25+36
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 11
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 11
 
 
  309              	.LVL27:
  310 0080 1A70     		strb	r2, [r3]
  311 0082 FF22     		movs	r2, #255
- 312 0084 653B     		subs	r3, r3, #101
+ 312 0084 9F33     		adds	r3, r3, #159
  313 0086 1A70     		strb	r2, [r3]
  314 0088 4033     		adds	r3, r3, #64
  315 008a 1E70     		strb	r6, [r3]
@@ -621,7 +621,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  322              	.LVL29:
  323 0092 1A70     		strb	r2, [r3]
  324 0094 FF22     		movs	r2, #255
- 325 0096 653B     		subs	r3, r3, #101
+ 325 0096 9F33     		adds	r3, r3, #159
  326 0098 1A70     		strb	r2, [r3]
  327 009a 0022     		movs	r2, #0
  328 009c 4033     		adds	r3, r3, #64
@@ -658,7 +658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  349              	.LVL33:
  350              	.L15:
  351              		.cfi_def_cfa_offset 12
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 12
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 12
 
 
  352              		.cfi_offset 4, -12
@@ -675,15 +675,15 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  363              		.align	2
  364              	.L25:
  365 00b4 00000000 		.word	LED_Driver1_state
- 366 00b8 66650040 		.word	1073767782
+ 366 00b8 6B650040 		.word	1073767787
  367 00bc 80E200E0 		.word	-536812928
  368 00c0 00000000 		.word	LED_Driver1_mstrStatus
  369 00c4 00000000 		.word	LED_Driver1_mstrRdBufIndex
  370 00c8 00000000 		.word	LED_Driver1_mstrRdBufSize
  371 00cc 00000000 		.word	LED_Driver1_mstrRdBufPtr
  372 00d0 00000000 		.word	LED_Driver1_mstrControl
- 373 00d4 02640040 		.word	1073767426
- 374 00d8 77640040 		.word	1073767543
+ 373 00d4 04650040 		.word	1073767684
+ 374 00d8 75640040 		.word	1073767541
  375 00dc 00E100E0 		.word	-536813312
  376              		.cfi_endproc
  377              	.LFE1:
@@ -718,7 +718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  286:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *
  287:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** * Global variables:
  288:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *  LED_Driver1_state - The global variable used to store a current state of
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 13
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 13
 
 
  289:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *                           the software FSM.
@@ -778,7 +778,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  315:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****                 slaveAddress |= LED_Driver1_READ_FLAG;
  415              		.loc 1 315 0
  416 0020 1043     		orrs	r0, r0, r2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 14
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 14
 
 
  417              	.LVL37:
@@ -808,10 +808,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  325:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             LED_Driver1_GENERATE_START_MANUAL;
  432              		.loc 1 325 0
  433 0034 8222     		movs	r2, #130
- 434 0036 7533     		adds	r3, r3, #117
+ 434 0036 8F3B     		subs	r3, r3, #143
  435 0038 1A70     		strb	r2, [r3]
  436 003a FF22     		movs	r2, #255
- 437 003c 653B     		subs	r3, r3, #101
+ 437 003c 9F33     		adds	r3, r3, #159
  438 003e 1A70     		strb	r2, [r3]
  439 0040 0022     		movs	r2, #0
  440 0042 4033     		adds	r3, r3, #64
@@ -838,7 +838,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  333:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             if(LED_Driver1_CHECK_START_GEN(LED_Driver1_MCSR_REG))
  334:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             {
  335:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****                 LED_Driver1_CLEAR_START_GEN;
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 15
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 15
 
 
  336:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** 
@@ -898,7 +898,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  366:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             }
  367:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         }
  368:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         else
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 16
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 16
 
 
  369:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         {
@@ -924,10 +924,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  489              		.align	2
  490              	.L36:
  491 007c 00000000 		.word	LED_Driver1_state
- 492 0080 66650040 		.word	1073767782
+ 492 0080 6B650040 		.word	1073767787
  493 0084 80E100E0 		.word	-536813184
- 494 0088 02640040 		.word	1073767426
- 495 008c 12640040 		.word	1073767442
+ 494 0088 04650040 		.word	1073767684
+ 495 008c 14650040 		.word	1073767700
  496              		.cfi_endproc
  497              	.LFE2:
  498              		.size	LED_Driver1_MasterSendStart, .-LED_Driver1_MasterSendStart
@@ -958,7 +958,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  392:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** * Side Effects:
  393:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *  This function is entered without a "byte complete" bit set in the I2C_CSR
  394:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *  register. It does not exit until it is set.
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 17
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 17
 
 
  395:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *
@@ -1018,7 +1018,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  422:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         {
  423:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             LED_Driver1_state = LED_Driver1_SM_MSTR_WR_ADDR;
  534              		.loc 1 423 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 18
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 18
 
 
  535 001c 4522     		movs	r2, #69
@@ -1035,10 +1035,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  428:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         LED_Driver1_GENERATE_RESTART_MANUAL;
  542              		.loc 1 428 0
  543 0026 3222     		movs	r2, #50
- 544 0028 7533     		adds	r3, r3, #117
+ 544 0028 8F3B     		subs	r3, r3, #143
  545 002a 1A70     		strb	r2, [r3]
  546 002c FF22     		movs	r2, #255
- 547 002e 653B     		subs	r3, r3, #101
+ 547 002e 9F33     		adds	r3, r3, #159
  548 0030 1A70     		strb	r2, [r3]
  549 0032 0022     		movs	r2, #0
  550 0034 4033     		adds	r3, r3, #64
@@ -1078,7 +1078,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  565 004c 074B     		ldr	r3, .L46
  566 004e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  567 0050 03F00A03 		and	r3, r3, #10
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 19
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 19
 
 
  568 0054 0A2B     		cmp	r3, #10
@@ -1123,10 +1123,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  592              	.L47:
  593 006a 00BF     		.align	2
  594              	.L46:
- 595 006c 66650040 		.word	1073767782
+ 595 006c 6B650040 		.word	1073767787
  596 0070 00000000 		.word	LED_Driver1_state
- 597 0074 02640040 		.word	1073767426
- 598 0078 12640040 		.word	1073767442
+ 597 0074 04650040 		.word	1073767684
+ 598 0078 14650040 		.word	1073767700
  599              		.cfi_endproc
  600              	.LFE3:
  601              		.size	LED_Driver1_MasterSendRestart, .-LED_Driver1_MasterSendRestart
@@ -1138,7 +1138,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  607              		.type	LED_Driver1_MasterSendStop, %function
  608              	LED_Driver1_MasterSendStop:
  609              	.LFB4:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 20
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 20
 
 
  462:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** 
@@ -1195,10 +1195,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  623 000c 0D4B     		ldr	r3, .L53+4
  624 000e 1A70     		strb	r2, [r3]
  625 0010 FF22     		movs	r2, #255
- 626 0012 653B     		subs	r3, r3, #101
+ 626 0012 9F33     		adds	r3, r3, #159
  627 0014 1A70     		strb	r2, [r3]
  628 0016 0022     		movs	r2, #0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 21
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 21
 
 
  629 0018 4033     		adds	r3, r3, #64
@@ -1254,11 +1254,11 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  656              	.L54:
  657 003e 00BF     		.align	2
  658              	.L53:
- 659 0040 66650040 		.word	1073767782
- 660 0044 77640040 		.word	1073767543
- 661 0048 12640040 		.word	1073767442
+ 659 0040 6B650040 		.word	1073767787
+ 660 0044 75640040 		.word	1073767541
+ 661 0048 14650040 		.word	1073767700
  662 004c 00000000 		.word	LED_Driver1_state
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 22
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 22
 
 
  663              		.cfi_endproc
@@ -1318,7 +1318,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  683 0004 13F0040F 		tst	r3, #4
  684 0008 26D0     		beq	.L60
  556:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****     {
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 23
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 23
 
 
  557:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         LED_Driver1_DATA_REG = theByte;   /* Write DATA register */
@@ -1328,10 +1328,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  558:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         LED_Driver1_TRANSMIT_DATA_MANUAL; /* Set transmit mode   */
  688              		.loc 1 558 0
  689 000e 0622     		movs	r2, #6
- 690 0010 7533     		adds	r3, r3, #117
+ 690 0010 8F3B     		subs	r3, r3, #143
  691 0012 1A70     		strb	r2, [r3]
  692 0014 FF22     		movs	r2, #255
- 693 0016 653B     		subs	r3, r3, #101
+ 693 0016 9F33     		adds	r3, r3, #159
  694 0018 1A70     		strb	r2, [r3]
  695 001a 0022     		movs	r2, #0
  696 001c 4033     		adds	r3, r3, #64
@@ -1378,7 +1378,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  716 003c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  717 003e 13F0020F 		tst	r3, #2
  718 0042 04D1     		bne	.L59
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 24
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 24
 
 
  580:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         {
@@ -1425,9 +1425,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  746              	.L62:
  747              		.align	2
  748              	.L61:
- 749 005c 66650040 		.word	1073767782
- 750 0060 02640040 		.word	1073767426
- 751 0064 12640040 		.word	1073767442
+ 749 005c 6B650040 		.word	1073767787
+ 750 0060 04650040 		.word	1073767684
+ 751 0064 14650040 		.word	1073767700
  752 0068 00000000 		.word	LED_Driver1_state
  753              		.cfi_endproc
  754              	.LFE5:
@@ -1438,7 +1438,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  759              		.thumb
  760              		.thumb_func
  761              		.type	LED_Driver1_MasterReadByte, %function
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 25
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 25
 
 
  762              	LED_Driver1_MasterReadByte:
@@ -1498,7 +1498,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  634:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         */
  635:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         if(LED_Driver1_SM_MSTR_RD_ADDR == LED_Driver1_state)
  775              		.loc 1 635 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 26
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 26
 
 
  776 000a 1B4B     		ldr	r3, .L71+4
@@ -1513,7 +1513,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  783 0016 194B     		ldr	r3, .L71+8
  784 0018 1A70     		strb	r2, [r3]
  785 001a FF22     		movs	r2, #255
- 786 001c 653B     		subs	r3, r3, #101
+ 786 001c 9F33     		adds	r3, r3, #159
  787 001e 1A70     		strb	r2, [r3]
  788 0020 0022     		movs	r2, #0
  789 0022 4033     		adds	r3, r3, #64
@@ -1558,15 +1558,15 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  813 0046 70B1     		cbz	r0, .L68
  653:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         {
  654:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****             LED_Driver1_ACK_AND_RECEIVE_MANUAL;
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 27
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 27
 
 
  814              		.loc 1 654 0
  815 0048 0221     		movs	r1, #2
- 816 004a 7533     		adds	r3, r3, #117
+ 816 004a 8F3B     		subs	r3, r3, #143
  817 004c 1970     		strb	r1, [r3]
  818 004e FF21     		movs	r1, #255
- 819 0050 653B     		subs	r3, r3, #101
+ 819 0050 9F33     		adds	r3, r3, #159
  820 0052 1970     		strb	r1, [r3]
  821 0054 0021     		movs	r1, #0
  822 0056 4033     		adds	r3, r3, #64
@@ -1607,18 +1607,18 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  847              	.L72:
  848              		.align	2
  849              	.L71:
- 850 0074 66650040 		.word	1073767782
+ 850 0074 6B650040 		.word	1073767787
  851 0078 00000000 		.word	LED_Driver1_state
- 852 007c 77640040 		.word	1073767543
- 853 0080 12640040 		.word	1073767442
- 854 0084 02640040 		.word	1073767426
+ 852 007c 75640040 		.word	1073767541
+ 853 0080 14650040 		.word	1073767700
+ 854 0084 04650040 		.word	1073767684
  855              		.cfi_endproc
  856              	.LFE6:
  857              		.size	LED_Driver1_MasterReadByte, .-LED_Driver1_MasterReadByte
  858              		.section	.text.LED_Driver1_MasterStatus,"ax",%progbits
  859              		.align	2
  860              		.global	LED_Driver1_MasterStatus
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 28
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 28
 
 
  861              		.thumb
@@ -1678,7 +1678,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  694:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****     {
  695:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         /* Set transfer in progress flag in status */
  696:Generated_Source\PSoC5/LED_Driver1_MASTER.c ****         status |= LED_Driver1_MSTAT_XFER_INP;
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 29
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 29
 
 
  885              		.loc 1 696 0
@@ -1738,7 +1738,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  723:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *  No.
  724:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *
  725:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *******************************************************************************/
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 30
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 30
 
 
  726:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** uint8 LED_Driver1_MasterClearStatus(void) 
@@ -1798,7 +1798,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  742:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** /*******************************************************************************
  743:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** * Function Name: LED_Driver1_MasterGetReadBufSize
  744:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 31
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 31
 
 
  745:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *
@@ -1858,7 +1858,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  774:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *  I2C_MasterWriteBuf command.
  775:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *
  776:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** * Parameters:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 32
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 32
 
 
  777:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *  None.
@@ -1918,7 +1918,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  806:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *
  807:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** * Global variables:
  808:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *  LED_Driver1_mstrRdBufIndex - The global variable used to stores current
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 33
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 33
 
 
  809:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** *                                    index within master read buffer.
@@ -1978,7 +1978,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1039              	LED_Driver1_MasterClearWriteBuf:
  1040              	.LFB12:
  825:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** }
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 34
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 34
 
 
  826:Generated_Source\PSoC5/LED_Driver1_MASTER.c **** 
@@ -2038,7 +2038,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1062 001a 7047     		bx	lr
  1063              	.L91:
  1064              		.align	2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 35
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 35
 
 
  1065              	.L90:
@@ -2098,7 +2098,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1119 0048 02       		.uleb128 0x2
  1120 0049 04       		.byte	0x4
  1121 004a 07       		.byte	0x7
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 36
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 36
 
 
  1122 004b C7010000 		.4byte	.LASF5
@@ -2158,7 +2158,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1176 00bb 04       		.byte	0x4
  1177 00bc 07       		.byte	0x7
  1178 00bd 3C030000 		.4byte	.LASF16
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 37
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 37
 
 
  1179 00c1 06       		.uleb128 0x6
@@ -2218,7 +2218,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1233 0145 07       		.uleb128 0x7
  1234 0146 02030000 		.4byte	.LASF17
  1235 014a 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 38
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 38
 
 
  1236 014b C4       		.byte	0xc4
@@ -2278,7 +2278,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1290 01cf 2A01     		.2byte	0x12a
  1291 01d1 6B000000 		.4byte	0x6b
  1292 01d5 59030000 		.4byte	.LLST11
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 39
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 39
 
 
  1293 01d9 00       		.byte	0
@@ -2338,7 +2338,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1347 025e 6C000000 		.4byte	.LFE5-.LFB5
  1348 0262 01       		.uleb128 0x1
  1349 0263 9C       		.byte	0x9c
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 40
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 40
 
 
  1350 0264 89020000 		.4byte	0x289
@@ -2398,7 +2398,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1404 02ec 00       		.byte	0
  1405 02ed 0B       		.uleb128 0xb
  1406 02ee A9010000 		.4byte	.LASF34
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 41
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 41
 
 
  1407 02f2 01       		.byte	0x1
@@ -2458,7 +2458,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1461 036d A4000000 		.4byte	0xa4
  1462 0371 13       		.uleb128 0x13
  1463 0372 DF010000 		.4byte	.LASF40
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 42
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 42
 
 
  1464 0376 01       		.byte	0x1
@@ -2518,7 +2518,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1518 03e8 05       		.uleb128 0x5
  1519 03e9 03       		.byte	0x3
  1520 03ea 00000000 		.4byte	LED_Driver1_mstrWrBufSize
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 43
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 43
 
 
  1521 03ee 13       		.uleb128 0x13
@@ -2578,7 +2578,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1575 002b 00       		.byte	0
  1576 002c 03       		.uleb128 0x3
  1577 002d 0E       		.uleb128 0xe
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 44
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 44
 
 
  1578 002e 3A       		.uleb128 0x3a
@@ -2638,7 +2638,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1632 0065 17       		.uleb128 0x17
  1633 0066 00       		.byte	0
  1634 0067 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 45
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 45
 
 
  1635 0068 08       		.uleb128 0x8
@@ -2698,7 +2698,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1689 009e 11       		.uleb128 0x11
  1690 009f 01       		.uleb128 0x1
  1691 00a0 12       		.uleb128 0x12
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 46
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 46
 
 
  1692 00a1 06       		.uleb128 0x6
@@ -2758,7 +2758,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1746 00d8 0F       		.uleb128 0xf
  1747 00d9 34       		.uleb128 0x34
  1748 00da 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 47
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 47
 
 
  1749 00db 03       		.uleb128 0x3
@@ -2818,7 +2818,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1803 0112 40       		.uleb128 0x40
  1804 0113 18       		.uleb128 0x18
  1805 0114 9742     		.uleb128 0x2117
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 48
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 48
 
 
  1806 0116 19       		.uleb128 0x19
@@ -2878,7 +2878,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1860 0021 0100     		.2byte	0x1
  1861 0023 50       		.byte	0x50
  1862 0024 A6000000 		.4byte	.LVL15
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 49
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 49
 
 
  1863 0028 DC000000 		.4byte	.LFE0
@@ -2938,7 +2938,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1917 00b0 0400     		.2byte	0x4
  1918 00b2 F3       		.byte	0xf3
  1919 00b3 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 50
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 50
 
 
  1920 00b4 52       		.byte	0x52
@@ -2998,7 +2998,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  1974 0132 0200     		.2byte	0x2
  1975 0134 32       		.byte	0x32
  1976 0135 9F       		.byte	0x9f
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 51
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 51
 
 
  1977 0136 2A000000 		.4byte	.LVL2
@@ -3058,7 +3058,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2031 01bc 51       		.byte	0x51
  2032 01bd 0A000000 		.4byte	.LVL18
  2033 01c1 62000000 		.4byte	.LVL24
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 52
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 52
 
 
  2034 01c5 0100     		.2byte	0x1
@@ -3118,7 +3118,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2088 0246 9F       		.byte	0x9f
  2089 0247 00000000 		.4byte	0
  2090 024b 00000000 		.4byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 53
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 53
 
 
  2091              	.LLST8:
@@ -3178,7 +3178,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2145 02ce 0100     		.2byte	0x1
  2146 02d0 51       		.byte	0x51
  2147 02d1 A8000000 		.4byte	.LVL30
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 54
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 54
 
 
  2148 02d5 AA000000 		.4byte	.LVL31
@@ -3238,7 +3238,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2202              	.LLST11:
  2203 0359 00000000 		.4byte	.LVL34
  2204 035d 6C000000 		.4byte	.LVL38
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 55
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 55
 
 
  2205 0361 0200     		.2byte	0x2
@@ -3298,7 +3298,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2259 03e4 5E000000 		.4byte	.LVL50
  2260 03e8 0200     		.2byte	0x2
  2261 03ea 32       		.byte	0x32
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 56
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 56
 
 
  2262 03eb 9F       		.byte	0x9f
@@ -3358,7 +3358,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2316 0470 0100     		.2byte	0x1
  2317 0472 50       		.byte	0x50
  2318 0473 5A000000 		.4byte	.LVL65
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 57
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 57
 
 
  2319 0477 6C000000 		.4byte	.LFE5
@@ -3418,7 +3418,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2373              	.LLST18:
  2374 04f9 00000000 		.4byte	.LVL66
  2375 04fd 46000000 		.4byte	.LVL67
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 58
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 58
 
 
  2376 0501 0200     		.2byte	0x2
@@ -3478,7 +3478,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2430              		.section	.debug_ranges,"",%progbits
  2431              	.Ldebug_ranges0:
  2432 0000 00000000 		.4byte	.LFB0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 59
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 59
 
 
  2433 0004 DC000000 		.4byte	.LFE0
@@ -3538,7 +3538,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2470      65725365 
  2471              	.LASF46:
  2472 005b 4C45445F 		.ascii	"LED_Driver1_mstrWrBufSize\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 60
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 60
 
 
  2472      44726976 
@@ -3598,7 +3598,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2491              	.LASF38:
  2492 0144 4C45445F 		.ascii	"LED_Driver1_MasterClearWriteBuf\000"
  2492      44726976 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 61
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 61
 
 
  2492      6572315F 
@@ -3658,7 +3658,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2514      4D617374 
  2514      65725265 
  2515              	.LASF25:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 62
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 62
 
 
  2516 0236 525F6E57 		.ascii	"R_nW\000"
@@ -3718,7 +3718,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2538      73746174 
  2538      6500
  2539              	.LASF16:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 63
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 63
 
 
  2540 033c 73697A65 		.ascii	"sizetype\000"
@@ -3778,7 +3778,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 1
  2562      5C465255 
  2562      43445C4E 
  2563 0417 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccYW8ljt.s 			page 64
+ARM GAS  D:\Windows\AppData\Local\Temp\cckSjyFf.s 			page 64
 
 
  2563      67756172 

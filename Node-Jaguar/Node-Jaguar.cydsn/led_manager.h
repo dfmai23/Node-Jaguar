@@ -1,8 +1,9 @@
 
 #include <project.h>
 
-#define MAX_RPM		6000	//motor rpm
+#define MAX_RPM		    6000	//motor rpm
 #define TACH_MAX_STEPS	20	//number of led's to use
+#define TACH_STEP_DELAY 50
 //datasheet for address descriptions
 //i2c addresses for led driver
 #define LED_ADDR	0x40		//master address 100 0000, same addr for both drivers, diff pins
@@ -20,7 +21,7 @@
 #define GLED_curr		0x1F
 #define BLED_curr		0x1F
 #define output_setting	0x55		//output mode x55 = fade output for al led's
-#define fade_fn			0xFF			//fade invalid=0, effective=1
+#define fade_fn			0xFF		//fade invalid(disable)=0, effective(enable)=1
 
 CY_ISR_PROTO(b1_crit_isr);
 CY_ISR_PROTO(b2_crit_isr);
@@ -32,13 +33,17 @@ void led_write_tach(uint16_t MTR_RPM);
 void led_write_b1(uint8_t BMS_TEMP);	//left vertical bar
 void led_write_b2(uint8_t MTR_TEMP);	//center vertical bar
 void led_write_b3(uint8_t MTR_CTRL_TEMP);	//right vertical bar
-void led_write_c1(uint8_t SoC);	//horizontal bar
+void led_write_c1(uint8_t SoC);	        //horizontal bar
+void led_update_tach();
+void led_update_stat();
 
-void led_on();
-void led_off();
-int led_writetest(int i, int* arr);
 void write_all_tach(int bool);
 void write_all_stat(int bool);
+void write_startup_tach();
+void write_startup_stat();
+void led_on();
+void led_off();
+int  led_writetest(int i, int* arr);
 
 void d1_write(int bool);	//tach meter
 void d2_write(int bool);
