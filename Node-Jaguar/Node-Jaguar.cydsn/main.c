@@ -15,6 +15,7 @@
 #define ONE_BYTE_OFFSET             (8u)
 
 #define PEDAL_TIMEOUT 100 // Timeout after (PEDAL_TIMEOUT * 10)ms
+extern volatile uint16_t THROTTLE_CHECK_BIT;
 
 /* Function prototypes */
 //CY_ISR_PROTO(ISR_CAN);
@@ -28,12 +29,6 @@
 
 /* Global variable used to store receive message mailbox number */
 //volatile uint8 receiveMailboxNumber = 0xFFu;
-
-void nodeCheckStart()
-{
-    Node_Timer_Start();
-    isr_nodeok_Start();
-}
 
 typedef enum 
 {
@@ -107,6 +102,7 @@ int main()
     Dash_State state = Startup;
     Error_State error_state = OK;
     
+    
     //precharging time counter
     volatile uint32_t PrechargingTimeCount = 0;
     uint32_t DriveTimeCount = 0;
@@ -139,6 +135,8 @@ int main()
     //messagePWM.msg = &dataPWM;
     //messagePWM.rtr = PWM_MESSAGE_RTR;
 
+    ////LCD_Start();
+
     
     /* Display value of ADC output on LCD */
     //LCD_Position(0u, 0u);
@@ -154,103 +152,60 @@ int main()
 
     //test_inject(data_queue, &data_tail);
     
-    nodeCheckStart();
-    
     for(;;)
     {
         //LED_Write(~LED_ReadDataReg());    
         
         //can_send_status(state);
         //CyDelay(2000);
-        // Check if all nodes are OK
-        if (pedalOK > PEDAL_TIMEOUT)
-        {
-            can_send_cmd(1,0,0); // setInterlock. 
-            state = Fault;
-            error_state = nodeFailure;
-        }
         
         switch(state)
         {    
             //CyDelay(1000);
-            case Startup:
-                //CyDelay(5000);
-                //Initialize CAN & LED Drivers
+            case Startup:   
+                //Buzzer_Write(1);
+                //led_driver_init();    //led_driver interferes with state machine
+                //Buzzer_Write(0);
+                
+                /*
+                //Buzzer_Write(1);
+                write_all_tach(1);
+                write_all_stat(1);
+                CyDelay(50);
+                write_all_tach(0);
+                write_all_stat(0);
+                CyDelay(50);
+                //Buzzer_Write(0);
+                */
+                
+                /*
+                //Buzzer_Write(1);
+                CyDelay(50);
+                write_startup_stat();
+                write_startup_tach();
+                //Buzzer_Write(0);
+                CyDelay(50);
+                */
+                
+                Buzzer_Write(1);
+                
+                //Initialize CAN
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
-                led_driver_init();
-                CyDelay(1000);
-                //nodeCheckStart(); EDIT UNCOMMENT
+                CyDelay(50);
                 
                 //CyDelay(5000);
+                //CyDelay(5000);
                 can_send_status(state, error_state);
-
                 //CyGlobalIntEnable;
                 //CAN_GlobalIntDisable();
                 //CyGlobalIntDisable;
-                //LCD_Start();
                 
-                //UI
-                
-                //uint8 atomic = CyEnterCriticalSection();
-                Buzzer_Write(1);
-                write_all_tach(1);
-	            write_all_stat(1);
-                CyDelay(100);
-	            write_all_stat(0);
-	            write_all_tach(0);
-                Buzzer_Write(0);
-                
-                CyDelay(1000);
-                write_startup_stat();
-                write_startup_tach();
-                write_all_stat(0);
-                CyDelay(1000);
-                //CyExitCriticalSection(atomic);
-                
-                state = LV;
-                                
-                /*
-                //Active Low
-                RGB3_1_Write(1);
-                RGB2_1_Write(1);
-                RGB1_1_Write(1);
-                
-                RGB3_2_Write(1);
-                RGB2_2_Write(1);
-                RGB1_2_Write(1);
-                
-                //RGB Testing
-                RGB3_1_Write(0);
-                CyDelay(2000);
-                RGB3_1_Write(1);
-                RGB2_1_Write(0);
-                CyDelay(2000);
-                RGB2_1_Write(1);
-                RGB1_1_Write(0);
-                CyDelay(2000);
-                RGB1_1_Write(1);
-                RGB3_2_Write(0);
-                CyDelay(2000);
-                RGB3_2_Write(1);
-                RGB2_2_Write(0);
-                CyDelay(2000);
-                RGB2_2_Write(1);
-                RGB1_2_Write(0);
-                CyDelay(2000);
-                RGB1_2_Write(1);
-                */
-                
+                state = LV;        
                 break;
-                
             case LV:
                 can_send_cmd(0,0,0);
-                CAN_GlobalIntEnable();
-                CAN_Init();
-                CAN_Start();
-                //nodeCheckStart();
-          
                 can_send_status(state, error_state);
 
                 /*
@@ -269,15 +224,18 @@ int main()
                 temp = can_read(data_queue, data_head, data_tail, 0x07FF, 2);
                 LCD_Position(0u, 10u);
                 LCD_PrintInt8(temp);
-                */                
+                */
+                
+                
                 //UI
                 
                 Buzzer_Write(0);
                 
-                //purple
-                RGB3_1_Write(0);        //red
-                RGB2_1_Write(1);        //green
-                RGB1_1_Write(0);        //blue
+                //pinkish, active low
+                RGB3_1_Write(0);
+                RGB2_1_Write(1);
+                RGB1_1_Write(0);
+                
 
                 if (Drive_Read())
                 {
@@ -295,10 +253,6 @@ int main()
             break;
                 
             case Precharging:
-                CAN_GlobalIntEnable();
-                CAN_Init();
-                CAN_Start();
-                //nodeCheckStart();
                 
                 can_send_status(state, error_state);
                 
@@ -306,9 +260,11 @@ int main()
                 RGB3_1_Write(0);
                 RGB2_1_Write(0);
                 RGB1_1_Write(1);
-
+                
+                
                 Buzzer_Write(0);
-                                
+                
+                
                 PrechargingTimeCount = 0;
                 
                 while(1)
@@ -341,18 +297,13 @@ int main()
             break;
 	        
             case HV_Enabled:
-                CAN_GlobalIntEnable();
-                CAN_Init();
-                CAN_Start();
-                
-                //nodeCheckStart();
-                
                 can_send_status(state, error_state);
                 
                 // Blue
                 RGB3_1_Write(1);
                 RGB2_1_Write(1);
                 RGB1_1_Write(0);
+                
                 //CyDelay(5000); ///for debug
                 
                 Buzzer_Write(0);
@@ -387,15 +338,14 @@ int main()
             break;
                 
 	        case Drive:
-                //CAN_GlobalIntEnable();
-                //CAN_Init();
-                //CAN_Start();
-                
                 can_send_status(state, error_state);
+                
                 // Green
                 RGB3_1_Write(1);
                 RGB2_1_Write(0);
                 RGB1_1_Write(1);
+                
+                
                 //CyDelay(10000); // debug
                 
                 //Buzzer_Write(1);
@@ -415,8 +365,13 @@ int main()
                 }
    
                 uint8_t ABS_Motor_RPM = getABSMotorRPM();
-                uint8_t Throttle_High = getPedalHigh();//manga_getThrottleHigh(); // use 123 for pedal node place holder
-                uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
+                uint8_t Throttle_High = getPedalHigh(); //manga_getThrottleHigh(); // use 123 for pedal node place holder
+                uint8_t Throttle_Low = getPedalLow();   //manga_getThrottleLow();
+                
+                if(THROTTLE_CHECK_BIT == 1) {   //throttle disconnect if a sensor fails EV rule
+                    Throttle_High = 0;
+                    Throttle_Low = 0;
+                }
                 can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock 
                 
                 //check if everything is going well
@@ -453,17 +408,13 @@ int main()
             break;
                 
 	        case Fault:
-                CAN_GlobalIntEnable();
-                CAN_Init();
-                CAN_Start();
-                //nodeCheckStart();
-                
                 can_send_status(state, error_state);
                 
                 // flashing red
                 RGB3_1_Write(1);
                 RGB2_1_Write(1);
                 RGB1_1_Write(1);
+                
                 
                 RGB3_1_Write(0);
                 CyDelay(1000);
@@ -503,7 +454,6 @@ int main()
                     CyDelay(200);
                     
                     // Curtis Come back online again without error
-                    /*
                     if((getCurtisHeartBeatCheck())) // EDIT: Removed !(Curtis_Fault_Check(data_queue,data_head,data_tail) & 
                     {
                         state = LV;
@@ -513,8 +463,7 @@ int main()
                     {
                         state = HV_Enabled;
                         error_state = OK;
-                    } 
-                    */
+                    }                   
                 }
                 else if (error_state == nodeFailure)
                 {
@@ -526,6 +475,9 @@ int main()
                 RGB3_1_Write(1);
                 RGB2_1_Write(1);
                 RGB1_1_Write(1);
+                break;
+                
+
         }// end of switch
         
         

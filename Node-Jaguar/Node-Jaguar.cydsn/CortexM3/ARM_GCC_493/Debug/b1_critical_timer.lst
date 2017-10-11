@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 1
 
 
    1              		.syntax unified
@@ -10,7 +10,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 6
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
@@ -18,15 +18,21 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
   15              		.text
   16              	.Ltext0:
   17              		.cfi_sections	.debug_frame
-  18              		.section	.text.b1_critical_timer_Enable,"ax",%progbits
-  19              		.align	2
-  20              		.global	b1_critical_timer_Enable
-  21              		.thumb
-  22              		.thumb_func
-  23              		.type	b1_critical_timer_Enable, %function
-  24              	b1_critical_timer_Enable:
-  25              	.LFB1:
-  26              		.file 1 "Generated_Source\\PSoC5\\b1_critical_timer.c"
+  18              		.global	b1_critical_timer_initVar
+  19              		.bss
+  20              		.type	b1_critical_timer_initVar, %object
+  21              		.size	b1_critical_timer_initVar, 1
+  22              	b1_critical_timer_initVar:
+  23 0000 00       		.space	1
+  24              		.section	.text.b1_critical_timer_Init,"ax",%progbits
+  25              		.align	2
+  26              		.global	b1_critical_timer_Init
+  27              		.thumb
+  28              		.thumb_func
+  29              		.type	b1_critical_timer_Init, %function
+  30              	b1_critical_timer_Init:
+  31              	.LFB0:
+  32              		.file 1 "Generated_Source\\PSoC5\\b1_critical_timer.c"
    1:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
    2:Generated_Source\PSoC5/b1_critical_timer.c **** * File Name: b1_critical_timer.c
    3:Generated_Source\PSoC5/b1_critical_timer.c **** * Version 2.70
@@ -52,15 +58,15 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
   23:Generated_Source\PSoC5/b1_critical_timer.c **** 
   24:Generated_Source\PSoC5/b1_critical_timer.c **** #include "b1_critical_timer.h"
   25:Generated_Source\PSoC5/b1_critical_timer.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 2
+
+
   26:Generated_Source\PSoC5/b1_critical_timer.c **** uint8 b1_critical_timer_initVar = 0u;
   27:Generated_Source\PSoC5/b1_critical_timer.c **** 
   28:Generated_Source\PSoC5/b1_critical_timer.c **** 
   29:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/b1_critical_timer.c **** * Function Name: b1_critical_timer_Init
   31:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 2
-
-
   32:Generated_Source\PSoC5/b1_critical_timer.c **** *
   33:Generated_Source\PSoC5/b1_critical_timer.c **** * Summary:
   34:Generated_Source\PSoC5/b1_critical_timer.c **** *  Initialize to the schematic state
@@ -74,6 +80,18 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
   42:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
   43:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_Init(void) 
   44:Generated_Source\PSoC5/b1_critical_timer.c **** {
+  33              		.loc 1 44 0
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 8
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37 0000 80B5     		push	{r7, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 82B0     		sub	sp, sp, #8
+  42              		.cfi_def_cfa_offset 16
+  43 0004 00AF     		add	r7, sp, #0
+  44              		.cfi_def_cfa_register 7
   45:Generated_Source\PSoC5/b1_critical_timer.c ****     #if(!b1_critical_timer_UsingFixedFunction)
   46:Generated_Source\PSoC5/b1_critical_timer.c ****             /* Interrupt State Backup for Critical Region*/
   47:Generated_Source\PSoC5/b1_critical_timer.c ****             uint8 b1_critical_timer_interruptState;
@@ -100,6 +118,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
   68:Generated_Source\PSoC5/b1_critical_timer.c **** 
   69:Generated_Source\PSoC5/b1_critical_timer.c ****         #if (b1_critical_timer_RunModeUsed == 2)
   70:Generated_Source\PSoC5/b1_critical_timer.c ****             #if (CY_PSOC5A)
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 3
+
+
   71:Generated_Source\PSoC5/b1_critical_timer.c ****                 /* Set last 2 bits of control2 register if one shot(halt on
   72:Generated_Source\PSoC5/b1_critical_timer.c ****                 interrupt) is enabled*/
   73:Generated_Source\PSoC5/b1_critical_timer.c ****                 b1_critical_timer_CONTROL2 |= 0x03u;
@@ -118,9 +139,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
   86:Generated_Source\PSoC5/b1_critical_timer.c ****                 /* Set the default Run Mode of the Timer to Continuous */
   87:Generated_Source\PSoC5/b1_critical_timer.c ****                 b1_critical_timer_CONTROL2 |= b1_critical_timer_CTRL_MODE_PULSEWIDTH;
   88:Generated_Source\PSoC5/b1_critical_timer.c ****             #endif /* Set Continuous Run Mode in CONTROL2 for PSoC5A */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 3
-
-
   89:Generated_Source\PSoC5/b1_critical_timer.c **** 
   90:Generated_Source\PSoC5/b1_critical_timer.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
   91:Generated_Source\PSoC5/b1_critical_timer.c ****                 /* Clear and Set ROD and COD bits of CFG2 register */
@@ -151,9 +169,18 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  116:Generated_Source\PSoC5/b1_critical_timer.c **** 
  117:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Set Initial values from Configuration */
  118:Generated_Source\PSoC5/b1_critical_timer.c ****     b1_critical_timer_WritePeriod(b1_critical_timer_INIT_PERIOD);
+  45              		.loc 1 118 0
+  46 0006 41F28730 		movw	r0, #4999
+  47 000a FFF7FEFF 		bl	b1_critical_timer_WritePeriod
  119:Generated_Source\PSoC5/b1_critical_timer.c ****     b1_critical_timer_WriteCounter(b1_critical_timer_INIT_PERIOD);
+  48              		.loc 1 119 0
+  49 000e 41F28730 		movw	r0, #4999
+  50 0012 FFF7FEFF 		bl	b1_critical_timer_WriteCounter
  120:Generated_Source\PSoC5/b1_critical_timer.c **** 
  121:Generated_Source\PSoC5/b1_critical_timer.c ****     #if (b1_critical_timer_UsingHWCaptureCounter)/* Capture counter is enabled */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 4
+
+
  122:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CAPTURE_COUNT_CTRL |= b1_critical_timer_CNTR_ENABLE;
  123:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_SetCaptureCount(b1_critical_timer_INIT_CAPTURE_COUNT);
  124:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* Configure capture counter value */
@@ -175,15 +202,28 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  140:Generated_Source\PSoC5/b1_critical_timer.c ****         /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region critica
  141:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Enter Critical Region*/
  142:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_interruptState = CyEnterCriticalSection();
+  51              		.loc 1 142 0
+  52 0016 FFF7FEFF 		bl	CyEnterCriticalSection
+  53 001a 0346     		mov	r3, r0
+  54 001c FB71     		strb	r3, [r7, #7]
  143:Generated_Source\PSoC5/b1_critical_timer.c **** 
  144:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Use the interrupt output of the status register for IRQ output */
  145:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_STATUS_AUX_CTRL |= b1_critical_timer_STATUS_ACTL_INT_EN_MASK;
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 4
-
-
+  55              		.loc 1 145 0
+  56 001e 0A4A     		ldr	r2, .L2
+  57 0020 094B     		ldr	r3, .L2
+  58 0022 1B78     		ldrb	r3, [r3]
+  59 0024 DBB2     		uxtb	r3, r3
+  60 0026 43F01003 		orr	r3, r3, #16
+  61 002a DBB2     		uxtb	r3, r3
+  62 002c 1370     		strb	r3, [r2]
  146:Generated_Source\PSoC5/b1_critical_timer.c **** 
  147:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Exit Critical Region*/
  148:Generated_Source\PSoC5/b1_critical_timer.c ****         CyExitCriticalSection(b1_critical_timer_interruptState);
+  63              		.loc 1 148 0
+  64 002e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  65 0030 1846     		mov	r0, r3
+  66 0032 FFF7FEFF 		bl	CyExitCriticalSection
  149:Generated_Source\PSoC5/b1_critical_timer.c **** 
  150:Generated_Source\PSoC5/b1_critical_timer.c ****         #if (b1_critical_timer_EnableTriggerMode)
  151:Generated_Source\PSoC5/b1_critical_timer.c ****             b1_critical_timer_EnableTrigger();
@@ -195,10 +235,40 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  157:Generated_Source\PSoC5/b1_critical_timer.c ****         #endif /* Set interrupt count in UDB implementation if interrupt count feature is checked.*
  158:Generated_Source\PSoC5/b1_critical_timer.c **** 
  159:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_ClearFIFO();
+  67              		.loc 1 159 0
+  68 0036 FFF7FEFF 		bl	b1_critical_timer_ClearFIFO
  160:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* Configure additional features of UDB implementation */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 5
+
+
  161:Generated_Source\PSoC5/b1_critical_timer.c **** 
  162:Generated_Source\PSoC5/b1_critical_timer.c ****     b1_critical_timer_SetInterruptMode(b1_critical_timer_INIT_INTERRUPT_MODE);
+  69              		.loc 1 162 0
+  70 003a 0020     		movs	r0, #0
+  71 003c FFF7FEFF 		bl	b1_critical_timer_SetInterruptMode
  163:Generated_Source\PSoC5/b1_critical_timer.c **** }
+  72              		.loc 1 163 0
+  73 0040 0837     		adds	r7, r7, #8
+  74              		.cfi_def_cfa_offset 8
+  75 0042 BD46     		mov	sp, r7
+  76              		.cfi_def_cfa_register 13
+  77              		@ sp needed
+  78 0044 80BD     		pop	{r7, pc}
+  79              	.L3:
+  80 0046 00BF     		.align	2
+  81              	.L2:
+  82 0048 99650040 		.word	1073767833
+  83              		.cfi_endproc
+  84              	.LFE0:
+  85              		.size	b1_critical_timer_Init, .-b1_critical_timer_Init
+  86              		.section	.text.b1_critical_timer_Enable,"ax",%progbits
+  87              		.align	2
+  88              		.global	b1_critical_timer_Enable
+  89              		.thumb
+  90              		.thumb_func
+  91              		.type	b1_critical_timer_Enable, %function
+  92              	b1_critical_timer_Enable:
+  93              	.LFB1:
  164:Generated_Source\PSoC5/b1_critical_timer.c **** 
  165:Generated_Source\PSoC5/b1_critical_timer.c **** 
  166:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -217,12 +287,20 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  179:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  180:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_Enable(void) 
  181:Generated_Source\PSoC5/b1_critical_timer.c **** {
-  27              		.loc 1 181 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
+  94              		.loc 1 181 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 1, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+  99 0000 80B4     		push	{r7}
+ 100              		.cfi_def_cfa_offset 4
+ 101              		.cfi_offset 7, -4
+ 102 0002 00AF     		add	r7, sp, #0
+ 103              		.cfi_def_cfa_register 7
  182:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Globally Enable the Fixed Function Block chosen */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 6
+
+
  183:Generated_Source\PSoC5/b1_critical_timer.c ****     #if (b1_critical_timer_UsingFixedFunction)
  184:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_GLOBAL_ENABLE |= b1_critical_timer_BLOCK_EN_MASK;
  185:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_GLOBAL_STBY_ENABLE |= b1_critical_timer_BLOCK_STBY_EN_MASK;
@@ -231,32 +309,39 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  188:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Remove assignment if control register is removed */
  189:Generated_Source\PSoC5/b1_critical_timer.c ****     #if (!b1_critical_timer_UDB_CONTROL_REG_REMOVED || b1_critical_timer_UsingFixedFunction)
  190:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CONTROL |= b1_critical_timer_CTRL_ENABLE;
-  32              		.loc 1 190 0
-  33 0000 024A     		ldr	r2, .L2
-  34 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  35 0004 43F08003 		orr	r3, r3, #128
-  36 0008 1370     		strb	r3, [r2]
-  37 000a 7047     		bx	lr
-  38              	.L3:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 5
-
-
-  39              		.align	2
-  40              	.L2:
-  41 000c 79650040 		.word	1073767801
-  42              		.cfi_endproc
-  43              	.LFE1:
-  44              		.size	b1_critical_timer_Enable, .-b1_critical_timer_Enable
-  45              		.section	.text.b1_critical_timer_Stop,"ax",%progbits
-  46              		.align	2
-  47              		.global	b1_critical_timer_Stop
-  48              		.thumb
-  49              		.thumb_func
-  50              		.type	b1_critical_timer_Stop, %function
-  51              	b1_critical_timer_Stop:
-  52              	.LFB3:
+ 104              		.loc 1 190 0
+ 105 0004 054A     		ldr	r2, .L5
+ 106 0006 054B     		ldr	r3, .L5
+ 107 0008 1B78     		ldrb	r3, [r3]
+ 108 000a DBB2     		uxtb	r3, r3
+ 109 000c 63F07F03 		orn	r3, r3, #127
+ 110 0010 DBB2     		uxtb	r3, r3
+ 111 0012 1370     		strb	r3, [r2]
  191:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* Remove assignment if control register is removed */
  192:Generated_Source\PSoC5/b1_critical_timer.c **** }
+ 112              		.loc 1 192 0
+ 113 0014 BD46     		mov	sp, r7
+ 114              		.cfi_def_cfa_register 13
+ 115              		@ sp needed
+ 116 0016 5DF8047B 		ldr	r7, [sp], #4
+ 117              		.cfi_restore 7
+ 118              		.cfi_def_cfa_offset 0
+ 119 001a 7047     		bx	lr
+ 120              	.L6:
+ 121              		.align	2
+ 122              	.L5:
+ 123 001c 79640040 		.word	1073767545
+ 124              		.cfi_endproc
+ 125              	.LFE1:
+ 126              		.size	b1_critical_timer_Enable, .-b1_critical_timer_Enable
+ 127              		.section	.text.b1_critical_timer_Start,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	b1_critical_timer_Start
+ 130              		.thumb
+ 131              		.thumb_func
+ 132              		.type	b1_critical_timer_Start, %function
+ 133              	b1_critical_timer_Start:
+ 134              	.LFB2:
  193:Generated_Source\PSoC5/b1_critical_timer.c **** 
  194:Generated_Source\PSoC5/b1_critical_timer.c **** 
  195:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -273,6 +358,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  206:Generated_Source\PSoC5/b1_critical_timer.c **** *
  207:Generated_Source\PSoC5/b1_critical_timer.c **** * Return:
  208:Generated_Source\PSoC5/b1_critical_timer.c **** *  void
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 7
+
+
  209:Generated_Source\PSoC5/b1_critical_timer.c **** *
  210:Generated_Source\PSoC5/b1_critical_timer.c **** * Global variables:
  211:Generated_Source\PSoC5/b1_critical_timer.c **** *  b1_critical_timer_initVar: Is modified when this function is called for the
@@ -281,16 +369,60 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  214:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  215:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_Start(void) 
  216:Generated_Source\PSoC5/b1_critical_timer.c **** {
+ 135              		.loc 1 216 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 1, uses_anonymous_args = 0
+ 139 0000 80B5     		push	{r7, lr}
+ 140              		.cfi_def_cfa_offset 8
+ 141              		.cfi_offset 7, -8
+ 142              		.cfi_offset 14, -4
+ 143 0002 00AF     		add	r7, sp, #0
+ 144              		.cfi_def_cfa_register 7
  217:Generated_Source\PSoC5/b1_critical_timer.c ****     if(b1_critical_timer_initVar == 0u)
+ 145              		.loc 1 217 0
+ 146 0004 054B     		ldr	r3, .L9
+ 147 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 148 0008 002B     		cmp	r3, #0
+ 149 000a 04D1     		bne	.L8
  218:Generated_Source\PSoC5/b1_critical_timer.c ****     {
  219:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_Init();
+ 150              		.loc 1 219 0
+ 151 000c FFF7FEFF 		bl	b1_critical_timer_Init
  220:Generated_Source\PSoC5/b1_critical_timer.c **** 
  221:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_initVar = 1u;   /* Clear this bit for Initialization */
+ 152              		.loc 1 221 0
+ 153 0010 024B     		ldr	r3, .L9
+ 154 0012 0122     		movs	r2, #1
+ 155 0014 1A70     		strb	r2, [r3]
+ 156              	.L8:
  222:Generated_Source\PSoC5/b1_critical_timer.c ****     }
  223:Generated_Source\PSoC5/b1_critical_timer.c **** 
  224:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Enable the Timer */
  225:Generated_Source\PSoC5/b1_critical_timer.c ****     b1_critical_timer_Enable();
+ 157              		.loc 1 225 0
+ 158 0016 FFF7FEFF 		bl	b1_critical_timer_Enable
  226:Generated_Source\PSoC5/b1_critical_timer.c **** }
+ 159              		.loc 1 226 0
+ 160 001a 80BD     		pop	{r7, pc}
+ 161              	.L10:
+ 162              		.align	2
+ 163              	.L9:
+ 164 001c 00000000 		.word	b1_critical_timer_initVar
+ 165              		.cfi_endproc
+ 166              	.LFE2:
+ 167              		.size	b1_critical_timer_Start, .-b1_critical_timer_Start
+ 168              		.section	.text.b1_critical_timer_Stop,"ax",%progbits
+ 169              		.align	2
+ 170              		.global	b1_critical_timer_Stop
+ 171              		.thumb
+ 172              		.thumb_func
+ 173              		.type	b1_critical_timer_Stop, %function
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 8
+
+
+ 174              	b1_critical_timer_Stop:
+ 175              	.LFB3:
  227:Generated_Source\PSoC5/b1_critical_timer.c **** 
  228:Generated_Source\PSoC5/b1_critical_timer.c **** 
  229:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -298,9 +430,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  231:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
  232:Generated_Source\PSoC5/b1_critical_timer.c **** *
  233:Generated_Source\PSoC5/b1_critical_timer.c **** * Summary:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 6
-
-
  234:Generated_Source\PSoC5/b1_critical_timer.c **** *  The stop function halts the timer, but does not change any modes or disable
  235:Generated_Source\PSoC5/b1_critical_timer.c **** *  interrupts.
  236:Generated_Source\PSoC5/b1_critical_timer.c **** *
@@ -316,35 +445,27 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  246:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  247:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_Stop(void) 
  248:Generated_Source\PSoC5/b1_critical_timer.c **** {
-  53              		.loc 1 248 0
-  54              		.cfi_startproc
-  55              		@ args = 0, pretend = 0, frame = 0
-  56              		@ frame_needed = 0, uses_anonymous_args = 0
-  57              		@ link register save eliminated.
+ 176              		.loc 1 248 0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 1, uses_anonymous_args = 0
+ 180              		@ link register save eliminated.
+ 181 0000 80B4     		push	{r7}
+ 182              		.cfi_def_cfa_offset 4
+ 183              		.cfi_offset 7, -4
+ 184 0002 00AF     		add	r7, sp, #0
+ 185              		.cfi_def_cfa_register 7
  249:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Disable Timer */
  250:Generated_Source\PSoC5/b1_critical_timer.c ****     #if(!b1_critical_timer_UDB_CONTROL_REG_REMOVED || b1_critical_timer_UsingFixedFunction)
  251:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CONTROL &= ((uint8)(~b1_critical_timer_CTRL_ENABLE));
-  58              		.loc 1 251 0
-  59 0000 024A     		ldr	r2, .L5
-  60 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  61 0004 03F07F03 		and	r3, r3, #127
-  62 0008 1370     		strb	r3, [r2]
-  63 000a 7047     		bx	lr
-  64              	.L6:
-  65              		.align	2
-  66              	.L5:
-  67 000c 79650040 		.word	1073767801
-  68              		.cfi_endproc
-  69              	.LFE3:
-  70              		.size	b1_critical_timer_Stop, .-b1_critical_timer_Stop
-  71              		.section	.text.b1_critical_timer_SetInterruptMode,"ax",%progbits
-  72              		.align	2
-  73              		.global	b1_critical_timer_SetInterruptMode
-  74              		.thumb
-  75              		.thumb_func
-  76              		.type	b1_critical_timer_SetInterruptMode, %function
-  77              	b1_critical_timer_SetInterruptMode:
-  78              	.LFB4:
+ 186              		.loc 1 251 0
+ 187 0004 054A     		ldr	r2, .L12
+ 188 0006 054B     		ldr	r3, .L12
+ 189 0008 1B78     		ldrb	r3, [r3]
+ 190 000a DBB2     		uxtb	r3, r3
+ 191 000c 03F07F03 		and	r3, r3, #127
+ 192 0010 DBB2     		uxtb	r3, r3
+ 193 0012 1370     		strb	r3, [r2]
  252:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* Remove assignment if control register is removed */
  253:Generated_Source\PSoC5/b1_critical_timer.c **** 
  254:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Globally disable the Fixed Function Block chosen */
@@ -353,14 +474,37 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  257:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_GLOBAL_STBY_ENABLE &= ((uint8)(~b1_critical_timer_BLOCK_STBY_EN_MASK));
  258:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* Disable global enable for the Timer Fixed function block to stop the Timer*/
  259:Generated_Source\PSoC5/b1_critical_timer.c **** }
+ 194              		.loc 1 259 0
+ 195 0014 BD46     		mov	sp, r7
+ 196              		.cfi_def_cfa_register 13
+ 197              		@ sp needed
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 9
+
+
+ 198 0016 5DF8047B 		ldr	r7, [sp], #4
+ 199              		.cfi_restore 7
+ 200              		.cfi_def_cfa_offset 0
+ 201 001a 7047     		bx	lr
+ 202              	.L13:
+ 203              		.align	2
+ 204              	.L12:
+ 205 001c 79640040 		.word	1073767545
+ 206              		.cfi_endproc
+ 207              	.LFE3:
+ 208              		.size	b1_critical_timer_Stop, .-b1_critical_timer_Stop
+ 209              		.section	.text.b1_critical_timer_SetInterruptMode,"ax",%progbits
+ 210              		.align	2
+ 211              		.global	b1_critical_timer_SetInterruptMode
+ 212              		.thumb
+ 213              		.thumb_func
+ 214              		.type	b1_critical_timer_SetInterruptMode, %function
+ 215              	b1_critical_timer_SetInterruptMode:
+ 216              	.LFB4:
  260:Generated_Source\PSoC5/b1_critical_timer.c **** 
  261:Generated_Source\PSoC5/b1_critical_timer.c **** 
  262:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
  263:Generated_Source\PSoC5/b1_critical_timer.c **** * Function Name: b1_critical_timer_SetInterruptMode
  264:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 7
-
-
  265:Generated_Source\PSoC5/b1_critical_timer.c **** *
  266:Generated_Source\PSoC5/b1_critical_timer.c **** * Summary:
  267:Generated_Source\PSoC5/b1_critical_timer.c **** *  This function selects which of the interrupt inputs may cause an interrupt.
@@ -377,33 +521,54 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  278:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  279:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_SetInterruptMode(uint8 interruptMode) 
  280:Generated_Source\PSoC5/b1_critical_timer.c **** {
-  79              		.loc 1 280 0
-  80              		.cfi_startproc
-  81              		@ args = 0, pretend = 0, frame = 0
-  82              		@ frame_needed = 0, uses_anonymous_args = 0
-  83              		@ link register save eliminated.
-  84              	.LVL0:
+ 217              		.loc 1 280 0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 8
+ 220              		@ frame_needed = 1, uses_anonymous_args = 0
+ 221              		@ link register save eliminated.
+ 222 0000 80B4     		push	{r7}
+ 223              		.cfi_def_cfa_offset 4
+ 224              		.cfi_offset 7, -4
+ 225 0002 83B0     		sub	sp, sp, #12
+ 226              		.cfi_def_cfa_offset 16
+ 227 0004 00AF     		add	r7, sp, #0
+ 228              		.cfi_def_cfa_register 7
+ 229 0006 0346     		mov	r3, r0
+ 230 0008 FB71     		strb	r3, [r7, #7]
  281:Generated_Source\PSoC5/b1_critical_timer.c ****     b1_critical_timer_STATUS_MASK = interruptMode;
-  85              		.loc 1 281 0
-  86 0000 014B     		ldr	r3, .L8
-  87 0002 1870     		strb	r0, [r3]
-  88 0004 7047     		bx	lr
-  89              	.L9:
-  90 0006 00BF     		.align	2
-  91              	.L8:
-  92 0008 8A650040 		.word	1073767818
-  93              		.cfi_endproc
-  94              	.LFE4:
-  95              		.size	b1_critical_timer_SetInterruptMode, .-b1_critical_timer_SetInterruptMode
-  96              		.section	.text.b1_critical_timer_SoftwareCapture,"ax",%progbits
-  97              		.align	2
-  98              		.global	b1_critical_timer_SoftwareCapture
-  99              		.thumb
- 100              		.thumb_func
- 101              		.type	b1_critical_timer_SoftwareCapture, %function
- 102              	b1_critical_timer_SoftwareCapture:
- 103              	.LFB5:
+ 231              		.loc 1 281 0
+ 232 000a 044A     		ldr	r2, .L15
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 10
+
+
+ 233 000c FB79     		ldrb	r3, [r7, #7]
+ 234 000e 1370     		strb	r3, [r2]
  282:Generated_Source\PSoC5/b1_critical_timer.c **** }
+ 235              		.loc 1 282 0
+ 236 0010 0C37     		adds	r7, r7, #12
+ 237              		.cfi_def_cfa_offset 4
+ 238 0012 BD46     		mov	sp, r7
+ 239              		.cfi_def_cfa_register 13
+ 240              		@ sp needed
+ 241 0014 5DF8047B 		ldr	r7, [sp], #4
+ 242              		.cfi_restore 7
+ 243              		.cfi_def_cfa_offset 0
+ 244 0018 7047     		bx	lr
+ 245              	.L16:
+ 246 001a 00BF     		.align	2
+ 247              	.L15:
+ 248 001c 89650040 		.word	1073767817
+ 249              		.cfi_endproc
+ 250              	.LFE4:
+ 251              		.size	b1_critical_timer_SetInterruptMode, .-b1_critical_timer_SetInterruptMode
+ 252              		.section	.text.b1_critical_timer_SoftwareCapture,"ax",%progbits
+ 253              		.align	2
+ 254              		.global	b1_critical_timer_SoftwareCapture
+ 255              		.thumb
+ 256              		.thumb_func
+ 257              		.type	b1_critical_timer_SoftwareCapture, %function
+ 258              	b1_critical_timer_SoftwareCapture:
+ 259              	.LFB5:
  283:Generated_Source\PSoC5/b1_critical_timer.c **** 
  284:Generated_Source\PSoC5/b1_critical_timer.c **** 
  285:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -418,9 +583,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  294:Generated_Source\PSoC5/b1_critical_timer.c **** *
  295:Generated_Source\PSoC5/b1_critical_timer.c **** * Return:
  296:Generated_Source\PSoC5/b1_critical_timer.c **** *  void
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 8
-
-
  297:Generated_Source\PSoC5/b1_critical_timer.c **** *
  298:Generated_Source\PSoC5/b1_critical_timer.c **** * Side Effects:
  299:Generated_Source\PSoC5/b1_critical_timer.c **** *  An existing hardware capture could be overwritten.
@@ -428,38 +590,53 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  301:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  302:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_SoftwareCapture(void) 
  303:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 104              		.loc 1 303 0
- 105              		.cfi_startproc
- 106              		@ args = 0, pretend = 0, frame = 0
- 107              		@ frame_needed = 0, uses_anonymous_args = 0
- 108              		@ link register save eliminated.
+ 260              		.loc 1 303 0
+ 261              		.cfi_startproc
+ 262              		@ args = 0, pretend = 0, frame = 0
+ 263              		@ frame_needed = 1, uses_anonymous_args = 0
+ 264              		@ link register save eliminated.
+ 265 0000 80B4     		push	{r7}
+ 266              		.cfi_def_cfa_offset 4
+ 267              		.cfi_offset 7, -4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 11
+
+
+ 268 0002 00AF     		add	r7, sp, #0
+ 269              		.cfi_def_cfa_register 7
  304:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Generate a software capture by reading the counter register */
  305:Generated_Source\PSoC5/b1_critical_timer.c ****     #if(b1_critical_timer_UsingFixedFunction)
  306:Generated_Source\PSoC5/b1_critical_timer.c ****         (void)CY_GET_REG16(b1_critical_timer_COUNTER_LSB_PTR);
  307:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
  308:Generated_Source\PSoC5/b1_critical_timer.c ****         (void)CY_GET_REG8(b1_critical_timer_COUNTER_LSB_PTR_8BIT);
- 109              		.loc 1 308 0
- 110 0000 014B     		ldr	r3, .L11
- 111 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 112 0004 7047     		bx	lr
- 113              	.L12:
- 114 0006 00BF     		.align	2
- 115              	.L11:
- 116 0008 09650040 		.word	1073767689
- 117              		.cfi_endproc
- 118              	.LFE5:
- 119              		.size	b1_critical_timer_SoftwareCapture, .-b1_critical_timer_SoftwareCapture
- 120              		.section	.text.b1_critical_timer_ReadStatusRegister,"ax",%progbits
- 121              		.align	2
- 122              		.global	b1_critical_timer_ReadStatusRegister
- 123              		.thumb
- 124              		.thumb_func
- 125              		.type	b1_critical_timer_ReadStatusRegister, %function
- 126              	b1_critical_timer_ReadStatusRegister:
- 127              	.LFB6:
+ 270              		.loc 1 308 0
+ 271 0004 024B     		ldr	r3, .L18
+ 272 0006 1B78     		ldrb	r3, [r3]
  309:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif/* (b1_critical_timer_UsingFixedFunction) */
  310:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Capture Data is now in the FIFO */
  311:Generated_Source\PSoC5/b1_critical_timer.c **** }
+ 273              		.loc 1 311 0
+ 274 0008 BD46     		mov	sp, r7
+ 275              		.cfi_def_cfa_register 13
+ 276              		@ sp needed
+ 277 000a 5DF8047B 		ldr	r7, [sp], #4
+ 278              		.cfi_restore 7
+ 279              		.cfi_def_cfa_offset 0
+ 280 000e 7047     		bx	lr
+ 281              	.L19:
+ 282              		.align	2
+ 283              	.L18:
+ 284 0010 08650040 		.word	1073767688
+ 285              		.cfi_endproc
+ 286              	.LFE5:
+ 287              		.size	b1_critical_timer_SoftwareCapture, .-b1_critical_timer_SoftwareCapture
+ 288              		.section	.text.b1_critical_timer_ReadStatusRegister,"ax",%progbits
+ 289              		.align	2
+ 290              		.global	b1_critical_timer_ReadStatusRegister
+ 291              		.thumb
+ 292              		.thumb_func
+ 293              		.type	b1_critical_timer_ReadStatusRegister, %function
+ 294              	b1_critical_timer_ReadStatusRegister:
+ 295              	.LFB6:
  312:Generated_Source\PSoC5/b1_critical_timer.c **** 
  313:Generated_Source\PSoC5/b1_critical_timer.c **** 
  314:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -478,41 +655,54 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  327:Generated_Source\PSoC5/b1_critical_timer.c **** *  The contents of the status register
  328:Generated_Source\PSoC5/b1_critical_timer.c **** *
  329:Generated_Source\PSoC5/b1_critical_timer.c **** * Side Effects:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 9
-
-
  330:Generated_Source\PSoC5/b1_critical_timer.c **** *  Status register bits may be clear on read.
  331:Generated_Source\PSoC5/b1_critical_timer.c **** *
  332:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 12
+
+
  333:Generated_Source\PSoC5/b1_critical_timer.c **** uint8   b1_critical_timer_ReadStatusRegister(void) 
  334:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 128              		.loc 1 334 0
- 129              		.cfi_startproc
- 130              		@ args = 0, pretend = 0, frame = 0
- 131              		@ frame_needed = 0, uses_anonymous_args = 0
- 132              		@ link register save eliminated.
+ 296              		.loc 1 334 0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 1, uses_anonymous_args = 0
+ 300              		@ link register save eliminated.
+ 301 0000 80B4     		push	{r7}
+ 302              		.cfi_def_cfa_offset 4
+ 303              		.cfi_offset 7, -4
+ 304 0002 00AF     		add	r7, sp, #0
+ 305              		.cfi_def_cfa_register 7
  335:Generated_Source\PSoC5/b1_critical_timer.c ****     return (b1_critical_timer_STATUS);
- 133              		.loc 1 335 0
- 134 0000 014B     		ldr	r3, .L14
- 135 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 306              		.loc 1 335 0
+ 307 0004 034B     		ldr	r3, .L22
+ 308 0006 1B78     		ldrb	r3, [r3]
+ 309 0008 DBB2     		uxtb	r3, r3
  336:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 136              		.loc 1 336 0
- 137 0004 7047     		bx	lr
- 138              	.L15:
- 139 0006 00BF     		.align	2
- 140              	.L14:
- 141 0008 6A650040 		.word	1073767786
- 142              		.cfi_endproc
- 143              	.LFE6:
- 144              		.size	b1_critical_timer_ReadStatusRegister, .-b1_critical_timer_ReadStatusRegister
- 145              		.section	.text.b1_critical_timer_ReadControlRegister,"ax",%progbits
- 146              		.align	2
- 147              		.global	b1_critical_timer_ReadControlRegister
- 148              		.thumb
- 149              		.thumb_func
- 150              		.type	b1_critical_timer_ReadControlRegister, %function
- 151              	b1_critical_timer_ReadControlRegister:
- 152              	.LFB7:
+ 310              		.loc 1 336 0
+ 311 000a 1846     		mov	r0, r3
+ 312 000c BD46     		mov	sp, r7
+ 313              		.cfi_def_cfa_register 13
+ 314              		@ sp needed
+ 315 000e 5DF8047B 		ldr	r7, [sp], #4
+ 316              		.cfi_restore 7
+ 317              		.cfi_def_cfa_offset 0
+ 318 0012 7047     		bx	lr
+ 319              	.L23:
+ 320              		.align	2
+ 321              	.L22:
+ 322 0014 69650040 		.word	1073767785
+ 323              		.cfi_endproc
+ 324              	.LFE6:
+ 325              		.size	b1_critical_timer_ReadStatusRegister, .-b1_critical_timer_ReadStatusRegister
+ 326              		.section	.text.b1_critical_timer_ReadControlRegister,"ax",%progbits
+ 327              		.align	2
+ 328              		.global	b1_critical_timer_ReadControlRegister
+ 329              		.thumb
+ 330              		.thumb_func
+ 331              		.type	b1_critical_timer_ReadControlRegister, %function
+ 332              	b1_critical_timer_ReadControlRegister:
+ 333              	.LFB7:
  337:Generated_Source\PSoC5/b1_critical_timer.c **** 
  338:Generated_Source\PSoC5/b1_critical_timer.c **** 
  339:Generated_Source\PSoC5/b1_critical_timer.c **** #if (!b1_critical_timer_UDB_CONTROL_REG_REMOVED) /* Remove API if control register is unused */
@@ -528,46 +718,59 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  349:Generated_Source\PSoC5/b1_critical_timer.c **** * Parameters:
  350:Generated_Source\PSoC5/b1_critical_timer.c **** *  void
  351:Generated_Source\PSoC5/b1_critical_timer.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 13
+
+
  352:Generated_Source\PSoC5/b1_critical_timer.c **** * Return:
  353:Generated_Source\PSoC5/b1_critical_timer.c **** *  The contents of the control register
  354:Generated_Source\PSoC5/b1_critical_timer.c **** *
  355:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  356:Generated_Source\PSoC5/b1_critical_timer.c **** uint8 b1_critical_timer_ReadControlRegister(void) 
  357:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 153              		.loc 1 357 0
- 154              		.cfi_startproc
- 155              		@ args = 0, pretend = 0, frame = 0
- 156              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 10
-
-
- 157              		@ link register save eliminated.
+ 334              		.loc 1 357 0
+ 335              		.cfi_startproc
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 1, uses_anonymous_args = 0
+ 338              		@ link register save eliminated.
+ 339 0000 80B4     		push	{r7}
+ 340              		.cfi_def_cfa_offset 4
+ 341              		.cfi_offset 7, -4
+ 342 0002 00AF     		add	r7, sp, #0
+ 343              		.cfi_def_cfa_register 7
  358:Generated_Source\PSoC5/b1_critical_timer.c ****     #if (!b1_critical_timer_UDB_CONTROL_REG_REMOVED) 
  359:Generated_Source\PSoC5/b1_critical_timer.c ****         return ((uint8)b1_critical_timer_CONTROL);
- 158              		.loc 1 359 0
- 159 0000 014B     		ldr	r3, .L17
- 160 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 344              		.loc 1 359 0
+ 345 0004 034B     		ldr	r3, .L26
+ 346 0006 1B78     		ldrb	r3, [r3]
+ 347 0008 DBB2     		uxtb	r3, r3
  360:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
  361:Generated_Source\PSoC5/b1_critical_timer.c ****         return (0);
  362:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* (!b1_critical_timer_UDB_CONTROL_REG_REMOVED) */
  363:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 161              		.loc 1 363 0
- 162 0004 7047     		bx	lr
- 163              	.L18:
- 164 0006 00BF     		.align	2
- 165              	.L17:
- 166 0008 79650040 		.word	1073767801
- 167              		.cfi_endproc
- 168              	.LFE7:
- 169              		.size	b1_critical_timer_ReadControlRegister, .-b1_critical_timer_ReadControlRegister
- 170              		.section	.text.b1_critical_timer_WriteControlRegister,"ax",%progbits
- 171              		.align	2
- 172              		.global	b1_critical_timer_WriteControlRegister
- 173              		.thumb
- 174              		.thumb_func
- 175              		.type	b1_critical_timer_WriteControlRegister, %function
- 176              	b1_critical_timer_WriteControlRegister:
- 177              	.LFB8:
+ 348              		.loc 1 363 0
+ 349 000a 1846     		mov	r0, r3
+ 350 000c BD46     		mov	sp, r7
+ 351              		.cfi_def_cfa_register 13
+ 352              		@ sp needed
+ 353 000e 5DF8047B 		ldr	r7, [sp], #4
+ 354              		.cfi_restore 7
+ 355              		.cfi_def_cfa_offset 0
+ 356 0012 7047     		bx	lr
+ 357              	.L27:
+ 358              		.align	2
+ 359              	.L26:
+ 360 0014 79640040 		.word	1073767545
+ 361              		.cfi_endproc
+ 362              	.LFE7:
+ 363              		.size	b1_critical_timer_ReadControlRegister, .-b1_critical_timer_ReadControlRegister
+ 364              		.section	.text.b1_critical_timer_WriteControlRegister,"ax",%progbits
+ 365              		.align	2
+ 366              		.global	b1_critical_timer_WriteControlRegister
+ 367              		.thumb
+ 368              		.thumb_func
+ 369              		.type	b1_critical_timer_WriteControlRegister, %function
+ 370              	b1_critical_timer_WriteControlRegister:
+ 371              	.LFB8:
  364:Generated_Source\PSoC5/b1_critical_timer.c **** 
  365:Generated_Source\PSoC5/b1_critical_timer.c **** 
  366:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -575,6 +778,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  368:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
  369:Generated_Source\PSoC5/b1_critical_timer.c **** *
  370:Generated_Source\PSoC5/b1_critical_timer.c **** * Summary:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 14
+
+
  371:Generated_Source\PSoC5/b1_critical_timer.c **** *  Sets the bit-field of the control register.
  372:Generated_Source\PSoC5/b1_critical_timer.c **** *
  373:Generated_Source\PSoC5/b1_critical_timer.c **** * Parameters:
@@ -585,40 +791,58 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  378:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  379:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_WriteControlRegister(uint8 control) 
  380:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 178              		.loc 1 380 0
- 179              		.cfi_startproc
- 180              		@ args = 0, pretend = 0, frame = 0
- 181              		@ frame_needed = 0, uses_anonymous_args = 0
- 182              		@ link register save eliminated.
- 183              	.LVL1:
+ 372              		.loc 1 380 0
+ 373              		.cfi_startproc
+ 374              		@ args = 0, pretend = 0, frame = 8
+ 375              		@ frame_needed = 1, uses_anonymous_args = 0
+ 376              		@ link register save eliminated.
+ 377 0000 80B4     		push	{r7}
+ 378              		.cfi_def_cfa_offset 4
+ 379              		.cfi_offset 7, -4
+ 380 0002 83B0     		sub	sp, sp, #12
+ 381              		.cfi_def_cfa_offset 16
+ 382 0004 00AF     		add	r7, sp, #0
+ 383              		.cfi_def_cfa_register 7
+ 384 0006 0346     		mov	r3, r0
+ 385 0008 FB71     		strb	r3, [r7, #7]
  381:Generated_Source\PSoC5/b1_critical_timer.c ****     #if (!b1_critical_timer_UDB_CONTROL_REG_REMOVED) 
  382:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CONTROL = control;
- 184              		.loc 1 382 0
- 185 0000 014B     		ldr	r3, .L20
- 186 0002 1870     		strb	r0, [r3]
- 187 0004 7047     		bx	lr
- 188              	.L21:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 11
-
-
- 189 0006 00BF     		.align	2
- 190              	.L20:
- 191 0008 79650040 		.word	1073767801
- 192              		.cfi_endproc
- 193              	.LFE8:
- 194              		.size	b1_critical_timer_WriteControlRegister, .-b1_critical_timer_WriteControlRegister
- 195              		.section	.text.b1_critical_timer_ReadPeriod,"ax",%progbits
- 196              		.align	2
- 197              		.global	b1_critical_timer_ReadPeriod
- 198              		.thumb
- 199              		.thumb_func
- 200              		.type	b1_critical_timer_ReadPeriod, %function
- 201              	b1_critical_timer_ReadPeriod:
- 202              	.LFB9:
+ 386              		.loc 1 382 0
+ 387 000a 044A     		ldr	r2, .L29
+ 388 000c FB79     		ldrb	r3, [r7, #7]
+ 389 000e 1370     		strb	r3, [r2]
  383:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
  384:Generated_Source\PSoC5/b1_critical_timer.c ****         control = 0u;
  385:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* (!b1_critical_timer_UDB_CONTROL_REG_REMOVED) */
  386:Generated_Source\PSoC5/b1_critical_timer.c **** }
+ 390              		.loc 1 386 0
+ 391 0010 0C37     		adds	r7, r7, #12
+ 392              		.cfi_def_cfa_offset 4
+ 393 0012 BD46     		mov	sp, r7
+ 394              		.cfi_def_cfa_register 13
+ 395              		@ sp needed
+ 396 0014 5DF8047B 		ldr	r7, [sp], #4
+ 397              		.cfi_restore 7
+ 398              		.cfi_def_cfa_offset 0
+ 399 0018 7047     		bx	lr
+ 400              	.L30:
+ 401 001a 00BF     		.align	2
+ 402              	.L29:
+ 403 001c 79640040 		.word	1073767545
+ 404              		.cfi_endproc
+ 405              	.LFE8:
+ 406              		.size	b1_critical_timer_WriteControlRegister, .-b1_critical_timer_WriteControlRegister
+ 407              		.section	.text.b1_critical_timer_ReadPeriod,"ax",%progbits
+ 408              		.align	2
+ 409              		.global	b1_critical_timer_ReadPeriod
+ 410              		.thumb
+ 411              		.thumb_func
+ 412              		.type	b1_critical_timer_ReadPeriod, %function
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 15
+
+
+ 413              	b1_critical_timer_ReadPeriod:
+ 414              	.LFB9:
  387:Generated_Source\PSoC5/b1_critical_timer.c **** 
  388:Generated_Source\PSoC5/b1_critical_timer.c **** #endif /* Remove API if control register is unused */
  389:Generated_Source\PSoC5/b1_critical_timer.c **** 
@@ -639,41 +863,53 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  404:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  405:Generated_Source\PSoC5/b1_critical_timer.c **** uint16 b1_critical_timer_ReadPeriod(void) 
  406:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 203              		.loc 1 406 0
- 204              		.cfi_startproc
- 205              		@ args = 0, pretend = 0, frame = 0
- 206              		@ frame_needed = 0, uses_anonymous_args = 0
- 207              		@ link register save eliminated.
+ 415              		.loc 1 406 0
+ 416              		.cfi_startproc
+ 417              		@ args = 0, pretend = 0, frame = 0
+ 418              		@ frame_needed = 1, uses_anonymous_args = 0
+ 419              		@ link register save eliminated.
+ 420 0000 80B4     		push	{r7}
+ 421              		.cfi_def_cfa_offset 4
+ 422              		.cfi_offset 7, -4
+ 423 0002 00AF     		add	r7, sp, #0
+ 424              		.cfi_def_cfa_register 7
  407:Generated_Source\PSoC5/b1_critical_timer.c ****    #if(b1_critical_timer_UsingFixedFunction)
  408:Generated_Source\PSoC5/b1_critical_timer.c ****        return ((uint16)CY_GET_REG16(b1_critical_timer_PERIOD_LSB_PTR));
  409:Generated_Source\PSoC5/b1_critical_timer.c ****    #else
  410:Generated_Source\PSoC5/b1_critical_timer.c ****        return (CY_GET_REG16(b1_critical_timer_PERIOD_LSB_PTR));
- 208              		.loc 1 410 0
- 209 0000 014B     		ldr	r3, .L23
- 210 0002 1888     		ldrh	r0, [r3]
+ 425              		.loc 1 410 0
+ 426 0004 034B     		ldr	r3, .L33
+ 427 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 428 0008 9BB2     		uxth	r3, r3
  411:Generated_Source\PSoC5/b1_critical_timer.c ****    #endif /* (b1_critical_timer_UsingFixedFunction) */
  412:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 211              		.loc 1 412 0
- 212 0004 80B2     		uxth	r0, r0
- 213 0006 7047     		bx	lr
- 214              	.L24:
- 215              		.align	2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 12
+ 429              		.loc 1 412 0
+ 430 000a 1846     		mov	r0, r3
+ 431 000c BD46     		mov	sp, r7
+ 432              		.cfi_def_cfa_register 13
+ 433              		@ sp needed
+ 434 000e 5DF8047B 		ldr	r7, [sp], #4
+ 435              		.cfi_restore 7
+ 436              		.cfi_def_cfa_offset 0
+ 437 0012 7047     		bx	lr
+ 438              	.L34:
+ 439              		.align	2
+ 440              	.L33:
+ 441 0014 506A0040 		.word	1073769040
+ 442              		.cfi_endproc
+ 443              	.LFE9:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 16
 
 
- 216              	.L23:
- 217 0008 526A0040 		.word	1073769042
- 218              		.cfi_endproc
- 219              	.LFE9:
- 220              		.size	b1_critical_timer_ReadPeriod, .-b1_critical_timer_ReadPeriod
- 221              		.section	.text.b1_critical_timer_WritePeriod,"ax",%progbits
- 222              		.align	2
- 223              		.global	b1_critical_timer_WritePeriod
- 224              		.thumb
- 225              		.thumb_func
- 226              		.type	b1_critical_timer_WritePeriod, %function
- 227              	b1_critical_timer_WritePeriod:
- 228              	.LFB10:
+ 444              		.size	b1_critical_timer_ReadPeriod, .-b1_critical_timer_ReadPeriod
+ 445              		.section	.text.b1_critical_timer_WritePeriod,"ax",%progbits
+ 446              		.align	2
+ 447              		.global	b1_critical_timer_WritePeriod
+ 448              		.thumb
+ 449              		.thumb_func
+ 450              		.type	b1_critical_timer_WritePeriod, %function
+ 451              	b1_critical_timer_WritePeriod:
+ 452              	.LFB10:
  413:Generated_Source\PSoC5/b1_critical_timer.c **** 
  414:Generated_Source\PSoC5/b1_critical_timer.c **** 
  415:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -694,41 +930,59 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  430:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  431:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_WritePeriod(uint16 period) 
  432:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 229              		.loc 1 432 0
- 230              		.cfi_startproc
- 231              		@ args = 0, pretend = 0, frame = 0
- 232              		@ frame_needed = 0, uses_anonymous_args = 0
- 233              		@ link register save eliminated.
- 234              	.LVL2:
+ 453              		.loc 1 432 0
+ 454              		.cfi_startproc
+ 455              		@ args = 0, pretend = 0, frame = 8
+ 456              		@ frame_needed = 1, uses_anonymous_args = 0
+ 457              		@ link register save eliminated.
+ 458 0000 80B4     		push	{r7}
+ 459              		.cfi_def_cfa_offset 4
+ 460              		.cfi_offset 7, -4
+ 461 0002 83B0     		sub	sp, sp, #12
+ 462              		.cfi_def_cfa_offset 16
+ 463 0004 00AF     		add	r7, sp, #0
+ 464              		.cfi_def_cfa_register 7
+ 465 0006 0346     		mov	r3, r0
+ 466 0008 FB80     		strh	r3, [r7, #6]	@ movhi
  433:Generated_Source\PSoC5/b1_critical_timer.c ****     #if(b1_critical_timer_UsingFixedFunction)
  434:Generated_Source\PSoC5/b1_critical_timer.c ****         uint16 period_temp = (uint16)period;
  435:Generated_Source\PSoC5/b1_critical_timer.c ****         CY_SET_REG16(b1_critical_timer_PERIOD_LSB_PTR, period_temp);
  436:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
  437:Generated_Source\PSoC5/b1_critical_timer.c ****         CY_SET_REG16(b1_critical_timer_PERIOD_LSB_PTR, period);
- 235              		.loc 1 437 0
- 236 0000 014B     		ldr	r3, .L26
- 237 0002 1880     		strh	r0, [r3]	@ movhi
- 238 0004 7047     		bx	lr
- 239              	.L27:
- 240 0006 00BF     		.align	2
- 241              	.L26:
- 242 0008 526A0040 		.word	1073769042
- 243              		.cfi_endproc
- 244              	.LFE10:
- 245              		.size	b1_critical_timer_WritePeriod, .-b1_critical_timer_WritePeriod
- 246              		.section	.text.b1_critical_timer_ReadCapture,"ax",%progbits
- 247              		.align	2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 13
-
-
- 248              		.global	b1_critical_timer_ReadCapture
- 249              		.thumb
- 250              		.thumb_func
- 251              		.type	b1_critical_timer_ReadCapture, %function
- 252              	b1_critical_timer_ReadCapture:
- 253              	.LFB11:
+ 467              		.loc 1 437 0
+ 468 000a 044A     		ldr	r2, .L36
+ 469 000c FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 470 000e 1380     		strh	r3, [r2]	@ movhi
  438:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed functi
  439:Generated_Source\PSoC5/b1_critical_timer.c **** }
+ 471              		.loc 1 439 0
+ 472 0010 0C37     		adds	r7, r7, #12
+ 473              		.cfi_def_cfa_offset 4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 17
+
+
+ 474 0012 BD46     		mov	sp, r7
+ 475              		.cfi_def_cfa_register 13
+ 476              		@ sp needed
+ 477 0014 5DF8047B 		ldr	r7, [sp], #4
+ 478              		.cfi_restore 7
+ 479              		.cfi_def_cfa_offset 0
+ 480 0018 7047     		bx	lr
+ 481              	.L37:
+ 482 001a 00BF     		.align	2
+ 483              	.L36:
+ 484 001c 506A0040 		.word	1073769040
+ 485              		.cfi_endproc
+ 486              	.LFE10:
+ 487              		.size	b1_critical_timer_WritePeriod, .-b1_critical_timer_WritePeriod
+ 488              		.section	.text.b1_critical_timer_ReadCapture,"ax",%progbits
+ 489              		.align	2
+ 490              		.global	b1_critical_timer_ReadCapture
+ 491              		.thumb
+ 492              		.thumb_func
+ 493              		.type	b1_critical_timer_ReadCapture, %function
+ 494              	b1_critical_timer_ReadCapture:
+ 495              	.LFB11:
  440:Generated_Source\PSoC5/b1_critical_timer.c **** 
  441:Generated_Source\PSoC5/b1_critical_timer.c **** 
  442:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -747,41 +1001,53 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  455:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  456:Generated_Source\PSoC5/b1_critical_timer.c **** uint16 b1_critical_timer_ReadCapture(void) 
  457:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 254              		.loc 1 457 0
- 255              		.cfi_startproc
- 256              		@ args = 0, pretend = 0, frame = 0
- 257              		@ frame_needed = 0, uses_anonymous_args = 0
- 258              		@ link register save eliminated.
+ 496              		.loc 1 457 0
+ 497              		.cfi_startproc
+ 498              		@ args = 0, pretend = 0, frame = 0
+ 499              		@ frame_needed = 1, uses_anonymous_args = 0
+ 500              		@ link register save eliminated.
+ 501 0000 80B4     		push	{r7}
+ 502              		.cfi_def_cfa_offset 4
+ 503              		.cfi_offset 7, -4
+ 504 0002 00AF     		add	r7, sp, #0
+ 505              		.cfi_def_cfa_register 7
  458:Generated_Source\PSoC5/b1_critical_timer.c ****    #if(b1_critical_timer_UsingFixedFunction)
  459:Generated_Source\PSoC5/b1_critical_timer.c ****        return ((uint16)CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
  460:Generated_Source\PSoC5/b1_critical_timer.c ****    #else
  461:Generated_Source\PSoC5/b1_critical_timer.c ****        return (CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
- 259              		.loc 1 461 0
- 260 0000 014B     		ldr	r3, .L29
- 261 0002 1888     		ldrh	r0, [r3]
+ 506              		.loc 1 461 0
+ 507 0004 034B     		ldr	r3, .L40
+ 508 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 18
+
+
+ 509 0008 9BB2     		uxth	r3, r3
  462:Generated_Source\PSoC5/b1_critical_timer.c ****    #endif /* (b1_critical_timer_UsingFixedFunction) */
  463:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 262              		.loc 1 463 0
- 263 0004 80B2     		uxth	r0, r0
- 264 0006 7047     		bx	lr
- 265              	.L30:
- 266              		.align	2
- 267              	.L29:
- 268 0008 926A0040 		.word	1073769106
- 269              		.cfi_endproc
- 270              	.LFE11:
- 271              		.size	b1_critical_timer_ReadCapture, .-b1_critical_timer_ReadCapture
- 272              		.section	.text.b1_critical_timer_WriteCounter,"ax",%progbits
- 273              		.align	2
- 274              		.global	b1_critical_timer_WriteCounter
- 275              		.thumb
- 276              		.thumb_func
- 277              		.type	b1_critical_timer_WriteCounter, %function
- 278              	b1_critical_timer_WriteCounter:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 14
-
-
- 279              	.LFB12:
+ 510              		.loc 1 463 0
+ 511 000a 1846     		mov	r0, r3
+ 512 000c BD46     		mov	sp, r7
+ 513              		.cfi_def_cfa_register 13
+ 514              		@ sp needed
+ 515 000e 5DF8047B 		ldr	r7, [sp], #4
+ 516              		.cfi_restore 7
+ 517              		.cfi_def_cfa_offset 0
+ 518 0012 7047     		bx	lr
+ 519              	.L41:
+ 520              		.align	2
+ 521              	.L40:
+ 522 0014 906A0040 		.word	1073769104
+ 523              		.cfi_endproc
+ 524              	.LFE11:
+ 525              		.size	b1_critical_timer_ReadCapture, .-b1_critical_timer_ReadCapture
+ 526              		.section	.text.b1_critical_timer_WriteCounter,"ax",%progbits
+ 527              		.align	2
+ 528              		.global	b1_critical_timer_WriteCounter
+ 529              		.thumb
+ 530              		.thumb_func
+ 531              		.type	b1_critical_timer_WriteCounter, %function
+ 532              	b1_critical_timer_WriteCounter:
+ 533              	.LFB12:
  464:Generated_Source\PSoC5/b1_critical_timer.c **** 
  465:Generated_Source\PSoC5/b1_critical_timer.c **** 
  466:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
@@ -800,12 +1066,23 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  479:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  480:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_WriteCounter(uint16 counter) 
  481:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 280              		.loc 1 481 0
- 281              		.cfi_startproc
- 282              		@ args = 0, pretend = 0, frame = 0
- 283              		@ frame_needed = 0, uses_anonymous_args = 0
- 284              		@ link register save eliminated.
- 285              	.LVL3:
+ 534              		.loc 1 481 0
+ 535              		.cfi_startproc
+ 536              		@ args = 0, pretend = 0, frame = 8
+ 537              		@ frame_needed = 1, uses_anonymous_args = 0
+ 538              		@ link register save eliminated.
+ 539 0000 80B4     		push	{r7}
+ 540              		.cfi_def_cfa_offset 4
+ 541              		.cfi_offset 7, -4
+ 542 0002 83B0     		sub	sp, sp, #12
+ 543              		.cfi_def_cfa_offset 16
+ 544 0004 00AF     		add	r7, sp, #0
+ 545              		.cfi_def_cfa_register 7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 19
+
+
+ 546 0006 0346     		mov	r3, r0
+ 547 0008 FB80     		strh	r3, [r7, #6]	@ movhi
  482:Generated_Source\PSoC5/b1_critical_timer.c ****    #if(b1_critical_timer_UsingFixedFunction)
  483:Generated_Source\PSoC5/b1_critical_timer.c ****         /* This functionality is removed until a FixedFunction HW update to
  484:Generated_Source\PSoC5/b1_critical_timer.c ****          * allow this register to be written
@@ -814,33 +1091,40 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  487:Generated_Source\PSoC5/b1_critical_timer.c ****         
  488:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
  489:Generated_Source\PSoC5/b1_critical_timer.c ****         CY_SET_REG16(b1_critical_timer_COUNTER_LSB_PTR, counter);
- 286              		.loc 1 489 0
- 287 0000 014B     		ldr	r3, .L32
- 288 0002 1880     		strh	r0, [r3]	@ movhi
- 289 0004 7047     		bx	lr
- 290              	.L33:
- 291 0006 00BF     		.align	2
- 292              	.L32:
- 293 0008 126A0040 		.word	1073768978
- 294              		.cfi_endproc
- 295              	.LFE12:
- 296              		.size	b1_critical_timer_WriteCounter, .-b1_critical_timer_WriteCounter
- 297              		.section	.text.b1_critical_timer_ReadCounter,"ax",%progbits
- 298              		.align	2
- 299              		.global	b1_critical_timer_ReadCounter
- 300              		.thumb
- 301              		.thumb_func
- 302              		.type	b1_critical_timer_ReadCounter, %function
- 303              	b1_critical_timer_ReadCounter:
- 304              	.LFB13:
+ 548              		.loc 1 489 0
+ 549 000a 044A     		ldr	r2, .L43
+ 550 000c FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 551 000e 1380     		strh	r3, [r2]	@ movhi
  490:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
  491:Generated_Source\PSoC5/b1_critical_timer.c **** }
+ 552              		.loc 1 491 0
+ 553 0010 0C37     		adds	r7, r7, #12
+ 554              		.cfi_def_cfa_offset 4
+ 555 0012 BD46     		mov	sp, r7
+ 556              		.cfi_def_cfa_register 13
+ 557              		@ sp needed
+ 558 0014 5DF8047B 		ldr	r7, [sp], #4
+ 559              		.cfi_restore 7
+ 560              		.cfi_def_cfa_offset 0
+ 561 0018 7047     		bx	lr
+ 562              	.L44:
+ 563 001a 00BF     		.align	2
+ 564              	.L43:
+ 565 001c 106A0040 		.word	1073768976
+ 566              		.cfi_endproc
+ 567              	.LFE12:
+ 568              		.size	b1_critical_timer_WriteCounter, .-b1_critical_timer_WriteCounter
+ 569              		.section	.text.b1_critical_timer_ReadCounter,"ax",%progbits
+ 570              		.align	2
+ 571              		.global	b1_critical_timer_ReadCounter
+ 572              		.thumb
+ 573              		.thumb_func
+ 574              		.type	b1_critical_timer_ReadCounter, %function
+ 575              	b1_critical_timer_ReadCounter:
+ 576              	.LFB13:
  492:Generated_Source\PSoC5/b1_critical_timer.c **** 
  493:Generated_Source\PSoC5/b1_critical_timer.c **** 
  494:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 15
-
-
  495:Generated_Source\PSoC5/b1_critical_timer.c **** * Function Name: b1_critical_timer_ReadCounter
  496:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
  497:Generated_Source\PSoC5/b1_critical_timer.c **** *
@@ -854,13 +1138,21 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  505:Generated_Source\PSoC5/b1_critical_timer.c **** *  Present compare value.
  506:Generated_Source\PSoC5/b1_critical_timer.c **** *
  507:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 20
+
+
  508:Generated_Source\PSoC5/b1_critical_timer.c **** uint16 b1_critical_timer_ReadCounter(void) 
  509:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 305              		.loc 1 509 0
- 306              		.cfi_startproc
- 307              		@ args = 0, pretend = 0, frame = 0
- 308              		@ frame_needed = 0, uses_anonymous_args = 0
- 309              		@ link register save eliminated.
+ 577              		.loc 1 509 0
+ 578              		.cfi_startproc
+ 579              		@ args = 0, pretend = 0, frame = 0
+ 580              		@ frame_needed = 1, uses_anonymous_args = 0
+ 581              		@ link register save eliminated.
+ 582 0000 80B4     		push	{r7}
+ 583              		.cfi_def_cfa_offset 4
+ 584              		.cfi_offset 7, -4
+ 585 0002 00AF     		add	r7, sp, #0
+ 586              		.cfi_def_cfa_register 7
  510:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Force capture by reading Accumulator */
  511:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Must first do a software capture to be able to read the counter */
  512:Generated_Source\PSoC5/b1_critical_timer.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
@@ -868,9 +1160,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  514:Generated_Source\PSoC5/b1_critical_timer.c ****         (void)CY_GET_REG16(b1_critical_timer_COUNTER_LSB_PTR);
  515:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
  516:Generated_Source\PSoC5/b1_critical_timer.c ****         (void)CY_GET_REG8(b1_critical_timer_COUNTER_LSB_PTR_8BIT);
- 310              		.loc 1 516 0
- 311 0000 024B     		ldr	r3, .L35
- 312 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 587              		.loc 1 516 0
+ 588 0004 044B     		ldr	r3, .L47
+ 589 0006 1B78     		ldrb	r3, [r3]
  517:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif/* (b1_critical_timer_UsingFixedFunction) */
  518:Generated_Source\PSoC5/b1_critical_timer.c **** 
  519:Generated_Source\PSoC5/b1_critical_timer.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
@@ -878,33 +1170,40 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  521:Generated_Source\PSoC5/b1_critical_timer.c ****         return ((uint16)CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
  522:Generated_Source\PSoC5/b1_critical_timer.c ****     #else
  523:Generated_Source\PSoC5/b1_critical_timer.c ****         return (CY_GET_REG16(b1_critical_timer_CAPTURE_LSB_PTR));
- 313              		.loc 1 523 0
- 314 0004 024B     		ldr	r3, .L35+4
- 315 0006 1888     		ldrh	r0, [r3]
+ 590              		.loc 1 523 0
+ 591 0008 044B     		ldr	r3, .L47+4
+ 592 000a 1B88     		ldrh	r3, [r3]	@ movhi
+ 593 000c 9BB2     		uxth	r3, r3
  524:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* (b1_critical_timer_UsingFixedFunction) */
  525:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 316              		.loc 1 525 0
- 317 0008 80B2     		uxth	r0, r0
- 318 000a 7047     		bx	lr
- 319              	.L36:
- 320              		.align	2
- 321              	.L35:
- 322 000c 09650040 		.word	1073767689
- 323 0010 926A0040 		.word	1073769106
- 324              		.cfi_endproc
- 325              	.LFE13:
- 326              		.size	b1_critical_timer_ReadCounter, .-b1_critical_timer_ReadCounter
- 327              		.section	.text.b1_critical_timer_ClearFIFO,"ax",%progbits
- 328              		.align	2
- 329              		.global	b1_critical_timer_ClearFIFO
- 330              		.thumb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 16
+ 594              		.loc 1 525 0
+ 595 000e 1846     		mov	r0, r3
+ 596 0010 BD46     		mov	sp, r7
+ 597              		.cfi_def_cfa_register 13
+ 598              		@ sp needed
+ 599 0012 5DF8047B 		ldr	r7, [sp], #4
+ 600              		.cfi_restore 7
+ 601              		.cfi_def_cfa_offset 0
+ 602 0016 7047     		bx	lr
+ 603              	.L48:
+ 604              		.align	2
+ 605              	.L47:
+ 606 0018 08650040 		.word	1073767688
+ 607 001c 906A0040 		.word	1073769104
+ 608              		.cfi_endproc
+ 609              	.LFE13:
+ 610              		.size	b1_critical_timer_ReadCounter, .-b1_critical_timer_ReadCounter
+ 611              		.section	.text.b1_critical_timer_ClearFIFO,"ax",%progbits
+ 612              		.align	2
+ 613              		.global	b1_critical_timer_ClearFIFO
+ 614              		.thumb
+ 615              		.thumb_func
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 21
 
 
- 331              		.thumb_func
- 332              		.type	b1_critical_timer_ClearFIFO, %function
- 333              	b1_critical_timer_ClearFIFO:
- 334              	.LFB14:
+ 616              		.type	b1_critical_timer_ClearFIFO, %function
+ 617              	b1_critical_timer_ClearFIFO:
+ 618              	.LFB14:
  526:Generated_Source\PSoC5/b1_critical_timer.c **** 
  527:Generated_Source\PSoC5/b1_critical_timer.c **** 
  528:Generated_Source\PSoC5/b1_critical_timer.c **** #if(!b1_critical_timer_UsingFixedFunction) /* UDB Specific Functions */
@@ -958,10 +1257,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  576:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Write The New Setting */
  577:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CONTROL |= captureMode;
  578:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* (!b1_critical_timer_UDB_CONTROL_REG_REMOVED) */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 17
-
-
  579:Generated_Source\PSoC5/b1_critical_timer.c **** }
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 22
+
+
  580:Generated_Source\PSoC5/b1_critical_timer.c **** #endif /* Remove API if Capture Mode is not Software Controlled */
  581:Generated_Source\PSoC5/b1_critical_timer.c **** 
  582:Generated_Source\PSoC5/b1_critical_timer.c **** 
@@ -1018,10 +1317,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  633:Generated_Source\PSoC5/b1_critical_timer.c **** *
  634:Generated_Source\PSoC5/b1_critical_timer.c **** * Return:
  635:Generated_Source\PSoC5/b1_critical_timer.c **** *  void
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 18
-
-
  636:Generated_Source\PSoC5/b1_critical_timer.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 23
+
+
  637:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  638:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_EnableTrigger(void) 
  639:Generated_Source\PSoC5/b1_critical_timer.c **** {
@@ -1078,10 +1377,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  690:Generated_Source\PSoC5/b1_critical_timer.c ****     /* This must only set to two bits of the control register associated */
  691:Generated_Source\PSoC5/b1_critical_timer.c ****     interruptCount &= b1_critical_timer_CTRL_INTCNT_MASK;
  692:Generated_Source\PSoC5/b1_critical_timer.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 19
-
-
  693:Generated_Source\PSoC5/b1_critical_timer.c ****     #if (!b1_critical_timer_UDB_CONTROL_REG_REMOVED)
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 24
+
+
  694:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Clear the Current Setting */
  695:Generated_Source\PSoC5/b1_critical_timer.c ****         b1_critical_timer_CONTROL &= ((uint8)(~b1_critical_timer_CTRL_INTCNT_MASK));
  696:Generated_Source\PSoC5/b1_critical_timer.c ****         /* Write The New Setting */
@@ -1138,10 +1437,10 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  747:Generated_Source\PSoC5/b1_critical_timer.c **** 
  748:Generated_Source\PSoC5/b1_critical_timer.c **** 
  749:Generated_Source\PSoC5/b1_critical_timer.c **** /*******************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 20
-
-
  750:Generated_Source\PSoC5/b1_critical_timer.c **** * Function Name: b1_critical_timer_ClearFIFO
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 25
+
+
  751:Generated_Source\PSoC5/b1_critical_timer.c **** ********************************************************************************
  752:Generated_Source\PSoC5/b1_critical_timer.c **** *
  753:Generated_Source\PSoC5/b1_critical_timer.c **** * Summary:
@@ -1156,1178 +1455,940 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 1
  762:Generated_Source\PSoC5/b1_critical_timer.c **** *******************************************************************************/
  763:Generated_Source\PSoC5/b1_critical_timer.c **** void b1_critical_timer_ClearFIFO(void) 
  764:Generated_Source\PSoC5/b1_critical_timer.c **** {
- 335              		.loc 1 764 0
- 336              		.cfi_startproc
- 337              		@ args = 0, pretend = 0, frame = 0
- 338              		@ frame_needed = 0, uses_anonymous_args = 0
- 339 0000 08B5     		push	{r3, lr}
- 340              		.cfi_def_cfa_offset 8
- 341              		.cfi_offset 3, -8
- 342              		.cfi_offset 14, -4
+ 619              		.loc 1 764 0
+ 620              		.cfi_startproc
+ 621              		@ args = 0, pretend = 0, frame = 0
+ 622              		@ frame_needed = 1, uses_anonymous_args = 0
+ 623 0000 80B5     		push	{r7, lr}
+ 624              		.cfi_def_cfa_offset 8
+ 625              		.cfi_offset 7, -8
+ 626              		.cfi_offset 14, -4
+ 627 0002 00AF     		add	r7, sp, #0
+ 628              		.cfi_def_cfa_register 7
  765:Generated_Source\PSoC5/b1_critical_timer.c ****     while(0u != (b1_critical_timer_ReadStatusRegister() & b1_critical_timer_STATUS_FIFONEMP))
- 343              		.loc 1 765 0
- 344 0002 01E0     		b	.L38
- 345              	.L39:
+ 629              		.loc 1 765 0
+ 630 0004 01E0     		b	.L50
+ 631              	.L51:
  766:Generated_Source\PSoC5/b1_critical_timer.c ****     {
  767:Generated_Source\PSoC5/b1_critical_timer.c ****         (void)b1_critical_timer_ReadCapture();
- 346              		.loc 1 767 0
- 347 0004 FFF7FEFF 		bl	b1_critical_timer_ReadCapture
- 348              	.LVL4:
- 349              	.L38:
+ 632              		.loc 1 767 0
+ 633 0006 FFF7FEFF 		bl	b1_critical_timer_ReadCapture
+ 634              	.L50:
  765:Generated_Source\PSoC5/b1_critical_timer.c ****     while(0u != (b1_critical_timer_ReadStatusRegister() & b1_critical_timer_STATUS_FIFONEMP))
- 350              		.loc 1 765 0
- 351 0008 FFF7FEFF 		bl	b1_critical_timer_ReadStatusRegister
- 352              	.LVL5:
- 353 000c 10F0080F 		tst	r0, #8
- 354 0010 F8D1     		bne	.L39
+ 635              		.loc 1 765 0
+ 636 000a FFF7FEFF 		bl	b1_critical_timer_ReadStatusRegister
+ 637 000e 0346     		mov	r3, r0
+ 638 0010 03F00803 		and	r3, r3, #8
+ 639 0014 002B     		cmp	r3, #0
+ 640 0016 F6D1     		bne	.L51
  768:Generated_Source\PSoC5/b1_critical_timer.c ****     }
  769:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 355              		.loc 1 769 0
- 356 0012 08BD     		pop	{r3, pc}
- 357              		.cfi_endproc
- 358              	.LFE14:
- 359              		.size	b1_critical_timer_ClearFIFO, .-b1_critical_timer_ClearFIFO
- 360              		.section	.text.b1_critical_timer_Init,"ax",%progbits
- 361              		.align	2
- 362              		.global	b1_critical_timer_Init
- 363              		.thumb
- 364              		.thumb_func
- 365              		.type	b1_critical_timer_Init, %function
- 366              	b1_critical_timer_Init:
- 367              	.LFB0:
-  44:Generated_Source\PSoC5/b1_critical_timer.c ****     #if(!b1_critical_timer_UsingFixedFunction)
- 368              		.loc 1 44 0
- 369              		.cfi_startproc
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 21
+ 641              		.loc 1 769 0
+ 642 0018 80BD     		pop	{r7, pc}
+ 643              		.cfi_endproc
+ 644              	.LFE14:
+ 645              		.size	b1_critical_timer_ClearFIFO, .-b1_critical_timer_ClearFIFO
+ 646 001a 00BF     		.text
+ 647              	.Letext0:
+ 648              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 649              		.section	.debug_info,"",%progbits
+ 650              	.Ldebug_info0:
+ 651 0000 50020000 		.4byte	0x250
+ 652 0004 0400     		.2byte	0x4
+ 653 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 654 000a 04       		.byte	0x4
+ 655 000b 01       		.uleb128 0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 26
 
 
- 370              		@ args = 0, pretend = 0, frame = 0
- 371              		@ frame_needed = 0, uses_anonymous_args = 0
- 372 0000 08B5     		push	{r3, lr}
- 373              		.cfi_def_cfa_offset 8
- 374              		.cfi_offset 3, -8
- 375              		.cfi_offset 14, -4
- 118:Generated_Source\PSoC5/b1_critical_timer.c ****     b1_critical_timer_WriteCounter(b1_critical_timer_INIT_PERIOD);
- 376              		.loc 1 118 0
- 377 0002 41F28730 		movw	r0, #4999
- 378 0006 FFF7FEFF 		bl	b1_critical_timer_WritePeriod
- 379              	.LVL6:
- 119:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 380              		.loc 1 119 0
- 381 000a 41F28730 		movw	r0, #4999
- 382 000e FFF7FEFF 		bl	b1_critical_timer_WriteCounter
- 383              	.LVL7:
- 142:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 384              		.loc 1 142 0
- 385 0012 FFF7FEFF 		bl	CyEnterCriticalSection
- 386              	.LVL8:
- 145:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 387              		.loc 1 145 0
- 388 0016 064A     		ldr	r2, .L43
- 389 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 390 001a 43F01003 		orr	r3, r3, #16
- 391 001e 1370     		strb	r3, [r2]
- 148:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 392              		.loc 1 148 0
- 393 0020 FFF7FEFF 		bl	CyExitCriticalSection
- 394              	.LVL9:
- 159:Generated_Source\PSoC5/b1_critical_timer.c ****     #endif /* Configure additional features of UDB implementation */
- 395              		.loc 1 159 0
- 396 0024 FFF7FEFF 		bl	b1_critical_timer_ClearFIFO
- 397              	.LVL10:
- 162:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 398              		.loc 1 162 0
- 399 0028 0020     		movs	r0, #0
- 400 002a FFF7FEFF 		bl	b1_critical_timer_SetInterruptMode
- 401              	.LVL11:
- 402 002e 08BD     		pop	{r3, pc}
- 403              	.L44:
- 404              		.align	2
- 405              	.L43:
- 406 0030 9A650040 		.word	1073767834
- 407              		.cfi_endproc
- 408              	.LFE0:
- 409              		.size	b1_critical_timer_Init, .-b1_critical_timer_Init
- 410              		.section	.text.b1_critical_timer_Start,"ax",%progbits
- 411              		.align	2
- 412              		.global	b1_critical_timer_Start
- 413              		.thumb
- 414              		.thumb_func
- 415              		.type	b1_critical_timer_Start, %function
- 416              	b1_critical_timer_Start:
- 417              	.LFB2:
- 216:Generated_Source\PSoC5/b1_critical_timer.c ****     if(b1_critical_timer_initVar == 0u)
- 418              		.loc 1 216 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 22
+ 656 000c 81010000 		.4byte	.LASF36
+ 657 0010 01       		.byte	0x1
+ 658 0011 06000000 		.4byte	.LASF37
+ 659 0015 5C030000 		.4byte	.LASF38
+ 660 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 661 001d 00000000 		.4byte	0
+ 662 0021 00000000 		.4byte	.Ldebug_line0
+ 663 0025 02       		.uleb128 0x2
+ 664 0026 01       		.byte	0x1
+ 665 0027 06       		.byte	0x6
+ 666 0028 99030000 		.4byte	.LASF0
+ 667 002c 02       		.uleb128 0x2
+ 668 002d 01       		.byte	0x1
+ 669 002e 08       		.byte	0x8
+ 670 002f EE000000 		.4byte	.LASF1
+ 671 0033 02       		.uleb128 0x2
+ 672 0034 02       		.byte	0x2
+ 673 0035 05       		.byte	0x5
+ 674 0036 0F030000 		.4byte	.LASF2
+ 675 003a 02       		.uleb128 0x2
+ 676 003b 02       		.byte	0x2
+ 677 003c 07       		.byte	0x7
+ 678 003d A5030000 		.4byte	.LASF3
+ 679 0041 02       		.uleb128 0x2
+ 680 0042 04       		.byte	0x4
+ 681 0043 05       		.byte	0x5
+ 682 0044 4E030000 		.4byte	.LASF4
+ 683 0048 02       		.uleb128 0x2
+ 684 0049 04       		.byte	0x4
+ 685 004a 07       		.byte	0x7
+ 686 004b 1A010000 		.4byte	.LASF5
+ 687 004f 02       		.uleb128 0x2
+ 688 0050 08       		.byte	0x8
+ 689 0051 05       		.byte	0x5
+ 690 0052 CE020000 		.4byte	.LASF6
+ 691 0056 02       		.uleb128 0x2
+ 692 0057 08       		.byte	0x8
+ 693 0058 07       		.byte	0x7
+ 694 0059 66020000 		.4byte	.LASF7
+ 695 005d 03       		.uleb128 0x3
+ 696 005e 04       		.byte	0x4
+ 697 005f 05       		.byte	0x5
+ 698 0060 696E7400 		.ascii	"int\000"
+ 699 0064 02       		.uleb128 0x2
+ 700 0065 04       		.byte	0x4
+ 701 0066 07       		.byte	0x7
+ 702 0067 59020000 		.4byte	.LASF8
+ 703 006b 04       		.uleb128 0x4
+ 704 006c 2C010000 		.4byte	.LASF9
+ 705 0070 02       		.byte	0x2
+ 706 0071 3801     		.2byte	0x138
+ 707 0073 2C000000 		.4byte	0x2c
+ 708 0077 04       		.uleb128 0x4
+ 709 0078 52020000 		.4byte	.LASF10
+ 710 007c 02       		.byte	0x2
+ 711 007d 3901     		.2byte	0x139
+ 712 007f 3A000000 		.4byte	0x3a
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 27
 
 
- 419              		.cfi_startproc
- 420              		@ args = 0, pretend = 0, frame = 0
- 421              		@ frame_needed = 0, uses_anonymous_args = 0
- 422 0000 08B5     		push	{r3, lr}
- 423              		.cfi_def_cfa_offset 8
- 424              		.cfi_offset 3, -8
- 425              		.cfi_offset 14, -4
- 217:Generated_Source\PSoC5/b1_critical_timer.c ****     {
- 426              		.loc 1 217 0
- 427 0002 054B     		ldr	r3, .L48
- 428 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 429 0006 23B9     		cbnz	r3, .L46
- 219:Generated_Source\PSoC5/b1_critical_timer.c **** 
- 430              		.loc 1 219 0
- 431 0008 FFF7FEFF 		bl	b1_critical_timer_Init
- 432              	.LVL12:
- 221:Generated_Source\PSoC5/b1_critical_timer.c ****     }
- 433              		.loc 1 221 0
- 434 000c 0122     		movs	r2, #1
- 435 000e 024B     		ldr	r3, .L48
- 436 0010 1A70     		strb	r2, [r3]
- 437              	.L46:
- 225:Generated_Source\PSoC5/b1_critical_timer.c **** }
- 438              		.loc 1 225 0
- 439 0012 FFF7FEFF 		bl	b1_critical_timer_Enable
- 440              	.LVL13:
- 441 0016 08BD     		pop	{r3, pc}
- 442              	.L49:
- 443              		.align	2
- 444              	.L48:
- 445 0018 00000000 		.word	.LANCHOR0
- 446              		.cfi_endproc
- 447              	.LFE2:
- 448              		.size	b1_critical_timer_Start, .-b1_critical_timer_Start
- 449              		.global	b1_critical_timer_initVar
- 450              		.bss
- 451              		.set	.LANCHOR0,. + 0
- 452              		.type	b1_critical_timer_initVar, %object
- 453              		.size	b1_critical_timer_initVar, 1
- 454              	b1_critical_timer_initVar:
- 455 0000 00       		.space	1
- 456              		.text
- 457              	.Letext0:
- 458              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 459              		.file 3 "Generated_Source\\PSoC5\\CyLib.h"
- 460              		.section	.debug_info,"",%progbits
- 461              	.Ldebug_info0:
- 462 0000 E7020000 		.4byte	0x2e7
- 463 0004 0400     		.2byte	0x4
- 464 0006 00000000 		.4byte	.Ldebug_abbrev0
- 465 000a 04       		.byte	0x4
- 466 000b 01       		.uleb128 0x1
- 467 000c E8010000 		.4byte	.LASF36
- 468 0010 01       		.byte	0x1
- 469 0011 06000000 		.4byte	.LASF37
- 470 0015 8F030000 		.4byte	.LASF38
- 471 0019 00000000 		.4byte	.Ldebug_ranges0+0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 23
+ 713 0083 02       		.uleb128 0x2
+ 714 0084 04       		.byte	0x4
+ 715 0085 04       		.byte	0x4
+ 716 0086 BD000000 		.4byte	.LASF11
+ 717 008a 02       		.uleb128 0x2
+ 718 008b 08       		.byte	0x8
+ 719 008c 04       		.byte	0x4
+ 720 008d 0F020000 		.4byte	.LASF12
+ 721 0091 02       		.uleb128 0x2
+ 722 0092 01       		.byte	0x1
+ 723 0093 08       		.byte	0x8
+ 724 0094 57030000 		.4byte	.LASF13
+ 725 0098 04       		.uleb128 0x4
+ 726 0099 99020000 		.4byte	.LASF14
+ 727 009d 02       		.byte	0x2
+ 728 009e E201     		.2byte	0x1e2
+ 729 00a0 A4000000 		.4byte	0xa4
+ 730 00a4 05       		.uleb128 0x5
+ 731 00a5 6B000000 		.4byte	0x6b
+ 732 00a9 04       		.uleb128 0x4
+ 733 00aa 00000000 		.4byte	.LASF15
+ 734 00ae 02       		.byte	0x2
+ 735 00af E301     		.2byte	0x1e3
+ 736 00b1 B5000000 		.4byte	0xb5
+ 737 00b5 05       		.uleb128 0x5
+ 738 00b6 77000000 		.4byte	0x77
+ 739 00ba 02       		.uleb128 0x2
+ 740 00bb 04       		.byte	0x4
+ 741 00bc 07       		.byte	0x7
+ 742 00bd C5020000 		.4byte	.LASF16
+ 743 00c1 06       		.uleb128 0x6
+ 744 00c2 19030000 		.4byte	.LASF20
+ 745 00c6 01       		.byte	0x1
+ 746 00c7 2B       		.byte	0x2b
+ 747 00c8 00000000 		.4byte	.LFB0
+ 748 00cc 4C000000 		.4byte	.LFE0-.LFB0
+ 749 00d0 01       		.uleb128 0x1
+ 750 00d1 9C       		.byte	0x9c
+ 751 00d2 E5000000 		.4byte	0xe5
+ 752 00d6 07       		.uleb128 0x7
+ 753 00d7 3A010000 		.4byte	.LASF39
+ 754 00db 01       		.byte	0x1
+ 755 00dc 2F       		.byte	0x2f
+ 756 00dd 6B000000 		.4byte	0x6b
+ 757 00e1 02       		.uleb128 0x2
+ 758 00e2 91       		.byte	0x91
+ 759 00e3 77       		.sleb128 -9
+ 760 00e4 00       		.byte	0
+ 761 00e5 08       		.uleb128 0x8
+ 762 00e6 A4000000 		.4byte	.LASF17
+ 763 00ea 01       		.byte	0x1
+ 764 00eb B4       		.byte	0xb4
+ 765 00ec 00000000 		.4byte	.LFB1
+ 766 00f0 20000000 		.4byte	.LFE1-.LFB1
+ 767 00f4 01       		.uleb128 0x1
+ 768 00f5 9C       		.byte	0x9c
+ 769 00f6 09       		.uleb128 0x9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 28
 
 
- 472 001d 00000000 		.4byte	0
- 473 0021 00000000 		.4byte	.Ldebug_line0
- 474 0025 02       		.uleb128 0x2
- 475 0026 01       		.byte	0x1
- 476 0027 06       		.byte	0x6
- 477 0028 CC030000 		.4byte	.LASF0
- 478 002c 02       		.uleb128 0x2
- 479 002d 01       		.byte	0x1
- 480 002e 08       		.byte	0x8
- 481 002f EE000000 		.4byte	.LASF1
- 482 0033 02       		.uleb128 0x2
- 483 0034 02       		.byte	0x2
- 484 0035 05       		.byte	0x5
- 485 0036 42030000 		.4byte	.LASF2
- 486 003a 02       		.uleb128 0x2
- 487 003b 02       		.byte	0x2
- 488 003c 07       		.byte	0x7
- 489 003d D8030000 		.4byte	.LASF3
- 490 0041 02       		.uleb128 0x2
- 491 0042 04       		.byte	0x4
- 492 0043 05       		.byte	0x5
- 493 0044 81030000 		.4byte	.LASF4
- 494 0048 02       		.uleb128 0x2
- 495 0049 04       		.byte	0x4
- 496 004a 07       		.byte	0x7
- 497 004b 1A010000 		.4byte	.LASF5
- 498 004f 02       		.uleb128 0x2
- 499 0050 08       		.byte	0x8
- 500 0051 05       		.byte	0x5
- 501 0052 01030000 		.4byte	.LASF6
- 502 0056 02       		.uleb128 0x2
- 503 0057 08       		.byte	0x8
- 504 0058 07       		.byte	0x7
- 505 0059 EB030000 		.4byte	.LASF7
- 506 005d 03       		.uleb128 0x3
- 507 005e 04       		.byte	0x4
- 508 005f 05       		.byte	0x5
- 509 0060 696E7400 		.ascii	"int\000"
- 510 0064 02       		.uleb128 0x2
- 511 0065 04       		.byte	0x4
- 512 0066 07       		.byte	0x7
- 513 0067 8D020000 		.4byte	.LASF8
- 514 006b 04       		.uleb128 0x4
- 515 006c 2C010000 		.4byte	.LASF9
- 516 0070 02       		.byte	0x2
- 517 0071 3801     		.2byte	0x138
- 518 0073 2C000000 		.4byte	0x2c
- 519 0077 04       		.uleb128 0x4
- 520 0078 E1010000 		.4byte	.LASF10
- 521 007c 02       		.byte	0x2
- 522 007d 3901     		.2byte	0x139
- 523 007f 3A000000 		.4byte	0x3a
- 524 0083 02       		.uleb128 0x2
- 525 0084 04       		.byte	0x4
- 526 0085 04       		.byte	0x4
- 527 0086 BD000000 		.4byte	.LASF11
- 528 008a 02       		.uleb128 0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 24
+ 770 00f7 48000000 		.4byte	.LASF18
+ 771 00fb 01       		.byte	0x1
+ 772 00fc D7       		.byte	0xd7
+ 773 00fd 00000000 		.4byte	.LFB2
+ 774 0101 20000000 		.4byte	.LFE2-.LFB2
+ 775 0105 01       		.uleb128 0x1
+ 776 0106 9C       		.byte	0x9c
+ 777 0107 08       		.uleb128 0x8
+ 778 0108 31000000 		.4byte	.LASF19
+ 779 010c 01       		.byte	0x1
+ 780 010d F7       		.byte	0xf7
+ 781 010e 00000000 		.4byte	.LFB3
+ 782 0112 20000000 		.4byte	.LFE3-.LFB3
+ 783 0116 01       		.uleb128 0x1
+ 784 0117 9C       		.byte	0x9c
+ 785 0118 0A       		.uleb128 0xa
+ 786 0119 CB000000 		.4byte	.LASF21
+ 787 011d 01       		.byte	0x1
+ 788 011e 1701     		.2byte	0x117
+ 789 0120 00000000 		.4byte	.LFB4
+ 790 0124 20000000 		.4byte	.LFE4-.LFB4
+ 791 0128 01       		.uleb128 0x1
+ 792 0129 9C       		.byte	0x9c
+ 793 012a 3E010000 		.4byte	0x13e
+ 794 012e 0B       		.uleb128 0xb
+ 795 012f DC020000 		.4byte	.LASF26
+ 796 0133 01       		.byte	0x1
+ 797 0134 1701     		.2byte	0x117
+ 798 0136 6B000000 		.4byte	0x6b
+ 799 013a 02       		.uleb128 0x2
+ 800 013b 91       		.byte	0x91
+ 801 013c 77       		.sleb128 -9
+ 802 013d 00       		.byte	0
+ 803 013e 0C       		.uleb128 0xc
+ 804 013f 30020000 		.4byte	.LASF22
+ 805 0143 01       		.byte	0x1
+ 806 0144 2E01     		.2byte	0x12e
+ 807 0146 00000000 		.4byte	.LFB5
+ 808 014a 14000000 		.4byte	.LFE5-.LFB5
+ 809 014e 01       		.uleb128 0x1
+ 810 014f 9C       		.byte	0x9c
+ 811 0150 0D       		.uleb128 0xd
+ 812 0151 EA020000 		.4byte	.LASF23
+ 813 0155 01       		.byte	0x1
+ 814 0156 4D01     		.2byte	0x14d
+ 815 0158 6B000000 		.4byte	0x6b
+ 816 015c 00000000 		.4byte	.LFB6
+ 817 0160 18000000 		.4byte	.LFE6-.LFB6
+ 818 0164 01       		.uleb128 0x1
+ 819 0165 9C       		.byte	0x9c
+ 820 0166 0D       		.uleb128 0xd
+ 821 0167 5B010000 		.4byte	.LASF24
+ 822 016b 01       		.byte	0x1
+ 823 016c 6401     		.2byte	0x164
+ 824 016e 6B000000 		.4byte	0x6b
+ 825 0172 00000000 		.4byte	.LFB7
+ 826 0176 18000000 		.4byte	.LFE7-.LFB7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 29
 
 
- 529 008b 08       		.byte	0x8
- 530 008c 04       		.byte	0x4
- 531 008d 9E010000 		.4byte	.LASF12
- 532 0091 02       		.uleb128 0x2
- 533 0092 01       		.byte	0x1
- 534 0093 08       		.byte	0x8
- 535 0094 8A030000 		.4byte	.LASF13
- 536 0098 04       		.uleb128 0x4
- 537 0099 CC020000 		.4byte	.LASF14
- 538 009d 02       		.byte	0x2
- 539 009e E201     		.2byte	0x1e2
- 540 00a0 A4000000 		.4byte	0xa4
- 541 00a4 05       		.uleb128 0x5
- 542 00a5 6B000000 		.4byte	0x6b
- 543 00a9 04       		.uleb128 0x4
- 544 00aa 00000000 		.4byte	.LASF15
- 545 00ae 02       		.byte	0x2
- 546 00af E301     		.2byte	0x1e3
- 547 00b1 B5000000 		.4byte	0xb5
- 548 00b5 05       		.uleb128 0x5
- 549 00b6 77000000 		.4byte	0x77
- 550 00ba 02       		.uleb128 0x2
- 551 00bb 04       		.byte	0x4
- 552 00bc 07       		.byte	0x7
- 553 00bd F8020000 		.4byte	.LASF16
- 554 00c1 06       		.uleb128 0x6
- 555 00c2 A4000000 		.4byte	.LASF17
- 556 00c6 01       		.byte	0x1
- 557 00c7 B4       		.byte	0xb4
- 558 00c8 00000000 		.4byte	.LFB1
- 559 00cc 10000000 		.4byte	.LFE1-.LFB1
- 560 00d0 01       		.uleb128 0x1
- 561 00d1 9C       		.byte	0x9c
- 562 00d2 06       		.uleb128 0x6
- 563 00d3 31000000 		.4byte	.LASF18
- 564 00d7 01       		.byte	0x1
- 565 00d8 F7       		.byte	0xf7
- 566 00d9 00000000 		.4byte	.LFB3
- 567 00dd 10000000 		.4byte	.LFE3-.LFB3
- 568 00e1 01       		.uleb128 0x1
- 569 00e2 9C       		.byte	0x9c
- 570 00e3 07       		.uleb128 0x7
- 571 00e4 CB000000 		.4byte	.LASF22
- 572 00e8 01       		.byte	0x1
- 573 00e9 1701     		.2byte	0x117
- 574 00eb 00000000 		.4byte	.LFB4
- 575 00ef 0C000000 		.4byte	.LFE4-.LFB4
- 576 00f3 01       		.uleb128 0x1
- 577 00f4 9C       		.byte	0x9c
- 578 00f5 08010000 		.4byte	0x108
- 579 00f9 08       		.uleb128 0x8
- 580 00fa 0F030000 		.4byte	.LASF24
- 581 00fe 01       		.byte	0x1
- 582 00ff 1701     		.2byte	0x117
- 583 0101 6B000000 		.4byte	0x6b
- 584 0105 01       		.uleb128 0x1
- 585 0106 50       		.byte	0x50
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 25
+ 827 017a 01       		.uleb128 0x1
+ 828 017b 9C       		.byte	0x9c
+ 829 017c 0A       		.uleb128 0xa
+ 830 017d 9E020000 		.4byte	.LASF25
+ 831 0181 01       		.byte	0x1
+ 832 0182 7B01     		.2byte	0x17b
+ 833 0184 00000000 		.4byte	.LFB8
+ 834 0188 20000000 		.4byte	.LFE8-.LFB8
+ 835 018c 01       		.uleb128 0x1
+ 836 018d 9C       		.byte	0x9c
+ 837 018e A2010000 		.4byte	0x1a2
+ 838 0192 0B       		.uleb128 0xb
+ 839 0193 32010000 		.4byte	.LASF27
+ 840 0197 01       		.byte	0x1
+ 841 0198 7B01     		.2byte	0x17b
+ 842 019a 6B000000 		.4byte	0x6b
+ 843 019e 02       		.uleb128 0x2
+ 844 019f 91       		.byte	0x91
+ 845 01a0 77       		.sleb128 -9
+ 846 01a1 00       		.byte	0
+ 847 01a2 0D       		.uleb128 0xd
+ 848 01a3 B8030000 		.4byte	.LASF28
+ 849 01a7 01       		.byte	0x1
+ 850 01a8 9501     		.2byte	0x195
+ 851 01aa 77000000 		.4byte	0x77
+ 852 01ae 00000000 		.4byte	.LFB9
+ 853 01b2 18000000 		.4byte	.LFE9-.LFB9
+ 854 01b6 01       		.uleb128 0x1
+ 855 01b7 9C       		.byte	0x9c
+ 856 01b8 0A       		.uleb128 0xa
+ 857 01b9 FC000000 		.4byte	.LASF29
+ 858 01bd 01       		.byte	0x1
+ 859 01be AF01     		.2byte	0x1af
+ 860 01c0 00000000 		.4byte	.LFB10
+ 861 01c4 20000000 		.4byte	.LFE10-.LFB10
+ 862 01c8 01       		.uleb128 0x1
+ 863 01c9 9C       		.byte	0x9c
+ 864 01ca DE010000 		.4byte	0x1de
+ 865 01ce 0B       		.uleb128 0xb
+ 866 01cf 60000000 		.4byte	.LASF30
+ 867 01d3 01       		.byte	0x1
+ 868 01d4 AF01     		.2byte	0x1af
+ 869 01d6 77000000 		.4byte	0x77
+ 870 01da 02       		.uleb128 0x2
+ 871 01db 91       		.byte	0x91
+ 872 01dc 76       		.sleb128 -10
+ 873 01dd 00       		.byte	0
+ 874 01de 0D       		.uleb128 0xd
+ 875 01df 30030000 		.4byte	.LASF31
+ 876 01e3 01       		.byte	0x1
+ 877 01e4 C801     		.2byte	0x1c8
+ 878 01e6 77000000 		.4byte	0x77
+ 879 01ea 00000000 		.4byte	.LFB11
+ 880 01ee 18000000 		.4byte	.LFE11-.LFB11
+ 881 01f2 01       		.uleb128 0x1
+ 882 01f3 9C       		.byte	0x9c
+ 883 01f4 0A       		.uleb128 0xa
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 30
 
 
- 586 0107 00       		.byte	0
- 587 0108 09       		.uleb128 0x9
- 588 0109 BF010000 		.4byte	.LASF19
- 589 010d 01       		.byte	0x1
- 590 010e 2E01     		.2byte	0x12e
- 591 0110 00000000 		.4byte	.LFB5
- 592 0114 0C000000 		.4byte	.LFE5-.LFB5
- 593 0118 01       		.uleb128 0x1
- 594 0119 9C       		.byte	0x9c
- 595 011a 0A       		.uleb128 0xa
- 596 011b 1D030000 		.4byte	.LASF20
- 597 011f 01       		.byte	0x1
- 598 0120 4D01     		.2byte	0x14d
- 599 0122 6B000000 		.4byte	0x6b
- 600 0126 00000000 		.4byte	.LFB6
- 601 012a 0C000000 		.4byte	.LFE6-.LFB6
- 602 012e 01       		.uleb128 0x1
- 603 012f 9C       		.byte	0x9c
- 604 0130 0A       		.uleb128 0xa
- 605 0131 5B010000 		.4byte	.LASF21
- 606 0135 01       		.byte	0x1
- 607 0136 6401     		.2byte	0x164
- 608 0138 6B000000 		.4byte	0x6b
- 609 013c 00000000 		.4byte	.LFB7
- 610 0140 0C000000 		.4byte	.LFE7-.LFB7
- 611 0144 01       		.uleb128 0x1
- 612 0145 9C       		.byte	0x9c
- 613 0146 07       		.uleb128 0x7
- 614 0147 D1020000 		.4byte	.LASF23
- 615 014b 01       		.byte	0x1
- 616 014c 7B01     		.2byte	0x17b
- 617 014e 00000000 		.4byte	.LFB8
- 618 0152 0C000000 		.4byte	.LFE8-.LFB8
- 619 0156 01       		.uleb128 0x1
- 620 0157 9C       		.byte	0x9c
- 621 0158 6B010000 		.4byte	0x16b
- 622 015c 08       		.uleb128 0x8
- 623 015d 32010000 		.4byte	.LASF25
- 624 0161 01       		.byte	0x1
- 625 0162 7B01     		.2byte	0x17b
- 626 0164 6B000000 		.4byte	0x6b
- 627 0168 01       		.uleb128 0x1
- 628 0169 50       		.byte	0x50
- 629 016a 00       		.byte	0
- 630 016b 0A       		.uleb128 0xa
- 631 016c 81010000 		.4byte	.LASF26
- 632 0170 01       		.byte	0x1
- 633 0171 9501     		.2byte	0x195
- 634 0173 77000000 		.4byte	0x77
- 635 0177 00000000 		.4byte	.LFB9
- 636 017b 0C000000 		.4byte	.LFE9-.LFB9
- 637 017f 01       		.uleb128 0x1
- 638 0180 9C       		.byte	0x9c
- 639 0181 07       		.uleb128 0x7
- 640 0182 FC000000 		.4byte	.LASF27
- 641 0186 01       		.byte	0x1
- 642 0187 AF01     		.2byte	0x1af
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 26
+ 884 01f5 85000000 		.4byte	.LASF32
+ 885 01f9 01       		.byte	0x1
+ 886 01fa E001     		.2byte	0x1e0
+ 887 01fc 00000000 		.4byte	.LFB12
+ 888 0200 20000000 		.4byte	.LFE12-.LFB12
+ 889 0204 01       		.uleb128 0x1
+ 890 0205 9C       		.byte	0x9c
+ 891 0206 1A020000 		.4byte	0x21a
+ 892 020a 0B       		.uleb128 0xb
+ 893 020b C3000000 		.4byte	.LASF33
+ 894 020f 01       		.byte	0x1
+ 895 0210 E001     		.2byte	0x1e0
+ 896 0212 77000000 		.4byte	0x77
+ 897 0216 02       		.uleb128 0x2
+ 898 0217 91       		.byte	0x91
+ 899 0218 76       		.sleb128 -10
+ 900 0219 00       		.byte	0
+ 901 021a 0D       		.uleb128 0xd
+ 902 021b 67000000 		.4byte	.LASF34
+ 903 021f 01       		.byte	0x1
+ 904 0220 FC01     		.2byte	0x1fc
+ 905 0222 77000000 		.4byte	0x77
+ 906 0226 00000000 		.4byte	.LFB13
+ 907 022a 20000000 		.4byte	.LFE13-.LFB13
+ 908 022e 01       		.uleb128 0x1
+ 909 022f 9C       		.byte	0x9c
+ 910 0230 0E       		.uleb128 0xe
+ 911 0231 7D020000 		.4byte	.LASF35
+ 912 0235 01       		.byte	0x1
+ 913 0236 FB02     		.2byte	0x2fb
+ 914 0238 00000000 		.4byte	.LFB14
+ 915 023c 1A000000 		.4byte	.LFE14-.LFB14
+ 916 0240 01       		.uleb128 0x1
+ 917 0241 9C       		.byte	0x9c
+ 918 0242 0F       		.uleb128 0xf
+ 919 0243 16020000 		.4byte	.LASF40
+ 920 0247 01       		.byte	0x1
+ 921 0248 1A       		.byte	0x1a
+ 922 0249 6B000000 		.4byte	0x6b
+ 923 024d 05       		.uleb128 0x5
+ 924 024e 03       		.byte	0x3
+ 925 024f 00000000 		.4byte	b1_critical_timer_initVar
+ 926 0253 00       		.byte	0
+ 927              		.section	.debug_abbrev,"",%progbits
+ 928              	.Ldebug_abbrev0:
+ 929 0000 01       		.uleb128 0x1
+ 930 0001 11       		.uleb128 0x11
+ 931 0002 01       		.byte	0x1
+ 932 0003 25       		.uleb128 0x25
+ 933 0004 0E       		.uleb128 0xe
+ 934 0005 13       		.uleb128 0x13
+ 935 0006 0B       		.uleb128 0xb
+ 936 0007 03       		.uleb128 0x3
+ 937 0008 0E       		.uleb128 0xe
+ 938 0009 1B       		.uleb128 0x1b
+ 939 000a 0E       		.uleb128 0xe
+ 940 000b 55       		.uleb128 0x55
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 31
 
 
- 643 0189 00000000 		.4byte	.LFB10
- 644 018d 0C000000 		.4byte	.LFE10-.LFB10
- 645 0191 01       		.uleb128 0x1
- 646 0192 9C       		.byte	0x9c
- 647 0193 A6010000 		.4byte	0x1a6
- 648 0197 08       		.uleb128 0x8
- 649 0198 60000000 		.4byte	.LASF28
- 650 019c 01       		.byte	0x1
- 651 019d AF01     		.2byte	0x1af
- 652 019f 77000000 		.4byte	0x77
- 653 01a3 01       		.uleb128 0x1
- 654 01a4 50       		.byte	0x50
- 655 01a5 00       		.byte	0
- 656 01a6 0A       		.uleb128 0xa
- 657 01a7 63030000 		.4byte	.LASF29
- 658 01ab 01       		.byte	0x1
- 659 01ac C801     		.2byte	0x1c8
- 660 01ae 77000000 		.4byte	0x77
- 661 01b2 00000000 		.4byte	.LFB11
- 662 01b6 0C000000 		.4byte	.LFE11-.LFB11
- 663 01ba 01       		.uleb128 0x1
- 664 01bb 9C       		.byte	0x9c
- 665 01bc 07       		.uleb128 0x7
- 666 01bd 85000000 		.4byte	.LASF30
- 667 01c1 01       		.byte	0x1
- 668 01c2 E001     		.2byte	0x1e0
- 669 01c4 00000000 		.4byte	.LFB12
- 670 01c8 0C000000 		.4byte	.LFE12-.LFB12
- 671 01cc 01       		.uleb128 0x1
- 672 01cd 9C       		.byte	0x9c
- 673 01ce E1010000 		.4byte	0x1e1
- 674 01d2 08       		.uleb128 0x8
- 675 01d3 C3000000 		.4byte	.LASF31
- 676 01d7 01       		.byte	0x1
- 677 01d8 E001     		.2byte	0x1e0
- 678 01da 77000000 		.4byte	0x77
- 679 01de 01       		.uleb128 0x1
- 680 01df 50       		.byte	0x50
- 681 01e0 00       		.byte	0
- 682 01e1 0A       		.uleb128 0xa
- 683 01e2 67000000 		.4byte	.LASF32
- 684 01e6 01       		.byte	0x1
- 685 01e7 FC01     		.2byte	0x1fc
- 686 01e9 77000000 		.4byte	0x77
- 687 01ed 00000000 		.4byte	.LFB13
- 688 01f1 14000000 		.4byte	.LFE13-.LFB13
- 689 01f5 01       		.uleb128 0x1
- 690 01f6 9C       		.byte	0x9c
- 691 01f7 07       		.uleb128 0x7
- 692 01f8 B0020000 		.4byte	.LASF33
- 693 01fc 01       		.byte	0x1
- 694 01fd FB02     		.2byte	0x2fb
- 695 01ff 00000000 		.4byte	.LFB14
- 696 0203 14000000 		.4byte	.LFE14-.LFB14
- 697 0207 01       		.uleb128 0x1
- 698 0208 9C       		.byte	0x9c
- 699 0209 20020000 		.4byte	0x220
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 27
+ 941 000c 17       		.uleb128 0x17
+ 942 000d 11       		.uleb128 0x11
+ 943 000e 01       		.uleb128 0x1
+ 944 000f 10       		.uleb128 0x10
+ 945 0010 17       		.uleb128 0x17
+ 946 0011 00       		.byte	0
+ 947 0012 00       		.byte	0
+ 948 0013 02       		.uleb128 0x2
+ 949 0014 24       		.uleb128 0x24
+ 950 0015 00       		.byte	0
+ 951 0016 0B       		.uleb128 0xb
+ 952 0017 0B       		.uleb128 0xb
+ 953 0018 3E       		.uleb128 0x3e
+ 954 0019 0B       		.uleb128 0xb
+ 955 001a 03       		.uleb128 0x3
+ 956 001b 0E       		.uleb128 0xe
+ 957 001c 00       		.byte	0
+ 958 001d 00       		.byte	0
+ 959 001e 03       		.uleb128 0x3
+ 960 001f 24       		.uleb128 0x24
+ 961 0020 00       		.byte	0
+ 962 0021 0B       		.uleb128 0xb
+ 963 0022 0B       		.uleb128 0xb
+ 964 0023 3E       		.uleb128 0x3e
+ 965 0024 0B       		.uleb128 0xb
+ 966 0025 03       		.uleb128 0x3
+ 967 0026 08       		.uleb128 0x8
+ 968 0027 00       		.byte	0
+ 969 0028 00       		.byte	0
+ 970 0029 04       		.uleb128 0x4
+ 971 002a 16       		.uleb128 0x16
+ 972 002b 00       		.byte	0
+ 973 002c 03       		.uleb128 0x3
+ 974 002d 0E       		.uleb128 0xe
+ 975 002e 3A       		.uleb128 0x3a
+ 976 002f 0B       		.uleb128 0xb
+ 977 0030 3B       		.uleb128 0x3b
+ 978 0031 05       		.uleb128 0x5
+ 979 0032 49       		.uleb128 0x49
+ 980 0033 13       		.uleb128 0x13
+ 981 0034 00       		.byte	0
+ 982 0035 00       		.byte	0
+ 983 0036 05       		.uleb128 0x5
+ 984 0037 35       		.uleb128 0x35
+ 985 0038 00       		.byte	0
+ 986 0039 49       		.uleb128 0x49
+ 987 003a 13       		.uleb128 0x13
+ 988 003b 00       		.byte	0
+ 989 003c 00       		.byte	0
+ 990 003d 06       		.uleb128 0x6
+ 991 003e 2E       		.uleb128 0x2e
+ 992 003f 01       		.byte	0x1
+ 993 0040 3F       		.uleb128 0x3f
+ 994 0041 19       		.uleb128 0x19
+ 995 0042 03       		.uleb128 0x3
+ 996 0043 0E       		.uleb128 0xe
+ 997 0044 3A       		.uleb128 0x3a
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 32
 
 
- 700 020d 0B       		.uleb128 0xb
- 701 020e 08000000 		.4byte	.LVL4
- 702 0212 A6010000 		.4byte	0x1a6
- 703 0216 0B       		.uleb128 0xb
- 704 0217 0C000000 		.4byte	.LVL5
- 705 021b 1A010000 		.4byte	0x11a
- 706 021f 00       		.byte	0
- 707 0220 0C       		.uleb128 0xc
- 708 0221 4C030000 		.4byte	.LASF34
- 709 0225 01       		.byte	0x1
- 710 0226 2B       		.byte	0x2b
- 711 0227 00000000 		.4byte	.LFB0
- 712 022b 34000000 		.4byte	.LFE0-.LFB0
- 713 022f 01       		.uleb128 0x1
- 714 0230 9C       		.byte	0x9c
- 715 0231 99020000 		.4byte	0x299
- 716 0235 0D       		.uleb128 0xd
- 717 0236 3A010000 		.4byte	.LASF39
- 718 023a 01       		.byte	0x1
- 719 023b 2F       		.byte	0x2f
- 720 023c 6B000000 		.4byte	0x6b
- 721 0240 00000000 		.4byte	.LLST0
- 722 0244 0E       		.uleb128 0xe
- 723 0245 0A000000 		.4byte	.LVL6
- 724 0249 81010000 		.4byte	0x181
- 725 024d 59020000 		.4byte	0x259
- 726 0251 0F       		.uleb128 0xf
- 727 0252 01       		.uleb128 0x1
- 728 0253 50       		.byte	0x50
- 729 0254 03       		.uleb128 0x3
- 730 0255 0A       		.byte	0xa
- 731 0256 8713     		.2byte	0x1387
- 732 0258 00       		.byte	0
- 733 0259 0E       		.uleb128 0xe
- 734 025a 12000000 		.4byte	.LVL7
- 735 025e BC010000 		.4byte	0x1bc
- 736 0262 6E020000 		.4byte	0x26e
- 737 0266 0F       		.uleb128 0xf
- 738 0267 01       		.uleb128 0x1
- 739 0268 50       		.byte	0x50
- 740 0269 03       		.uleb128 0x3
- 741 026a 0A       		.byte	0xa
- 742 026b 8713     		.2byte	0x1387
- 743 026d 00       		.byte	0
- 744 026e 0B       		.uleb128 0xb
- 745 026f 16000000 		.4byte	.LVL8
- 746 0273 D2020000 		.4byte	0x2d2
- 747 0277 0B       		.uleb128 0xb
- 748 0278 24000000 		.4byte	.LVL9
- 749 027c DD020000 		.4byte	0x2dd
- 750 0280 0B       		.uleb128 0xb
- 751 0281 28000000 		.4byte	.LVL10
- 752 0285 F7010000 		.4byte	0x1f7
- 753 0289 10       		.uleb128 0x10
- 754 028a 2E000000 		.4byte	.LVL11
- 755 028e E3000000 		.4byte	0xe3
- 756 0292 0F       		.uleb128 0xf
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 28
+ 998 0045 0B       		.uleb128 0xb
+ 999 0046 3B       		.uleb128 0x3b
+ 1000 0047 0B       		.uleb128 0xb
+ 1001 0048 27       		.uleb128 0x27
+ 1002 0049 19       		.uleb128 0x19
+ 1003 004a 11       		.uleb128 0x11
+ 1004 004b 01       		.uleb128 0x1
+ 1005 004c 12       		.uleb128 0x12
+ 1006 004d 06       		.uleb128 0x6
+ 1007 004e 40       		.uleb128 0x40
+ 1008 004f 18       		.uleb128 0x18
+ 1009 0050 9642     		.uleb128 0x2116
+ 1010 0052 19       		.uleb128 0x19
+ 1011 0053 01       		.uleb128 0x1
+ 1012 0054 13       		.uleb128 0x13
+ 1013 0055 00       		.byte	0
+ 1014 0056 00       		.byte	0
+ 1015 0057 07       		.uleb128 0x7
+ 1016 0058 34       		.uleb128 0x34
+ 1017 0059 00       		.byte	0
+ 1018 005a 03       		.uleb128 0x3
+ 1019 005b 0E       		.uleb128 0xe
+ 1020 005c 3A       		.uleb128 0x3a
+ 1021 005d 0B       		.uleb128 0xb
+ 1022 005e 3B       		.uleb128 0x3b
+ 1023 005f 0B       		.uleb128 0xb
+ 1024 0060 49       		.uleb128 0x49
+ 1025 0061 13       		.uleb128 0x13
+ 1026 0062 02       		.uleb128 0x2
+ 1027 0063 18       		.uleb128 0x18
+ 1028 0064 00       		.byte	0
+ 1029 0065 00       		.byte	0
+ 1030 0066 08       		.uleb128 0x8
+ 1031 0067 2E       		.uleb128 0x2e
+ 1032 0068 00       		.byte	0
+ 1033 0069 3F       		.uleb128 0x3f
+ 1034 006a 19       		.uleb128 0x19
+ 1035 006b 03       		.uleb128 0x3
+ 1036 006c 0E       		.uleb128 0xe
+ 1037 006d 3A       		.uleb128 0x3a
+ 1038 006e 0B       		.uleb128 0xb
+ 1039 006f 3B       		.uleb128 0x3b
+ 1040 0070 0B       		.uleb128 0xb
+ 1041 0071 27       		.uleb128 0x27
+ 1042 0072 19       		.uleb128 0x19
+ 1043 0073 11       		.uleb128 0x11
+ 1044 0074 01       		.uleb128 0x1
+ 1045 0075 12       		.uleb128 0x12
+ 1046 0076 06       		.uleb128 0x6
+ 1047 0077 40       		.uleb128 0x40
+ 1048 0078 18       		.uleb128 0x18
+ 1049 0079 9742     		.uleb128 0x2117
+ 1050 007b 19       		.uleb128 0x19
+ 1051 007c 00       		.byte	0
+ 1052 007d 00       		.byte	0
+ 1053 007e 09       		.uleb128 0x9
+ 1054 007f 2E       		.uleb128 0x2e
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 33
 
 
- 757 0293 01       		.uleb128 0x1
- 758 0294 50       		.byte	0x50
- 759 0295 01       		.uleb128 0x1
- 760 0296 30       		.byte	0x30
- 761 0297 00       		.byte	0
- 762 0298 00       		.byte	0
- 763 0299 0C       		.uleb128 0xc
- 764 029a 48000000 		.4byte	.LASF35
- 765 029e 01       		.byte	0x1
- 766 029f D7       		.byte	0xd7
- 767 02a0 00000000 		.4byte	.LFB2
- 768 02a4 1C000000 		.4byte	.LFE2-.LFB2
- 769 02a8 01       		.uleb128 0x1
- 770 02a9 9C       		.byte	0x9c
- 771 02aa C1020000 		.4byte	0x2c1
- 772 02ae 0B       		.uleb128 0xb
- 773 02af 0C000000 		.4byte	.LVL12
- 774 02b3 20020000 		.4byte	0x220
- 775 02b7 0B       		.uleb128 0xb
- 776 02b8 16000000 		.4byte	.LVL13
- 777 02bc C1000000 		.4byte	0xc1
- 778 02c0 00       		.byte	0
- 779 02c1 11       		.uleb128 0x11
- 780 02c2 A5010000 		.4byte	.LASF40
- 781 02c6 01       		.byte	0x1
- 782 02c7 1A       		.byte	0x1a
- 783 02c8 6B000000 		.4byte	0x6b
- 784 02cc 05       		.uleb128 0x5
- 785 02cd 03       		.byte	0x3
- 786 02ce 00000000 		.4byte	b1_critical_timer_initVar
- 787 02d2 12       		.uleb128 0x12
- 788 02d3 76020000 		.4byte	.LASF41
- 789 02d7 03       		.byte	0x3
- 790 02d8 7E       		.byte	0x7e
- 791 02d9 6B000000 		.4byte	0x6b
- 792 02dd 13       		.uleb128 0x13
- 793 02de 9A020000 		.4byte	.LASF42
- 794 02e2 03       		.byte	0x3
- 795 02e3 7F       		.byte	0x7f
- 796 02e4 14       		.uleb128 0x14
- 797 02e5 6B000000 		.4byte	0x6b
- 798 02e9 00       		.byte	0
- 799 02ea 00       		.byte	0
- 800              		.section	.debug_abbrev,"",%progbits
- 801              	.Ldebug_abbrev0:
- 802 0000 01       		.uleb128 0x1
- 803 0001 11       		.uleb128 0x11
- 804 0002 01       		.byte	0x1
- 805 0003 25       		.uleb128 0x25
- 806 0004 0E       		.uleb128 0xe
- 807 0005 13       		.uleb128 0x13
- 808 0006 0B       		.uleb128 0xb
- 809 0007 03       		.uleb128 0x3
- 810 0008 0E       		.uleb128 0xe
- 811 0009 1B       		.uleb128 0x1b
- 812 000a 0E       		.uleb128 0xe
- 813 000b 55       		.uleb128 0x55
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 29
+ 1055 0080 00       		.byte	0
+ 1056 0081 3F       		.uleb128 0x3f
+ 1057 0082 19       		.uleb128 0x19
+ 1058 0083 03       		.uleb128 0x3
+ 1059 0084 0E       		.uleb128 0xe
+ 1060 0085 3A       		.uleb128 0x3a
+ 1061 0086 0B       		.uleb128 0xb
+ 1062 0087 3B       		.uleb128 0x3b
+ 1063 0088 0B       		.uleb128 0xb
+ 1064 0089 27       		.uleb128 0x27
+ 1065 008a 19       		.uleb128 0x19
+ 1066 008b 11       		.uleb128 0x11
+ 1067 008c 01       		.uleb128 0x1
+ 1068 008d 12       		.uleb128 0x12
+ 1069 008e 06       		.uleb128 0x6
+ 1070 008f 40       		.uleb128 0x40
+ 1071 0090 18       		.uleb128 0x18
+ 1072 0091 9642     		.uleb128 0x2116
+ 1073 0093 19       		.uleb128 0x19
+ 1074 0094 00       		.byte	0
+ 1075 0095 00       		.byte	0
+ 1076 0096 0A       		.uleb128 0xa
+ 1077 0097 2E       		.uleb128 0x2e
+ 1078 0098 01       		.byte	0x1
+ 1079 0099 3F       		.uleb128 0x3f
+ 1080 009a 19       		.uleb128 0x19
+ 1081 009b 03       		.uleb128 0x3
+ 1082 009c 0E       		.uleb128 0xe
+ 1083 009d 3A       		.uleb128 0x3a
+ 1084 009e 0B       		.uleb128 0xb
+ 1085 009f 3B       		.uleb128 0x3b
+ 1086 00a0 05       		.uleb128 0x5
+ 1087 00a1 27       		.uleb128 0x27
+ 1088 00a2 19       		.uleb128 0x19
+ 1089 00a3 11       		.uleb128 0x11
+ 1090 00a4 01       		.uleb128 0x1
+ 1091 00a5 12       		.uleb128 0x12
+ 1092 00a6 06       		.uleb128 0x6
+ 1093 00a7 40       		.uleb128 0x40
+ 1094 00a8 18       		.uleb128 0x18
+ 1095 00a9 9742     		.uleb128 0x2117
+ 1096 00ab 19       		.uleb128 0x19
+ 1097 00ac 01       		.uleb128 0x1
+ 1098 00ad 13       		.uleb128 0x13
+ 1099 00ae 00       		.byte	0
+ 1100 00af 00       		.byte	0
+ 1101 00b0 0B       		.uleb128 0xb
+ 1102 00b1 05       		.uleb128 0x5
+ 1103 00b2 00       		.byte	0
+ 1104 00b3 03       		.uleb128 0x3
+ 1105 00b4 0E       		.uleb128 0xe
+ 1106 00b5 3A       		.uleb128 0x3a
+ 1107 00b6 0B       		.uleb128 0xb
+ 1108 00b7 3B       		.uleb128 0x3b
+ 1109 00b8 05       		.uleb128 0x5
+ 1110 00b9 49       		.uleb128 0x49
+ 1111 00ba 13       		.uleb128 0x13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 34
 
 
- 814 000c 17       		.uleb128 0x17
- 815 000d 11       		.uleb128 0x11
- 816 000e 01       		.uleb128 0x1
- 817 000f 10       		.uleb128 0x10
- 818 0010 17       		.uleb128 0x17
- 819 0011 00       		.byte	0
- 820 0012 00       		.byte	0
- 821 0013 02       		.uleb128 0x2
- 822 0014 24       		.uleb128 0x24
- 823 0015 00       		.byte	0
- 824 0016 0B       		.uleb128 0xb
- 825 0017 0B       		.uleb128 0xb
- 826 0018 3E       		.uleb128 0x3e
- 827 0019 0B       		.uleb128 0xb
- 828 001a 03       		.uleb128 0x3
- 829 001b 0E       		.uleb128 0xe
- 830 001c 00       		.byte	0
- 831 001d 00       		.byte	0
- 832 001e 03       		.uleb128 0x3
- 833 001f 24       		.uleb128 0x24
- 834 0020 00       		.byte	0
- 835 0021 0B       		.uleb128 0xb
- 836 0022 0B       		.uleb128 0xb
- 837 0023 3E       		.uleb128 0x3e
- 838 0024 0B       		.uleb128 0xb
- 839 0025 03       		.uleb128 0x3
- 840 0026 08       		.uleb128 0x8
- 841 0027 00       		.byte	0
- 842 0028 00       		.byte	0
- 843 0029 04       		.uleb128 0x4
- 844 002a 16       		.uleb128 0x16
- 845 002b 00       		.byte	0
- 846 002c 03       		.uleb128 0x3
- 847 002d 0E       		.uleb128 0xe
- 848 002e 3A       		.uleb128 0x3a
- 849 002f 0B       		.uleb128 0xb
- 850 0030 3B       		.uleb128 0x3b
- 851 0031 05       		.uleb128 0x5
- 852 0032 49       		.uleb128 0x49
- 853 0033 13       		.uleb128 0x13
- 854 0034 00       		.byte	0
- 855 0035 00       		.byte	0
- 856 0036 05       		.uleb128 0x5
- 857 0037 35       		.uleb128 0x35
- 858 0038 00       		.byte	0
- 859 0039 49       		.uleb128 0x49
- 860 003a 13       		.uleb128 0x13
- 861 003b 00       		.byte	0
- 862 003c 00       		.byte	0
- 863 003d 06       		.uleb128 0x6
- 864 003e 2E       		.uleb128 0x2e
- 865 003f 00       		.byte	0
- 866 0040 3F       		.uleb128 0x3f
- 867 0041 19       		.uleb128 0x19
- 868 0042 03       		.uleb128 0x3
- 869 0043 0E       		.uleb128 0xe
- 870 0044 3A       		.uleb128 0x3a
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 30
+ 1112 00bb 02       		.uleb128 0x2
+ 1113 00bc 18       		.uleb128 0x18
+ 1114 00bd 00       		.byte	0
+ 1115 00be 00       		.byte	0
+ 1116 00bf 0C       		.uleb128 0xc
+ 1117 00c0 2E       		.uleb128 0x2e
+ 1118 00c1 00       		.byte	0
+ 1119 00c2 3F       		.uleb128 0x3f
+ 1120 00c3 19       		.uleb128 0x19
+ 1121 00c4 03       		.uleb128 0x3
+ 1122 00c5 0E       		.uleb128 0xe
+ 1123 00c6 3A       		.uleb128 0x3a
+ 1124 00c7 0B       		.uleb128 0xb
+ 1125 00c8 3B       		.uleb128 0x3b
+ 1126 00c9 05       		.uleb128 0x5
+ 1127 00ca 27       		.uleb128 0x27
+ 1128 00cb 19       		.uleb128 0x19
+ 1129 00cc 11       		.uleb128 0x11
+ 1130 00cd 01       		.uleb128 0x1
+ 1131 00ce 12       		.uleb128 0x12
+ 1132 00cf 06       		.uleb128 0x6
+ 1133 00d0 40       		.uleb128 0x40
+ 1134 00d1 18       		.uleb128 0x18
+ 1135 00d2 9742     		.uleb128 0x2117
+ 1136 00d4 19       		.uleb128 0x19
+ 1137 00d5 00       		.byte	0
+ 1138 00d6 00       		.byte	0
+ 1139 00d7 0D       		.uleb128 0xd
+ 1140 00d8 2E       		.uleb128 0x2e
+ 1141 00d9 00       		.byte	0
+ 1142 00da 3F       		.uleb128 0x3f
+ 1143 00db 19       		.uleb128 0x19
+ 1144 00dc 03       		.uleb128 0x3
+ 1145 00dd 0E       		.uleb128 0xe
+ 1146 00de 3A       		.uleb128 0x3a
+ 1147 00df 0B       		.uleb128 0xb
+ 1148 00e0 3B       		.uleb128 0x3b
+ 1149 00e1 05       		.uleb128 0x5
+ 1150 00e2 27       		.uleb128 0x27
+ 1151 00e3 19       		.uleb128 0x19
+ 1152 00e4 49       		.uleb128 0x49
+ 1153 00e5 13       		.uleb128 0x13
+ 1154 00e6 11       		.uleb128 0x11
+ 1155 00e7 01       		.uleb128 0x1
+ 1156 00e8 12       		.uleb128 0x12
+ 1157 00e9 06       		.uleb128 0x6
+ 1158 00ea 40       		.uleb128 0x40
+ 1159 00eb 18       		.uleb128 0x18
+ 1160 00ec 9742     		.uleb128 0x2117
+ 1161 00ee 19       		.uleb128 0x19
+ 1162 00ef 00       		.byte	0
+ 1163 00f0 00       		.byte	0
+ 1164 00f1 0E       		.uleb128 0xe
+ 1165 00f2 2E       		.uleb128 0x2e
+ 1166 00f3 00       		.byte	0
+ 1167 00f4 3F       		.uleb128 0x3f
+ 1168 00f5 19       		.uleb128 0x19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 35
 
 
- 871 0045 0B       		.uleb128 0xb
- 872 0046 3B       		.uleb128 0x3b
- 873 0047 0B       		.uleb128 0xb
- 874 0048 27       		.uleb128 0x27
- 875 0049 19       		.uleb128 0x19
- 876 004a 11       		.uleb128 0x11
- 877 004b 01       		.uleb128 0x1
- 878 004c 12       		.uleb128 0x12
- 879 004d 06       		.uleb128 0x6
- 880 004e 40       		.uleb128 0x40
- 881 004f 18       		.uleb128 0x18
- 882 0050 9742     		.uleb128 0x2117
- 883 0052 19       		.uleb128 0x19
- 884 0053 00       		.byte	0
- 885 0054 00       		.byte	0
- 886 0055 07       		.uleb128 0x7
- 887 0056 2E       		.uleb128 0x2e
- 888 0057 01       		.byte	0x1
- 889 0058 3F       		.uleb128 0x3f
- 890 0059 19       		.uleb128 0x19
- 891 005a 03       		.uleb128 0x3
- 892 005b 0E       		.uleb128 0xe
- 893 005c 3A       		.uleb128 0x3a
- 894 005d 0B       		.uleb128 0xb
- 895 005e 3B       		.uleb128 0x3b
- 896 005f 05       		.uleb128 0x5
- 897 0060 27       		.uleb128 0x27
- 898 0061 19       		.uleb128 0x19
- 899 0062 11       		.uleb128 0x11
- 900 0063 01       		.uleb128 0x1
- 901 0064 12       		.uleb128 0x12
- 902 0065 06       		.uleb128 0x6
- 903 0066 40       		.uleb128 0x40
- 904 0067 18       		.uleb128 0x18
- 905 0068 9742     		.uleb128 0x2117
- 906 006a 19       		.uleb128 0x19
- 907 006b 01       		.uleb128 0x1
- 908 006c 13       		.uleb128 0x13
- 909 006d 00       		.byte	0
- 910 006e 00       		.byte	0
- 911 006f 08       		.uleb128 0x8
- 912 0070 05       		.uleb128 0x5
- 913 0071 00       		.byte	0
- 914 0072 03       		.uleb128 0x3
- 915 0073 0E       		.uleb128 0xe
- 916 0074 3A       		.uleb128 0x3a
- 917 0075 0B       		.uleb128 0xb
- 918 0076 3B       		.uleb128 0x3b
- 919 0077 05       		.uleb128 0x5
- 920 0078 49       		.uleb128 0x49
- 921 0079 13       		.uleb128 0x13
- 922 007a 02       		.uleb128 0x2
- 923 007b 18       		.uleb128 0x18
- 924 007c 00       		.byte	0
- 925 007d 00       		.byte	0
- 926 007e 09       		.uleb128 0x9
- 927 007f 2E       		.uleb128 0x2e
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 31
+ 1169 00f6 03       		.uleb128 0x3
+ 1170 00f7 0E       		.uleb128 0xe
+ 1171 00f8 3A       		.uleb128 0x3a
+ 1172 00f9 0B       		.uleb128 0xb
+ 1173 00fa 3B       		.uleb128 0x3b
+ 1174 00fb 05       		.uleb128 0x5
+ 1175 00fc 27       		.uleb128 0x27
+ 1176 00fd 19       		.uleb128 0x19
+ 1177 00fe 11       		.uleb128 0x11
+ 1178 00ff 01       		.uleb128 0x1
+ 1179 0100 12       		.uleb128 0x12
+ 1180 0101 06       		.uleb128 0x6
+ 1181 0102 40       		.uleb128 0x40
+ 1182 0103 18       		.uleb128 0x18
+ 1183 0104 9642     		.uleb128 0x2116
+ 1184 0106 19       		.uleb128 0x19
+ 1185 0107 00       		.byte	0
+ 1186 0108 00       		.byte	0
+ 1187 0109 0F       		.uleb128 0xf
+ 1188 010a 34       		.uleb128 0x34
+ 1189 010b 00       		.byte	0
+ 1190 010c 03       		.uleb128 0x3
+ 1191 010d 0E       		.uleb128 0xe
+ 1192 010e 3A       		.uleb128 0x3a
+ 1193 010f 0B       		.uleb128 0xb
+ 1194 0110 3B       		.uleb128 0x3b
+ 1195 0111 0B       		.uleb128 0xb
+ 1196 0112 49       		.uleb128 0x49
+ 1197 0113 13       		.uleb128 0x13
+ 1198 0114 3F       		.uleb128 0x3f
+ 1199 0115 19       		.uleb128 0x19
+ 1200 0116 02       		.uleb128 0x2
+ 1201 0117 18       		.uleb128 0x18
+ 1202 0118 00       		.byte	0
+ 1203 0119 00       		.byte	0
+ 1204 011a 00       		.byte	0
+ 1205              		.section	.debug_aranges,"",%progbits
+ 1206 0000 8C000000 		.4byte	0x8c
+ 1207 0004 0200     		.2byte	0x2
+ 1208 0006 00000000 		.4byte	.Ldebug_info0
+ 1209 000a 04       		.byte	0x4
+ 1210 000b 00       		.byte	0
+ 1211 000c 0000     		.2byte	0
+ 1212 000e 0000     		.2byte	0
+ 1213 0010 00000000 		.4byte	.LFB0
+ 1214 0014 4C000000 		.4byte	.LFE0-.LFB0
+ 1215 0018 00000000 		.4byte	.LFB1
+ 1216 001c 20000000 		.4byte	.LFE1-.LFB1
+ 1217 0020 00000000 		.4byte	.LFB2
+ 1218 0024 20000000 		.4byte	.LFE2-.LFB2
+ 1219 0028 00000000 		.4byte	.LFB3
+ 1220 002c 20000000 		.4byte	.LFE3-.LFB3
+ 1221 0030 00000000 		.4byte	.LFB4
+ 1222 0034 20000000 		.4byte	.LFE4-.LFB4
+ 1223 0038 00000000 		.4byte	.LFB5
+ 1224 003c 14000000 		.4byte	.LFE5-.LFB5
+ 1225 0040 00000000 		.4byte	.LFB6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 36
 
 
- 928 0080 00       		.byte	0
- 929 0081 3F       		.uleb128 0x3f
- 930 0082 19       		.uleb128 0x19
- 931 0083 03       		.uleb128 0x3
- 932 0084 0E       		.uleb128 0xe
- 933 0085 3A       		.uleb128 0x3a
- 934 0086 0B       		.uleb128 0xb
- 935 0087 3B       		.uleb128 0x3b
- 936 0088 05       		.uleb128 0x5
- 937 0089 27       		.uleb128 0x27
- 938 008a 19       		.uleb128 0x19
- 939 008b 11       		.uleb128 0x11
- 940 008c 01       		.uleb128 0x1
- 941 008d 12       		.uleb128 0x12
- 942 008e 06       		.uleb128 0x6
- 943 008f 40       		.uleb128 0x40
- 944 0090 18       		.uleb128 0x18
- 945 0091 9742     		.uleb128 0x2117
- 946 0093 19       		.uleb128 0x19
- 947 0094 00       		.byte	0
- 948 0095 00       		.byte	0
- 949 0096 0A       		.uleb128 0xa
- 950 0097 2E       		.uleb128 0x2e
- 951 0098 00       		.byte	0
- 952 0099 3F       		.uleb128 0x3f
- 953 009a 19       		.uleb128 0x19
- 954 009b 03       		.uleb128 0x3
- 955 009c 0E       		.uleb128 0xe
- 956 009d 3A       		.uleb128 0x3a
- 957 009e 0B       		.uleb128 0xb
- 958 009f 3B       		.uleb128 0x3b
- 959 00a0 05       		.uleb128 0x5
- 960 00a1 27       		.uleb128 0x27
- 961 00a2 19       		.uleb128 0x19
- 962 00a3 49       		.uleb128 0x49
- 963 00a4 13       		.uleb128 0x13
- 964 00a5 11       		.uleb128 0x11
- 965 00a6 01       		.uleb128 0x1
- 966 00a7 12       		.uleb128 0x12
- 967 00a8 06       		.uleb128 0x6
- 968 00a9 40       		.uleb128 0x40
- 969 00aa 18       		.uleb128 0x18
- 970 00ab 9742     		.uleb128 0x2117
- 971 00ad 19       		.uleb128 0x19
- 972 00ae 00       		.byte	0
- 973 00af 00       		.byte	0
- 974 00b0 0B       		.uleb128 0xb
- 975 00b1 898201   		.uleb128 0x4109
- 976 00b4 00       		.byte	0
- 977 00b5 11       		.uleb128 0x11
- 978 00b6 01       		.uleb128 0x1
- 979 00b7 31       		.uleb128 0x31
- 980 00b8 13       		.uleb128 0x13
- 981 00b9 00       		.byte	0
- 982 00ba 00       		.byte	0
- 983 00bb 0C       		.uleb128 0xc
- 984 00bc 2E       		.uleb128 0x2e
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 32
+ 1226 0044 18000000 		.4byte	.LFE6-.LFB6
+ 1227 0048 00000000 		.4byte	.LFB7
+ 1228 004c 18000000 		.4byte	.LFE7-.LFB7
+ 1229 0050 00000000 		.4byte	.LFB8
+ 1230 0054 20000000 		.4byte	.LFE8-.LFB8
+ 1231 0058 00000000 		.4byte	.LFB9
+ 1232 005c 18000000 		.4byte	.LFE9-.LFB9
+ 1233 0060 00000000 		.4byte	.LFB10
+ 1234 0064 20000000 		.4byte	.LFE10-.LFB10
+ 1235 0068 00000000 		.4byte	.LFB11
+ 1236 006c 18000000 		.4byte	.LFE11-.LFB11
+ 1237 0070 00000000 		.4byte	.LFB12
+ 1238 0074 20000000 		.4byte	.LFE12-.LFB12
+ 1239 0078 00000000 		.4byte	.LFB13
+ 1240 007c 20000000 		.4byte	.LFE13-.LFB13
+ 1241 0080 00000000 		.4byte	.LFB14
+ 1242 0084 1A000000 		.4byte	.LFE14-.LFB14
+ 1243 0088 00000000 		.4byte	0
+ 1244 008c 00000000 		.4byte	0
+ 1245              		.section	.debug_ranges,"",%progbits
+ 1246              	.Ldebug_ranges0:
+ 1247 0000 00000000 		.4byte	.LFB0
+ 1248 0004 4C000000 		.4byte	.LFE0
+ 1249 0008 00000000 		.4byte	.LFB1
+ 1250 000c 20000000 		.4byte	.LFE1
+ 1251 0010 00000000 		.4byte	.LFB2
+ 1252 0014 20000000 		.4byte	.LFE2
+ 1253 0018 00000000 		.4byte	.LFB3
+ 1254 001c 20000000 		.4byte	.LFE3
+ 1255 0020 00000000 		.4byte	.LFB4
+ 1256 0024 20000000 		.4byte	.LFE4
+ 1257 0028 00000000 		.4byte	.LFB5
+ 1258 002c 14000000 		.4byte	.LFE5
+ 1259 0030 00000000 		.4byte	.LFB6
+ 1260 0034 18000000 		.4byte	.LFE6
+ 1261 0038 00000000 		.4byte	.LFB7
+ 1262 003c 18000000 		.4byte	.LFE7
+ 1263 0040 00000000 		.4byte	.LFB8
+ 1264 0044 20000000 		.4byte	.LFE8
+ 1265 0048 00000000 		.4byte	.LFB9
+ 1266 004c 18000000 		.4byte	.LFE9
+ 1267 0050 00000000 		.4byte	.LFB10
+ 1268 0054 20000000 		.4byte	.LFE10
+ 1269 0058 00000000 		.4byte	.LFB11
+ 1270 005c 18000000 		.4byte	.LFE11
+ 1271 0060 00000000 		.4byte	.LFB12
+ 1272 0064 20000000 		.4byte	.LFE12
+ 1273 0068 00000000 		.4byte	.LFB13
+ 1274 006c 20000000 		.4byte	.LFE13
+ 1275 0070 00000000 		.4byte	.LFB14
+ 1276 0074 1A000000 		.4byte	.LFE14
+ 1277 0078 00000000 		.4byte	0
+ 1278 007c 00000000 		.4byte	0
+ 1279              		.section	.debug_line,"",%progbits
+ 1280              	.Ldebug_line0:
+ 1281 0000 76010000 		.section	.debug_str,"MS",%progbits,1
+ 1281      02004E00 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 37
 
 
- 985 00bd 01       		.byte	0x1
- 986 00be 3F       		.uleb128 0x3f
- 987 00bf 19       		.uleb128 0x19
- 988 00c0 03       		.uleb128 0x3
- 989 00c1 0E       		.uleb128 0xe
- 990 00c2 3A       		.uleb128 0x3a
- 991 00c3 0B       		.uleb128 0xb
- 992 00c4 3B       		.uleb128 0x3b
- 993 00c5 0B       		.uleb128 0xb
- 994 00c6 27       		.uleb128 0x27
- 995 00c7 19       		.uleb128 0x19
- 996 00c8 11       		.uleb128 0x11
- 997 00c9 01       		.uleb128 0x1
- 998 00ca 12       		.uleb128 0x12
- 999 00cb 06       		.uleb128 0x6
- 1000 00cc 40       		.uleb128 0x40
- 1001 00cd 18       		.uleb128 0x18
- 1002 00ce 9742     		.uleb128 0x2117
- 1003 00d0 19       		.uleb128 0x19
- 1004 00d1 01       		.uleb128 0x1
- 1005 00d2 13       		.uleb128 0x13
- 1006 00d3 00       		.byte	0
- 1007 00d4 00       		.byte	0
- 1008 00d5 0D       		.uleb128 0xd
- 1009 00d6 34       		.uleb128 0x34
- 1010 00d7 00       		.byte	0
- 1011 00d8 03       		.uleb128 0x3
- 1012 00d9 0E       		.uleb128 0xe
- 1013 00da 3A       		.uleb128 0x3a
- 1014 00db 0B       		.uleb128 0xb
- 1015 00dc 3B       		.uleb128 0x3b
- 1016 00dd 0B       		.uleb128 0xb
- 1017 00de 49       		.uleb128 0x49
- 1018 00df 13       		.uleb128 0x13
- 1019 00e0 02       		.uleb128 0x2
- 1020 00e1 17       		.uleb128 0x17
- 1021 00e2 00       		.byte	0
- 1022 00e3 00       		.byte	0
- 1023 00e4 0E       		.uleb128 0xe
- 1024 00e5 898201   		.uleb128 0x4109
- 1025 00e8 01       		.byte	0x1
- 1026 00e9 11       		.uleb128 0x11
- 1027 00ea 01       		.uleb128 0x1
- 1028 00eb 31       		.uleb128 0x31
- 1029 00ec 13       		.uleb128 0x13
- 1030 00ed 01       		.uleb128 0x1
- 1031 00ee 13       		.uleb128 0x13
- 1032 00ef 00       		.byte	0
- 1033 00f0 00       		.byte	0
- 1034 00f1 0F       		.uleb128 0xf
- 1035 00f2 8A8201   		.uleb128 0x410a
- 1036 00f5 00       		.byte	0
- 1037 00f6 02       		.uleb128 0x2
- 1038 00f7 18       		.uleb128 0x18
- 1039 00f8 9142     		.uleb128 0x2111
- 1040 00fa 18       		.uleb128 0x18
- 1041 00fb 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 33
+ 1281      00000201 
+ 1281      FB0E0D00 
+ 1281      01010101 
+ 1282              	.LASF15:
+ 1283 0000 72656731 		.ascii	"reg16\000"
+ 1283      3600
+ 1284              	.LASF37:
+ 1285 0006 47656E65 		.ascii	"Generated_Source\\PSoC5\\b1_critical_timer.c\000"
+ 1285      72617465 
+ 1285      645F536F 
+ 1285      75726365 
+ 1285      5C50536F 
+ 1286              	.LASF19:
+ 1287 0031 62315F63 		.ascii	"b1_critical_timer_Stop\000"
+ 1287      72697469 
+ 1287      63616C5F 
+ 1287      74696D65 
+ 1287      725F5374 
+ 1288              	.LASF18:
+ 1289 0048 62315F63 		.ascii	"b1_critical_timer_Start\000"
+ 1289      72697469 
+ 1289      63616C5F 
+ 1289      74696D65 
+ 1289      725F5374 
+ 1290              	.LASF30:
+ 1291 0060 70657269 		.ascii	"period\000"
+ 1291      6F6400
+ 1292              	.LASF34:
+ 1293 0067 62315F63 		.ascii	"b1_critical_timer_ReadCounter\000"
+ 1293      72697469 
+ 1293      63616C5F 
+ 1293      74696D65 
+ 1293      725F5265 
+ 1294              	.LASF32:
+ 1295 0085 62315F63 		.ascii	"b1_critical_timer_WriteCounter\000"
+ 1295      72697469 
+ 1295      63616C5F 
+ 1295      74696D65 
+ 1295      725F5772 
+ 1296              	.LASF17:
+ 1297 00a4 62315F63 		.ascii	"b1_critical_timer_Enable\000"
+ 1297      72697469 
+ 1297      63616C5F 
+ 1297      74696D65 
+ 1297      725F456E 
+ 1298              	.LASF11:
+ 1299 00bd 666C6F61 		.ascii	"float\000"
+ 1299      7400
+ 1300              	.LASF33:
+ 1301 00c3 636F756E 		.ascii	"counter\000"
+ 1301      74657200 
+ 1302              	.LASF21:
+ 1303 00cb 62315F63 		.ascii	"b1_critical_timer_SetInterruptMode\000"
+ 1303      72697469 
+ 1303      63616C5F 
+ 1303      74696D65 
+ 1303      725F5365 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 38
 
 
- 1042 00fc 00       		.byte	0
- 1043 00fd 10       		.uleb128 0x10
- 1044 00fe 898201   		.uleb128 0x4109
- 1045 0101 01       		.byte	0x1
- 1046 0102 11       		.uleb128 0x11
- 1047 0103 01       		.uleb128 0x1
- 1048 0104 31       		.uleb128 0x31
- 1049 0105 13       		.uleb128 0x13
- 1050 0106 00       		.byte	0
- 1051 0107 00       		.byte	0
- 1052 0108 11       		.uleb128 0x11
- 1053 0109 34       		.uleb128 0x34
- 1054 010a 00       		.byte	0
- 1055 010b 03       		.uleb128 0x3
- 1056 010c 0E       		.uleb128 0xe
- 1057 010d 3A       		.uleb128 0x3a
- 1058 010e 0B       		.uleb128 0xb
- 1059 010f 3B       		.uleb128 0x3b
- 1060 0110 0B       		.uleb128 0xb
- 1061 0111 49       		.uleb128 0x49
- 1062 0112 13       		.uleb128 0x13
- 1063 0113 3F       		.uleb128 0x3f
- 1064 0114 19       		.uleb128 0x19
- 1065 0115 02       		.uleb128 0x2
- 1066 0116 18       		.uleb128 0x18
- 1067 0117 00       		.byte	0
- 1068 0118 00       		.byte	0
- 1069 0119 12       		.uleb128 0x12
- 1070 011a 2E       		.uleb128 0x2e
- 1071 011b 00       		.byte	0
- 1072 011c 3F       		.uleb128 0x3f
- 1073 011d 19       		.uleb128 0x19
- 1074 011e 03       		.uleb128 0x3
- 1075 011f 0E       		.uleb128 0xe
- 1076 0120 3A       		.uleb128 0x3a
- 1077 0121 0B       		.uleb128 0xb
- 1078 0122 3B       		.uleb128 0x3b
- 1079 0123 0B       		.uleb128 0xb
- 1080 0124 27       		.uleb128 0x27
- 1081 0125 19       		.uleb128 0x19
- 1082 0126 49       		.uleb128 0x49
- 1083 0127 13       		.uleb128 0x13
- 1084 0128 3C       		.uleb128 0x3c
- 1085 0129 19       		.uleb128 0x19
- 1086 012a 00       		.byte	0
- 1087 012b 00       		.byte	0
- 1088 012c 13       		.uleb128 0x13
- 1089 012d 2E       		.uleb128 0x2e
- 1090 012e 01       		.byte	0x1
- 1091 012f 3F       		.uleb128 0x3f
- 1092 0130 19       		.uleb128 0x19
- 1093 0131 03       		.uleb128 0x3
- 1094 0132 0E       		.uleb128 0xe
- 1095 0133 3A       		.uleb128 0x3a
- 1096 0134 0B       		.uleb128 0xb
- 1097 0135 3B       		.uleb128 0x3b
- 1098 0136 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 34
+ 1304              	.LASF1:
+ 1305 00ee 756E7369 		.ascii	"unsigned char\000"
+ 1305      676E6564 
+ 1305      20636861 
+ 1305      7200
+ 1306              	.LASF29:
+ 1307 00fc 62315F63 		.ascii	"b1_critical_timer_WritePeriod\000"
+ 1307      72697469 
+ 1307      63616C5F 
+ 1307      74696D65 
+ 1307      725F5772 
+ 1308              	.LASF5:
+ 1309 011a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1309      20756E73 
+ 1309      69676E65 
+ 1309      6420696E 
+ 1309      7400
+ 1310              	.LASF9:
+ 1311 012c 75696E74 		.ascii	"uint8\000"
+ 1311      3800
+ 1312              	.LASF27:
+ 1313 0132 636F6E74 		.ascii	"control\000"
+ 1313      726F6C00 
+ 1314              	.LASF39:
+ 1315 013a 62315F63 		.ascii	"b1_critical_timer_interruptState\000"
+ 1315      72697469 
+ 1315      63616C5F 
+ 1315      74696D65 
+ 1315      725F696E 
+ 1316              	.LASF24:
+ 1317 015b 62315F63 		.ascii	"b1_critical_timer_ReadControlRegister\000"
+ 1317      72697469 
+ 1317      63616C5F 
+ 1317      74696D65 
+ 1317      725F5265 
+ 1318              	.LASF36:
+ 1319 0181 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1319      4320342E 
+ 1319      392E3320 
+ 1319      32303135 
+ 1319      30333033 
+ 1320 01b4 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1320      20726576 
+ 1320      6973696F 
+ 1320      6E203232 
+ 1320      31323230 
+ 1321 01e7 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1321      66756E63 
+ 1321      74696F6E 
+ 1321      2D736563 
+ 1321      74696F6E 
+ 1322              	.LASF12:
+ 1323 020f 646F7562 		.ascii	"double\000"
+ 1323      6C6500
+ 1324              	.LASF40:
+ 1325 0216 62315F63 		.ascii	"b1_critical_timer_initVar\000"
+ 1325      72697469 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 39
 
 
- 1099 0137 27       		.uleb128 0x27
- 1100 0138 19       		.uleb128 0x19
- 1101 0139 3C       		.uleb128 0x3c
- 1102 013a 19       		.uleb128 0x19
- 1103 013b 00       		.byte	0
- 1104 013c 00       		.byte	0
- 1105 013d 14       		.uleb128 0x14
- 1106 013e 05       		.uleb128 0x5
- 1107 013f 00       		.byte	0
- 1108 0140 49       		.uleb128 0x49
- 1109 0141 13       		.uleb128 0x13
- 1110 0142 00       		.byte	0
- 1111 0143 00       		.byte	0
- 1112 0144 00       		.byte	0
- 1113              		.section	.debug_loc,"",%progbits
- 1114              	.Ldebug_loc0:
- 1115              	.LLST0:
- 1116 0000 16000000 		.4byte	.LVL8
- 1117 0004 23000000 		.4byte	.LVL9-1
- 1118 0008 0100     		.2byte	0x1
- 1119 000a 50       		.byte	0x50
- 1120 000b 00000000 		.4byte	0
- 1121 000f 00000000 		.4byte	0
- 1122              		.section	.debug_aranges,"",%progbits
- 1123 0000 8C000000 		.4byte	0x8c
- 1124 0004 0200     		.2byte	0x2
- 1125 0006 00000000 		.4byte	.Ldebug_info0
- 1126 000a 04       		.byte	0x4
- 1127 000b 00       		.byte	0
- 1128 000c 0000     		.2byte	0
- 1129 000e 0000     		.2byte	0
- 1130 0010 00000000 		.4byte	.LFB1
- 1131 0014 10000000 		.4byte	.LFE1-.LFB1
- 1132 0018 00000000 		.4byte	.LFB3
- 1133 001c 10000000 		.4byte	.LFE3-.LFB3
- 1134 0020 00000000 		.4byte	.LFB4
- 1135 0024 0C000000 		.4byte	.LFE4-.LFB4
- 1136 0028 00000000 		.4byte	.LFB5
- 1137 002c 0C000000 		.4byte	.LFE5-.LFB5
- 1138 0030 00000000 		.4byte	.LFB6
- 1139 0034 0C000000 		.4byte	.LFE6-.LFB6
- 1140 0038 00000000 		.4byte	.LFB7
- 1141 003c 0C000000 		.4byte	.LFE7-.LFB7
- 1142 0040 00000000 		.4byte	.LFB8
- 1143 0044 0C000000 		.4byte	.LFE8-.LFB8
- 1144 0048 00000000 		.4byte	.LFB9
- 1145 004c 0C000000 		.4byte	.LFE9-.LFB9
- 1146 0050 00000000 		.4byte	.LFB10
- 1147 0054 0C000000 		.4byte	.LFE10-.LFB10
- 1148 0058 00000000 		.4byte	.LFB11
- 1149 005c 0C000000 		.4byte	.LFE11-.LFB11
- 1150 0060 00000000 		.4byte	.LFB12
- 1151 0064 0C000000 		.4byte	.LFE12-.LFB12
- 1152 0068 00000000 		.4byte	.LFB13
- 1153 006c 14000000 		.4byte	.LFE13-.LFB13
- 1154 0070 00000000 		.4byte	.LFB14
- 1155 0074 14000000 		.4byte	.LFE14-.LFB14
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 35
+ 1325      63616C5F 
+ 1325      74696D65 
+ 1325      725F696E 
+ 1326              	.LASF22:
+ 1327 0230 62315F63 		.ascii	"b1_critical_timer_SoftwareCapture\000"
+ 1327      72697469 
+ 1327      63616C5F 
+ 1327      74696D65 
+ 1327      725F536F 
+ 1328              	.LASF10:
+ 1329 0252 75696E74 		.ascii	"uint16\000"
+ 1329      313600
+ 1330              	.LASF8:
+ 1331 0259 756E7369 		.ascii	"unsigned int\000"
+ 1331      676E6564 
+ 1331      20696E74 
+ 1331      00
+ 1332              	.LASF7:
+ 1333 0266 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1333      206C6F6E 
+ 1333      6720756E 
+ 1333      7369676E 
+ 1333      65642069 
+ 1334              	.LASF35:
+ 1335 027d 62315F63 		.ascii	"b1_critical_timer_ClearFIFO\000"
+ 1335      72697469 
+ 1335      63616C5F 
+ 1335      74696D65 
+ 1335      725F436C 
+ 1336              	.LASF14:
+ 1337 0299 72656738 		.ascii	"reg8\000"
+ 1337      00
+ 1338              	.LASF25:
+ 1339 029e 62315F63 		.ascii	"b1_critical_timer_WriteControlRegister\000"
+ 1339      72697469 
+ 1339      63616C5F 
+ 1339      74696D65 
+ 1339      725F5772 
+ 1340              	.LASF16:
+ 1341 02c5 73697A65 		.ascii	"sizetype\000"
+ 1341      74797065 
+ 1341      00
+ 1342              	.LASF6:
+ 1343 02ce 6C6F6E67 		.ascii	"long long int\000"
+ 1343      206C6F6E 
+ 1343      6720696E 
+ 1343      7400
+ 1344              	.LASF26:
+ 1345 02dc 696E7465 		.ascii	"interruptMode\000"
+ 1345      72727570 
+ 1345      744D6F64 
+ 1345      6500
+ 1346              	.LASF23:
+ 1347 02ea 62315F63 		.ascii	"b1_critical_timer_ReadStatusRegister\000"
+ 1347      72697469 
+ 1347      63616C5F 
+ 1347      74696D65 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccTmhqys.s 			page 40
 
 
- 1156 0078 00000000 		.4byte	.LFB0
- 1157 007c 34000000 		.4byte	.LFE0-.LFB0
- 1158 0080 00000000 		.4byte	.LFB2
- 1159 0084 1C000000 		.4byte	.LFE2-.LFB2
- 1160 0088 00000000 		.4byte	0
- 1161 008c 00000000 		.4byte	0
- 1162              		.section	.debug_ranges,"",%progbits
- 1163              	.Ldebug_ranges0:
- 1164 0000 00000000 		.4byte	.LFB1
- 1165 0004 10000000 		.4byte	.LFE1
- 1166 0008 00000000 		.4byte	.LFB3
- 1167 000c 10000000 		.4byte	.LFE3
- 1168 0010 00000000 		.4byte	.LFB4
- 1169 0014 0C000000 		.4byte	.LFE4
- 1170 0018 00000000 		.4byte	.LFB5
- 1171 001c 0C000000 		.4byte	.LFE5
- 1172 0020 00000000 		.4byte	.LFB6
- 1173 0024 0C000000 		.4byte	.LFE6
- 1174 0028 00000000 		.4byte	.LFB7
- 1175 002c 0C000000 		.4byte	.LFE7
- 1176 0030 00000000 		.4byte	.LFB8
- 1177 0034 0C000000 		.4byte	.LFE8
- 1178 0038 00000000 		.4byte	.LFB9
- 1179 003c 0C000000 		.4byte	.LFE9
- 1180 0040 00000000 		.4byte	.LFB10
- 1181 0044 0C000000 		.4byte	.LFE10
- 1182 0048 00000000 		.4byte	.LFB11
- 1183 004c 0C000000 		.4byte	.LFE11
- 1184 0050 00000000 		.4byte	.LFB12
- 1185 0054 0C000000 		.4byte	.LFE12
- 1186 0058 00000000 		.4byte	.LFB13
- 1187 005c 14000000 		.4byte	.LFE13
- 1188 0060 00000000 		.4byte	.LFB14
- 1189 0064 14000000 		.4byte	.LFE14
- 1190 0068 00000000 		.4byte	.LFB0
- 1191 006c 34000000 		.4byte	.LFE0
- 1192 0070 00000000 		.4byte	.LFB2
- 1193 0074 1C000000 		.4byte	.LFE2
- 1194 0078 00000000 		.4byte	0
- 1195 007c 00000000 		.4byte	0
- 1196              		.section	.debug_line,"",%progbits
- 1197              	.Ldebug_line0:
- 1198 0000 78010000 		.section	.debug_str,"MS",%progbits,1
- 1198      02005900 
- 1198      00000201 
- 1198      FB0E0D00 
- 1198      01010101 
- 1199              	.LASF15:
- 1200 0000 72656731 		.ascii	"reg16\000"
- 1200      3600
- 1201              	.LASF37:
- 1202 0006 47656E65 		.ascii	"Generated_Source\\PSoC5\\b1_critical_timer.c\000"
- 1202      72617465 
- 1202      645F536F 
- 1202      75726365 
- 1202      5C50536F 
- 1203              	.LASF18:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 36
-
-
- 1204 0031 62315F63 		.ascii	"b1_critical_timer_Stop\000"
- 1204      72697469 
- 1204      63616C5F 
- 1204      74696D65 
- 1204      725F5374 
- 1205              	.LASF35:
- 1206 0048 62315F63 		.ascii	"b1_critical_timer_Start\000"
- 1206      72697469 
- 1206      63616C5F 
- 1206      74696D65 
- 1206      725F5374 
- 1207              	.LASF28:
- 1208 0060 70657269 		.ascii	"period\000"
- 1208      6F6400
- 1209              	.LASF32:
- 1210 0067 62315F63 		.ascii	"b1_critical_timer_ReadCounter\000"
- 1210      72697469 
- 1210      63616C5F 
- 1210      74696D65 
- 1210      725F5265 
- 1211              	.LASF30:
- 1212 0085 62315F63 		.ascii	"b1_critical_timer_WriteCounter\000"
- 1212      72697469 
- 1212      63616C5F 
- 1212      74696D65 
- 1212      725F5772 
- 1213              	.LASF17:
- 1214 00a4 62315F63 		.ascii	"b1_critical_timer_Enable\000"
- 1214      72697469 
- 1214      63616C5F 
- 1214      74696D65 
- 1214      725F456E 
- 1215              	.LASF11:
- 1216 00bd 666C6F61 		.ascii	"float\000"
- 1216      7400
- 1217              	.LASF31:
- 1218 00c3 636F756E 		.ascii	"counter\000"
- 1218      74657200 
- 1219              	.LASF22:
- 1220 00cb 62315F63 		.ascii	"b1_critical_timer_SetInterruptMode\000"
- 1220      72697469 
- 1220      63616C5F 
- 1220      74696D65 
- 1220      725F5365 
- 1221              	.LASF1:
- 1222 00ee 756E7369 		.ascii	"unsigned char\000"
- 1222      676E6564 
- 1222      20636861 
- 1222      7200
- 1223              	.LASF27:
- 1224 00fc 62315F63 		.ascii	"b1_critical_timer_WritePeriod\000"
- 1224      72697469 
- 1224      63616C5F 
- 1224      74696D65 
- 1224      725F5772 
- 1225              	.LASF5:
- 1226 011a 6C6F6E67 		.ascii	"long unsigned int\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 37
-
-
- 1226      20756E73 
- 1226      69676E65 
- 1226      6420696E 
- 1226      7400
- 1227              	.LASF9:
- 1228 012c 75696E74 		.ascii	"uint8\000"
- 1228      3800
- 1229              	.LASF25:
- 1230 0132 636F6E74 		.ascii	"control\000"
- 1230      726F6C00 
- 1231              	.LASF39:
- 1232 013a 62315F63 		.ascii	"b1_critical_timer_interruptState\000"
- 1232      72697469 
- 1232      63616C5F 
- 1232      74696D65 
- 1232      725F696E 
- 1233              	.LASF21:
- 1234 015b 62315F63 		.ascii	"b1_critical_timer_ReadControlRegister\000"
- 1234      72697469 
- 1234      63616C5F 
- 1234      74696D65 
- 1234      725F5265 
- 1235              	.LASF26:
- 1236 0181 62315F63 		.ascii	"b1_critical_timer_ReadPeriod\000"
- 1236      72697469 
- 1236      63616C5F 
- 1236      74696D65 
- 1236      725F5265 
- 1237              	.LASF12:
- 1238 019e 646F7562 		.ascii	"double\000"
- 1238      6C6500
- 1239              	.LASF40:
- 1240 01a5 62315F63 		.ascii	"b1_critical_timer_initVar\000"
- 1240      72697469 
- 1240      63616C5F 
- 1240      74696D65 
- 1240      725F696E 
- 1241              	.LASF19:
- 1242 01bf 62315F63 		.ascii	"b1_critical_timer_SoftwareCapture\000"
- 1242      72697469 
- 1242      63616C5F 
- 1242      74696D65 
- 1242      725F536F 
- 1243              	.LASF10:
- 1244 01e1 75696E74 		.ascii	"uint16\000"
- 1244      313600
- 1245              	.LASF36:
- 1246 01e8 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1246      4320342E 
- 1246      392E3320 
- 1246      32303135 
- 1246      30333033 
- 1247 021b 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1247      20726576 
- 1247      6973696F 
- 1247      6E203232 
- 1247      31323230 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 38
-
-
- 1248 024e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1248      66756E63 
- 1248      74696F6E 
- 1248      2D736563 
- 1248      74696F6E 
- 1249              	.LASF41:
- 1250 0276 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 1250      74657243 
- 1250      72697469 
- 1250      63616C53 
- 1250      65637469 
- 1251              	.LASF8:
- 1252 028d 756E7369 		.ascii	"unsigned int\000"
- 1252      676E6564 
- 1252      20696E74 
- 1252      00
- 1253              	.LASF42:
- 1254 029a 43794578 		.ascii	"CyExitCriticalSection\000"
- 1254      69744372 
- 1254      69746963 
- 1254      616C5365 
- 1254      6374696F 
- 1255              	.LASF33:
- 1256 02b0 62315F63 		.ascii	"b1_critical_timer_ClearFIFO\000"
- 1256      72697469 
- 1256      63616C5F 
- 1256      74696D65 
- 1256      725F436C 
- 1257              	.LASF14:
- 1258 02cc 72656738 		.ascii	"reg8\000"
- 1258      00
- 1259              	.LASF23:
- 1260 02d1 62315F63 		.ascii	"b1_critical_timer_WriteControlRegister\000"
- 1260      72697469 
- 1260      63616C5F 
- 1260      74696D65 
- 1260      725F5772 
- 1261              	.LASF16:
- 1262 02f8 73697A65 		.ascii	"sizetype\000"
- 1262      74797065 
- 1262      00
- 1263              	.LASF6:
- 1264 0301 6C6F6E67 		.ascii	"long long int\000"
- 1264      206C6F6E 
- 1264      6720696E 
- 1264      7400
- 1265              	.LASF24:
- 1266 030f 696E7465 		.ascii	"interruptMode\000"
- 1266      72727570 
- 1266      744D6F64 
- 1266      6500
- 1267              	.LASF20:
- 1268 031d 62315F63 		.ascii	"b1_critical_timer_ReadStatusRegister\000"
- 1268      72697469 
- 1268      63616C5F 
- 1268      74696D65 
- 1268      725F5265 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccmRHBxJ.s 			page 39
-
-
- 1269              	.LASF2:
- 1270 0342 73686F72 		.ascii	"short int\000"
- 1270      7420696E 
- 1270      7400
- 1271              	.LASF34:
- 1272 034c 62315F63 		.ascii	"b1_critical_timer_Init\000"
- 1272      72697469 
- 1272      63616C5F 
- 1272      74696D65 
- 1272      725F496E 
- 1273              	.LASF29:
- 1274 0363 62315F63 		.ascii	"b1_critical_timer_ReadCapture\000"
- 1274      72697469 
- 1274      63616C5F 
- 1274      74696D65 
- 1274      725F5265 
- 1275              	.LASF4:
- 1276 0381 6C6F6E67 		.ascii	"long int\000"
- 1276      20696E74 
- 1276      00
- 1277              	.LASF13:
- 1278 038a 63686172 		.ascii	"char\000"
- 1278      00
- 1279              	.LASF38:
- 1280 038f 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
- 1280      6F776E6C 
- 1280      6F616473 
- 1280      5C465255 
- 1280      43445C4E 
- 1281 03bd 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
- 1281      67756172 
- 1281      2E637964 
- 1281      736E00
- 1282              	.LASF0:
- 1283 03cc 7369676E 		.ascii	"signed char\000"
- 1283      65642063 
- 1283      68617200 
- 1284              	.LASF3:
- 1285 03d8 73686F72 		.ascii	"short unsigned int\000"
- 1285      7420756E 
- 1285      7369676E 
- 1285      65642069 
- 1285      6E7400
- 1286              	.LASF7:
- 1287 03eb 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1287      206C6F6E 
- 1287      6720756E 
- 1287      7369676E 
- 1287      65642069 
- 1288              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1347      725F5265 
+ 1348              	.LASF2:
+ 1349 030f 73686F72 		.ascii	"short int\000"
+ 1349      7420696E 
+ 1349      7400
+ 1350              	.LASF20:
+ 1351 0319 62315F63 		.ascii	"b1_critical_timer_Init\000"
+ 1351      72697469 
+ 1351      63616C5F 
+ 1351      74696D65 
+ 1351      725F496E 
+ 1352              	.LASF31:
+ 1353 0330 62315F63 		.ascii	"b1_critical_timer_ReadCapture\000"
+ 1353      72697469 
+ 1353      63616C5F 
+ 1353      74696D65 
+ 1353      725F5265 
+ 1354              	.LASF4:
+ 1355 034e 6C6F6E67 		.ascii	"long int\000"
+ 1355      20696E74 
+ 1355      00
+ 1356              	.LASF13:
+ 1357 0357 63686172 		.ascii	"char\000"
+ 1357      00
+ 1358              	.LASF38:
+ 1359 035c 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 1359      6F776E6C 
+ 1359      6F616473 
+ 1359      5C465255 
+ 1359      43445C4E 
+ 1360 038a 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 1360      67756172 
+ 1360      2E637964 
+ 1360      736E00
+ 1361              	.LASF0:
+ 1362 0399 7369676E 		.ascii	"signed char\000"
+ 1362      65642063 
+ 1362      68617200 
+ 1363              	.LASF3:
+ 1364 03a5 73686F72 		.ascii	"short unsigned int\000"
+ 1364      7420756E 
+ 1364      7369676E 
+ 1364      65642069 
+ 1364      6E7400
+ 1365              	.LASF28:
+ 1366 03b8 62315F63 		.ascii	"b1_critical_timer_ReadPeriod\000"
+ 1366      72697469 
+ 1366      63616C5F 
+ 1366      74696D65 
+ 1366      725F5265 
+ 1367              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

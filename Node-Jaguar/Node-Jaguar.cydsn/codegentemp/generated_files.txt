@@ -59,11 +59,6 @@
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\isr_can.h" value="HEADER;;;;;isr_can" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\timer_clk.c" value="SOURCE_C;CortexM3;;;;timer_clk" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\timer_clk.h" value="HEADER;;;;;timer_clk" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Node_Timer.c" value="SOURCE_C;CortexM3;;;;Node_Timer" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Node_Timer.h" value="HEADER;;;;;Node_Timer" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\Node_Timer_PM.c" value="SOURCE_C;CortexM3;;;;Node_Timer" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\isr_nodeok.c" value="SOURCE_C;CortexM3;;;;isr_nodeok" />
-  <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\isr_nodeok.h" value="HEADER;;;;;isr_nodeok" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\SDA_1_aliases.h" value="HEADER;;;;;SDA_1" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\SDA_1.c" value="SOURCE_C;CortexM3;;;;SDA_1" />
   <file name="D:\Downloads\FRUCD\Node-Jaguar\Node-Jaguar\Node-Jaguar.cydsn\codegentemp\SDA_1.h" value="HEADER;;;;;SDA_1" />

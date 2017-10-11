@@ -14,8 +14,9 @@
 
 //temperature (C), step points for each 5-LED monitor set
 int bms_temp_map[] = {0x40, 0x45, 0x50, 0x55, 0x60};
-int mtr_temp_map[] = {50, 75, 100, 125, 150};
-int mtr_ctrl_temp_map[] = {60, 70, 80, 90, 100};
+int mtr_temp_map[] = {60, 100, 115, 135, 145};
+int mtr_ctrl_temp_map[] = {50, 60, 70, 80, 90};
+int SoC_pct_map[] = {50, 35, 25, 15, 10};
 
 //byte of LED address which holds which led's are on/off
 uint8_t byte05 = 0x00;
@@ -71,7 +72,7 @@ CY_ISR(tach_crit_isr) {
     d20_write(tach_crit_led);
     d21_write(tach_crit_led);
     d22_write(tach_crit_led);
-    led_update_tach(0);
+    led_update_tach();
 }
 
 
@@ -117,9 +118,10 @@ CY_ISR(c1_crit_isr) {
 
 
 void led_driver_init() {
-	LED_Driver1_Start();
+    int status = 0;
+	//LED_Driver1_Start();
 	LED_Driver2_Start();
-
+    /*
 	//tach settings
 	LED_Driver1_MasterSendStart(LED_ADDR, 0);
 	LED_Driver1_MasterWriteByte(0x00);				//move to 0x00 addr
@@ -129,8 +131,10 @@ void led_driver_init() {
 	LED_Driver1_MasterWriteByte(GLED_curr);			//x03
 	LED_Driver1_MasterWriteByte(BLED_curr);			//x04
 	LED_Driver1_MasterSendStop();
-	LED_Driver1_MasterSendStart(LED_ADDR, 0);
-	LED_Driver1_MasterWriteByte(0x09);
+    CyDelay(50);
+
+    LED_Driver1_MasterSendStart(LED_ADDR, 0);
+    LED_Driver1_MasterWriteByte(0x09);
 	LED_Driver1_MasterWriteByte(output_setting);	//x09 addr
 	LED_Driver1_MasterWriteByte(output_setting);	//x0A
 	LED_Driver1_MasterWriteByte(output_setting);	//x0B
@@ -141,9 +145,10 @@ void led_driver_init() {
 	LED_Driver1_MasterWriteByte(fade_fn);			//x10	LEDG
 	LED_Driver1_MasterWriteByte(fade_fn);			//x11	LEDB
 	LED_Driver1_MasterSendStop();
-	
+    CyDelay(50);
+    */
 	//monitor settings
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);		//set mode
+    LED_Driver2_MasterSendStart(LED_ADDR, 0);		//set mode
 	LED_Driver2_MasterWriteByte(0x00);				//move to 0x00 addr
 	LED_Driver2_MasterWriteByte(serial_setting);	//0x00 addr
 	LED_Driver2_MasterWriteByte(fade_setting);		//x01
@@ -151,7 +156,9 @@ void led_driver_init() {
 	LED_Driver2_MasterWriteByte(GLED_curr);			//x03
 	LED_Driver2_MasterWriteByte(BLED_curr);			//x04
 	LED_Driver2_MasterSendStop();
-	LED_Driver2_MasterSendStart(LED_ADDR, 0);		//set output setting PWM
+    CyDelay(50);
+    
+    LED_Driver2_MasterSendStart(LED_ADDR, 0);		//set output setting PWM
 	LED_Driver2_MasterWriteByte(0x09);
 	LED_Driver2_MasterWriteByte(output_setting);	//x09 addr
 	LED_Driver2_MasterWriteByte(output_setting);	//x0A
@@ -163,15 +170,14 @@ void led_driver_init() {
 	LED_Driver2_MasterWriteByte(fade_fn);			//x10	LEDG
 	LED_Driver2_MasterWriteByte(fade_fn);			//x11	LEDB
 	LED_Driver2_MasterSendStop();
-	
-	write_all_tach(0);
-	write_all_stat(0);
+    CyDelay(50);
 } //led_driver_init()
 
 
 //calculates and writes RPM to tach led bar based on the maxed RPM
 void led_write_tach(uint16_t MTR_RPM) {
-	long tach_pct = MTR_RPM / MAX_RPM;	//tach percent
+    //int MTR_RPM_int = (int) MTR_RPM;
+	int tach_pct = (int)(MTR_RPM * 100 / MAX_RPM);	//tach percent
 	int steps = 0;
     
     if(tach_pct < 100) { //not full rpm anymore
@@ -179,6 +185,7 @@ void led_write_tach(uint16_t MTR_RPM) {
             tach_critical = 0;
             tach_crit_int_Stop();
             tach_critical_timer_Stop();
+            d21_write(0);
             d22_write(0);   //actually not using last led for anything but full rpm blinking
             led_update_tach();
         } //if 
@@ -188,45 +195,45 @@ void led_write_tach(uint16_t MTR_RPM) {
     if (tach_pct == 0)
         steps = 0;
 	else if(tach_pct > 0 && tach_pct <= 5)
-		steps = 2;	//first step lights up first 2 led's
+		steps = 1;	//first step lights up first 2 led's
 	else if(tach_pct > 5 && tach_pct <= 10)
-		steps = 3;
+		steps = 2;
 	else if(tach_pct > 10 && tach_pct <= 15)
-		steps = 4;
+		steps = 3;
 	else if(tach_pct > 15 && tach_pct <= 20)
-		steps = 5;
+		steps = 4;
 	else if(tach_pct > 20 && tach_pct <= 25)
-		steps = 6;
+		steps = 5;
 	else if(tach_pct > 25 && tach_pct <= 30)
-		steps = 7;
+		steps = 6;
 	else if(tach_pct > 30 && tach_pct <= 35)
-		steps = 8;
+		steps = 7;
 	else if(tach_pct > 35 && tach_pct <= 40)
-		steps = 9;
+		steps = 8;
 	else if(tach_pct > 40 && tach_pct <= 45)
-		steps = 10;
+		steps = 9;
 	else if(tach_pct > 45 && tach_pct <= 50)
-		steps = 11;
+		steps = 10;
 	else if(tach_pct > 50 && tach_pct <= 55)
-		steps = 12;
+		steps = 11;
 	else if(tach_pct > 55 && tach_pct <= 60)
-		steps = 13;
+		steps = 12;
 	else if(tach_pct > 60 && tach_pct <= 65)
-		steps = 14;
+		steps = 13;
 	else if(tach_pct > 65 && tach_pct <= 70)
-		steps = 15;
+		steps = 14;
 	else if(tach_pct > 70 && tach_pct <= 75)
-		steps = 16;
+		steps = 15;
 	else if(tach_pct > 75 && tach_pct <= 80)
-		steps = 17;
+		steps = 16;
 	else if(tach_pct > 80 && tach_pct <= 85)
-		steps = 18;
+		steps = 17;
 	else if(tach_pct > 85 && tach_pct <= 90)
-		steps = 19;
+		steps = 18;
 	else if(tach_pct > 90 && tach_pct <= 95)
-		steps = 20;
+		steps = 19;
 	else if(tach_pct > 95 && tach_pct <= 99)
-		steps = 21;
+		steps = 20;
     else { //(tach_pct = 100)
         if(!tach_critical) {	//start blinking
 			tach_critical_timer_Start();
@@ -239,7 +246,7 @@ void led_write_tach(uint16_t MTR_RPM) {
     	int i;
     	for(i=0; i<steps; i++)
     		tach_arr[i] = 1;	//on leds
-    	for(i=steps; i<TACH_MAX_STEPS+2; i++)	//+2 to get d1 and d22
+    	for(i=steps; i<TACH_MAX_STEPS; i++)	//
     		tach_arr[i] = 0;	//off leds
     	
     	d1_write(tach_arr[0]);
@@ -262,8 +269,8 @@ void led_write_tach(uint16_t MTR_RPM) {
     	d18_write(tach_arr[17]);
     	d19_write(tach_arr[18]);
     	d20_write(tach_arr[19]);
-    	d21_write(tach_arr[20]);
-    	d22_write(tach_arr[21]);
+    	//d21_write(tach_arr[20]);
+    	//d22_write(tach_arr[21]);
         led_update_tach();
     } //if
 } //led_write_tach
@@ -312,7 +319,9 @@ void led_write_b1(uint8_t BMS_TEMP) {	//left vertical bar, 5 leds
 	} //if
 }	//led_write_b1()
 
-void led_write_b2(uint8_t MTR_TEMP) {	//center vertical bar, 5 leds
+void led_write_b2(uint16_t MTR_TEMP_hex) {	//center vertical bar, 5 leds
+    int MTR_TEMP = (int)(MTR_TEMP_hex / 0x0A);
+    
     if(MTR_TEMP < mtr_temp_map[4]) { //temperature has cooled down, stop blinking
         if(b2_critical) {
             b2_critical = 0;
@@ -330,9 +339,9 @@ void led_write_b2(uint8_t MTR_TEMP) {	//center vertical bar, 5 leds
 		steps = 3;
 	else if (MTR_TEMP > mtr_temp_map[2] && MTR_TEMP <= mtr_temp_map[3])
 		steps = 4;
-	else if (MTR_TEMP > mtr_temp_map[3] && MTR_TEMP <= mtr_temp_map[4])
+	else if (MTR_TEMP > mtr_temp_map[3] && MTR_TEMP < mtr_temp_map[4])
 		steps = 5;
-	else {	//(MTR_TEMP >= 60)
+	else {	//(MTR_TEMP >= 100)
 		if(!b2_critical) {	//start blinking
 			b2_critical_timer_Start();
 			b2_crit_int_StartEx(b2_crit_isr);
@@ -356,7 +365,8 @@ void led_write_b2(uint8_t MTR_TEMP) {	//center vertical bar, 5 leds
 	} //if
 } //led_write_b2()
 
-void led_write_b3(uint8_t MTR_CTRL_TEMP) {	//right vertical bar, 5 leds
+void led_write_b3(uint16_t MTR_CTRL_TEMP_hex) {	//right vertical bar, 5 leds
+    int MTR_CTRL_TEMP = (int)(MTR_CTRL_TEMP_hex / 0x0A);
     if(MTR_CTRL_TEMP < mtr_ctrl_temp_map[4]) { //temperature has cooled down, stop blinking
         if(b3_critical) {
             b3_critical = 0;
@@ -374,9 +384,9 @@ void led_write_b3(uint8_t MTR_CTRL_TEMP) {	//right vertical bar, 5 leds
 		steps = 3;
 	else if (MTR_CTRL_TEMP > mtr_ctrl_temp_map[2] && MTR_CTRL_TEMP <= mtr_ctrl_temp_map[3])
 		steps = 4;
-	else if (MTR_CTRL_TEMP > mtr_ctrl_temp_map[3] && MTR_CTRL_TEMP <= mtr_ctrl_temp_map[4])
+	else if (MTR_CTRL_TEMP > mtr_ctrl_temp_map[3] && MTR_CTRL_TEMP < mtr_ctrl_temp_map[4])
 		steps = 5;
-	else {	//(MTR_CTRL_TEMP >= 59)
+	else {	//(MTR_CTRL_TEMP >= 135)
 		if(!b3_critical) {	//start blinking
 			b3_critical_timer_Start();
 			b3_crit_int_StartEx(b3_crit_isr);
@@ -401,16 +411,23 @@ void led_write_b3(uint8_t MTR_CTRL_TEMP) {	//right vertical bar, 5 leds
 } //led_write_b3()
 
 void led_write_c1(uint8_t SoC) {	//horizontal bar, 5 leds
+    if(SoC > SoC_pct_map[4]) {
+        if(c1_critical) {
+            c1_critical = 0;
+            c1_crit_int_Stop();
+            c1_critical_timer_Stop();
+        } //if 
+    } //if
 	int steps = 0;
-	if (SoC > 80 && SoC < 100)
+	if (SoC > SoC_pct_map[0])
 		steps = 5;
-	else if (SoC > 60  && SoC < 80)
+	else if (SoC > SoC_pct_map[1] && SoC <= SoC_pct_map[0])
 		steps = 4;
-	else if (SoC > 40 && SoC < 60)
+	else if (SoC > SoC_pct_map[2] && SoC <= SoC_pct_map[1])
 		steps = 3;
-	else if (SoC > 20 && SoC < 40)
+	else if (SoC > SoC_pct_map[3] && SoC <= SoC_pct_map[2])
 		steps = 2;
-	else if (SoC > 10 && SoC < 20)
+	else if (SoC > SoC_pct_map[4] && SoC <= SoC_pct_map[3])
 		steps = 1;
 	else {	//(SoC <= 10)
 		if(!c1_critical) {	//start blinking
@@ -422,16 +439,17 @@ void led_write_c1(uint8_t SoC) {	//horizontal bar, 5 leds
 	
 	if(!c1_critical) {
 		int i;
+        
 		for(i=0; i<steps; i++)
 			c1_arr[i] = 1;	//on leds
 		for(i=steps; i<5; i++)
 			c1_arr[i] = 0;	//off leds
 		
-		c1_write(c1_arr[0]);
-		c2_write(c1_arr[1]);
-		c3_write(c1_arr[2]);
-		c4_write(c1_arr[3]);
-		c5_write(c1_arr[4]);
+		c5_write(c1_arr[0]);    //d42
+		c4_write(c1_arr[1]);    //d41    
+		c3_write(c1_arr[2]);    //d40
+		c2_write(c1_arr[3]);    //d39
+		c1_write(c1_arr[4]);    //d38
         led_update_stat();
 	} //if
 } //led_write_c3()
@@ -544,23 +562,33 @@ void write_startup_tach() { //based on max rpm = 6000
 }
 void write_startup_stat() {
     //slowly turns on all bars of each monitor at a time
+    write_all_stat(0);
     LED_Driver2_MasterSendStart(LED_ADDR, 0);       //max fade 
     LED_Driver2_MasterWriteByte(0x01);
     LED_Driver2_MasterWriteByte(0x77);
+	LED_Driver2_MasterWriteByte(RLED_curr);			//x02
+	LED_Driver2_MasterWriteByte(GLED_curr);			//x03
+	LED_Driver2_MasterWriteByte(BLED_curr);			//x04
     LED_Driver2_MasterSendStop();
+    CyDelay(50);
     
-    led_write_b1(59);
-    CyDelay(500);
-    led_write_b2(59);
-    CyDelay(500);
-    led_write_b3(59);
-    CyDelay(500);
+    led_write_b1(0x59);
+    CyDelay(300);
+    led_write_b2(0x3E7);    //999/10
+    CyDelay(300);
+    led_write_b3(0x513);         //1300/10
+    CyDelay(300);
     led_write_c1(99);
+    CyDelay(50);
     
     LED_Driver2_MasterSendStart(LED_ADDR, 0);       //zero fade 
-    LED_Driver2_MasterWriteByte(0x01);
+    LED_Driver2_MasterWriteByte(0x01);              //0x1 addr
     LED_Driver2_MasterWriteByte(0x00);
+	LED_Driver2_MasterWriteByte(RLED_curr);			//x02
+	LED_Driver2_MasterWriteByte(GLED_curr);			//x03
+	LED_Driver2_MasterWriteByte(BLED_curr);			//x04
     LED_Driver2_MasterSendStop();
+
 }
 
 

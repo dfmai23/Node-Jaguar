@@ -1,113 +1,110 @@
 dont_use_io iocell 1 0
 dont_use_io iocell 1 1
 dont_use_io iocell 1 3
-dont_use_io iocell 15 0
-dont_use_io iocell 15 1
-set_location "\LED_Driver1:bI2C_UDB:scl_in_last2_reg\" macrocell 3 0 0 0
-set_location "\LED_Driver1:bI2C_UDB:sda_in_last2_reg\" macrocell 3 0 0 1
-set_location "\LED_Driver2:bI2C_UDB:m_state_4_split\" macrocell 2 5 0 0
-set_location "\LED_Driver2:bI2C_UDB:sda_in_reg\" macrocell 0 5 1 2
-set_location "\LED_Driver2:bI2C_UDB:bus_busy_reg\" macrocell 0 2 0 3
-set_location "\LED_Driver2:bI2C_UDB:m_state_2\" macrocell 1 3 0 3
-set_location "\b1_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 0 0 4 
-set_location "\c1_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 2 3 4 
-set_location "\b2_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 3 2 4 
-set_location "\b3_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 3 5 4 
-set_location "\tach_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 0 2 4 
-set_location "\LED_Driver2:bI2C_UDB:cs_addr_shifter_1\" macrocell 0 3 1 1
-set_location "\LED_Driver2:bI2C_UDB:clk_eq_reg\" macrocell 0 5 1 0
-set_location "\LED_Driver2:bI2C_UDB:scl_in_reg\" macrocell 0 5 1 1
-set_location "\LED_Driver2:bI2C_UDB:clkgen_tc1_reg\" macrocell 0 1 1 1
-set_location "\LED_Driver1:bI2C_UDB:cs_addr_shifter_0\" macrocell 2 0 1 1
-set_location "\LED_Driver2:bI2C_UDB:lost_arb_reg\" macrocell 0 4 1 2
-set_location "\LED_Driver1:bI2C_UDB:m_state_0_split\" macrocell 3 3 1 0
-set_location "\LED_Driver2:bI2C_UDB:m_state_3\" macrocell 2 5 1 1
-set_location "\LED_Driver2:bI2C_UDB:sda_in_last2_reg\" macrocell 0 3 1 2
-set_location "\LED_Driver1:bI2C_UDB:m_reset\" macrocell 3 1 1 0
-set_location "\LED_Driver1:bI2C_UDB:clk_eq_reg\" macrocell 2 0 0 2
-set_location "\LED_Driver2:bI2C_UDB:cs_addr_clkgen_1\" macrocell 1 0 0 0
-set_location "\LED_Driver1:bI2C_UDB:clkgen_tc2_reg\" macrocell 2 1 1 2
-set_location "\LED_Driver1:bI2C_UDB:Master:ClkGen:u0\" datapathcell 2 1 2 
-set_location "\LED_Driver1:bI2C_UDB:m_state_2\" macrocell 2 3 1 2
-set_location "\LED_Driver2:bI2C_UDB:m_state_2_split\" macrocell 1 4 0 0
-set_location "\b1_critical_timer:TimerUDB:sT16:timerdp:u1\" datapathcell 0 0 2 
+set_location "\LED_Driver2:bI2C_UDB:m_state_4_split\" macrocell 1 4 1 2
+set_location "\LED_Driver2:bI2C_UDB:sda_in_reg\" macrocell 0 5 0 1
+set_location "__ONE__" macrocell 2 5 0 3
+set_location "\b1_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 0 1 4 
+set_location "\c1_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 2 0 4 
+set_location "\b2_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 1 0 4 
+set_location "\b3_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 1 3 4 
+set_location "\tach_critical_timer:TimerUDB:rstSts:stsreg\" statusicell 3 5 4 
+set_location "\LED_Driver2:bI2C_UDB:cnt_reset\" macrocell 2 5 0 0
+set_location "\LED_Driver2:bI2C_UDB:status_1\" macrocell 0 5 0 0
+set_location "\LED_Driver2:bI2C_UDB:cs_addr_shifter_1\" macrocell 1 5 0 2
+set_location "\LED_Driver2:bI2C_UDB:clk_eq_reg\" macrocell 0 5 1 1
+set_location "\LED_Driver1:bI2C_UDB:status_5\" macrocell 2 0 0 1
+set_location "\LED_Driver2:bI2C_UDB:scl_in_reg\" macrocell 0 5 1 2
+set_location "\LED_Driver2:bI2C_UDB:clkgen_tc1_reg\" macrocell 2 2 1 3
+set_location "\LED_Driver1:bI2C_UDB:status_4\" macrocell 3 0 0 1
+set_location "\LED_Driver1:bI2C_UDB:cs_addr_shifter_0\" macrocell 2 2 1 0
+set_location "\LED_Driver2:bI2C_UDB:lost_arb_reg\" macrocell 1 5 1 0
+set_location "\LED_Driver1:bI2C_UDB:m_state_0_split\" macrocell 0 2 0 3
+set_location "\LED_Driver2:bI2C_UDB:m_state_3\" macrocell 1 5 0 0
+set_location "\LED_Driver1:bI2C_UDB:m_reset\" macrocell 3 2 0 3
+set_location "\LED_Driver1:bI2C_UDB:clk_eq_reg\" macrocell 3 0 1 2
+set_location "\LED_Driver2:bI2C_UDB:cs_addr_clkgen_1\" macrocell 2 4 0 2
+set_location "\LED_Driver1:bI2C_UDB:clkgen_tc2_reg\" macrocell 0 4 1 0
+set_location "\LED_Driver1:bI2C_UDB:scl_in_last2_reg\" macrocell 3 4 0 3
+set_location "\LED_Driver1:bI2C_UDB:sda_in_last2_reg\" macrocell 2 0 0 0
+set_location "\LED_Driver2:bI2C_UDB:m_state_2_split\" macrocell 1 3 0 0
+set_location "\LED_Driver1:bI2C_UDB:Master:ClkGen:u0\" datapathcell 1 2 2 
+set_location "\LED_Driver1:bI2C_UDB:cnt_reset\" macrocell 3 1 0 0
+set_location "\LED_Driver1:bI2C_UDB:cs_addr_shifter_1\" macrocell 3 2 0 1
+set_location "\LED_Driver2:bI2C_UDB:scl_in_last_reg\" macrocell 1 2 1 3
+set_location "\LED_Driver2:Net_643_3\" macrocell 2 4 0 1
+set_location "\LED_Driver1:bI2C_UDB:status_1\" macrocell 3 0 1 3
+set_location "\LED_Driver2:bI2C_UDB:status_4\" macrocell 3 5 1 1
+set_location "Net_111" macrocell 2 1 0 0
+set_location "Net_138" macrocell 3 5 0 0
+set_location "Net_154" macrocell 0 1 0 0
+set_location "Net_164" macrocell 2 1 0 2
+set_location "Net_174" macrocell 2 1 0 3
+set_location "\LED_Driver2:bI2C_UDB:m_reset\" macrocell 2 5 1 1
+set_location "\LED_Driver1:sda_x_wire\" macrocell 1 1 1 0
+set_location "\LED_Driver2:bI2C_UDB:cs_addr_shifter_0\" macrocell 2 4 1 0
+set_location "\b1_critical_timer:TimerUDB:sT16:timerdp:u1\" datapathcell 0 1 2 
 set_location "\c1_critical_timer:TimerUDB:sT16:timerdp:u1\" datapathcell 2 2 2 
-set_location "\b2_critical_timer:TimerUDB:sT16:timerdp:u1\" datapathcell 3 3 2 
-set_location "\b3_critical_timer:TimerUDB:sT16:timerdp:u1\" datapathcell 3 5 2 
-set_location "\tach_critical_timer:TimerUDB:sT16:timerdp:u1\" datapathcell 0 2 2 
-set_location "\LED_Driver1:bI2C_UDB:bus_busy_reg\" macrocell 3 0 1 0
-set_location "\LED_Driver1:bI2C_UDB:cs_addr_shifter_1\" macrocell 1 1 1 2
-set_location "\LED_Driver2:bI2C_UDB:scl_in_last_reg\" macrocell 0 3 1 0
-set_location "\LED_Driver2:bI2C_UDB:status_5\" macrocell 0 3 0 0
-set_location "\LED_Driver2:Net_643_3\" macrocell 0 1 0 2
-set_location "\LED_Driver1:bI2C_UDB:status_1\" macrocell 3 0 0 2
-set_location "Net_111" macrocell 0 0 0 2
-set_location "Net_138" macrocell 0 0 0 1
-set_location "Net_154" macrocell 2 1 0 2
-set_location "Net_164" macrocell 3 5 1 0
-set_location "Net_174" macrocell 3 5 0 0
-set_location "\LED_Driver1:sda_x_wire\" macrocell 2 1 1 0
-set_location "\LED_Driver2:bI2C_UDB:cs_addr_shifter_0\" macrocell 1 1 1 1
-set_location "\LED_Driver1:bI2C_UDB:sda_in_last_reg\" macrocell 3 0 1 1
-set_location "\LED_Driver2:bI2C_UDB:status_0\" macrocell 0 3 0 2
-set_location "\LED_Driver1:bI2C_UDB:scl_in_last_reg\" macrocell 3 2 1 1
-set_location "\LED_Driver2:bI2C_UDB:m_state_1\" macrocell 1 2 1 1
-set_location "\LED_Driver1:bI2C_UDB:m_state_2_split\" macrocell 3 3 0 0
-set_location "\b1_critical_timer:TimerUDB:sT16:timerdp:u0\" datapathcell 0 1 2 
+set_location "\b2_critical_timer:TimerUDB:sT16:timerdp:u1\" datapathcell 1 0 2 
+set_location "\b3_critical_timer:TimerUDB:sT16:timerdp:u1\" datapathcell 1 3 2 
+set_location "\tach_critical_timer:TimerUDB:sT16:timerdp:u1\" datapathcell 3 5 2 
+set_location "\LED_Driver2:bI2C_UDB:sda_in_last2_reg\" macrocell 0 3 0 0
+set_location "\LED_Driver1:bI2C_UDB:sda_in_last_reg\" macrocell 2 0 1 1
+set_location "\LED_Driver1:bI2C_UDB:cs_addr_clkgen_1\" macrocell 2 1 1 0
+set_location "\LED_Driver2:bI2C_UDB:status_0\" macrocell 2 5 1 0
+set_location "\LED_Driver1:bI2C_UDB:scl_in_last_reg\" macrocell 3 1 1 3
+set_location "\LED_Driver2:bI2C_UDB:m_state_1\" macrocell 2 2 0 0
+set_location "\LED_Driver1:bI2C_UDB:m_state_2_split\" macrocell 0 0 1 2
+set_location "\b1_critical_timer:TimerUDB:status_tc\" macrocell 0 1 1 3
+set_location "\c1_critical_timer:TimerUDB:status_tc\" macrocell 2 2 1 1
+set_location "\b2_critical_timer:TimerUDB:status_tc\" macrocell 1 0 0 0
+set_location "\b3_critical_timer:TimerUDB:status_tc\" macrocell 2 2 1 2
+set_location "\tach_critical_timer:TimerUDB:status_tc\" macrocell 3 5 1 3
+set_location "\LED_Driver2:bI2C_UDB:bus_busy_reg\" macrocell 0 3 0 2
+set_location "\LED_Driver2:bI2C_UDB:m_state_2\" macrocell 1 3 1 1
+set_location "\LED_Driver1:bI2C_UDB:m_state_0\" macrocell 0 0 0 2
+set_location "\LED_Driver1:bI2C_UDB:sda_in_reg\" macrocell 3 0 1 1
+set_location "\LED_Driver1:bI2C_UDB:m_state_1\" macrocell 3 4 1 0
+set_location "\LED_Driver1:Net_643_3\" macrocell 1 0 0 1
+set_location "\LED_Driver2:bI2C_UDB:scl_in_last2_reg\" macrocell 0 1 1 2
+set_location "\LED_Driver2:bI2C_UDB:sda_in_last_reg\" macrocell 0 3 1 3
+set_location "\LED_Driver1:bI2C_UDB:status_2\" macrocell 3 4 0 2
+set_location "\LED_Driver2:bI2C_UDB:m_state_0\" macrocell 1 2 1 0
+set_location "\LED_Driver1:bI2C_UDB:status_0\" macrocell 3 1 1 2
+set_location "\LED_Driver1:bI2C_UDB:cs_addr_clkgen_0\" macrocell 2 1 1 1
+set_location "\LED_Driver1:bI2C_UDB:Shifter:u0\" datapathcell 2 1 2 
+set_location "\LED_Driver2:bI2C_UDB:m_state_4\" macrocell 0 4 0 2
+set_location "\LED_Driver1:bI2C_UDB:clkgen_tc1_reg\" macrocell 3 2 1 0
+set_location "\LED_Driver1:bI2C_UDB:m_state_2\" macrocell 0 0 0 0
+set_location "\LED_Driver1:bI2C_UDB:scl_in_reg\" macrocell 3 0 1 0
+set_location "\LED_Driver1:bI2C_UDB:m_state_4_split\" macrocell 1 1 0 0
+set_location "\LED_Driver1:bI2C_UDB:bus_busy_reg\" macrocell 2 4 1 2
+set_location "\LED_Driver2:bI2C_UDB:clkgen_tc2_reg\" macrocell 0 3 1 1
+set_location "\LED_Driver2:bI2C_UDB:Shifter:u0\" datapathcell 1 4 2 
+set_location "\b1_critical_timer:TimerUDB:sT16:timerdp:u0\" datapathcell 1 1 2 
 set_location "\c1_critical_timer:TimerUDB:sT16:timerdp:u0\" datapathcell 3 2 2 
-set_location "\b2_critical_timer:TimerUDB:sT16:timerdp:u0\" datapathcell 2 3 2 
-set_location "\b3_critical_timer:TimerUDB:sT16:timerdp:u0\" datapathcell 2 5 2 
-set_location "\tach_critical_timer:TimerUDB:sT16:timerdp:u0\" datapathcell 1 2 2 
-set_location "\b1_critical_timer:TimerUDB:status_tc\" macrocell 0 0 1 1
-set_location "\c1_critical_timer:TimerUDB:status_tc\" macrocell 2 2 1 3
-set_location "\b2_critical_timer:TimerUDB:status_tc\" macrocell 3 2 0 2
-set_location "\b3_critical_timer:TimerUDB:status_tc\" macrocell 3 5 0 3
-set_location "\tach_critical_timer:TimerUDB:status_tc\" macrocell 0 2 1 2
-set_location "\LED_Driver1:bI2C_UDB:m_state_0\" macrocell 3 2 0 0
-set_location "\LED_Driver2:bI2C_UDB:cnt_reset\" macrocell 0 2 1 3
-set_location "\LED_Driver1:bI2C_UDB:sda_in_reg\" macrocell 3 0 0 3
-set_location "\LED_Driver2:bI2C_UDB:status_1\" macrocell 0 5 1 3
-set_location "\LED_Driver1:bI2C_UDB:m_state_1\" macrocell 2 4 0 1
-set_location "\LED_Driver1:Net_643_3\" macrocell 2 2 0 1
-set_location "\LED_Driver2:bI2C_UDB:sda_in_last_reg\" macrocell 0 5 0 2
-set_location "\LED_Driver1:bI2C_UDB:status_5\" macrocell 3 1 0 0
-set_location "\LED_Driver1:bI2C_UDB:status_2\" macrocell 1 0 1 0
-set_location "\LED_Driver2:bI2C_UDB:m_state_0\" macrocell 0 4 0 3
-set_location "\LED_Driver1:bI2C_UDB:Shifter:u0\" datapathcell 2 0 2 
-set_location "\LED_Driver1:bI2C_UDB:status_4\" macrocell 3 1 1 1
-set_location "\LED_Driver1:bI2C_UDB:status_0\" macrocell 1 0 0 1
-set_location "\LED_Driver1:bI2C_UDB:cs_addr_clkgen_0\" macrocell 2 1 0 3
-set_location "__ONE__" macrocell 2 2 0 3
-set_location "\LED_Driver2:bI2C_UDB:m_state_4\" macrocell 1 5 0 1
-set_location "\LED_Driver1:bI2C_UDB:clkgen_tc1_reg\" macrocell 2 0 0 3
-set_location "\LED_Driver2:bI2C_UDB:Shifter:u0\" datapathcell 1 1 2 
-set_location "\LED_Driver1:bI2C_UDB:scl_in_reg\" macrocell 2 0 0 1
-set_location "\LED_Driver1:bI2C_UDB:m_state_4_split\" macrocell 3 4 1 0
-set_location "\LED_Driver2:bI2C_UDB:clkgen_tc2_reg\" macrocell 1 5 0 0
-set_location "\LED_Driver1:bI2C_UDB:cnt_reset\" macrocell 2 2 1 0
-set_location "\LED_Driver2:bI2C_UDB:scl_in_last2_reg\" macrocell 0 1 0 0
-set_location "\LED_Driver1:bI2C_UDB:StsReg\" statusicell 1 0 4 
-set_location "\LED_Driver2:sda_x_wire\" macrocell 1 5 1 0
-set_location "\LED_Driver1:bI2C_UDB:m_state_4\" macrocell 2 4 1 0
-set_location "\LED_Driver2:bI2C_UDB:StsReg\" statusicell 1 3 4 
-set_location "\LED_Driver2:bI2C_UDB:status_4\" macrocell 2 4 1 2
-set_location "\LED_Driver1:bI2C_UDB:m_state_3\" macrocell 3 4 0 0
-set_location "\LED_Driver1:bI2C_UDB:status_3\" macrocell 1 1 0 3
-set_location "\LED_Driver2:bI2C_UDB:status_3\" macrocell 1 3 1 0
-set_location "\LED_Driver1:bI2C_UDB:lost_arb_reg\" macrocell 2 0 0 0
-set_location "\LED_Driver2:bI2C_UDB:m_reset\" macrocell 1 5 0 2
-set_location "\LED_Driver2:bI2C_UDB:cs_addr_clkgen_0\" macrocell 0 4 1 3
-set_location "\LED_Driver2:bI2C_UDB:status_2\" macrocell 1 2 0 2
-set_location "\LED_Driver2:bI2C_UDB:m_state_0_split\" macrocell 1 4 1 3
-set_location "\LED_Driver2:bI2C_UDB:Master:ClkGen:u0\" datapathcell 1 0 2 
-set_location "\LED_Driver1:bI2C_UDB:cs_addr_clkgen_1\" macrocell 2 1 0 0
-set_location "ClockBlock" clockblockcell -1 -1 0
-set_location "\b1_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 0 1 6 
+set_location "\b2_critical_timer:TimerUDB:sT16:timerdp:u0\" datapathcell 0 0 2 
+set_location "\b3_critical_timer:TimerUDB:sT16:timerdp:u0\" datapathcell 0 3 2 
+set_location "\tach_critical_timer:TimerUDB:sT16:timerdp:u0\" datapathcell 2 5 2 
+set_location "\LED_Driver2:bI2C_UDB:status_5\" macrocell 0 1 1 1
+set_location "\LED_Driver1:bI2C_UDB:StsReg\" statusicell 3 0 4 
+set_location "\LED_Driver2:sda_x_wire\" macrocell 1 5 1 1
+set_location "\LED_Driver1:bI2C_UDB:m_state_4\" macrocell 1 1 1 1
+set_location "\LED_Driver2:bI2C_UDB:StsReg\" statusicell 1 4 4 
+set_location "\LED_Driver2:bI2C_UDB:Master:ClkGen:u0\" datapathcell 2 4 2 
+set_location "\LED_Driver1:bI2C_UDB:m_state_3\" macrocell 1 2 0 0
+set_location "\LED_Driver1:bI2C_UDB:status_3\" macrocell 2 0 1 3
+set_location "\LED_Driver2:bI2C_UDB:status_3\" macrocell 2 5 1 2
+set_location "\LED_Driver1:bI2C_UDB:lost_arb_reg\" macrocell 2 1 1 2
+set_location "\LED_Driver2:bI2C_UDB:cs_addr_clkgen_0\" macrocell 1 3 1 0
+set_location "\LED_Driver2:bI2C_UDB:status_2\" macrocell 2 5 0 2
+set_location "\LED_Driver2:bI2C_UDB:m_state_0_split\" macrocell 1 4 0 2
+set_location "\b1_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 0 2 6 
 set_location "\c1_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 3 2 6 
-set_location "\b2_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 3 1 6 
-set_location "\b3_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 2 5 6 
-set_location "\tach_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 1 1 6 
-set_io "RST_2(0)" iocell 6 4
+set_location "\b2_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 1 0 6 
+set_location "\b3_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 2 2 6 
+set_location "\tach_critical_timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" controlcell 3 4 6 
+set_io "RST_2(0)" iocell 4 7
 set_location "\CAN_Timer:TimerHW\" timercell -1 -1 0
 # Note: port 12 is the logical name for port 7
 set_io "SDA_2(0)" iocell 12 4
@@ -124,17 +121,16 @@ set_location "tach_crit_int" interrupt -1 -1 7
 # Note: port 12 is the logical name for port 7
 set_io "SDA_1(0)" iocell 12 1
 set_io "TX(0)" iocell 2 6
-set_location "\Node_Timer:TimerHW\" timercell -1 -1 1
 set_io "Drive(0)" iocell 3 0
-# Note: port 15 is the logical name for port 8
-set_io "RST_1(0)" iocell 15 2
+# Note: port 12 is the logical name for port 7
+set_io "RST_1(0)" iocell 12 2
+set_location "ClockBlock" clockblockcell -1 -1 0
 # Note: port 12 is the logical name for port 7
 set_io "SCL_2(0)" iocell 12 5
-set_location "\LED_Driver1:bI2C_UDB:SyncCtl:CtrlReg\" controlcell 3 3 6 
-set_location "\LED_Driver2:I2C_IRQ\" interrupt -1 -1 1
+set_location "\LED_Driver1:bI2C_UDB:SyncCtl:CtrlReg\" controlcell 1 2 6 
 set_location "\CAN:isr\" interrupt -1 -1 16
+set_location "\LED_Driver2:I2C_IRQ\" interrupt -1 -1 1
 set_location "\LED_Driver1:I2C_IRQ\" interrupt -1 -1 0
-set_location "isr_nodeok" interrupt -1 -1 18
 set_io "RGB1_1(0)" iocell 0 4
 set_io "RGB2_1(0)" iocell 0 5
 set_io "RGB3_1(0)" iocell 0 6

@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 1
 
 
    1              		.syntax unified
@@ -10,7 +10,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 6
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
@@ -18,15 +18,21 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
   15              		.text
   16              	.Ltext0:
   17              		.cfi_sections	.debug_frame
-  18              		.section	.text.Node_Timer_Enable,"ax",%progbits
-  19              		.align	2
-  20              		.global	Node_Timer_Enable
-  21              		.thumb
-  22              		.thumb_func
-  23              		.type	Node_Timer_Enable, %function
-  24              	Node_Timer_Enable:
-  25              	.LFB1:
-  26              		.file 1 "Generated_Source\\PSoC5\\Node_Timer.c"
+  18              		.global	Node_Timer_initVar
+  19              		.bss
+  20              		.type	Node_Timer_initVar, %object
+  21              		.size	Node_Timer_initVar, 1
+  22              	Node_Timer_initVar:
+  23 0000 00       		.space	1
+  24              		.section	.text.Node_Timer_Init,"ax",%progbits
+  25              		.align	2
+  26              		.global	Node_Timer_Init
+  27              		.thumb
+  28              		.thumb_func
+  29              		.type	Node_Timer_Init, %function
+  30              	Node_Timer_Init:
+  31              	.LFB0:
+  32              		.file 1 "Generated_Source\\PSoC5\\Node_Timer.c"
    1:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
    2:Generated_Source\PSoC5/Node_Timer.c **** * File Name: Node_Timer.c
    3:Generated_Source\PSoC5/Node_Timer.c **** * Version 2.70
@@ -52,15 +58,15 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
   23:Generated_Source\PSoC5/Node_Timer.c **** 
   24:Generated_Source\PSoC5/Node_Timer.c **** #include "Node_Timer.h"
   25:Generated_Source\PSoC5/Node_Timer.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 2
+
+
   26:Generated_Source\PSoC5/Node_Timer.c **** uint8 Node_Timer_initVar = 0u;
   27:Generated_Source\PSoC5/Node_Timer.c **** 
   28:Generated_Source\PSoC5/Node_Timer.c **** 
   29:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/Node_Timer.c **** * Function Name: Node_Timer_Init
   31:Generated_Source\PSoC5/Node_Timer.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 2
-
-
   32:Generated_Source\PSoC5/Node_Timer.c **** *
   33:Generated_Source\PSoC5/Node_Timer.c **** * Summary:
   34:Generated_Source\PSoC5/Node_Timer.c **** *  Initialize to the schematic state
@@ -74,6 +80,16 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
   42:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
   43:Generated_Source\PSoC5/Node_Timer.c **** void Node_Timer_Init(void) 
   44:Generated_Source\PSoC5/Node_Timer.c **** {
+  33              		.loc 1 44 0
+  34              		.cfi_startproc
+  35              		@ args = 0, pretend = 0, frame = 0
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37 0000 80B5     		push	{r7, lr}
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 00AF     		add	r7, sp, #0
+  42              		.cfi_def_cfa_register 7
   45:Generated_Source\PSoC5/Node_Timer.c ****     #if(!Node_Timer_UsingFixedFunction)
   46:Generated_Source\PSoC5/Node_Timer.c ****             /* Interrupt State Backup for Critical Region*/
   47:Generated_Source\PSoC5/Node_Timer.c ****             uint8 Node_Timer_interruptState;
@@ -82,6 +98,14 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
   50:Generated_Source\PSoC5/Node_Timer.c ****     #if (Node_Timer_UsingFixedFunction)
   51:Generated_Source\PSoC5/Node_Timer.c ****         /* Clear all bits but the enable bit (if it's already set) for Timer operation */
   52:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_CONTROL &= Node_Timer_CTRL_ENABLE;
+  43              		.loc 1 52 0
+  44 0004 204A     		ldr	r2, .L2
+  45 0006 204B     		ldr	r3, .L2
+  46 0008 1B78     		ldrb	r3, [r3]
+  47 000a DBB2     		uxtb	r3, r3
+  48 000c 03F00103 		and	r3, r3, #1
+  49 0010 DBB2     		uxtb	r3, r3
+  50 0012 1370     		strb	r3, [r2]
   53:Generated_Source\PSoC5/Node_Timer.c **** 
   54:Generated_Source\PSoC5/Node_Timer.c ****         /* Clear the mode bits for continuous run mode */
   55:Generated_Source\PSoC5/Node_Timer.c ****         #if (CY_PSOC5A)
@@ -90,6 +114,17 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
   58:Generated_Source\PSoC5/Node_Timer.c **** 
   59:Generated_Source\PSoC5/Node_Timer.c ****         #if (CY_PSOC3 || CY_PSOC5LP)
   60:Generated_Source\PSoC5/Node_Timer.c ****             Node_Timer_CONTROL3 &= ((uint8)(~Node_Timer_CTRL_MODE_MASK));
+  51              		.loc 1 60 0
+  52 0014 1D4A     		ldr	r2, .L2+4
+  53 0016 1D4B     		ldr	r3, .L2+4
+  54 0018 1B78     		ldrb	r3, [r3]
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 3
+
+
+  55 001a DBB2     		uxtb	r3, r3
+  56 001c 23F00303 		bic	r3, r3, #3
+  57 0020 DBB2     		uxtb	r3, r3
+  58 0022 1370     		strb	r3, [r2]
   61:Generated_Source\PSoC5/Node_Timer.c ****         #endif /* CONTROL3 register exists only in PSoC3 OR PSoC5LP */
   62:Generated_Source\PSoC5/Node_Timer.c **** 
   63:Generated_Source\PSoC5/Node_Timer.c ****         /* Check if One Shot mode is enabled i.e. RunMode !=0*/
@@ -118,9 +153,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
   86:Generated_Source\PSoC5/Node_Timer.c ****                 /* Set the default Run Mode of the Timer to Continuous */
   87:Generated_Source\PSoC5/Node_Timer.c ****                 Node_Timer_CONTROL2 |= Node_Timer_CTRL_MODE_PULSEWIDTH;
   88:Generated_Source\PSoC5/Node_Timer.c ****             #endif /* Set Continuous Run Mode in CONTROL2 for PSoC5A */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 3
-
-
   89:Generated_Source\PSoC5/Node_Timer.c **** 
   90:Generated_Source\PSoC5/Node_Timer.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
   91:Generated_Source\PSoC5/Node_Timer.c ****                 /* Clear and Set ROD and COD bits of CFG2 register */
@@ -139,24 +171,76 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  104:Generated_Source\PSoC5/Node_Timer.c **** 
  105:Generated_Source\PSoC5/Node_Timer.c ****         /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
  106:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_RT1 &= ((uint8)(~Node_Timer_RT1_MASK));
+  59              		.loc 1 106 0
+  60 0024 1A4A     		ldr	r2, .L2+8
+  61 0026 1A4B     		ldr	r3, .L2+8
+  62 0028 1B78     		ldrb	r3, [r3]
+  63 002a DBB2     		uxtb	r3, r3
+  64 002c 23F03003 		bic	r3, r3, #48
+  65 0030 DBB2     		uxtb	r3, r3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 4
+
+
+  66 0032 1370     		strb	r3, [r2]
  107:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_RT1 |= Node_Timer_SYNC;
+  67              		.loc 1 107 0
+  68 0034 164A     		ldr	r2, .L2+8
+  69 0036 164B     		ldr	r3, .L2+8
+  70 0038 1B78     		ldrb	r3, [r3]
+  71 003a DBB2     		uxtb	r3, r3
+  72 003c 43F03003 		orr	r3, r3, #48
+  73 0040 DBB2     		uxtb	r3, r3
+  74 0042 1370     		strb	r3, [r2]
  108:Generated_Source\PSoC5/Node_Timer.c **** 
  109:Generated_Source\PSoC5/Node_Timer.c ****         /*Enable DSI Sync all all inputs of the Timer*/
  110:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_RT1 &= ((uint8)(~Node_Timer_SYNCDSI_MASK));
+  75              		.loc 1 110 0
+  76 0044 124A     		ldr	r2, .L2+8
+  77 0046 124B     		ldr	r3, .L2+8
+  78 0048 1B78     		ldrb	r3, [r3]
+  79 004a DBB2     		uxtb	r3, r3
+  80 004c 23F00F03 		bic	r3, r3, #15
+  81 0050 DBB2     		uxtb	r3, r3
+  82 0052 1370     		strb	r3, [r2]
  111:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_RT1 |= Node_Timer_SYNCDSI_EN;
+  83              		.loc 1 111 0
+  84 0054 0E4A     		ldr	r2, .L2+8
+  85 0056 0E4B     		ldr	r3, .L2+8
+  86 0058 1B78     		ldrb	r3, [r3]
+  87 005a DBB2     		uxtb	r3, r3
+  88 005c 43F00F03 		orr	r3, r3, #15
+  89 0060 DBB2     		uxtb	r3, r3
+  90 0062 1370     		strb	r3, [r2]
  112:Generated_Source\PSoC5/Node_Timer.c **** 
  113:Generated_Source\PSoC5/Node_Timer.c ****         /* Set the IRQ to use the status register interrupts */
  114:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_CONTROL2 |= Node_Timer_CTRL2_IRQ_SEL;
+  91              		.loc 1 114 0
+  92 0064 0B4A     		ldr	r2, .L2+12
+  93 0066 0B4B     		ldr	r3, .L2+12
+  94 0068 1B78     		ldrb	r3, [r3]
+  95 006a DBB2     		uxtb	r3, r3
+  96 006c 43F00103 		orr	r3, r3, #1
+  97 0070 DBB2     		uxtb	r3, r3
+  98 0072 1370     		strb	r3, [r2]
  115:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* Configuring registers of fixed function implementation */
  116:Generated_Source\PSoC5/Node_Timer.c **** 
  117:Generated_Source\PSoC5/Node_Timer.c ****     /* Set Initial values from Configuration */
  118:Generated_Source\PSoC5/Node_Timer.c ****     Node_Timer_WritePeriod(Node_Timer_INIT_PERIOD);
+  99              		.loc 1 118 0
+ 100 0074 6320     		movs	r0, #99
+ 101 0076 FFF7FEFF 		bl	Node_Timer_WritePeriod
  119:Generated_Source\PSoC5/Node_Timer.c ****     Node_Timer_WriteCounter(Node_Timer_INIT_PERIOD);
+ 102              		.loc 1 119 0
+ 103 007a 6320     		movs	r0, #99
+ 104 007c FFF7FEFF 		bl	Node_Timer_WriteCounter
  120:Generated_Source\PSoC5/Node_Timer.c **** 
  121:Generated_Source\PSoC5/Node_Timer.c ****     #if (Node_Timer_UsingHWCaptureCounter)/* Capture counter is enabled */
  122:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_CAPTURE_COUNT_CTRL |= Node_Timer_CNTR_ENABLE;
  123:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_SetCaptureCount(Node_Timer_INIT_CAPTURE_COUNT);
  124:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* Configure capture counter value */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 5
+
+
  125:Generated_Source\PSoC5/Node_Timer.c **** 
  126:Generated_Source\PSoC5/Node_Timer.c ****     #if (!Node_Timer_UsingFixedFunction)
  127:Generated_Source\PSoC5/Node_Timer.c ****         #if (Node_Timer_SoftwareCaptureMode)
@@ -178,9 +262,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  143:Generated_Source\PSoC5/Node_Timer.c **** 
  144:Generated_Source\PSoC5/Node_Timer.c ****         /* Use the interrupt output of the status register for IRQ output */
  145:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_STATUS_AUX_CTRL |= Node_Timer_STATUS_ACTL_INT_EN_MASK;
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 4
-
-
  146:Generated_Source\PSoC5/Node_Timer.c **** 
  147:Generated_Source\PSoC5/Node_Timer.c ****         /* Exit Critical Region*/
  148:Generated_Source\PSoC5/Node_Timer.c ****         CyExitCriticalSection(Node_Timer_interruptState);
@@ -198,7 +279,33 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  160:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* Configure additional features of UDB implementation */
  161:Generated_Source\PSoC5/Node_Timer.c **** 
  162:Generated_Source\PSoC5/Node_Timer.c ****     Node_Timer_SetInterruptMode(Node_Timer_INIT_INTERRUPT_MODE);
+ 105              		.loc 1 162 0
+ 106 0080 0820     		movs	r0, #8
+ 107 0082 FFF7FEFF 		bl	Node_Timer_SetInterruptMode
  163:Generated_Source\PSoC5/Node_Timer.c **** }
+ 108              		.loc 1 163 0
+ 109 0086 80BD     		pop	{r7, pc}
+ 110              	.L3:
+ 111              		.align	2
+ 112              	.L2:
+ 113 0088 0C4F0040 		.word	1073762060
+ 114 008c 0E4F0040 		.word	1073762062
+ 115 0090 174F0040 		.word	1073762071
+ 116 0094 0D4F0040 		.word	1073762061
+ 117              		.cfi_endproc
+ 118              	.LFE0:
+ 119              		.size	Node_Timer_Init, .-Node_Timer_Init
+ 120              		.section	.text.Node_Timer_Enable,"ax",%progbits
+ 121              		.align	2
+ 122              		.global	Node_Timer_Enable
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 6
+
+
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.type	Node_Timer_Enable, %function
+ 126              	Node_Timer_Enable:
+ 127              	.LFB1:
  164:Generated_Source\PSoC5/Node_Timer.c **** 
  165:Generated_Source\PSoC5/Node_Timer.c **** 
  166:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -217,56 +324,79 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  179:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  180:Generated_Source\PSoC5/Node_Timer.c **** void Node_Timer_Enable(void) 
  181:Generated_Source\PSoC5/Node_Timer.c **** {
-  27              		.loc 1 181 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
+ 128              		.loc 1 181 0
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 1, uses_anonymous_args = 0
+ 132              		@ link register save eliminated.
+ 133 0000 80B4     		push	{r7}
+ 134              		.cfi_def_cfa_offset 4
+ 135              		.cfi_offset 7, -4
+ 136 0002 00AF     		add	r7, sp, #0
+ 137              		.cfi_def_cfa_register 7
  182:Generated_Source\PSoC5/Node_Timer.c ****     /* Globally Enable the Fixed Function Block chosen */
  183:Generated_Source\PSoC5/Node_Timer.c ****     #if (Node_Timer_UsingFixedFunction)
  184:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_GLOBAL_ENABLE |= Node_Timer_BLOCK_EN_MASK;
-  32              		.loc 1 184 0
-  33 0000 084A     		ldr	r2, .L2
-  34 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  35 0004 43F00203 		orr	r3, r3, #2
-  36 0008 1370     		strb	r3, [r2]
+ 138              		.loc 1 184 0
+ 139 0004 0D4A     		ldr	r2, .L5
+ 140 0006 0D4B     		ldr	r3, .L5
+ 141 0008 1B78     		ldrb	r3, [r3]
+ 142 000a DBB2     		uxtb	r3, r3
+ 143 000c 43F00203 		orr	r3, r3, #2
+ 144 0010 DBB2     		uxtb	r3, r3
+ 145 0012 1370     		strb	r3, [r2]
  185:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_GLOBAL_STBY_ENABLE |= Node_Timer_BLOCK_STBY_EN_MASK;
-  37              		.loc 1 185 0
-  38 000a 1032     		adds	r2, r2, #16
-  39 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  40 000e 43F00203 		orr	r3, r3, #2
-  41 0012 1370     		strb	r3, [r2]
+ 146              		.loc 1 185 0
+ 147 0014 0A4A     		ldr	r2, .L5+4
+ 148 0016 0A4B     		ldr	r3, .L5+4
+ 149 0018 1B78     		ldrb	r3, [r3]
+ 150 001a DBB2     		uxtb	r3, r3
+ 151 001c 43F00203 		orr	r3, r3, #2
+ 152 0020 DBB2     		uxtb	r3, r3
+ 153 0022 1370     		strb	r3, [r2]
  186:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* Set Enable bit for enabling Fixed function timer*/
  187:Generated_Source\PSoC5/Node_Timer.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 5
-
-
  188:Generated_Source\PSoC5/Node_Timer.c ****     /* Remove assignment if control register is removed */
  189:Generated_Source\PSoC5/Node_Timer.c ****     #if (!Node_Timer_UDB_CONTROL_REG_REMOVED || Node_Timer_UsingFixedFunction)
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 7
+
+
  190:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_CONTROL |= Node_Timer_CTRL_ENABLE;
-  42              		.loc 1 190 0
-  43 0014 02F65932 		addw	r2, r2, #2905
-  44 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  45 001a 43F00103 		orr	r3, r3, #1
-  46 001e 1370     		strb	r3, [r2]
-  47 0020 7047     		bx	lr
-  48              	.L3:
-  49 0022 00BF     		.align	2
-  50              	.L2:
-  51 0024 A3430040 		.word	1073759139
-  52              		.cfi_endproc
-  53              	.LFE1:
-  54              		.size	Node_Timer_Enable, .-Node_Timer_Enable
-  55              		.section	.text.Node_Timer_Stop,"ax",%progbits
-  56              		.align	2
-  57              		.global	Node_Timer_Stop
-  58              		.thumb
-  59              		.thumb_func
-  60              		.type	Node_Timer_Stop, %function
-  61              	Node_Timer_Stop:
-  62              	.LFB3:
+ 154              		.loc 1 190 0
+ 155 0024 074A     		ldr	r2, .L5+8
+ 156 0026 074B     		ldr	r3, .L5+8
+ 157 0028 1B78     		ldrb	r3, [r3]
+ 158 002a DBB2     		uxtb	r3, r3
+ 159 002c 43F00103 		orr	r3, r3, #1
+ 160 0030 DBB2     		uxtb	r3, r3
+ 161 0032 1370     		strb	r3, [r2]
  191:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* Remove assignment if control register is removed */
  192:Generated_Source\PSoC5/Node_Timer.c **** }
+ 162              		.loc 1 192 0
+ 163 0034 BD46     		mov	sp, r7
+ 164              		.cfi_def_cfa_register 13
+ 165              		@ sp needed
+ 166 0036 5DF8047B 		ldr	r7, [sp], #4
+ 167              		.cfi_restore 7
+ 168              		.cfi_def_cfa_offset 0
+ 169 003a 7047     		bx	lr
+ 170              	.L6:
+ 171              		.align	2
+ 172              	.L5:
+ 173 003c A3430040 		.word	1073759139
+ 174 0040 B3430040 		.word	1073759155
+ 175 0044 0C4F0040 		.word	1073762060
+ 176              		.cfi_endproc
+ 177              	.LFE1:
+ 178              		.size	Node_Timer_Enable, .-Node_Timer_Enable
+ 179              		.section	.text.Node_Timer_Start,"ax",%progbits
+ 180              		.align	2
+ 181              		.global	Node_Timer_Start
+ 182              		.thumb
+ 183              		.thumb_func
+ 184              		.type	Node_Timer_Start, %function
+ 185              	Node_Timer_Start:
+ 186              	.LFB2:
  193:Generated_Source\PSoC5/Node_Timer.c **** 
  194:Generated_Source\PSoC5/Node_Timer.c **** 
  195:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -288,25 +418,69 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  211:Generated_Source\PSoC5/Node_Timer.c **** *  Node_Timer_initVar: Is modified when this function is called for the
  212:Generated_Source\PSoC5/Node_Timer.c **** *   first time. Is used to ensure that initialization happens only once.
  213:Generated_Source\PSoC5/Node_Timer.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 8
+
+
  214:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  215:Generated_Source\PSoC5/Node_Timer.c **** void Node_Timer_Start(void) 
  216:Generated_Source\PSoC5/Node_Timer.c **** {
+ 187              		.loc 1 216 0
+ 188              		.cfi_startproc
+ 189              		@ args = 0, pretend = 0, frame = 0
+ 190              		@ frame_needed = 1, uses_anonymous_args = 0
+ 191 0000 80B5     		push	{r7, lr}
+ 192              		.cfi_def_cfa_offset 8
+ 193              		.cfi_offset 7, -8
+ 194              		.cfi_offset 14, -4
+ 195 0002 00AF     		add	r7, sp, #0
+ 196              		.cfi_def_cfa_register 7
  217:Generated_Source\PSoC5/Node_Timer.c ****     if(Node_Timer_initVar == 0u)
+ 197              		.loc 1 217 0
+ 198 0004 054B     		ldr	r3, .L9
+ 199 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 200 0008 002B     		cmp	r3, #0
+ 201 000a 04D1     		bne	.L8
  218:Generated_Source\PSoC5/Node_Timer.c ****     {
  219:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_Init();
+ 202              		.loc 1 219 0
+ 203 000c FFF7FEFF 		bl	Node_Timer_Init
  220:Generated_Source\PSoC5/Node_Timer.c **** 
  221:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_initVar = 1u;   /* Clear this bit for Initialization */
+ 204              		.loc 1 221 0
+ 205 0010 024B     		ldr	r3, .L9
+ 206 0012 0122     		movs	r2, #1
+ 207 0014 1A70     		strb	r2, [r3]
+ 208              	.L8:
  222:Generated_Source\PSoC5/Node_Timer.c ****     }
  223:Generated_Source\PSoC5/Node_Timer.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 6
-
-
  224:Generated_Source\PSoC5/Node_Timer.c ****     /* Enable the Timer */
  225:Generated_Source\PSoC5/Node_Timer.c ****     Node_Timer_Enable();
+ 209              		.loc 1 225 0
+ 210 0016 FFF7FEFF 		bl	Node_Timer_Enable
  226:Generated_Source\PSoC5/Node_Timer.c **** }
+ 211              		.loc 1 226 0
+ 212 001a 80BD     		pop	{r7, pc}
+ 213              	.L10:
+ 214              		.align	2
+ 215              	.L9:
+ 216 001c 00000000 		.word	Node_Timer_initVar
+ 217              		.cfi_endproc
+ 218              	.LFE2:
+ 219              		.size	Node_Timer_Start, .-Node_Timer_Start
+ 220              		.section	.text.Node_Timer_Stop,"ax",%progbits
+ 221              		.align	2
+ 222              		.global	Node_Timer_Stop
+ 223              		.thumb
+ 224              		.thumb_func
+ 225              		.type	Node_Timer_Stop, %function
+ 226              	Node_Timer_Stop:
+ 227              	.LFB3:
  227:Generated_Source\PSoC5/Node_Timer.c **** 
  228:Generated_Source\PSoC5/Node_Timer.c **** 
  229:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 9
+
+
  230:Generated_Source\PSoC5/Node_Timer.c **** * Function Name: Node_Timer_Stop
  231:Generated_Source\PSoC5/Node_Timer.c **** ********************************************************************************
  232:Generated_Source\PSoC5/Node_Timer.c **** *
@@ -326,56 +500,79 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  246:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  247:Generated_Source\PSoC5/Node_Timer.c **** void Node_Timer_Stop(void) 
  248:Generated_Source\PSoC5/Node_Timer.c **** {
-  63              		.loc 1 248 0
-  64              		.cfi_startproc
-  65              		@ args = 0, pretend = 0, frame = 0
-  66              		@ frame_needed = 0, uses_anonymous_args = 0
-  67              		@ link register save eliminated.
+ 228              		.loc 1 248 0
+ 229              		.cfi_startproc
+ 230              		@ args = 0, pretend = 0, frame = 0
+ 231              		@ frame_needed = 1, uses_anonymous_args = 0
+ 232              		@ link register save eliminated.
+ 233 0000 80B4     		push	{r7}
+ 234              		.cfi_def_cfa_offset 4
+ 235              		.cfi_offset 7, -4
+ 236 0002 00AF     		add	r7, sp, #0
+ 237              		.cfi_def_cfa_register 7
  249:Generated_Source\PSoC5/Node_Timer.c ****     /* Disable Timer */
  250:Generated_Source\PSoC5/Node_Timer.c ****     #if(!Node_Timer_UDB_CONTROL_REG_REMOVED || Node_Timer_UsingFixedFunction)
  251:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_CONTROL &= ((uint8)(~Node_Timer_CTRL_ENABLE));
-  68              		.loc 1 251 0
-  69 0000 084A     		ldr	r2, .L5
-  70 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  71 0004 03F0FE03 		and	r3, r3, #254
-  72 0008 1370     		strb	r3, [r2]
+ 238              		.loc 1 251 0
+ 239 0004 0D4A     		ldr	r2, .L12
+ 240 0006 0D4B     		ldr	r3, .L12
+ 241 0008 1B78     		ldrb	r3, [r3]
+ 242 000a DBB2     		uxtb	r3, r3
+ 243 000c 23F00103 		bic	r3, r3, #1
+ 244 0010 DBB2     		uxtb	r3, r3
+ 245 0012 1370     		strb	r3, [r2]
  252:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* Remove assignment if control register is removed */
  253:Generated_Source\PSoC5/Node_Timer.c **** 
  254:Generated_Source\PSoC5/Node_Timer.c ****     /* Globally disable the Fixed Function Block chosen */
  255:Generated_Source\PSoC5/Node_Timer.c ****     #if (Node_Timer_UsingFixedFunction)
  256:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_GLOBAL_ENABLE &= ((uint8)(~Node_Timer_BLOCK_EN_MASK));
-  73              		.loc 1 256 0
-  74 000a A2F66932 		subw	r2, r2, #2921
-  75 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  76 0010 03F0FD03 		and	r3, r3, #253
-  77 0014 1370     		strb	r3, [r2]
+ 246              		.loc 1 256 0
+ 247 0014 0A4A     		ldr	r2, .L12+4
+ 248 0016 0A4B     		ldr	r3, .L12+4
+ 249 0018 1B78     		ldrb	r3, [r3]
+ 250 001a DBB2     		uxtb	r3, r3
+ 251 001c 23F00203 		bic	r3, r3, #2
+ 252 0020 DBB2     		uxtb	r3, r3
+ 253 0022 1370     		strb	r3, [r2]
  257:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_GLOBAL_STBY_ENABLE &= ((uint8)(~Node_Timer_BLOCK_STBY_EN_MASK));
-  78              		.loc 1 257 0
-  79 0016 1032     		adds	r2, r2, #16
-  80 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  81 001a 03F0FD03 		and	r3, r3, #253
-  82 001e 1370     		strb	r3, [r2]
-  83 0020 7047     		bx	lr
-  84              	.L6:
-  85 0022 00BF     		.align	2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 7
+ 254              		.loc 1 257 0
+ 255 0024 074A     		ldr	r2, .L12+8
+ 256 0026 074B     		ldr	r3, .L12+8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 10
 
 
-  86              	.L5:
-  87 0024 0C4F0040 		.word	1073762060
-  88              		.cfi_endproc
-  89              	.LFE3:
-  90              		.size	Node_Timer_Stop, .-Node_Timer_Stop
-  91              		.section	.text.Node_Timer_SetInterruptMode,"ax",%progbits
-  92              		.align	2
-  93              		.global	Node_Timer_SetInterruptMode
-  94              		.thumb
-  95              		.thumb_func
-  96              		.type	Node_Timer_SetInterruptMode, %function
-  97              	Node_Timer_SetInterruptMode:
-  98              	.LFB4:
+ 257 0028 1B78     		ldrb	r3, [r3]
+ 258 002a DBB2     		uxtb	r3, r3
+ 259 002c 23F00203 		bic	r3, r3, #2
+ 260 0030 DBB2     		uxtb	r3, r3
+ 261 0032 1370     		strb	r3, [r2]
  258:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* Disable global enable for the Timer Fixed function block to stop the Timer*/
  259:Generated_Source\PSoC5/Node_Timer.c **** }
+ 262              		.loc 1 259 0
+ 263 0034 BD46     		mov	sp, r7
+ 264              		.cfi_def_cfa_register 13
+ 265              		@ sp needed
+ 266 0036 5DF8047B 		ldr	r7, [sp], #4
+ 267              		.cfi_restore 7
+ 268              		.cfi_def_cfa_offset 0
+ 269 003a 7047     		bx	lr
+ 270              	.L13:
+ 271              		.align	2
+ 272              	.L12:
+ 273 003c 0C4F0040 		.word	1073762060
+ 274 0040 A3430040 		.word	1073759139
+ 275 0044 B3430040 		.word	1073759155
+ 276              		.cfi_endproc
+ 277              	.LFE3:
+ 278              		.size	Node_Timer_Stop, .-Node_Timer_Stop
+ 279              		.section	.text.Node_Timer_SetInterruptMode,"ax",%progbits
+ 280              		.align	2
+ 281              		.global	Node_Timer_SetInterruptMode
+ 282              		.thumb
+ 283              		.thumb_func
+ 284              		.type	Node_Timer_SetInterruptMode, %function
+ 285              	Node_Timer_SetInterruptMode:
+ 286              	.LFB4:
  260:Generated_Source\PSoC5/Node_Timer.c **** 
  261:Generated_Source\PSoC5/Node_Timer.c **** 
  262:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -397,36 +594,54 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  278:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  279:Generated_Source\PSoC5/Node_Timer.c **** void Node_Timer_SetInterruptMode(uint8 interruptMode) 
  280:Generated_Source\PSoC5/Node_Timer.c **** {
-  99              		.loc 1 280 0
- 100              		.cfi_startproc
- 101              		@ args = 0, pretend = 0, frame = 0
- 102              		@ frame_needed = 0, uses_anonymous_args = 0
- 103              		@ link register save eliminated.
- 104              	.LVL0:
+ 287              		.loc 1 280 0
+ 288              		.cfi_startproc
+ 289              		@ args = 0, pretend = 0, frame = 8
+ 290              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 11
+
+
+ 291              		@ link register save eliminated.
+ 292 0000 80B4     		push	{r7}
+ 293              		.cfi_def_cfa_offset 4
+ 294              		.cfi_offset 7, -4
+ 295 0002 83B0     		sub	sp, sp, #12
+ 296              		.cfi_def_cfa_offset 16
+ 297 0004 00AF     		add	r7, sp, #0
+ 298              		.cfi_def_cfa_register 7
+ 299 0006 0346     		mov	r3, r0
+ 300 0008 FB71     		strb	r3, [r7, #7]
  281:Generated_Source\PSoC5/Node_Timer.c ****     Node_Timer_STATUS_MASK = interruptMode;
- 105              		.loc 1 281 0
- 106 0000 014B     		ldr	r3, .L8
- 107 0002 1870     		strb	r0, [r3]
- 108 0004 7047     		bx	lr
- 109              	.L9:
- 110 0006 00BF     		.align	2
- 111              	.L8:
- 112 0008 0F4F0040 		.word	1073762063
- 113              		.cfi_endproc
- 114              	.LFE4:
- 115              		.size	Node_Timer_SetInterruptMode, .-Node_Timer_SetInterruptMode
- 116              		.section	.text.Node_Timer_SoftwareCapture,"ax",%progbits
- 117              		.align	2
- 118              		.global	Node_Timer_SoftwareCapture
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 8
-
-
- 119              		.thumb
- 120              		.thumb_func
- 121              		.type	Node_Timer_SoftwareCapture, %function
- 122              	Node_Timer_SoftwareCapture:
- 123              	.LFB5:
+ 301              		.loc 1 281 0
+ 302 000a 044A     		ldr	r2, .L15
+ 303 000c FB79     		ldrb	r3, [r7, #7]
+ 304 000e 1370     		strb	r3, [r2]
  282:Generated_Source\PSoC5/Node_Timer.c **** }
+ 305              		.loc 1 282 0
+ 306 0010 0C37     		adds	r7, r7, #12
+ 307              		.cfi_def_cfa_offset 4
+ 308 0012 BD46     		mov	sp, r7
+ 309              		.cfi_def_cfa_register 13
+ 310              		@ sp needed
+ 311 0014 5DF8047B 		ldr	r7, [sp], #4
+ 312              		.cfi_restore 7
+ 313              		.cfi_def_cfa_offset 0
+ 314 0018 7047     		bx	lr
+ 315              	.L16:
+ 316 001a 00BF     		.align	2
+ 317              	.L15:
+ 318 001c 0F4F0040 		.word	1073762063
+ 319              		.cfi_endproc
+ 320              	.LFE4:
+ 321              		.size	Node_Timer_SetInterruptMode, .-Node_Timer_SetInterruptMode
+ 322              		.section	.text.Node_Timer_SoftwareCapture,"ax",%progbits
+ 323              		.align	2
+ 324              		.global	Node_Timer_SoftwareCapture
+ 325              		.thumb
+ 326              		.thumb_func
+ 327              		.type	Node_Timer_SoftwareCapture, %function
+ 328              	Node_Timer_SoftwareCapture:
+ 329              	.LFB5:
  283:Generated_Source\PSoC5/Node_Timer.c **** 
  284:Generated_Source\PSoC5/Node_Timer.c **** 
  285:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -443,46 +658,58 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  296:Generated_Source\PSoC5/Node_Timer.c **** *  void
  297:Generated_Source\PSoC5/Node_Timer.c **** *
  298:Generated_Source\PSoC5/Node_Timer.c **** * Side Effects:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 12
+
+
  299:Generated_Source\PSoC5/Node_Timer.c **** *  An existing hardware capture could be overwritten.
  300:Generated_Source\PSoC5/Node_Timer.c **** *
  301:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  302:Generated_Source\PSoC5/Node_Timer.c **** void Node_Timer_SoftwareCapture(void) 
  303:Generated_Source\PSoC5/Node_Timer.c **** {
- 124              		.loc 1 303 0
- 125              		.cfi_startproc
- 126              		@ args = 0, pretend = 0, frame = 0
- 127              		@ frame_needed = 0, uses_anonymous_args = 0
- 128              		@ link register save eliminated.
+ 330              		.loc 1 303 0
+ 331              		.cfi_startproc
+ 332              		@ args = 0, pretend = 0, frame = 0
+ 333              		@ frame_needed = 1, uses_anonymous_args = 0
+ 334              		@ link register save eliminated.
+ 335 0000 80B4     		push	{r7}
+ 336              		.cfi_def_cfa_offset 4
+ 337              		.cfi_offset 7, -4
+ 338 0002 00AF     		add	r7, sp, #0
+ 339              		.cfi_def_cfa_register 7
  304:Generated_Source\PSoC5/Node_Timer.c ****     /* Generate a software capture by reading the counter register */
  305:Generated_Source\PSoC5/Node_Timer.c ****     #if(Node_Timer_UsingFixedFunction)
  306:Generated_Source\PSoC5/Node_Timer.c ****         (void)CY_GET_REG16(Node_Timer_COUNTER_LSB_PTR);
- 129              		.loc 1 306 0
- 130 0000 014B     		ldr	r3, .L11
- 131 0002 1B88     		ldrh	r3, [r3]
- 132 0004 7047     		bx	lr
- 133              	.L12:
- 134 0006 00BF     		.align	2
- 135              	.L11:
- 136 0008 124F0040 		.word	1073762066
- 137              		.cfi_endproc
- 138              	.LFE5:
- 139              		.size	Node_Timer_SoftwareCapture, .-Node_Timer_SoftwareCapture
- 140              		.section	.text.Node_Timer_ReadStatusRegister,"ax",%progbits
- 141              		.align	2
- 142              		.global	Node_Timer_ReadStatusRegister
- 143              		.thumb
- 144              		.thumb_func
- 145              		.type	Node_Timer_ReadStatusRegister, %function
- 146              	Node_Timer_ReadStatusRegister:
- 147              	.LFB6:
+ 340              		.loc 1 306 0
+ 341 0004 024B     		ldr	r3, .L18
+ 342 0006 1B88     		ldrh	r3, [r3]	@ movhi
  307:Generated_Source\PSoC5/Node_Timer.c ****     #else
  308:Generated_Source\PSoC5/Node_Timer.c ****         (void)CY_GET_REG8(Node_Timer_COUNTER_LSB_PTR_8BIT);
  309:Generated_Source\PSoC5/Node_Timer.c ****     #endif/* (Node_Timer_UsingFixedFunction) */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 9
-
-
  310:Generated_Source\PSoC5/Node_Timer.c ****     /* Capture Data is now in the FIFO */
  311:Generated_Source\PSoC5/Node_Timer.c **** }
+ 343              		.loc 1 311 0
+ 344 0008 BD46     		mov	sp, r7
+ 345              		.cfi_def_cfa_register 13
+ 346              		@ sp needed
+ 347 000a 5DF8047B 		ldr	r7, [sp], #4
+ 348              		.cfi_restore 7
+ 349              		.cfi_def_cfa_offset 0
+ 350 000e 7047     		bx	lr
+ 351              	.L19:
+ 352              		.align	2
+ 353              	.L18:
+ 354 0010 124F0040 		.word	1073762066
+ 355              		.cfi_endproc
+ 356              	.LFE5:
+ 357              		.size	Node_Timer_SoftwareCapture, .-Node_Timer_SoftwareCapture
+ 358              		.section	.text.Node_Timer_ReadStatusRegister,"ax",%progbits
+ 359              		.align	2
+ 360              		.global	Node_Timer_ReadStatusRegister
+ 361              		.thumb
+ 362              		.thumb_func
+ 363              		.type	Node_Timer_ReadStatusRegister, %function
+ 364              	Node_Timer_ReadStatusRegister:
+ 365              	.LFB6:
  312:Generated_Source\PSoC5/Node_Timer.c **** 
  313:Generated_Source\PSoC5/Node_Timer.c **** 
  314:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -491,6 +718,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  317:Generated_Source\PSoC5/Node_Timer.c **** *
  318:Generated_Source\PSoC5/Node_Timer.c **** * Summary:
  319:Generated_Source\PSoC5/Node_Timer.c **** *  Reads the status register and returns it's state. This function should use
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 13
+
+
  320:Generated_Source\PSoC5/Node_Timer.c **** *  defined types for the bit-field information as the bits in this register may
  321:Generated_Source\PSoC5/Node_Timer.c **** *  be permuteable.
  322:Generated_Source\PSoC5/Node_Timer.c **** *
@@ -506,41 +736,54 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  332:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  333:Generated_Source\PSoC5/Node_Timer.c **** uint8   Node_Timer_ReadStatusRegister(void) 
  334:Generated_Source\PSoC5/Node_Timer.c **** {
- 148              		.loc 1 334 0
- 149              		.cfi_startproc
- 150              		@ args = 0, pretend = 0, frame = 0
- 151              		@ frame_needed = 0, uses_anonymous_args = 0
- 152              		@ link register save eliminated.
+ 366              		.loc 1 334 0
+ 367              		.cfi_startproc
+ 368              		@ args = 0, pretend = 0, frame = 0
+ 369              		@ frame_needed = 1, uses_anonymous_args = 0
+ 370              		@ link register save eliminated.
+ 371 0000 80B4     		push	{r7}
+ 372              		.cfi_def_cfa_offset 4
+ 373              		.cfi_offset 7, -4
+ 374 0002 00AF     		add	r7, sp, #0
+ 375              		.cfi_def_cfa_register 7
  335:Generated_Source\PSoC5/Node_Timer.c ****     return (Node_Timer_STATUS);
- 153              		.loc 1 335 0
- 154 0000 014B     		ldr	r3, .L14
- 155 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 376              		.loc 1 335 0
+ 377 0004 034B     		ldr	r3, .L22
+ 378 0006 1B78     		ldrb	r3, [r3]
+ 379 0008 DBB2     		uxtb	r3, r3
  336:Generated_Source\PSoC5/Node_Timer.c **** }
- 156              		.loc 1 336 0
- 157 0004 7047     		bx	lr
- 158              	.L15:
- 159 0006 00BF     		.align	2
- 160              	.L14:
- 161 0008 0F4F0040 		.word	1073762063
- 162              		.cfi_endproc
- 163              	.LFE6:
- 164              		.size	Node_Timer_ReadStatusRegister, .-Node_Timer_ReadStatusRegister
- 165              		.section	.text.Node_Timer_ReadControlRegister,"ax",%progbits
- 166              		.align	2
- 167              		.global	Node_Timer_ReadControlRegister
- 168              		.thumb
- 169              		.thumb_func
- 170              		.type	Node_Timer_ReadControlRegister, %function
- 171              	Node_Timer_ReadControlRegister:
- 172              	.LFB7:
+ 380              		.loc 1 336 0
+ 381 000a 1846     		mov	r0, r3
+ 382 000c BD46     		mov	sp, r7
+ 383              		.cfi_def_cfa_register 13
+ 384              		@ sp needed
+ 385 000e 5DF8047B 		ldr	r7, [sp], #4
+ 386              		.cfi_restore 7
+ 387              		.cfi_def_cfa_offset 0
+ 388 0012 7047     		bx	lr
+ 389              	.L23:
+ 390              		.align	2
+ 391              	.L22:
+ 392 0014 0F4F0040 		.word	1073762063
+ 393              		.cfi_endproc
+ 394              	.LFE6:
+ 395              		.size	Node_Timer_ReadStatusRegister, .-Node_Timer_ReadStatusRegister
+ 396              		.section	.text.Node_Timer_ReadControlRegister,"ax",%progbits
+ 397              		.align	2
+ 398              		.global	Node_Timer_ReadControlRegister
+ 399              		.thumb
+ 400              		.thumb_func
+ 401              		.type	Node_Timer_ReadControlRegister, %function
+ 402              	Node_Timer_ReadControlRegister:
+ 403              	.LFB7:
  337:Generated_Source\PSoC5/Node_Timer.c **** 
  338:Generated_Source\PSoC5/Node_Timer.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 14
+
+
  339:Generated_Source\PSoC5/Node_Timer.c **** #if (!Node_Timer_UDB_CONTROL_REG_REMOVED) /* Remove API if control register is unused */
  340:Generated_Source\PSoC5/Node_Timer.c **** 
  341:Generated_Source\PSoC5/Node_Timer.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 10
-
-
  342:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
  343:Generated_Source\PSoC5/Node_Timer.c **** * Function Name: Node_Timer_ReadControlRegister
  344:Generated_Source\PSoC5/Node_Timer.c **** ********************************************************************************
@@ -557,37 +800,53 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  355:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  356:Generated_Source\PSoC5/Node_Timer.c **** uint8 Node_Timer_ReadControlRegister(void) 
  357:Generated_Source\PSoC5/Node_Timer.c **** {
- 173              		.loc 1 357 0
- 174              		.cfi_startproc
- 175              		@ args = 0, pretend = 0, frame = 0
- 176              		@ frame_needed = 0, uses_anonymous_args = 0
- 177              		@ link register save eliminated.
+ 404              		.loc 1 357 0
+ 405              		.cfi_startproc
+ 406              		@ args = 0, pretend = 0, frame = 0
+ 407              		@ frame_needed = 1, uses_anonymous_args = 0
+ 408              		@ link register save eliminated.
+ 409 0000 80B4     		push	{r7}
+ 410              		.cfi_def_cfa_offset 4
+ 411              		.cfi_offset 7, -4
+ 412 0002 00AF     		add	r7, sp, #0
+ 413              		.cfi_def_cfa_register 7
  358:Generated_Source\PSoC5/Node_Timer.c ****     #if (!Node_Timer_UDB_CONTROL_REG_REMOVED) 
  359:Generated_Source\PSoC5/Node_Timer.c ****         return ((uint8)Node_Timer_CONTROL);
- 178              		.loc 1 359 0
- 179 0000 014B     		ldr	r3, .L17
- 180 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 414              		.loc 1 359 0
+ 415 0004 034B     		ldr	r3, .L26
+ 416 0006 1B78     		ldrb	r3, [r3]
+ 417 0008 DBB2     		uxtb	r3, r3
  360:Generated_Source\PSoC5/Node_Timer.c ****     #else
  361:Generated_Source\PSoC5/Node_Timer.c ****         return (0);
  362:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* (!Node_Timer_UDB_CONTROL_REG_REMOVED) */
  363:Generated_Source\PSoC5/Node_Timer.c **** }
- 181              		.loc 1 363 0
- 182 0004 7047     		bx	lr
- 183              	.L18:
- 184 0006 00BF     		.align	2
- 185              	.L17:
- 186 0008 0C4F0040 		.word	1073762060
- 187              		.cfi_endproc
- 188              	.LFE7:
- 189              		.size	Node_Timer_ReadControlRegister, .-Node_Timer_ReadControlRegister
- 190              		.section	.text.Node_Timer_WriteControlRegister,"ax",%progbits
- 191              		.align	2
- 192              		.global	Node_Timer_WriteControlRegister
- 193              		.thumb
- 194              		.thumb_func
- 195              		.type	Node_Timer_WriteControlRegister, %function
- 196              	Node_Timer_WriteControlRegister:
- 197              	.LFB8:
+ 418              		.loc 1 363 0
+ 419 000a 1846     		mov	r0, r3
+ 420 000c BD46     		mov	sp, r7
+ 421              		.cfi_def_cfa_register 13
+ 422              		@ sp needed
+ 423 000e 5DF8047B 		ldr	r7, [sp], #4
+ 424              		.cfi_restore 7
+ 425              		.cfi_def_cfa_offset 0
+ 426 0012 7047     		bx	lr
+ 427              	.L27:
+ 428              		.align	2
+ 429              	.L26:
+ 430 0014 0C4F0040 		.word	1073762060
+ 431              		.cfi_endproc
+ 432              	.LFE7:
+ 433              		.size	Node_Timer_ReadControlRegister, .-Node_Timer_ReadControlRegister
+ 434              		.section	.text.Node_Timer_WriteControlRegister,"ax",%progbits
+ 435              		.align	2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 15
+
+
+ 436              		.global	Node_Timer_WriteControlRegister
+ 437              		.thumb
+ 438              		.thumb_func
+ 439              		.type	Node_Timer_WriteControlRegister, %function
+ 440              	Node_Timer_WriteControlRegister:
+ 441              	.LFB8:
  364:Generated_Source\PSoC5/Node_Timer.c **** 
  365:Generated_Source\PSoC5/Node_Timer.c **** 
  366:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -598,9 +857,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  371:Generated_Source\PSoC5/Node_Timer.c **** *  Sets the bit-field of the control register.
  372:Generated_Source\PSoC5/Node_Timer.c **** *
  373:Generated_Source\PSoC5/Node_Timer.c **** * Parameters:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 11
-
-
  374:Generated_Source\PSoC5/Node_Timer.c **** *  control: The contents of the control register
  375:Generated_Source\PSoC5/Node_Timer.c **** *
  376:Generated_Source\PSoC5/Node_Timer.c **** * Return:
@@ -608,37 +864,58 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  378:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  379:Generated_Source\PSoC5/Node_Timer.c **** void Node_Timer_WriteControlRegister(uint8 control) 
  380:Generated_Source\PSoC5/Node_Timer.c **** {
- 198              		.loc 1 380 0
- 199              		.cfi_startproc
- 200              		@ args = 0, pretend = 0, frame = 0
- 201              		@ frame_needed = 0, uses_anonymous_args = 0
- 202              		@ link register save eliminated.
- 203              	.LVL1:
+ 442              		.loc 1 380 0
+ 443              		.cfi_startproc
+ 444              		@ args = 0, pretend = 0, frame = 8
+ 445              		@ frame_needed = 1, uses_anonymous_args = 0
+ 446              		@ link register save eliminated.
+ 447 0000 80B4     		push	{r7}
+ 448              		.cfi_def_cfa_offset 4
+ 449              		.cfi_offset 7, -4
+ 450 0002 83B0     		sub	sp, sp, #12
+ 451              		.cfi_def_cfa_offset 16
+ 452 0004 00AF     		add	r7, sp, #0
+ 453              		.cfi_def_cfa_register 7
+ 454 0006 0346     		mov	r3, r0
+ 455 0008 FB71     		strb	r3, [r7, #7]
  381:Generated_Source\PSoC5/Node_Timer.c ****     #if (!Node_Timer_UDB_CONTROL_REG_REMOVED) 
  382:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_CONTROL = control;
- 204              		.loc 1 382 0
- 205 0000 014B     		ldr	r3, .L20
- 206 0002 1870     		strb	r0, [r3]
- 207 0004 7047     		bx	lr
- 208              	.L21:
- 209 0006 00BF     		.align	2
- 210              	.L20:
- 211 0008 0C4F0040 		.word	1073762060
- 212              		.cfi_endproc
- 213              	.LFE8:
- 214              		.size	Node_Timer_WriteControlRegister, .-Node_Timer_WriteControlRegister
- 215              		.section	.text.Node_Timer_ReadPeriod,"ax",%progbits
- 216              		.align	2
- 217              		.global	Node_Timer_ReadPeriod
- 218              		.thumb
- 219              		.thumb_func
- 220              		.type	Node_Timer_ReadPeriod, %function
- 221              	Node_Timer_ReadPeriod:
- 222              	.LFB9:
+ 456              		.loc 1 382 0
+ 457 000a 044A     		ldr	r2, .L29
+ 458 000c FB79     		ldrb	r3, [r7, #7]
+ 459 000e 1370     		strb	r3, [r2]
  383:Generated_Source\PSoC5/Node_Timer.c ****     #else
  384:Generated_Source\PSoC5/Node_Timer.c ****         control = 0u;
  385:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* (!Node_Timer_UDB_CONTROL_REG_REMOVED) */
  386:Generated_Source\PSoC5/Node_Timer.c **** }
+ 460              		.loc 1 386 0
+ 461 0010 0C37     		adds	r7, r7, #12
+ 462              		.cfi_def_cfa_offset 4
+ 463 0012 BD46     		mov	sp, r7
+ 464              		.cfi_def_cfa_register 13
+ 465              		@ sp needed
+ 466 0014 5DF8047B 		ldr	r7, [sp], #4
+ 467              		.cfi_restore 7
+ 468              		.cfi_def_cfa_offset 0
+ 469 0018 7047     		bx	lr
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 16
+
+
+ 470              	.L30:
+ 471 001a 00BF     		.align	2
+ 472              	.L29:
+ 473 001c 0C4F0040 		.word	1073762060
+ 474              		.cfi_endproc
+ 475              	.LFE8:
+ 476              		.size	Node_Timer_WriteControlRegister, .-Node_Timer_WriteControlRegister
+ 477              		.section	.text.Node_Timer_ReadPeriod,"ax",%progbits
+ 478              		.align	2
+ 479              		.global	Node_Timer_ReadPeriod
+ 480              		.thumb
+ 481              		.thumb_func
+ 482              		.type	Node_Timer_ReadPeriod, %function
+ 483              	Node_Timer_ReadPeriod:
+ 484              	.LFB9:
  387:Generated_Source\PSoC5/Node_Timer.c **** 
  388:Generated_Source\PSoC5/Node_Timer.c **** #endif /* Remove API if control register is unused */
  389:Generated_Source\PSoC5/Node_Timer.c **** 
@@ -658,42 +935,55 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  403:Generated_Source\PSoC5/Node_Timer.c **** *
  404:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  405:Generated_Source\PSoC5/Node_Timer.c **** uint8 Node_Timer_ReadPeriod(void) 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 12
-
-
  406:Generated_Source\PSoC5/Node_Timer.c **** {
- 223              		.loc 1 406 0
- 224              		.cfi_startproc
- 225              		@ args = 0, pretend = 0, frame = 0
- 226              		@ frame_needed = 0, uses_anonymous_args = 0
- 227              		@ link register save eliminated.
+ 485              		.loc 1 406 0
+ 486              		.cfi_startproc
+ 487              		@ args = 0, pretend = 0, frame = 0
+ 488              		@ frame_needed = 1, uses_anonymous_args = 0
+ 489              		@ link register save eliminated.
+ 490 0000 80B4     		push	{r7}
+ 491              		.cfi_def_cfa_offset 4
+ 492              		.cfi_offset 7, -4
+ 493 0002 00AF     		add	r7, sp, #0
+ 494              		.cfi_def_cfa_register 7
  407:Generated_Source\PSoC5/Node_Timer.c ****    #if(Node_Timer_UsingFixedFunction)
  408:Generated_Source\PSoC5/Node_Timer.c ****        return ((uint8)CY_GET_REG16(Node_Timer_PERIOD_LSB_PTR));
- 228              		.loc 1 408 0
- 229 0000 014B     		ldr	r3, .L23
- 230 0002 1888     		ldrh	r0, [r3]
+ 495              		.loc 1 408 0
+ 496 0004 044B     		ldr	r3, .L33
+ 497 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 498 0008 9BB2     		uxth	r3, r3
+ 499 000a DBB2     		uxtb	r3, r3
  409:Generated_Source\PSoC5/Node_Timer.c ****    #else
  410:Generated_Source\PSoC5/Node_Timer.c ****        return (CY_GET_REG8(Node_Timer_PERIOD_LSB_PTR));
  411:Generated_Source\PSoC5/Node_Timer.c ****    #endif /* (Node_Timer_UsingFixedFunction) */
  412:Generated_Source\PSoC5/Node_Timer.c **** }
- 231              		.loc 1 412 0
- 232 0004 C0B2     		uxtb	r0, r0
- 233 0006 7047     		bx	lr
- 234              	.L24:
- 235              		.align	2
- 236              	.L23:
- 237 0008 104F0040 		.word	1073762064
- 238              		.cfi_endproc
- 239              	.LFE9:
- 240              		.size	Node_Timer_ReadPeriod, .-Node_Timer_ReadPeriod
- 241              		.section	.text.Node_Timer_WritePeriod,"ax",%progbits
- 242              		.align	2
- 243              		.global	Node_Timer_WritePeriod
- 244              		.thumb
- 245              		.thumb_func
- 246              		.type	Node_Timer_WritePeriod, %function
- 247              	Node_Timer_WritePeriod:
- 248              	.LFB10:
+ 500              		.loc 1 412 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 17
+
+
+ 501 000c 1846     		mov	r0, r3
+ 502 000e BD46     		mov	sp, r7
+ 503              		.cfi_def_cfa_register 13
+ 504              		@ sp needed
+ 505 0010 5DF8047B 		ldr	r7, [sp], #4
+ 506              		.cfi_restore 7
+ 507              		.cfi_def_cfa_offset 0
+ 508 0014 7047     		bx	lr
+ 509              	.L34:
+ 510 0016 00BF     		.align	2
+ 511              	.L33:
+ 512 0018 104F0040 		.word	1073762064
+ 513              		.cfi_endproc
+ 514              	.LFE9:
+ 515              		.size	Node_Timer_ReadPeriod, .-Node_Timer_ReadPeriod
+ 516              		.section	.text.Node_Timer_WritePeriod,"ax",%progbits
+ 517              		.align	2
+ 518              		.global	Node_Timer_WritePeriod
+ 519              		.thumb
+ 520              		.thumb_func
+ 521              		.type	Node_Timer_WritePeriod, %function
+ 522              	Node_Timer_WritePeriod:
+ 523              	.LFB10:
  413:Generated_Source\PSoC5/Node_Timer.c **** 
  414:Generated_Source\PSoC5/Node_Timer.c **** 
  415:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -714,41 +1004,62 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  430:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  431:Generated_Source\PSoC5/Node_Timer.c **** void Node_Timer_WritePeriod(uint8 period) 
  432:Generated_Source\PSoC5/Node_Timer.c **** {
- 249              		.loc 1 432 0
- 250              		.cfi_startproc
- 251              		@ args = 0, pretend = 0, frame = 0
- 252              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 13
+ 524              		.loc 1 432 0
+ 525              		.cfi_startproc
+ 526              		@ args = 0, pretend = 0, frame = 16
+ 527              		@ frame_needed = 1, uses_anonymous_args = 0
+ 528              		@ link register save eliminated.
+ 529 0000 80B4     		push	{r7}
+ 530              		.cfi_def_cfa_offset 4
+ 531              		.cfi_offset 7, -4
+ 532 0002 85B0     		sub	sp, sp, #20
+ 533              		.cfi_def_cfa_offset 24
+ 534 0004 00AF     		add	r7, sp, #0
+ 535              		.cfi_def_cfa_register 7
+ 536 0006 0346     		mov	r3, r0
+ 537 0008 FB71     		strb	r3, [r7, #7]
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 18
 
 
- 253              		@ link register save eliminated.
- 254              	.LVL2:
  433:Generated_Source\PSoC5/Node_Timer.c ****     #if(Node_Timer_UsingFixedFunction)
  434:Generated_Source\PSoC5/Node_Timer.c ****         uint16 period_temp = (uint16)period;
+ 538              		.loc 1 434 0
+ 539 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 540 000c FB81     		strh	r3, [r7, #14]	@ movhi
  435:Generated_Source\PSoC5/Node_Timer.c ****         CY_SET_REG16(Node_Timer_PERIOD_LSB_PTR, period_temp);
- 255              		.loc 1 435 0
- 256 0000 014B     		ldr	r3, .L26
- 257 0002 1880     		strh	r0, [r3]	@ movhi
- 258 0004 7047     		bx	lr
- 259              	.L27:
- 260 0006 00BF     		.align	2
- 261              	.L26:
- 262 0008 104F0040 		.word	1073762064
- 263              		.cfi_endproc
- 264              	.LFE10:
- 265              		.size	Node_Timer_WritePeriod, .-Node_Timer_WritePeriod
- 266              		.section	.text.Node_Timer_ReadCapture,"ax",%progbits
- 267              		.align	2
- 268              		.global	Node_Timer_ReadCapture
- 269              		.thumb
- 270              		.thumb_func
- 271              		.type	Node_Timer_ReadCapture, %function
- 272              	Node_Timer_ReadCapture:
- 273              	.LFB11:
+ 541              		.loc 1 435 0
+ 542 000e 044A     		ldr	r2, .L36
+ 543 0010 FB89     		ldrh	r3, [r7, #14]	@ movhi
+ 544 0012 1380     		strh	r3, [r2]	@ movhi
  436:Generated_Source\PSoC5/Node_Timer.c ****     #else
  437:Generated_Source\PSoC5/Node_Timer.c ****         CY_SET_REG8(Node_Timer_PERIOD_LSB_PTR, period);
  438:Generated_Source\PSoC5/Node_Timer.c ****     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed functi
  439:Generated_Source\PSoC5/Node_Timer.c **** }
+ 545              		.loc 1 439 0
+ 546 0014 1437     		adds	r7, r7, #20
+ 547              		.cfi_def_cfa_offset 4
+ 548 0016 BD46     		mov	sp, r7
+ 549              		.cfi_def_cfa_register 13
+ 550              		@ sp needed
+ 551 0018 5DF8047B 		ldr	r7, [sp], #4
+ 552              		.cfi_restore 7
+ 553              		.cfi_def_cfa_offset 0
+ 554 001c 7047     		bx	lr
+ 555              	.L37:
+ 556 001e 00BF     		.align	2
+ 557              	.L36:
+ 558 0020 104F0040 		.word	1073762064
+ 559              		.cfi_endproc
+ 560              	.LFE10:
+ 561              		.size	Node_Timer_WritePeriod, .-Node_Timer_WritePeriod
+ 562              		.section	.text.Node_Timer_ReadCapture,"ax",%progbits
+ 563              		.align	2
+ 564              		.global	Node_Timer_ReadCapture
+ 565              		.thumb
+ 566              		.thumb_func
+ 567              		.type	Node_Timer_ReadCapture, %function
+ 568              	Node_Timer_ReadCapture:
+ 569              	.LFB11:
  440:Generated_Source\PSoC5/Node_Timer.c **** 
  441:Generated_Source\PSoC5/Node_Timer.c **** 
  442:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -767,41 +1078,54 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  455:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  456:Generated_Source\PSoC5/Node_Timer.c **** uint8 Node_Timer_ReadCapture(void) 
  457:Generated_Source\PSoC5/Node_Timer.c **** {
- 274              		.loc 1 457 0
- 275              		.cfi_startproc
- 276              		@ args = 0, pretend = 0, frame = 0
- 277              		@ frame_needed = 0, uses_anonymous_args = 0
- 278              		@ link register save eliminated.
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 19
+
+
+ 570              		.loc 1 457 0
+ 571              		.cfi_startproc
+ 572              		@ args = 0, pretend = 0, frame = 0
+ 573              		@ frame_needed = 1, uses_anonymous_args = 0
+ 574              		@ link register save eliminated.
+ 575 0000 80B4     		push	{r7}
+ 576              		.cfi_def_cfa_offset 4
+ 577              		.cfi_offset 7, -4
+ 578 0002 00AF     		add	r7, sp, #0
+ 579              		.cfi_def_cfa_register 7
  458:Generated_Source\PSoC5/Node_Timer.c ****    #if(Node_Timer_UsingFixedFunction)
  459:Generated_Source\PSoC5/Node_Timer.c ****        return ((uint8)CY_GET_REG16(Node_Timer_CAPTURE_LSB_PTR));
- 279              		.loc 1 459 0
- 280 0000 014B     		ldr	r3, .L29
- 281 0002 1888     		ldrh	r0, [r3]
+ 580              		.loc 1 459 0
+ 581 0004 044B     		ldr	r3, .L40
+ 582 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 583 0008 9BB2     		uxth	r3, r3
+ 584 000a DBB2     		uxtb	r3, r3
  460:Generated_Source\PSoC5/Node_Timer.c ****    #else
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 14
-
-
  461:Generated_Source\PSoC5/Node_Timer.c ****        return (CY_GET_REG8(Node_Timer_CAPTURE_LSB_PTR));
  462:Generated_Source\PSoC5/Node_Timer.c ****    #endif /* (Node_Timer_UsingFixedFunction) */
  463:Generated_Source\PSoC5/Node_Timer.c **** }
- 282              		.loc 1 463 0
- 283 0004 C0B2     		uxtb	r0, r0
- 284 0006 7047     		bx	lr
- 285              	.L30:
- 286              		.align	2
- 287              	.L29:
- 288 0008 144F0040 		.word	1073762068
- 289              		.cfi_endproc
- 290              	.LFE11:
- 291              		.size	Node_Timer_ReadCapture, .-Node_Timer_ReadCapture
- 292              		.section	.text.Node_Timer_WriteCounter,"ax",%progbits
- 293              		.align	2
- 294              		.global	Node_Timer_WriteCounter
- 295              		.thumb
- 296              		.thumb_func
- 297              		.type	Node_Timer_WriteCounter, %function
- 298              	Node_Timer_WriteCounter:
- 299              	.LFB12:
+ 585              		.loc 1 463 0
+ 586 000c 1846     		mov	r0, r3
+ 587 000e BD46     		mov	sp, r7
+ 588              		.cfi_def_cfa_register 13
+ 589              		@ sp needed
+ 590 0010 5DF8047B 		ldr	r7, [sp], #4
+ 591              		.cfi_restore 7
+ 592              		.cfi_def_cfa_offset 0
+ 593 0014 7047     		bx	lr
+ 594              	.L41:
+ 595 0016 00BF     		.align	2
+ 596              	.L40:
+ 597 0018 144F0040 		.word	1073762068
+ 598              		.cfi_endproc
+ 599              	.LFE11:
+ 600              		.size	Node_Timer_ReadCapture, .-Node_Timer_ReadCapture
+ 601              		.section	.text.Node_Timer_WriteCounter,"ax",%progbits
+ 602              		.align	2
+ 603              		.global	Node_Timer_WriteCounter
+ 604              		.thumb
+ 605              		.thumb_func
+ 606              		.type	Node_Timer_WriteCounter, %function
+ 607              	Node_Timer_WriteCounter:
+ 608              	.LFB12:
  464:Generated_Source\PSoC5/Node_Timer.c **** 
  465:Generated_Source\PSoC5/Node_Timer.c **** 
  466:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -814,181 +1138,72 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  473:Generated_Source\PSoC5/Node_Timer.c **** * Parameters:
  474:Generated_Source\PSoC5/Node_Timer.c **** *  counter:  New counter value.
  475:Generated_Source\PSoC5/Node_Timer.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 20
+
+
  476:Generated_Source\PSoC5/Node_Timer.c **** * Return:
  477:Generated_Source\PSoC5/Node_Timer.c **** *  void
  478:Generated_Source\PSoC5/Node_Timer.c **** *
  479:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  480:Generated_Source\PSoC5/Node_Timer.c **** void Node_Timer_WriteCounter(uint8 counter) 
  481:Generated_Source\PSoC5/Node_Timer.c **** {
- 300              		.loc 1 481 0
- 301              		.cfi_startproc
- 302              		@ args = 0, pretend = 0, frame = 0
- 303              		@ frame_needed = 0, uses_anonymous_args = 0
- 304              		@ link register save eliminated.
- 305              	.LVL3:
+ 609              		.loc 1 481 0
+ 610              		.cfi_startproc
+ 611              		@ args = 0, pretend = 0, frame = 8
+ 612              		@ frame_needed = 1, uses_anonymous_args = 0
+ 613              		@ link register save eliminated.
+ 614 0000 80B4     		push	{r7}
+ 615              		.cfi_def_cfa_offset 4
+ 616              		.cfi_offset 7, -4
+ 617 0002 83B0     		sub	sp, sp, #12
+ 618              		.cfi_def_cfa_offset 16
+ 619 0004 00AF     		add	r7, sp, #0
+ 620              		.cfi_def_cfa_register 7
+ 621 0006 0346     		mov	r3, r0
+ 622 0008 FB71     		strb	r3, [r7, #7]
  482:Generated_Source\PSoC5/Node_Timer.c ****    #if(Node_Timer_UsingFixedFunction)
  483:Generated_Source\PSoC5/Node_Timer.c ****         /* This functionality is removed until a FixedFunction HW update to
  484:Generated_Source\PSoC5/Node_Timer.c ****          * allow this register to be written
  485:Generated_Source\PSoC5/Node_Timer.c ****          */
  486:Generated_Source\PSoC5/Node_Timer.c ****         CY_SET_REG16(Node_Timer_COUNTER_LSB_PTR, (uint16)counter);
- 306              		.loc 1 486 0
- 307 0000 014B     		ldr	r3, .L32
- 308 0002 1880     		strh	r0, [r3]	@ movhi
- 309 0004 7047     		bx	lr
- 310              	.L33:
- 311 0006 00BF     		.align	2
- 312              	.L32:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 15
-
-
- 313 0008 124F0040 		.word	1073762066
- 314              		.cfi_endproc
- 315              	.LFE12:
- 316              		.size	Node_Timer_WriteCounter, .-Node_Timer_WriteCounter
- 317              		.section	.text.Node_Timer_Init,"ax",%progbits
- 318              		.align	2
- 319              		.global	Node_Timer_Init
- 320              		.thumb
- 321              		.thumb_func
- 322              		.type	Node_Timer_Init, %function
- 323              	Node_Timer_Init:
- 324              	.LFB0:
-  44:Generated_Source\PSoC5/Node_Timer.c ****     #if(!Node_Timer_UsingFixedFunction)
- 325              		.loc 1 44 0
- 326              		.cfi_startproc
- 327              		@ args = 0, pretend = 0, frame = 0
- 328              		@ frame_needed = 0, uses_anonymous_args = 0
- 329 0000 08B5     		push	{r3, lr}
- 330              		.cfi_def_cfa_offset 8
- 331              		.cfi_offset 3, -8
- 332              		.cfi_offset 14, -4
-  52:Generated_Source\PSoC5/Node_Timer.c **** 
- 333              		.loc 1 52 0
- 334 0002 154A     		ldr	r2, .L36
- 335 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 336 0006 03F00103 		and	r3, r3, #1
- 337 000a 1370     		strb	r3, [r2]
-  60:Generated_Source\PSoC5/Node_Timer.c ****         #endif /* CONTROL3 register exists only in PSoC3 OR PSoC5LP */
- 338              		.loc 1 60 0
- 339 000c 0232     		adds	r2, r2, #2
- 340 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 341 0010 03F0FC03 		and	r3, r3, #252
- 342 0014 1370     		strb	r3, [r2]
- 106:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_RT1 |= Node_Timer_SYNC;
- 343              		.loc 1 106 0
- 344 0016 114B     		ldr	r3, .L36+4
- 345 0018 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 346 001a 02F0CF02 		and	r2, r2, #207
- 347 001e 1A70     		strb	r2, [r3]
- 107:Generated_Source\PSoC5/Node_Timer.c **** 
- 348              		.loc 1 107 0
- 349 0020 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 350 0022 42F03002 		orr	r2, r2, #48
- 351 0026 1A70     		strb	r2, [r3]
- 110:Generated_Source\PSoC5/Node_Timer.c ****         Node_Timer_RT1 |= Node_Timer_SYNCDSI_EN;
- 352              		.loc 1 110 0
- 353 0028 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 354 002a 02F0F002 		and	r2, r2, #240
- 355 002e 1A70     		strb	r2, [r3]
- 111:Generated_Source\PSoC5/Node_Timer.c **** 
- 356              		.loc 1 111 0
- 357 0030 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 358 0032 42F00F02 		orr	r2, r2, #15
- 359 0036 1A70     		strb	r2, [r3]
- 114:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* Configuring registers of fixed function implementation */
- 360              		.loc 1 114 0
- 361 0038 094A     		ldr	r2, .L36+8
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 16
-
-
- 362 003a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 363 003c 43F00103 		orr	r3, r3, #1
- 364 0040 1370     		strb	r3, [r2]
- 118:Generated_Source\PSoC5/Node_Timer.c ****     Node_Timer_WriteCounter(Node_Timer_INIT_PERIOD);
- 365              		.loc 1 118 0
- 366 0042 6320     		movs	r0, #99
- 367 0044 FFF7FEFF 		bl	Node_Timer_WritePeriod
- 368              	.LVL4:
- 119:Generated_Source\PSoC5/Node_Timer.c **** 
- 369              		.loc 1 119 0
- 370 0048 6320     		movs	r0, #99
- 371 004a FFF7FEFF 		bl	Node_Timer_WriteCounter
- 372              	.LVL5:
- 162:Generated_Source\PSoC5/Node_Timer.c **** }
- 373              		.loc 1 162 0
- 374 004e 0820     		movs	r0, #8
- 375 0050 FFF7FEFF 		bl	Node_Timer_SetInterruptMode
- 376              	.LVL6:
- 377 0054 08BD     		pop	{r3, pc}
- 378              	.L37:
- 379 0056 00BF     		.align	2
- 380              	.L36:
- 381 0058 0C4F0040 		.word	1073762060
- 382 005c 174F0040 		.word	1073762071
- 383 0060 0D4F0040 		.word	1073762061
- 384              		.cfi_endproc
- 385              	.LFE0:
- 386              		.size	Node_Timer_Init, .-Node_Timer_Init
- 387              		.section	.text.Node_Timer_Start,"ax",%progbits
- 388              		.align	2
- 389              		.global	Node_Timer_Start
- 390              		.thumb
- 391              		.thumb_func
- 392              		.type	Node_Timer_Start, %function
- 393              	Node_Timer_Start:
- 394              	.LFB2:
- 216:Generated_Source\PSoC5/Node_Timer.c ****     if(Node_Timer_initVar == 0u)
- 395              		.loc 1 216 0
- 396              		.cfi_startproc
- 397              		@ args = 0, pretend = 0, frame = 0
- 398              		@ frame_needed = 0, uses_anonymous_args = 0
- 399 0000 08B5     		push	{r3, lr}
- 400              		.cfi_def_cfa_offset 8
- 401              		.cfi_offset 3, -8
- 402              		.cfi_offset 14, -4
- 217:Generated_Source\PSoC5/Node_Timer.c ****     {
- 403              		.loc 1 217 0
- 404 0002 054B     		ldr	r3, .L41
- 405 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 406 0006 23B9     		cbnz	r3, .L39
- 219:Generated_Source\PSoC5/Node_Timer.c **** 
- 407              		.loc 1 219 0
- 408 0008 FFF7FEFF 		bl	Node_Timer_Init
- 409              	.LVL7:
- 221:Generated_Source\PSoC5/Node_Timer.c ****     }
- 410              		.loc 1 221 0
- 411 000c 0122     		movs	r2, #1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 17
-
-
- 412 000e 024B     		ldr	r3, .L41
- 413 0010 1A70     		strb	r2, [r3]
- 414              	.L39:
- 225:Generated_Source\PSoC5/Node_Timer.c **** }
- 415              		.loc 1 225 0
- 416 0012 FFF7FEFF 		bl	Node_Timer_Enable
- 417              	.LVL8:
- 418 0016 08BD     		pop	{r3, pc}
- 419              	.L42:
- 420              		.align	2
- 421              	.L41:
- 422 0018 00000000 		.word	.LANCHOR0
- 423              		.cfi_endproc
- 424              	.LFE2:
- 425              		.size	Node_Timer_Start, .-Node_Timer_Start
- 426              		.section	.text.Node_Timer_ReadCounter,"ax",%progbits
- 427              		.align	2
- 428              		.global	Node_Timer_ReadCounter
- 429              		.thumb
- 430              		.thumb_func
- 431              		.type	Node_Timer_ReadCounter, %function
- 432              	Node_Timer_ReadCounter:
- 433              	.LFB13:
+ 623              		.loc 1 486 0
+ 624 000a 044B     		ldr	r3, .L43
+ 625 000c FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 626 000e 92B2     		uxth	r2, r2
+ 627 0010 1A80     		strh	r2, [r3]	@ movhi
  487:Generated_Source\PSoC5/Node_Timer.c ****         
  488:Generated_Source\PSoC5/Node_Timer.c ****     #else
  489:Generated_Source\PSoC5/Node_Timer.c ****         CY_SET_REG8(Node_Timer_COUNTER_LSB_PTR, counter);
  490:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fix
  491:Generated_Source\PSoC5/Node_Timer.c **** }
+ 628              		.loc 1 491 0
+ 629 0012 0C37     		adds	r7, r7, #12
+ 630              		.cfi_def_cfa_offset 4
+ 631 0014 BD46     		mov	sp, r7
+ 632              		.cfi_def_cfa_register 13
+ 633              		@ sp needed
+ 634 0016 5DF8047B 		ldr	r7, [sp], #4
+ 635              		.cfi_restore 7
+ 636              		.cfi_def_cfa_offset 0
+ 637 001a 7047     		bx	lr
+ 638              	.L44:
+ 639              		.align	2
+ 640              	.L43:
+ 641 001c 124F0040 		.word	1073762066
+ 642              		.cfi_endproc
+ 643              	.LFE12:
+ 644              		.size	Node_Timer_WriteCounter, .-Node_Timer_WriteCounter
+ 645              		.section	.text.Node_Timer_ReadCounter,"ax",%progbits
+ 646              		.align	2
+ 647              		.global	Node_Timer_ReadCounter
+ 648              		.thumb
+ 649              		.thumb_func
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 21
+
+
+ 650              		.type	Node_Timer_ReadCounter, %function
+ 651              	Node_Timer_ReadCounter:
+ 652              	.LFB13:
  492:Generated_Source\PSoC5/Node_Timer.c **** 
  493:Generated_Source\PSoC5/Node_Timer.c **** 
  494:Generated_Source\PSoC5/Node_Timer.c **** /*******************************************************************************
@@ -1007,22 +1222,24 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  507:Generated_Source\PSoC5/Node_Timer.c **** *******************************************************************************/
  508:Generated_Source\PSoC5/Node_Timer.c **** uint8 Node_Timer_ReadCounter(void) 
  509:Generated_Source\PSoC5/Node_Timer.c **** {
- 434              		.loc 1 509 0
- 435              		.cfi_startproc
- 436              		@ args = 0, pretend = 0, frame = 0
- 437              		@ frame_needed = 0, uses_anonymous_args = 0
- 438              		@ link register save eliminated.
+ 653              		.loc 1 509 0
+ 654              		.cfi_startproc
+ 655              		@ args = 0, pretend = 0, frame = 0
+ 656              		@ frame_needed = 1, uses_anonymous_args = 0
+ 657              		@ link register save eliminated.
+ 658 0000 80B4     		push	{r7}
+ 659              		.cfi_def_cfa_offset 4
+ 660              		.cfi_offset 7, -4
+ 661 0002 00AF     		add	r7, sp, #0
+ 662              		.cfi_def_cfa_register 7
  510:Generated_Source\PSoC5/Node_Timer.c ****     /* Force capture by reading Accumulator */
  511:Generated_Source\PSoC5/Node_Timer.c ****     /* Must first do a software capture to be able to read the counter */
  512:Generated_Source\PSoC5/Node_Timer.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
  513:Generated_Source\PSoC5/Node_Timer.c ****     #if(Node_Timer_UsingFixedFunction)
  514:Generated_Source\PSoC5/Node_Timer.c ****         (void)CY_GET_REG16(Node_Timer_COUNTER_LSB_PTR);
- 439              		.loc 1 514 0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 18
-
-
- 440 0000 024B     		ldr	r3, .L44
- 441 0002 1B88     		ldrh	r3, [r3]
+ 663              		.loc 1 514 0
+ 664 0004 054B     		ldr	r3, .L47
+ 665 0006 1B88     		ldrh	r3, [r3]	@ movhi
  515:Generated_Source\PSoC5/Node_Timer.c ****     #else
  516:Generated_Source\PSoC5/Node_Timer.c ****         (void)CY_GET_REG8(Node_Timer_COUNTER_LSB_PTR_8BIT);
  517:Generated_Source\PSoC5/Node_Timer.c ****     #endif/* (Node_Timer_UsingFixedFunction) */
@@ -1030,936 +1247,861 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 1
  519:Generated_Source\PSoC5/Node_Timer.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
  520:Generated_Source\PSoC5/Node_Timer.c ****     #if(Node_Timer_UsingFixedFunction)
  521:Generated_Source\PSoC5/Node_Timer.c ****         return ((uint8)CY_GET_REG16(Node_Timer_CAPTURE_LSB_PTR));
- 442              		.loc 1 521 0
- 443 0004 024B     		ldr	r3, .L44+4
- 444 0006 1888     		ldrh	r0, [r3]
+ 666              		.loc 1 521 0
+ 667 0008 054B     		ldr	r3, .L47+4
+ 668 000a 1B88     		ldrh	r3, [r3]	@ movhi
+ 669 000c 9BB2     		uxth	r3, r3
+ 670 000e DBB2     		uxtb	r3, r3
  522:Generated_Source\PSoC5/Node_Timer.c ****     #else
  523:Generated_Source\PSoC5/Node_Timer.c ****         return (CY_GET_REG8(Node_Timer_CAPTURE_LSB_PTR));
  524:Generated_Source\PSoC5/Node_Timer.c ****     #endif /* (Node_Timer_UsingFixedFunction) */
  525:Generated_Source\PSoC5/Node_Timer.c **** }
- 445              		.loc 1 525 0
- 446 0008 C0B2     		uxtb	r0, r0
- 447 000a 7047     		bx	lr
- 448              	.L45:
- 449              		.align	2
- 450              	.L44:
- 451 000c 124F0040 		.word	1073762066
- 452 0010 144F0040 		.word	1073762068
- 453              		.cfi_endproc
- 454              	.LFE13:
- 455              		.size	Node_Timer_ReadCounter, .-Node_Timer_ReadCounter
- 456              		.global	Node_Timer_initVar
- 457              		.bss
- 458              		.set	.LANCHOR0,. + 0
- 459              		.type	Node_Timer_initVar, %object
- 460              		.size	Node_Timer_initVar, 1
- 461              	Node_Timer_initVar:
- 462 0000 00       		.space	1
- 463              		.text
- 464              	.Letext0:
- 465              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 466              		.section	.debug_info,"",%progbits
- 467              	.Ldebug_info0:
- 468 0000 88020000 		.4byte	0x288
- 469 0004 0400     		.2byte	0x4
- 470 0006 00000000 		.4byte	.Ldebug_abbrev0
- 471 000a 04       		.byte	0x4
- 472 000b 01       		.uleb128 0x1
- 473 000c 12010000 		.4byte	.LASF35
- 474 0010 01       		.byte	0x1
- 475 0011 10030000 		.4byte	.LASF36
- 476 0015 A8020000 		.4byte	.LASF37
- 477 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 478 001d 00000000 		.4byte	0
- 479 0021 00000000 		.4byte	.Ldebug_line0
- 480 0025 02       		.uleb128 0x2
- 481 0026 01       		.byte	0x1
- 482 0027 06       		.byte	0x6
- 483 0028 E5020000 		.4byte	.LASF0
- 484 002c 02       		.uleb128 0x2
- 485 002d 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 19
+ 671              		.loc 1 525 0
+ 672 0010 1846     		mov	r0, r3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 22
 
 
- 486 002e 08       		.byte	0x8
- 487 002f 9E000000 		.4byte	.LASF1
- 488 0033 02       		.uleb128 0x2
- 489 0034 02       		.byte	0x2
- 490 0035 05       		.byte	0x5
- 491 0036 EB000000 		.4byte	.LASF2
- 492 003a 02       		.uleb128 0x2
- 493 003b 02       		.byte	0x2
- 494 003c 07       		.byte	0x7
- 495 003d 5E000000 		.4byte	.LASF3
- 496 0041 02       		.uleb128 0x2
- 497 0042 04       		.byte	0x4
- 498 0043 05       		.byte	0x5
- 499 0044 9A020000 		.4byte	.LASF4
- 500 0048 02       		.uleb128 0x2
- 501 0049 04       		.byte	0x4
- 502 004a 07       		.byte	0x7
- 503 004b BC000000 		.4byte	.LASF5
- 504 004f 02       		.uleb128 0x2
- 505 0050 08       		.byte	0x8
- 506 0051 05       		.byte	0x5
- 507 0052 15020000 		.4byte	.LASF6
- 508 0056 02       		.uleb128 0x2
- 509 0057 08       		.byte	0x8
- 510 0058 07       		.byte	0x7
- 511 0059 AD010000 		.4byte	.LASF7
- 512 005d 03       		.uleb128 0x3
- 513 005e 04       		.byte	0x4
- 514 005f 05       		.byte	0x5
- 515 0060 696E7400 		.ascii	"int\000"
- 516 0064 02       		.uleb128 0x2
- 517 0065 04       		.byte	0x4
- 518 0066 07       		.byte	0x7
- 519 0067 A0010000 		.4byte	.LASF8
- 520 006b 04       		.uleb128 0x4
- 521 006c CE000000 		.4byte	.LASF9
- 522 0070 02       		.byte	0x2
- 523 0071 3801     		.2byte	0x138
- 524 0073 2C000000 		.4byte	0x2c
- 525 0077 04       		.uleb128 0x4
- 526 0078 F5000000 		.4byte	.LASF10
- 527 007c 02       		.byte	0x2
- 528 007d 3901     		.2byte	0x139
- 529 007f 3A000000 		.4byte	0x3a
- 530 0083 02       		.uleb128 0x2
- 531 0084 04       		.byte	0x4
- 532 0085 04       		.byte	0x4
- 533 0086 81000000 		.4byte	.LASF11
- 534 008a 02       		.uleb128 0x2
- 535 008b 08       		.byte	0x8
- 536 008c 04       		.byte	0x4
- 537 008d E4000000 		.4byte	.LASF12
- 538 0091 02       		.uleb128 0x2
- 539 0092 01       		.byte	0x1
- 540 0093 08       		.byte	0x8
- 541 0094 A3020000 		.4byte	.LASF13
- 542 0098 04       		.uleb128 0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 20
+ 673 0012 BD46     		mov	sp, r7
+ 674              		.cfi_def_cfa_register 13
+ 675              		@ sp needed
+ 676 0014 5DF8047B 		ldr	r7, [sp], #4
+ 677              		.cfi_restore 7
+ 678              		.cfi_def_cfa_offset 0
+ 679 0018 7047     		bx	lr
+ 680              	.L48:
+ 681 001a 00BF     		.align	2
+ 682              	.L47:
+ 683 001c 124F0040 		.word	1073762066
+ 684 0020 144F0040 		.word	1073762068
+ 685              		.cfi_endproc
+ 686              	.LFE13:
+ 687              		.size	Node_Timer_ReadCounter, .-Node_Timer_ReadCounter
+ 688              		.text
+ 689              	.Letext0:
+ 690              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 691              		.section	.debug_info,"",%progbits
+ 692              	.Ldebug_info0:
+ 693 0000 3A020000 		.4byte	0x23a
+ 694 0004 0400     		.2byte	0x4
+ 695 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 696 000a 04       		.byte	0x4
+ 697 000b 01       		.uleb128 0x1
+ 698 000c E4000000 		.4byte	.LASF35
+ 699 0010 01       		.byte	0x1
+ 700 0011 10030000 		.4byte	.LASF36
+ 701 0015 A8020000 		.4byte	.LASF37
+ 702 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 703 001d 00000000 		.4byte	0
+ 704 0021 00000000 		.4byte	.Ldebug_line0
+ 705 0025 02       		.uleb128 0x2
+ 706 0026 01       		.byte	0x1
+ 707 0027 06       		.byte	0x6
+ 708 0028 E5020000 		.4byte	.LASF0
+ 709 002c 02       		.uleb128 0x2
+ 710 002d 01       		.byte	0x1
+ 711 002e 08       		.byte	0x8
+ 712 002f 9E000000 		.4byte	.LASF1
+ 713 0033 02       		.uleb128 0x2
+ 714 0034 02       		.byte	0x2
+ 715 0035 05       		.byte	0x5
+ 716 0036 79010000 		.4byte	.LASF2
+ 717 003a 02       		.uleb128 0x2
+ 718 003b 02       		.byte	0x2
+ 719 003c 07       		.byte	0x7
+ 720 003d 5E000000 		.4byte	.LASF3
+ 721 0041 02       		.uleb128 0x2
+ 722 0042 04       		.byte	0x4
+ 723 0043 05       		.byte	0x5
+ 724 0044 9A020000 		.4byte	.LASF4
+ 725 0048 02       		.uleb128 0x2
+ 726 0049 04       		.byte	0x4
+ 727 004a 07       		.byte	0x7
+ 728 004b BC000000 		.4byte	.LASF5
+ 729 004f 02       		.uleb128 0x2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 23
 
 
- 543 0099 F0010000 		.4byte	.LASF14
- 544 009d 02       		.byte	0x2
- 545 009e E201     		.2byte	0x1e2
- 546 00a0 A4000000 		.4byte	0xa4
- 547 00a4 05       		.uleb128 0x5
- 548 00a5 6B000000 		.4byte	0x6b
- 549 00a9 04       		.uleb128 0x4
- 550 00aa 00000000 		.4byte	.LASF15
- 551 00ae 02       		.byte	0x2
- 552 00af E301     		.2byte	0x1e3
- 553 00b1 B5000000 		.4byte	0xb5
- 554 00b5 05       		.uleb128 0x5
- 555 00b6 77000000 		.4byte	0x77
- 556 00ba 02       		.uleb128 0x2
- 557 00bb 04       		.byte	0x4
- 558 00bc 07       		.byte	0x7
- 559 00bd 0C020000 		.4byte	.LASF16
- 560 00c1 06       		.uleb128 0x6
- 561 00c2 32000000 		.4byte	.LASF17
- 562 00c6 01       		.byte	0x1
- 563 00c7 B4       		.byte	0xb4
- 564 00c8 00000000 		.4byte	.LFB1
- 565 00cc 28000000 		.4byte	.LFE1-.LFB1
- 566 00d0 01       		.uleb128 0x1
- 567 00d1 9C       		.byte	0x9c
- 568 00d2 06       		.uleb128 0x6
- 569 00d3 71000000 		.4byte	.LASF18
- 570 00d7 01       		.byte	0x1
- 571 00d8 F7       		.byte	0xf7
- 572 00d9 00000000 		.4byte	.LFB3
- 573 00dd 28000000 		.4byte	.LFE3-.LFB3
- 574 00e1 01       		.uleb128 0x1
- 575 00e2 9C       		.byte	0x9c
- 576 00e3 07       		.uleb128 0x7
- 577 00e4 66020000 		.4byte	.LASF22
- 578 00e8 01       		.byte	0x1
- 579 00e9 1701     		.2byte	0x117
- 580 00eb 00000000 		.4byte	.LFB4
- 581 00ef 0C000000 		.4byte	.LFE4-.LFB4
- 582 00f3 01       		.uleb128 0x1
- 583 00f4 9C       		.byte	0x9c
- 584 00f5 08010000 		.4byte	0x108
- 585 00f9 08       		.uleb128 0x8
- 586 00fa 3A020000 		.4byte	.LASF24
- 587 00fe 01       		.byte	0x1
- 588 00ff 1701     		.2byte	0x117
- 589 0101 6B000000 		.4byte	0x6b
- 590 0105 01       		.uleb128 0x1
- 591 0106 50       		.byte	0x50
- 592 0107 00       		.byte	0
- 593 0108 09       		.uleb128 0x9
- 594 0109 06000000 		.4byte	.LASF19
- 595 010d 01       		.byte	0x1
- 596 010e 2E01     		.2byte	0x12e
- 597 0110 00000000 		.4byte	.LFB5
- 598 0114 0C000000 		.4byte	.LFE5-.LFB5
- 599 0118 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 21
+ 730 0050 08       		.byte	0x8
+ 731 0051 05       		.byte	0x5
+ 732 0052 15020000 		.4byte	.LASF6
+ 733 0056 02       		.uleb128 0x2
+ 734 0057 08       		.byte	0x8
+ 735 0058 07       		.byte	0x7
+ 736 0059 AD010000 		.4byte	.LASF7
+ 737 005d 03       		.uleb128 0x3
+ 738 005e 04       		.byte	0x4
+ 739 005f 05       		.byte	0x5
+ 740 0060 696E7400 		.ascii	"int\000"
+ 741 0064 02       		.uleb128 0x2
+ 742 0065 04       		.byte	0x4
+ 743 0066 07       		.byte	0x7
+ 744 0067 A0010000 		.4byte	.LASF8
+ 745 006b 04       		.uleb128 0x4
+ 746 006c CE000000 		.4byte	.LASF9
+ 747 0070 02       		.byte	0x2
+ 748 0071 3801     		.2byte	0x138
+ 749 0073 2C000000 		.4byte	0x2c
+ 750 0077 04       		.uleb128 0x4
+ 751 0078 83010000 		.4byte	.LASF10
+ 752 007c 02       		.byte	0x2
+ 753 007d 3901     		.2byte	0x139
+ 754 007f 3A000000 		.4byte	0x3a
+ 755 0083 02       		.uleb128 0x2
+ 756 0084 04       		.byte	0x4
+ 757 0085 04       		.byte	0x4
+ 758 0086 81000000 		.4byte	.LASF11
+ 759 008a 02       		.uleb128 0x2
+ 760 008b 08       		.byte	0x8
+ 761 008c 04       		.byte	0x4
+ 762 008d 72010000 		.4byte	.LASF12
+ 763 0091 02       		.uleb128 0x2
+ 764 0092 01       		.byte	0x1
+ 765 0093 08       		.byte	0x8
+ 766 0094 A3020000 		.4byte	.LASF13
+ 767 0098 04       		.uleb128 0x4
+ 768 0099 F0010000 		.4byte	.LASF14
+ 769 009d 02       		.byte	0x2
+ 770 009e E201     		.2byte	0x1e2
+ 771 00a0 A4000000 		.4byte	0xa4
+ 772 00a4 05       		.uleb128 0x5
+ 773 00a5 6B000000 		.4byte	0x6b
+ 774 00a9 04       		.uleb128 0x4
+ 775 00aa 00000000 		.4byte	.LASF15
+ 776 00ae 02       		.byte	0x2
+ 777 00af E301     		.2byte	0x1e3
+ 778 00b1 B5000000 		.4byte	0xb5
+ 779 00b5 05       		.uleb128 0x5
+ 780 00b6 77000000 		.4byte	0x77
+ 781 00ba 02       		.uleb128 0x2
+ 782 00bb 04       		.byte	0x4
+ 783 00bc 07       		.byte	0x7
+ 784 00bd 0C020000 		.4byte	.LASF16
+ 785 00c1 06       		.uleb128 0x6
+ 786 00c2 AC000000 		.4byte	.LASF17
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 24
 
 
- 600 0119 9C       		.byte	0x9c
- 601 011a 0A       		.uleb128 0xa
- 602 011b 48020000 		.4byte	.LASF20
- 603 011f 01       		.byte	0x1
- 604 0120 4D01     		.2byte	0x14d
- 605 0122 6B000000 		.4byte	0x6b
- 606 0126 00000000 		.4byte	.LFB6
- 607 012a 0C000000 		.4byte	.LFE6-.LFB6
- 608 012e 01       		.uleb128 0x1
- 609 012f 9C       		.byte	0x9c
- 610 0130 0A       		.uleb128 0xa
- 611 0131 F1020000 		.4byte	.LASF21
- 612 0135 01       		.byte	0x1
- 613 0136 6401     		.2byte	0x164
- 614 0138 6B000000 		.4byte	0x6b
- 615 013c 00000000 		.4byte	.LFB7
- 616 0140 0C000000 		.4byte	.LFE7-.LFB7
- 617 0144 01       		.uleb128 0x1
- 618 0145 9C       		.byte	0x9c
- 619 0146 07       		.uleb128 0x7
- 620 0147 C4010000 		.4byte	.LASF23
- 621 014b 01       		.byte	0x1
- 622 014c 7B01     		.2byte	0x17b
- 623 014e 00000000 		.4byte	.LFB8
- 624 0152 0C000000 		.4byte	.LFE8-.LFB8
- 625 0156 01       		.uleb128 0x1
- 626 0157 9C       		.byte	0x9c
- 627 0158 6B010000 		.4byte	0x16b
- 628 015c 08       		.uleb128 0x8
- 629 015d D4000000 		.4byte	.LASF25
- 630 0161 01       		.byte	0x1
- 631 0162 7B01     		.2byte	0x17b
- 632 0164 6B000000 		.4byte	0x6b
- 633 0168 01       		.uleb128 0x1
- 634 0169 50       		.byte	0x50
- 635 016a 00       		.byte	0
- 636 016b 0A       		.uleb128 0xa
- 637 016c FC000000 		.4byte	.LASF26
- 638 0170 01       		.byte	0x1
- 639 0171 9501     		.2byte	0x195
- 640 0173 6B000000 		.4byte	0x6b
- 641 0177 00000000 		.4byte	.LFB9
- 642 017b 0C000000 		.4byte	.LFE9-.LFB9
- 643 017f 01       		.uleb128 0x1
- 644 0180 9C       		.byte	0x9c
- 645 0181 07       		.uleb128 0x7
- 646 0182 87000000 		.4byte	.LASF27
- 647 0186 01       		.byte	0x1
- 648 0187 AF01     		.2byte	0x1af
- 649 0189 00000000 		.4byte	.LFB10
- 650 018d 0C000000 		.4byte	.LFE10-.LFB10
- 651 0191 01       		.uleb128 0x1
- 652 0192 9C       		.byte	0x9c
- 653 0193 B4010000 		.4byte	0x1b4
- 654 0197 08       		.uleb128 0x8
- 655 0198 57000000 		.4byte	.LASF28
- 656 019c 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 22
+ 787 00c6 01       		.byte	0x1
+ 788 00c7 2B       		.byte	0x2b
+ 789 00c8 00000000 		.4byte	.LFB0
+ 790 00cc 98000000 		.4byte	.LFE0-.LFB0
+ 791 00d0 01       		.uleb128 0x1
+ 792 00d1 9C       		.byte	0x9c
+ 793 00d2 07       		.uleb128 0x7
+ 794 00d3 32000000 		.4byte	.LASF18
+ 795 00d7 01       		.byte	0x1
+ 796 00d8 B4       		.byte	0xb4
+ 797 00d9 00000000 		.4byte	.LFB1
+ 798 00dd 48000000 		.4byte	.LFE1-.LFB1
+ 799 00e1 01       		.uleb128 0x1
+ 800 00e2 9C       		.byte	0x9c
+ 801 00e3 06       		.uleb128 0x6
+ 802 00e4 21000000 		.4byte	.LASF19
+ 803 00e8 01       		.byte	0x1
+ 804 00e9 D7       		.byte	0xd7
+ 805 00ea 00000000 		.4byte	.LFB2
+ 806 00ee 20000000 		.4byte	.LFE2-.LFB2
+ 807 00f2 01       		.uleb128 0x1
+ 808 00f3 9C       		.byte	0x9c
+ 809 00f4 07       		.uleb128 0x7
+ 810 00f5 71000000 		.4byte	.LASF20
+ 811 00f9 01       		.byte	0x1
+ 812 00fa F7       		.byte	0xf7
+ 813 00fb 00000000 		.4byte	.LFB3
+ 814 00ff 48000000 		.4byte	.LFE3-.LFB3
+ 815 0103 01       		.uleb128 0x1
+ 816 0104 9C       		.byte	0x9c
+ 817 0105 08       		.uleb128 0x8
+ 818 0106 66020000 		.4byte	.LASF24
+ 819 010a 01       		.byte	0x1
+ 820 010b 1701     		.2byte	0x117
+ 821 010d 00000000 		.4byte	.LFB4
+ 822 0111 20000000 		.4byte	.LFE4-.LFB4
+ 823 0115 01       		.uleb128 0x1
+ 824 0116 9C       		.byte	0x9c
+ 825 0117 2B010000 		.4byte	0x12b
+ 826 011b 09       		.uleb128 0x9
+ 827 011c 3A020000 		.4byte	.LASF26
+ 828 0120 01       		.byte	0x1
+ 829 0121 1701     		.2byte	0x117
+ 830 0123 6B000000 		.4byte	0x6b
+ 831 0127 02       		.uleb128 0x2
+ 832 0128 91       		.byte	0x91
+ 833 0129 77       		.sleb128 -9
+ 834 012a 00       		.byte	0
+ 835 012b 0A       		.uleb128 0xa
+ 836 012c 06000000 		.4byte	.LASF21
+ 837 0130 01       		.byte	0x1
+ 838 0131 2E01     		.2byte	0x12e
+ 839 0133 00000000 		.4byte	.LFB5
+ 840 0137 14000000 		.4byte	.LFE5-.LFB5
+ 841 013b 01       		.uleb128 0x1
+ 842 013c 9C       		.byte	0x9c
+ 843 013d 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 25
 
 
- 657 019d AF01     		.2byte	0x1af
- 658 019f 6B000000 		.4byte	0x6b
- 659 01a3 01       		.uleb128 0x1
- 660 01a4 50       		.byte	0x50
- 661 01a5 0B       		.uleb128 0xb
- 662 01a6 E4010000 		.4byte	.LASF38
- 663 01aa 01       		.byte	0x1
- 664 01ab B201     		.2byte	0x1b2
- 665 01ad 77000000 		.4byte	0x77
- 666 01b1 01       		.uleb128 0x1
- 667 01b2 50       		.byte	0x50
- 668 01b3 00       		.byte	0
- 669 01b4 0A       		.uleb128 0xa
- 670 01b5 23020000 		.4byte	.LASF29
- 671 01b9 01       		.byte	0x1
- 672 01ba C801     		.2byte	0x1c8
- 673 01bc 6B000000 		.4byte	0x6b
- 674 01c0 00000000 		.4byte	.LFB11
- 675 01c4 0C000000 		.4byte	.LFE11-.LFB11
- 676 01c8 01       		.uleb128 0x1
- 677 01c9 9C       		.byte	0x9c
- 678 01ca 07       		.uleb128 0x7
- 679 01cb 82020000 		.4byte	.LASF30
- 680 01cf 01       		.byte	0x1
- 681 01d0 E001     		.2byte	0x1e0
- 682 01d2 00000000 		.4byte	.LFB12
- 683 01d6 0C000000 		.4byte	.LFE12-.LFB12
- 684 01da 01       		.uleb128 0x1
- 685 01db 9C       		.byte	0x9c
- 686 01dc EF010000 		.4byte	0x1ef
- 687 01e0 08       		.uleb128 0x8
- 688 01e1 DC000000 		.4byte	.LASF31
- 689 01e5 01       		.byte	0x1
- 690 01e6 E001     		.2byte	0x1e0
- 691 01e8 6B000000 		.4byte	0x6b
- 692 01ec 01       		.uleb128 0x1
- 693 01ed 50       		.byte	0x50
- 694 01ee 00       		.byte	0
- 695 01ef 0C       		.uleb128 0xc
- 696 01f0 AC000000 		.4byte	.LASF32
- 697 01f4 01       		.byte	0x1
- 698 01f5 2B       		.byte	0x2b
- 699 01f6 00000000 		.4byte	.LFB0
- 700 01fa 64000000 		.4byte	.LFE0-.LFB0
- 701 01fe 01       		.uleb128 0x1
- 702 01ff 9C       		.byte	0x9c
- 703 0200 3C020000 		.4byte	0x23c
- 704 0204 0D       		.uleb128 0xd
- 705 0205 48000000 		.4byte	.LVL4
- 706 0209 81010000 		.4byte	0x181
- 707 020d 18020000 		.4byte	0x218
- 708 0211 0E       		.uleb128 0xe
- 709 0212 01       		.uleb128 0x1
- 710 0213 50       		.byte	0x50
- 711 0214 02       		.uleb128 0x2
- 712 0215 08       		.byte	0x8
- 713 0216 63       		.byte	0x63
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 23
+ 844 013e 48020000 		.4byte	.LASF22
+ 845 0142 01       		.byte	0x1
+ 846 0143 4D01     		.2byte	0x14d
+ 847 0145 6B000000 		.4byte	0x6b
+ 848 0149 00000000 		.4byte	.LFB6
+ 849 014d 18000000 		.4byte	.LFE6-.LFB6
+ 850 0151 01       		.uleb128 0x1
+ 851 0152 9C       		.byte	0x9c
+ 852 0153 0B       		.uleb128 0xb
+ 853 0154 F1020000 		.4byte	.LASF23
+ 854 0158 01       		.byte	0x1
+ 855 0159 6401     		.2byte	0x164
+ 856 015b 6B000000 		.4byte	0x6b
+ 857 015f 00000000 		.4byte	.LFB7
+ 858 0163 18000000 		.4byte	.LFE7-.LFB7
+ 859 0167 01       		.uleb128 0x1
+ 860 0168 9C       		.byte	0x9c
+ 861 0169 08       		.uleb128 0x8
+ 862 016a C4010000 		.4byte	.LASF25
+ 863 016e 01       		.byte	0x1
+ 864 016f 7B01     		.2byte	0x17b
+ 865 0171 00000000 		.4byte	.LFB8
+ 866 0175 20000000 		.4byte	.LFE8-.LFB8
+ 867 0179 01       		.uleb128 0x1
+ 868 017a 9C       		.byte	0x9c
+ 869 017b 8F010000 		.4byte	0x18f
+ 870 017f 09       		.uleb128 0x9
+ 871 0180 D4000000 		.4byte	.LASF27
+ 872 0184 01       		.byte	0x1
+ 873 0185 7B01     		.2byte	0x17b
+ 874 0187 6B000000 		.4byte	0x6b
+ 875 018b 02       		.uleb128 0x2
+ 876 018c 91       		.byte	0x91
+ 877 018d 77       		.sleb128 -9
+ 878 018e 00       		.byte	0
+ 879 018f 0B       		.uleb128 0xb
+ 880 0190 8A010000 		.4byte	.LASF28
+ 881 0194 01       		.byte	0x1
+ 882 0195 9501     		.2byte	0x195
+ 883 0197 6B000000 		.4byte	0x6b
+ 884 019b 00000000 		.4byte	.LFB9
+ 885 019f 1C000000 		.4byte	.LFE9-.LFB9
+ 886 01a3 01       		.uleb128 0x1
+ 887 01a4 9C       		.byte	0x9c
+ 888 01a5 08       		.uleb128 0x8
+ 889 01a6 87000000 		.4byte	.LASF29
+ 890 01aa 01       		.byte	0x1
+ 891 01ab AF01     		.2byte	0x1af
+ 892 01ad 00000000 		.4byte	.LFB10
+ 893 01b1 24000000 		.4byte	.LFE10-.LFB10
+ 894 01b5 01       		.uleb128 0x1
+ 895 01b6 9C       		.byte	0x9c
+ 896 01b7 DA010000 		.4byte	0x1da
+ 897 01bb 09       		.uleb128 0x9
+ 898 01bc 57000000 		.4byte	.LASF30
+ 899 01c0 01       		.byte	0x1
+ 900 01c1 AF01     		.2byte	0x1af
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 26
 
 
- 714 0217 00       		.byte	0
- 715 0218 0D       		.uleb128 0xd
- 716 0219 4E000000 		.4byte	.LVL5
- 717 021d CA010000 		.4byte	0x1ca
- 718 0221 2C020000 		.4byte	0x22c
- 719 0225 0E       		.uleb128 0xe
- 720 0226 01       		.uleb128 0x1
- 721 0227 50       		.byte	0x50
- 722 0228 02       		.uleb128 0x2
- 723 0229 08       		.byte	0x8
- 724 022a 63       		.byte	0x63
- 725 022b 00       		.byte	0
- 726 022c 0F       		.uleb128 0xf
- 727 022d 54000000 		.4byte	.LVL6
- 728 0231 E3000000 		.4byte	0xe3
- 729 0235 0E       		.uleb128 0xe
- 730 0236 01       		.uleb128 0x1
- 731 0237 50       		.byte	0x50
- 732 0238 01       		.uleb128 0x1
- 733 0239 38       		.byte	0x38
- 734 023a 00       		.byte	0
- 735 023b 00       		.byte	0
- 736 023c 0C       		.uleb128 0xc
- 737 023d 21000000 		.4byte	.LASF33
- 738 0241 01       		.byte	0x1
- 739 0242 D7       		.byte	0xd7
- 740 0243 00000000 		.4byte	.LFB2
- 741 0247 1C000000 		.4byte	.LFE2-.LFB2
- 742 024b 01       		.uleb128 0x1
- 743 024c 9C       		.byte	0x9c
- 744 024d 64020000 		.4byte	0x264
- 745 0251 10       		.uleb128 0x10
- 746 0252 0C000000 		.4byte	.LVL7
- 747 0256 EF010000 		.4byte	0x1ef
- 748 025a 10       		.uleb128 0x10
- 749 025b 16000000 		.4byte	.LVL8
- 750 025f C1000000 		.4byte	0xc1
- 751 0263 00       		.byte	0
- 752 0264 0A       		.uleb128 0xa
- 753 0265 F5010000 		.4byte	.LASF34
- 754 0269 01       		.byte	0x1
- 755 026a FC01     		.2byte	0x1fc
- 756 026c 6B000000 		.4byte	0x6b
- 757 0270 00000000 		.4byte	.LFB13
- 758 0274 14000000 		.4byte	.LFE13-.LFB13
- 759 0278 01       		.uleb128 0x1
- 760 0279 9C       		.byte	0x9c
- 761 027a 11       		.uleb128 0x11
- 762 027b 44000000 		.4byte	.LASF39
- 763 027f 01       		.byte	0x1
- 764 0280 1A       		.byte	0x1a
- 765 0281 6B000000 		.4byte	0x6b
- 766 0285 05       		.uleb128 0x5
- 767 0286 03       		.byte	0x3
- 768 0287 00000000 		.4byte	Node_Timer_initVar
- 769 028b 00       		.byte	0
- 770              		.section	.debug_abbrev,"",%progbits
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 24
+ 901 01c3 6B000000 		.4byte	0x6b
+ 902 01c7 02       		.uleb128 0x2
+ 903 01c8 91       		.byte	0x91
+ 904 01c9 6F       		.sleb128 -17
+ 905 01ca 0C       		.uleb128 0xc
+ 906 01cb E4010000 		.4byte	.LASF38
+ 907 01cf 01       		.byte	0x1
+ 908 01d0 B201     		.2byte	0x1b2
+ 909 01d2 77000000 		.4byte	0x77
+ 910 01d6 02       		.uleb128 0x2
+ 911 01d7 91       		.byte	0x91
+ 912 01d8 76       		.sleb128 -10
+ 913 01d9 00       		.byte	0
+ 914 01da 0B       		.uleb128 0xb
+ 915 01db 23020000 		.4byte	.LASF31
+ 916 01df 01       		.byte	0x1
+ 917 01e0 C801     		.2byte	0x1c8
+ 918 01e2 6B000000 		.4byte	0x6b
+ 919 01e6 00000000 		.4byte	.LFB11
+ 920 01ea 1C000000 		.4byte	.LFE11-.LFB11
+ 921 01ee 01       		.uleb128 0x1
+ 922 01ef 9C       		.byte	0x9c
+ 923 01f0 08       		.uleb128 0x8
+ 924 01f1 82020000 		.4byte	.LASF32
+ 925 01f5 01       		.byte	0x1
+ 926 01f6 E001     		.2byte	0x1e0
+ 927 01f8 00000000 		.4byte	.LFB12
+ 928 01fc 20000000 		.4byte	.LFE12-.LFB12
+ 929 0200 01       		.uleb128 0x1
+ 930 0201 9C       		.byte	0x9c
+ 931 0202 16020000 		.4byte	0x216
+ 932 0206 09       		.uleb128 0x9
+ 933 0207 DC000000 		.4byte	.LASF33
+ 934 020b 01       		.byte	0x1
+ 935 020c E001     		.2byte	0x1e0
+ 936 020e 6B000000 		.4byte	0x6b
+ 937 0212 02       		.uleb128 0x2
+ 938 0213 91       		.byte	0x91
+ 939 0214 77       		.sleb128 -9
+ 940 0215 00       		.byte	0
+ 941 0216 0B       		.uleb128 0xb
+ 942 0217 F5010000 		.4byte	.LASF34
+ 943 021b 01       		.byte	0x1
+ 944 021c FC01     		.2byte	0x1fc
+ 945 021e 6B000000 		.4byte	0x6b
+ 946 0222 00000000 		.4byte	.LFB13
+ 947 0226 24000000 		.4byte	.LFE13-.LFB13
+ 948 022a 01       		.uleb128 0x1
+ 949 022b 9C       		.byte	0x9c
+ 950 022c 0D       		.uleb128 0xd
+ 951 022d 44000000 		.4byte	.LASF39
+ 952 0231 01       		.byte	0x1
+ 953 0232 1A       		.byte	0x1a
+ 954 0233 6B000000 		.4byte	0x6b
+ 955 0237 05       		.uleb128 0x5
+ 956 0238 03       		.byte	0x3
+ 957 0239 00000000 		.4byte	Node_Timer_initVar
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 27
 
 
- 771              	.Ldebug_abbrev0:
- 772 0000 01       		.uleb128 0x1
- 773 0001 11       		.uleb128 0x11
- 774 0002 01       		.byte	0x1
- 775 0003 25       		.uleb128 0x25
- 776 0004 0E       		.uleb128 0xe
- 777 0005 13       		.uleb128 0x13
- 778 0006 0B       		.uleb128 0xb
- 779 0007 03       		.uleb128 0x3
- 780 0008 0E       		.uleb128 0xe
- 781 0009 1B       		.uleb128 0x1b
- 782 000a 0E       		.uleb128 0xe
- 783 000b 55       		.uleb128 0x55
- 784 000c 17       		.uleb128 0x17
- 785 000d 11       		.uleb128 0x11
- 786 000e 01       		.uleb128 0x1
- 787 000f 10       		.uleb128 0x10
- 788 0010 17       		.uleb128 0x17
- 789 0011 00       		.byte	0
- 790 0012 00       		.byte	0
- 791 0013 02       		.uleb128 0x2
- 792 0014 24       		.uleb128 0x24
- 793 0015 00       		.byte	0
- 794 0016 0B       		.uleb128 0xb
- 795 0017 0B       		.uleb128 0xb
- 796 0018 3E       		.uleb128 0x3e
- 797 0019 0B       		.uleb128 0xb
- 798 001a 03       		.uleb128 0x3
- 799 001b 0E       		.uleb128 0xe
- 800 001c 00       		.byte	0
- 801 001d 00       		.byte	0
- 802 001e 03       		.uleb128 0x3
- 803 001f 24       		.uleb128 0x24
- 804 0020 00       		.byte	0
- 805 0021 0B       		.uleb128 0xb
- 806 0022 0B       		.uleb128 0xb
- 807 0023 3E       		.uleb128 0x3e
- 808 0024 0B       		.uleb128 0xb
- 809 0025 03       		.uleb128 0x3
- 810 0026 08       		.uleb128 0x8
- 811 0027 00       		.byte	0
- 812 0028 00       		.byte	0
- 813 0029 04       		.uleb128 0x4
- 814 002a 16       		.uleb128 0x16
- 815 002b 00       		.byte	0
- 816 002c 03       		.uleb128 0x3
- 817 002d 0E       		.uleb128 0xe
- 818 002e 3A       		.uleb128 0x3a
- 819 002f 0B       		.uleb128 0xb
- 820 0030 3B       		.uleb128 0x3b
- 821 0031 05       		.uleb128 0x5
- 822 0032 49       		.uleb128 0x49
- 823 0033 13       		.uleb128 0x13
- 824 0034 00       		.byte	0
- 825 0035 00       		.byte	0
- 826 0036 05       		.uleb128 0x5
- 827 0037 35       		.uleb128 0x35
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 25
+ 958 023d 00       		.byte	0
+ 959              		.section	.debug_abbrev,"",%progbits
+ 960              	.Ldebug_abbrev0:
+ 961 0000 01       		.uleb128 0x1
+ 962 0001 11       		.uleb128 0x11
+ 963 0002 01       		.byte	0x1
+ 964 0003 25       		.uleb128 0x25
+ 965 0004 0E       		.uleb128 0xe
+ 966 0005 13       		.uleb128 0x13
+ 967 0006 0B       		.uleb128 0xb
+ 968 0007 03       		.uleb128 0x3
+ 969 0008 0E       		.uleb128 0xe
+ 970 0009 1B       		.uleb128 0x1b
+ 971 000a 0E       		.uleb128 0xe
+ 972 000b 55       		.uleb128 0x55
+ 973 000c 17       		.uleb128 0x17
+ 974 000d 11       		.uleb128 0x11
+ 975 000e 01       		.uleb128 0x1
+ 976 000f 10       		.uleb128 0x10
+ 977 0010 17       		.uleb128 0x17
+ 978 0011 00       		.byte	0
+ 979 0012 00       		.byte	0
+ 980 0013 02       		.uleb128 0x2
+ 981 0014 24       		.uleb128 0x24
+ 982 0015 00       		.byte	0
+ 983 0016 0B       		.uleb128 0xb
+ 984 0017 0B       		.uleb128 0xb
+ 985 0018 3E       		.uleb128 0x3e
+ 986 0019 0B       		.uleb128 0xb
+ 987 001a 03       		.uleb128 0x3
+ 988 001b 0E       		.uleb128 0xe
+ 989 001c 00       		.byte	0
+ 990 001d 00       		.byte	0
+ 991 001e 03       		.uleb128 0x3
+ 992 001f 24       		.uleb128 0x24
+ 993 0020 00       		.byte	0
+ 994 0021 0B       		.uleb128 0xb
+ 995 0022 0B       		.uleb128 0xb
+ 996 0023 3E       		.uleb128 0x3e
+ 997 0024 0B       		.uleb128 0xb
+ 998 0025 03       		.uleb128 0x3
+ 999 0026 08       		.uleb128 0x8
+ 1000 0027 00       		.byte	0
+ 1001 0028 00       		.byte	0
+ 1002 0029 04       		.uleb128 0x4
+ 1003 002a 16       		.uleb128 0x16
+ 1004 002b 00       		.byte	0
+ 1005 002c 03       		.uleb128 0x3
+ 1006 002d 0E       		.uleb128 0xe
+ 1007 002e 3A       		.uleb128 0x3a
+ 1008 002f 0B       		.uleb128 0xb
+ 1009 0030 3B       		.uleb128 0x3b
+ 1010 0031 05       		.uleb128 0x5
+ 1011 0032 49       		.uleb128 0x49
+ 1012 0033 13       		.uleb128 0x13
+ 1013 0034 00       		.byte	0
+ 1014 0035 00       		.byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 28
 
 
- 828 0038 00       		.byte	0
- 829 0039 49       		.uleb128 0x49
- 830 003a 13       		.uleb128 0x13
- 831 003b 00       		.byte	0
- 832 003c 00       		.byte	0
- 833 003d 06       		.uleb128 0x6
- 834 003e 2E       		.uleb128 0x2e
- 835 003f 00       		.byte	0
- 836 0040 3F       		.uleb128 0x3f
- 837 0041 19       		.uleb128 0x19
- 838 0042 03       		.uleb128 0x3
- 839 0043 0E       		.uleb128 0xe
- 840 0044 3A       		.uleb128 0x3a
- 841 0045 0B       		.uleb128 0xb
- 842 0046 3B       		.uleb128 0x3b
- 843 0047 0B       		.uleb128 0xb
- 844 0048 27       		.uleb128 0x27
- 845 0049 19       		.uleb128 0x19
- 846 004a 11       		.uleb128 0x11
- 847 004b 01       		.uleb128 0x1
- 848 004c 12       		.uleb128 0x12
- 849 004d 06       		.uleb128 0x6
- 850 004e 40       		.uleb128 0x40
- 851 004f 18       		.uleb128 0x18
- 852 0050 9742     		.uleb128 0x2117
- 853 0052 19       		.uleb128 0x19
- 854 0053 00       		.byte	0
- 855 0054 00       		.byte	0
- 856 0055 07       		.uleb128 0x7
- 857 0056 2E       		.uleb128 0x2e
- 858 0057 01       		.byte	0x1
- 859 0058 3F       		.uleb128 0x3f
- 860 0059 19       		.uleb128 0x19
- 861 005a 03       		.uleb128 0x3
- 862 005b 0E       		.uleb128 0xe
- 863 005c 3A       		.uleb128 0x3a
- 864 005d 0B       		.uleb128 0xb
- 865 005e 3B       		.uleb128 0x3b
- 866 005f 05       		.uleb128 0x5
- 867 0060 27       		.uleb128 0x27
- 868 0061 19       		.uleb128 0x19
- 869 0062 11       		.uleb128 0x11
- 870 0063 01       		.uleb128 0x1
- 871 0064 12       		.uleb128 0x12
- 872 0065 06       		.uleb128 0x6
- 873 0066 40       		.uleb128 0x40
- 874 0067 18       		.uleb128 0x18
- 875 0068 9742     		.uleb128 0x2117
- 876 006a 19       		.uleb128 0x19
- 877 006b 01       		.uleb128 0x1
- 878 006c 13       		.uleb128 0x13
- 879 006d 00       		.byte	0
- 880 006e 00       		.byte	0
- 881 006f 08       		.uleb128 0x8
- 882 0070 05       		.uleb128 0x5
- 883 0071 00       		.byte	0
- 884 0072 03       		.uleb128 0x3
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 26
+ 1015 0036 05       		.uleb128 0x5
+ 1016 0037 35       		.uleb128 0x35
+ 1017 0038 00       		.byte	0
+ 1018 0039 49       		.uleb128 0x49
+ 1019 003a 13       		.uleb128 0x13
+ 1020 003b 00       		.byte	0
+ 1021 003c 00       		.byte	0
+ 1022 003d 06       		.uleb128 0x6
+ 1023 003e 2E       		.uleb128 0x2e
+ 1024 003f 00       		.byte	0
+ 1025 0040 3F       		.uleb128 0x3f
+ 1026 0041 19       		.uleb128 0x19
+ 1027 0042 03       		.uleb128 0x3
+ 1028 0043 0E       		.uleb128 0xe
+ 1029 0044 3A       		.uleb128 0x3a
+ 1030 0045 0B       		.uleb128 0xb
+ 1031 0046 3B       		.uleb128 0x3b
+ 1032 0047 0B       		.uleb128 0xb
+ 1033 0048 27       		.uleb128 0x27
+ 1034 0049 19       		.uleb128 0x19
+ 1035 004a 11       		.uleb128 0x11
+ 1036 004b 01       		.uleb128 0x1
+ 1037 004c 12       		.uleb128 0x12
+ 1038 004d 06       		.uleb128 0x6
+ 1039 004e 40       		.uleb128 0x40
+ 1040 004f 18       		.uleb128 0x18
+ 1041 0050 9642     		.uleb128 0x2116
+ 1042 0052 19       		.uleb128 0x19
+ 1043 0053 00       		.byte	0
+ 1044 0054 00       		.byte	0
+ 1045 0055 07       		.uleb128 0x7
+ 1046 0056 2E       		.uleb128 0x2e
+ 1047 0057 00       		.byte	0
+ 1048 0058 3F       		.uleb128 0x3f
+ 1049 0059 19       		.uleb128 0x19
+ 1050 005a 03       		.uleb128 0x3
+ 1051 005b 0E       		.uleb128 0xe
+ 1052 005c 3A       		.uleb128 0x3a
+ 1053 005d 0B       		.uleb128 0xb
+ 1054 005e 3B       		.uleb128 0x3b
+ 1055 005f 0B       		.uleb128 0xb
+ 1056 0060 27       		.uleb128 0x27
+ 1057 0061 19       		.uleb128 0x19
+ 1058 0062 11       		.uleb128 0x11
+ 1059 0063 01       		.uleb128 0x1
+ 1060 0064 12       		.uleb128 0x12
+ 1061 0065 06       		.uleb128 0x6
+ 1062 0066 40       		.uleb128 0x40
+ 1063 0067 18       		.uleb128 0x18
+ 1064 0068 9742     		.uleb128 0x2117
+ 1065 006a 19       		.uleb128 0x19
+ 1066 006b 00       		.byte	0
+ 1067 006c 00       		.byte	0
+ 1068 006d 08       		.uleb128 0x8
+ 1069 006e 2E       		.uleb128 0x2e
+ 1070 006f 01       		.byte	0x1
+ 1071 0070 3F       		.uleb128 0x3f
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 29
 
 
- 885 0073 0E       		.uleb128 0xe
- 886 0074 3A       		.uleb128 0x3a
- 887 0075 0B       		.uleb128 0xb
- 888 0076 3B       		.uleb128 0x3b
- 889 0077 05       		.uleb128 0x5
- 890 0078 49       		.uleb128 0x49
- 891 0079 13       		.uleb128 0x13
- 892 007a 02       		.uleb128 0x2
- 893 007b 18       		.uleb128 0x18
- 894 007c 00       		.byte	0
- 895 007d 00       		.byte	0
- 896 007e 09       		.uleb128 0x9
- 897 007f 2E       		.uleb128 0x2e
- 898 0080 00       		.byte	0
- 899 0081 3F       		.uleb128 0x3f
- 900 0082 19       		.uleb128 0x19
- 901 0083 03       		.uleb128 0x3
- 902 0084 0E       		.uleb128 0xe
- 903 0085 3A       		.uleb128 0x3a
- 904 0086 0B       		.uleb128 0xb
- 905 0087 3B       		.uleb128 0x3b
- 906 0088 05       		.uleb128 0x5
- 907 0089 27       		.uleb128 0x27
- 908 008a 19       		.uleb128 0x19
- 909 008b 11       		.uleb128 0x11
- 910 008c 01       		.uleb128 0x1
- 911 008d 12       		.uleb128 0x12
- 912 008e 06       		.uleb128 0x6
- 913 008f 40       		.uleb128 0x40
- 914 0090 18       		.uleb128 0x18
- 915 0091 9742     		.uleb128 0x2117
- 916 0093 19       		.uleb128 0x19
- 917 0094 00       		.byte	0
- 918 0095 00       		.byte	0
- 919 0096 0A       		.uleb128 0xa
- 920 0097 2E       		.uleb128 0x2e
- 921 0098 00       		.byte	0
- 922 0099 3F       		.uleb128 0x3f
- 923 009a 19       		.uleb128 0x19
- 924 009b 03       		.uleb128 0x3
- 925 009c 0E       		.uleb128 0xe
- 926 009d 3A       		.uleb128 0x3a
- 927 009e 0B       		.uleb128 0xb
- 928 009f 3B       		.uleb128 0x3b
- 929 00a0 05       		.uleb128 0x5
- 930 00a1 27       		.uleb128 0x27
- 931 00a2 19       		.uleb128 0x19
- 932 00a3 49       		.uleb128 0x49
- 933 00a4 13       		.uleb128 0x13
- 934 00a5 11       		.uleb128 0x11
- 935 00a6 01       		.uleb128 0x1
- 936 00a7 12       		.uleb128 0x12
- 937 00a8 06       		.uleb128 0x6
- 938 00a9 40       		.uleb128 0x40
- 939 00aa 18       		.uleb128 0x18
- 940 00ab 9742     		.uleb128 0x2117
- 941 00ad 19       		.uleb128 0x19
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 27
+ 1072 0071 19       		.uleb128 0x19
+ 1073 0072 03       		.uleb128 0x3
+ 1074 0073 0E       		.uleb128 0xe
+ 1075 0074 3A       		.uleb128 0x3a
+ 1076 0075 0B       		.uleb128 0xb
+ 1077 0076 3B       		.uleb128 0x3b
+ 1078 0077 05       		.uleb128 0x5
+ 1079 0078 27       		.uleb128 0x27
+ 1080 0079 19       		.uleb128 0x19
+ 1081 007a 11       		.uleb128 0x11
+ 1082 007b 01       		.uleb128 0x1
+ 1083 007c 12       		.uleb128 0x12
+ 1084 007d 06       		.uleb128 0x6
+ 1085 007e 40       		.uleb128 0x40
+ 1086 007f 18       		.uleb128 0x18
+ 1087 0080 9742     		.uleb128 0x2117
+ 1088 0082 19       		.uleb128 0x19
+ 1089 0083 01       		.uleb128 0x1
+ 1090 0084 13       		.uleb128 0x13
+ 1091 0085 00       		.byte	0
+ 1092 0086 00       		.byte	0
+ 1093 0087 09       		.uleb128 0x9
+ 1094 0088 05       		.uleb128 0x5
+ 1095 0089 00       		.byte	0
+ 1096 008a 03       		.uleb128 0x3
+ 1097 008b 0E       		.uleb128 0xe
+ 1098 008c 3A       		.uleb128 0x3a
+ 1099 008d 0B       		.uleb128 0xb
+ 1100 008e 3B       		.uleb128 0x3b
+ 1101 008f 05       		.uleb128 0x5
+ 1102 0090 49       		.uleb128 0x49
+ 1103 0091 13       		.uleb128 0x13
+ 1104 0092 02       		.uleb128 0x2
+ 1105 0093 18       		.uleb128 0x18
+ 1106 0094 00       		.byte	0
+ 1107 0095 00       		.byte	0
+ 1108 0096 0A       		.uleb128 0xa
+ 1109 0097 2E       		.uleb128 0x2e
+ 1110 0098 00       		.byte	0
+ 1111 0099 3F       		.uleb128 0x3f
+ 1112 009a 19       		.uleb128 0x19
+ 1113 009b 03       		.uleb128 0x3
+ 1114 009c 0E       		.uleb128 0xe
+ 1115 009d 3A       		.uleb128 0x3a
+ 1116 009e 0B       		.uleb128 0xb
+ 1117 009f 3B       		.uleb128 0x3b
+ 1118 00a0 05       		.uleb128 0x5
+ 1119 00a1 27       		.uleb128 0x27
+ 1120 00a2 19       		.uleb128 0x19
+ 1121 00a3 11       		.uleb128 0x11
+ 1122 00a4 01       		.uleb128 0x1
+ 1123 00a5 12       		.uleb128 0x12
+ 1124 00a6 06       		.uleb128 0x6
+ 1125 00a7 40       		.uleb128 0x40
+ 1126 00a8 18       		.uleb128 0x18
+ 1127 00a9 9742     		.uleb128 0x2117
+ 1128 00ab 19       		.uleb128 0x19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 30
 
 
- 942 00ae 00       		.byte	0
- 943 00af 00       		.byte	0
- 944 00b0 0B       		.uleb128 0xb
- 945 00b1 34       		.uleb128 0x34
- 946 00b2 00       		.byte	0
- 947 00b3 03       		.uleb128 0x3
- 948 00b4 0E       		.uleb128 0xe
- 949 00b5 3A       		.uleb128 0x3a
- 950 00b6 0B       		.uleb128 0xb
- 951 00b7 3B       		.uleb128 0x3b
- 952 00b8 05       		.uleb128 0x5
- 953 00b9 49       		.uleb128 0x49
- 954 00ba 13       		.uleb128 0x13
- 955 00bb 02       		.uleb128 0x2
- 956 00bc 18       		.uleb128 0x18
- 957 00bd 00       		.byte	0
- 958 00be 00       		.byte	0
- 959 00bf 0C       		.uleb128 0xc
- 960 00c0 2E       		.uleb128 0x2e
- 961 00c1 01       		.byte	0x1
- 962 00c2 3F       		.uleb128 0x3f
- 963 00c3 19       		.uleb128 0x19
- 964 00c4 03       		.uleb128 0x3
- 965 00c5 0E       		.uleb128 0xe
- 966 00c6 3A       		.uleb128 0x3a
- 967 00c7 0B       		.uleb128 0xb
- 968 00c8 3B       		.uleb128 0x3b
- 969 00c9 0B       		.uleb128 0xb
- 970 00ca 27       		.uleb128 0x27
- 971 00cb 19       		.uleb128 0x19
- 972 00cc 11       		.uleb128 0x11
- 973 00cd 01       		.uleb128 0x1
- 974 00ce 12       		.uleb128 0x12
- 975 00cf 06       		.uleb128 0x6
- 976 00d0 40       		.uleb128 0x40
- 977 00d1 18       		.uleb128 0x18
- 978 00d2 9742     		.uleb128 0x2117
- 979 00d4 19       		.uleb128 0x19
- 980 00d5 01       		.uleb128 0x1
- 981 00d6 13       		.uleb128 0x13
- 982 00d7 00       		.byte	0
- 983 00d8 00       		.byte	0
- 984 00d9 0D       		.uleb128 0xd
- 985 00da 898201   		.uleb128 0x4109
- 986 00dd 01       		.byte	0x1
- 987 00de 11       		.uleb128 0x11
- 988 00df 01       		.uleb128 0x1
- 989 00e0 31       		.uleb128 0x31
- 990 00e1 13       		.uleb128 0x13
- 991 00e2 01       		.uleb128 0x1
- 992 00e3 13       		.uleb128 0x13
- 993 00e4 00       		.byte	0
- 994 00e5 00       		.byte	0
- 995 00e6 0E       		.uleb128 0xe
- 996 00e7 8A8201   		.uleb128 0x410a
- 997 00ea 00       		.byte	0
- 998 00eb 02       		.uleb128 0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 28
+ 1129 00ac 00       		.byte	0
+ 1130 00ad 00       		.byte	0
+ 1131 00ae 0B       		.uleb128 0xb
+ 1132 00af 2E       		.uleb128 0x2e
+ 1133 00b0 00       		.byte	0
+ 1134 00b1 3F       		.uleb128 0x3f
+ 1135 00b2 19       		.uleb128 0x19
+ 1136 00b3 03       		.uleb128 0x3
+ 1137 00b4 0E       		.uleb128 0xe
+ 1138 00b5 3A       		.uleb128 0x3a
+ 1139 00b6 0B       		.uleb128 0xb
+ 1140 00b7 3B       		.uleb128 0x3b
+ 1141 00b8 05       		.uleb128 0x5
+ 1142 00b9 27       		.uleb128 0x27
+ 1143 00ba 19       		.uleb128 0x19
+ 1144 00bb 49       		.uleb128 0x49
+ 1145 00bc 13       		.uleb128 0x13
+ 1146 00bd 11       		.uleb128 0x11
+ 1147 00be 01       		.uleb128 0x1
+ 1148 00bf 12       		.uleb128 0x12
+ 1149 00c0 06       		.uleb128 0x6
+ 1150 00c1 40       		.uleb128 0x40
+ 1151 00c2 18       		.uleb128 0x18
+ 1152 00c3 9742     		.uleb128 0x2117
+ 1153 00c5 19       		.uleb128 0x19
+ 1154 00c6 00       		.byte	0
+ 1155 00c7 00       		.byte	0
+ 1156 00c8 0C       		.uleb128 0xc
+ 1157 00c9 34       		.uleb128 0x34
+ 1158 00ca 00       		.byte	0
+ 1159 00cb 03       		.uleb128 0x3
+ 1160 00cc 0E       		.uleb128 0xe
+ 1161 00cd 3A       		.uleb128 0x3a
+ 1162 00ce 0B       		.uleb128 0xb
+ 1163 00cf 3B       		.uleb128 0x3b
+ 1164 00d0 05       		.uleb128 0x5
+ 1165 00d1 49       		.uleb128 0x49
+ 1166 00d2 13       		.uleb128 0x13
+ 1167 00d3 02       		.uleb128 0x2
+ 1168 00d4 18       		.uleb128 0x18
+ 1169 00d5 00       		.byte	0
+ 1170 00d6 00       		.byte	0
+ 1171 00d7 0D       		.uleb128 0xd
+ 1172 00d8 34       		.uleb128 0x34
+ 1173 00d9 00       		.byte	0
+ 1174 00da 03       		.uleb128 0x3
+ 1175 00db 0E       		.uleb128 0xe
+ 1176 00dc 3A       		.uleb128 0x3a
+ 1177 00dd 0B       		.uleb128 0xb
+ 1178 00de 3B       		.uleb128 0x3b
+ 1179 00df 0B       		.uleb128 0xb
+ 1180 00e0 49       		.uleb128 0x49
+ 1181 00e1 13       		.uleb128 0x13
+ 1182 00e2 3F       		.uleb128 0x3f
+ 1183 00e3 19       		.uleb128 0x19
+ 1184 00e4 02       		.uleb128 0x2
+ 1185 00e5 18       		.uleb128 0x18
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 31
 
 
- 999 00ec 18       		.uleb128 0x18
- 1000 00ed 9142     		.uleb128 0x2111
- 1001 00ef 18       		.uleb128 0x18
- 1002 00f0 00       		.byte	0
- 1003 00f1 00       		.byte	0
- 1004 00f2 0F       		.uleb128 0xf
- 1005 00f3 898201   		.uleb128 0x4109
- 1006 00f6 01       		.byte	0x1
- 1007 00f7 11       		.uleb128 0x11
- 1008 00f8 01       		.uleb128 0x1
- 1009 00f9 31       		.uleb128 0x31
- 1010 00fa 13       		.uleb128 0x13
- 1011 00fb 00       		.byte	0
- 1012 00fc 00       		.byte	0
- 1013 00fd 10       		.uleb128 0x10
- 1014 00fe 898201   		.uleb128 0x4109
- 1015 0101 00       		.byte	0
- 1016 0102 11       		.uleb128 0x11
- 1017 0103 01       		.uleb128 0x1
- 1018 0104 31       		.uleb128 0x31
- 1019 0105 13       		.uleb128 0x13
- 1020 0106 00       		.byte	0
- 1021 0107 00       		.byte	0
- 1022 0108 11       		.uleb128 0x11
- 1023 0109 34       		.uleb128 0x34
- 1024 010a 00       		.byte	0
- 1025 010b 03       		.uleb128 0x3
- 1026 010c 0E       		.uleb128 0xe
- 1027 010d 3A       		.uleb128 0x3a
- 1028 010e 0B       		.uleb128 0xb
- 1029 010f 3B       		.uleb128 0x3b
- 1030 0110 0B       		.uleb128 0xb
- 1031 0111 49       		.uleb128 0x49
- 1032 0112 13       		.uleb128 0x13
- 1033 0113 3F       		.uleb128 0x3f
- 1034 0114 19       		.uleb128 0x19
- 1035 0115 02       		.uleb128 0x2
- 1036 0116 18       		.uleb128 0x18
- 1037 0117 00       		.byte	0
- 1038 0118 00       		.byte	0
- 1039 0119 00       		.byte	0
- 1040              		.section	.debug_aranges,"",%progbits
- 1041 0000 84000000 		.4byte	0x84
- 1042 0004 0200     		.2byte	0x2
- 1043 0006 00000000 		.4byte	.Ldebug_info0
- 1044 000a 04       		.byte	0x4
- 1045 000b 00       		.byte	0
- 1046 000c 0000     		.2byte	0
- 1047 000e 0000     		.2byte	0
- 1048 0010 00000000 		.4byte	.LFB1
- 1049 0014 28000000 		.4byte	.LFE1-.LFB1
- 1050 0018 00000000 		.4byte	.LFB3
- 1051 001c 28000000 		.4byte	.LFE3-.LFB3
- 1052 0020 00000000 		.4byte	.LFB4
- 1053 0024 0C000000 		.4byte	.LFE4-.LFB4
- 1054 0028 00000000 		.4byte	.LFB5
- 1055 002c 0C000000 		.4byte	.LFE5-.LFB5
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 29
+ 1186 00e6 00       		.byte	0
+ 1187 00e7 00       		.byte	0
+ 1188 00e8 00       		.byte	0
+ 1189              		.section	.debug_aranges,"",%progbits
+ 1190 0000 84000000 		.4byte	0x84
+ 1191 0004 0200     		.2byte	0x2
+ 1192 0006 00000000 		.4byte	.Ldebug_info0
+ 1193 000a 04       		.byte	0x4
+ 1194 000b 00       		.byte	0
+ 1195 000c 0000     		.2byte	0
+ 1196 000e 0000     		.2byte	0
+ 1197 0010 00000000 		.4byte	.LFB0
+ 1198 0014 98000000 		.4byte	.LFE0-.LFB0
+ 1199 0018 00000000 		.4byte	.LFB1
+ 1200 001c 48000000 		.4byte	.LFE1-.LFB1
+ 1201 0020 00000000 		.4byte	.LFB2
+ 1202 0024 20000000 		.4byte	.LFE2-.LFB2
+ 1203 0028 00000000 		.4byte	.LFB3
+ 1204 002c 48000000 		.4byte	.LFE3-.LFB3
+ 1205 0030 00000000 		.4byte	.LFB4
+ 1206 0034 20000000 		.4byte	.LFE4-.LFB4
+ 1207 0038 00000000 		.4byte	.LFB5
+ 1208 003c 14000000 		.4byte	.LFE5-.LFB5
+ 1209 0040 00000000 		.4byte	.LFB6
+ 1210 0044 18000000 		.4byte	.LFE6-.LFB6
+ 1211 0048 00000000 		.4byte	.LFB7
+ 1212 004c 18000000 		.4byte	.LFE7-.LFB7
+ 1213 0050 00000000 		.4byte	.LFB8
+ 1214 0054 20000000 		.4byte	.LFE8-.LFB8
+ 1215 0058 00000000 		.4byte	.LFB9
+ 1216 005c 1C000000 		.4byte	.LFE9-.LFB9
+ 1217 0060 00000000 		.4byte	.LFB10
+ 1218 0064 24000000 		.4byte	.LFE10-.LFB10
+ 1219 0068 00000000 		.4byte	.LFB11
+ 1220 006c 1C000000 		.4byte	.LFE11-.LFB11
+ 1221 0070 00000000 		.4byte	.LFB12
+ 1222 0074 20000000 		.4byte	.LFE12-.LFB12
+ 1223 0078 00000000 		.4byte	.LFB13
+ 1224 007c 24000000 		.4byte	.LFE13-.LFB13
+ 1225 0080 00000000 		.4byte	0
+ 1226 0084 00000000 		.4byte	0
+ 1227              		.section	.debug_ranges,"",%progbits
+ 1228              	.Ldebug_ranges0:
+ 1229 0000 00000000 		.4byte	.LFB0
+ 1230 0004 98000000 		.4byte	.LFE0
+ 1231 0008 00000000 		.4byte	.LFB1
+ 1232 000c 48000000 		.4byte	.LFE1
+ 1233 0010 00000000 		.4byte	.LFB2
+ 1234 0014 20000000 		.4byte	.LFE2
+ 1235 0018 00000000 		.4byte	.LFB3
+ 1236 001c 48000000 		.4byte	.LFE3
+ 1237 0020 00000000 		.4byte	.LFB4
+ 1238 0024 20000000 		.4byte	.LFE4
+ 1239 0028 00000000 		.4byte	.LFB5
+ 1240 002c 14000000 		.4byte	.LFE5
+ 1241 0030 00000000 		.4byte	.LFB6
+ 1242 0034 18000000 		.4byte	.LFE6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 32
 
 
- 1056 0030 00000000 		.4byte	.LFB6
- 1057 0034 0C000000 		.4byte	.LFE6-.LFB6
- 1058 0038 00000000 		.4byte	.LFB7
- 1059 003c 0C000000 		.4byte	.LFE7-.LFB7
- 1060 0040 00000000 		.4byte	.LFB8
- 1061 0044 0C000000 		.4byte	.LFE8-.LFB8
- 1062 0048 00000000 		.4byte	.LFB9
- 1063 004c 0C000000 		.4byte	.LFE9-.LFB9
- 1064 0050 00000000 		.4byte	.LFB10
- 1065 0054 0C000000 		.4byte	.LFE10-.LFB10
- 1066 0058 00000000 		.4byte	.LFB11
- 1067 005c 0C000000 		.4byte	.LFE11-.LFB11
- 1068 0060 00000000 		.4byte	.LFB12
- 1069 0064 0C000000 		.4byte	.LFE12-.LFB12
- 1070 0068 00000000 		.4byte	.LFB0
- 1071 006c 64000000 		.4byte	.LFE0-.LFB0
- 1072 0070 00000000 		.4byte	.LFB2
- 1073 0074 1C000000 		.4byte	.LFE2-.LFB2
- 1074 0078 00000000 		.4byte	.LFB13
- 1075 007c 14000000 		.4byte	.LFE13-.LFB13
- 1076 0080 00000000 		.4byte	0
- 1077 0084 00000000 		.4byte	0
- 1078              		.section	.debug_ranges,"",%progbits
- 1079              	.Ldebug_ranges0:
- 1080 0000 00000000 		.4byte	.LFB1
- 1081 0004 28000000 		.4byte	.LFE1
- 1082 0008 00000000 		.4byte	.LFB3
- 1083 000c 28000000 		.4byte	.LFE3
- 1084 0010 00000000 		.4byte	.LFB4
- 1085 0014 0C000000 		.4byte	.LFE4
- 1086 0018 00000000 		.4byte	.LFB5
- 1087 001c 0C000000 		.4byte	.LFE5
- 1088 0020 00000000 		.4byte	.LFB6
- 1089 0024 0C000000 		.4byte	.LFE6
- 1090 0028 00000000 		.4byte	.LFB7
- 1091 002c 0C000000 		.4byte	.LFE7
- 1092 0030 00000000 		.4byte	.LFB8
- 1093 0034 0C000000 		.4byte	.LFE8
- 1094 0038 00000000 		.4byte	.LFB9
- 1095 003c 0C000000 		.4byte	.LFE9
- 1096 0040 00000000 		.4byte	.LFB10
- 1097 0044 0C000000 		.4byte	.LFE10
- 1098 0048 00000000 		.4byte	.LFB11
- 1099 004c 0C000000 		.4byte	.LFE11
- 1100 0050 00000000 		.4byte	.LFB12
- 1101 0054 0C000000 		.4byte	.LFE12
- 1102 0058 00000000 		.4byte	.LFB0
- 1103 005c 64000000 		.4byte	.LFE0
- 1104 0060 00000000 		.4byte	.LFB2
- 1105 0064 1C000000 		.4byte	.LFE2
- 1106 0068 00000000 		.4byte	.LFB13
- 1107 006c 14000000 		.4byte	.LFE13
- 1108 0070 00000000 		.4byte	0
- 1109 0074 00000000 		.4byte	0
- 1110              		.section	.debug_line,"",%progbits
- 1111              	.Ldebug_line0:
- 1112 0000 54010000 		.section	.debug_str,"MS",%progbits,1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 30
+ 1243 0038 00000000 		.4byte	.LFB7
+ 1244 003c 18000000 		.4byte	.LFE7
+ 1245 0040 00000000 		.4byte	.LFB8
+ 1246 0044 20000000 		.4byte	.LFE8
+ 1247 0048 00000000 		.4byte	.LFB9
+ 1248 004c 1C000000 		.4byte	.LFE9
+ 1249 0050 00000000 		.4byte	.LFB10
+ 1250 0054 24000000 		.4byte	.LFE10
+ 1251 0058 00000000 		.4byte	.LFB11
+ 1252 005c 1C000000 		.4byte	.LFE11
+ 1253 0060 00000000 		.4byte	.LFB12
+ 1254 0064 20000000 		.4byte	.LFE12
+ 1255 0068 00000000 		.4byte	.LFB13
+ 1256 006c 24000000 		.4byte	.LFE13
+ 1257 0070 00000000 		.4byte	0
+ 1258 0074 00000000 		.4byte	0
+ 1259              		.section	.debug_line,"",%progbits
+ 1260              	.Ldebug_line0:
+ 1261 0000 5E010000 		.section	.debug_str,"MS",%progbits,1
+ 1261      02004700 
+ 1261      00000201 
+ 1261      FB0E0D00 
+ 1261      01010101 
+ 1262              	.LASF15:
+ 1263 0000 72656731 		.ascii	"reg16\000"
+ 1263      3600
+ 1264              	.LASF21:
+ 1265 0006 4E6F6465 		.ascii	"Node_Timer_SoftwareCapture\000"
+ 1265      5F54696D 
+ 1265      65725F53 
+ 1265      6F667477 
+ 1265      61726543 
+ 1266              	.LASF19:
+ 1267 0021 4E6F6465 		.ascii	"Node_Timer_Start\000"
+ 1267      5F54696D 
+ 1267      65725F53 
+ 1267      74617274 
+ 1267      00
+ 1268              	.LASF18:
+ 1269 0032 4E6F6465 		.ascii	"Node_Timer_Enable\000"
+ 1269      5F54696D 
+ 1269      65725F45 
+ 1269      6E61626C 
+ 1269      6500
+ 1270              	.LASF39:
+ 1271 0044 4E6F6465 		.ascii	"Node_Timer_initVar\000"
+ 1271      5F54696D 
+ 1271      65725F69 
+ 1271      6E697456 
+ 1271      617200
+ 1272              	.LASF30:
+ 1273 0057 70657269 		.ascii	"period\000"
+ 1273      6F6400
+ 1274              	.LASF3:
+ 1275 005e 73686F72 		.ascii	"short unsigned int\000"
+ 1275      7420756E 
+ 1275      7369676E 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 33
 
 
- 1112      02004700 
- 1112      00000201 
- 1112      FB0E0D00 
- 1112      01010101 
- 1113              	.LASF15:
- 1114 0000 72656731 		.ascii	"reg16\000"
- 1114      3600
- 1115              	.LASF19:
- 1116 0006 4E6F6465 		.ascii	"Node_Timer_SoftwareCapture\000"
- 1116      5F54696D 
- 1116      65725F53 
- 1116      6F667477 
- 1116      61726543 
- 1117              	.LASF33:
- 1118 0021 4E6F6465 		.ascii	"Node_Timer_Start\000"
- 1118      5F54696D 
- 1118      65725F53 
- 1118      74617274 
- 1118      00
- 1119              	.LASF17:
- 1120 0032 4E6F6465 		.ascii	"Node_Timer_Enable\000"
- 1120      5F54696D 
- 1120      65725F45 
- 1120      6E61626C 
- 1120      6500
- 1121              	.LASF39:
- 1122 0044 4E6F6465 		.ascii	"Node_Timer_initVar\000"
- 1122      5F54696D 
- 1122      65725F69 
- 1122      6E697456 
- 1122      617200
- 1123              	.LASF28:
- 1124 0057 70657269 		.ascii	"period\000"
- 1124      6F6400
- 1125              	.LASF3:
- 1126 005e 73686F72 		.ascii	"short unsigned int\000"
- 1126      7420756E 
- 1126      7369676E 
- 1126      65642069 
- 1126      6E7400
- 1127              	.LASF18:
- 1128 0071 4E6F6465 		.ascii	"Node_Timer_Stop\000"
- 1128      5F54696D 
- 1128      65725F53 
- 1128      746F7000 
- 1129              	.LASF11:
- 1130 0081 666C6F61 		.ascii	"float\000"
- 1130      7400
- 1131              	.LASF27:
- 1132 0087 4E6F6465 		.ascii	"Node_Timer_WritePeriod\000"
- 1132      5F54696D 
- 1132      65725F57 
- 1132      72697465 
- 1132      50657269 
- 1133              	.LASF1:
- 1134 009e 756E7369 		.ascii	"unsigned char\000"
- 1134      676E6564 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 31
+ 1275      65642069 
+ 1275      6E7400
+ 1276              	.LASF20:
+ 1277 0071 4E6F6465 		.ascii	"Node_Timer_Stop\000"
+ 1277      5F54696D 
+ 1277      65725F53 
+ 1277      746F7000 
+ 1278              	.LASF11:
+ 1279 0081 666C6F61 		.ascii	"float\000"
+ 1279      7400
+ 1280              	.LASF29:
+ 1281 0087 4E6F6465 		.ascii	"Node_Timer_WritePeriod\000"
+ 1281      5F54696D 
+ 1281      65725F57 
+ 1281      72697465 
+ 1281      50657269 
+ 1282              	.LASF1:
+ 1283 009e 756E7369 		.ascii	"unsigned char\000"
+ 1283      676E6564 
+ 1283      20636861 
+ 1283      7200
+ 1284              	.LASF17:
+ 1285 00ac 4E6F6465 		.ascii	"Node_Timer_Init\000"
+ 1285      5F54696D 
+ 1285      65725F49 
+ 1285      6E697400 
+ 1286              	.LASF5:
+ 1287 00bc 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1287      20756E73 
+ 1287      69676E65 
+ 1287      6420696E 
+ 1287      7400
+ 1288              	.LASF9:
+ 1289 00ce 75696E74 		.ascii	"uint8\000"
+ 1289      3800
+ 1290              	.LASF27:
+ 1291 00d4 636F6E74 		.ascii	"control\000"
+ 1291      726F6C00 
+ 1292              	.LASF33:
+ 1293 00dc 636F756E 		.ascii	"counter\000"
+ 1293      74657200 
+ 1294              	.LASF35:
+ 1295 00e4 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1295      4320342E 
+ 1295      392E3320 
+ 1295      32303135 
+ 1295      30333033 
+ 1296 0117 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1296      20726576 
+ 1296      6973696F 
+ 1296      6E203232 
+ 1296      31323230 
+ 1297 014a 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1297      66756E63 
+ 1297      74696F6E 
+ 1297      2D736563 
+ 1297      74696F6E 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 34
 
 
- 1134      20636861 
- 1134      7200
- 1135              	.LASF32:
- 1136 00ac 4E6F6465 		.ascii	"Node_Timer_Init\000"
- 1136      5F54696D 
- 1136      65725F49 
- 1136      6E697400 
- 1137              	.LASF5:
- 1138 00bc 6C6F6E67 		.ascii	"long unsigned int\000"
- 1138      20756E73 
- 1138      69676E65 
- 1138      6420696E 
- 1138      7400
- 1139              	.LASF9:
- 1140 00ce 75696E74 		.ascii	"uint8\000"
- 1140      3800
- 1141              	.LASF25:
- 1142 00d4 636F6E74 		.ascii	"control\000"
- 1142      726F6C00 
- 1143              	.LASF31:
- 1144 00dc 636F756E 		.ascii	"counter\000"
- 1144      74657200 
- 1145              	.LASF12:
- 1146 00e4 646F7562 		.ascii	"double\000"
- 1146      6C6500
- 1147              	.LASF2:
- 1148 00eb 73686F72 		.ascii	"short int\000"
- 1148      7420696E 
- 1148      7400
- 1149              	.LASF10:
- 1150 00f5 75696E74 		.ascii	"uint16\000"
- 1150      313600
- 1151              	.LASF26:
- 1152 00fc 4E6F6465 		.ascii	"Node_Timer_ReadPeriod\000"
- 1152      5F54696D 
- 1152      65725F52 
- 1152      65616450 
- 1152      6572696F 
- 1153              	.LASF35:
- 1154 0112 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1154      4320342E 
- 1154      392E3320 
- 1154      32303135 
- 1154      30333033 
- 1155 0145 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1155      20726576 
- 1155      6973696F 
- 1155      6E203232 
- 1155      31323230 
- 1156 0178 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1156      66756E63 
- 1156      74696F6E 
- 1156      2D736563 
- 1156      74696F6E 
- 1157              	.LASF8:
- 1158 01a0 756E7369 		.ascii	"unsigned int\000"
- 1158      676E6564 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 32
+ 1298              	.LASF12:
+ 1299 0172 646F7562 		.ascii	"double\000"
+ 1299      6C6500
+ 1300              	.LASF2:
+ 1301 0179 73686F72 		.ascii	"short int\000"
+ 1301      7420696E 
+ 1301      7400
+ 1302              	.LASF10:
+ 1303 0183 75696E74 		.ascii	"uint16\000"
+ 1303      313600
+ 1304              	.LASF28:
+ 1305 018a 4E6F6465 		.ascii	"Node_Timer_ReadPeriod\000"
+ 1305      5F54696D 
+ 1305      65725F52 
+ 1305      65616450 
+ 1305      6572696F 
+ 1306              	.LASF8:
+ 1307 01a0 756E7369 		.ascii	"unsigned int\000"
+ 1307      676E6564 
+ 1307      20696E74 
+ 1307      00
+ 1308              	.LASF7:
+ 1309 01ad 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1309      206C6F6E 
+ 1309      6720756E 
+ 1309      7369676E 
+ 1309      65642069 
+ 1310              	.LASF25:
+ 1311 01c4 4E6F6465 		.ascii	"Node_Timer_WriteControlRegister\000"
+ 1311      5F54696D 
+ 1311      65725F57 
+ 1311      72697465 
+ 1311      436F6E74 
+ 1312              	.LASF38:
+ 1313 01e4 70657269 		.ascii	"period_temp\000"
+ 1313      6F645F74 
+ 1313      656D7000 
+ 1314              	.LASF14:
+ 1315 01f0 72656738 		.ascii	"reg8\000"
+ 1315      00
+ 1316              	.LASF34:
+ 1317 01f5 4E6F6465 		.ascii	"Node_Timer_ReadCounter\000"
+ 1317      5F54696D 
+ 1317      65725F52 
+ 1317      65616443 
+ 1317      6F756E74 
+ 1318              	.LASF16:
+ 1319 020c 73697A65 		.ascii	"sizetype\000"
+ 1319      74797065 
+ 1319      00
+ 1320              	.LASF6:
+ 1321 0215 6C6F6E67 		.ascii	"long long int\000"
+ 1321      206C6F6E 
+ 1321      6720696E 
+ 1321      7400
+ 1322              	.LASF31:
+ 1323 0223 4E6F6465 		.ascii	"Node_Timer_ReadCapture\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 35
 
 
- 1158      20696E74 
- 1158      00
- 1159              	.LASF7:
- 1160 01ad 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1160      206C6F6E 
- 1160      6720756E 
- 1160      7369676E 
- 1160      65642069 
- 1161              	.LASF23:
- 1162 01c4 4E6F6465 		.ascii	"Node_Timer_WriteControlRegister\000"
- 1162      5F54696D 
- 1162      65725F57 
- 1162      72697465 
- 1162      436F6E74 
- 1163              	.LASF38:
- 1164 01e4 70657269 		.ascii	"period_temp\000"
- 1164      6F645F74 
- 1164      656D7000 
- 1165              	.LASF14:
- 1166 01f0 72656738 		.ascii	"reg8\000"
- 1166      00
- 1167              	.LASF34:
- 1168 01f5 4E6F6465 		.ascii	"Node_Timer_ReadCounter\000"
- 1168      5F54696D 
- 1168      65725F52 
- 1168      65616443 
- 1168      6F756E74 
- 1169              	.LASF16:
- 1170 020c 73697A65 		.ascii	"sizetype\000"
- 1170      74797065 
- 1170      00
- 1171              	.LASF6:
- 1172 0215 6C6F6E67 		.ascii	"long long int\000"
- 1172      206C6F6E 
- 1172      6720696E 
- 1172      7400
- 1173              	.LASF29:
- 1174 0223 4E6F6465 		.ascii	"Node_Timer_ReadCapture\000"
- 1174      5F54696D 
- 1174      65725F52 
- 1174      65616443 
- 1174      61707475 
- 1175              	.LASF24:
- 1176 023a 696E7465 		.ascii	"interruptMode\000"
- 1176      72727570 
- 1176      744D6F64 
- 1176      6500
- 1177              	.LASF20:
- 1178 0248 4E6F6465 		.ascii	"Node_Timer_ReadStatusRegister\000"
- 1178      5F54696D 
- 1178      65725F52 
- 1178      65616453 
- 1178      74617475 
- 1179              	.LASF22:
- 1180 0266 4E6F6465 		.ascii	"Node_Timer_SetInterruptMode\000"
- 1180      5F54696D 
- 1180      65725F53 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccbnvBhz.s 			page 33
+ 1323      5F54696D 
+ 1323      65725F52 
+ 1323      65616443 
+ 1323      61707475 
+ 1324              	.LASF26:
+ 1325 023a 696E7465 		.ascii	"interruptMode\000"
+ 1325      72727570 
+ 1325      744D6F64 
+ 1325      6500
+ 1326              	.LASF22:
+ 1327 0248 4E6F6465 		.ascii	"Node_Timer_ReadStatusRegister\000"
+ 1327      5F54696D 
+ 1327      65725F52 
+ 1327      65616453 
+ 1327      74617475 
+ 1328              	.LASF24:
+ 1329 0266 4E6F6465 		.ascii	"Node_Timer_SetInterruptMode\000"
+ 1329      5F54696D 
+ 1329      65725F53 
+ 1329      6574496E 
+ 1329      74657272 
+ 1330              	.LASF32:
+ 1331 0282 4E6F6465 		.ascii	"Node_Timer_WriteCounter\000"
+ 1331      5F54696D 
+ 1331      65725F57 
+ 1331      72697465 
+ 1331      436F756E 
+ 1332              	.LASF4:
+ 1333 029a 6C6F6E67 		.ascii	"long int\000"
+ 1333      20696E74 
+ 1333      00
+ 1334              	.LASF13:
+ 1335 02a3 63686172 		.ascii	"char\000"
+ 1335      00
+ 1336              	.LASF37:
+ 1337 02a8 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 1337      6F776E6C 
+ 1337      6F616473 
+ 1337      5C465255 
+ 1337      43445C4E 
+ 1338 02d6 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 1338      67756172 
+ 1338      2E637964 
+ 1338      736E00
+ 1339              	.LASF0:
+ 1340 02e5 7369676E 		.ascii	"signed char\000"
+ 1340      65642063 
+ 1340      68617200 
+ 1341              	.LASF23:
+ 1342 02f1 4E6F6465 		.ascii	"Node_Timer_ReadControlRegister\000"
+ 1342      5F54696D 
+ 1342      65725F52 
+ 1342      65616443 
+ 1342      6F6E7472 
+ 1343              	.LASF36:
+ 1344 0310 47656E65 		.ascii	"Generated_Source\\PSoC5\\Node_Timer.c\000"
+ 1344      72617465 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccB2PHIe.s 			page 36
 
 
- 1180      6574496E 
- 1180      74657272 
- 1181              	.LASF30:
- 1182 0282 4E6F6465 		.ascii	"Node_Timer_WriteCounter\000"
- 1182      5F54696D 
- 1182      65725F57 
- 1182      72697465 
- 1182      436F756E 
- 1183              	.LASF4:
- 1184 029a 6C6F6E67 		.ascii	"long int\000"
- 1184      20696E74 
- 1184      00
- 1185              	.LASF13:
- 1186 02a3 63686172 		.ascii	"char\000"
- 1186      00
- 1187              	.LASF37:
- 1188 02a8 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
- 1188      6F776E6C 
- 1188      6F616473 
- 1188      5C465255 
- 1188      43445C4E 
- 1189 02d6 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
- 1189      67756172 
- 1189      2E637964 
- 1189      736E00
- 1190              	.LASF0:
- 1191 02e5 7369676E 		.ascii	"signed char\000"
- 1191      65642063 
- 1191      68617200 
- 1192              	.LASF21:
- 1193 02f1 4E6F6465 		.ascii	"Node_Timer_ReadControlRegister\000"
- 1193      5F54696D 
- 1193      65725F52 
- 1193      65616443 
- 1193      6F6E7472 
- 1194              	.LASF36:
- 1195 0310 47656E65 		.ascii	"Generated_Source\\PSoC5\\Node_Timer.c\000"
- 1195      72617465 
- 1195      645F536F 
- 1195      75726365 
- 1195      5C50536F 
- 1196              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1344      645F536F 
+ 1344      75726365 
+ 1344      5C50536F 
+ 1345              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

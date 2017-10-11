@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 1
 
 
    1              		.syntax unified
@@ -10,7 +10,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 6
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
@@ -18,15 +18,22 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
   15              		.text
   16              	.Ltext0:
   17              		.cfi_sections	.debug_frame
-  18              		.section	.text.LED_Driver2_Init,"ax",%progbits
-  19              		.align	2
-  20              		.global	LED_Driver2_Init
-  21              		.thumb
-  22              		.thumb_func
-  23              		.type	LED_Driver2_Init, %function
-  24              	LED_Driver2_Init:
-  25              	.LFB0:
-  26              		.file 1 "Generated_Source\\PSoC5\\LED_Driver2.c"
+  18              		.global	LED_Driver2_initVar
+  19              		.bss
+  20              		.type	LED_Driver2_initVar, %object
+  21              		.size	LED_Driver2_initVar, 1
+  22              	LED_Driver2_initVar:
+  23 0000 00       		.space	1
+  24              		.comm	LED_Driver2_state,1,1
+  25              		.section	.text.LED_Driver2_Init,"ax",%progbits
+  26              		.align	2
+  27              		.global	LED_Driver2_Init
+  28              		.thumb
+  29              		.thumb_func
+  30              		.type	LED_Driver2_Init, %function
+  31              	LED_Driver2_Init:
+  32              	.LFB0:
+  33              		.file 1 "Generated_Source\\PSoC5\\LED_Driver2.c"
    1:Generated_Source\PSoC5/LED_Driver2.c **** /*******************************************************************************
    2:Generated_Source\PSoC5/LED_Driver2.c **** * File Name: LED_Driver2.c
    3:Generated_Source\PSoC5/LED_Driver2.c **** * Version 3.50
@@ -51,6 +58,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
   22:Generated_Source\PSoC5/LED_Driver2.c **** **********************************/
   23:Generated_Source\PSoC5/LED_Driver2.c **** 
   24:Generated_Source\PSoC5/LED_Driver2.c **** uint8 LED_Driver2_initVar = 0u; /* Defines if component was initialized */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 2
+
+
   25:Generated_Source\PSoC5/LED_Driver2.c **** 
   26:Generated_Source\PSoC5/LED_Driver2.c **** volatile uint8 LED_Driver2_state;  /* Current state of I2C FSM */
   27:Generated_Source\PSoC5/LED_Driver2.c **** 
@@ -58,9 +68,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
   29:Generated_Source\PSoC5/LED_Driver2.c **** /*******************************************************************************
   30:Generated_Source\PSoC5/LED_Driver2.c **** * Function Name: LED_Driver2_Init
   31:Generated_Source\PSoC5/LED_Driver2.c **** ********************************************************************************
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 2
-
-
   32:Generated_Source\PSoC5/LED_Driver2.c **** *
   33:Generated_Source\PSoC5/LED_Driver2.c **** * Summary:
   34:Generated_Source\PSoC5/LED_Driver2.c **** *  Initializes I2C registers with initial values provided from customizer.
@@ -80,16 +87,18 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
   48:Generated_Source\PSoC5/LED_Driver2.c **** *******************************************************************************/
   49:Generated_Source\PSoC5/LED_Driver2.c **** void LED_Driver2_Init(void) 
   50:Generated_Source\PSoC5/LED_Driver2.c **** {
-  27              		.loc 1 50 0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31 0000 38B5     		push	{r3, r4, r5, lr}
-  32              		.cfi_def_cfa_offset 16
-  33              		.cfi_offset 3, -16
-  34              		.cfi_offset 4, -12
-  35              		.cfi_offset 5, -8
-  36              		.cfi_offset 14, -4
+  34              		.loc 1 50 0
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 8
+  37              		@ frame_needed = 1, uses_anonymous_args = 0
+  38 0000 80B5     		push	{r7, lr}
+  39              		.cfi_def_cfa_offset 8
+  40              		.cfi_offset 7, -8
+  41              		.cfi_offset 14, -4
+  42 0002 82B0     		sub	sp, sp, #8
+  43              		.cfi_def_cfa_offset 16
+  44 0004 00AF     		add	r7, sp, #0
+  45              		.cfi_def_cfa_register 7
   51:Generated_Source\PSoC5/LED_Driver2.c **** #if (LED_Driver2_FF_IMPLEMENTED)
   52:Generated_Source\PSoC5/LED_Driver2.c ****     /* Configure fixed function block */
   53:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_CFG_REG  = LED_Driver2_DEFAULT_CFG;
@@ -103,34 +112,39 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
   61:Generated_Source\PSoC5/LED_Driver2.c **** 
   62:Generated_Source\PSoC5/LED_Driver2.c ****     /* Configure control and interrupt sources */
   63:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_CFG_REG      = LED_Driver2_DEFAULT_CFG;
-  37              		.loc 1 63 0
-  38 0002 0024     		movs	r4, #0
-  39 0004 144B     		ldr	r3, .L3
-  40 0006 1C70     		strb	r4, [r3]
+  46              		.loc 1 63 0
+  47 0006 1B4B     		ldr	r3, .L2
+  48 0008 0022     		movs	r2, #0
+  49 000a 1A70     		strb	r2, [r3]
   64:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_INT_MASK_REG = LED_Driver2_DEFAULT_INT_MASK;
-  41              		.loc 1 64 0
-  42 0008 0125     		movs	r5, #1
-  43 000a 0C33     		adds	r3, r3, #12
-  44 000c 1D70     		strb	r5, [r3]
+  50              		.loc 1 64 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 3
+
+
+  51 000c 1A4B     		ldr	r3, .L2+4
+  52 000e 0122     		movs	r2, #1
+  53 0010 1A70     		strb	r2, [r3]
   65:Generated_Source\PSoC5/LED_Driver2.c **** 
   66:Generated_Source\PSoC5/LED_Driver2.c ****     /* Enable interrupt generation in status */
   67:Generated_Source\PSoC5/LED_Driver2.c ****     intState = CyEnterCriticalSection();
-  45              		.loc 1 67 0
-  46 000e FFF7FEFF 		bl	CyEnterCriticalSection
-  47              	.LVL0:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 3
-
-
+  54              		.loc 1 67 0
+  55 0012 FFF7FEFF 		bl	CyEnterCriticalSection
+  56 0016 0346     		mov	r3, r0
+  57 0018 FB71     		strb	r3, [r7, #7]
   68:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_INT_ENABLE_REG |= LED_Driver2_INTR_ENABLE;
-  48              		.loc 1 68 0
-  49 0012 124A     		ldr	r2, .L3+4
-  50 0014 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  51 0016 43F01003 		orr	r3, r3, #16
-  52 001a 1370     		strb	r3, [r2]
+  58              		.loc 1 68 0
+  59 001a 184A     		ldr	r2, .L2+8
+  60 001c 174B     		ldr	r3, .L2+8
+  61 001e 1B78     		ldrb	r3, [r3]
+  62 0020 DBB2     		uxtb	r3, r3
+  63 0022 43F01003 		orr	r3, r3, #16
+  64 0026 DBB2     		uxtb	r3, r3
+  65 0028 1370     		strb	r3, [r2]
   69:Generated_Source\PSoC5/LED_Driver2.c ****     CyExitCriticalSection(intState);
-  53              		.loc 1 69 0
-  54 001c FFF7FEFF 		bl	CyExitCriticalSection
-  55              	.LVL1:
+  66              		.loc 1 69 0
+  67 002a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+  68 002c 1846     		mov	r0, r3
+  69 002e FFF7FEFF 		bl	CyExitCriticalSection
   70:Generated_Source\PSoC5/LED_Driver2.c **** 
   71:Generated_Source\PSoC5/LED_Driver2.c ****     /* Configure bit counter */
   72:Generated_Source\PSoC5/LED_Driver2.c ****     #if (LED_Driver2_MODE_SLAVE_ENABLED)
@@ -140,15 +154,15 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
   76:Generated_Source\PSoC5/LED_Driver2.c ****     /* Configure clock generator */
   77:Generated_Source\PSoC5/LED_Driver2.c ****     #if (LED_Driver2_MODE_MASTER_ENABLED)
   78:Generated_Source\PSoC5/LED_Driver2.c ****         LED_Driver2_MCLK_PRD_REG = LED_Driver2_DEFAULT_MCLK_PRD;
-  56              		.loc 1 78 0
-  57 0020 0F22     		movs	r2, #15
-  58 0022 0F4B     		ldr	r3, .L3+8
-  59 0024 1A70     		strb	r2, [r3]
+  70              		.loc 1 78 0
+  71 0032 134B     		ldr	r3, .L2+12
+  72 0034 0F22     		movs	r2, #15
+  73 0036 1A70     		strb	r2, [r3]
   79:Generated_Source\PSoC5/LED_Driver2.c ****         LED_Driver2_MCLK_CMP_REG = LED_Driver2_DEFAULT_MCLK_CMP;
-  60              		.loc 1 79 0
-  61 0026 0822     		movs	r2, #8
-  62 0028 1033     		adds	r3, r3, #16
-  63 002a 1A70     		strb	r2, [r3]
+  74              		.loc 1 79 0
+  75 0038 124B     		ldr	r3, .L2+16
+  76 003a 0822     		movs	r2, #8
+  77 003c 1A70     		strb	r2, [r3]
   80:Generated_Source\PSoC5/LED_Driver2.c ****     #endif /* (LED_Driver2_MODE_MASTER_ENABLED) */
   81:Generated_Source\PSoC5/LED_Driver2.c **** #endif /* (LED_Driver2_FF_IMPLEMENTED) */
   82:Generated_Source\PSoC5/LED_Driver2.c **** 
@@ -158,34 +172,32 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
   86:Generated_Source\PSoC5/LED_Driver2.c **** 
   87:Generated_Source\PSoC5/LED_Driver2.c ****     /* Configure internal interrupt */
   88:Generated_Source\PSoC5/LED_Driver2.c ****     CyIntDisable    (LED_Driver2_ISR_NUMBER);
-  64              		.loc 1 88 0
-  65 002c 0222     		movs	r2, #2
-  66 002e 0D4B     		ldr	r3, .L3+12
-  67 0030 1A60     		str	r2, [r3]
+  78              		.loc 1 88 0
+  79 003e 124B     		ldr	r3, .L2+20
+  80 0040 0222     		movs	r2, #2
+  81 0042 1A60     		str	r2, [r3]
   89:Generated_Source\PSoC5/LED_Driver2.c ****     CyIntSetPriority(LED_Driver2_ISR_NUMBER, LED_Driver2_ISR_PRIORITY);
-  68              		.loc 1 89 0
-  69 0032 2846     		mov	r0, r5
-  70 0034 0721     		movs	r1, #7
-  71 0036 FFF7FEFF 		bl	CyIntSetPriority
-  72              	.LVL2:
+  82              		.loc 1 89 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 4
+
+
+  83 0044 0120     		movs	r0, #1
+  84 0046 0721     		movs	r1, #7
+  85 0048 FFF7FEFF 		bl	CyIntSetPriority
   90:Generated_Source\PSoC5/LED_Driver2.c ****     #if (LED_Driver2_INTERN_I2C_INTR_HANDLER)
   91:Generated_Source\PSoC5/LED_Driver2.c ****         (void) CyIntSetVector(LED_Driver2_ISR_NUMBER, &LED_Driver2_ISR);
-  73              		.loc 1 91 0
-  74 003a 2846     		mov	r0, r5
-  75 003c 0A49     		ldr	r1, .L3+16
-  76 003e FFF7FEFF 		bl	CyIntSetVector
-  77              	.LVL3:
+  86              		.loc 1 91 0
+  87 004c 0120     		movs	r0, #1
+  88 004e 0F49     		ldr	r1, .L2+24
+  89 0050 FFF7FEFF 		bl	CyIntSetVector
   92:Generated_Source\PSoC5/LED_Driver2.c ****     #endif /* (LED_Driver2_INTERN_I2C_INTR_HANDLER) */
   93:Generated_Source\PSoC5/LED_Driver2.c **** 
   94:Generated_Source\PSoC5/LED_Driver2.c ****     /* Set FSM to default state */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 4
-
-
   95:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_state = LED_Driver2_SM_IDLE;
-  78              		.loc 1 95 0
-  79 0042 1022     		movs	r2, #16
-  80 0044 094B     		ldr	r3, .L3+20
-  81 0046 1A70     		strb	r2, [r3]
+  90              		.loc 1 95 0
+  91 0054 0E4B     		ldr	r3, .L2+28
+  92 0056 1022     		movs	r2, #16
+  93 0058 1A70     		strb	r2, [r3]
   96:Generated_Source\PSoC5/LED_Driver2.c **** 
   97:Generated_Source\PSoC5/LED_Driver2.c **** #if (LED_Driver2_MODE_SLAVE_ENABLED)
   98:Generated_Source\PSoC5/LED_Driver2.c ****     /* Clear status and buffers index */
@@ -200,47 +212,58 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
  107:Generated_Source\PSoC5/LED_Driver2.c **** #if (LED_Driver2_MODE_MASTER_ENABLED)
  108:Generated_Source\PSoC5/LED_Driver2.c ****     /* Clear status and buffers index */
  109:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_mstrStatus = 0u;
-  82              		.loc 1 109 0
-  83 0048 094B     		ldr	r3, .L3+24
-  84 004a 1C70     		strb	r4, [r3]
+  94              		.loc 1 109 0
+  95 005a 0E4B     		ldr	r3, .L2+32
+  96 005c 0022     		movs	r2, #0
+  97 005e 1A70     		strb	r2, [r3]
  110:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_mstrRdBufIndex = 0u;
-  85              		.loc 1 110 0
-  86 004c 094B     		ldr	r3, .L3+28
-  87 004e 1C70     		strb	r4, [r3]
+  98              		.loc 1 110 0
+  99 0060 0D4B     		ldr	r3, .L2+36
+ 100 0062 0022     		movs	r2, #0
+ 101 0064 1A70     		strb	r2, [r3]
  111:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_mstrWrBufIndex = 0u;
-  88              		.loc 1 111 0
-  89 0050 094B     		ldr	r3, .L3+32
-  90 0052 1C70     		strb	r4, [r3]
-  91 0054 38BD     		pop	{r3, r4, r5, pc}
-  92              	.L4:
-  93 0056 00BF     		.align	2
-  94              	.L3:
-  95 0058 7F640040 		.word	1073767551
-  96 005c 9B640040 		.word	1073767579
-  97 0060 2B650040 		.word	1073767723
-  98 0064 80E100E0 		.word	-536813184
-  99 0068 00000000 		.word	LED_Driver2_ISR
- 100 006c 00000000 		.word	LED_Driver2_state
- 101 0070 00000000 		.word	LED_Driver2_mstrStatus
- 102 0074 00000000 		.word	LED_Driver2_mstrRdBufIndex
- 103 0078 00000000 		.word	LED_Driver2_mstrWrBufIndex
- 104              		.cfi_endproc
- 105              	.LFE0:
- 106              		.size	LED_Driver2_Init, .-LED_Driver2_Init
- 107              		.section	.text.LED_Driver2_Enable,"ax",%progbits
- 108              		.align	2
- 109              		.global	LED_Driver2_Enable
- 110              		.thumb
- 111              		.thumb_func
- 112              		.type	LED_Driver2_Enable, %function
- 113              	LED_Driver2_Enable:
- 114              	.LFB1:
+ 102              		.loc 1 111 0
+ 103 0066 0D4B     		ldr	r3, .L2+40
+ 104 0068 0022     		movs	r2, #0
+ 105 006a 1A70     		strb	r2, [r3]
  112:Generated_Source\PSoC5/LED_Driver2.c **** #endif /* (LED_Driver2_MODE_MASTER_ENABLED) */
  113:Generated_Source\PSoC5/LED_Driver2.c **** }
+ 106              		.loc 1 113 0
+ 107 006c 0837     		adds	r7, r7, #8
+ 108              		.cfi_def_cfa_offset 8
+ 109 006e BD46     		mov	sp, r7
+ 110              		.cfi_def_cfa_register 13
+ 111              		@ sp needed
+ 112 0070 80BD     		pop	{r7, pc}
+ 113              	.L3:
+ 114 0072 00BF     		.align	2
+ 115              	.L2:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 5
+
+
+ 116 0074 7F640040 		.word	1073767551
+ 117 0078 8C640040 		.word	1073767564
+ 118 007c 9C640040 		.word	1073767580
+ 119 0080 23640040 		.word	1073767459
+ 120 0084 33640040 		.word	1073767475
+ 121 0088 80E100E0 		.word	-536813184
+ 122 008c 00000000 		.word	LED_Driver2_ISR
+ 123 0090 00000000 		.word	LED_Driver2_state
+ 124 0094 00000000 		.word	LED_Driver2_mstrStatus
+ 125 0098 00000000 		.word	LED_Driver2_mstrRdBufIndex
+ 126 009c 00000000 		.word	LED_Driver2_mstrWrBufIndex
+ 127              		.cfi_endproc
+ 128              	.LFE0:
+ 129              		.size	LED_Driver2_Init, .-LED_Driver2_Init
+ 130              		.section	.text.LED_Driver2_Enable,"ax",%progbits
+ 131              		.align	2
+ 132              		.global	LED_Driver2_Enable
+ 133              		.thumb
+ 134              		.thumb_func
+ 135              		.type	LED_Driver2_Enable, %function
+ 136              	LED_Driver2_Enable:
+ 137              	.LFB1:
  114:Generated_Source\PSoC5/LED_Driver2.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 5
-
-
  115:Generated_Source\PSoC5/LED_Driver2.c **** 
  116:Generated_Source\PSoC5/LED_Driver2.c **** /*******************************************************************************
  117:Generated_Source\PSoC5/LED_Driver2.c **** * Function Name: LED_Driver2_Enable
@@ -261,15 +284,23 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
  132:Generated_Source\PSoC5/LED_Driver2.c **** *******************************************************************************/
  133:Generated_Source\PSoC5/LED_Driver2.c **** void LED_Driver2_Enable(void) 
  134:Generated_Source\PSoC5/LED_Driver2.c **** {
- 115              		.loc 1 134 0
- 116              		.cfi_startproc
- 117              		@ args = 0, pretend = 0, frame = 0
- 118              		@ frame_needed = 0, uses_anonymous_args = 0
- 119              		@ link register save eliminated.
+ 138              		.loc 1 134 0
+ 139              		.cfi_startproc
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 1, uses_anonymous_args = 0
+ 142              		@ link register save eliminated.
+ 143 0000 80B4     		push	{r7}
+ 144              		.cfi_def_cfa_offset 4
+ 145              		.cfi_offset 7, -4
+ 146 0002 00AF     		add	r7, sp, #0
+ 147              		.cfi_def_cfa_register 7
  135:Generated_Source\PSoC5/LED_Driver2.c **** #if (LED_Driver2_FF_IMPLEMENTED)
  136:Generated_Source\PSoC5/LED_Driver2.c ****     uint8 intState;
  137:Generated_Source\PSoC5/LED_Driver2.c **** 
  138:Generated_Source\PSoC5/LED_Driver2.c ****     /* Enable power to block */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 6
+
+
  139:Generated_Source\PSoC5/LED_Driver2.c ****     intState = CyEnterCriticalSection();
  140:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_ACT_PWRMGR_REG  |= LED_Driver2_ACT_PWR_EN;
  141:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_STBY_PWRMGR_REG |= LED_Driver2_STBY_PWR_EN;
@@ -284,42 +315,52 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
  150:Generated_Source\PSoC5/LED_Driver2.c **** 
  151:Generated_Source\PSoC5/LED_Driver2.c ****     /* Enable slave or master bits */
  152:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_CFG_REG |= LED_Driver2_ENABLE_MS;
- 120              		.loc 1 152 0
- 121 0000 024A     		ldr	r2, .L6
- 122 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 123 0004 43F00203 		orr	r3, r3, #2
- 124 0008 1370     		strb	r3, [r2]
- 125 000a 7047     		bx	lr
- 126              	.L7:
- 127              		.align	2
- 128              	.L6:
- 129 000c 7F640040 		.word	1073767551
- 130              		.cfi_endproc
- 131              	.LFE1:
- 132              		.size	LED_Driver2_Enable, .-LED_Driver2_Enable
- 133              		.section	.text.LED_Driver2_Start,"ax",%progbits
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 6
-
-
- 134              		.align	2
- 135              		.global	LED_Driver2_Start
- 136              		.thumb
- 137              		.thumb_func
- 138              		.type	LED_Driver2_Start, %function
- 139              	LED_Driver2_Start:
- 140              	.LFB2:
+ 148              		.loc 1 152 0
+ 149 0004 054A     		ldr	r2, .L5
+ 150 0006 054B     		ldr	r3, .L5
+ 151 0008 1B78     		ldrb	r3, [r3]
+ 152 000a DBB2     		uxtb	r3, r3
+ 153 000c 43F00203 		orr	r3, r3, #2
+ 154 0010 DBB2     		uxtb	r3, r3
+ 155 0012 1370     		strb	r3, [r2]
  153:Generated_Source\PSoC5/LED_Driver2.c **** #endif /* (LED_Driver2_FF_IMPLEMENTED) */
  154:Generated_Source\PSoC5/LED_Driver2.c **** 
  155:Generated_Source\PSoC5/LED_Driver2.c **** #if (LED_Driver2_TIMEOUT_ENABLED)
  156:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_TimeoutEnable();
  157:Generated_Source\PSoC5/LED_Driver2.c **** #endif /* (LED_Driver2_TIMEOUT_ENABLED) */
  158:Generated_Source\PSoC5/LED_Driver2.c **** }
+ 156              		.loc 1 158 0
+ 157 0014 BD46     		mov	sp, r7
+ 158              		.cfi_def_cfa_register 13
+ 159              		@ sp needed
+ 160 0016 5DF8047B 		ldr	r7, [sp], #4
+ 161              		.cfi_restore 7
+ 162              		.cfi_def_cfa_offset 0
+ 163 001a 7047     		bx	lr
+ 164              	.L6:
+ 165              		.align	2
+ 166              	.L5:
+ 167 001c 7F640040 		.word	1073767551
+ 168              		.cfi_endproc
+ 169              	.LFE1:
+ 170              		.size	LED_Driver2_Enable, .-LED_Driver2_Enable
+ 171              		.section	.text.LED_Driver2_Start,"ax",%progbits
+ 172              		.align	2
+ 173              		.global	LED_Driver2_Start
+ 174              		.thumb
+ 175              		.thumb_func
+ 176              		.type	LED_Driver2_Start, %function
+ 177              	LED_Driver2_Start:
+ 178              	.LFB2:
  159:Generated_Source\PSoC5/LED_Driver2.c **** 
  160:Generated_Source\PSoC5/LED_Driver2.c **** 
  161:Generated_Source\PSoC5/LED_Driver2.c **** /*******************************************************************************
  162:Generated_Source\PSoC5/LED_Driver2.c **** * Function Name: LED_Driver2_Start
  163:Generated_Source\PSoC5/LED_Driver2.c **** ********************************************************************************
  164:Generated_Source\PSoC5/LED_Driver2.c **** *
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 7
+
+
  165:Generated_Source\PSoC5/LED_Driver2.c **** * Summary:
  166:Generated_Source\PSoC5/LED_Driver2.c **** *  Starts the I2C hardware. Enables Active mode power template bits or clock
  167:Generated_Source\PSoC5/LED_Driver2.c **** *  gating as appropriate. It is required to be executed before I2C bus
@@ -346,62 +387,64 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
  188:Generated_Source\PSoC5/LED_Driver2.c **** *******************************************************************************/
  189:Generated_Source\PSoC5/LED_Driver2.c **** void LED_Driver2_Start(void) 
  190:Generated_Source\PSoC5/LED_Driver2.c **** {
- 141              		.loc 1 190 0
- 142              		.cfi_startproc
- 143              		@ args = 0, pretend = 0, frame = 0
- 144              		@ frame_needed = 0, uses_anonymous_args = 0
- 145 0000 08B5     		push	{r3, lr}
- 146              		.cfi_def_cfa_offset 8
- 147              		.cfi_offset 3, -8
- 148              		.cfi_offset 14, -4
+ 179              		.loc 1 190 0
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 0
+ 182              		@ frame_needed = 1, uses_anonymous_args = 0
+ 183 0000 80B5     		push	{r7, lr}
+ 184              		.cfi_def_cfa_offset 8
+ 185              		.cfi_offset 7, -8
+ 186              		.cfi_offset 14, -4
+ 187 0002 00AF     		add	r7, sp, #0
+ 188              		.cfi_def_cfa_register 7
  191:Generated_Source\PSoC5/LED_Driver2.c ****     if (0u == LED_Driver2_initVar)
- 149              		.loc 1 191 0
- 150 0002 074B     		ldr	r3, .L11
- 151 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 7
-
-
- 152 0006 23B9     		cbnz	r3, .L9
+ 189              		.loc 1 191 0
+ 190 0004 074B     		ldr	r3, .L9
+ 191 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 192 0008 002B     		cmp	r3, #0
+ 193 000a 04D1     		bne	.L8
  192:Generated_Source\PSoC5/LED_Driver2.c ****     {
  193:Generated_Source\PSoC5/LED_Driver2.c ****         LED_Driver2_Init();
- 153              		.loc 1 193 0
- 154 0008 FFF7FEFF 		bl	LED_Driver2_Init
- 155              	.LVL4:
+ 194              		.loc 1 193 0
+ 195 000c FFF7FEFF 		bl	LED_Driver2_Init
  194:Generated_Source\PSoC5/LED_Driver2.c ****         LED_Driver2_initVar = 1u; /* Component initialized */
- 156              		.loc 1 194 0
- 157 000c 0122     		movs	r2, #1
- 158 000e 044B     		ldr	r3, .L11
- 159 0010 1A70     		strb	r2, [r3]
- 160              	.L9:
+ 196              		.loc 1 194 0
+ 197 0010 044B     		ldr	r3, .L9
+ 198 0012 0122     		movs	r2, #1
+ 199 0014 1A70     		strb	r2, [r3]
+ 200              	.L8:
  195:Generated_Source\PSoC5/LED_Driver2.c ****     }
  196:Generated_Source\PSoC5/LED_Driver2.c **** 
  197:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_Enable();
- 161              		.loc 1 197 0
- 162 0012 FFF7FEFF 		bl	LED_Driver2_Enable
- 163              	.LVL5:
+ 201              		.loc 1 197 0
+ 202 0016 FFF7FEFF 		bl	LED_Driver2_Enable
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 8
+
+
  198:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_EnableInt();
- 164              		.loc 1 198 0
- 165 0016 0222     		movs	r2, #2
- 166 0018 024B     		ldr	r3, .L11+4
- 167 001a 1A60     		str	r2, [r3]
- 168 001c 08BD     		pop	{r3, pc}
- 169              	.L12:
- 170 001e 00BF     		.align	2
- 171              	.L11:
- 172 0020 00000000 		.word	.LANCHOR0
- 173 0024 00E100E0 		.word	-536813312
- 174              		.cfi_endproc
- 175              	.LFE2:
- 176              		.size	LED_Driver2_Start, .-LED_Driver2_Start
- 177              		.section	.text.LED_Driver2_Stop,"ax",%progbits
- 178              		.align	2
- 179              		.global	LED_Driver2_Stop
- 180              		.thumb
- 181              		.thumb_func
- 182              		.type	LED_Driver2_Stop, %function
- 183              	LED_Driver2_Stop:
- 184              	.LFB3:
+ 203              		.loc 1 198 0
+ 204 001a 034B     		ldr	r3, .L9+4
+ 205 001c 0222     		movs	r2, #2
+ 206 001e 1A60     		str	r2, [r3]
  199:Generated_Source\PSoC5/LED_Driver2.c **** }
+ 207              		.loc 1 199 0
+ 208 0020 80BD     		pop	{r7, pc}
+ 209              	.L10:
+ 210 0022 00BF     		.align	2
+ 211              	.L9:
+ 212 0024 00000000 		.word	LED_Driver2_initVar
+ 213 0028 00E100E0 		.word	-536813312
+ 214              		.cfi_endproc
+ 215              	.LFE2:
+ 216              		.size	LED_Driver2_Start, .-LED_Driver2_Start
+ 217              		.section	.text.LED_Driver2_Stop,"ax",%progbits
+ 218              		.align	2
+ 219              		.global	LED_Driver2_Stop
+ 220              		.thumb
+ 221              		.thumb_func
+ 222              		.type	LED_Driver2_Stop, %function
+ 223              	LED_Driver2_Stop:
+ 224              	.LFB3:
  200:Generated_Source\PSoC5/LED_Driver2.c **** 
  201:Generated_Source\PSoC5/LED_Driver2.c **** 
  202:Generated_Source\PSoC5/LED_Driver2.c **** /*******************************************************************************
@@ -418,22 +461,27 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
  213:Generated_Source\PSoC5/LED_Driver2.c **** * Return:
  214:Generated_Source\PSoC5/LED_Driver2.c **** *  None.
  215:Generated_Source\PSoC5/LED_Driver2.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 8
-
-
  216:Generated_Source\PSoC5/LED_Driver2.c **** *******************************************************************************/
  217:Generated_Source\PSoC5/LED_Driver2.c **** void LED_Driver2_Stop(void) 
  218:Generated_Source\PSoC5/LED_Driver2.c **** {
- 185              		.loc 1 218 0
- 186              		.cfi_startproc
- 187              		@ args = 0, pretend = 0, frame = 0
- 188              		@ frame_needed = 0, uses_anonymous_args = 0
- 189              		@ link register save eliminated.
+ 225              		.loc 1 218 0
+ 226              		.cfi_startproc
+ 227              		@ args = 0, pretend = 0, frame = 0
+ 228              		@ frame_needed = 1, uses_anonymous_args = 0
+ 229              		@ link register save eliminated.
+ 230 0000 80B4     		push	{r7}
+ 231              		.cfi_def_cfa_offset 4
+ 232              		.cfi_offset 7, -4
+ 233 0002 00AF     		add	r7, sp, #0
+ 234              		.cfi_def_cfa_register 7
  219:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_DisableInt();
- 190              		.loc 1 219 0
- 191 0000 0222     		movs	r2, #2
- 192 0002 0A4B     		ldr	r3, .L14
- 193 0004 1A60     		str	r2, [r3]
+ 235              		.loc 1 219 0
+ 236 0004 0F4B     		ldr	r3, .L12
+ 237 0006 0222     		movs	r2, #2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 9
+
+
+ 238 0008 1A60     		str	r2, [r3]
  220:Generated_Source\PSoC5/LED_Driver2.c **** 
  221:Generated_Source\PSoC5/LED_Driver2.c **** #if (LED_Driver2_TIMEOUT_ENABLED)
  222:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_TimeoutStop();
@@ -476,875 +524,663 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 1
  259:Generated_Source\PSoC5/LED_Driver2.c **** 
  260:Generated_Source\PSoC5/LED_Driver2.c ****     /* Disable slave or master bits */
  261:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_CFG_REG &= (uint8) ~LED_Driver2_ENABLE_MS;
- 194              		.loc 1 261 0
- 195 0006 0A49     		ldr	r1, .L14+4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 9
-
-
- 196 0008 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 197 000a 03F0FD03 		and	r3, r3, #253
- 198 000e 0B70     		strb	r3, [r1]
+ 239              		.loc 1 261 0
+ 240 000a 0F4A     		ldr	r2, .L12+4
+ 241 000c 0E4B     		ldr	r3, .L12+4
+ 242 000e 1B78     		ldrb	r3, [r3]
+ 243 0010 DBB2     		uxtb	r3, r3
+ 244 0012 23F00203 		bic	r3, r3, #2
+ 245 0016 DBB2     		uxtb	r3, r3
+ 246 0018 1370     		strb	r3, [r2]
  262:Generated_Source\PSoC5/LED_Driver2.c **** 
  263:Generated_Source\PSoC5/LED_Driver2.c **** #if (LED_Driver2_MODE_SLAVE_ENABLED)
  264:Generated_Source\PSoC5/LED_Driver2.c ****     {
  265:Generated_Source\PSoC5/LED_Driver2.c ****         /* Disable bit counter */
  266:Generated_Source\PSoC5/LED_Driver2.c ****         uint8 intState = CyEnterCriticalSection();
  267:Generated_Source\PSoC5/LED_Driver2.c ****         LED_Driver2_COUNTER_AUX_CTL_REG &= (uint8) ~LED_Driver2_CNT7_ENABLE;
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 10
+
+
  268:Generated_Source\PSoC5/LED_Driver2.c ****         CyExitCriticalSection(intState);
  269:Generated_Source\PSoC5/LED_Driver2.c ****     }
  270:Generated_Source\PSoC5/LED_Driver2.c **** #endif /* (LED_Driver2_MODE_SLAVE_ENABLED) */
  271:Generated_Source\PSoC5/LED_Driver2.c **** 
  272:Generated_Source\PSoC5/LED_Driver2.c ****     /* Clear interrupt source register */
  273:Generated_Source\PSoC5/LED_Driver2.c ****     (void) LED_Driver2_CSR_REG;
- 199              		.loc 1 273 0
- 200 0010 084B     		ldr	r3, .L14+8
- 201 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 247              		.loc 1 273 0
+ 248 001a 0C4B     		ldr	r3, .L12+8
+ 249 001c 1B78     		ldrb	r3, [r3]
  274:Generated_Source\PSoC5/LED_Driver2.c **** #endif /* (LED_Driver2_FF_IMPLEMENTED) */
  275:Generated_Source\PSoC5/LED_Driver2.c **** 
  276:Generated_Source\PSoC5/LED_Driver2.c ****     /* Disable interrupt on stop (enabled by write transaction) */
  277:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_DISABLE_INT_ON_STOP;
- 202              		.loc 1 277 0
- 203 0014 0C31     		adds	r1, r1, #12
- 204 0016 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 205 0018 03F0DF03 		and	r3, r3, #223
- 206 001c 0B70     		strb	r3, [r1]
+ 250              		.loc 1 277 0
+ 251 001e 0C4A     		ldr	r2, .L12+12
+ 252 0020 0B4B     		ldr	r3, .L12+12
+ 253 0022 1B78     		ldrb	r3, [r3]
+ 254 0024 DBB2     		uxtb	r3, r3
+ 255 0026 23F02003 		bic	r3, r3, #32
+ 256 002a DBB2     		uxtb	r3, r3
+ 257 002c 1370     		strb	r3, [r2]
  278:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_ClearPendingInt();
- 207              		.loc 1 278 0
- 208 001e 064B     		ldr	r3, .L14+12
- 209 0020 1A60     		str	r2, [r3]
+ 258              		.loc 1 278 0
+ 259 002e 094B     		ldr	r3, .L12+16
+ 260 0030 0222     		movs	r2, #2
+ 261 0032 1A60     		str	r2, [r3]
  279:Generated_Source\PSoC5/LED_Driver2.c **** 
  280:Generated_Source\PSoC5/LED_Driver2.c ****     /* Reset FSM to default state */
  281:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_state = LED_Driver2_SM_IDLE;
- 210              		.loc 1 281 0
- 211 0022 1022     		movs	r2, #16
- 212 0024 054B     		ldr	r3, .L14+16
- 213 0026 1A70     		strb	r2, [r3]
- 214 0028 7047     		bx	lr
- 215              	.L15:
- 216 002a 00BF     		.align	2
- 217              	.L14:
- 218 002c 80E100E0 		.word	-536813184
- 219 0030 7F640040 		.word	1073767551
- 220 0034 6B640040 		.word	1073767531
- 221 0038 80E200E0 		.word	-536812928
- 222 003c 00000000 		.word	LED_Driver2_state
- 223              		.cfi_endproc
- 224              	.LFE3:
- 225              		.size	LED_Driver2_Stop, .-LED_Driver2_Stop
- 226              		.comm	LED_Driver2_state,1,1
- 227              		.global	LED_Driver2_initVar
- 228              		.bss
- 229              		.set	.LANCHOR0,. + 0
- 230              		.type	LED_Driver2_initVar, %object
- 231              		.size	LED_Driver2_initVar, 1
- 232              	LED_Driver2_initVar:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 10
+ 262              		.loc 1 281 0
+ 263 0034 084B     		ldr	r3, .L12+20
+ 264 0036 1022     		movs	r2, #16
+ 265 0038 1A70     		strb	r2, [r3]
+ 282:Generated_Source\PSoC5/LED_Driver2.c **** 
+ 283:Generated_Source\PSoC5/LED_Driver2.c ****     /* Clear busy statuses */
+ 284:Generated_Source\PSoC5/LED_Driver2.c **** #if (LED_Driver2_MODE_SLAVE_ENABLED)
+ 285:Generated_Source\PSoC5/LED_Driver2.c ****     LED_Driver2_slStatus &= (uint8) ~(LED_Driver2_SSTAT_RD_BUSY | LED_Driver2_SSTAT_WR_BUSY);
+ 286:Generated_Source\PSoC5/LED_Driver2.c **** #endif /* (LED_Driver2_MODE_SLAVE_ENABLED) */
+ 287:Generated_Source\PSoC5/LED_Driver2.c **** }
+ 266              		.loc 1 287 0
+ 267 003a BD46     		mov	sp, r7
+ 268              		.cfi_def_cfa_register 13
+ 269              		@ sp needed
+ 270 003c 5DF8047B 		ldr	r7, [sp], #4
+ 271              		.cfi_restore 7
+ 272              		.cfi_def_cfa_offset 0
+ 273 0040 7047     		bx	lr
+ 274              	.L13:
+ 275 0042 00BF     		.align	2
+ 276              	.L12:
+ 277 0044 80E100E0 		.word	-536813184
+ 278 0048 7F640040 		.word	1073767551
+ 279 004c 6C640040 		.word	1073767532
+ 280 0050 8C640040 		.word	1073767564
+ 281 0054 80E200E0 		.word	-536812928
+ 282 0058 00000000 		.word	LED_Driver2_state
+ 283              		.cfi_endproc
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 11
 
 
- 233 0000 00       		.space	1
- 234              		.text
- 235              	.Letext0:
- 236              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 237              		.file 3 "Generated_Source\\PSoC5\\LED_Driver2_PVT.h"
- 238              		.file 4 "Generated_Source\\PSoC5\\CyLib.h"
- 239              		.section	.debug_info,"",%progbits
- 240              	.Ldebug_info0:
- 241 0000 06020000 		.4byte	0x206
- 242 0004 0400     		.2byte	0x4
- 243 0006 00000000 		.4byte	.Ldebug_abbrev0
- 244 000a 04       		.byte	0x4
- 245 000b 01       		.uleb128 0x1
- 246 000c 33010000 		.4byte	.LASF30
- 247 0010 01       		.byte	0x1
- 248 0011 7A000000 		.4byte	.LASF31
- 249 0015 51020000 		.4byte	.LASF32
- 250 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 251 001d 00000000 		.4byte	0
- 252 0021 00000000 		.4byte	.Ldebug_line0
- 253 0025 02       		.uleb128 0x2
- 254 0026 01       		.byte	0x1
- 255 0027 06       		.byte	0x6
- 256 0028 8E020000 		.4byte	.LASF0
- 257 002c 02       		.uleb128 0x2
- 258 002d 01       		.byte	0x1
- 259 002e 08       		.byte	0x8
- 260 002f BC000000 		.4byte	.LASF1
- 261 0033 02       		.uleb128 0x2
- 262 0034 02       		.byte	0x2
- 263 0035 05       		.byte	0x5
- 264 0036 3E020000 		.4byte	.LASF2
- 265 003a 02       		.uleb128 0x2
- 266 003b 02       		.byte	0x2
- 267 003c 07       		.byte	0x7
- 268 003d 41000000 		.4byte	.LASF3
- 269 0041 02       		.uleb128 0x2
- 270 0042 04       		.byte	0x4
- 271 0043 05       		.byte	0x5
- 272 0044 48020000 		.4byte	.LASF4
- 273 0048 02       		.uleb128 0x2
- 274 0049 04       		.byte	0x4
- 275 004a 07       		.byte	0x7
- 276 004b EA000000 		.4byte	.LASF5
- 277 004f 02       		.uleb128 0x2
- 278 0050 08       		.byte	0x8
- 279 0051 05       		.byte	0x5
- 280 0052 2B020000 		.4byte	.LASF6
- 281 0056 02       		.uleb128 0x2
- 282 0057 08       		.byte	0x8
- 283 0058 07       		.byte	0x7
- 284 0059 A5000000 		.4byte	.LASF7
- 285 005d 03       		.uleb128 0x3
- 286 005e 04       		.byte	0x4
- 287 005f 05       		.byte	0x5
- 288 0060 696E7400 		.ascii	"int\000"
- 289 0064 02       		.uleb128 0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 11
+ 284              	.LFE3:
+ 285              		.size	LED_Driver2_Stop, .-LED_Driver2_Stop
+ 286              		.text
+ 287              	.Letext0:
+ 288              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 289              		.file 3 "Generated_Source\\PSoC5\\LED_Driver2_PVT.h"
+ 290              		.section	.debug_info,"",%progbits
+ 291              	.Ldebug_info0:
+ 292 0000 58010000 		.4byte	0x158
+ 293 0004 0400     		.2byte	0x4
+ 294 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 295 000a 04       		.byte	0x4
+ 296 000b 01       		.uleb128 0x1
+ 297 000c ED000000 		.4byte	.LASF25
+ 298 0010 01       		.byte	0x1
+ 299 0011 6B000000 		.4byte	.LASF26
+ 300 0015 F7010000 		.4byte	.LASF27
+ 301 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 302 001d 00000000 		.4byte	0
+ 303 0021 00000000 		.4byte	.Ldebug_line0
+ 304 0025 02       		.uleb128 0x2
+ 305 0026 01       		.byte	0x1
+ 306 0027 06       		.byte	0x6
+ 307 0028 34020000 		.4byte	.LASF0
+ 308 002c 02       		.uleb128 0x2
+ 309 002d 01       		.byte	0x1
+ 310 002e 08       		.byte	0x8
+ 311 002f 96000000 		.4byte	.LASF1
+ 312 0033 02       		.uleb128 0x2
+ 313 0034 02       		.byte	0x2
+ 314 0035 05       		.byte	0x5
+ 315 0036 E4010000 		.4byte	.LASF2
+ 316 003a 02       		.uleb128 0x2
+ 317 003b 02       		.byte	0x2
+ 318 003c 07       		.byte	0x7
+ 319 003d 32000000 		.4byte	.LASF3
+ 320 0041 02       		.uleb128 0x2
+ 321 0042 04       		.byte	0x4
+ 322 0043 05       		.byte	0x5
+ 323 0044 EE010000 		.4byte	.LASF4
+ 324 0048 02       		.uleb128 0x2
+ 325 0049 04       		.byte	0x4
+ 326 004a 07       		.byte	0x7
+ 327 004b C4000000 		.4byte	.LASF5
+ 328 004f 02       		.uleb128 0x2
+ 329 0050 08       		.byte	0x8
+ 330 0051 05       		.byte	0x5
+ 331 0052 D1010000 		.4byte	.LASF6
+ 332 0056 02       		.uleb128 0x2
+ 333 0057 08       		.byte	0x8
+ 334 0058 07       		.byte	0x7
+ 335 0059 B1010000 		.4byte	.LASF7
+ 336 005d 03       		.uleb128 0x3
+ 337 005e 04       		.byte	0x4
+ 338 005f 05       		.byte	0x5
+ 339 0060 696E7400 		.ascii	"int\000"
+ 340 0064 02       		.uleb128 0x2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 12
 
 
- 290 0065 04       		.byte	0x4
- 291 0066 07       		.byte	0x7
- 292 0067 CA010000 		.4byte	.LASF8
- 293 006b 04       		.uleb128 0x4
- 294 006c FC000000 		.4byte	.LASF9
- 295 0070 02       		.byte	0x2
- 296 0071 3801     		.2byte	0x138
- 297 0073 2C000000 		.4byte	0x2c
- 298 0077 04       		.uleb128 0x4
- 299 0078 2C010000 		.4byte	.LASF10
- 300 007c 02       		.byte	0x2
- 301 007d 3A01     		.2byte	0x13a
- 302 007f 48000000 		.4byte	0x48
- 303 0083 02       		.uleb128 0x2
- 304 0084 04       		.byte	0x4
- 305 0085 04       		.byte	0x4
- 306 0086 9F000000 		.4byte	.LASF11
- 307 008a 02       		.uleb128 0x2
- 308 008b 08       		.byte	0x8
- 309 008c 04       		.byte	0x4
- 310 008d 13010000 		.4byte	.LASF12
- 311 0091 02       		.uleb128 0x2
- 312 0092 01       		.byte	0x1
- 313 0093 08       		.byte	0x8
- 314 0094 39020000 		.4byte	.LASF13
- 315 0098 04       		.uleb128 0x4
- 316 0099 CA000000 		.4byte	.LASF14
- 317 009d 02       		.byte	0x2
- 318 009e E201     		.2byte	0x1e2
- 319 00a0 A4000000 		.4byte	0xa4
- 320 00a4 05       		.uleb128 0x5
- 321 00a5 6B000000 		.4byte	0x6b
- 322 00a9 04       		.uleb128 0x4
- 323 00aa 1B000000 		.4byte	.LASF15
- 324 00ae 02       		.byte	0x2
- 325 00af E401     		.2byte	0x1e4
- 326 00b1 B5000000 		.4byte	0xb5
- 327 00b5 05       		.uleb128 0x5
- 328 00b6 77000000 		.4byte	0x77
- 329 00ba 04       		.uleb128 0x4
- 330 00bb 15020000 		.4byte	.LASF16
- 331 00bf 02       		.byte	0x2
- 332 00c0 F401     		.2byte	0x1f4
- 333 00c2 C6000000 		.4byte	0xc6
- 334 00c6 06       		.uleb128 0x6
- 335 00c7 04       		.byte	0x4
- 336 00c8 CC000000 		.4byte	0xcc
- 337 00cc 07       		.uleb128 0x7
- 338 00cd 02       		.uleb128 0x2
- 339 00ce 04       		.byte	0x4
- 340 00cf 07       		.byte	0x7
- 341 00d0 22020000 		.4byte	.LASF17
- 342 00d4 08       		.uleb128 0x8
- 343 00d5 21000000 		.4byte	.LASF18
- 344 00d9 01       		.byte	0x1
- 345 00da 31       		.byte	0x31
- 346 00db 00000000 		.4byte	.LFB0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 12
+ 341 0065 04       		.byte	0x4
+ 342 0066 07       		.byte	0x7
+ 343 0067 A4010000 		.4byte	.LASF8
+ 344 006b 04       		.uleb128 0x4
+ 345 006c D6000000 		.4byte	.LASF9
+ 346 0070 02       		.byte	0x2
+ 347 0071 3801     		.2byte	0x138
+ 348 0073 2C000000 		.4byte	0x2c
+ 349 0077 04       		.uleb128 0x4
+ 350 0078 94010000 		.4byte	.LASF10
+ 351 007c 02       		.byte	0x2
+ 352 007d 3A01     		.2byte	0x13a
+ 353 007f 48000000 		.4byte	0x48
+ 354 0083 02       		.uleb128 0x2
+ 355 0084 04       		.byte	0x4
+ 356 0085 04       		.byte	0x4
+ 357 0086 90000000 		.4byte	.LASF11
+ 358 008a 02       		.uleb128 0x2
+ 359 008b 08       		.byte	0x8
+ 360 008c 04       		.byte	0x4
+ 361 008d 7B010000 		.4byte	.LASF12
+ 362 0091 02       		.uleb128 0x2
+ 363 0092 01       		.byte	0x1
+ 364 0093 08       		.byte	0x8
+ 365 0094 DF010000 		.4byte	.LASF13
+ 366 0098 04       		.uleb128 0x4
+ 367 0099 A4000000 		.4byte	.LASF14
+ 368 009d 02       		.byte	0x2
+ 369 009e E201     		.2byte	0x1e2
+ 370 00a0 A4000000 		.4byte	0xa4
+ 371 00a4 05       		.uleb128 0x5
+ 372 00a5 6B000000 		.4byte	0x6b
+ 373 00a9 04       		.uleb128 0x4
+ 374 00aa 1B000000 		.4byte	.LASF15
+ 375 00ae 02       		.byte	0x2
+ 376 00af E401     		.2byte	0x1e4
+ 377 00b1 B5000000 		.4byte	0xb5
+ 378 00b5 05       		.uleb128 0x5
+ 379 00b6 77000000 		.4byte	0x77
+ 380 00ba 02       		.uleb128 0x2
+ 381 00bb 04       		.byte	0x4
+ 382 00bc 07       		.byte	0x7
+ 383 00bd C8010000 		.4byte	.LASF16
+ 384 00c1 06       		.uleb128 0x6
+ 385 00c2 21000000 		.4byte	.LASF28
+ 386 00c6 01       		.byte	0x1
+ 387 00c7 31       		.byte	0x31
+ 388 00c8 00000000 		.4byte	.LFB0
+ 389 00cc A0000000 		.4byte	.LFE0-.LFB0
+ 390 00d0 01       		.uleb128 0x1
+ 391 00d1 9C       		.byte	0x9c
+ 392 00d2 E5000000 		.4byte	0xe5
+ 393 00d6 07       		.uleb128 0x7
+ 394 00d7 9B010000 		.4byte	.LASF29
+ 395 00db 01       		.byte	0x1
+ 396 00dc 3C       		.byte	0x3c
+ 397 00dd 6B000000 		.4byte	0x6b
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 13
 
 
- 347 00df 7C000000 		.4byte	.LFE0-.LFB0
- 348 00e3 01       		.uleb128 0x1
- 349 00e4 9C       		.byte	0x9c
- 350 00e5 34010000 		.4byte	0x134
- 351 00e9 09       		.uleb128 0x9
- 352 00ea C1010000 		.4byte	.LASF33
- 353 00ee 01       		.byte	0x1
- 354 00ef 3C       		.byte	0x3c
- 355 00f0 6B000000 		.4byte	0x6b
- 356 00f4 00000000 		.4byte	.LLST0
- 357 00f8 0A       		.uleb128 0xa
- 358 00f9 12000000 		.4byte	.LVL0
- 359 00fd C1010000 		.4byte	0x1c1
- 360 0101 0A       		.uleb128 0xa
- 361 0102 20000000 		.4byte	.LVL1
- 362 0106 CC010000 		.4byte	0x1cc
- 363 010a 0B       		.uleb128 0xb
- 364 010b 3A000000 		.4byte	.LVL2
- 365 010f DD010000 		.4byte	0x1dd
- 366 0113 23010000 		.4byte	0x123
- 367 0117 0C       		.uleb128 0xc
- 368 0118 01       		.uleb128 0x1
- 369 0119 51       		.byte	0x51
- 370 011a 01       		.uleb128 0x1
- 371 011b 37       		.byte	0x37
- 372 011c 0C       		.uleb128 0xc
- 373 011d 01       		.uleb128 0x1
- 374 011e 50       		.byte	0x50
- 375 011f 02       		.uleb128 0x2
- 376 0120 75       		.byte	0x75
- 377 0121 00       		.sleb128 0
- 378 0122 00       		.byte	0
- 379 0123 0D       		.uleb128 0xd
- 380 0124 42000000 		.4byte	.LVL3
- 381 0128 F3010000 		.4byte	0x1f3
- 382 012c 0C       		.uleb128 0xc
- 383 012d 01       		.uleb128 0x1
- 384 012e 50       		.byte	0x50
- 385 012f 02       		.uleb128 0x2
- 386 0130 75       		.byte	0x75
- 387 0131 00       		.sleb128 0
- 388 0132 00       		.byte	0
- 389 0133 00       		.byte	0
- 390 0134 0E       		.uleb128 0xe
- 391 0135 9A020000 		.4byte	.LASF20
- 392 0139 01       		.byte	0x1
- 393 013a 85       		.byte	0x85
- 394 013b 00000000 		.4byte	.LFB1
- 395 013f 10000000 		.4byte	.LFE1-.LFB1
- 396 0143 01       		.uleb128 0x1
- 397 0144 9C       		.byte	0x9c
- 398 0145 08       		.uleb128 0x8
- 399 0146 1A010000 		.4byte	.LASF19
- 400 014a 01       		.byte	0x1
- 401 014b BD       		.byte	0xbd
- 402 014c 00000000 		.4byte	.LFB2
- 403 0150 28000000 		.4byte	.LFE2-.LFB2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 13
+ 398 00e1 02       		.uleb128 0x2
+ 399 00e2 91       		.byte	0x91
+ 400 00e3 77       		.sleb128 -9
+ 401 00e4 00       		.byte	0
+ 402 00e5 08       		.uleb128 0x8
+ 403 00e6 40020000 		.4byte	.LASF17
+ 404 00ea 01       		.byte	0x1
+ 405 00eb 85       		.byte	0x85
+ 406 00ec 00000000 		.4byte	.LFB1
+ 407 00f0 20000000 		.4byte	.LFE1-.LFB1
+ 408 00f4 01       		.uleb128 0x1
+ 409 00f5 9C       		.byte	0x9c
+ 410 00f6 09       		.uleb128 0x9
+ 411 00f7 82010000 		.4byte	.LASF18
+ 412 00fb 01       		.byte	0x1
+ 413 00fc BD       		.byte	0xbd
+ 414 00fd 00000000 		.4byte	.LFB2
+ 415 0101 2C000000 		.4byte	.LFE2-.LFB2
+ 416 0105 01       		.uleb128 0x1
+ 417 0106 9C       		.byte	0x9c
+ 418 0107 08       		.uleb128 0x8
+ 419 0108 DC000000 		.4byte	.LASF19
+ 420 010c 01       		.byte	0x1
+ 421 010d D9       		.byte	0xd9
+ 422 010e 00000000 		.4byte	.LFB3
+ 423 0112 5C000000 		.4byte	.LFE3-.LFB3
+ 424 0116 01       		.uleb128 0x1
+ 425 0117 9C       		.byte	0x9c
+ 426 0118 0A       		.uleb128 0xa
+ 427 0119 57000000 		.4byte	.LASF20
+ 428 011d 01       		.byte	0x1
+ 429 011e 18       		.byte	0x18
+ 430 011f 6B000000 		.4byte	0x6b
+ 431 0123 05       		.uleb128 0x5
+ 432 0124 03       		.byte	0x3
+ 433 0125 00000000 		.4byte	LED_Driver2_initVar
+ 434 0129 0A       		.uleb128 0xa
+ 435 012a 45000000 		.4byte	.LASF21
+ 436 012e 01       		.byte	0x1
+ 437 012f 1A       		.byte	0x1a
+ 438 0130 A4000000 		.4byte	0xa4
+ 439 0134 05       		.uleb128 0x5
+ 440 0135 03       		.byte	0x3
+ 441 0136 00000000 		.4byte	LED_Driver2_state
+ 442 013a 0B       		.uleb128 0xb
+ 443 013b 53020000 		.4byte	.LASF22
+ 444 013f 03       		.byte	0x3
+ 445 0140 27       		.byte	0x27
+ 446 0141 A4000000 		.4byte	0xa4
+ 447 0145 0B       		.uleb128 0xb
+ 448 0146 A9000000 		.4byte	.LASF23
+ 449 014a 03       		.byte	0x3
+ 450 014b 2D       		.byte	0x2d
+ 451 014c A4000000 		.4byte	0xa4
+ 452 0150 0B       		.uleb128 0xb
+ 453 0151 00000000 		.4byte	.LASF24
+ 454 0155 03       		.byte	0x3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 14
 
 
- 404 0154 01       		.uleb128 0x1
- 405 0155 9C       		.byte	0x9c
- 406 0156 6D010000 		.4byte	0x16d
- 407 015a 0A       		.uleb128 0xa
- 408 015b 0C000000 		.4byte	.LVL4
- 409 015f D4000000 		.4byte	0xd4
- 410 0163 0A       		.uleb128 0xa
- 411 0164 16000000 		.4byte	.LVL5
- 412 0168 34010000 		.4byte	0x134
- 413 016c 00       		.byte	0
- 414 016d 0E       		.uleb128 0xe
- 415 016e 02010000 		.4byte	.LASF21
- 416 0172 01       		.byte	0x1
- 417 0173 D9       		.byte	0xd9
- 418 0174 00000000 		.4byte	.LFB3
- 419 0178 40000000 		.4byte	.LFE3-.LFB3
- 420 017c 01       		.uleb128 0x1
- 421 017d 9C       		.byte	0x9c
- 422 017e 0F       		.uleb128 0xf
- 423 017f 66000000 		.4byte	.LASF22
- 424 0183 01       		.byte	0x1
- 425 0184 18       		.byte	0x18
- 426 0185 6B000000 		.4byte	0x6b
- 427 0189 05       		.uleb128 0x5
- 428 018a 03       		.byte	0x3
- 429 018b 00000000 		.4byte	LED_Driver2_initVar
- 430 018f 0F       		.uleb128 0xf
- 431 0190 54000000 		.4byte	.LASF23
- 432 0194 01       		.byte	0x1
- 433 0195 1A       		.byte	0x1a
- 434 0196 A4000000 		.4byte	0xa4
- 435 019a 05       		.uleb128 0x5
- 436 019b 03       		.byte	0x3
- 437 019c 00000000 		.4byte	LED_Driver2_state
- 438 01a0 10       		.uleb128 0x10
- 439 01a1 AD020000 		.4byte	.LASF24
- 440 01a5 03       		.byte	0x3
- 441 01a6 27       		.byte	0x27
- 442 01a7 A4000000 		.4byte	0xa4
- 443 01ab 10       		.uleb128 0x10
- 444 01ac CF000000 		.4byte	.LASF25
- 445 01b0 03       		.byte	0x3
- 446 01b1 2D       		.byte	0x2d
- 447 01b2 A4000000 		.4byte	0xa4
- 448 01b6 10       		.uleb128 0x10
- 449 01b7 00000000 		.4byte	.LASF26
- 450 01bb 03       		.byte	0x3
- 451 01bc 32       		.byte	0x32
- 452 01bd A4000000 		.4byte	0xa4
- 453 01c1 11       		.uleb128 0x11
- 454 01c2 FE010000 		.4byte	.LASF34
- 455 01c6 04       		.byte	0x4
- 456 01c7 7E       		.byte	0x7e
- 457 01c8 6B000000 		.4byte	0x6b
- 458 01cc 12       		.uleb128 0x12
- 459 01cd D7010000 		.4byte	.LASF27
- 460 01d1 04       		.byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 14
+ 455 0156 32       		.byte	0x32
+ 456 0157 A4000000 		.4byte	0xa4
+ 457 015b 00       		.byte	0
+ 458              		.section	.debug_abbrev,"",%progbits
+ 459              	.Ldebug_abbrev0:
+ 460 0000 01       		.uleb128 0x1
+ 461 0001 11       		.uleb128 0x11
+ 462 0002 01       		.byte	0x1
+ 463 0003 25       		.uleb128 0x25
+ 464 0004 0E       		.uleb128 0xe
+ 465 0005 13       		.uleb128 0x13
+ 466 0006 0B       		.uleb128 0xb
+ 467 0007 03       		.uleb128 0x3
+ 468 0008 0E       		.uleb128 0xe
+ 469 0009 1B       		.uleb128 0x1b
+ 470 000a 0E       		.uleb128 0xe
+ 471 000b 55       		.uleb128 0x55
+ 472 000c 17       		.uleb128 0x17
+ 473 000d 11       		.uleb128 0x11
+ 474 000e 01       		.uleb128 0x1
+ 475 000f 10       		.uleb128 0x10
+ 476 0010 17       		.uleb128 0x17
+ 477 0011 00       		.byte	0
+ 478 0012 00       		.byte	0
+ 479 0013 02       		.uleb128 0x2
+ 480 0014 24       		.uleb128 0x24
+ 481 0015 00       		.byte	0
+ 482 0016 0B       		.uleb128 0xb
+ 483 0017 0B       		.uleb128 0xb
+ 484 0018 3E       		.uleb128 0x3e
+ 485 0019 0B       		.uleb128 0xb
+ 486 001a 03       		.uleb128 0x3
+ 487 001b 0E       		.uleb128 0xe
+ 488 001c 00       		.byte	0
+ 489 001d 00       		.byte	0
+ 490 001e 03       		.uleb128 0x3
+ 491 001f 24       		.uleb128 0x24
+ 492 0020 00       		.byte	0
+ 493 0021 0B       		.uleb128 0xb
+ 494 0022 0B       		.uleb128 0xb
+ 495 0023 3E       		.uleb128 0x3e
+ 496 0024 0B       		.uleb128 0xb
+ 497 0025 03       		.uleb128 0x3
+ 498 0026 08       		.uleb128 0x8
+ 499 0027 00       		.byte	0
+ 500 0028 00       		.byte	0
+ 501 0029 04       		.uleb128 0x4
+ 502 002a 16       		.uleb128 0x16
+ 503 002b 00       		.byte	0
+ 504 002c 03       		.uleb128 0x3
+ 505 002d 0E       		.uleb128 0xe
+ 506 002e 3A       		.uleb128 0x3a
+ 507 002f 0B       		.uleb128 0xb
+ 508 0030 3B       		.uleb128 0x3b
+ 509 0031 05       		.uleb128 0x5
+ 510 0032 49       		.uleb128 0x49
+ 511 0033 13       		.uleb128 0x13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 15
 
 
- 461 01d2 7F       		.byte	0x7f
- 462 01d3 DD010000 		.4byte	0x1dd
- 463 01d7 13       		.uleb128 0x13
- 464 01d8 6B000000 		.4byte	0x6b
- 465 01dc 00       		.byte	0
- 466 01dd 12       		.uleb128 0x12
- 467 01de ED010000 		.4byte	.LASF28
- 468 01e2 04       		.byte	0x4
- 469 01e3 8C       		.byte	0x8c
- 470 01e4 F3010000 		.4byte	0x1f3
- 471 01e8 13       		.uleb128 0x13
- 472 01e9 6B000000 		.4byte	0x6b
- 473 01ed 13       		.uleb128 0x13
- 474 01ee 6B000000 		.4byte	0x6b
- 475 01f2 00       		.byte	0
- 476 01f3 14       		.uleb128 0x14
- 477 01f4 32000000 		.4byte	.LASF29
- 478 01f8 04       		.byte	0x4
- 479 01f9 89       		.byte	0x89
- 480 01fa BA000000 		.4byte	0xba
- 481 01fe 13       		.uleb128 0x13
- 482 01ff 6B000000 		.4byte	0x6b
- 483 0203 13       		.uleb128 0x13
- 484 0204 BA000000 		.4byte	0xba
- 485 0208 00       		.byte	0
- 486 0209 00       		.byte	0
- 487              		.section	.debug_abbrev,"",%progbits
- 488              	.Ldebug_abbrev0:
- 489 0000 01       		.uleb128 0x1
- 490 0001 11       		.uleb128 0x11
- 491 0002 01       		.byte	0x1
- 492 0003 25       		.uleb128 0x25
- 493 0004 0E       		.uleb128 0xe
- 494 0005 13       		.uleb128 0x13
- 495 0006 0B       		.uleb128 0xb
- 496 0007 03       		.uleb128 0x3
- 497 0008 0E       		.uleb128 0xe
- 498 0009 1B       		.uleb128 0x1b
- 499 000a 0E       		.uleb128 0xe
- 500 000b 55       		.uleb128 0x55
- 501 000c 17       		.uleb128 0x17
- 502 000d 11       		.uleb128 0x11
- 503 000e 01       		.uleb128 0x1
- 504 000f 10       		.uleb128 0x10
- 505 0010 17       		.uleb128 0x17
- 506 0011 00       		.byte	0
- 507 0012 00       		.byte	0
- 508 0013 02       		.uleb128 0x2
- 509 0014 24       		.uleb128 0x24
- 510 0015 00       		.byte	0
- 511 0016 0B       		.uleb128 0xb
- 512 0017 0B       		.uleb128 0xb
- 513 0018 3E       		.uleb128 0x3e
- 514 0019 0B       		.uleb128 0xb
- 515 001a 03       		.uleb128 0x3
- 516 001b 0E       		.uleb128 0xe
- 517 001c 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 15
+ 512 0034 00       		.byte	0
+ 513 0035 00       		.byte	0
+ 514 0036 05       		.uleb128 0x5
+ 515 0037 35       		.uleb128 0x35
+ 516 0038 00       		.byte	0
+ 517 0039 49       		.uleb128 0x49
+ 518 003a 13       		.uleb128 0x13
+ 519 003b 00       		.byte	0
+ 520 003c 00       		.byte	0
+ 521 003d 06       		.uleb128 0x6
+ 522 003e 2E       		.uleb128 0x2e
+ 523 003f 01       		.byte	0x1
+ 524 0040 3F       		.uleb128 0x3f
+ 525 0041 19       		.uleb128 0x19
+ 526 0042 03       		.uleb128 0x3
+ 527 0043 0E       		.uleb128 0xe
+ 528 0044 3A       		.uleb128 0x3a
+ 529 0045 0B       		.uleb128 0xb
+ 530 0046 3B       		.uleb128 0x3b
+ 531 0047 0B       		.uleb128 0xb
+ 532 0048 27       		.uleb128 0x27
+ 533 0049 19       		.uleb128 0x19
+ 534 004a 11       		.uleb128 0x11
+ 535 004b 01       		.uleb128 0x1
+ 536 004c 12       		.uleb128 0x12
+ 537 004d 06       		.uleb128 0x6
+ 538 004e 40       		.uleb128 0x40
+ 539 004f 18       		.uleb128 0x18
+ 540 0050 9642     		.uleb128 0x2116
+ 541 0052 19       		.uleb128 0x19
+ 542 0053 01       		.uleb128 0x1
+ 543 0054 13       		.uleb128 0x13
+ 544 0055 00       		.byte	0
+ 545 0056 00       		.byte	0
+ 546 0057 07       		.uleb128 0x7
+ 547 0058 34       		.uleb128 0x34
+ 548 0059 00       		.byte	0
+ 549 005a 03       		.uleb128 0x3
+ 550 005b 0E       		.uleb128 0xe
+ 551 005c 3A       		.uleb128 0x3a
+ 552 005d 0B       		.uleb128 0xb
+ 553 005e 3B       		.uleb128 0x3b
+ 554 005f 0B       		.uleb128 0xb
+ 555 0060 49       		.uleb128 0x49
+ 556 0061 13       		.uleb128 0x13
+ 557 0062 02       		.uleb128 0x2
+ 558 0063 18       		.uleb128 0x18
+ 559 0064 00       		.byte	0
+ 560 0065 00       		.byte	0
+ 561 0066 08       		.uleb128 0x8
+ 562 0067 2E       		.uleb128 0x2e
+ 563 0068 00       		.byte	0
+ 564 0069 3F       		.uleb128 0x3f
+ 565 006a 19       		.uleb128 0x19
+ 566 006b 03       		.uleb128 0x3
+ 567 006c 0E       		.uleb128 0xe
+ 568 006d 3A       		.uleb128 0x3a
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 16
 
 
- 518 001d 00       		.byte	0
- 519 001e 03       		.uleb128 0x3
- 520 001f 24       		.uleb128 0x24
- 521 0020 00       		.byte	0
- 522 0021 0B       		.uleb128 0xb
- 523 0022 0B       		.uleb128 0xb
- 524 0023 3E       		.uleb128 0x3e
- 525 0024 0B       		.uleb128 0xb
- 526 0025 03       		.uleb128 0x3
- 527 0026 08       		.uleb128 0x8
- 528 0027 00       		.byte	0
- 529 0028 00       		.byte	0
- 530 0029 04       		.uleb128 0x4
- 531 002a 16       		.uleb128 0x16
- 532 002b 00       		.byte	0
- 533 002c 03       		.uleb128 0x3
- 534 002d 0E       		.uleb128 0xe
- 535 002e 3A       		.uleb128 0x3a
- 536 002f 0B       		.uleb128 0xb
- 537 0030 3B       		.uleb128 0x3b
- 538 0031 05       		.uleb128 0x5
- 539 0032 49       		.uleb128 0x49
- 540 0033 13       		.uleb128 0x13
- 541 0034 00       		.byte	0
- 542 0035 00       		.byte	0
- 543 0036 05       		.uleb128 0x5
- 544 0037 35       		.uleb128 0x35
- 545 0038 00       		.byte	0
- 546 0039 49       		.uleb128 0x49
- 547 003a 13       		.uleb128 0x13
- 548 003b 00       		.byte	0
- 549 003c 00       		.byte	0
- 550 003d 06       		.uleb128 0x6
- 551 003e 0F       		.uleb128 0xf
- 552 003f 00       		.byte	0
- 553 0040 0B       		.uleb128 0xb
- 554 0041 0B       		.uleb128 0xb
- 555 0042 49       		.uleb128 0x49
- 556 0043 13       		.uleb128 0x13
- 557 0044 00       		.byte	0
- 558 0045 00       		.byte	0
- 559 0046 07       		.uleb128 0x7
- 560 0047 15       		.uleb128 0x15
- 561 0048 00       		.byte	0
- 562 0049 27       		.uleb128 0x27
- 563 004a 19       		.uleb128 0x19
- 564 004b 00       		.byte	0
- 565 004c 00       		.byte	0
- 566 004d 08       		.uleb128 0x8
- 567 004e 2E       		.uleb128 0x2e
- 568 004f 01       		.byte	0x1
- 569 0050 3F       		.uleb128 0x3f
- 570 0051 19       		.uleb128 0x19
- 571 0052 03       		.uleb128 0x3
- 572 0053 0E       		.uleb128 0xe
- 573 0054 3A       		.uleb128 0x3a
- 574 0055 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 16
+ 569 006e 0B       		.uleb128 0xb
+ 570 006f 3B       		.uleb128 0x3b
+ 571 0070 0B       		.uleb128 0xb
+ 572 0071 27       		.uleb128 0x27
+ 573 0072 19       		.uleb128 0x19
+ 574 0073 11       		.uleb128 0x11
+ 575 0074 01       		.uleb128 0x1
+ 576 0075 12       		.uleb128 0x12
+ 577 0076 06       		.uleb128 0x6
+ 578 0077 40       		.uleb128 0x40
+ 579 0078 18       		.uleb128 0x18
+ 580 0079 9742     		.uleb128 0x2117
+ 581 007b 19       		.uleb128 0x19
+ 582 007c 00       		.byte	0
+ 583 007d 00       		.byte	0
+ 584 007e 09       		.uleb128 0x9
+ 585 007f 2E       		.uleb128 0x2e
+ 586 0080 00       		.byte	0
+ 587 0081 3F       		.uleb128 0x3f
+ 588 0082 19       		.uleb128 0x19
+ 589 0083 03       		.uleb128 0x3
+ 590 0084 0E       		.uleb128 0xe
+ 591 0085 3A       		.uleb128 0x3a
+ 592 0086 0B       		.uleb128 0xb
+ 593 0087 3B       		.uleb128 0x3b
+ 594 0088 0B       		.uleb128 0xb
+ 595 0089 27       		.uleb128 0x27
+ 596 008a 19       		.uleb128 0x19
+ 597 008b 11       		.uleb128 0x11
+ 598 008c 01       		.uleb128 0x1
+ 599 008d 12       		.uleb128 0x12
+ 600 008e 06       		.uleb128 0x6
+ 601 008f 40       		.uleb128 0x40
+ 602 0090 18       		.uleb128 0x18
+ 603 0091 9642     		.uleb128 0x2116
+ 604 0093 19       		.uleb128 0x19
+ 605 0094 00       		.byte	0
+ 606 0095 00       		.byte	0
+ 607 0096 0A       		.uleb128 0xa
+ 608 0097 34       		.uleb128 0x34
+ 609 0098 00       		.byte	0
+ 610 0099 03       		.uleb128 0x3
+ 611 009a 0E       		.uleb128 0xe
+ 612 009b 3A       		.uleb128 0x3a
+ 613 009c 0B       		.uleb128 0xb
+ 614 009d 3B       		.uleb128 0x3b
+ 615 009e 0B       		.uleb128 0xb
+ 616 009f 49       		.uleb128 0x49
+ 617 00a0 13       		.uleb128 0x13
+ 618 00a1 3F       		.uleb128 0x3f
+ 619 00a2 19       		.uleb128 0x19
+ 620 00a3 02       		.uleb128 0x2
+ 621 00a4 18       		.uleb128 0x18
+ 622 00a5 00       		.byte	0
+ 623 00a6 00       		.byte	0
+ 624 00a7 0B       		.uleb128 0xb
+ 625 00a8 34       		.uleb128 0x34
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 17
 
 
- 575 0056 3B       		.uleb128 0x3b
- 576 0057 0B       		.uleb128 0xb
- 577 0058 27       		.uleb128 0x27
- 578 0059 19       		.uleb128 0x19
- 579 005a 11       		.uleb128 0x11
- 580 005b 01       		.uleb128 0x1
- 581 005c 12       		.uleb128 0x12
- 582 005d 06       		.uleb128 0x6
- 583 005e 40       		.uleb128 0x40
- 584 005f 18       		.uleb128 0x18
- 585 0060 9742     		.uleb128 0x2117
- 586 0062 19       		.uleb128 0x19
- 587 0063 01       		.uleb128 0x1
- 588 0064 13       		.uleb128 0x13
- 589 0065 00       		.byte	0
- 590 0066 00       		.byte	0
- 591 0067 09       		.uleb128 0x9
- 592 0068 34       		.uleb128 0x34
- 593 0069 00       		.byte	0
- 594 006a 03       		.uleb128 0x3
- 595 006b 0E       		.uleb128 0xe
- 596 006c 3A       		.uleb128 0x3a
- 597 006d 0B       		.uleb128 0xb
- 598 006e 3B       		.uleb128 0x3b
- 599 006f 0B       		.uleb128 0xb
- 600 0070 49       		.uleb128 0x49
- 601 0071 13       		.uleb128 0x13
- 602 0072 02       		.uleb128 0x2
- 603 0073 17       		.uleb128 0x17
- 604 0074 00       		.byte	0
- 605 0075 00       		.byte	0
- 606 0076 0A       		.uleb128 0xa
- 607 0077 898201   		.uleb128 0x4109
- 608 007a 00       		.byte	0
- 609 007b 11       		.uleb128 0x11
- 610 007c 01       		.uleb128 0x1
- 611 007d 31       		.uleb128 0x31
- 612 007e 13       		.uleb128 0x13
- 613 007f 00       		.byte	0
- 614 0080 00       		.byte	0
- 615 0081 0B       		.uleb128 0xb
- 616 0082 898201   		.uleb128 0x4109
- 617 0085 01       		.byte	0x1
- 618 0086 11       		.uleb128 0x11
- 619 0087 01       		.uleb128 0x1
- 620 0088 31       		.uleb128 0x31
- 621 0089 13       		.uleb128 0x13
- 622 008a 01       		.uleb128 0x1
- 623 008b 13       		.uleb128 0x13
- 624 008c 00       		.byte	0
- 625 008d 00       		.byte	0
- 626 008e 0C       		.uleb128 0xc
- 627 008f 8A8201   		.uleb128 0x410a
- 628 0092 00       		.byte	0
- 629 0093 02       		.uleb128 0x2
- 630 0094 18       		.uleb128 0x18
- 631 0095 9142     		.uleb128 0x2111
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 17
+ 626 00a9 00       		.byte	0
+ 627 00aa 03       		.uleb128 0x3
+ 628 00ab 0E       		.uleb128 0xe
+ 629 00ac 3A       		.uleb128 0x3a
+ 630 00ad 0B       		.uleb128 0xb
+ 631 00ae 3B       		.uleb128 0x3b
+ 632 00af 0B       		.uleb128 0xb
+ 633 00b0 49       		.uleb128 0x49
+ 634 00b1 13       		.uleb128 0x13
+ 635 00b2 3F       		.uleb128 0x3f
+ 636 00b3 19       		.uleb128 0x19
+ 637 00b4 3C       		.uleb128 0x3c
+ 638 00b5 19       		.uleb128 0x19
+ 639 00b6 00       		.byte	0
+ 640 00b7 00       		.byte	0
+ 641 00b8 00       		.byte	0
+ 642              		.section	.debug_aranges,"",%progbits
+ 643 0000 34000000 		.4byte	0x34
+ 644 0004 0200     		.2byte	0x2
+ 645 0006 00000000 		.4byte	.Ldebug_info0
+ 646 000a 04       		.byte	0x4
+ 647 000b 00       		.byte	0
+ 648 000c 0000     		.2byte	0
+ 649 000e 0000     		.2byte	0
+ 650 0010 00000000 		.4byte	.LFB0
+ 651 0014 A0000000 		.4byte	.LFE0-.LFB0
+ 652 0018 00000000 		.4byte	.LFB1
+ 653 001c 20000000 		.4byte	.LFE1-.LFB1
+ 654 0020 00000000 		.4byte	.LFB2
+ 655 0024 2C000000 		.4byte	.LFE2-.LFB2
+ 656 0028 00000000 		.4byte	.LFB3
+ 657 002c 5C000000 		.4byte	.LFE3-.LFB3
+ 658 0030 00000000 		.4byte	0
+ 659 0034 00000000 		.4byte	0
+ 660              		.section	.debug_ranges,"",%progbits
+ 661              	.Ldebug_ranges0:
+ 662 0000 00000000 		.4byte	.LFB0
+ 663 0004 A0000000 		.4byte	.LFE0
+ 664 0008 00000000 		.4byte	.LFB1
+ 665 000c 20000000 		.4byte	.LFE1
+ 666 0010 00000000 		.4byte	.LFB2
+ 667 0014 2C000000 		.4byte	.LFE2
+ 668 0018 00000000 		.4byte	.LFB3
+ 669 001c 5C000000 		.4byte	.LFE3
+ 670 0020 00000000 		.4byte	0
+ 671 0024 00000000 		.4byte	0
+ 672              		.section	.debug_line,"",%progbits
+ 673              	.Ldebug_line0:
+ 674 0000 CD000000 		.section	.debug_str,"MS",%progbits,1
+ 674      02005D00 
+ 674      00000201 
+ 674      FB0E0D00 
+ 674      01010101 
+ 675              	.LASF24:
+ 676 0000 4C45445F 		.ascii	"LED_Driver2_mstrWrBufIndex\000"
+ 676      44726976 
+ 676      6572325F 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 18
 
 
- 632 0097 18       		.uleb128 0x18
- 633 0098 00       		.byte	0
- 634 0099 00       		.byte	0
- 635 009a 0D       		.uleb128 0xd
- 636 009b 898201   		.uleb128 0x4109
- 637 009e 01       		.byte	0x1
- 638 009f 11       		.uleb128 0x11
- 639 00a0 01       		.uleb128 0x1
- 640 00a1 31       		.uleb128 0x31
- 641 00a2 13       		.uleb128 0x13
- 642 00a3 00       		.byte	0
- 643 00a4 00       		.byte	0
- 644 00a5 0E       		.uleb128 0xe
- 645 00a6 2E       		.uleb128 0x2e
- 646 00a7 00       		.byte	0
- 647 00a8 3F       		.uleb128 0x3f
- 648 00a9 19       		.uleb128 0x19
- 649 00aa 03       		.uleb128 0x3
- 650 00ab 0E       		.uleb128 0xe
- 651 00ac 3A       		.uleb128 0x3a
- 652 00ad 0B       		.uleb128 0xb
- 653 00ae 3B       		.uleb128 0x3b
- 654 00af 0B       		.uleb128 0xb
- 655 00b0 27       		.uleb128 0x27
- 656 00b1 19       		.uleb128 0x19
- 657 00b2 11       		.uleb128 0x11
- 658 00b3 01       		.uleb128 0x1
- 659 00b4 12       		.uleb128 0x12
- 660 00b5 06       		.uleb128 0x6
- 661 00b6 40       		.uleb128 0x40
- 662 00b7 18       		.uleb128 0x18
- 663 00b8 9742     		.uleb128 0x2117
- 664 00ba 19       		.uleb128 0x19
- 665 00bb 00       		.byte	0
- 666 00bc 00       		.byte	0
- 667 00bd 0F       		.uleb128 0xf
- 668 00be 34       		.uleb128 0x34
- 669 00bf 00       		.byte	0
- 670 00c0 03       		.uleb128 0x3
- 671 00c1 0E       		.uleb128 0xe
- 672 00c2 3A       		.uleb128 0x3a
- 673 00c3 0B       		.uleb128 0xb
- 674 00c4 3B       		.uleb128 0x3b
- 675 00c5 0B       		.uleb128 0xb
- 676 00c6 49       		.uleb128 0x49
- 677 00c7 13       		.uleb128 0x13
- 678 00c8 3F       		.uleb128 0x3f
- 679 00c9 19       		.uleb128 0x19
- 680 00ca 02       		.uleb128 0x2
- 681 00cb 18       		.uleb128 0x18
- 682 00cc 00       		.byte	0
- 683 00cd 00       		.byte	0
- 684 00ce 10       		.uleb128 0x10
- 685 00cf 34       		.uleb128 0x34
- 686 00d0 00       		.byte	0
- 687 00d1 03       		.uleb128 0x3
- 688 00d2 0E       		.uleb128 0xe
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 18
+ 676      6D737472 
+ 676      57724275 
+ 677              	.LASF15:
+ 678 001b 72656733 		.ascii	"reg32\000"
+ 678      3200
+ 679              	.LASF28:
+ 680 0021 4C45445F 		.ascii	"LED_Driver2_Init\000"
+ 680      44726976 
+ 680      6572325F 
+ 680      496E6974 
+ 680      00
+ 681              	.LASF3:
+ 682 0032 73686F72 		.ascii	"short unsigned int\000"
+ 682      7420756E 
+ 682      7369676E 
+ 682      65642069 
+ 682      6E7400
+ 683              	.LASF21:
+ 684 0045 4C45445F 		.ascii	"LED_Driver2_state\000"
+ 684      44726976 
+ 684      6572325F 
+ 684      73746174 
+ 684      6500
+ 685              	.LASF20:
+ 686 0057 4C45445F 		.ascii	"LED_Driver2_initVar\000"
+ 686      44726976 
+ 686      6572325F 
+ 686      696E6974 
+ 686      56617200 
+ 687              	.LASF26:
+ 688 006b 47656E65 		.ascii	"Generated_Source\\PSoC5\\LED_Driver2.c\000"
+ 688      72617465 
+ 688      645F536F 
+ 688      75726365 
+ 688      5C50536F 
+ 689              	.LASF11:
+ 690 0090 666C6F61 		.ascii	"float\000"
+ 690      7400
+ 691              	.LASF1:
+ 692 0096 756E7369 		.ascii	"unsigned char\000"
+ 692      676E6564 
+ 692      20636861 
+ 692      7200
+ 693              	.LASF14:
+ 694 00a4 72656738 		.ascii	"reg8\000"
+ 694      00
+ 695              	.LASF23:
+ 696 00a9 4C45445F 		.ascii	"LED_Driver2_mstrRdBufIndex\000"
+ 696      44726976 
+ 696      6572325F 
+ 696      6D737472 
+ 696      52644275 
+ 697              	.LASF5:
+ 698 00c4 6C6F6E67 		.ascii	"long unsigned int\000"
+ 698      20756E73 
+ 698      69676E65 
+ 698      6420696E 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 19
 
 
- 689 00d3 3A       		.uleb128 0x3a
- 690 00d4 0B       		.uleb128 0xb
- 691 00d5 3B       		.uleb128 0x3b
- 692 00d6 0B       		.uleb128 0xb
- 693 00d7 49       		.uleb128 0x49
- 694 00d8 13       		.uleb128 0x13
- 695 00d9 3F       		.uleb128 0x3f
- 696 00da 19       		.uleb128 0x19
- 697 00db 3C       		.uleb128 0x3c
- 698 00dc 19       		.uleb128 0x19
- 699 00dd 00       		.byte	0
- 700 00de 00       		.byte	0
- 701 00df 11       		.uleb128 0x11
- 702 00e0 2E       		.uleb128 0x2e
- 703 00e1 00       		.byte	0
- 704 00e2 3F       		.uleb128 0x3f
- 705 00e3 19       		.uleb128 0x19
- 706 00e4 03       		.uleb128 0x3
- 707 00e5 0E       		.uleb128 0xe
- 708 00e6 3A       		.uleb128 0x3a
- 709 00e7 0B       		.uleb128 0xb
- 710 00e8 3B       		.uleb128 0x3b
- 711 00e9 0B       		.uleb128 0xb
- 712 00ea 27       		.uleb128 0x27
- 713 00eb 19       		.uleb128 0x19
- 714 00ec 49       		.uleb128 0x49
- 715 00ed 13       		.uleb128 0x13
- 716 00ee 3C       		.uleb128 0x3c
- 717 00ef 19       		.uleb128 0x19
- 718 00f0 00       		.byte	0
- 719 00f1 00       		.byte	0
- 720 00f2 12       		.uleb128 0x12
- 721 00f3 2E       		.uleb128 0x2e
- 722 00f4 01       		.byte	0x1
- 723 00f5 3F       		.uleb128 0x3f
- 724 00f6 19       		.uleb128 0x19
- 725 00f7 03       		.uleb128 0x3
- 726 00f8 0E       		.uleb128 0xe
- 727 00f9 3A       		.uleb128 0x3a
- 728 00fa 0B       		.uleb128 0xb
- 729 00fb 3B       		.uleb128 0x3b
- 730 00fc 0B       		.uleb128 0xb
- 731 00fd 27       		.uleb128 0x27
- 732 00fe 19       		.uleb128 0x19
- 733 00ff 3C       		.uleb128 0x3c
- 734 0100 19       		.uleb128 0x19
- 735 0101 01       		.uleb128 0x1
- 736 0102 13       		.uleb128 0x13
- 737 0103 00       		.byte	0
- 738 0104 00       		.byte	0
- 739 0105 13       		.uleb128 0x13
- 740 0106 05       		.uleb128 0x5
- 741 0107 00       		.byte	0
- 742 0108 49       		.uleb128 0x49
- 743 0109 13       		.uleb128 0x13
- 744 010a 00       		.byte	0
- 745 010b 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 19
+ 698      7400
+ 699              	.LASF9:
+ 700 00d6 75696E74 		.ascii	"uint8\000"
+ 700      3800
+ 701              	.LASF19:
+ 702 00dc 4C45445F 		.ascii	"LED_Driver2_Stop\000"
+ 702      44726976 
+ 702      6572325F 
+ 702      53746F70 
+ 702      00
+ 703              	.LASF25:
+ 704 00ed 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 704      4320342E 
+ 704      392E3320 
+ 704      32303135 
+ 704      30333033 
+ 705 0120 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 705      20726576 
+ 705      6973696F 
+ 705      6E203232 
+ 705      31323230 
+ 706 0153 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 706      66756E63 
+ 706      74696F6E 
+ 706      2D736563 
+ 706      74696F6E 
+ 707              	.LASF12:
+ 708 017b 646F7562 		.ascii	"double\000"
+ 708      6C6500
+ 709              	.LASF18:
+ 710 0182 4C45445F 		.ascii	"LED_Driver2_Start\000"
+ 710      44726976 
+ 710      6572325F 
+ 710      53746172 
+ 710      7400
+ 711              	.LASF10:
+ 712 0194 75696E74 		.ascii	"uint32\000"
+ 712      333200
+ 713              	.LASF29:
+ 714 019b 696E7453 		.ascii	"intState\000"
+ 714      74617465 
+ 714      00
+ 715              	.LASF8:
+ 716 01a4 756E7369 		.ascii	"unsigned int\000"
+ 716      676E6564 
+ 716      20696E74 
+ 716      00
+ 717              	.LASF7:
+ 718 01b1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 718      206C6F6E 
+ 718      6720756E 
+ 718      7369676E 
+ 718      65642069 
+ 719              	.LASF16:
+ 720 01c8 73697A65 		.ascii	"sizetype\000"
+ 720      74797065 
+ 720      00
+ARM GAS  D:\Windows\AppData\Local\Temp\ccbJ57A2.s 			page 20
 
 
- 746 010c 14       		.uleb128 0x14
- 747 010d 2E       		.uleb128 0x2e
- 748 010e 01       		.byte	0x1
- 749 010f 3F       		.uleb128 0x3f
- 750 0110 19       		.uleb128 0x19
- 751 0111 03       		.uleb128 0x3
- 752 0112 0E       		.uleb128 0xe
- 753 0113 3A       		.uleb128 0x3a
- 754 0114 0B       		.uleb128 0xb
- 755 0115 3B       		.uleb128 0x3b
- 756 0116 0B       		.uleb128 0xb
- 757 0117 27       		.uleb128 0x27
- 758 0118 19       		.uleb128 0x19
- 759 0119 49       		.uleb128 0x49
- 760 011a 13       		.uleb128 0x13
- 761 011b 3C       		.uleb128 0x3c
- 762 011c 19       		.uleb128 0x19
- 763 011d 00       		.byte	0
- 764 011e 00       		.byte	0
- 765 011f 00       		.byte	0
- 766              		.section	.debug_loc,"",%progbits
- 767              	.Ldebug_loc0:
- 768              	.LLST0:
- 769 0000 12000000 		.4byte	.LVL0
- 770 0004 1F000000 		.4byte	.LVL1-1
- 771 0008 0100     		.2byte	0x1
- 772 000a 50       		.byte	0x50
- 773 000b 00000000 		.4byte	0
- 774 000f 00000000 		.4byte	0
- 775              		.section	.debug_aranges,"",%progbits
- 776 0000 34000000 		.4byte	0x34
- 777 0004 0200     		.2byte	0x2
- 778 0006 00000000 		.4byte	.Ldebug_info0
- 779 000a 04       		.byte	0x4
- 780 000b 00       		.byte	0
- 781 000c 0000     		.2byte	0
- 782 000e 0000     		.2byte	0
- 783 0010 00000000 		.4byte	.LFB0
- 784 0014 7C000000 		.4byte	.LFE0-.LFB0
- 785 0018 00000000 		.4byte	.LFB1
- 786 001c 10000000 		.4byte	.LFE1-.LFB1
- 787 0020 00000000 		.4byte	.LFB2
- 788 0024 28000000 		.4byte	.LFE2-.LFB2
- 789 0028 00000000 		.4byte	.LFB3
- 790 002c 40000000 		.4byte	.LFE3-.LFB3
- 791 0030 00000000 		.4byte	0
- 792 0034 00000000 		.4byte	0
- 793              		.section	.debug_ranges,"",%progbits
- 794              	.Ldebug_ranges0:
- 795 0000 00000000 		.4byte	.LFB0
- 796 0004 7C000000 		.4byte	.LFE0
- 797 0008 00000000 		.4byte	.LFB1
- 798 000c 10000000 		.4byte	.LFE1
- 799 0010 00000000 		.4byte	.LFB2
- 800 0014 28000000 		.4byte	.LFE2
- 801 0018 00000000 		.4byte	.LFB3
- 802 001c 40000000 		.4byte	.LFE3
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 20
-
-
- 803 0020 00000000 		.4byte	0
- 804 0024 00000000 		.4byte	0
- 805              		.section	.debug_line,"",%progbits
- 806              	.Ldebug_line0:
- 807 0000 D5000000 		.section	.debug_str,"MS",%progbits,1
- 807      02006800 
- 807      00000201 
- 807      FB0E0D00 
- 807      01010101 
- 808              	.LASF26:
- 809 0000 4C45445F 		.ascii	"LED_Driver2_mstrWrBufIndex\000"
- 809      44726976 
- 809      6572325F 
- 809      6D737472 
- 809      57724275 
- 810              	.LASF15:
- 811 001b 72656733 		.ascii	"reg32\000"
- 811      3200
- 812              	.LASF18:
- 813 0021 4C45445F 		.ascii	"LED_Driver2_Init\000"
- 813      44726976 
- 813      6572325F 
- 813      496E6974 
- 813      00
- 814              	.LASF29:
- 815 0032 4379496E 		.ascii	"CyIntSetVector\000"
- 815      74536574 
- 815      56656374 
- 815      6F7200
- 816              	.LASF3:
- 817 0041 73686F72 		.ascii	"short unsigned int\000"
- 817      7420756E 
- 817      7369676E 
- 817      65642069 
- 817      6E7400
- 818              	.LASF23:
- 819 0054 4C45445F 		.ascii	"LED_Driver2_state\000"
- 819      44726976 
- 819      6572325F 
- 819      73746174 
- 819      6500
- 820              	.LASF22:
- 821 0066 4C45445F 		.ascii	"LED_Driver2_initVar\000"
- 821      44726976 
- 821      6572325F 
- 821      696E6974 
- 821      56617200 
- 822              	.LASF31:
- 823 007a 47656E65 		.ascii	"Generated_Source\\PSoC5\\LED_Driver2.c\000"
- 823      72617465 
- 823      645F536F 
- 823      75726365 
- 823      5C50536F 
- 824              	.LASF11:
- 825 009f 666C6F61 		.ascii	"float\000"
- 825      7400
- 826              	.LASF7:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 21
-
-
- 827 00a5 6C6F6E67 		.ascii	"long long unsigned int\000"
- 827      206C6F6E 
- 827      6720756E 
- 827      7369676E 
- 827      65642069 
- 828              	.LASF1:
- 829 00bc 756E7369 		.ascii	"unsigned char\000"
- 829      676E6564 
- 829      20636861 
- 829      7200
- 830              	.LASF14:
- 831 00ca 72656738 		.ascii	"reg8\000"
- 831      00
- 832              	.LASF25:
- 833 00cf 4C45445F 		.ascii	"LED_Driver2_mstrRdBufIndex\000"
- 833      44726976 
- 833      6572325F 
- 833      6D737472 
- 833      52644275 
- 834              	.LASF5:
- 835 00ea 6C6F6E67 		.ascii	"long unsigned int\000"
- 835      20756E73 
- 835      69676E65 
- 835      6420696E 
- 835      7400
- 836              	.LASF9:
- 837 00fc 75696E74 		.ascii	"uint8\000"
- 837      3800
- 838              	.LASF21:
- 839 0102 4C45445F 		.ascii	"LED_Driver2_Stop\000"
- 839      44726976 
- 839      6572325F 
- 839      53746F70 
- 839      00
- 840              	.LASF12:
- 841 0113 646F7562 		.ascii	"double\000"
- 841      6C6500
- 842              	.LASF19:
- 843 011a 4C45445F 		.ascii	"LED_Driver2_Start\000"
- 843      44726976 
- 843      6572325F 
- 843      53746172 
- 843      7400
- 844              	.LASF10:
- 845 012c 75696E74 		.ascii	"uint32\000"
- 845      333200
- 846              	.LASF30:
- 847 0133 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 847      4320342E 
- 847      392E3320 
- 847      32303135 
- 847      30333033 
- 848 0166 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 848      20726576 
- 848      6973696F 
- 848      6E203232 
- 848      31323230 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 22
-
-
- 849 0199 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 849      66756E63 
- 849      74696F6E 
- 849      2D736563 
- 849      74696F6E 
- 850              	.LASF33:
- 851 01c1 696E7453 		.ascii	"intState\000"
- 851      74617465 
- 851      00
- 852              	.LASF8:
- 853 01ca 756E7369 		.ascii	"unsigned int\000"
- 853      676E6564 
- 853      20696E74 
- 853      00
- 854              	.LASF27:
- 855 01d7 43794578 		.ascii	"CyExitCriticalSection\000"
- 855      69744372 
- 855      69746963 
- 855      616C5365 
- 855      6374696F 
- 856              	.LASF28:
- 857 01ed 4379496E 		.ascii	"CyIntSetPriority\000"
- 857      74536574 
- 857      5072696F 
- 857      72697479 
- 857      00
- 858              	.LASF34:
- 859 01fe 4379456E 		.ascii	"CyEnterCriticalSection\000"
- 859      74657243 
- 859      72697469 
- 859      63616C53 
- 859      65637469 
- 860              	.LASF16:
- 861 0215 63796973 		.ascii	"cyisraddress\000"
- 861      72616464 
- 861      72657373 
- 861      00
- 862              	.LASF17:
- 863 0222 73697A65 		.ascii	"sizetype\000"
- 863      74797065 
- 863      00
- 864              	.LASF6:
- 865 022b 6C6F6E67 		.ascii	"long long int\000"
- 865      206C6F6E 
- 865      6720696E 
- 865      7400
- 866              	.LASF13:
- 867 0239 63686172 		.ascii	"char\000"
- 867      00
- 868              	.LASF2:
- 869 023e 73686F72 		.ascii	"short int\000"
- 869      7420696E 
- 869      7400
- 870              	.LASF4:
- 871 0248 6C6F6E67 		.ascii	"long int\000"
- 871      20696E74 
- 871      00
-ARM GAS  D:\Windows\AppData\Local\Temp\ccKoXaCI.s 			page 23
-
-
- 872              	.LASF32:
- 873 0251 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
- 873      6F776E6C 
- 873      6F616473 
- 873      5C465255 
- 873      43445C4E 
- 874 027f 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
- 874      67756172 
- 874      2E637964 
- 874      736E00
- 875              	.LASF0:
- 876 028e 7369676E 		.ascii	"signed char\000"
- 876      65642063 
- 876      68617200 
- 877              	.LASF20:
- 878 029a 4C45445F 		.ascii	"LED_Driver2_Enable\000"
- 878      44726976 
- 878      6572325F 
- 878      456E6162 
- 878      6C6500
- 879              	.LASF24:
- 880 02ad 4C45445F 		.ascii	"LED_Driver2_mstrStatus\000"
- 880      44726976 
- 880      6572325F 
- 880      6D737472 
- 880      53746174 
- 881              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 721              	.LASF6:
+ 722 01d1 6C6F6E67 		.ascii	"long long int\000"
+ 722      206C6F6E 
+ 722      6720696E 
+ 722      7400
+ 723              	.LASF13:
+ 724 01df 63686172 		.ascii	"char\000"
+ 724      00
+ 725              	.LASF2:
+ 726 01e4 73686F72 		.ascii	"short int\000"
+ 726      7420696E 
+ 726      7400
+ 727              	.LASF4:
+ 728 01ee 6C6F6E67 		.ascii	"long int\000"
+ 728      20696E74 
+ 728      00
+ 729              	.LASF27:
+ 730 01f7 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 730      6F776E6C 
+ 730      6F616473 
+ 730      5C465255 
+ 730      43445C4E 
+ 731 0225 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 731      67756172 
+ 731      2E637964 
+ 731      736E00
+ 732              	.LASF0:
+ 733 0234 7369676E 		.ascii	"signed char\000"
+ 733      65642063 
+ 733      68617200 
+ 734              	.LASF17:
+ 735 0240 4C45445F 		.ascii	"LED_Driver2_Enable\000"
+ 735      44726976 
+ 735      6572325F 
+ 735      456E6162 
+ 735      6C6500
+ 736              	.LASF22:
+ 737 0253 4C45445F 		.ascii	"LED_Driver2_mstrStatus\000"
+ 737      44726976 
+ 737      6572325F 
+ 737      6D737472 
+ 737      53746174 
+ 738              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

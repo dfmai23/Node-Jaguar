@@ -2,7 +2,7 @@
 --	Conversion of Node-Jaguar.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Jun 20 13:38:28 2017
+--	Wed Oct 11 09:08:20 2017
 --
 
 USE cypress.cypress.all;
@@ -79,15 +79,6 @@ SIGNAL \CAN_Timer:Net_57\ : bit;
 SIGNAL Net_47 : bit;
 SIGNAL Net_52 : bit;
 SIGNAL \CAN_Timer:Net_102\ : bit;
-SIGNAL Net_56 : bit;
-SIGNAL \Node_Timer:Net_260\ : bit;
-SIGNAL \Node_Timer:Net_266\ : bit;
-SIGNAL \Node_Timer:Net_51\ : bit;
-SIGNAL \Node_Timer:Net_261\ : bit;
-SIGNAL \Node_Timer:Net_57\ : bit;
-SIGNAL Net_57 : bit;
-SIGNAL Net_62 : bit;
-SIGNAL \Node_Timer:Net_102\ : bit;
 SIGNAL tmpOE__SDA_1_net_0 : bit;
 SIGNAL tmpFB_0__SDA_1_net_0 : bit;
 SIGNAL Net_73 : bit;
@@ -1791,8 +1782,8 @@ tmpOE__RX_net_0 <=  ('1') ;
 \LED_Driver1:bI2C_UDB:m_state_0\\D\ <= ((not \LED_Driver1:bI2C_UDB:control_5\ and not \LED_Driver1:bI2C_UDB:m_state_2\ and not \LED_Driver1:bI2C_UDB:m_state_1\ and not \LED_Driver1:bI2C_UDB:m_state_0\ and not \LED_Driver1:bI2C_UDB:m_reset\ and not \LED_Driver1:bI2C_UDB:lost_arb2_reg\ and \LED_Driver1:bI2C_UDB:control_4\ and \LED_Driver1:bI2C_UDB:m_state_3\ and \LED_Driver1:bI2C_UDB:clkgen_tc1_reg\)
 	OR (not \LED_Driver1:bI2C_UDB:m_state_4\ and not \LED_Driver1:bI2C_UDB:m_reset\ and \LED_Driver1:bI2C_UDB:m_state_3\ and \LED_Driver1:bI2C_UDB:m_state_2\ and \LED_Driver1:bI2C_UDB:m_state_1\ and \LED_Driver1:bI2C_UDB:clkgen_tc1_reg\)
 	OR (not \LED_Driver1:bI2C_UDB:m_state_3\ and not \LED_Driver1:bI2C_UDB:m_state_2\ and not \LED_Driver1:bI2C_UDB:m_state_0\ and not \LED_Driver1:bI2C_UDB:m_reset\ and \LED_Driver1:bI2C_UDB:control_7\ and \LED_Driver1:bI2C_UDB:m_state_1\ and \LED_Driver1:bI2C_UDB:clkgen_tc1_reg\)
-	OR (not \LED_Driver1:bI2C_UDB:m_state_3\ and not \LED_Driver1:bI2C_UDB:m_state_1\ and not \LED_Driver1:bI2C_UDB:m_state_0\ and not \LED_Driver1:bI2C_UDB:m_reset\ and \LED_Driver1:bI2C_UDB:m_state_2\ and \LED_Driver1:bI2C_UDB:clkgen_tc1_reg\)
 	OR (not \LED_Driver1:bI2C_UDB:tx_reg_empty\ and not \LED_Driver1:bI2C_UDB:m_state_3\ and not \LED_Driver1:bI2C_UDB:m_state_1\ and not \LED_Driver1:bI2C_UDB:m_state_0\ and not \LED_Driver1:bI2C_UDB:m_reset\ and \LED_Driver1:bI2C_UDB:clkgen_tc1_reg\)
+	OR (not \LED_Driver1:bI2C_UDB:m_state_3\ and not \LED_Driver1:bI2C_UDB:m_state_1\ and not \LED_Driver1:bI2C_UDB:m_state_0\ and not \LED_Driver1:bI2C_UDB:m_reset\ and \LED_Driver1:bI2C_UDB:m_state_2\ and \LED_Driver1:bI2C_UDB:clkgen_tc1_reg\)
 	OR (not \LED_Driver1:bI2C_UDB:m_state_4\ and not \LED_Driver1:bI2C_UDB:m_reset\ and not \LED_Driver1:bI2C_UDB:lost_arb_reg\ and \LED_Driver1:bI2C_UDB:control_6\ and \LED_Driver1:bI2C_UDB:m_state_2\ and \LED_Driver1:bI2C_UDB:m_state_1\ and \LED_Driver1:bI2C_UDB:m_state_0\)
 	OR (not \LED_Driver1:bI2C_UDB:m_state_4\ and not \LED_Driver1:bI2C_UDB:m_reset\ and \LED_Driver1:bI2C_UDB:tx_reg_empty\ and \LED_Driver1:bI2C_UDB:m_state_2\ and \LED_Driver1:bI2C_UDB:m_state_1\ and \LED_Driver1:bI2C_UDB:m_state_0\)
 	OR (not \LED_Driver1:bI2C_UDB:m_state_2\ and not \LED_Driver1:bI2C_UDB:m_state_1\ and not \LED_Driver1:bI2C_UDB:m_reset\ and \LED_Driver1:bI2C_UDB:m_state_4\ and \LED_Driver1:bI2C_UDB:m_state_3\ and \LED_Driver1:bI2C_UDB:m_state_0\)
@@ -1956,8 +1947,8 @@ tmpOE__RX_net_0 <=  ('1') ;
 \LED_Driver2:bI2C_UDB:m_state_0\\D\ <= ((not \LED_Driver2:bI2C_UDB:control_5\ and not \LED_Driver2:bI2C_UDB:m_state_2\ and not \LED_Driver2:bI2C_UDB:m_state_1\ and not \LED_Driver2:bI2C_UDB:m_state_0\ and not \LED_Driver2:bI2C_UDB:m_reset\ and not \LED_Driver2:bI2C_UDB:lost_arb2_reg\ and \LED_Driver2:bI2C_UDB:control_4\ and \LED_Driver2:bI2C_UDB:m_state_3\ and \LED_Driver2:bI2C_UDB:clkgen_tc1_reg\)
 	OR (not \LED_Driver2:bI2C_UDB:m_state_4\ and not \LED_Driver2:bI2C_UDB:m_reset\ and \LED_Driver2:bI2C_UDB:m_state_3\ and \LED_Driver2:bI2C_UDB:m_state_2\ and \LED_Driver2:bI2C_UDB:m_state_1\ and \LED_Driver2:bI2C_UDB:clkgen_tc1_reg\)
 	OR (not \LED_Driver2:bI2C_UDB:m_state_3\ and not \LED_Driver2:bI2C_UDB:m_state_2\ and not \LED_Driver2:bI2C_UDB:m_state_0\ and not \LED_Driver2:bI2C_UDB:m_reset\ and \LED_Driver2:bI2C_UDB:control_7\ and \LED_Driver2:bI2C_UDB:m_state_1\ and \LED_Driver2:bI2C_UDB:clkgen_tc1_reg\)
-	OR (not \LED_Driver2:bI2C_UDB:m_state_3\ and not \LED_Driver2:bI2C_UDB:m_state_1\ and not \LED_Driver2:bI2C_UDB:m_state_0\ and not \LED_Driver2:bI2C_UDB:m_reset\ and \LED_Driver2:bI2C_UDB:m_state_2\ and \LED_Driver2:bI2C_UDB:clkgen_tc1_reg\)
 	OR (not \LED_Driver2:bI2C_UDB:tx_reg_empty\ and not \LED_Driver2:bI2C_UDB:m_state_3\ and not \LED_Driver2:bI2C_UDB:m_state_1\ and not \LED_Driver2:bI2C_UDB:m_state_0\ and not \LED_Driver2:bI2C_UDB:m_reset\ and \LED_Driver2:bI2C_UDB:clkgen_tc1_reg\)
+	OR (not \LED_Driver2:bI2C_UDB:m_state_3\ and not \LED_Driver2:bI2C_UDB:m_state_1\ and not \LED_Driver2:bI2C_UDB:m_state_0\ and not \LED_Driver2:bI2C_UDB:m_reset\ and \LED_Driver2:bI2C_UDB:m_state_2\ and \LED_Driver2:bI2C_UDB:clkgen_tc1_reg\)
 	OR (not \LED_Driver2:bI2C_UDB:m_state_4\ and not \LED_Driver2:bI2C_UDB:m_reset\ and not \LED_Driver2:bI2C_UDB:lost_arb_reg\ and \LED_Driver2:bI2C_UDB:control_6\ and \LED_Driver2:bI2C_UDB:m_state_2\ and \LED_Driver2:bI2C_UDB:m_state_1\ and \LED_Driver2:bI2C_UDB:m_state_0\)
 	OR (not \LED_Driver2:bI2C_UDB:m_state_4\ and not \LED_Driver2:bI2C_UDB:m_reset\ and \LED_Driver2:bI2C_UDB:tx_reg_empty\ and \LED_Driver2:bI2C_UDB:m_state_2\ and \LED_Driver2:bI2C_UDB:m_state_1\ and \LED_Driver2:bI2C_UDB:m_state_0\)
 	OR (not \LED_Driver2:bI2C_UDB:m_state_2\ and not \LED_Driver2:bI2C_UDB:m_state_1\ and not \LED_Driver2:bI2C_UDB:m_reset\ and \LED_Driver2:bI2C_UDB:m_state_4\ and \LED_Driver2:bI2C_UDB:m_state_3\ and \LED_Driver2:bI2C_UDB:m_state_0\)
@@ -2778,20 +2769,6 @@ timer_clk:cy_clock_v1_0
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_103,
 		dig_domain_out=>open);
-\Node_Timer:TimerHW\:cy_psoc3_timer_v1_0
-	GENERIC MAP(cy_registers=>"")
-	PORT MAP(clock=>Net_103,
-		kill=>zero,
-		enable=>tmpOE__RX_net_0,
-		capture=>zero,
-		timer_reset=>zero,
-		tc=>\Node_Timer:Net_51\,
-		compare=>\Node_Timer:Net_261\,
-		interrupt=>Net_57);
-isr_nodeok:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_57);
 SDA_1:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"22863ebe-a37b-476f-b252-6e49a8c00b12",
 		drive_mode=>"100",

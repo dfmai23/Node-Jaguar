@@ -1,9 +1,9 @@
 
 #include <project.h>
 
-#define MAX_RPM		    6000	//motor rpm
+#define MAX_RPM		    6000	//motor rpm 0x7FFF
 #define TACH_MAX_STEPS	20	//number of led's to use
-#define TACH_STEP_DELAY 50
+#define TACH_STEP_DELAY 20
 //datasheet for address descriptions
 //i2c addresses for led driver
 #define LED_ADDR	0x40		//master address 100 0000, same addr for both drivers, diff pins
@@ -31,8 +31,8 @@ CY_ISR_PROTO(c1_crit_isr);
 void led_driver_init();
 void led_write_tach(uint16_t MTR_RPM);
 void led_write_b1(uint8_t BMS_TEMP);	//left vertical bar
-void led_write_b2(uint8_t MTR_TEMP);	//center vertical bar
-void led_write_b3(uint8_t MTR_CTRL_TEMP);	//right vertical bar
+void led_write_b2(uint16_t MTR_TEMP_raw);	//center vertical bar
+void led_write_b3(uint16_t MTR_CTRL_TEMP_raw);	//right vertical bar
 void led_write_c1(uint8_t SoC);	        //horizontal bar
 void led_update_tach();
 void led_update_stat();

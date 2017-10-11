@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 1
 
 
    1              		.syntax unified
@@ -10,7 +10,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 6
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 1
   29:Generated_Source\PSoC5/Drive.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/Drive.c **** *  and shifting the bits appropriately. 
   31:Generated_Source\PSoC5/Drive.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 2
 
 
   32:Generated_Source\PSoC5/Drive.c **** * The data output register controls the signal applied to the physical pin in 
@@ -90,42 +90,64 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 1
   58:Generated_Source\PSoC5/Drive.c **** {
   27              		.loc 1 58 0
   28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  29              		@ args = 0, pretend = 0, frame = 16
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
   31              		@ link register save eliminated.
-  32              	.LVL0:
+  32 0000 80B4     		push	{r7}
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 7, -4
+  35 0002 85B0     		sub	sp, sp, #20
+  36              		.cfi_def_cfa_offset 24
+  37 0004 00AF     		add	r7, sp, #0
+  38              		.cfi_def_cfa_register 7
+  39 0006 0346     		mov	r3, r0
+  40 0008 FB71     		strb	r3, [r7, #7]
   59:Generated_Source\PSoC5/Drive.c ****     uint8 staticBits = (Drive_DR & (uint8)(~Drive_MASK));
-  33              		.loc 1 59 0
-  34 0000 044A     		ldr	r2, .L2
-  35 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  36 0004 03F0FE03 		and	r3, r3, #254
-  37              	.LVL1:
+  41              		.loc 1 59 0
+  42 000a 0A4B     		ldr	r3, .L2
+  43 000c 1B78     		ldrb	r3, [r3]
+  44 000e DBB2     		uxtb	r3, r3
+  45 0010 23F00103 		bic	r3, r3, #1
+  46 0014 FB73     		strb	r3, [r7, #15]
   60:Generated_Source\PSoC5/Drive.c ****     Drive_DR = staticBits | ((uint8)(value << Drive_SHIFT) & Drive_MASK);
-  38              		.loc 1 60 0
-  39 0008 00F00100 		and	r0, r0, #1
-  40              	.LVL2:
-  41 000c 1843     		orrs	r0, r0, r3
-  42 000e 1070     		strb	r0, [r2]
-  43 0010 7047     		bx	lr
-  44              	.L3:
-  45 0012 00BF     		.align	2
-  46              	.L2:
-  47 0014 30510040 		.word	1073762608
-  48              		.cfi_endproc
-  49              	.LFE0:
-  50              		.size	Drive_Write, .-Drive_Write
-  51              		.section	.text.Drive_SetDriveMode,"ax",%progbits
-  52              		.align	2
-  53              		.global	Drive_SetDriveMode
-  54              		.thumb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 3
+  47              		.loc 1 60 0
+  48 0016 0749     		ldr	r1, .L2
+  49 0018 FB79     		ldrb	r3, [r7, #7]
+  50 001a 03F00103 		and	r3, r3, #1
+  51 001e DAB2     		uxtb	r2, r3
+  52 0020 FB7B     		ldrb	r3, [r7, #15]
+  53 0022 1343     		orrs	r3, r3, r2
+  54 0024 DBB2     		uxtb	r3, r3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 3
 
 
-  55              		.thumb_func
-  56              		.type	Drive_SetDriveMode, %function
-  57              	Drive_SetDriveMode:
-  58              	.LFB1:
+  55 0026 0B70     		strb	r3, [r1]
   61:Generated_Source\PSoC5/Drive.c **** }
+  56              		.loc 1 61 0
+  57 0028 1437     		adds	r7, r7, #20
+  58              		.cfi_def_cfa_offset 4
+  59 002a BD46     		mov	sp, r7
+  60              		.cfi_def_cfa_register 13
+  61              		@ sp needed
+  62 002c 5DF8047B 		ldr	r7, [sp], #4
+  63              		.cfi_restore 7
+  64              		.cfi_def_cfa_offset 0
+  65 0030 7047     		bx	lr
+  66              	.L3:
+  67 0032 00BF     		.align	2
+  68              	.L2:
+  69 0034 30510040 		.word	1073762608
+  70              		.cfi_endproc
+  71              	.LFE0:
+  72              		.size	Drive_Write, .-Drive_Write
+  73              		.section	.text.Drive_SetDriveMode,"ax",%progbits
+  74              		.align	2
+  75              		.global	Drive_SetDriveMode
+  76              		.thumb
+  77              		.thumb_func
+  78              		.type	Drive_SetDriveMode, %function
+  79              	Drive_SetDriveMode:
+  80              	.LFB1:
   62:Generated_Source\PSoC5/Drive.c **** 
   63:Generated_Source\PSoC5/Drive.c **** 
   64:Generated_Source\PSoC5/Drive.c **** /*******************************************************************************
@@ -156,42 +178,69 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 1
   89:Generated_Source\PSoC5/Drive.c **** *******************************************************************************/
   90:Generated_Source\PSoC5/Drive.c **** void Drive_SetDriveMode(uint8 mode)
   91:Generated_Source\PSoC5/Drive.c **** {
-  59              		.loc 1 91 0
-  60              		.cfi_startproc
-  61              		@ args = 0, pretend = 0, frame = 0
-  62              		@ frame_needed = 0, uses_anonymous_args = 0
-  63              		@ link register save eliminated.
-  64              	.LVL3:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 4
+
+
+  81              		.loc 1 91 0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 8
+  84              		@ frame_needed = 1, uses_anonymous_args = 0
+  85              		@ link register save eliminated.
+  86 0000 80B4     		push	{r7}
+  87              		.cfi_def_cfa_offset 4
+  88              		.cfi_offset 7, -4
+  89 0002 83B0     		sub	sp, sp, #12
+  90              		.cfi_def_cfa_offset 16
+  91 0004 00AF     		add	r7, sp, #0
+  92              		.cfi_def_cfa_register 7
+  93 0006 0346     		mov	r3, r0
+  94 0008 FB71     		strb	r3, [r7, #7]
   92:Generated_Source\PSoC5/Drive.c **** 	CyPins_SetPinDriveMode(Drive_0, mode);
-  65              		.loc 1 92 0
-  66 0000 044A     		ldr	r2, .L5
-  67 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  68 0004 03F0F103 		and	r3, r3, #241
-  69 0008 00F00E00 		and	r0, r0, #14
-  70              	.LVL4:
-  71 000c 1843     		orrs	r0, r0, r3
-  72 000e 1070     		strb	r0, [r2]
-  73 0010 7047     		bx	lr
-  74              	.L6:
-  75 0012 00BF     		.align	2
-  76              	.L5:
-  77 0014 18500040 		.word	1073762328
-  78              		.cfi_endproc
-  79              	.LFE1:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 4
-
-
-  80              		.size	Drive_SetDriveMode, .-Drive_SetDriveMode
-  81              		.section	.text.Drive_Read,"ax",%progbits
-  82              		.align	2
-  83              		.global	Drive_Read
-  84              		.thumb
-  85              		.thumb_func
-  86              		.type	Drive_Read, %function
-  87              	Drive_Read:
-  88              	.LFB2:
+  95              		.loc 1 92 0
+  96 000a 0A4B     		ldr	r3, .L5
+  97 000c 094A     		ldr	r2, .L5
+  98 000e 1278     		ldrb	r2, [r2]
+  99 0010 D2B2     		uxtb	r2, r2
+ 100 0012 D2B2     		uxtb	r2, r2
+ 101 0014 22F00E02 		bic	r2, r2, #14
+ 102 0018 D1B2     		uxtb	r1, r2
+ 103 001a FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 104 001c 02F00E02 		and	r2, r2, #14
+ 105 0020 D2B2     		uxtb	r2, r2
+ 106 0022 0A43     		orrs	r2, r2, r1
+ 107 0024 D2B2     		uxtb	r2, r2
+ 108 0026 D2B2     		uxtb	r2, r2
+ 109 0028 1A70     		strb	r2, [r3]
   93:Generated_Source\PSoC5/Drive.c **** }
+ 110              		.loc 1 93 0
+ 111 002a 0C37     		adds	r7, r7, #12
+ 112              		.cfi_def_cfa_offset 4
+ 113 002c BD46     		mov	sp, r7
+ 114              		.cfi_def_cfa_register 13
+ 115              		@ sp needed
+ 116 002e 5DF8047B 		ldr	r7, [sp], #4
+ 117              		.cfi_restore 7
+ 118              		.cfi_def_cfa_offset 0
+ 119 0032 7047     		bx	lr
+ 120              	.L6:
+ 121              		.align	2
+ 122              	.L5:
+ 123 0034 18500040 		.word	1073762328
+ 124              		.cfi_endproc
+ 125              	.LFE1:
+ 126              		.size	Drive_SetDriveMode, .-Drive_SetDriveMode
+ 127              		.section	.text.Drive_Read,"ax",%progbits
+ 128              		.align	2
+ 129              		.global	Drive_Read
+ 130              		.thumb
+ 131              		.thumb_func
+ 132              		.type	Drive_Read, %function
+ 133              	Drive_Read:
+ 134              	.LFB2:
   94:Generated_Source\PSoC5/Drive.c **** 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 5
+
+
   95:Generated_Source\PSoC5/Drive.c **** 
   96:Generated_Source\PSoC5/Drive.c **** /*******************************************************************************
   97:Generated_Source\PSoC5/Drive.c **** * Function Name: Drive_Read
@@ -212,37 +261,51 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 1
  112:Generated_Source\PSoC5/Drive.c **** *******************************************************************************/
  113:Generated_Source\PSoC5/Drive.c **** uint8 Drive_Read(void)
  114:Generated_Source\PSoC5/Drive.c **** {
-  89              		.loc 1 114 0
-  90              		.cfi_startproc
-  91              		@ args = 0, pretend = 0, frame = 0
-  92              		@ frame_needed = 0, uses_anonymous_args = 0
-  93              		@ link register save eliminated.
+ 135              		.loc 1 114 0
+ 136              		.cfi_startproc
+ 137              		@ args = 0, pretend = 0, frame = 0
+ 138              		@ frame_needed = 1, uses_anonymous_args = 0
+ 139              		@ link register save eliminated.
+ 140 0000 80B4     		push	{r7}
+ 141              		.cfi_def_cfa_offset 4
+ 142              		.cfi_offset 7, -4
+ 143 0002 00AF     		add	r7, sp, #0
+ 144              		.cfi_def_cfa_register 7
  115:Generated_Source\PSoC5/Drive.c ****     return (Drive_PS & Drive_MASK) >> Drive_SHIFT;
-  94              		.loc 1 115 0
-  95 0000 024B     		ldr	r3, .L8
-  96 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 145              		.loc 1 115 0
+ 146 0004 054B     		ldr	r3, .L9
+ 147 0006 1B78     		ldrb	r3, [r3]
+ 148 0008 DBB2     		uxtb	r3, r3
+ 149 000a 03F00103 		and	r3, r3, #1
+ 150 000e DBB2     		uxtb	r3, r3
  116:Generated_Source\PSoC5/Drive.c **** }
-  97              		.loc 1 116 0
-  98 0004 00F00100 		and	r0, r0, #1
-  99 0008 7047     		bx	lr
- 100              	.L9:
- 101 000a 00BF     		.align	2
- 102              	.L8:
- 103 000c 31510040 		.word	1073762609
- 104              		.cfi_endproc
- 105              	.LFE2:
- 106              		.size	Drive_Read, .-Drive_Read
- 107              		.section	.text.Drive_ReadDataReg,"ax",%progbits
- 108              		.align	2
- 109              		.global	Drive_ReadDataReg
- 110              		.thumb
- 111              		.thumb_func
- 112              		.type	Drive_ReadDataReg, %function
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 5
+ 151              		.loc 1 116 0
+ 152 0010 1846     		mov	r0, r3
+ 153 0012 BD46     		mov	sp, r7
+ 154              		.cfi_def_cfa_register 13
+ 155              		@ sp needed
+ 156 0014 5DF8047B 		ldr	r7, [sp], #4
+ 157              		.cfi_restore 7
+ 158              		.cfi_def_cfa_offset 0
+ 159 0018 7047     		bx	lr
+ 160              	.L10:
+ 161 001a 00BF     		.align	2
+ 162              	.L9:
+ 163 001c 31510040 		.word	1073762609
+ 164              		.cfi_endproc
+ 165              	.LFE2:
+ 166              		.size	Drive_Read, .-Drive_Read
+ 167              		.section	.text.Drive_ReadDataReg,"ax",%progbits
+ 168              		.align	2
+ 169              		.global	Drive_ReadDataReg
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 6
 
 
- 113              	Drive_ReadDataReg:
- 114              	.LFB3:
+ 170              		.thumb
+ 171              		.thumb_func
+ 172              		.type	Drive_ReadDataReg, %function
+ 173              	Drive_ReadDataReg:
+ 174              	.LFB3:
  117:Generated_Source\PSoC5/Drive.c **** 
  118:Generated_Source\PSoC5/Drive.c **** 
  119:Generated_Source\PSoC5/Drive.c **** /*******************************************************************************
@@ -269,523 +332,512 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 1
  140:Generated_Source\PSoC5/Drive.c **** *******************************************************************************/
  141:Generated_Source\PSoC5/Drive.c **** uint8 Drive_ReadDataReg(void)
  142:Generated_Source\PSoC5/Drive.c **** {
- 115              		.loc 1 142 0
- 116              		.cfi_startproc
- 117              		@ args = 0, pretend = 0, frame = 0
- 118              		@ frame_needed = 0, uses_anonymous_args = 0
- 119              		@ link register save eliminated.
+ 175              		.loc 1 142 0
+ 176              		.cfi_startproc
+ 177              		@ args = 0, pretend = 0, frame = 0
+ 178              		@ frame_needed = 1, uses_anonymous_args = 0
+ 179              		@ link register save eliminated.
+ 180 0000 80B4     		push	{r7}
+ 181              		.cfi_def_cfa_offset 4
+ 182              		.cfi_offset 7, -4
+ 183 0002 00AF     		add	r7, sp, #0
+ 184              		.cfi_def_cfa_register 7
  143:Generated_Source\PSoC5/Drive.c ****     return (Drive_DR & Drive_MASK) >> Drive_SHIFT;
- 120              		.loc 1 143 0
- 121 0000 024B     		ldr	r3, .L11
- 122 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 185              		.loc 1 143 0
+ 186 0004 054B     		ldr	r3, .L13
+ 187 0006 1B78     		ldrb	r3, [r3]
+ 188 0008 DBB2     		uxtb	r3, r3
+ 189 000a 03F00103 		and	r3, r3, #1
+ 190 000e DBB2     		uxtb	r3, r3
  144:Generated_Source\PSoC5/Drive.c **** }
- 123              		.loc 1 144 0
- 124 0004 00F00100 		and	r0, r0, #1
- 125 0008 7047     		bx	lr
- 126              	.L12:
- 127 000a 00BF     		.align	2
- 128              	.L11:
- 129 000c 30510040 		.word	1073762608
- 130              		.cfi_endproc
- 131              	.LFE3:
- 132              		.size	Drive_ReadDataReg, .-Drive_ReadDataReg
- 133              		.text
- 134              	.Letext0:
- 135              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
- 136              		.section	.debug_info,"",%progbits
- 137              	.Ldebug_info0:
- 138 0000 1B010000 		.4byte	0x11b
- 139 0004 0400     		.2byte	0x4
- 140 0006 00000000 		.4byte	.Ldebug_abbrev0
- 141 000a 04       		.byte	0x4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 6
+ 191              		.loc 1 144 0
+ 192 0010 1846     		mov	r0, r3
+ 193 0012 BD46     		mov	sp, r7
+ 194              		.cfi_def_cfa_register 13
+ 195              		@ sp needed
+ 196 0014 5DF8047B 		ldr	r7, [sp], #4
+ 197              		.cfi_restore 7
+ 198              		.cfi_def_cfa_offset 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 7
 
 
- 142 000b 01       		.uleb128 0x1
- 143 000c 80000000 		.4byte	.LASF20
- 144 0010 01       		.byte	0x1
- 145 0011 5C010000 		.4byte	.LASF21
- 146 0015 94010000 		.4byte	.LASF22
- 147 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 148 001d 00000000 		.4byte	0
- 149 0021 00000000 		.4byte	.Ldebug_line0
- 150 0025 02       		.uleb128 0x2
- 151 0026 01       		.byte	0x1
- 152 0027 06       		.byte	0x6
- 153 0028 D1010000 		.4byte	.LASF0
- 154 002c 02       		.uleb128 0x2
- 155 002d 01       		.byte	0x1
- 156 002e 08       		.byte	0x8
- 157 002f 35000000 		.4byte	.LASF1
- 158 0033 02       		.uleb128 0x2
- 159 0034 02       		.byte	0x2
- 160 0035 05       		.byte	0x5
- 161 0036 7B010000 		.4byte	.LASF2
- 162 003a 02       		.uleb128 0x2
- 163 003b 02       		.byte	0x2
- 164 003c 07       		.byte	0x7
- 165 003d 5A000000 		.4byte	.LASF3
- 166 0041 02       		.uleb128 0x2
- 167 0042 04       		.byte	0x4
- 168 0043 05       		.byte	0x5
- 169 0044 8B010000 		.4byte	.LASF4
- 170 0048 02       		.uleb128 0x2
- 171 0049 04       		.byte	0x4
- 172 004a 07       		.byte	0x7
- 173 004b 48000000 		.4byte	.LASF5
- 174 004f 02       		.uleb128 0x2
- 175 0050 08       		.byte	0x8
- 176 0051 05       		.byte	0x5
- 177 0052 37010000 		.4byte	.LASF6
- 178 0056 02       		.uleb128 0x2
- 179 0057 08       		.byte	0x8
- 180 0058 07       		.byte	0x7
- 181 0059 1B010000 		.4byte	.LASF7
- 182 005d 03       		.uleb128 0x3
- 183 005e 04       		.byte	0x4
- 184 005f 05       		.byte	0x5
- 185 0060 696E7400 		.ascii	"int\000"
- 186 0064 02       		.uleb128 0x2
- 187 0065 04       		.byte	0x4
- 188 0066 07       		.byte	0x7
- 189 0067 0E010000 		.4byte	.LASF8
- 190 006b 04       		.uleb128 0x4
- 191 006c 85010000 		.4byte	.LASF12
- 192 0070 02       		.byte	0x2
- 193 0071 3801     		.2byte	0x138
- 194 0073 2C000000 		.4byte	0x2c
- 195 0077 02       		.uleb128 0x2
- 196 0078 04       		.byte	0x4
- 197 0079 04       		.byte	0x4
- 198 007a 2F000000 		.4byte	.LASF9
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 7
+ 199 0018 7047     		bx	lr
+ 200              	.L14:
+ 201 001a 00BF     		.align	2
+ 202              	.L13:
+ 203 001c 30510040 		.word	1073762608
+ 204              		.cfi_endproc
+ 205              	.LFE3:
+ 206              		.size	Drive_ReadDataReg, .-Drive_ReadDataReg
+ 207              		.text
+ 208              	.Letext0:
+ 209              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
+ 210              		.section	.debug_info,"",%progbits
+ 211              	.Ldebug_info0:
+ 212 0000 1A010000 		.4byte	0x11a
+ 213 0004 0400     		.2byte	0x4
+ 214 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 215 000a 04       		.byte	0x4
+ 216 000b 01       		.uleb128 0x1
+ 217 000c 24000000 		.4byte	.LASF20
+ 218 0010 01       		.byte	0x1
+ 219 0011 5C010000 		.4byte	.LASF21
+ 220 0015 94010000 		.4byte	.LASF22
+ 221 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 222 001d 00000000 		.4byte	0
+ 223 0021 00000000 		.4byte	.Ldebug_line0
+ 224 0025 02       		.uleb128 0x2
+ 225 0026 01       		.byte	0x1
+ 226 0027 06       		.byte	0x6
+ 227 0028 D1010000 		.4byte	.LASF0
+ 228 002c 02       		.uleb128 0x2
+ 229 002d 01       		.byte	0x1
+ 230 002e 08       		.byte	0x8
+ 231 002f C3000000 		.4byte	.LASF1
+ 232 0033 02       		.uleb128 0x2
+ 233 0034 02       		.byte	0x2
+ 234 0035 05       		.byte	0x5
+ 235 0036 7B010000 		.4byte	.LASF2
+ 236 003a 02       		.uleb128 0x2
+ 237 003b 02       		.byte	0x2
+ 238 003c 07       		.byte	0x7
+ 239 003d E8000000 		.4byte	.LASF3
+ 240 0041 02       		.uleb128 0x2
+ 241 0042 04       		.byte	0x4
+ 242 0043 05       		.byte	0x5
+ 243 0044 8B010000 		.4byte	.LASF4
+ 244 0048 02       		.uleb128 0x2
+ 245 0049 04       		.byte	0x4
+ 246 004a 07       		.byte	0x7
+ 247 004b D6000000 		.4byte	.LASF5
+ 248 004f 02       		.uleb128 0x2
+ 249 0050 08       		.byte	0x8
+ 250 0051 05       		.byte	0x5
+ 251 0052 37010000 		.4byte	.LASF6
+ 252 0056 02       		.uleb128 0x2
+ 253 0057 08       		.byte	0x8
+ 254 0058 07       		.byte	0x7
+ 255 0059 1B010000 		.4byte	.LASF7
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 8
 
 
- 199 007e 02       		.uleb128 0x2
- 200 007f 08       		.byte	0x8
- 201 0080 04       		.byte	0x4
- 202 0081 6D000000 		.4byte	.LASF10
- 203 0085 02       		.uleb128 0x2
- 204 0086 01       		.byte	0x1
- 205 0087 08       		.byte	0x8
- 206 0088 45010000 		.4byte	.LASF11
- 207 008c 04       		.uleb128 0x4
- 208 008d 43000000 		.4byte	.LASF13
- 209 0091 02       		.byte	0x2
- 210 0092 E201     		.2byte	0x1e2
- 211 0094 98000000 		.4byte	0x98
- 212 0098 05       		.uleb128 0x5
- 213 0099 6B000000 		.4byte	0x6b
- 214 009d 06       		.uleb128 0x6
- 215 009e 74000000 		.4byte	.LASF14
- 216 00a2 01       		.byte	0x1
- 217 00a3 39       		.byte	0x39
- 218 00a4 00000000 		.4byte	.LFB0
- 219 00a8 18000000 		.4byte	.LFE0-.LFB0
- 220 00ac 01       		.uleb128 0x1
- 221 00ad 9C       		.byte	0x9c
- 222 00ae CF000000 		.4byte	0xcf
- 223 00b2 07       		.uleb128 0x7
- 224 00b3 00000000 		.4byte	.LASF16
- 225 00b7 01       		.byte	0x1
- 226 00b8 39       		.byte	0x39
- 227 00b9 6B000000 		.4byte	0x6b
- 228 00bd 00000000 		.4byte	.LLST0
- 229 00c1 08       		.uleb128 0x8
- 230 00c2 06000000 		.4byte	.LASF23
- 231 00c6 01       		.byte	0x1
- 232 00c7 3B       		.byte	0x3b
- 233 00c8 6B000000 		.4byte	0x6b
- 234 00cc 01       		.uleb128 0x1
- 235 00cd 53       		.byte	0x53
- 236 00ce 00       		.byte	0
- 237 00cf 06       		.uleb128 0x6
- 238 00d0 11000000 		.4byte	.LASF15
- 239 00d4 01       		.byte	0x1
- 240 00d5 5A       		.byte	0x5a
- 241 00d6 00000000 		.4byte	.LFB1
- 242 00da 18000000 		.4byte	.LFE1-.LFB1
- 243 00de 01       		.uleb128 0x1
- 244 00df 9C       		.byte	0x9c
- 245 00e0 F4000000 		.4byte	0xf4
- 246 00e4 07       		.uleb128 0x7
- 247 00e5 32010000 		.4byte	.LASF17
- 248 00e9 01       		.byte	0x1
- 249 00ea 5A       		.byte	0x5a
- 250 00eb 6B000000 		.4byte	0x6b
- 251 00ef 21000000 		.4byte	.LLST1
- 252 00f3 00       		.byte	0
- 253 00f4 09       		.uleb128 0x9
- 254 00f5 24000000 		.4byte	.LASF18
- 255 00f9 01       		.byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 8
+ 256 005d 03       		.uleb128 0x3
+ 257 005e 04       		.byte	0x4
+ 258 005f 05       		.byte	0x5
+ 259 0060 696E7400 		.ascii	"int\000"
+ 260 0064 02       		.uleb128 0x2
+ 261 0065 04       		.byte	0x4
+ 262 0066 07       		.byte	0x7
+ 263 0067 0E010000 		.4byte	.LASF8
+ 264 006b 04       		.uleb128 0x4
+ 265 006c 85010000 		.4byte	.LASF12
+ 266 0070 02       		.byte	0x2
+ 267 0071 3801     		.2byte	0x138
+ 268 0073 2C000000 		.4byte	0x2c
+ 269 0077 02       		.uleb128 0x2
+ 270 0078 04       		.byte	0x4
+ 271 0079 04       		.byte	0x4
+ 272 007a BD000000 		.4byte	.LASF9
+ 273 007e 02       		.uleb128 0x2
+ 274 007f 08       		.byte	0x8
+ 275 0080 04       		.byte	0x4
+ 276 0081 FB000000 		.4byte	.LASF10
+ 277 0085 02       		.uleb128 0x2
+ 278 0086 01       		.byte	0x1
+ 279 0087 08       		.byte	0x8
+ 280 0088 45010000 		.4byte	.LASF11
+ 281 008c 04       		.uleb128 0x4
+ 282 008d D1000000 		.4byte	.LASF13
+ 283 0091 02       		.byte	0x2
+ 284 0092 E201     		.2byte	0x1e2
+ 285 0094 98000000 		.4byte	0x98
+ 286 0098 05       		.uleb128 0x5
+ 287 0099 6B000000 		.4byte	0x6b
+ 288 009d 06       		.uleb128 0x6
+ 289 009e 02010000 		.4byte	.LASF14
+ 290 00a2 01       		.byte	0x1
+ 291 00a3 39       		.byte	0x39
+ 292 00a4 00000000 		.4byte	.LFB0
+ 293 00a8 38000000 		.4byte	.LFE0-.LFB0
+ 294 00ac 01       		.uleb128 0x1
+ 295 00ad 9C       		.byte	0x9c
+ 296 00ae CF000000 		.4byte	0xcf
+ 297 00b2 07       		.uleb128 0x7
+ 298 00b3 00000000 		.4byte	.LASF16
+ 299 00b7 01       		.byte	0x1
+ 300 00b8 39       		.byte	0x39
+ 301 00b9 6B000000 		.4byte	0x6b
+ 302 00bd 02       		.uleb128 0x2
+ 303 00be 91       		.byte	0x91
+ 304 00bf 6F       		.sleb128 -17
+ 305 00c0 08       		.uleb128 0x8
+ 306 00c1 06000000 		.4byte	.LASF23
+ 307 00c5 01       		.byte	0x1
+ 308 00c6 3B       		.byte	0x3b
+ 309 00c7 6B000000 		.4byte	0x6b
+ 310 00cb 02       		.uleb128 0x2
+ 311 00cc 91       		.byte	0x91
+ 312 00cd 77       		.sleb128 -9
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 9
 
 
- 256 00fa 71       		.byte	0x71
- 257 00fb 6B000000 		.4byte	0x6b
- 258 00ff 00000000 		.4byte	.LFB2
- 259 0103 10000000 		.4byte	.LFE2-.LFB2
- 260 0107 01       		.uleb128 0x1
- 261 0108 9C       		.byte	0x9c
- 262 0109 09       		.uleb128 0x9
- 263 010a 4A010000 		.4byte	.LASF19
- 264 010e 01       		.byte	0x1
- 265 010f 8D       		.byte	0x8d
- 266 0110 6B000000 		.4byte	0x6b
- 267 0114 00000000 		.4byte	.LFB3
- 268 0118 10000000 		.4byte	.LFE3-.LFB3
- 269 011c 01       		.uleb128 0x1
- 270 011d 9C       		.byte	0x9c
- 271 011e 00       		.byte	0
- 272              		.section	.debug_abbrev,"",%progbits
- 273              	.Ldebug_abbrev0:
- 274 0000 01       		.uleb128 0x1
- 275 0001 11       		.uleb128 0x11
- 276 0002 01       		.byte	0x1
- 277 0003 25       		.uleb128 0x25
- 278 0004 0E       		.uleb128 0xe
- 279 0005 13       		.uleb128 0x13
- 280 0006 0B       		.uleb128 0xb
- 281 0007 03       		.uleb128 0x3
- 282 0008 0E       		.uleb128 0xe
- 283 0009 1B       		.uleb128 0x1b
- 284 000a 0E       		.uleb128 0xe
- 285 000b 55       		.uleb128 0x55
- 286 000c 17       		.uleb128 0x17
- 287 000d 11       		.uleb128 0x11
- 288 000e 01       		.uleb128 0x1
- 289 000f 10       		.uleb128 0x10
- 290 0010 17       		.uleb128 0x17
- 291 0011 00       		.byte	0
- 292 0012 00       		.byte	0
- 293 0013 02       		.uleb128 0x2
- 294 0014 24       		.uleb128 0x24
- 295 0015 00       		.byte	0
- 296 0016 0B       		.uleb128 0xb
- 297 0017 0B       		.uleb128 0xb
- 298 0018 3E       		.uleb128 0x3e
- 299 0019 0B       		.uleb128 0xb
- 300 001a 03       		.uleb128 0x3
- 301 001b 0E       		.uleb128 0xe
- 302 001c 00       		.byte	0
- 303 001d 00       		.byte	0
- 304 001e 03       		.uleb128 0x3
- 305 001f 24       		.uleb128 0x24
- 306 0020 00       		.byte	0
- 307 0021 0B       		.uleb128 0xb
- 308 0022 0B       		.uleb128 0xb
- 309 0023 3E       		.uleb128 0x3e
- 310 0024 0B       		.uleb128 0xb
- 311 0025 03       		.uleb128 0x3
- 312 0026 08       		.uleb128 0x8
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 9
+ 313 00ce 00       		.byte	0
+ 314 00cf 06       		.uleb128 0x6
+ 315 00d0 11000000 		.4byte	.LASF15
+ 316 00d4 01       		.byte	0x1
+ 317 00d5 5A       		.byte	0x5a
+ 318 00d6 00000000 		.4byte	.LFB1
+ 319 00da 38000000 		.4byte	.LFE1-.LFB1
+ 320 00de 01       		.uleb128 0x1
+ 321 00df 9C       		.byte	0x9c
+ 322 00e0 F3000000 		.4byte	0xf3
+ 323 00e4 07       		.uleb128 0x7
+ 324 00e5 32010000 		.4byte	.LASF17
+ 325 00e9 01       		.byte	0x1
+ 326 00ea 5A       		.byte	0x5a
+ 327 00eb 6B000000 		.4byte	0x6b
+ 328 00ef 02       		.uleb128 0x2
+ 329 00f0 91       		.byte	0x91
+ 330 00f1 77       		.sleb128 -9
+ 331 00f2 00       		.byte	0
+ 332 00f3 09       		.uleb128 0x9
+ 333 00f4 B2000000 		.4byte	.LASF18
+ 334 00f8 01       		.byte	0x1
+ 335 00f9 71       		.byte	0x71
+ 336 00fa 6B000000 		.4byte	0x6b
+ 337 00fe 00000000 		.4byte	.LFB2
+ 338 0102 20000000 		.4byte	.LFE2-.LFB2
+ 339 0106 01       		.uleb128 0x1
+ 340 0107 9C       		.byte	0x9c
+ 341 0108 09       		.uleb128 0x9
+ 342 0109 4A010000 		.4byte	.LASF19
+ 343 010d 01       		.byte	0x1
+ 344 010e 8D       		.byte	0x8d
+ 345 010f 6B000000 		.4byte	0x6b
+ 346 0113 00000000 		.4byte	.LFB3
+ 347 0117 20000000 		.4byte	.LFE3-.LFB3
+ 348 011b 01       		.uleb128 0x1
+ 349 011c 9C       		.byte	0x9c
+ 350 011d 00       		.byte	0
+ 351              		.section	.debug_abbrev,"",%progbits
+ 352              	.Ldebug_abbrev0:
+ 353 0000 01       		.uleb128 0x1
+ 354 0001 11       		.uleb128 0x11
+ 355 0002 01       		.byte	0x1
+ 356 0003 25       		.uleb128 0x25
+ 357 0004 0E       		.uleb128 0xe
+ 358 0005 13       		.uleb128 0x13
+ 359 0006 0B       		.uleb128 0xb
+ 360 0007 03       		.uleb128 0x3
+ 361 0008 0E       		.uleb128 0xe
+ 362 0009 1B       		.uleb128 0x1b
+ 363 000a 0E       		.uleb128 0xe
+ 364 000b 55       		.uleb128 0x55
+ 365 000c 17       		.uleb128 0x17
+ 366 000d 11       		.uleb128 0x11
+ 367 000e 01       		.uleb128 0x1
+ 368 000f 10       		.uleb128 0x10
+ 369 0010 17       		.uleb128 0x17
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 10
 
 
- 313 0027 00       		.byte	0
- 314 0028 00       		.byte	0
- 315 0029 04       		.uleb128 0x4
- 316 002a 16       		.uleb128 0x16
- 317 002b 00       		.byte	0
- 318 002c 03       		.uleb128 0x3
- 319 002d 0E       		.uleb128 0xe
- 320 002e 3A       		.uleb128 0x3a
- 321 002f 0B       		.uleb128 0xb
- 322 0030 3B       		.uleb128 0x3b
- 323 0031 05       		.uleb128 0x5
- 324 0032 49       		.uleb128 0x49
- 325 0033 13       		.uleb128 0x13
- 326 0034 00       		.byte	0
- 327 0035 00       		.byte	0
- 328 0036 05       		.uleb128 0x5
- 329 0037 35       		.uleb128 0x35
- 330 0038 00       		.byte	0
- 331 0039 49       		.uleb128 0x49
- 332 003a 13       		.uleb128 0x13
- 333 003b 00       		.byte	0
- 334 003c 00       		.byte	0
- 335 003d 06       		.uleb128 0x6
- 336 003e 2E       		.uleb128 0x2e
- 337 003f 01       		.byte	0x1
- 338 0040 3F       		.uleb128 0x3f
- 339 0041 19       		.uleb128 0x19
- 340 0042 03       		.uleb128 0x3
- 341 0043 0E       		.uleb128 0xe
- 342 0044 3A       		.uleb128 0x3a
- 343 0045 0B       		.uleb128 0xb
- 344 0046 3B       		.uleb128 0x3b
- 345 0047 0B       		.uleb128 0xb
- 346 0048 27       		.uleb128 0x27
- 347 0049 19       		.uleb128 0x19
- 348 004a 11       		.uleb128 0x11
- 349 004b 01       		.uleb128 0x1
- 350 004c 12       		.uleb128 0x12
- 351 004d 06       		.uleb128 0x6
- 352 004e 40       		.uleb128 0x40
- 353 004f 18       		.uleb128 0x18
- 354 0050 9742     		.uleb128 0x2117
- 355 0052 19       		.uleb128 0x19
- 356 0053 01       		.uleb128 0x1
- 357 0054 13       		.uleb128 0x13
- 358 0055 00       		.byte	0
- 359 0056 00       		.byte	0
- 360 0057 07       		.uleb128 0x7
- 361 0058 05       		.uleb128 0x5
- 362 0059 00       		.byte	0
- 363 005a 03       		.uleb128 0x3
- 364 005b 0E       		.uleb128 0xe
- 365 005c 3A       		.uleb128 0x3a
- 366 005d 0B       		.uleb128 0xb
- 367 005e 3B       		.uleb128 0x3b
- 368 005f 0B       		.uleb128 0xb
- 369 0060 49       		.uleb128 0x49
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 10
+ 370 0011 00       		.byte	0
+ 371 0012 00       		.byte	0
+ 372 0013 02       		.uleb128 0x2
+ 373 0014 24       		.uleb128 0x24
+ 374 0015 00       		.byte	0
+ 375 0016 0B       		.uleb128 0xb
+ 376 0017 0B       		.uleb128 0xb
+ 377 0018 3E       		.uleb128 0x3e
+ 378 0019 0B       		.uleb128 0xb
+ 379 001a 03       		.uleb128 0x3
+ 380 001b 0E       		.uleb128 0xe
+ 381 001c 00       		.byte	0
+ 382 001d 00       		.byte	0
+ 383 001e 03       		.uleb128 0x3
+ 384 001f 24       		.uleb128 0x24
+ 385 0020 00       		.byte	0
+ 386 0021 0B       		.uleb128 0xb
+ 387 0022 0B       		.uleb128 0xb
+ 388 0023 3E       		.uleb128 0x3e
+ 389 0024 0B       		.uleb128 0xb
+ 390 0025 03       		.uleb128 0x3
+ 391 0026 08       		.uleb128 0x8
+ 392 0027 00       		.byte	0
+ 393 0028 00       		.byte	0
+ 394 0029 04       		.uleb128 0x4
+ 395 002a 16       		.uleb128 0x16
+ 396 002b 00       		.byte	0
+ 397 002c 03       		.uleb128 0x3
+ 398 002d 0E       		.uleb128 0xe
+ 399 002e 3A       		.uleb128 0x3a
+ 400 002f 0B       		.uleb128 0xb
+ 401 0030 3B       		.uleb128 0x3b
+ 402 0031 05       		.uleb128 0x5
+ 403 0032 49       		.uleb128 0x49
+ 404 0033 13       		.uleb128 0x13
+ 405 0034 00       		.byte	0
+ 406 0035 00       		.byte	0
+ 407 0036 05       		.uleb128 0x5
+ 408 0037 35       		.uleb128 0x35
+ 409 0038 00       		.byte	0
+ 410 0039 49       		.uleb128 0x49
+ 411 003a 13       		.uleb128 0x13
+ 412 003b 00       		.byte	0
+ 413 003c 00       		.byte	0
+ 414 003d 06       		.uleb128 0x6
+ 415 003e 2E       		.uleb128 0x2e
+ 416 003f 01       		.byte	0x1
+ 417 0040 3F       		.uleb128 0x3f
+ 418 0041 19       		.uleb128 0x19
+ 419 0042 03       		.uleb128 0x3
+ 420 0043 0E       		.uleb128 0xe
+ 421 0044 3A       		.uleb128 0x3a
+ 422 0045 0B       		.uleb128 0xb
+ 423 0046 3B       		.uleb128 0x3b
+ 424 0047 0B       		.uleb128 0xb
+ 425 0048 27       		.uleb128 0x27
+ 426 0049 19       		.uleb128 0x19
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 11
 
 
- 370 0061 13       		.uleb128 0x13
- 371 0062 02       		.uleb128 0x2
- 372 0063 17       		.uleb128 0x17
- 373 0064 00       		.byte	0
- 374 0065 00       		.byte	0
- 375 0066 08       		.uleb128 0x8
- 376 0067 34       		.uleb128 0x34
- 377 0068 00       		.byte	0
- 378 0069 03       		.uleb128 0x3
- 379 006a 0E       		.uleb128 0xe
- 380 006b 3A       		.uleb128 0x3a
- 381 006c 0B       		.uleb128 0xb
- 382 006d 3B       		.uleb128 0x3b
- 383 006e 0B       		.uleb128 0xb
- 384 006f 49       		.uleb128 0x49
- 385 0070 13       		.uleb128 0x13
- 386 0071 02       		.uleb128 0x2
- 387 0072 18       		.uleb128 0x18
- 388 0073 00       		.byte	0
- 389 0074 00       		.byte	0
- 390 0075 09       		.uleb128 0x9
- 391 0076 2E       		.uleb128 0x2e
- 392 0077 00       		.byte	0
- 393 0078 3F       		.uleb128 0x3f
- 394 0079 19       		.uleb128 0x19
- 395 007a 03       		.uleb128 0x3
- 396 007b 0E       		.uleb128 0xe
- 397 007c 3A       		.uleb128 0x3a
- 398 007d 0B       		.uleb128 0xb
- 399 007e 3B       		.uleb128 0x3b
- 400 007f 0B       		.uleb128 0xb
- 401 0080 27       		.uleb128 0x27
- 402 0081 19       		.uleb128 0x19
- 403 0082 49       		.uleb128 0x49
- 404 0083 13       		.uleb128 0x13
- 405 0084 11       		.uleb128 0x11
- 406 0085 01       		.uleb128 0x1
- 407 0086 12       		.uleb128 0x12
- 408 0087 06       		.uleb128 0x6
- 409 0088 40       		.uleb128 0x40
- 410 0089 18       		.uleb128 0x18
- 411 008a 9742     		.uleb128 0x2117
- 412 008c 19       		.uleb128 0x19
- 413 008d 00       		.byte	0
- 414 008e 00       		.byte	0
- 415 008f 00       		.byte	0
- 416              		.section	.debug_loc,"",%progbits
- 417              	.Ldebug_loc0:
- 418              	.LLST0:
- 419 0000 00000000 		.4byte	.LVL0
- 420 0004 0C000000 		.4byte	.LVL2
- 421 0008 0100     		.2byte	0x1
- 422 000a 50       		.byte	0x50
- 423 000b 0C000000 		.4byte	.LVL2
- 424 000f 18000000 		.4byte	.LFE0
- 425 0013 0400     		.2byte	0x4
- 426 0015 F3       		.byte	0xf3
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 11
+ 427 004a 11       		.uleb128 0x11
+ 428 004b 01       		.uleb128 0x1
+ 429 004c 12       		.uleb128 0x12
+ 430 004d 06       		.uleb128 0x6
+ 431 004e 40       		.uleb128 0x40
+ 432 004f 18       		.uleb128 0x18
+ 433 0050 9742     		.uleb128 0x2117
+ 434 0052 19       		.uleb128 0x19
+ 435 0053 01       		.uleb128 0x1
+ 436 0054 13       		.uleb128 0x13
+ 437 0055 00       		.byte	0
+ 438 0056 00       		.byte	0
+ 439 0057 07       		.uleb128 0x7
+ 440 0058 05       		.uleb128 0x5
+ 441 0059 00       		.byte	0
+ 442 005a 03       		.uleb128 0x3
+ 443 005b 0E       		.uleb128 0xe
+ 444 005c 3A       		.uleb128 0x3a
+ 445 005d 0B       		.uleb128 0xb
+ 446 005e 3B       		.uleb128 0x3b
+ 447 005f 0B       		.uleb128 0xb
+ 448 0060 49       		.uleb128 0x49
+ 449 0061 13       		.uleb128 0x13
+ 450 0062 02       		.uleb128 0x2
+ 451 0063 18       		.uleb128 0x18
+ 452 0064 00       		.byte	0
+ 453 0065 00       		.byte	0
+ 454 0066 08       		.uleb128 0x8
+ 455 0067 34       		.uleb128 0x34
+ 456 0068 00       		.byte	0
+ 457 0069 03       		.uleb128 0x3
+ 458 006a 0E       		.uleb128 0xe
+ 459 006b 3A       		.uleb128 0x3a
+ 460 006c 0B       		.uleb128 0xb
+ 461 006d 3B       		.uleb128 0x3b
+ 462 006e 0B       		.uleb128 0xb
+ 463 006f 49       		.uleb128 0x49
+ 464 0070 13       		.uleb128 0x13
+ 465 0071 02       		.uleb128 0x2
+ 466 0072 18       		.uleb128 0x18
+ 467 0073 00       		.byte	0
+ 468 0074 00       		.byte	0
+ 469 0075 09       		.uleb128 0x9
+ 470 0076 2E       		.uleb128 0x2e
+ 471 0077 00       		.byte	0
+ 472 0078 3F       		.uleb128 0x3f
+ 473 0079 19       		.uleb128 0x19
+ 474 007a 03       		.uleb128 0x3
+ 475 007b 0E       		.uleb128 0xe
+ 476 007c 3A       		.uleb128 0x3a
+ 477 007d 0B       		.uleb128 0xb
+ 478 007e 3B       		.uleb128 0x3b
+ 479 007f 0B       		.uleb128 0xb
+ 480 0080 27       		.uleb128 0x27
+ 481 0081 19       		.uleb128 0x19
+ 482 0082 49       		.uleb128 0x49
+ 483 0083 13       		.uleb128 0x13
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 12
 
 
- 427 0016 01       		.uleb128 0x1
- 428 0017 50       		.byte	0x50
- 429 0018 9F       		.byte	0x9f
- 430 0019 00000000 		.4byte	0
- 431 001d 00000000 		.4byte	0
- 432              	.LLST1:
- 433 0021 00000000 		.4byte	.LVL3
- 434 0025 0C000000 		.4byte	.LVL4
- 435 0029 0100     		.2byte	0x1
- 436 002b 50       		.byte	0x50
- 437 002c 0C000000 		.4byte	.LVL4
- 438 0030 18000000 		.4byte	.LFE1
- 439 0034 0400     		.2byte	0x4
- 440 0036 F3       		.byte	0xf3
- 441 0037 01       		.uleb128 0x1
- 442 0038 50       		.byte	0x50
- 443 0039 9F       		.byte	0x9f
- 444 003a 00000000 		.4byte	0
- 445 003e 00000000 		.4byte	0
- 446              		.section	.debug_aranges,"",%progbits
- 447 0000 34000000 		.4byte	0x34
- 448 0004 0200     		.2byte	0x2
- 449 0006 00000000 		.4byte	.Ldebug_info0
- 450 000a 04       		.byte	0x4
- 451 000b 00       		.byte	0
- 452 000c 0000     		.2byte	0
- 453 000e 0000     		.2byte	0
- 454 0010 00000000 		.4byte	.LFB0
- 455 0014 18000000 		.4byte	.LFE0-.LFB0
- 456 0018 00000000 		.4byte	.LFB1
- 457 001c 18000000 		.4byte	.LFE1-.LFB1
- 458 0020 00000000 		.4byte	.LFB2
- 459 0024 10000000 		.4byte	.LFE2-.LFB2
- 460 0028 00000000 		.4byte	.LFB3
- 461 002c 10000000 		.4byte	.LFE3-.LFB3
- 462 0030 00000000 		.4byte	0
- 463 0034 00000000 		.4byte	0
- 464              		.section	.debug_ranges,"",%progbits
- 465              	.Ldebug_ranges0:
- 466 0000 00000000 		.4byte	.LFB0
- 467 0004 18000000 		.4byte	.LFE0
- 468 0008 00000000 		.4byte	.LFB1
- 469 000c 18000000 		.4byte	.LFE1
- 470 0010 00000000 		.4byte	.LFB2
- 471 0014 10000000 		.4byte	.LFE2
- 472 0018 00000000 		.4byte	.LFB3
- 473 001c 10000000 		.4byte	.LFE3
- 474 0020 00000000 		.4byte	0
- 475 0024 00000000 		.4byte	0
- 476              		.section	.debug_line,"",%progbits
- 477              	.Ldebug_line0:
- 478 0000 8E000000 		.section	.debug_str,"MS",%progbits,1
- 478      02004200 
- 478      00000201 
- 478      FB0E0D00 
- 478      01010101 
- 479              	.LASF16:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 12
+ 484 0084 11       		.uleb128 0x11
+ 485 0085 01       		.uleb128 0x1
+ 486 0086 12       		.uleb128 0x12
+ 487 0087 06       		.uleb128 0x6
+ 488 0088 40       		.uleb128 0x40
+ 489 0089 18       		.uleb128 0x18
+ 490 008a 9742     		.uleb128 0x2117
+ 491 008c 19       		.uleb128 0x19
+ 492 008d 00       		.byte	0
+ 493 008e 00       		.byte	0
+ 494 008f 00       		.byte	0
+ 495              		.section	.debug_aranges,"",%progbits
+ 496 0000 34000000 		.4byte	0x34
+ 497 0004 0200     		.2byte	0x2
+ 498 0006 00000000 		.4byte	.Ldebug_info0
+ 499 000a 04       		.byte	0x4
+ 500 000b 00       		.byte	0
+ 501 000c 0000     		.2byte	0
+ 502 000e 0000     		.2byte	0
+ 503 0010 00000000 		.4byte	.LFB0
+ 504 0014 38000000 		.4byte	.LFE0-.LFB0
+ 505 0018 00000000 		.4byte	.LFB1
+ 506 001c 38000000 		.4byte	.LFE1-.LFB1
+ 507 0020 00000000 		.4byte	.LFB2
+ 508 0024 20000000 		.4byte	.LFE2-.LFB2
+ 509 0028 00000000 		.4byte	.LFB3
+ 510 002c 20000000 		.4byte	.LFE3-.LFB3
+ 511 0030 00000000 		.4byte	0
+ 512 0034 00000000 		.4byte	0
+ 513              		.section	.debug_ranges,"",%progbits
+ 514              	.Ldebug_ranges0:
+ 515 0000 00000000 		.4byte	.LFB0
+ 516 0004 38000000 		.4byte	.LFE0
+ 517 0008 00000000 		.4byte	.LFB1
+ 518 000c 38000000 		.4byte	.LFE1
+ 519 0010 00000000 		.4byte	.LFB2
+ 520 0014 20000000 		.4byte	.LFE2
+ 521 0018 00000000 		.4byte	.LFB3
+ 522 001c 20000000 		.4byte	.LFE3
+ 523 0020 00000000 		.4byte	0
+ 524 0024 00000000 		.4byte	0
+ 525              		.section	.debug_line,"",%progbits
+ 526              	.Ldebug_line0:
+ 527 0000 90000000 		.section	.debug_str,"MS",%progbits,1
+ 527      02004200 
+ 527      00000201 
+ 527      FB0E0D00 
+ 527      01010101 
+ 528              	.LASF16:
+ 529 0000 76616C75 		.ascii	"value\000"
+ 529      6500
+ 530              	.LASF23:
+ 531 0006 73746174 		.ascii	"staticBits\000"
+ 531      69634269 
+ 531      747300
+ 532              	.LASF15:
+ 533 0011 44726976 		.ascii	"Drive_SetDriveMode\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 13
 
 
- 480 0000 76616C75 		.ascii	"value\000"
- 480      6500
- 481              	.LASF23:
- 482 0006 73746174 		.ascii	"staticBits\000"
- 482      69634269 
- 482      747300
- 483              	.LASF15:
- 484 0011 44726976 		.ascii	"Drive_SetDriveMode\000"
- 484      655F5365 
- 484      74447269 
- 484      76654D6F 
- 484      646500
- 485              	.LASF18:
- 486 0024 44726976 		.ascii	"Drive_Read\000"
- 486      655F5265 
- 486      616400
- 487              	.LASF9:
- 488 002f 666C6F61 		.ascii	"float\000"
- 488      7400
- 489              	.LASF1:
- 490 0035 756E7369 		.ascii	"unsigned char\000"
- 490      676E6564 
- 490      20636861 
- 490      7200
- 491              	.LASF13:
- 492 0043 72656738 		.ascii	"reg8\000"
- 492      00
- 493              	.LASF5:
- 494 0048 6C6F6E67 		.ascii	"long unsigned int\000"
- 494      20756E73 
- 494      69676E65 
- 494      6420696E 
- 494      7400
- 495              	.LASF3:
- 496 005a 73686F72 		.ascii	"short unsigned int\000"
- 496      7420756E 
- 496      7369676E 
- 496      65642069 
- 496      6E7400
- 497              	.LASF10:
- 498 006d 646F7562 		.ascii	"double\000"
- 498      6C6500
- 499              	.LASF14:
- 500 0074 44726976 		.ascii	"Drive_Write\000"
- 500      655F5772 
- 500      69746500 
- 501              	.LASF20:
- 502 0080 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 502      4320342E 
- 502      392E3320 
- 502      32303135 
- 502      30333033 
- 503 00b3 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 503      20726576 
- 503      6973696F 
- 503      6E203232 
- 503      31323230 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 13
+ 533      655F5365 
+ 533      74447269 
+ 533      76654D6F 
+ 533      646500
+ 534              	.LASF20:
+ 535 0024 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 535      4320342E 
+ 535      392E3320 
+ 535      32303135 
+ 535      30333033 
+ 536 0057 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 536      20726576 
+ 536      6973696F 
+ 536      6E203232 
+ 536      31323230 
+ 537 008a 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 537      66756E63 
+ 537      74696F6E 
+ 537      2D736563 
+ 537      74696F6E 
+ 538              	.LASF18:
+ 539 00b2 44726976 		.ascii	"Drive_Read\000"
+ 539      655F5265 
+ 539      616400
+ 540              	.LASF9:
+ 541 00bd 666C6F61 		.ascii	"float\000"
+ 541      7400
+ 542              	.LASF1:
+ 543 00c3 756E7369 		.ascii	"unsigned char\000"
+ 543      676E6564 
+ 543      20636861 
+ 543      7200
+ 544              	.LASF13:
+ 545 00d1 72656738 		.ascii	"reg8\000"
+ 545      00
+ 546              	.LASF5:
+ 547 00d6 6C6F6E67 		.ascii	"long unsigned int\000"
+ 547      20756E73 
+ 547      69676E65 
+ 547      6420696E 
+ 547      7400
+ 548              	.LASF3:
+ 549 00e8 73686F72 		.ascii	"short unsigned int\000"
+ 549      7420756E 
+ 549      7369676E 
+ 549      65642069 
+ 549      6E7400
+ 550              	.LASF10:
+ 551 00fb 646F7562 		.ascii	"double\000"
+ 551      6C6500
+ 552              	.LASF14:
+ 553 0102 44726976 		.ascii	"Drive_Write\000"
+ 553      655F5772 
+ 553      69746500 
+ 554              	.LASF8:
+ 555 010e 756E7369 		.ascii	"unsigned int\000"
+ 555      676E6564 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 14
 
 
- 504 00e6 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 504      66756E63 
- 504      74696F6E 
- 504      2D736563 
- 504      74696F6E 
- 505              	.LASF8:
- 506 010e 756E7369 		.ascii	"unsigned int\000"
- 506      676E6564 
- 506      20696E74 
- 506      00
- 507              	.LASF7:
- 508 011b 6C6F6E67 		.ascii	"long long unsigned int\000"
- 508      206C6F6E 
- 508      6720756E 
- 508      7369676E 
- 508      65642069 
- 509              	.LASF17:
- 510 0132 6D6F6465 		.ascii	"mode\000"
- 510      00
- 511              	.LASF6:
- 512 0137 6C6F6E67 		.ascii	"long long int\000"
- 512      206C6F6E 
- 512      6720696E 
- 512      7400
- 513              	.LASF11:
- 514 0145 63686172 		.ascii	"char\000"
- 514      00
- 515              	.LASF19:
- 516 014a 44726976 		.ascii	"Drive_ReadDataReg\000"
- 516      655F5265 
- 516      61644461 
- 516      74615265 
- 516      6700
- 517              	.LASF21:
- 518 015c 47656E65 		.ascii	"Generated_Source\\PSoC5\\Drive.c\000"
- 518      72617465 
- 518      645F536F 
- 518      75726365 
- 518      5C50536F 
- 519              	.LASF2:
- 520 017b 73686F72 		.ascii	"short int\000"
- 520      7420696E 
- 520      7400
- 521              	.LASF12:
- 522 0185 75696E74 		.ascii	"uint8\000"
- 522      3800
- 523              	.LASF4:
- 524 018b 6C6F6E67 		.ascii	"long int\000"
- 524      20696E74 
- 524      00
- 525              	.LASF22:
- 526 0194 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
- 526      6F776E6C 
- 526      6F616473 
- 526      5C465255 
- 526      43445C4E 
- 527 01c2 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccpDHIxD.s 			page 14
+ 555      20696E74 
+ 555      00
+ 556              	.LASF7:
+ 557 011b 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 557      206C6F6E 
+ 557      6720756E 
+ 557      7369676E 
+ 557      65642069 
+ 558              	.LASF17:
+ 559 0132 6D6F6465 		.ascii	"mode\000"
+ 559      00
+ 560              	.LASF6:
+ 561 0137 6C6F6E67 		.ascii	"long long int\000"
+ 561      206C6F6E 
+ 561      6720696E 
+ 561      7400
+ 562              	.LASF11:
+ 563 0145 63686172 		.ascii	"char\000"
+ 563      00
+ 564              	.LASF19:
+ 565 014a 44726976 		.ascii	"Drive_ReadDataReg\000"
+ 565      655F5265 
+ 565      61644461 
+ 565      74615265 
+ 565      6700
+ 566              	.LASF21:
+ 567 015c 47656E65 		.ascii	"Generated_Source\\PSoC5\\Drive.c\000"
+ 567      72617465 
+ 567      645F536F 
+ 567      75726365 
+ 567      5C50536F 
+ 568              	.LASF2:
+ 569 017b 73686F72 		.ascii	"short int\000"
+ 569      7420696E 
+ 569      7400
+ 570              	.LASF12:
+ 571 0185 75696E74 		.ascii	"uint8\000"
+ 571      3800
+ 572              	.LASF4:
+ 573 018b 6C6F6E67 		.ascii	"long int\000"
+ 573      20696E74 
+ 573      00
+ 574              	.LASF22:
+ 575 0194 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 575      6F776E6C 
+ 575      6F616473 
+ 575      5C465255 
+ 575      43445C4E 
+ 576 01c2 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 576      67756172 
+ 576      2E637964 
+ 576      736E00
+ 577              	.LASF0:
+ 578 01d1 7369676E 		.ascii	"signed char\000"
+ 578      65642063 
+ 578      68617200 
+ 579              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ARM GAS  D:\Windows\AppData\Local\Temp\ccQGCkh0.s 			page 15
 
 
- 527      67756172 
- 527      2E637964 
- 527      736E00
- 528              	.LASF0:
- 529 01d1 7369676E 		.ascii	"signed char\000"
- 529      65642063 
- 529      68617200 
- 530              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,5 +1,5 @@
 -- Project:   Node-Jaguar
--- Generated: 06/20/2017 13:38:30
+-- Generated: 10/11/2017 09:08:22
 -- PSoC Creator  4.0 Update 1
 
 ENTITY \Node-Jaguar\ IS
@@ -60,7 +60,6 @@ ARCHITECTURE __DEFAULT__ OF \Node-Jaguar\ IS
     SIGNAL Net_174 : bit;
     SIGNAL Net_2 : bit;
     SIGNAL Net_52 : bit;
-    SIGNAL Net_57 : bit;
     SIGNAL Net_75 : bit;
     ATTRIBUTE udbclken_assigned OF Net_75 : SIGNAL IS "True";
     ATTRIBUTE global_signal OF Net_75 : SIGNAL IS true;
@@ -184,8 +183,6 @@ ARCHITECTURE __DEFAULT__ OF \Node-Jaguar\ IS
     SIGNAL \LED_Driver2:bI2C_UDB:status_5\ : bit;
     SIGNAL \LED_Driver2:bI2C_UDB:tx_reg_empty\ : bit;
     SIGNAL \LED_Driver2:sda_x_wire\ : bit;
-    SIGNAL \Node_Timer:Net_261\ : bit;
-    SIGNAL \Node_Timer:Net_51\ : bit;
     SIGNAL \b1_critical_timer:TimerUDB:control_0\ : bit;
     SIGNAL \b1_critical_timer:TimerUDB:control_1\ : bit;
     SIGNAL \b1_critical_timer:TimerUDB:control_2\ : bit;
@@ -345,13 +342,13 @@ ARCHITECTURE __DEFAULT__ OF \Node-Jaguar\ IS
     ATTRIBUTE lib_model OF SCL_1(0) : LABEL IS "iocell11";
     ATTRIBUTE Location OF SCL_1(0) : LABEL IS "P12[0]";
     ATTRIBUTE lib_model OF RST_1(0) : LABEL IS "iocell12";
-    ATTRIBUTE Location OF RST_1(0) : LABEL IS "P15[2]";
+    ATTRIBUTE Location OF RST_1(0) : LABEL IS "P12[2]";
     ATTRIBUTE lib_model OF SDA_2(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF SDA_2(0) : LABEL IS "P12[4]";
     ATTRIBUTE lib_model OF SCL_2(0) : LABEL IS "iocell14";
     ATTRIBUTE Location OF SCL_2(0) : LABEL IS "P12[5]";
     ATTRIBUTE lib_model OF RST_2(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF RST_2(0) : LABEL IS "P6[4]";
+    ATTRIBUTE Location OF RST_2(0) : LABEL IS "P4[7]";
     ATTRIBUTE lib_model OF \LED_Driver1:bI2C_UDB:status_5\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \LED_Driver1:bI2C_UDB:status_4\ : LABEL IS "macrocell3";
     ATTRIBUTE lib_model OF \LED_Driver1:bI2C_UDB:cnt_reset\ : LABEL IS "macrocell4";
@@ -2547,27 +2544,6 @@ BEGIN
             is_nmi => 0)
         PORT MAP(
             interrupt => Net_52,
-            clock => ClockBlock_BUS_CLK);
-
-    \Node_Timer:TimerHW\:timercell
-        GENERIC MAP(
-            cy_registers => "")
-        PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_2__sig\,
-            kill => open,
-            enable => __ONE__,
-            capture => open,
-            timer_reset => open,
-            tc => \Node_Timer:Net_51\,
-            cmp => \Node_Timer:Net_261\,
-            irq => Net_57);
-
-    isr_nodeok:interrupt
-        GENERIC MAP(
-            int_type => "10",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_57,
             clock => ClockBlock_BUS_CLK);
 
     \LED_Driver1:I2C_IRQ\:interrupt

@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 1
 
 
    1              		.syntax unified
@@ -10,7 +10,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 6
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
   29:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
   30:Generated_Source\PSoC5/CAN_TX_RX_func.c **** #define buffer_LEN 8
   31:Generated_Source\PSoC5/CAN_TX_RX_func.c **** extern uint8_t can_buffer[];
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 2
 
 
   32:Generated_Source\PSoC5/CAN_TX_RX_func.c **** /* `#END` */
@@ -88,190 +88,240 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
   56:Generated_Source\PSoC5/CAN_TX_RX_func.c **** {
   27              		.loc 1 56 0
   28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              	.LVL0:
-  32 0000 F0B5     		push	{r4, r5, r6, r7, lr}
-  33              		.cfi_def_cfa_offset 20
-  34              		.cfi_offset 4, -20
-  35              		.cfi_offset 5, -16
-  36              		.cfi_offset 6, -12
-  37              		.cfi_offset 7, -8
-  38              		.cfi_offset 14, -4
-  39              	.LVL1:
+  29              		@ args = 0, pretend = 0, frame = 24
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 7, -4
+  35 0002 87B0     		sub	sp, sp, #28
+  36              		.cfi_def_cfa_offset 32
+  37 0004 00AF     		add	r7, sp, #0
+  38              		.cfi_def_cfa_register 7
+  39 0006 7860     		str	r0, [r7, #4]
   57:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     uint8 i, j, shift;
   58:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     uint8 retry = 0u;
+  40              		.loc 1 58 0
+  41 0008 0023     		movs	r3, #0
+  42 000a 3B75     		strb	r3, [r7, #20]
   59:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     uint8 result = CAN_FAIL;
-  40              		.loc 1 59 0
-  41 0002 0121     		movs	r1, #1
-  58:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     uint8 result = CAN_FAIL;
-  42              		.loc 1 58 0
-  43 0004 0026     		movs	r6, #0
+  43              		.loc 1 59 0
+  44 000c 0123     		movs	r3, #1
+  45 000e FB74     		strb	r3, [r7, #19]
   60:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     uint32 regTemp;
   61:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
   62:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     while (retry < CAN_RETRY_NUMBER)
-  44              		.loc 1 62 0
-  45 0006 5DE0     		b	.L2
-  46              	.LVL2:
-  47              	.L16:
+  46              		.loc 1 62 0
+  47 0010 A2E0     		b	.L2
+  48              	.L21:
   63:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     {
   64:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         shift = 1u;    /* Start from first mailbox */
+  49              		.loc 1 64 0
+  50 0012 0123     		movs	r3, #1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 3
+
+
+  51 0014 7B75     		strb	r3, [r7, #21]
   65:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         for (i = 0u; i < CAN_NUMBER_OF_TX_MAILBOXES; i++)
+  52              		.loc 1 65 0
+  53 0016 0023     		movs	r3, #0
+  54 0018 FB75     		strb	r3, [r7, #23]
+  55 001a 92E0     		b	.L3
+  56              	.L18:
   66:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         {
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 3
-
-
   67:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             /* Find Basic TX mailboxes */
   68:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             if ((CAN_TX_MAILBOX_TYPE & shift) == 0u)
-  48              		.loc 1 68 0
-  49 0008 17F0030F 		tst	r7, #3
-  50 000c 4DD1     		bne	.L3
+  57              		.loc 1 68 0
+  58 001c 7B7D     		ldrb	r3, [r7, #21]
+  59 001e 03F00303 		and	r3, r3, #3
+  60 0022 DBB2     		uxtb	r3, r3
+  61 0024 002B     		cmp	r3, #0
+  62 0026 40F08280 		bne	.L4
   69:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             {
   70:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 /* Find free mailbox */
   71:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 #if (CY_PSOC3 || CY_PSOC5)
   72:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                     if ((CAN_BUF_SR_REG.byte[2] & shift) == 0u)
-  51              		.loc 1 72 0
-  52 000e 2F4B     		ldr	r3, .L22
-  53 0010 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
-  54 0012 3B42     		tst	r3, r7
-  55 0014 49D1     		bne	.L3
-  56              	.LVL3:
+  63              		.loc 1 72 0
+  64 002a 514B     		ldr	r3, .L23
+  65 002c 9B78     		ldrb	r3, [r3, #2]
+  66 002e DAB2     		uxtb	r2, r3
+  67 0030 7B7D     		ldrb	r3, [r7, #21]
+  68 0032 1340     		ands	r3, r3, r2
+  69 0034 DBB2     		uxtb	r3, r3
+  70 0036 002B     		cmp	r3, #0
+  71 0038 79D1     		bne	.L4
   73:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 #else  /* CY_PSOC4 */
   74:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                     if ((CAN_BUF_SR_REG &
   75:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         (uint32) ((uint32) shift << CAN_TWO_BYTE_OFFSET)) == 0u)
   76:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 #endif /* CY_PSOC3 || CY_PSOC5 */
   77:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                     {
   78:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         regTemp = 0u;
+  72              		.loc 1 78 0
+  73 003a 0023     		movs	r3, #0
+  74 003c FB60     		str	r3, [r7, #12]
   79:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
   80:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         /* Set message parameters */
   81:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         if (message->rtr != CAN_STANDARD_MESSAGE)
-  57              		.loc 1 81 0
-  58 0016 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
-  59 0018 0BB1     		cbz	r3, .L4
+  75              		.loc 1 81 0
+  76 003e 7B68     		ldr	r3, [r7, #4]
+  77 0040 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+  78 0042 002B     		cmp	r3, #0
+  79 0044 02D0     		beq	.L5
   82:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
   83:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             regTemp = CAN_TX_RTR_MASK;    /* RTR message Enable */
-  60              		.loc 1 83 0
-  61 001a 4FF40013 		mov	r3, #2097152
-  62              	.L4:
-  63              	.LVL4:
+  80              		.loc 1 83 0
+  81 0046 4FF40013 		mov	r3, #2097152
+  82 004a FB60     		str	r3, [r7, #12]
+  83              	.L5:
   84:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         }
   85:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
   86:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         if (message->ide == CAN_STANDARD_MESSAGE)
-  64              		.loc 1 86 0
-  65 001e 4179     		ldrb	r1, [r0, #5]	@ zero_extendqisi2
-  66              	.LVL5:
-  67 0020 31B9     		cbnz	r1, .L5
+  84              		.loc 1 86 0
+  85 004c 7B68     		ldr	r3, [r7, #4]
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 4
+
+
+  86 004e 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+  87 0050 002B     		cmp	r3, #0
+  88 0052 09D1     		bne	.L6
   87:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
   88:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             CAN_SET_TX_ID_STANDARD_MSG(i, message->id);
-  68              		.loc 1 88 0
-  69 0022 2B49     		ldr	r1, .L22+4
-  70 0024 01EB0211 		add	r1, r1, r2, lsl #4
-  71 0028 0468     		ldr	r4, [r0]
-  72 002a 6405     		lsls	r4, r4, #21
-  73 002c 4C60     		str	r4, [r1, #4]
-  74 002e 07E0     		b	.L6
-  75              	.L5:
+  89              		.loc 1 88 0
+  90 0054 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+  91 0056 1A01     		lsls	r2, r3, #4
+  92 0058 464B     		ldr	r3, .L23+4
+  93 005a 1344     		add	r3, r3, r2
+  94 005c 0433     		adds	r3, r3, #4
+  95 005e 7A68     		ldr	r2, [r7, #4]
+  96 0060 1268     		ldr	r2, [r2]
+  97 0062 5205     		lsls	r2, r2, #21
+  98 0064 1A60     		str	r2, [r3]
+  99 0066 0CE0     		b	.L7
+ 100              	.L6:
   89:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         }
   90:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         else
   91:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
   92:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             regTemp |= CAN_TX_IDE_MASK;
-  76              		.loc 1 92 0
-  77 0030 43F48013 		orr	r3, r3, #1048576
-  78              	.LVL6:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 4
-
-
+ 101              		.loc 1 92 0
+ 102 0068 FB68     		ldr	r3, [r7, #12]
+ 103 006a 43F48013 		orr	r3, r3, #1048576
+ 104 006e FB60     		str	r3, [r7, #12]
   93:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             CAN_SET_TX_ID_EXTENDED_MSG(i, message->id);
-  79              		.loc 1 93 0
-  80 0034 2649     		ldr	r1, .L22+4
-  81 0036 01EB0211 		add	r1, r1, r2, lsl #4
-  82 003a 0468     		ldr	r4, [r0]
-  83 003c E400     		lsls	r4, r4, #3
-  84 003e 4C60     		str	r4, [r1, #4]
-  85              	.L6:
+ 105              		.loc 1 93 0
+ 106 0070 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 107 0072 1A01     		lsls	r2, r3, #4
+ 108 0074 3F4B     		ldr	r3, .L23+4
+ 109 0076 1344     		add	r3, r3, r2
+ 110 0078 0433     		adds	r3, r3, #4
+ 111 007a 7A68     		ldr	r2, [r7, #4]
+ 112 007c 1268     		ldr	r2, [r2]
+ 113 007e D200     		lsls	r2, r2, #3
+ 114 0080 1A60     		str	r2, [r3]
+ 115              	.L7:
   94:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         }
   95:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
   96:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         if (message->dlc < CAN_TX_DLC_MAX_VALUE)
-  86              		.loc 1 96 0
-  87 0040 90F806E0 		ldrb	lr, [r0, #6]	@ zero_extendqisi2
-  88 0044 BEF1070F 		cmp	lr, #7
-  89 0048 02D8     		bhi	.L7
+ 116              		.loc 1 96 0
+ 117 0082 7B68     		ldr	r3, [r7, #4]
+ 118 0084 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 119 0086 072B     		cmp	r3, #7
+ 120 0088 06D8     		bhi	.L8
   97:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
   98:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             regTemp |= ((uint32) message->dlc) << CAN_TWO_BYTE_OFFSET;
-  90              		.loc 1 98 0
-  91 004a 43EA0E4E 		orr	lr, r3, lr, lsl #16
-  92              	.LVL7:
-  93 004e 01E0     		b	.L8
-  94              	.LVL8:
-  95              	.L7:
+ 121              		.loc 1 98 0
+ 122 008a 7B68     		ldr	r3, [r7, #4]
+ 123 008c 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 124 008e 1B04     		lsls	r3, r3, #16
+ 125 0090 FA68     		ldr	r2, [r7, #12]
+ 126 0092 1343     		orrs	r3, r3, r2
+ 127 0094 FB60     		str	r3, [r7, #12]
+ 128 0096 03E0     		b	.L9
+ 129              	.L8:
   99:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         }
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 5
+
+
  100:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         else
  101:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
  102:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             regTemp |= CAN_TX_DLC_UPPER_VALUE;
-  96              		.loc 1 102 0
-  97 0050 43F4002E 		orr	lr, r3, #524288
-  98              	.LVL9:
-  99              	.L8:
+ 130              		.loc 1 102 0
+ 131 0098 FB68     		ldr	r3, [r7, #12]
+ 132 009a 43F40023 		orr	r3, r3, #524288
+ 133 009e FB60     		str	r3, [r7, #12]
+ 134              	.L9:
  103:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         }
  104:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  105:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         if (message->irq != CAN_TRANSMIT_INT_DISABLE)
- 100              		.loc 1 105 0
- 101 0054 C379     		ldrb	r3, [r0, #7]	@ zero_extendqisi2
- 102 0056 0BB1     		cbz	r3, .L9
+ 135              		.loc 1 105 0
+ 136 00a0 7B68     		ldr	r3, [r7, #4]
+ 137 00a2 DB79     		ldrb	r3, [r3, #7]	@ zero_extendqisi2
+ 138 00a4 002B     		cmp	r3, #0
+ 139 00a6 03D0     		beq	.L10
  106:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
  107:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             regTemp |= CAN_TX_INT_ENABLE_MASK;    /* Transmit Interrupt Enable */
- 103              		.loc 1 107 0
- 104 0058 4EF0040E 		orr	lr, lr, #4
- 105              	.LVL10:
- 106              	.L9:
+ 140              		.loc 1 107 0
+ 141 00a8 FB68     		ldr	r3, [r7, #12]
+ 142 00aa 43F00403 		orr	r3, r3, #4
+ 143 00ae FB60     		str	r3, [r7, #12]
+ 144              	.L10:
  108:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         }
  109:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  110:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         for (j = 0u; (j < message->dlc) && (j < CAN_TX_DLC_MAX_VALUE); j++)
- 107              		.loc 1 110 0
- 108 005c 0023     		movs	r3, #0
- 109 005e 0FE0     		b	.L10
- 110              	.LVL11:
- 111              	.L14:
+ 145              		.loc 1 110 0
+ 146 00b0 0023     		movs	r3, #0
+ 147 00b2 BB75     		strb	r3, [r7, #22]
+ 148 00b4 17E0     		b	.L11
+ 149              	.L15:
  111:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
  112:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             #if (CY_PSOC3 || CY_PSOC5)
  113:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                                 CAN_TX_DATA_BYTE(i, j) = message->msg->byte[j];
- 112              		.loc 1 113 0
- 113 0060 1B49     		ldr	r1, .L22+4
- 114 0062 01EB0214 		add	r4, r1, r2, lsl #4
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 5
+ 150              		.loc 1 113 0
+ 151 00b6 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 152 00b8 1A01     		lsls	r2, r3, #4
+ 153 00ba 2E4B     		ldr	r3, .L23+4
+ 154 00bc 1344     		add	r3, r3, r2
+ 155 00be BA7D     		ldrb	r2, [r7, #22]	@ zero_extendqisi2
+ 156 00c0 032A     		cmp	r2, #3
+ 157 00c2 03D9     		bls	.L12
+ 158              		.loc 1 113 0 is_stmt 0 discriminator 1
+ 159 00c4 BA7D     		ldrb	r2, [r7, #22]	@ zero_extendqisi2
+ 160 00c6 C2F10B02 		rsb	r2, r2, #11
+ 161 00ca 02E0     		b	.L13
+ 162              	.L12:
+ 163              		.loc 1 113 0 discriminator 2
+ 164 00cc BA7D     		ldrb	r2, [r7, #22]	@ zero_extendqisi2
+ 165 00ce C2F10302 		rsb	r2, r2, #3
+ 166              	.L13:
+ 167              		.loc 1 113 0 discriminator 4
+ 168 00d2 7968     		ldr	r1, [r7, #4]
+ 169 00d4 8868     		ldr	r0, [r1, #8]
+ 170 00d6 B97D     		ldrb	r1, [r7, #22]	@ zero_extendqisi2
+ 171 00d8 415C     		ldrb	r1, [r0, r1]	@ zero_extendqisi2
+ 172 00da 1344     		add	r3, r3, r2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 6
 
 
- 115 0066 032B     		cmp	r3, #3
- 116 0068 02D9     		bls	.L11
- 117              		.loc 1 113 0 is_stmt 0 discriminator 1
- 118 006a C3F10B01 		rsb	r1, r3, #11
- 119 006e 01E0     		b	.L12
- 120              	.L11:
- 121              		.loc 1 113 0 discriminator 2
- 122 0070 C3F10301 		rsb	r1, r3, #3
- 123              	.L12:
- 124              		.loc 1 113 0 discriminator 4
- 125 0074 8568     		ldr	r5, [r0, #8]
- 126 0076 ED5C     		ldrb	r5, [r5, r3]	@ zero_extendqisi2
- 127 0078 2144     		add	r1, r1, r4
- 128 007a 0D72     		strb	r5, [r1, #8]
+ 173 00dc 0A46     		mov	r2, r1
+ 174 00de 1A72     		strb	r2, [r3, #8]
  110:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
- 129              		.loc 1 110 0 is_stmt 1 discriminator 4
- 130 007c 0133     		adds	r3, r3, #1
- 131              	.LVL12:
- 132 007e DBB2     		uxtb	r3, r3
- 133              	.LVL13:
- 134              	.L10:
+ 175              		.loc 1 110 0 is_stmt 1 discriminator 4
+ 176 00e0 BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
+ 177 00e2 0133     		adds	r3, r3, #1
+ 178 00e4 BB75     		strb	r3, [r7, #22]
+ 179              	.L11:
  110:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
- 135              		.loc 1 110 0 is_stmt 0 discriminator 2
- 136 0080 8179     		ldrb	r1, [r0, #6]	@ zero_extendqisi2
- 137 0082 9942     		cmp	r1, r3
- 138 0084 01D9     		bls	.L13
+ 180              		.loc 1 110 0 is_stmt 0 discriminator 2
+ 181 00e6 7B68     		ldr	r3, [r7, #4]
+ 182 00e8 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 183 00ea BA7D     		ldrb	r2, [r7, #22]	@ zero_extendqisi2
+ 184 00ec 9A42     		cmp	r2, r3
+ 185 00ee 02D2     		bcs	.L14
  110:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         {
- 139              		.loc 1 110 0 discriminator 3
- 140 0086 072B     		cmp	r3, #7
- 141 0088 EAD9     		bls	.L14
- 142              	.L13:
+ 186              		.loc 1 110 0 discriminator 3
+ 187 00f0 BB7D     		ldrb	r3, [r7, #22]	@ zero_extendqisi2
+ 188 00f2 072B     		cmp	r3, #7
+ 189 00f4 DFD9     		bls	.L15
+ 190              	.L14:
  114:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             #else /* CY_PSOC4 */
  115:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                                 CAN_TX_DATA_BYTE(i, j, message->msg->byte[j]);
  116:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             #endif /* CY_PSOC3 || CY_PSOC5 */
@@ -279,30 +329,38 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  118:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  119:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         /* Disable isr */
  120:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     CyIntDisable(CAN_ISR_NUMBER);
- 143              		.loc 1 120 0 is_stmt 1
- 144 008a 4FF48034 		mov	r4, #65536
- 145 008e 114B     		ldr	r3, .L22+8
- 146              	.LVL14:
- 147 0090 1C60     		str	r4, [r3]
+ 191              		.loc 1 120 0 is_stmt 1
+ 192 00f6 204B     		ldr	r3, .L23+8
+ 193 00f8 4FF48032 		mov	r2, #65536
+ 194 00fc 1A60     		str	r2, [r3]
  121:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  122:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         /* WPN[23] and WPN[3] set to 1 for write to CAN Control reg */
  123:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         CY_SET_REG32(CAN_TX_CMD_PTR(i), (regTemp | CAN_TX_WPN_SET));
- 148              		.loc 1 123 0
- 149 0092 1101     		lsls	r1, r2, #4
- 150 0094 0E4D     		ldr	r5, .L22+4
- 151 0096 4EF40003 		orr	r3, lr, #8388608
- 152 009a 43F00803 		orr	r3, r3, #8
- 153 009e 4B51     		str	r3, [r1, r5]
+ 195              		.loc 1 123 0
+ 196 00fe FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 197 0100 1A01     		lsls	r2, r3, #4
+ 198 0102 1C4B     		ldr	r3, .L23+4
+ 199 0104 1344     		add	r3, r3, r2
+ 200 0106 1A46     		mov	r2, r3
+ 201 0108 FB68     		ldr	r3, [r7, #12]
+ 202 010a 43F40003 		orr	r3, r3, #8388608
+ 203 010e 43F00803 		orr	r3, r3, #8
+ 204 0112 1360     		str	r3, [r2]
  124:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  125:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         #if (CY_PSOC3 || CY_PSOC5)
  126:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             CY_SET_REG32(CAN_TX_CMD_PTR(i), CAN_SEND_MESSAGE);
- 154              		.loc 1 126 0
- 155 00a0 0123     		movs	r3, #1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 6
-
-
- 156 00a2 4B51     		str	r3, [r1, r5]
+ 205              		.loc 1 126 0
+ 206 0114 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 207 0116 1A01     		lsls	r2, r3, #4
+ 208 0118 164B     		ldr	r3, .L23+4
+ 209 011a 1344     		add	r3, r3, r2
+ 210 011c 1A46     		mov	r2, r3
+ 211 011e 0123     		movs	r3, #1
+ 212 0120 1360     		str	r3, [r2]
  127:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         #else /* CY_PSOC4 */
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 7
+
+
  128:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             if (message->sst != CAN_STANDARD_MESSAGE)
  129:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                             {
  130:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                                 /* Single Shot Transmission */
@@ -317,99 +375,114 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  139:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  140:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         /* Enable isr */
  141:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     CyIntEnable(CAN_ISR_NUMBER);
- 157              		.loc 1 141 0
- 158 00a4 0C4B     		ldr	r3, .L22+12
- 159 00a6 1C60     		str	r4, [r3]
- 160              	.LVL15:
+ 213              		.loc 1 141 0
+ 214 0122 164B     		ldr	r3, .L23+12
+ 215 0124 4FF48032 		mov	r2, #65536
+ 216 0128 1A60     		str	r2, [r3]
  142:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  143:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                         result = CYRET_SUCCESS;
- 161              		.loc 1 143 0
- 162 00a8 0021     		movs	r1, #0
- 163              	.LVL16:
- 164              	.L3:
+ 217              		.loc 1 143 0
+ 218 012a 0023     		movs	r3, #0
+ 219 012c FB74     		strb	r3, [r7, #19]
+ 220              	.L4:
  144:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                     }
  145:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
  146:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             shift <<= 1u;
- 165              		.loc 1 146 0
- 166 00aa 7B00     		lsls	r3, r7, #1
- 167 00ac DFB2     		uxtb	r7, r3
- 168              	.LVL17:
+ 221              		.loc 1 146 0
+ 222 012e 7B7D     		ldrb	r3, [r7, #21]
+ 223 0130 5B00     		lsls	r3, r3, #1
+ 224 0132 7B75     		strb	r3, [r7, #21]
  147:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             if (result == CYRET_SUCCESS)
- 169              		.loc 1 147 0
- 170 00ae 31B1     		cbz	r1, .L15
-  65:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         {
- 171              		.loc 1 65 0 discriminator 2
- 172 00b0 0132     		adds	r2, r2, #1
- 173              	.LVL18:
- 174 00b2 D2B2     		uxtb	r2, r2
- 175              	.LVL19:
- 176 00b4 01E0     		b	.L18
- 177              	.LVL20:
- 178              	.L20:
- 179 00b6 0127     		movs	r7, #1
- 180 00b8 0022     		movs	r2, #0
- 181              	.L18:
- 182              	.LVL21:
-  65:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         {
- 183              		.loc 1 65 0 is_stmt 0 discriminator 1
- 184 00ba 072A     		cmp	r2, #7
- 185 00bc A4D9     		bls	.L16
- 186              	.L15:
+ 225              		.loc 1 147 0
+ 226 0134 FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
+ 227 0136 002B     		cmp	r3, #0
+ 228 0138 00D1     		bne	.L16
  148:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             {
  149:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 break;
+ 229              		.loc 1 149 0
+ 230 013a 06E0     		b	.L17
+ 231              	.L16:
+  65:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         {
+ 232              		.loc 1 65 0 discriminator 2
+ 233 013c FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 234 013e 0133     		adds	r3, r3, #1
+ 235 0140 FB75     		strb	r3, [r7, #23]
+ 236              	.L3:
+  65:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         {
+ 237              		.loc 1 65 0 is_stmt 0 discriminator 1
+ 238 0142 FB7D     		ldrb	r3, [r7, #23]	@ zero_extendqisi2
+ 239 0144 072B     		cmp	r3, #7
+ 240 0146 7FF669AF 		bls	.L18
+ 241              	.L17:
  150:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 7
-
-
  151:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         }
  152:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         if (result == CYRET_SUCCESS)
- 187              		.loc 1 152 0 is_stmt 1
- 188 00be 19B1     		cbz	r1, .L17
+ 242              		.loc 1 152 0 is_stmt 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 8
+
+
+ 243 014a FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
+ 244 014c 002B     		cmp	r3, #0
+ 245 014e 00D1     		bne	.L19
  153:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         {
  154:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             break;
+ 246              		.loc 1 154 0
+ 247 0150 06E0     		b	.L20
+ 248              	.L19:
  155:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         }
  156:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         else
  157:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         {
  158:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             retry++;
- 189              		.loc 1 158 0
- 190 00c0 0136     		adds	r6, r6, #1
- 191              	.LVL22:
- 192 00c2 F6B2     		uxtb	r6, r6
- 193              	.LVL23:
- 194              	.L2:
+ 249              		.loc 1 158 0
+ 250 0152 3B7D     		ldrb	r3, [r7, #20]	@ zero_extendqisi2
+ 251 0154 0133     		adds	r3, r3, #1
+ 252 0156 3B75     		strb	r3, [r7, #20]
+ 253              	.L2:
   62:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     {
- 195              		.loc 1 62 0
- 196 00c4 022E     		cmp	r6, #2
- 197 00c6 F6D9     		bls	.L20
- 198              	.L17:
+ 254              		.loc 1 62 0
+ 255 0158 3B7D     		ldrb	r3, [r7, #20]	@ zero_extendqisi2
+ 256 015a 022B     		cmp	r3, #2
+ 257 015c 7FF659AF 		bls	.L21
+ 258              	.L20:
  159:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         }
  160:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     }
  161:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  162:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     return (result);
+ 259              		.loc 1 162 0
+ 260 0160 FB7C     		ldrb	r3, [r7, #19]	@ zero_extendqisi2
  163:Generated_Source\PSoC5/CAN_TX_RX_func.c **** }
- 199              		.loc 1 163 0
- 200 00c8 0846     		mov	r0, r1
- 201              	.LVL24:
- 202 00ca F0BD     		pop	{r4, r5, r6, r7, pc}
- 203              	.LVL25:
- 204              	.L23:
- 205              		.align	2
- 206              	.L22:
- 207 00cc 08A00040 		.word	1073782792
- 208 00d0 20A00040 		.word	1073782816
- 209 00d4 80E100E0 		.word	-536813184
- 210 00d8 00E100E0 		.word	-536813312
- 211              		.cfi_endproc
- 212              	.LFE0:
- 213              		.size	CAN_SendMsg, .-CAN_SendMsg
- 214              		.section	.text.CAN_TxCancel,"ax",%progbits
- 215              		.align	2
- 216              		.global	CAN_TxCancel
- 217              		.thumb
- 218              		.thumb_func
- 219              		.type	CAN_TxCancel, %function
- 220              	CAN_TxCancel:
- 221              	.LFB1:
+ 261              		.loc 1 163 0
+ 262 0162 1846     		mov	r0, r3
+ 263 0164 1C37     		adds	r7, r7, #28
+ 264              		.cfi_def_cfa_offset 4
+ 265 0166 BD46     		mov	sp, r7
+ 266              		.cfi_def_cfa_register 13
+ 267              		@ sp needed
+ 268 0168 5DF8047B 		ldr	r7, [sp], #4
+ 269              		.cfi_restore 7
+ 270              		.cfi_def_cfa_offset 0
+ 271 016c 7047     		bx	lr
+ 272              	.L24:
+ 273 016e 00BF     		.align	2
+ 274              	.L23:
+ 275 0170 08A00040 		.word	1073782792
+ 276 0174 20A00040 		.word	1073782816
+ 277 0178 80E100E0 		.word	-536813184
+ 278 017c 00E100E0 		.word	-536813312
+ 279              		.cfi_endproc
+ 280              	.LFE0:
+ 281              		.size	CAN_SendMsg, .-CAN_SendMsg
+ 282              		.section	.text.CAN_TxCancel,"ax",%progbits
+ 283              		.align	2
+ 284              		.global	CAN_TxCancel
+ 285              		.thumb
+ 286              		.thumb_func
+ 287              		.type	CAN_TxCancel, %function
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 9
+
+
+ 288              	CAN_TxCancel:
+ 289              	.LFB1:
  164:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  165:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  166:Generated_Source\PSoC5/CAN_TX_RX_func.c **** /*******************************************************************************
@@ -418,9 +491,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  169:Generated_Source\PSoC5/CAN_TX_RX_func.c **** *
  170:Generated_Source\PSoC5/CAN_TX_RX_func.c **** * Summary:
  171:Generated_Source\PSoC5/CAN_TX_RX_func.c **** *  This function cancels transmission of a message that has been queued to be
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 8
-
-
  172:Generated_Source\PSoC5/CAN_TX_RX_func.c **** *  transmitted. Values between 0 and 7 are valid.
  173:Generated_Source\PSoC5/CAN_TX_RX_func.c **** *
  174:Generated_Source\PSoC5/CAN_TX_RX_func.c **** * Parameters:
@@ -432,45 +502,76 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  180:Generated_Source\PSoC5/CAN_TX_RX_func.c **** *******************************************************************************/
  181:Generated_Source\PSoC5/CAN_TX_RX_func.c **** void CAN_TxCancel(uint8 bufferId) 
  182:Generated_Source\PSoC5/CAN_TX_RX_func.c **** {
- 222              		.loc 1 182 0
- 223              		.cfi_startproc
- 224              		@ args = 0, pretend = 0, frame = 0
- 225              		@ frame_needed = 0, uses_anonymous_args = 0
- 226              		@ link register save eliminated.
- 227              	.LVL26:
+ 290              		.loc 1 182 0
+ 291              		.cfi_startproc
+ 292              		@ args = 0, pretend = 0, frame = 8
+ 293              		@ frame_needed = 1, uses_anonymous_args = 0
+ 294              		@ link register save eliminated.
+ 295 0000 80B4     		push	{r7}
+ 296              		.cfi_def_cfa_offset 4
+ 297              		.cfi_offset 7, -4
+ 298 0002 83B0     		sub	sp, sp, #12
+ 299              		.cfi_def_cfa_offset 16
+ 300 0004 00AF     		add	r7, sp, #0
+ 301              		.cfi_def_cfa_register 7
+ 302 0006 0346     		mov	r3, r0
+ 303 0008 FB71     		strb	r3, [r7, #7]
  183:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     if (bufferId < CAN_NUMBER_OF_TX_MAILBOXES)
- 228              		.loc 1 183 0
- 229 0000 0728     		cmp	r0, #7
- 230 0002 07D8     		bhi	.L24
+ 304              		.loc 1 183 0
+ 305 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 306 000c 072B     		cmp	r3, #7
+ 307 000e 12D8     		bhi	.L25
  184:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     {
  185:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         CAN_TX_ABORT_MESSAGE(bufferId);
- 231              		.loc 1 185 0
- 232 0004 0001     		lsls	r0, r0, #4
- 233              	.LVL27:
- 234 0006 044A     		ldr	r2, .L26
- 235 0008 835C     		ldrb	r3, [r0, r2]	@ zero_extendqisi2
- 236 000a 03F0FC03 		and	r3, r3, #252
- 237 000e 43F00203 		orr	r3, r3, #2
- 238 0012 8354     		strb	r3, [r0, r2]
- 239              	.L24:
- 240 0014 7047     		bx	lr
- 241              	.L27:
- 242 0016 00BF     		.align	2
- 243              	.L26:
- 244 0018 20A00040 		.word	1073782816
- 245              		.cfi_endproc
- 246              	.LFE1:
- 247              		.size	CAN_TxCancel, .-CAN_TxCancel
- 248              		.section	.text.CAN_SendMsgDash_status,"ax",%progbits
- 249              		.align	2
- 250              		.global	CAN_SendMsgDash_status
- 251              		.thumb
- 252              		.thumb_func
- 253              		.type	CAN_SendMsgDash_status, %function
- 254              	CAN_SendMsgDash_status:
- 255              	.LFB2:
+ 308              		.loc 1 185 0
+ 309 0010 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 310 0012 1A01     		lsls	r2, r3, #4
+ 311 0014 0A4B     		ldr	r3, .L27
+ 312 0016 1344     		add	r3, r3, r2
+ 313 0018 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 314 001a 1101     		lsls	r1, r2, #4
+ 315 001c 084A     		ldr	r2, .L27
+ 316 001e 0A44     		add	r2, r2, r1
+ 317 0020 1278     		ldrb	r2, [r2]
+ 318 0022 D2B2     		uxtb	r2, r2
+ 319 0024 D2B2     		uxtb	r2, r2
+ 320 0026 22F00302 		bic	r2, r2, #3
+ 321 002a D2B2     		uxtb	r2, r2
+ 322 002c 42F00202 		orr	r2, r2, #2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 10
+
+
+ 323 0030 D2B2     		uxtb	r2, r2
+ 324 0032 D2B2     		uxtb	r2, r2
+ 325 0034 1A70     		strb	r2, [r3]
+ 326              	.L25:
  186:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     }
  187:Generated_Source\PSoC5/CAN_TX_RX_func.c **** }
+ 327              		.loc 1 187 0
+ 328 0036 0C37     		adds	r7, r7, #12
+ 329              		.cfi_def_cfa_offset 4
+ 330 0038 BD46     		mov	sp, r7
+ 331              		.cfi_def_cfa_register 13
+ 332              		@ sp needed
+ 333 003a 5DF8047B 		ldr	r7, [sp], #4
+ 334              		.cfi_restore 7
+ 335              		.cfi_def_cfa_offset 0
+ 336 003e 7047     		bx	lr
+ 337              	.L28:
+ 338              		.align	2
+ 339              	.L27:
+ 340 0040 20A00040 		.word	1073782816
+ 341              		.cfi_endproc
+ 342              	.LFE1:
+ 343              		.size	CAN_TxCancel, .-CAN_TxCancel
+ 344              		.section	.text.CAN_SendMsgDash_status,"ax",%progbits
+ 345              		.align	2
+ 346              		.global	CAN_SendMsgDash_status
+ 347              		.thumb
+ 348              		.thumb_func
+ 349              		.type	CAN_SendMsgDash_status, %function
+ 350              	CAN_SendMsgDash_status:
+ 351              	.LFB2:
  188:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  189:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  190:Generated_Source\PSoC5/CAN_TX_RX_func.c **** #if (CAN_TX0_FUNC_ENABLE)
@@ -478,9 +579,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  192:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     * FUNCTION NAME:   CAN_SendMsgDash_status
  193:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     ********************************************************************************
  194:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 9
-
-
  195:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     * Summary:
  196:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *  This function is the entry point to Transmit Message 0. The function checks
  197:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *  if mailbox 0 doesn't already have un-transmitted messages waiting for
@@ -499,31 +597,46 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  210:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *******************************************************************************/
  211:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     uint8 CAN_SendMsgDash_status(void) 
  212:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     {
- 256              		.loc 1 212 0
- 257              		.cfi_startproc
- 258              		@ args = 0, pretend = 0, frame = 0
- 259              		@ frame_needed = 0, uses_anonymous_args = 0
- 260              		@ link register save eliminated.
- 261              	.LVL28:
+ 352              		.loc 1 212 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 11
+
+
+ 353              		.cfi_startproc
+ 354              		@ args = 0, pretend = 0, frame = 8
+ 355              		@ frame_needed = 1, uses_anonymous_args = 0
+ 356              		@ link register save eliminated.
+ 357 0000 80B4     		push	{r7}
+ 358              		.cfi_def_cfa_offset 4
+ 359              		.cfi_offset 7, -4
+ 360 0002 83B0     		sub	sp, sp, #12
+ 361              		.cfi_def_cfa_offset 16
+ 362 0004 00AF     		add	r7, sp, #0
+ 363              		.cfi_def_cfa_register 7
  213:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         uint8 result = CYRET_SUCCESS;
+ 364              		.loc 1 213 0
+ 365 0006 0023     		movs	r3, #0
+ 366 0008 FB71     		strb	r3, [r7, #7]
  214:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  215:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         #if (CY_PSOC3 || CY_PSOC5)
  216:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             if ((CAN_TX[0u].txcmd.byte[0u] & CAN_TX_REQUEST_PENDING) != 0u)
- 262              		.loc 1 216 0
- 263 0000 0F4B     		ldr	r3, .L35
- 264 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 265 0004 13F0010F 		tst	r3, #1
- 266 0008 17D1     		bne	.L34
- 267 000a 0023     		movs	r3, #0
- 268 000c 0CE0     		b	.L30
- 269              	.LVL29:
- 270              	.L33:
- 271              	.LBB2:
+ 367              		.loc 1 216 0
+ 368 000a 184B     		ldr	r3, .L37
+ 369 000c 1B78     		ldrb	r3, [r3]
+ 370 000e DBB2     		uxtb	r3, r3
+ 371 0010 03F00103 		and	r3, r3, #1
+ 372 0014 002B     		cmp	r3, #0
+ 373 0016 02D0     		beq	.L30
  217:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         #else  /* CY_PSOC4 */
  218:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             if ((CAN_TX_CMD_REG(0u) & CAN_TX_REQUEST_PENDING) != 0u)
  219:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         #endif /* CY_PSOC3 || CY_PSOC5 */
  220:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             {
  221:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 result = CAN_FAIL;
+ 374              		.loc 1 221 0
+ 375 0018 0123     		movs	r3, #1
+ 376 001a FB71     		strb	r3, [r7, #7]
+ 377 001c 1EE0     		b	.L31
+ 378              	.L30:
+ 379              	.LBB2:
  222:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
  223:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             else
  224:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             {
@@ -531,36 +644,46 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  226:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 uint8_t i;
  227:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  228:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 				for(i=0; i<buffer_LEN; i++)
+ 380              		.loc 1 228 0
+ 381 001e 0023     		movs	r3, #0
+ 382 0020 BB71     		strb	r3, [r7, #6]
+ 383 0022 12E0     		b	.L32
+ 384              	.L35:
  229:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 					CAN_TX_DATA_BYTE(0,i) = can_buffer[i];
- 272              		.loc 1 229 0
- 273 000e 032B     		cmp	r3, #3
- 274 0010 02D9     		bls	.L31
- 275              		.loc 1 229 0 is_stmt 0 discriminator 1
- 276 0012 C3F10B00 		rsb	r0, r3, #11
- 277 0016 01E0     		b	.L32
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 10
+ 385              		.loc 1 229 0
+ 386 0024 1149     		ldr	r1, .L37
+ 387 0026 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 388 0028 032B     		cmp	r3, #3
+ 389 002a 03D9     		bls	.L33
+ 390              		.loc 1 229 0 is_stmt 0 discriminator 1
+ 391 002c BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 392 002e C3F10B03 		rsb	r3, r3, #11
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 12
 
 
- 278              	.L31:
- 279              		.loc 1 229 0 discriminator 2
- 280 0018 C3F10300 		rsb	r0, r3, #3
- 281              	.L32:
- 282              		.loc 1 229 0 discriminator 4
- 283 001c 094A     		ldr	r2, .L35+4
- 284 001e D15C     		ldrb	r1, [r2, r3]	@ zero_extendqisi2
- 285 0020 094A     		ldr	r2, .L35+8
- 286 0022 1154     		strb	r1, [r2, r0]
+ 393 0032 02E0     		b	.L34
+ 394              	.L33:
+ 395              		.loc 1 229 0 discriminator 2
+ 396 0034 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 397 0036 C3F10303 		rsb	r3, r3, #3
+ 398              	.L34:
+ 399              		.loc 1 229 0 discriminator 4
+ 400 003a BA79     		ldrb	r2, [r7, #6]	@ zero_extendqisi2
+ 401 003c 0C48     		ldr	r0, .L37+4
+ 402 003e 825C     		ldrb	r2, [r0, r2]	@ zero_extendqisi2
+ 403 0040 0B44     		add	r3, r3, r1
+ 404 0042 1A72     		strb	r2, [r3, #8]
  228:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 					CAN_TX_DATA_BYTE(0,i) = can_buffer[i];
- 287              		.loc 1 228 0 is_stmt 1 discriminator 4
- 288 0024 0133     		adds	r3, r3, #1
- 289              	.LVL30:
- 290 0026 DBB2     		uxtb	r3, r3
- 291              	.LVL31:
- 292              	.L30:
+ 405              		.loc 1 228 0 is_stmt 1 discriminator 4
+ 406 0044 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 407 0046 0133     		adds	r3, r3, #1
+ 408 0048 BB71     		strb	r3, [r7, #6]
+ 409              	.L32:
  228:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 					CAN_TX_DATA_BYTE(0,i) = can_buffer[i];
- 293              		.loc 1 228 0 is_stmt 0 discriminator 2
- 294 0028 072B     		cmp	r3, #7
- 295 002a F0D9     		bls	.L33
+ 410              		.loc 1 228 0 is_stmt 0 discriminator 2
+ 411 004a BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 412 004c 072B     		cmp	r3, #7
+ 413 004e E9D9     		bls	.L35
  230:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 /* `#END` */
  231:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  232:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 #ifdef CAN_SEND_MSG_Dash_status_CALLBACK
@@ -568,49 +691,51 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  234:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 #endif /* CAN_SEND_MSG_Dash_status_CALLBACK */
  235:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  236:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 CY_SET_REG32(CAN_TX_CMD_PTR(0u),
- 296              		.loc 1 236 0 is_stmt 1
- 297 002c 044A     		ldr	r2, .L35
- 298 002e 1368     		ldr	r3, [r2]
- 299              	.LVL32:
- 300 0030 43F00103 		orr	r3, r3, #1
- 301 0034 1360     		str	r3, [r2]
- 302              	.LBE2:
- 213:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
- 303              		.loc 1 213 0
- 304 0036 0020     		movs	r0, #0
- 305 0038 7047     		bx	lr
- 306              	.L34:
- 221:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
- 307              		.loc 1 221 0
- 308 003a 0120     		movs	r0, #1
- 309              	.LVL33:
+ 414              		.loc 1 236 0 is_stmt 1
+ 415 0050 064A     		ldr	r2, .L37
+ 416 0052 064B     		ldr	r3, .L37
+ 417 0054 1B68     		ldr	r3, [r3]
+ 418 0056 43F00103 		orr	r3, r3, #1
+ 419 005a 1360     		str	r3, [r2]
+ 420              	.L31:
+ 421              	.LBE2:
  237:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 CY_GET_REG32(CAN_TX_CMD_PTR(0u)) | CAN_SEND_MESSAGE);
  238:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
  239:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  240:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         return (result);
+ 422              		.loc 1 240 0
+ 423 005c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
  241:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     }
- 310              		.loc 1 241 0
- 311 003c 7047     		bx	lr
- 312              	.L36:
- 313 003e 00BF     		.align	2
- 314              	.L35:
- 315 0040 20A00040 		.word	1073782816
- 316 0044 00000000 		.word	can_buffer
- 317 0048 28A00040 		.word	1073782824
- 318              		.cfi_endproc
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 11
+ 424              		.loc 1 241 0
+ 425 005e 1846     		mov	r0, r3
+ 426 0060 0C37     		adds	r7, r7, #12
+ 427              		.cfi_def_cfa_offset 4
+ 428 0062 BD46     		mov	sp, r7
+ 429              		.cfi_def_cfa_register 13
+ 430              		@ sp needed
+ 431 0064 5DF8047B 		ldr	r7, [sp], #4
+ 432              		.cfi_restore 7
+ 433              		.cfi_def_cfa_offset 0
+ 434 0068 7047     		bx	lr
+ 435              	.L38:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 13
 
 
- 319              	.LFE2:
- 320              		.size	CAN_SendMsgDash_status, .-CAN_SendMsgDash_status
- 321              		.section	.text.CAN_SendMsgDash_cmd,"ax",%progbits
- 322              		.align	2
- 323              		.global	CAN_SendMsgDash_cmd
- 324              		.thumb
- 325              		.thumb_func
- 326              		.type	CAN_SendMsgDash_cmd, %function
- 327              	CAN_SendMsgDash_cmd:
- 328              	.LFB3:
+ 436 006a 00BF     		.align	2
+ 437              	.L37:
+ 438 006c 20A00040 		.word	1073782816
+ 439 0070 00000000 		.word	can_buffer
+ 440              		.cfi_endproc
+ 441              	.LFE2:
+ 442              		.size	CAN_SendMsgDash_status, .-CAN_SendMsgDash_status
+ 443              		.section	.text.CAN_SendMsgDash_cmd,"ax",%progbits
+ 444              		.align	2
+ 445              		.global	CAN_SendMsgDash_cmd
+ 446              		.thumb
+ 447              		.thumb_func
+ 448              		.type	CAN_SendMsgDash_cmd, %function
+ 449              	CAN_SendMsgDash_cmd:
+ 450              	.LFB3:
  242:Generated_Source\PSoC5/CAN_TX_RX_func.c **** #endif /* CAN_TX0_FUNC_ENABLE */
  243:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  244:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
@@ -637,34 +762,46 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  265:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *******************************************************************************/
  266:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     uint8 CAN_SendMsgDash_cmd(void) 
  267:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     {
- 329              		.loc 1 267 0
- 330              		.cfi_startproc
- 331              		@ args = 0, pretend = 0, frame = 0
- 332              		@ frame_needed = 0, uses_anonymous_args = 0
- 333              		@ link register save eliminated.
- 334              	.LVL34:
+ 451              		.loc 1 267 0
+ 452              		.cfi_startproc
+ 453              		@ args = 0, pretend = 0, frame = 8
+ 454              		@ frame_needed = 1, uses_anonymous_args = 0
+ 455              		@ link register save eliminated.
+ 456 0000 80B4     		push	{r7}
+ 457              		.cfi_def_cfa_offset 4
+ 458              		.cfi_offset 7, -4
+ 459 0002 83B0     		sub	sp, sp, #12
+ 460              		.cfi_def_cfa_offset 16
+ 461 0004 00AF     		add	r7, sp, #0
+ 462              		.cfi_def_cfa_register 7
  268:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         uint8 result = CYRET_SUCCESS;
+ 463              		.loc 1 268 0
+ 464 0006 0023     		movs	r3, #0
+ 465 0008 FB71     		strb	r3, [r7, #7]
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 14
+
+
  269:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  270:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         #if (CY_PSOC3 || CY_PSOC5)
  271:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             if ((CAN_TX[1u].txcmd.byte[0u] & CAN_TX_REQUEST_PENDING) != 0u)
- 335              		.loc 1 271 0
- 336 0000 0F4B     		ldr	r3, .L44
- 337 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 338 0004 13F0010F 		tst	r3, #1
- 339 0008 17D1     		bne	.L43
- 340 000a 0023     		movs	r3, #0
- 341 000c 0CE0     		b	.L39
- 342              	.LVL35:
- 343              	.L42:
- 344              	.LBB3:
+ 466              		.loc 1 271 0
+ 467 000a 184B     		ldr	r3, .L47
+ 468 000c 1B78     		ldrb	r3, [r3]
+ 469 000e DBB2     		uxtb	r3, r3
+ 470 0010 03F00103 		and	r3, r3, #1
+ 471 0014 002B     		cmp	r3, #0
+ 472 0016 02D0     		beq	.L40
  272:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         #else  /* CY_PSOC4 */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 12
-
-
  273:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             if ((CAN_TX_CMD_REG(1u) & CAN_TX_REQUEST_PENDING) != 0u)
  274:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         #endif /* CY_PSOC3 || CY_PSOC5 */
  275:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             {
  276:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 result = CAN_FAIL;
+ 473              		.loc 1 276 0
+ 474 0018 0123     		movs	r3, #1
+ 475 001a FB71     		strb	r3, [r7, #7]
+ 476 001c 1EE0     		b	.L41
+ 477              	.L40:
+ 478              	.LBB3:
  277:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
  278:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             else
  279:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             {
@@ -672,33 +809,46 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  281:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 uint8_t i;
  282:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  283:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 				for(i=0; i<buffer_LEN; i++)
+ 479              		.loc 1 283 0
+ 480 001e 0023     		movs	r3, #0
+ 481 0020 BB71     		strb	r3, [r7, #6]
+ 482 0022 12E0     		b	.L42
+ 483              	.L45:
  284:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 					CAN_TX_DATA_BYTE(1,i) = can_buffer[i];
- 345              		.loc 1 284 0
- 346 000e 032B     		cmp	r3, #3
- 347 0010 02D9     		bls	.L40
- 348              		.loc 1 284 0 is_stmt 0 discriminator 1
- 349 0012 C3F10B00 		rsb	r0, r3, #11
- 350 0016 01E0     		b	.L41
- 351              	.L40:
- 352              		.loc 1 284 0 discriminator 2
- 353 0018 C3F10300 		rsb	r0, r3, #3
- 354              	.L41:
- 355              		.loc 1 284 0 discriminator 4
- 356 001c 094A     		ldr	r2, .L44+4
- 357 001e D15C     		ldrb	r1, [r2, r3]	@ zero_extendqisi2
- 358 0020 094A     		ldr	r2, .L44+8
- 359 0022 1154     		strb	r1, [r2, r0]
+ 484              		.loc 1 284 0
+ 485 0024 1149     		ldr	r1, .L47
+ 486 0026 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 487 0028 032B     		cmp	r3, #3
+ 488 002a 03D9     		bls	.L43
+ 489              		.loc 1 284 0 is_stmt 0 discriminator 1
+ 490 002c BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 491 002e C3F10B03 		rsb	r3, r3, #11
+ 492 0032 02E0     		b	.L44
+ 493              	.L43:
+ 494              		.loc 1 284 0 discriminator 2
+ 495 0034 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 496 0036 C3F10303 		rsb	r3, r3, #3
+ 497              	.L44:
+ 498              		.loc 1 284 0 discriminator 4
+ 499 003a BA79     		ldrb	r2, [r7, #6]	@ zero_extendqisi2
+ 500 003c 0C48     		ldr	r0, .L47+4
+ 501 003e 825C     		ldrb	r2, [r0, r2]	@ zero_extendqisi2
+ 502 0040 0B44     		add	r3, r3, r1
+ 503 0042 1A72     		strb	r2, [r3, #8]
  283:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 					CAN_TX_DATA_BYTE(1,i) = can_buffer[i];
- 360              		.loc 1 283 0 is_stmt 1 discriminator 4
- 361 0024 0133     		adds	r3, r3, #1
- 362              	.LVL36:
- 363 0026 DBB2     		uxtb	r3, r3
- 364              	.LVL37:
- 365              	.L39:
+ 504              		.loc 1 283 0 is_stmt 1 discriminator 4
+ 505 0044 BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 15
+
+
+ 506 0046 0133     		adds	r3, r3, #1
+ 507 0048 BB71     		strb	r3, [r7, #6]
+ 508              	.L42:
  283:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 					CAN_TX_DATA_BYTE(1,i) = can_buffer[i];
- 366              		.loc 1 283 0 is_stmt 0 discriminator 2
- 367 0028 072B     		cmp	r3, #7
- 368 002a F0D9     		bls	.L42
+ 509              		.loc 1 283 0 is_stmt 0 discriminator 2
+ 510 004a BB79     		ldrb	r3, [r7, #6]	@ zero_extendqisi2
+ 511 004c 072B     		cmp	r3, #7
+ 512 004e E9D9     		bls	.L45
  285:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 /* `#END` */
  286:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  287:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 #ifdef CAN_SEND_MSG_Dash_cmd_CALLBACK
@@ -706,49 +856,51 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  289:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 #endif /* CAN_SEND_MSG_Dash_cmd_CALLBACK */
  290:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  291:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 CY_SET_REG32(CAN_TX_CMD_PTR(1u),
- 369              		.loc 1 291 0 is_stmt 1
- 370 002c 044A     		ldr	r2, .L44
- 371 002e 1368     		ldr	r3, [r2]
- 372              	.LVL38:
- 373 0030 43F00103 		orr	r3, r3, #1
- 374 0034 1360     		str	r3, [r2]
- 375              	.LBE3:
- 268:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
- 376              		.loc 1 268 0
- 377 0036 0020     		movs	r0, #0
- 378 0038 7047     		bx	lr
- 379              	.L43:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 13
-
-
- 276:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
- 380              		.loc 1 276 0
- 381 003a 0120     		movs	r0, #1
- 382              	.LVL39:
+ 513              		.loc 1 291 0 is_stmt 1
+ 514 0050 064A     		ldr	r2, .L47
+ 515 0052 064B     		ldr	r3, .L47
+ 516 0054 1B68     		ldr	r3, [r3]
+ 517 0056 43F00103 		orr	r3, r3, #1
+ 518 005a 1360     		str	r3, [r2]
+ 519              	.L41:
+ 520              	.LBE3:
  292:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 CY_GET_REG32(CAN_TX_CMD_PTR(1u)) | CAN_SEND_MESSAGE);
  293:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
  294:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  295:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         return (result);
+ 521              		.loc 1 295 0
+ 522 005c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
  296:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     }
- 383              		.loc 1 296 0
- 384 003c 7047     		bx	lr
- 385              	.L45:
- 386 003e 00BF     		.align	2
- 387              	.L44:
- 388 0040 30A00040 		.word	1073782832
- 389 0044 00000000 		.word	can_buffer
- 390 0048 38A00040 		.word	1073782840
- 391              		.cfi_endproc
- 392              	.LFE3:
- 393              		.size	CAN_SendMsgDash_cmd, .-CAN_SendMsgDash_cmd
- 394              		.section	.text.CAN_ReceiveMsg,"ax",%progbits
- 395              		.align	2
- 396              		.global	CAN_ReceiveMsg
- 397              		.thumb
- 398              		.thumb_func
- 399              		.type	CAN_ReceiveMsg, %function
- 400              	CAN_ReceiveMsg:
- 401              	.LFB4:
+ 523              		.loc 1 296 0
+ 524 005e 1846     		mov	r0, r3
+ 525 0060 0C37     		adds	r7, r7, #12
+ 526              		.cfi_def_cfa_offset 4
+ 527 0062 BD46     		mov	sp, r7
+ 528              		.cfi_def_cfa_register 13
+ 529              		@ sp needed
+ 530 0064 5DF8047B 		ldr	r7, [sp], #4
+ 531              		.cfi_restore 7
+ 532              		.cfi_def_cfa_offset 0
+ 533 0068 7047     		bx	lr
+ 534              	.L48:
+ 535 006a 00BF     		.align	2
+ 536              	.L47:
+ 537 006c 30A00040 		.word	1073782832
+ 538 0070 00000000 		.word	can_buffer
+ 539              		.cfi_endproc
+ 540              	.LFE3:
+ 541              		.size	CAN_SendMsgDash_cmd, .-CAN_SendMsgDash_cmd
+ 542              		.section	.text.CAN_ReceiveMsg,"ax",%progbits
+ 543              		.align	2
+ 544              		.global	CAN_ReceiveMsg
+ 545              		.thumb
+ 546              		.thumb_func
+ 547              		.type	CAN_ReceiveMsg, %function
+ 548              	CAN_ReceiveMsg:
+ 549              	.LFB4:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 16
+
+
  297:Generated_Source\PSoC5/CAN_TX_RX_func.c **** #endif /* CAN_TX1_FUNC_ENABLE */
  298:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  299:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
@@ -778,9 +930,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  323:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         uint8 result = CYRET_SUCCESS;
  324:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  325:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         #if (CY_PSOC3 || CY_PSOC5)
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 14
-
-
  326:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             if ((CAN_TX[2u].txcmd.byte[0u] & CAN_TX_REQUEST_PENDING) != 0u)
  327:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         #else  /* CY_PSOC4 */
  328:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             if ((CAN_TX_CMD_REG(2u) & CAN_TX_REQUEST_PENDING) != 0u)
@@ -809,6 +958,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  351:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  352:Generated_Source\PSoC5/CAN_TX_RX_func.c **** #if (CAN_TX3_FUNC_ENABLE)
  353:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     /*******************************************************************************
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 17
+
+
  354:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     * FUNCTION NAME:   CAN_SendMsg3
  355:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     ********************************************************************************
  356:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *
@@ -838,9 +990,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  380:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             if ((CAN_TX_CMD_REG(3u) & CAN_TX_REQUEST_PENDING) != 0u)
  381:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         #endif /* CY_PSOC3 || CY_PSOC5 */
  382:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             {
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 15
-
-
  383:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 result = CAN_FAIL;
  384:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
  385:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             else
@@ -869,6 +1018,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  408:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *
  409:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     * Summary:
  410:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *  This function is the entry point to Transmit Message 4. The function checks
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 18
+
+
  411:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *  if mailbox 4 doesn't already have un-transmitted messages waiting for
  412:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *  arbitration. If not initiate transmission of the message.
  413:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *  Generated only for the Transmit mailbox designed as Full.
@@ -898,9 +1050,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  437:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             else
  438:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             {
  439:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 /* `#START MESSAGE_4_TRASMITTED` */
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 16
-
-
  440:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  441:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 /* `#END` */
  442:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
@@ -929,6 +1078,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  465:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *  Generated only for the Transmit mailbox designed as Full.
  466:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *
  467:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     * Parameters:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 19
+
+
  468:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *  None.
  469:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *
  470:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     * Return:
@@ -958,9 +1110,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  494:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  495:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 #ifdef CAN_SEND_MSG_5_CALLBACK
  496:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                     CAN_SendMsg_5_Callback();
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 17
-
-
  497:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 #endif /* CAN_SEND_MSG_5_CALLBACK */
  498:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  499:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 CY_SET_REG32(CAN_TX_CMD_PTR(5u),
@@ -989,6 +1138,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  522:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     * Return:
  523:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *  Indication if Message has been sent.
  524:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *   Define                             Description
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 20
+
+
  525:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *    CYRET_SUCCESS                      The function passed successfully
  526:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *    CAN_FAIL              The function failed
  527:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *
@@ -1018,9 +1170,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  551:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 CY_SET_REG32(CAN_TX_CMD_PTR(6u),
  552:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 CY_GET_REG32(CAN_TX_CMD_PTR(6u)) | CAN_SEND_MESSAGE);
  553:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             }
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 18
-
-
  554:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  555:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         return (result);
  556:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     }
@@ -1049,6 +1198,9 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  579:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *
  580:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     *******************************************************************************/
  581:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     uint8 CAN_SendMsg7(void) 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 21
+
+
  582:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     {
  583:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         uint8 result = CYRET_SUCCESS;
  584:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
@@ -1078,9 +1230,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  608:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     }
  609:Generated_Source\PSoC5/CAN_TX_RX_func.c **** #endif /* CAN_TX7_FUNC_ENABLE */
  610:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 19
-
-
  611:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  612:Generated_Source\PSoC5/CAN_TX_RX_func.c **** /*******************************************************************************
  613:Generated_Source\PSoC5/CAN_TX_RX_func.c **** * FUNCTION NAME:   CAN_ReceiveMsg
@@ -1103,30 +1252,38 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  630:Generated_Source\PSoC5/CAN_TX_RX_func.c **** *******************************************************************************/
  631:Generated_Source\PSoC5/CAN_TX_RX_func.c **** void CAN_ReceiveMsg(uint8 rxMailbox) 
  632:Generated_Source\PSoC5/CAN_TX_RX_func.c **** {
- 402              		.loc 1 632 0
- 403              		.cfi_startproc
- 404              		@ args = 0, pretend = 0, frame = 40
- 405              		@ frame_needed = 0, uses_anonymous_args = 0
- 406              	.LVL40:
- 407 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 408              		.cfi_def_cfa_offset 20
- 409              		.cfi_offset 4, -20
- 410              		.cfi_offset 5, -16
- 411              		.cfi_offset 6, -12
- 412              		.cfi_offset 7, -8
- 413              		.cfi_offset 14, -4
- 414 0002 8BB0     		sub	sp, sp, #44
- 415              		.cfi_def_cfa_offset 64
+ 550              		.loc 1 632 0
+ 551              		.cfi_startproc
+ 552              		@ args = 0, pretend = 0, frame = 56
+ 553              		@ frame_needed = 1, uses_anonymous_args = 0
+ 554 0000 B0B5     		push	{r4, r5, r7, lr}
+ 555              		.cfi_def_cfa_offset 16
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 22
+
+
+ 556              		.cfi_offset 4, -16
+ 557              		.cfi_offset 5, -12
+ 558              		.cfi_offset 7, -8
+ 559              		.cfi_offset 14, -4
+ 560 0002 8EB0     		sub	sp, sp, #56
+ 561              		.cfi_def_cfa_offset 72
+ 562 0004 00AF     		add	r7, sp, #0
+ 563              		.cfi_def_cfa_register 7
+ 564 0006 0346     		mov	r3, r0
+ 565 0008 FB71     		strb	r3, [r7, #7]
  633:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     #if (CY_PSOC3 || CY_PSOC5)
  634:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         if ((CAN_RX[rxMailbox].rxcmd.byte[0u] & CAN_RX_ACK_MSG) != 0u)
- 416              		.loc 1 634 0
- 417 0004 4701     		lsls	r7, r0, #5
- 418 0006 174E     		ldr	r6, .L53
- 419 0008 BC19     		adds	r4, r7, r6
- 420 000a BB5D     		ldrb	r3, [r7, r6]	@ zero_extendqisi2
- 421 000c 13F0010F 		tst	r3, #1
- 422 0010 26D0     		beq	.L46
- 423              	.LBB4:
+ 566              		.loc 1 634 0
+ 567 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 568 000c 5A01     		lsls	r2, r3, #5
+ 569 000e 324B     		ldr	r3, .L55
+ 570 0010 1344     		add	r3, r3, r2
+ 571 0012 1B78     		ldrb	r3, [r3]
+ 572 0014 DBB2     		uxtb	r3, r3
+ 573 0016 03F00103 		and	r3, r3, #1
+ 574 001a 002B     		cmp	r3, #0
+ 575 001c 59D0     		beq	.L49
+ 576              	.LBB4:
  635:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     #else  /* CY_PSOC4 */
  636:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         if ((CAN_RX_CMD_REG(rxMailbox) & CAN_RX_ACK_MSG) != 0u)
  637:Generated_Source\PSoC5/CAN_TX_RX_func.c ****     #endif /* CY_PSOC3 || CY_PSOC5 */
@@ -1135,72 +1292,112 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  640:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             
  641:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             // Grab message ID
  642:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             int ID = CAN_GET_RX_ID(rxMailbox);
- 424              		.loc 1 642 0
- 425 0012 A378     		ldrb	r3, [r4, #2]	@ zero_extendqisi2
- 426 0014 13F0100F 		tst	r3, #16
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 20
+ 577              		.loc 1 642 0
+ 578 001e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 579 0020 5A01     		lsls	r2, r3, #5
+ 580 0022 2D4B     		ldr	r3, .L55
+ 581 0024 1344     		add	r3, r3, r2
+ 582 0026 9B78     		ldrb	r3, [r3, #2]
+ 583 0028 DBB2     		uxtb	r3, r3
+ 584 002a 03F01003 		and	r3, r3, #16
+ 585 002e 1B11     		asrs	r3, r3, #4
+ 586 0030 002B     		cmp	r3, #0
+ 587 0032 07D0     		beq	.L51
+ 588              		.loc 1 642 0 is_stmt 0 discriminator 1
+ 589 0034 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 590 0036 5A01     		lsls	r2, r3, #5
+ 591 0038 274B     		ldr	r3, .L55
+ 592 003a 1344     		add	r3, r3, r2
+ 593 003c 0433     		adds	r3, r3, #4
+ 594 003e 1B68     		ldr	r3, [r3]
+ 595 0040 DB08     		lsrs	r3, r3, #3
+ 596 0042 06E0     		b	.L52
+ 597              	.L51:
+ 598              		.loc 1 642 0 discriminator 2
+ 599 0044 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 600 0046 5A01     		lsls	r2, r3, #5
+ 601 0048 234B     		ldr	r3, .L55
+ 602 004a 1344     		add	r3, r3, r2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 23
 
 
- 427 0018 03D0     		beq	.L48
- 428              		.loc 1 642 0 is_stmt 0 discriminator 1
- 429 001a 6368     		ldr	r3, [r4, #4]
- 430 001c 4FEAD30C 		lsr	ip, r3, #3
- 431 0020 02E0     		b	.L49
- 432              	.L48:
- 433              		.loc 1 642 0 discriminator 2
- 434 0022 6368     		ldr	r3, [r4, #4]
- 435 0024 4FEA535C 		lsr	ip, r3, #21
- 436              	.L49:
- 437              	.LVL41:
+ 603 004c 0433     		adds	r3, r3, #4
+ 604 004e 1B68     		ldr	r3, [r3]
+ 605 0050 5B0D     		lsrs	r3, r3, #21
+ 606              	.L52:
+ 607              		.loc 1 642 0 discriminator 4
+ 608 0052 3B63     		str	r3, [r7, #48]
  643:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             
  644:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             // The variable test is just for debuging.
  645:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             CAN_RX_STRUCT test = CAN_RX[rxMailbox]; 
- 438              		.loc 1 645 0 is_stmt 1 discriminator 4
- 439 0028 02AD     		add	r5, sp, #8
- 440 002a A646     		mov	lr, r4
- 441 002c BEE80F00 		ldmia	lr!, {r0, r1, r2, r3}
- 442              	.LVL42:
- 443 0030 0FC5     		stmia	r5!, {r0, r1, r2, r3}
- 444 0032 9EE80F00 		ldmia	lr, {r0, r1, r2, r3}
- 445 0036 85E80F00 		stmia	r5, {r0, r1, r2, r3}
- 446              	.LVL43:
+ 609              		.loc 1 645 0 is_stmt 1 discriminator 4
+ 610 0054 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 611 0056 5A01     		lsls	r2, r3, #5
+ 612 0058 1F4B     		ldr	r3, .L55
+ 613 005a 1344     		add	r3, r3, r2
+ 614 005c 07F10804 		add	r4, r7, #8
+ 615 0060 1D46     		mov	r5, r3
+ 616 0062 2868     		ldr	r0, [r5]	@ unaligned
+ 617 0064 6968     		ldr	r1, [r5, #4]	@ unaligned
+ 618 0066 AA68     		ldr	r2, [r5, #8]	@ unaligned
+ 619 0068 EB68     		ldr	r3, [r5, #12]	@ unaligned
+ 620 006a 0FC4     		stmia	r4!, {r0, r1, r2, r3}
+ 621 006c 2869     		ldr	r0, [r5, #16]	@ unaligned
+ 622 006e 6969     		ldr	r1, [r5, #20]	@ unaligned
+ 623 0070 AA69     		ldr	r2, [r5, #24]	@ unaligned
+ 624 0072 EB69     		ldr	r3, [r5, #28]	@ unaligned
+ 625 0074 0FC4     		stmia	r4!, {r0, r1, r2, r3}
  646:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             
  647:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             // Grab the data one byte at a time.
  648:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             uint8_t data[8];
  649:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             int i = 0;
+ 626              		.loc 1 649 0 discriminator 4
+ 627 0076 0023     		movs	r3, #0
+ 628 0078 7B63     		str	r3, [r7, #52]
  650:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             for (i = 0; i < 8; i++)
- 447              		.loc 1 650 0 discriminator 4
- 448 003a 0023     		movs	r3, #0
- 449 003c 06E0     		b	.L50
- 450              	.LVL44:
- 451              	.L51:
+ 629              		.loc 1 650 0 discriminator 4
+ 630 007a 0023     		movs	r3, #0
+ 631 007c 7B63     		str	r3, [r7, #52]
+ 632 007e 11E0     		b	.L53
+ 633              	.L54:
  651:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 data[i] = CAN_RX[rxMailbox].rxdata.byte[i];
- 452              		.loc 1 651 0 discriminator 3
- 453 003e E218     		adds	r2, r4, r3
- 454 0040 117A     		ldrb	r1, [r2, #8]	@ zero_extendqisi2
- 455 0042 0AAA     		add	r2, sp, #40
- 456 0044 1A44     		add	r2, r2, r3
- 457 0046 02F8281C 		strb	r1, [r2, #-40]
- 650:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 data[i] = CAN_RX[rxMailbox].rxdata.byte[i];
- 458              		.loc 1 650 0 discriminator 3
- 459 004a 0133     		adds	r3, r3, #1
- 460              	.LVL45:
- 461              	.L50:
- 650:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 data[i] = CAN_RX[rxMailbox].rxdata.byte[i];
- 462              		.loc 1 650 0 is_stmt 0 discriminator 1
- 463 004c 072B     		cmp	r3, #7
- 464 004e F6DD     		ble	.L51
+ 634              		.loc 1 651 0 discriminator 3
+ 635 0080 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 636 0082 5A01     		lsls	r2, r3, #5
+ 637 0084 144B     		ldr	r3, .L55
+ 638 0086 1344     		add	r3, r3, r2
+ 639 0088 7A6B     		ldr	r2, [r7, #52]
+ 640 008a 1344     		add	r3, r3, r2
+ 641 008c 0833     		adds	r3, r3, #8
+ 642 008e 1B78     		ldrb	r3, [r3]
+ 643 0090 D9B2     		uxtb	r1, r3
+ 644 0092 07F12802 		add	r2, r7, #40
+ 645 0096 7B6B     		ldr	r3, [r7, #52]
+ 646 0098 1344     		add	r3, r3, r2
+ 647 009a 0A46     		mov	r2, r1
+ 648 009c 1A70     		strb	r2, [r3]
+ 650:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             for (i = 0; i < 8; i++)
+ 649              		.loc 1 650 0 discriminator 3
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 24
+
+
+ 650 009e 7B6B     		ldr	r3, [r7, #52]
+ 651 00a0 0133     		adds	r3, r3, #1
+ 652 00a2 7B63     		str	r3, [r7, #52]
+ 653              	.L53:
+ 650:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             for (i = 0; i < 8; i++)
+ 654              		.loc 1 650 0 is_stmt 0 discriminator 1
+ 655 00a4 7B6B     		ldr	r3, [r7, #52]
+ 656 00a6 072B     		cmp	r3, #7
+ 657 00a8 EADD     		ble	.L54
  652:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             
  653:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             // Do something with that data based on the ID
  654:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             can_receive(data, ID);
- 465              		.loc 1 654 0 is_stmt 1
- 466 0050 6846     		mov	r0, sp
- 467 0052 6146     		mov	r1, ip
- 468 0054 FFF7FEFF 		bl	can_receive
- 469              	.LVL46:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 21
-
-
+ 658              		.loc 1 654 0 is_stmt 1
+ 659 00aa 07F12803 		add	r3, r7, #40
+ 660 00ae 1846     		mov	r0, r3
+ 661 00b0 396B     		ldr	r1, [r7, #48]
+ 662 00b2 FFF7FEFF 		bl	can_receive
  655:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             
  656:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             /* `#END` */
  657:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
@@ -1210,1566 +1407,1297 @@ ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 1
  661:Generated_Source\PSoC5/CAN_TX_RX_func.c **** 
  662:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             #if (CY_PSOC3 || CY_PSOC5)
  663:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 CAN_RX[rxMailbox].rxcmd.byte[0u] |= CAN_RX_ACK_MSG;
- 470              		.loc 1 663 0
- 471 0058 BB5D     		ldrb	r3, [r7, r6]	@ zero_extendqisi2
- 472 005a 43F00103 		orr	r3, r3, #1
- 473 005e BB55     		strb	r3, [r7, r6]
- 474              	.L46:
- 475              	.LBE4:
+ 663              		.loc 1 663 0
+ 664 00b6 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 665 00b8 5A01     		lsls	r2, r3, #5
+ 666 00ba 074B     		ldr	r3, .L55
+ 667 00bc 1344     		add	r3, r3, r2
+ 668 00be FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 669 00c0 5101     		lsls	r1, r2, #5
+ 670 00c2 054A     		ldr	r2, .L55
+ 671 00c4 0A44     		add	r2, r2, r1
+ 672 00c6 1278     		ldrb	r2, [r2]
+ 673 00c8 D2B2     		uxtb	r2, r2
+ 674 00ca 42F00102 		orr	r2, r2, #1
+ 675 00ce D2B2     		uxtb	r2, r2
+ 676 00d0 1A70     		strb	r2, [r3]
+ 677              	.L49:
+ 678              	.LBE4:
  664:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             #else  /* CY_PSOC4 */
  665:Generated_Source\PSoC5/CAN_TX_RX_func.c ****                 CAN_RX_CMD_REG(rxMailbox) |= CAN_RX_ACK_MSG;
  666:Generated_Source\PSoC5/CAN_TX_RX_func.c ****             #endif /* CY_PSOC3 || CY_PSOC5 */
  667:Generated_Source\PSoC5/CAN_TX_RX_func.c ****         }
  668:Generated_Source\PSoC5/CAN_TX_RX_func.c **** }
- 476              		.loc 1 668 0
- 477 0060 0BB0     		add	sp, sp, #44
- 478              		.cfi_def_cfa_offset 20
- 479              		@ sp needed
- 480 0062 F0BD     		pop	{r4, r5, r6, r7, pc}
- 481              	.L54:
- 482              		.align	2
- 483              	.L53:
- 484 0064 A0A00040 		.word	1073782944
- 485              		.cfi_endproc
- 486              	.LFE4:
- 487              		.size	CAN_ReceiveMsg, .-CAN_ReceiveMsg
- 488              		.text
- 489              	.Letext0:
- 490              		.file 2 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
- 491              		.file 3 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
- 492              		.file 4 "Generated_Source\\PSoC5\\cytypes.h"
- 493              		.file 5 "Generated_Source\\PSoC5\\CAN.h"
- 494              		.file 6 "./can_manga.h"
- 495              		.section	.debug_info,"",%progbits
- 496              	.Ldebug_info0:
- 497 0000 5F040000 		.4byte	0x45f
- 498 0004 0400     		.2byte	0x4
- 499 0006 00000000 		.4byte	.Ldebug_abbrev0
- 500 000a 04       		.byte	0x4
- 501 000b 01       		.uleb128 0x1
- 502 000c F0010000 		.4byte	.LASF50
- 503 0010 01       		.byte	0x1
- 504 0011 4C010000 		.4byte	.LASF51
- 505 0015 7E020000 		.4byte	.LASF52
- 506 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 507 001d 00000000 		.4byte	0
- 508 0021 00000000 		.4byte	.Ldebug_line0
- 509 0025 02       		.uleb128 0x2
- 510 0026 01       		.byte	0x1
- 511 0027 06       		.byte	0x6
- 512 0028 58000000 		.4byte	.LASF0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 22
+ 679              		.loc 1 668 0
+ 680 00d2 3837     		adds	r7, r7, #56
+ 681              		.cfi_def_cfa_offset 16
+ 682 00d4 BD46     		mov	sp, r7
+ 683              		.cfi_def_cfa_register 13
+ 684              		@ sp needed
+ 685 00d6 B0BD     		pop	{r4, r5, r7, pc}
+ 686              	.L56:
+ 687              		.align	2
+ 688              	.L55:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 25
 
 
- 513 002c 03       		.uleb128 0x3
- 514 002d 00000000 		.4byte	.LASF9
- 515 0031 02       		.byte	0x2
- 516 0032 1D       		.byte	0x1d
- 517 0033 37000000 		.4byte	0x37
- 518 0037 02       		.uleb128 0x2
- 519 0038 01       		.byte	0x1
- 520 0039 08       		.byte	0x8
- 521 003a 8D010000 		.4byte	.LASF1
- 522 003e 02       		.uleb128 0x2
- 523 003f 02       		.byte	0x2
- 524 0040 05       		.byte	0x5
- 525 0041 9B010000 		.4byte	.LASF2
- 526 0045 02       		.uleb128 0x2
- 527 0046 02       		.byte	0x2
- 528 0047 07       		.byte	0x7
- 529 0048 FB000000 		.4byte	.LASF3
- 530 004c 02       		.uleb128 0x2
- 531 004d 04       		.byte	0x4
- 532 004e 05       		.byte	0x5
- 533 004f 64000000 		.4byte	.LASF4
- 534 0053 02       		.uleb128 0x2
- 535 0054 04       		.byte	0x4
- 536 0055 07       		.byte	0x7
- 537 0056 B3000000 		.4byte	.LASF5
- 538 005a 02       		.uleb128 0x2
- 539 005b 08       		.byte	0x8
- 540 005c 05       		.byte	0x5
- 541 005d 4A000000 		.4byte	.LASF6
- 542 0061 02       		.uleb128 0x2
- 543 0062 08       		.byte	0x8
- 544 0063 07       		.byte	0x7
- 545 0064 21000000 		.4byte	.LASF7
- 546 0068 04       		.uleb128 0x4
- 547 0069 04       		.byte	0x4
- 548 006a 05       		.byte	0x5
- 549 006b 696E7400 		.ascii	"int\000"
- 550 006f 02       		.uleb128 0x2
- 551 0070 04       		.byte	0x4
- 552 0071 07       		.byte	0x7
- 553 0072 A6000000 		.4byte	.LASF8
- 554 0076 03       		.uleb128 0x3
- 555 0077 C7020000 		.4byte	.LASF10
- 556 007b 03       		.byte	0x3
- 557 007c 15       		.byte	0x15
- 558 007d 2C000000 		.4byte	0x2c
- 559 0081 05       		.uleb128 0x5
- 560 0082 74000000 		.4byte	.LASF11
- 561 0086 04       		.byte	0x4
- 562 0087 3801     		.2byte	0x138
- 563 0089 37000000 		.4byte	0x37
- 564 008d 05       		.uleb128 0x5
- 565 008e 8D000000 		.4byte	.LASF12
- 566 0092 04       		.byte	0x4
- 567 0093 3A01     		.2byte	0x13a
- 568 0095 53000000 		.4byte	0x53
- 569 0099 02       		.uleb128 0x2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 23
+ 689 00d8 A0A00040 		.word	1073782944
+ 690              		.cfi_endproc
+ 691              	.LFE4:
+ 692              		.size	CAN_ReceiveMsg, .-CAN_ReceiveMsg
+ 693              		.text
+ 694              	.Letext0:
+ 695              		.file 2 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ 696              		.file 3 "d:\\programming\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm-n
+ 697              		.file 4 "Generated_Source\\PSoC5\\cytypes.h"
+ 698              		.file 5 "Generated_Source\\PSoC5\\CAN.h"
+ 699              		.section	.debug_info,"",%progbits
+ 700              	.Ldebug_info0:
+ 701 0000 25040000 		.4byte	0x425
+ 702 0004 0400     		.2byte	0x4
+ 703 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 704 000a 04       		.byte	0x4
+ 705 000b 01       		.uleb128 0x1
+ 706 000c 7A010000 		.4byte	.LASF50
+ 707 0010 01       		.byte	0x1
+ 708 0011 4C010000 		.4byte	.LASF51
+ 709 0015 76020000 		.4byte	.LASF52
+ 710 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 711 001d 00000000 		.4byte	0
+ 712 0021 00000000 		.4byte	.Ldebug_line0
+ 713 0025 02       		.uleb128 0x2
+ 714 0026 01       		.byte	0x1
+ 715 0027 06       		.byte	0x6
+ 716 0028 58000000 		.4byte	.LASF0
+ 717 002c 03       		.uleb128 0x3
+ 718 002d 00000000 		.4byte	.LASF9
+ 719 0031 02       		.byte	0x2
+ 720 0032 1D       		.byte	0x1d
+ 721 0033 37000000 		.4byte	0x37
+ 722 0037 02       		.uleb128 0x2
+ 723 0038 01       		.byte	0x1
+ 724 0039 08       		.byte	0x8
+ 725 003a 13020000 		.4byte	.LASF1
+ 726 003e 02       		.uleb128 0x2
+ 727 003f 02       		.byte	0x2
+ 728 0040 05       		.byte	0x5
+ 729 0041 21020000 		.4byte	.LASF2
+ 730 0045 02       		.uleb128 0x2
+ 731 0046 02       		.byte	0x2
+ 732 0047 07       		.byte	0x7
+ 733 0048 FB000000 		.4byte	.LASF3
+ 734 004c 02       		.uleb128 0x2
+ 735 004d 04       		.byte	0x4
+ 736 004e 05       		.byte	0x5
+ 737 004f 64000000 		.4byte	.LASF4
+ 738 0053 02       		.uleb128 0x2
+ 739 0054 04       		.byte	0x4
+ 740 0055 07       		.byte	0x7
+ 741 0056 B3000000 		.4byte	.LASF5
+ 742 005a 02       		.uleb128 0x2
+ 743 005b 08       		.byte	0x8
+ 744 005c 05       		.byte	0x5
+ 745 005d 4A000000 		.4byte	.LASF6
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 26
 
 
- 570 009a 04       		.byte	0x4
- 571 009b 04       		.byte	0x4
- 572 009c 82010000 		.4byte	.LASF13
- 573 00a0 02       		.uleb128 0x2
- 574 00a1 08       		.byte	0x8
- 575 00a2 04       		.byte	0x4
- 576 00a3 80000000 		.4byte	.LASF14
- 577 00a7 02       		.uleb128 0x2
- 578 00a8 01       		.byte	0x1
- 579 00a9 08       		.byte	0x8
- 580 00aa C6010000 		.4byte	.LASF15
- 581 00ae 05       		.uleb128 0x5
- 582 00af 88010000 		.4byte	.LASF16
- 583 00b3 04       		.byte	0x4
- 584 00b4 E201     		.2byte	0x1e2
- 585 00b6 BA000000 		.4byte	0xba
- 586 00ba 06       		.uleb128 0x6
- 587 00bb 81000000 		.4byte	0x81
- 588 00bf 05       		.uleb128 0x5
- 589 00c0 32010000 		.4byte	.LASF17
- 590 00c4 04       		.byte	0x4
- 591 00c5 E401     		.2byte	0x1e4
- 592 00c7 CB000000 		.4byte	0xcb
- 593 00cb 06       		.uleb128 0x6
- 594 00cc 8D000000 		.4byte	0x8d
- 595 00d0 02       		.uleb128 0x2
- 596 00d1 04       		.byte	0x4
- 597 00d2 07       		.byte	0x7
- 598 00d3 43010000 		.4byte	.LASF18
- 599 00d7 07       		.uleb128 0x7
- 600 00d8 08       		.byte	0x8
- 601 00d9 05       		.byte	0x5
- 602 00da 6F       		.byte	0x6f
- 603 00db EC000000 		.4byte	0xec
- 604 00df 08       		.uleb128 0x8
- 605 00e0 A1000000 		.4byte	.LASF20
- 606 00e4 05       		.byte	0x5
- 607 00e5 71       		.byte	0x71
- 608 00e6 EC000000 		.4byte	0xec
- 609 00ea 00       		.byte	0
- 610 00eb 00       		.byte	0
- 611 00ec 09       		.uleb128 0x9
- 612 00ed 81000000 		.4byte	0x81
- 613 00f1 FC000000 		.4byte	0xfc
- 614 00f5 0A       		.uleb128 0xa
- 615 00f6 D0000000 		.4byte	0xd0
- 616 00fa 07       		.byte	0x7
- 617 00fb 00       		.byte	0
- 618 00fc 03       		.uleb128 0x3
- 619 00fd A5010000 		.4byte	.LASF19
- 620 0101 05       		.byte	0x5
- 621 0102 72       		.byte	0x72
- 622 0103 D7000000 		.4byte	0xd7
- 623 0107 07       		.uleb128 0x7
- 624 0108 08       		.byte	0x8
- 625 0109 05       		.byte	0x5
- 626 010a 75       		.byte	0x75
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 24
+ 746 0061 02       		.uleb128 0x2
+ 747 0062 08       		.byte	0x8
+ 748 0063 07       		.byte	0x7
+ 749 0064 21000000 		.4byte	.LASF7
+ 750 0068 04       		.uleb128 0x4
+ 751 0069 04       		.byte	0x4
+ 752 006a 05       		.byte	0x5
+ 753 006b 696E7400 		.ascii	"int\000"
+ 754 006f 02       		.uleb128 0x2
+ 755 0070 04       		.byte	0x4
+ 756 0071 07       		.byte	0x7
+ 757 0072 A6000000 		.4byte	.LASF8
+ 758 0076 03       		.uleb128 0x3
+ 759 0077 B3020000 		.4byte	.LASF10
+ 760 007b 03       		.byte	0x3
+ 761 007c 15       		.byte	0x15
+ 762 007d 2C000000 		.4byte	0x2c
+ 763 0081 05       		.uleb128 0x5
+ 764 0082 74000000 		.4byte	.LASF11
+ 765 0086 04       		.byte	0x4
+ 766 0087 3801     		.2byte	0x138
+ 767 0089 37000000 		.4byte	0x37
+ 768 008d 05       		.uleb128 0x5
+ 769 008e 8D000000 		.4byte	.LASF12
+ 770 0092 04       		.byte	0x4
+ 771 0093 3A01     		.2byte	0x13a
+ 772 0095 53000000 		.4byte	0x53
+ 773 0099 02       		.uleb128 0x2
+ 774 009a 04       		.byte	0x4
+ 775 009b 04       		.byte	0x4
+ 776 009c 08020000 		.4byte	.LASF13
+ 777 00a0 02       		.uleb128 0x2
+ 778 00a1 08       		.byte	0x8
+ 779 00a2 04       		.byte	0x4
+ 780 00a3 80000000 		.4byte	.LASF14
+ 781 00a7 02       		.uleb128 0x2
+ 782 00a8 01       		.byte	0x1
+ 783 00a9 08       		.byte	0x8
+ 784 00aa 4C020000 		.4byte	.LASF15
+ 785 00ae 05       		.uleb128 0x5
+ 786 00af 0E020000 		.4byte	.LASF16
+ 787 00b3 04       		.byte	0x4
+ 788 00b4 E201     		.2byte	0x1e2
+ 789 00b6 BA000000 		.4byte	0xba
+ 790 00ba 06       		.uleb128 0x6
+ 791 00bb 81000000 		.4byte	0x81
+ 792 00bf 05       		.uleb128 0x5
+ 793 00c0 32010000 		.4byte	.LASF17
+ 794 00c4 04       		.byte	0x4
+ 795 00c5 E401     		.2byte	0x1e4
+ 796 00c7 CB000000 		.4byte	0xcb
+ 797 00cb 06       		.uleb128 0x6
+ 798 00cc 8D000000 		.4byte	0x8d
+ 799 00d0 02       		.uleb128 0x2
+ 800 00d1 04       		.byte	0x4
+ 801 00d2 07       		.byte	0x7
+ 802 00d3 43010000 		.4byte	.LASF18
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 27
 
 
- 627 010b 1C010000 		.4byte	0x11c
- 628 010f 08       		.uleb128 0x8
- 629 0110 A1000000 		.4byte	.LASF20
- 630 0114 05       		.byte	0x5
- 631 0115 77       		.byte	0x77
- 632 0116 2C010000 		.4byte	0x12c
- 633 011a 00       		.byte	0
- 634 011b 00       		.byte	0
- 635 011c 09       		.uleb128 0x9
- 636 011d AE000000 		.4byte	0xae
- 637 0121 2C010000 		.4byte	0x12c
- 638 0125 0A       		.uleb128 0xa
- 639 0126 D0000000 		.4byte	0xd0
- 640 012a 07       		.byte	0x7
- 641 012b 00       		.byte	0
- 642 012c 06       		.uleb128 0x6
- 643 012d 1C010000 		.4byte	0x11c
- 644 0131 03       		.uleb128 0x3
- 645 0132 D0010000 		.4byte	.LASF21
- 646 0136 05       		.byte	0x5
- 647 0137 78       		.byte	0x78
- 648 0138 07010000 		.4byte	0x107
- 649 013c 07       		.uleb128 0x7
- 650 013d 04       		.byte	0x4
- 651 013e 05       		.byte	0x5
- 652 013f 7B       		.byte	0x7b
- 653 0140 51010000 		.4byte	0x151
- 654 0144 08       		.uleb128 0x8
- 655 0145 A1000000 		.4byte	.LASF20
- 656 0149 05       		.byte	0x5
- 657 014a 7D       		.byte	0x7d
- 658 014b 61010000 		.4byte	0x161
- 659 014f 00       		.byte	0
- 660 0150 00       		.byte	0
- 661 0151 09       		.uleb128 0x9
- 662 0152 AE000000 		.4byte	0xae
- 663 0156 61010000 		.4byte	0x161
- 664 015a 0A       		.uleb128 0xa
- 665 015b D0000000 		.4byte	0xd0
- 666 015f 03       		.byte	0x3
- 667 0160 00       		.byte	0
- 668 0161 06       		.uleb128 0x6
- 669 0162 51010000 		.4byte	0x151
- 670 0166 03       		.uleb128 0x3
- 671 0167 38010000 		.4byte	.LASF22
- 672 016b 05       		.byte	0x5
- 673 016c 7E       		.byte	0x7e
- 674 016d 3C010000 		.4byte	0x13c
- 675 0171 07       		.uleb128 0x7
- 676 0172 0C       		.byte	0xc
- 677 0173 05       		.byte	0x5
- 678 0174 81       		.byte	0x81
- 679 0175 C1010000 		.4byte	0x1c1
- 680 0179 0B       		.uleb128 0xb
- 681 017a 696400   		.ascii	"id\000"
- 682 017d 05       		.byte	0x5
- 683 017e 83       		.byte	0x83
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 25
+ 803 00d7 07       		.uleb128 0x7
+ 804 00d8 08       		.byte	0x8
+ 805 00d9 05       		.byte	0x5
+ 806 00da 6F       		.byte	0x6f
+ 807 00db EC000000 		.4byte	0xec
+ 808 00df 08       		.uleb128 0x8
+ 809 00e0 A1000000 		.4byte	.LASF20
+ 810 00e4 05       		.byte	0x5
+ 811 00e5 71       		.byte	0x71
+ 812 00e6 EC000000 		.4byte	0xec
+ 813 00ea 00       		.byte	0
+ 814 00eb 00       		.byte	0
+ 815 00ec 09       		.uleb128 0x9
+ 816 00ed 81000000 		.4byte	0x81
+ 817 00f1 FC000000 		.4byte	0xfc
+ 818 00f5 0A       		.uleb128 0xa
+ 819 00f6 D0000000 		.4byte	0xd0
+ 820 00fa 07       		.byte	0x7
+ 821 00fb 00       		.byte	0
+ 822 00fc 03       		.uleb128 0x3
+ 823 00fd 2B020000 		.4byte	.LASF19
+ 824 0101 05       		.byte	0x5
+ 825 0102 72       		.byte	0x72
+ 826 0103 D7000000 		.4byte	0xd7
+ 827 0107 07       		.uleb128 0x7
+ 828 0108 08       		.byte	0x8
+ 829 0109 05       		.byte	0x5
+ 830 010a 75       		.byte	0x75
+ 831 010b 1C010000 		.4byte	0x11c
+ 832 010f 08       		.uleb128 0x8
+ 833 0110 A1000000 		.4byte	.LASF20
+ 834 0114 05       		.byte	0x5
+ 835 0115 77       		.byte	0x77
+ 836 0116 2C010000 		.4byte	0x12c
+ 837 011a 00       		.byte	0
+ 838 011b 00       		.byte	0
+ 839 011c 09       		.uleb128 0x9
+ 840 011d AE000000 		.4byte	0xae
+ 841 0121 2C010000 		.4byte	0x12c
+ 842 0125 0A       		.uleb128 0xa
+ 843 0126 D0000000 		.4byte	0xd0
+ 844 012a 07       		.byte	0x7
+ 845 012b 00       		.byte	0
+ 846 012c 06       		.uleb128 0x6
+ 847 012d 1C010000 		.4byte	0x11c
+ 848 0131 03       		.uleb128 0x3
+ 849 0132 56020000 		.4byte	.LASF21
+ 850 0136 05       		.byte	0x5
+ 851 0137 78       		.byte	0x78
+ 852 0138 07010000 		.4byte	0x107
+ 853 013c 07       		.uleb128 0x7
+ 854 013d 04       		.byte	0x4
+ 855 013e 05       		.byte	0x5
+ 856 013f 7B       		.byte	0x7b
+ 857 0140 51010000 		.4byte	0x151
+ 858 0144 08       		.uleb128 0x8
+ 859 0145 A1000000 		.4byte	.LASF20
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 28
 
 
- 684 017f 8D000000 		.4byte	0x8d
- 685 0183 00       		.byte	0
- 686 0184 0B       		.uleb128 0xb
- 687 0185 72747200 		.ascii	"rtr\000"
- 688 0189 05       		.byte	0x5
- 689 018a 84       		.byte	0x84
- 690 018b 81000000 		.4byte	0x81
- 691 018f 04       		.byte	0x4
- 692 0190 0B       		.uleb128 0xb
- 693 0191 69646500 		.ascii	"ide\000"
- 694 0195 05       		.byte	0x5
- 695 0196 85       		.byte	0x85
- 696 0197 81000000 		.4byte	0x81
- 697 019b 05       		.byte	0x5
- 698 019c 0B       		.uleb128 0xb
- 699 019d 646C6300 		.ascii	"dlc\000"
- 700 01a1 05       		.byte	0x5
- 701 01a2 86       		.byte	0x86
- 702 01a3 81000000 		.4byte	0x81
- 703 01a7 06       		.byte	0x6
- 704 01a8 0B       		.uleb128 0xb
- 705 01a9 69727100 		.ascii	"irq\000"
- 706 01ad 05       		.byte	0x5
- 707 01ae 87       		.byte	0x87
- 708 01af 81000000 		.4byte	0x81
- 709 01b3 07       		.byte	0x7
- 710 01b4 0B       		.uleb128 0xb
- 711 01b5 6D736700 		.ascii	"msg\000"
- 712 01b9 05       		.byte	0x5
- 713 01ba 8B       		.byte	0x8b
- 714 01bb C1010000 		.4byte	0x1c1
- 715 01bf 08       		.byte	0x8
- 716 01c0 00       		.byte	0
- 717 01c1 0C       		.uleb128 0xc
- 718 01c2 04       		.byte	0x4
- 719 01c3 FC000000 		.4byte	0xfc
- 720 01c7 03       		.uleb128 0x3
- 721 01c8 E5010000 		.4byte	.LASF23
- 722 01cc 05       		.byte	0x5
- 723 01cd 8C       		.byte	0x8c
- 724 01ce 71010000 		.4byte	0x171
- 725 01d2 07       		.uleb128 0x7
- 726 01d3 20       		.byte	0x20
- 727 01d4 05       		.byte	0x5
- 728 01d5 A0       		.byte	0xa0
- 729 01d6 2F020000 		.4byte	0x22f
- 730 01da 08       		.uleb128 0x8
- 731 01db DF010000 		.4byte	.LASF24
- 732 01df 05       		.byte	0x5
- 733 01e0 A2       		.byte	0xa2
- 734 01e1 66010000 		.4byte	0x166
- 735 01e5 00       		.byte	0
- 736 01e6 08       		.uleb128 0x8
- 737 01e7 CB010000 		.4byte	.LASF25
- 738 01eb 05       		.byte	0x5
- 739 01ec A3       		.byte	0xa3
- 740 01ed 66010000 		.4byte	0x166
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 26
+ 860 0149 05       		.byte	0x5
+ 861 014a 7D       		.byte	0x7d
+ 862 014b 61010000 		.4byte	0x161
+ 863 014f 00       		.byte	0
+ 864 0150 00       		.byte	0
+ 865 0151 09       		.uleb128 0x9
+ 866 0152 AE000000 		.4byte	0xae
+ 867 0156 61010000 		.4byte	0x161
+ 868 015a 0A       		.uleb128 0xa
+ 869 015b D0000000 		.4byte	0xd0
+ 870 015f 03       		.byte	0x3
+ 871 0160 00       		.byte	0
+ 872 0161 06       		.uleb128 0x6
+ 873 0162 51010000 		.4byte	0x151
+ 874 0166 03       		.uleb128 0x3
+ 875 0167 38010000 		.4byte	.LASF22
+ 876 016b 05       		.byte	0x5
+ 877 016c 7E       		.byte	0x7e
+ 878 016d 3C010000 		.4byte	0x13c
+ 879 0171 07       		.uleb128 0x7
+ 880 0172 0C       		.byte	0xc
+ 881 0173 05       		.byte	0x5
+ 882 0174 81       		.byte	0x81
+ 883 0175 C1010000 		.4byte	0x1c1
+ 884 0179 0B       		.uleb128 0xb
+ 885 017a 696400   		.ascii	"id\000"
+ 886 017d 05       		.byte	0x5
+ 887 017e 83       		.byte	0x83
+ 888 017f 8D000000 		.4byte	0x8d
+ 889 0183 00       		.byte	0
+ 890 0184 0B       		.uleb128 0xb
+ 891 0185 72747200 		.ascii	"rtr\000"
+ 892 0189 05       		.byte	0x5
+ 893 018a 84       		.byte	0x84
+ 894 018b 81000000 		.4byte	0x81
+ 895 018f 04       		.byte	0x4
+ 896 0190 0B       		.uleb128 0xb
+ 897 0191 69646500 		.ascii	"ide\000"
+ 898 0195 05       		.byte	0x5
+ 899 0196 85       		.byte	0x85
+ 900 0197 81000000 		.4byte	0x81
+ 901 019b 05       		.byte	0x5
+ 902 019c 0B       		.uleb128 0xb
+ 903 019d 646C6300 		.ascii	"dlc\000"
+ 904 01a1 05       		.byte	0x5
+ 905 01a2 86       		.byte	0x86
+ 906 01a3 81000000 		.4byte	0x81
+ 907 01a7 06       		.byte	0x6
+ 908 01a8 0B       		.uleb128 0xb
+ 909 01a9 69727100 		.ascii	"irq\000"
+ 910 01ad 05       		.byte	0x5
+ 911 01ae 87       		.byte	0x87
+ 912 01af 81000000 		.4byte	0x81
+ 913 01b3 07       		.byte	0x7
+ 914 01b4 0B       		.uleb128 0xb
+ 915 01b5 6D736700 		.ascii	"msg\000"
+ 916 01b9 05       		.byte	0x5
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 29
 
 
- 741 01f1 04       		.byte	0x4
- 742 01f2 08       		.uleb128 0x8
- 743 01f3 6D000000 		.4byte	.LASF26
- 744 01f7 05       		.byte	0x5
- 745 01f8 A4       		.byte	0xa4
- 746 01f9 31010000 		.4byte	0x131
- 747 01fd 08       		.byte	0x8
- 748 01fe 08       		.uleb128 0x8
- 749 01ff 7A000000 		.4byte	.LASF27
- 750 0203 05       		.byte	0x5
- 751 0204 A5       		.byte	0xa5
- 752 0205 66010000 		.4byte	0x166
- 753 0209 10       		.byte	0x10
- 754 020a 08       		.uleb128 0x8
- 755 020b CF020000 		.4byte	.LASF28
- 756 020f 05       		.byte	0x5
- 757 0210 A6       		.byte	0xa6
- 758 0211 66010000 		.4byte	0x166
- 759 0215 14       		.byte	0x14
- 760 0216 08       		.uleb128 0x8
- 761 0217 43000000 		.4byte	.LASF29
- 762 021b 05       		.byte	0x5
- 763 021c A7       		.byte	0xa7
- 764 021d 66010000 		.4byte	0x166
- 765 0221 18       		.byte	0x18
- 766 0222 08       		.uleb128 0x8
- 767 0223 D5020000 		.4byte	.LASF30
- 768 0227 05       		.byte	0x5
- 769 0228 A8       		.byte	0xa8
- 770 0229 66010000 		.4byte	0x166
- 771 022d 1C       		.byte	0x1c
- 772 022e 00       		.byte	0
- 773 022f 03       		.uleb128 0x3
- 774 0230 0E010000 		.4byte	.LASF31
- 775 0234 05       		.byte	0x5
- 776 0235 A9       		.byte	0xa9
- 777 0236 D2010000 		.4byte	0x1d2
- 778 023a 07       		.uleb128 0x7
- 779 023b 10       		.byte	0x10
- 780 023c 05       		.byte	0x5
- 781 023d AC       		.byte	0xac
- 782 023e 67020000 		.4byte	0x267
- 783 0242 08       		.uleb128 0x8
- 784 0243 38000000 		.4byte	.LASF32
- 785 0247 05       		.byte	0x5
- 786 0248 AE       		.byte	0xae
- 787 0249 66010000 		.4byte	0x166
- 788 024d 00       		.byte	0
- 789 024e 08       		.uleb128 0x8
- 790 024f 26010000 		.4byte	.LASF33
- 791 0253 05       		.byte	0x5
- 792 0254 AF       		.byte	0xaf
- 793 0255 66010000 		.4byte	0x166
- 794 0259 04       		.byte	0x4
- 795 025a 08       		.uleb128 0x8
- 796 025b 2B010000 		.4byte	.LASF34
- 797 025f 05       		.byte	0x5
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 27
+ 917 01ba 8B       		.byte	0x8b
+ 918 01bb C1010000 		.4byte	0x1c1
+ 919 01bf 08       		.byte	0x8
+ 920 01c0 00       		.byte	0
+ 921 01c1 0C       		.uleb128 0xc
+ 922 01c2 04       		.byte	0x4
+ 923 01c3 FC000000 		.4byte	0xfc
+ 924 01c7 03       		.uleb128 0x3
+ 925 01c8 6B020000 		.4byte	.LASF23
+ 926 01cc 05       		.byte	0x5
+ 927 01cd 8C       		.byte	0x8c
+ 928 01ce 71010000 		.4byte	0x171
+ 929 01d2 07       		.uleb128 0x7
+ 930 01d3 20       		.byte	0x20
+ 931 01d4 05       		.byte	0x5
+ 932 01d5 A0       		.byte	0xa0
+ 933 01d6 2F020000 		.4byte	0x22f
+ 934 01da 08       		.uleb128 0x8
+ 935 01db 65020000 		.4byte	.LASF24
+ 936 01df 05       		.byte	0x5
+ 937 01e0 A2       		.byte	0xa2
+ 938 01e1 66010000 		.4byte	0x166
+ 939 01e5 00       		.byte	0
+ 940 01e6 08       		.uleb128 0x8
+ 941 01e7 51020000 		.4byte	.LASF25
+ 942 01eb 05       		.byte	0x5
+ 943 01ec A3       		.byte	0xa3
+ 944 01ed 66010000 		.4byte	0x166
+ 945 01f1 04       		.byte	0x4
+ 946 01f2 08       		.uleb128 0x8
+ 947 01f3 6D000000 		.4byte	.LASF26
+ 948 01f7 05       		.byte	0x5
+ 949 01f8 A4       		.byte	0xa4
+ 950 01f9 31010000 		.4byte	0x131
+ 951 01fd 08       		.byte	0x8
+ 952 01fe 08       		.uleb128 0x8
+ 953 01ff 7A000000 		.4byte	.LASF27
+ 954 0203 05       		.byte	0x5
+ 955 0204 A5       		.byte	0xa5
+ 956 0205 66010000 		.4byte	0x166
+ 957 0209 10       		.byte	0x10
+ 958 020a 08       		.uleb128 0x8
+ 959 020b BB020000 		.4byte	.LASF28
+ 960 020f 05       		.byte	0x5
+ 961 0210 A6       		.byte	0xa6
+ 962 0211 66010000 		.4byte	0x166
+ 963 0215 14       		.byte	0x14
+ 964 0216 08       		.uleb128 0x8
+ 965 0217 43000000 		.4byte	.LASF29
+ 966 021b 05       		.byte	0x5
+ 967 021c A7       		.byte	0xa7
+ 968 021d 66010000 		.4byte	0x166
+ 969 0221 18       		.byte	0x18
+ 970 0222 08       		.uleb128 0x8
+ 971 0223 C1020000 		.4byte	.LASF30
+ 972 0227 05       		.byte	0x5
+ 973 0228 A8       		.byte	0xa8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 30
 
 
- 798 0260 B0       		.byte	0xb0
- 799 0261 31010000 		.4byte	0x131
- 800 0265 08       		.byte	0x8
- 801 0266 00       		.byte	0
- 802 0267 03       		.uleb128 0x3
- 803 0268 B8010000 		.4byte	.LASF35
- 804 026c 05       		.byte	0x5
- 805 026d B1       		.byte	0xb1
- 806 026e 3A020000 		.4byte	0x23a
- 807 0272 0D       		.uleb128 0xd
- 808 0273 C5000000 		.4byte	.LASF42
- 809 0277 01       		.byte	0x1
- 810 0278 37       		.byte	0x37
- 811 0279 81000000 		.4byte	0x81
- 812 027d 00000000 		.4byte	.LFB0
- 813 0281 DC000000 		.4byte	.LFE0-.LFB0
- 814 0285 01       		.uleb128 0x1
- 815 0286 9C       		.byte	0x9c
- 816 0287 F1020000 		.4byte	0x2f1
- 817 028b 0E       		.uleb128 0xe
- 818 028c 7A010000 		.4byte	.LASF40
- 819 0290 01       		.byte	0x1
- 820 0291 37       		.byte	0x37
- 821 0292 F1020000 		.4byte	0x2f1
- 822 0296 00000000 		.4byte	.LLST0
- 823 029a 0F       		.uleb128 0xf
- 824 029b 6900     		.ascii	"i\000"
- 825 029d 01       		.byte	0x1
- 826 029e 39       		.byte	0x39
- 827 029f 81000000 		.4byte	0x81
- 828 02a3 21000000 		.4byte	.LLST1
- 829 02a7 0F       		.uleb128 0xf
- 830 02a8 6A00     		.ascii	"j\000"
- 831 02aa 01       		.byte	0x1
- 832 02ab 39       		.byte	0x39
- 833 02ac 81000000 		.4byte	0x81
- 834 02b0 4A000000 		.4byte	.LLST2
- 835 02b4 10       		.uleb128 0x10
- 836 02b5 87000000 		.4byte	.LASF36
- 837 02b9 01       		.byte	0x1
- 838 02ba 39       		.byte	0x39
- 839 02bb 81000000 		.4byte	0x81
- 840 02bf 74000000 		.4byte	.LLST3
- 841 02c3 10       		.uleb128 0x10
- 842 02c4 74010000 		.4byte	.LASF37
- 843 02c8 01       		.byte	0x1
- 844 02c9 3A       		.byte	0x3a
- 845 02ca 81000000 		.4byte	0x81
- 846 02ce 92000000 		.4byte	.LLST4
- 847 02d2 10       		.uleb128 0x10
- 848 02d3 EB020000 		.4byte	.LASF38
- 849 02d7 01       		.byte	0x1
- 850 02d8 3B       		.byte	0x3b
- 851 02d9 81000000 		.4byte	0x81
- 852 02dd BC000000 		.4byte	.LLST5
- 853 02e1 10       		.uleb128 0x10
- 854 02e2 F3000000 		.4byte	.LASF39
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 28
+ 974 0229 66010000 		.4byte	0x166
+ 975 022d 1C       		.byte	0x1c
+ 976 022e 00       		.byte	0
+ 977 022f 03       		.uleb128 0x3
+ 978 0230 0E010000 		.4byte	.LASF31
+ 979 0234 05       		.byte	0x5
+ 980 0235 A9       		.byte	0xa9
+ 981 0236 D2010000 		.4byte	0x1d2
+ 982 023a 07       		.uleb128 0x7
+ 983 023b 10       		.byte	0x10
+ 984 023c 05       		.byte	0x5
+ 985 023d AC       		.byte	0xac
+ 986 023e 67020000 		.4byte	0x267
+ 987 0242 08       		.uleb128 0x8
+ 988 0243 38000000 		.4byte	.LASF32
+ 989 0247 05       		.byte	0x5
+ 990 0248 AE       		.byte	0xae
+ 991 0249 66010000 		.4byte	0x166
+ 992 024d 00       		.byte	0
+ 993 024e 08       		.uleb128 0x8
+ 994 024f 26010000 		.4byte	.LASF33
+ 995 0253 05       		.byte	0x5
+ 996 0254 AF       		.byte	0xaf
+ 997 0255 66010000 		.4byte	0x166
+ 998 0259 04       		.byte	0x4
+ 999 025a 08       		.uleb128 0x8
+ 1000 025b 2B010000 		.4byte	.LASF34
+ 1001 025f 05       		.byte	0x5
+ 1002 0260 B0       		.byte	0xb0
+ 1003 0261 31010000 		.4byte	0x131
+ 1004 0265 08       		.byte	0x8
+ 1005 0266 00       		.byte	0
+ 1006 0267 03       		.uleb128 0x3
+ 1007 0268 3E020000 		.4byte	.LASF35
+ 1008 026c 05       		.byte	0x5
+ 1009 026d B1       		.byte	0xb1
+ 1010 026e 3A020000 		.4byte	0x23a
+ 1011 0272 0D       		.uleb128 0xd
+ 1012 0273 C5000000 		.4byte	.LASF42
+ 1013 0277 01       		.byte	0x1
+ 1014 0278 37       		.byte	0x37
+ 1015 0279 81000000 		.4byte	0x81
+ 1016 027d 00000000 		.4byte	.LFB0
+ 1017 0281 80010000 		.4byte	.LFE0-.LFB0
+ 1018 0285 01       		.uleb128 0x1
+ 1019 0286 9C       		.byte	0x9c
+ 1020 0287 EA020000 		.4byte	0x2ea
+ 1021 028b 0E       		.uleb128 0xe
+ 1022 028c C8020000 		.4byte	.LASF40
+ 1023 0290 01       		.byte	0x1
+ 1024 0291 37       		.byte	0x37
+ 1025 0292 EA020000 		.4byte	0x2ea
+ 1026 0296 02       		.uleb128 0x2
+ 1027 0297 91       		.byte	0x91
+ 1028 0298 64       		.sleb128 -28
+ 1029 0299 0F       		.uleb128 0xf
+ 1030 029a 6900     		.ascii	"i\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 31
 
 
- 855 02e6 01       		.byte	0x1
- 856 02e7 3C       		.byte	0x3c
- 857 02e8 8D000000 		.4byte	0x8d
- 858 02ec F2000000 		.4byte	.LLST6
- 859 02f0 00       		.byte	0
- 860 02f1 0C       		.uleb128 0xc
- 861 02f2 04       		.byte	0x4
- 862 02f3 F7020000 		.4byte	0x2f7
- 863 02f7 11       		.uleb128 0x11
- 864 02f8 C7010000 		.4byte	0x1c7
- 865 02fc 12       		.uleb128 0x12
- 866 02fd 94000000 		.4byte	.LASF45
- 867 0301 01       		.byte	0x1
- 868 0302 B5       		.byte	0xb5
- 869 0303 00000000 		.4byte	.LFB1
- 870 0307 1C000000 		.4byte	.LFE1-.LFB1
- 871 030b 01       		.uleb128 0x1
- 872 030c 9C       		.byte	0x9c
- 873 030d 21030000 		.4byte	0x321
- 874 0311 0E       		.uleb128 0xe
- 875 0312 D1000000 		.4byte	.LASF41
- 876 0316 01       		.byte	0x1
- 877 0317 B5       		.byte	0xb5
- 878 0318 81000000 		.4byte	0x81
- 879 031c 32010000 		.4byte	.LLST7
- 880 0320 00       		.byte	0
- 881 0321 0D       		.uleb128 0xd
- 882 0322 0A000000 		.4byte	.LASF43
- 883 0326 01       		.byte	0x1
- 884 0327 D3       		.byte	0xd3
- 885 0328 81000000 		.4byte	0x81
- 886 032c 00000000 		.4byte	.LFB2
- 887 0330 4C000000 		.4byte	.LFE2-.LFB2
- 888 0334 01       		.uleb128 0x1
- 889 0335 9C       		.byte	0x9c
- 890 0336 61030000 		.4byte	0x361
- 891 033a 10       		.uleb128 0x10
- 892 033b EB020000 		.4byte	.LASF38
- 893 033f 01       		.byte	0x1
- 894 0340 D5       		.byte	0xd5
- 895 0341 81000000 		.4byte	0x81
- 896 0345 53010000 		.4byte	.LLST8
- 897 0349 13       		.uleb128 0x13
- 898 034a 0E000000 		.4byte	.LBB2
- 899 034e 28000000 		.4byte	.LBE2-.LBB2
- 900 0352 0F       		.uleb128 0xf
- 901 0353 6900     		.ascii	"i\000"
- 902 0355 01       		.byte	0x1
- 903 0356 E2       		.byte	0xe2
- 904 0357 76000000 		.4byte	0x76
- 905 035b 72010000 		.4byte	.LLST9
- 906 035f 00       		.byte	0
- 907 0360 00       		.byte	0
- 908 0361 14       		.uleb128 0x14
- 909 0362 DA000000 		.4byte	.LASF44
- 910 0366 01       		.byte	0x1
- 911 0367 0A01     		.2byte	0x10a
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 29
+ 1031 029c 01       		.byte	0x1
+ 1032 029d 39       		.byte	0x39
+ 1033 029e 81000000 		.4byte	0x81
+ 1034 02a2 02       		.uleb128 0x2
+ 1035 02a3 91       		.byte	0x91
+ 1036 02a4 77       		.sleb128 -9
+ 1037 02a5 0F       		.uleb128 0xf
+ 1038 02a6 6A00     		.ascii	"j\000"
+ 1039 02a8 01       		.byte	0x1
+ 1040 02a9 39       		.byte	0x39
+ 1041 02aa 81000000 		.4byte	0x81
+ 1042 02ae 02       		.uleb128 0x2
+ 1043 02af 91       		.byte	0x91
+ 1044 02b0 76       		.sleb128 -10
+ 1045 02b1 10       		.uleb128 0x10
+ 1046 02b2 87000000 		.4byte	.LASF36
+ 1047 02b6 01       		.byte	0x1
+ 1048 02b7 39       		.byte	0x39
+ 1049 02b8 81000000 		.4byte	0x81
+ 1050 02bc 02       		.uleb128 0x2
+ 1051 02bd 91       		.byte	0x91
+ 1052 02be 75       		.sleb128 -11
+ 1053 02bf 10       		.uleb128 0x10
+ 1054 02c0 74010000 		.4byte	.LASF37
+ 1055 02c4 01       		.byte	0x1
+ 1056 02c5 3A       		.byte	0x3a
+ 1057 02c6 81000000 		.4byte	0x81
+ 1058 02ca 02       		.uleb128 0x2
+ 1059 02cb 91       		.byte	0x91
+ 1060 02cc 74       		.sleb128 -12
+ 1061 02cd 10       		.uleb128 0x10
+ 1062 02ce DF020000 		.4byte	.LASF38
+ 1063 02d2 01       		.byte	0x1
+ 1064 02d3 3B       		.byte	0x3b
+ 1065 02d4 81000000 		.4byte	0x81
+ 1066 02d8 02       		.uleb128 0x2
+ 1067 02d9 91       		.byte	0x91
+ 1068 02da 73       		.sleb128 -13
+ 1069 02db 10       		.uleb128 0x10
+ 1070 02dc F3000000 		.4byte	.LASF39
+ 1071 02e0 01       		.byte	0x1
+ 1072 02e1 3C       		.byte	0x3c
+ 1073 02e2 8D000000 		.4byte	0x8d
+ 1074 02e6 02       		.uleb128 0x2
+ 1075 02e7 91       		.byte	0x91
+ 1076 02e8 6C       		.sleb128 -20
+ 1077 02e9 00       		.byte	0
+ 1078 02ea 0C       		.uleb128 0xc
+ 1079 02eb 04       		.byte	0x4
+ 1080 02ec F0020000 		.4byte	0x2f0
+ 1081 02f0 11       		.uleb128 0x11
+ 1082 02f1 C7010000 		.4byte	0x1c7
+ 1083 02f5 12       		.uleb128 0x12
+ 1084 02f6 94000000 		.4byte	.LASF45
+ 1085 02fa 01       		.byte	0x1
+ 1086 02fb B5       		.byte	0xb5
+ 1087 02fc 00000000 		.4byte	.LFB1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 32
 
 
- 912 0369 81000000 		.4byte	0x81
- 913 036d 00000000 		.4byte	.LFB3
- 914 0371 4C000000 		.4byte	.LFE3-.LFB3
- 915 0375 01       		.uleb128 0x1
- 916 0376 9C       		.byte	0x9c
- 917 0377 A4030000 		.4byte	0x3a4
- 918 037b 15       		.uleb128 0x15
- 919 037c EB020000 		.4byte	.LASF38
- 920 0380 01       		.byte	0x1
- 921 0381 0C01     		.2byte	0x10c
- 922 0383 81000000 		.4byte	0x81
- 923 0387 90010000 		.4byte	.LLST10
- 924 038b 13       		.uleb128 0x13
- 925 038c 0E000000 		.4byte	.LBB3
- 926 0390 28000000 		.4byte	.LBE3-.LBB3
- 927 0394 16       		.uleb128 0x16
- 928 0395 6900     		.ascii	"i\000"
- 929 0397 01       		.byte	0x1
- 930 0398 1901     		.2byte	0x119
- 931 039a 76000000 		.4byte	0x76
- 932 039e AF010000 		.4byte	.LLST11
- 933 03a2 00       		.byte	0
- 934 03a3 00       		.byte	0
- 935 03a4 17       		.uleb128 0x17
- 936 03a5 DC020000 		.4byte	.LASF46
- 937 03a9 01       		.byte	0x1
- 938 03aa 7702     		.2byte	0x277
- 939 03ac 00000000 		.4byte	.LFB4
- 940 03b0 68000000 		.4byte	.LFE4-.LFB4
- 941 03b4 01       		.uleb128 0x1
- 942 03b5 9C       		.byte	0x9c
- 943 03b6 20040000 		.4byte	0x420
- 944 03ba 18       		.uleb128 0x18
- 945 03bb 1C010000 		.4byte	.LASF47
- 946 03bf 01       		.byte	0x1
- 947 03c0 7702     		.2byte	0x277
- 948 03c2 81000000 		.4byte	0x81
- 949 03c6 CD010000 		.4byte	.LLST12
- 950 03ca 13       		.uleb128 0x13
- 951 03cb 12000000 		.4byte	.LBB4
- 952 03cf 4E000000 		.4byte	.LBE4-.LBB4
- 953 03d3 16       		.uleb128 0x16
- 954 03d4 494400   		.ascii	"ID\000"
- 955 03d7 01       		.byte	0x1
- 956 03d8 8202     		.2byte	0x282
- 957 03da 68000000 		.4byte	0x68
- 958 03de EE010000 		.4byte	.LLST13
- 959 03e2 19       		.uleb128 0x19
- 960 03e3 3E000000 		.4byte	.LASF48
- 961 03e7 01       		.byte	0x1
- 962 03e8 8502     		.2byte	0x285
- 963 03ea 2F020000 		.4byte	0x22f
- 964 03ee 02       		.uleb128 0x2
- 965 03ef 91       		.byte	0x91
- 966 03f0 48       		.sleb128 -56
- 967 03f1 19       		.uleb128 0x19
- 968 03f2 EE000000 		.4byte	.LASF49
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 30
+ 1088 0300 44000000 		.4byte	.LFE1-.LFB1
+ 1089 0304 01       		.uleb128 0x1
+ 1090 0305 9C       		.byte	0x9c
+ 1091 0306 19030000 		.4byte	0x319
+ 1092 030a 0E       		.uleb128 0xe
+ 1093 030b D1000000 		.4byte	.LASF41
+ 1094 030f 01       		.byte	0x1
+ 1095 0310 B5       		.byte	0xb5
+ 1096 0311 81000000 		.4byte	0x81
+ 1097 0315 02       		.uleb128 0x2
+ 1098 0316 91       		.byte	0x91
+ 1099 0317 77       		.sleb128 -9
+ 1100 0318 00       		.byte	0
+ 1101 0319 0D       		.uleb128 0xd
+ 1102 031a 0A000000 		.4byte	.LASF43
+ 1103 031e 01       		.byte	0x1
+ 1104 031f D3       		.byte	0xd3
+ 1105 0320 81000000 		.4byte	0x81
+ 1106 0324 00000000 		.4byte	.LFB2
+ 1107 0328 74000000 		.4byte	.LFE2-.LFB2
+ 1108 032c 01       		.uleb128 0x1
+ 1109 032d 9C       		.byte	0x9c
+ 1110 032e 57030000 		.4byte	0x357
+ 1111 0332 10       		.uleb128 0x10
+ 1112 0333 DF020000 		.4byte	.LASF38
+ 1113 0337 01       		.byte	0x1
+ 1114 0338 D5       		.byte	0xd5
+ 1115 0339 81000000 		.4byte	0x81
+ 1116 033d 02       		.uleb128 0x2
+ 1117 033e 91       		.byte	0x91
+ 1118 033f 77       		.sleb128 -9
+ 1119 0340 13       		.uleb128 0x13
+ 1120 0341 1E000000 		.4byte	.LBB2
+ 1121 0345 3E000000 		.4byte	.LBE2-.LBB2
+ 1122 0349 0F       		.uleb128 0xf
+ 1123 034a 6900     		.ascii	"i\000"
+ 1124 034c 01       		.byte	0x1
+ 1125 034d E2       		.byte	0xe2
+ 1126 034e 76000000 		.4byte	0x76
+ 1127 0352 02       		.uleb128 0x2
+ 1128 0353 91       		.byte	0x91
+ 1129 0354 76       		.sleb128 -10
+ 1130 0355 00       		.byte	0
+ 1131 0356 00       		.byte	0
+ 1132 0357 14       		.uleb128 0x14
+ 1133 0358 DA000000 		.4byte	.LASF44
+ 1134 035c 01       		.byte	0x1
+ 1135 035d 0A01     		.2byte	0x10a
+ 1136 035f 81000000 		.4byte	0x81
+ 1137 0363 00000000 		.4byte	.LFB3
+ 1138 0367 74000000 		.4byte	.LFE3-.LFB3
+ 1139 036b 01       		.uleb128 0x1
+ 1140 036c 9C       		.byte	0x9c
+ 1141 036d 98030000 		.4byte	0x398
+ 1142 0371 15       		.uleb128 0x15
+ 1143 0372 DF020000 		.4byte	.LASF38
+ 1144 0376 01       		.byte	0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 33
 
 
- 969 03f6 01       		.byte	0x1
- 970 03f7 8802     		.2byte	0x288
- 971 03f9 20040000 		.4byte	0x420
- 972 03fd 02       		.uleb128 0x2
- 973 03fe 91       		.byte	0x91
- 974 03ff 40       		.sleb128 -64
- 975 0400 16       		.uleb128 0x16
- 976 0401 6900     		.ascii	"i\000"
- 977 0403 01       		.byte	0x1
- 978 0404 8902     		.2byte	0x289
- 979 0406 68000000 		.4byte	0x68
- 980 040a 01020000 		.4byte	.LLST14
- 981 040e 1A       		.uleb128 0x1a
- 982 040f 58000000 		.4byte	.LVL46
- 983 0413 46040000 		.4byte	0x446
- 984 0417 1B       		.uleb128 0x1b
- 985 0418 01       		.uleb128 0x1
- 986 0419 50       		.byte	0x50
- 987 041a 02       		.uleb128 0x2
- 988 041b 7D       		.byte	0x7d
- 989 041c 00       		.sleb128 0
- 990 041d 00       		.byte	0
- 991 041e 00       		.byte	0
- 992 041f 00       		.byte	0
- 993 0420 09       		.uleb128 0x9
- 994 0421 76000000 		.4byte	0x76
- 995 0425 30040000 		.4byte	0x430
- 996 0429 0A       		.uleb128 0xa
- 997 042a D0000000 		.4byte	0xd0
- 998 042e 07       		.byte	0x7
- 999 042f 00       		.byte	0
- 1000 0430 09       		.uleb128 0x9
- 1001 0431 76000000 		.4byte	0x76
- 1002 0435 3B040000 		.4byte	0x43b
- 1003 0439 1C       		.uleb128 0x1c
- 1004 043a 00       		.byte	0
- 1005 043b 1D       		.uleb128 0x1d
- 1006 043c F2020000 		.4byte	.LASF53
- 1007 0440 01       		.byte	0x1
- 1008 0441 1F       		.byte	0x1f
- 1009 0442 30040000 		.4byte	0x430
- 1010 0446 1E       		.uleb128 0x1e
- 1011 0447 BB020000 		.4byte	.LASF54
- 1012 044b 06       		.byte	0x6
- 1013 044c 0D       		.byte	0xd
- 1014 044d 5C040000 		.4byte	0x45c
- 1015 0451 1F       		.uleb128 0x1f
- 1016 0452 5C040000 		.4byte	0x45c
- 1017 0456 1F       		.uleb128 0x1f
- 1018 0457 68000000 		.4byte	0x68
- 1019 045b 00       		.byte	0
- 1020 045c 0C       		.uleb128 0xc
- 1021 045d 04       		.byte	0x4
- 1022 045e 76000000 		.4byte	0x76
- 1023 0462 00       		.byte	0
- 1024              		.section	.debug_abbrev,"",%progbits
- 1025              	.Ldebug_abbrev0:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 31
+ 1145 0377 0C01     		.2byte	0x10c
+ 1146 0379 81000000 		.4byte	0x81
+ 1147 037d 02       		.uleb128 0x2
+ 1148 037e 91       		.byte	0x91
+ 1149 037f 77       		.sleb128 -9
+ 1150 0380 13       		.uleb128 0x13
+ 1151 0381 1E000000 		.4byte	.LBB3
+ 1152 0385 3E000000 		.4byte	.LBE3-.LBB3
+ 1153 0389 16       		.uleb128 0x16
+ 1154 038a 6900     		.ascii	"i\000"
+ 1155 038c 01       		.byte	0x1
+ 1156 038d 1901     		.2byte	0x119
+ 1157 038f 76000000 		.4byte	0x76
+ 1158 0393 02       		.uleb128 0x2
+ 1159 0394 91       		.byte	0x91
+ 1160 0395 76       		.sleb128 -10
+ 1161 0396 00       		.byte	0
+ 1162 0397 00       		.byte	0
+ 1163 0398 17       		.uleb128 0x17
+ 1164 0399 D0020000 		.4byte	.LASF46
+ 1165 039d 01       		.byte	0x1
+ 1166 039e 7702     		.2byte	0x277
+ 1167 03a0 00000000 		.4byte	.LFB4
+ 1168 03a4 DC000000 		.4byte	.LFE4-.LFB4
+ 1169 03a8 01       		.uleb128 0x1
+ 1170 03a9 9C       		.byte	0x9c
+ 1171 03aa 02040000 		.4byte	0x402
+ 1172 03ae 18       		.uleb128 0x18
+ 1173 03af 1C010000 		.4byte	.LASF47
+ 1174 03b3 01       		.byte	0x1
+ 1175 03b4 7702     		.2byte	0x277
+ 1176 03b6 81000000 		.4byte	0x81
+ 1177 03ba 03       		.uleb128 0x3
+ 1178 03bb 91       		.byte	0x91
+ 1179 03bc BF7F     		.sleb128 -65
+ 1180 03be 13       		.uleb128 0x13
+ 1181 03bf 1E000000 		.4byte	.LBB4
+ 1182 03c3 B4000000 		.4byte	.LBE4-.LBB4
+ 1183 03c7 16       		.uleb128 0x16
+ 1184 03c8 494400   		.ascii	"ID\000"
+ 1185 03cb 01       		.byte	0x1
+ 1186 03cc 8202     		.2byte	0x282
+ 1187 03ce 68000000 		.4byte	0x68
+ 1188 03d2 02       		.uleb128 0x2
+ 1189 03d3 91       		.byte	0x91
+ 1190 03d4 68       		.sleb128 -24
+ 1191 03d5 15       		.uleb128 0x15
+ 1192 03d6 3E000000 		.4byte	.LASF48
+ 1193 03da 01       		.byte	0x1
+ 1194 03db 8502     		.2byte	0x285
+ 1195 03dd 2F020000 		.4byte	0x22f
+ 1196 03e1 02       		.uleb128 0x2
+ 1197 03e2 91       		.byte	0x91
+ 1198 03e3 40       		.sleb128 -64
+ 1199 03e4 15       		.uleb128 0x15
+ 1200 03e5 EE000000 		.4byte	.LASF49
+ 1201 03e9 01       		.byte	0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 34
 
 
- 1026 0000 01       		.uleb128 0x1
- 1027 0001 11       		.uleb128 0x11
- 1028 0002 01       		.byte	0x1
- 1029 0003 25       		.uleb128 0x25
- 1030 0004 0E       		.uleb128 0xe
- 1031 0005 13       		.uleb128 0x13
- 1032 0006 0B       		.uleb128 0xb
- 1033 0007 03       		.uleb128 0x3
- 1034 0008 0E       		.uleb128 0xe
- 1035 0009 1B       		.uleb128 0x1b
- 1036 000a 0E       		.uleb128 0xe
- 1037 000b 55       		.uleb128 0x55
- 1038 000c 17       		.uleb128 0x17
- 1039 000d 11       		.uleb128 0x11
- 1040 000e 01       		.uleb128 0x1
- 1041 000f 10       		.uleb128 0x10
- 1042 0010 17       		.uleb128 0x17
- 1043 0011 00       		.byte	0
- 1044 0012 00       		.byte	0
- 1045 0013 02       		.uleb128 0x2
- 1046 0014 24       		.uleb128 0x24
- 1047 0015 00       		.byte	0
- 1048 0016 0B       		.uleb128 0xb
- 1049 0017 0B       		.uleb128 0xb
- 1050 0018 3E       		.uleb128 0x3e
- 1051 0019 0B       		.uleb128 0xb
- 1052 001a 03       		.uleb128 0x3
- 1053 001b 0E       		.uleb128 0xe
- 1054 001c 00       		.byte	0
- 1055 001d 00       		.byte	0
- 1056 001e 03       		.uleb128 0x3
- 1057 001f 16       		.uleb128 0x16
- 1058 0020 00       		.byte	0
- 1059 0021 03       		.uleb128 0x3
- 1060 0022 0E       		.uleb128 0xe
- 1061 0023 3A       		.uleb128 0x3a
- 1062 0024 0B       		.uleb128 0xb
- 1063 0025 3B       		.uleb128 0x3b
- 1064 0026 0B       		.uleb128 0xb
- 1065 0027 49       		.uleb128 0x49
- 1066 0028 13       		.uleb128 0x13
- 1067 0029 00       		.byte	0
- 1068 002a 00       		.byte	0
- 1069 002b 04       		.uleb128 0x4
- 1070 002c 24       		.uleb128 0x24
- 1071 002d 00       		.byte	0
- 1072 002e 0B       		.uleb128 0xb
- 1073 002f 0B       		.uleb128 0xb
- 1074 0030 3E       		.uleb128 0x3e
- 1075 0031 0B       		.uleb128 0xb
- 1076 0032 03       		.uleb128 0x3
- 1077 0033 08       		.uleb128 0x8
- 1078 0034 00       		.byte	0
- 1079 0035 00       		.byte	0
- 1080 0036 05       		.uleb128 0x5
- 1081 0037 16       		.uleb128 0x16
- 1082 0038 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 32
+ 1202 03ea 8802     		.2byte	0x288
+ 1203 03ec 02040000 		.4byte	0x402
+ 1204 03f0 02       		.uleb128 0x2
+ 1205 03f1 91       		.byte	0x91
+ 1206 03f2 60       		.sleb128 -32
+ 1207 03f3 16       		.uleb128 0x16
+ 1208 03f4 6900     		.ascii	"i\000"
+ 1209 03f6 01       		.byte	0x1
+ 1210 03f7 8902     		.2byte	0x289
+ 1211 03f9 68000000 		.4byte	0x68
+ 1212 03fd 02       		.uleb128 0x2
+ 1213 03fe 91       		.byte	0x91
+ 1214 03ff 6C       		.sleb128 -20
+ 1215 0400 00       		.byte	0
+ 1216 0401 00       		.byte	0
+ 1217 0402 09       		.uleb128 0x9
+ 1218 0403 76000000 		.4byte	0x76
+ 1219 0407 12040000 		.4byte	0x412
+ 1220 040b 0A       		.uleb128 0xa
+ 1221 040c D0000000 		.4byte	0xd0
+ 1222 0410 07       		.byte	0x7
+ 1223 0411 00       		.byte	0
+ 1224 0412 09       		.uleb128 0x9
+ 1225 0413 76000000 		.4byte	0x76
+ 1226 0417 1D040000 		.4byte	0x41d
+ 1227 041b 19       		.uleb128 0x19
+ 1228 041c 00       		.byte	0
+ 1229 041d 1A       		.uleb128 0x1a
+ 1230 041e E6020000 		.4byte	.LASF53
+ 1231 0422 01       		.byte	0x1
+ 1232 0423 1F       		.byte	0x1f
+ 1233 0424 12040000 		.4byte	0x412
+ 1234 0428 00       		.byte	0
+ 1235              		.section	.debug_abbrev,"",%progbits
+ 1236              	.Ldebug_abbrev0:
+ 1237 0000 01       		.uleb128 0x1
+ 1238 0001 11       		.uleb128 0x11
+ 1239 0002 01       		.byte	0x1
+ 1240 0003 25       		.uleb128 0x25
+ 1241 0004 0E       		.uleb128 0xe
+ 1242 0005 13       		.uleb128 0x13
+ 1243 0006 0B       		.uleb128 0xb
+ 1244 0007 03       		.uleb128 0x3
+ 1245 0008 0E       		.uleb128 0xe
+ 1246 0009 1B       		.uleb128 0x1b
+ 1247 000a 0E       		.uleb128 0xe
+ 1248 000b 55       		.uleb128 0x55
+ 1249 000c 17       		.uleb128 0x17
+ 1250 000d 11       		.uleb128 0x11
+ 1251 000e 01       		.uleb128 0x1
+ 1252 000f 10       		.uleb128 0x10
+ 1253 0010 17       		.uleb128 0x17
+ 1254 0011 00       		.byte	0
+ 1255 0012 00       		.byte	0
+ 1256 0013 02       		.uleb128 0x2
+ 1257 0014 24       		.uleb128 0x24
+ 1258 0015 00       		.byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 35
 
 
- 1083 0039 03       		.uleb128 0x3
- 1084 003a 0E       		.uleb128 0xe
- 1085 003b 3A       		.uleb128 0x3a
- 1086 003c 0B       		.uleb128 0xb
- 1087 003d 3B       		.uleb128 0x3b
- 1088 003e 05       		.uleb128 0x5
- 1089 003f 49       		.uleb128 0x49
- 1090 0040 13       		.uleb128 0x13
- 1091 0041 00       		.byte	0
- 1092 0042 00       		.byte	0
- 1093 0043 06       		.uleb128 0x6
- 1094 0044 35       		.uleb128 0x35
- 1095 0045 00       		.byte	0
- 1096 0046 49       		.uleb128 0x49
- 1097 0047 13       		.uleb128 0x13
- 1098 0048 00       		.byte	0
- 1099 0049 00       		.byte	0
- 1100 004a 07       		.uleb128 0x7
- 1101 004b 13       		.uleb128 0x13
- 1102 004c 01       		.byte	0x1
- 1103 004d 0B       		.uleb128 0xb
- 1104 004e 0B       		.uleb128 0xb
- 1105 004f 3A       		.uleb128 0x3a
- 1106 0050 0B       		.uleb128 0xb
- 1107 0051 3B       		.uleb128 0x3b
- 1108 0052 0B       		.uleb128 0xb
- 1109 0053 01       		.uleb128 0x1
- 1110 0054 13       		.uleb128 0x13
- 1111 0055 00       		.byte	0
- 1112 0056 00       		.byte	0
- 1113 0057 08       		.uleb128 0x8
- 1114 0058 0D       		.uleb128 0xd
- 1115 0059 00       		.byte	0
- 1116 005a 03       		.uleb128 0x3
- 1117 005b 0E       		.uleb128 0xe
- 1118 005c 3A       		.uleb128 0x3a
- 1119 005d 0B       		.uleb128 0xb
- 1120 005e 3B       		.uleb128 0x3b
- 1121 005f 0B       		.uleb128 0xb
- 1122 0060 49       		.uleb128 0x49
- 1123 0061 13       		.uleb128 0x13
- 1124 0062 38       		.uleb128 0x38
- 1125 0063 0B       		.uleb128 0xb
- 1126 0064 00       		.byte	0
- 1127 0065 00       		.byte	0
- 1128 0066 09       		.uleb128 0x9
- 1129 0067 01       		.uleb128 0x1
- 1130 0068 01       		.byte	0x1
- 1131 0069 49       		.uleb128 0x49
- 1132 006a 13       		.uleb128 0x13
- 1133 006b 01       		.uleb128 0x1
- 1134 006c 13       		.uleb128 0x13
- 1135 006d 00       		.byte	0
- 1136 006e 00       		.byte	0
- 1137 006f 0A       		.uleb128 0xa
- 1138 0070 21       		.uleb128 0x21
- 1139 0071 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 33
+ 1259 0016 0B       		.uleb128 0xb
+ 1260 0017 0B       		.uleb128 0xb
+ 1261 0018 3E       		.uleb128 0x3e
+ 1262 0019 0B       		.uleb128 0xb
+ 1263 001a 03       		.uleb128 0x3
+ 1264 001b 0E       		.uleb128 0xe
+ 1265 001c 00       		.byte	0
+ 1266 001d 00       		.byte	0
+ 1267 001e 03       		.uleb128 0x3
+ 1268 001f 16       		.uleb128 0x16
+ 1269 0020 00       		.byte	0
+ 1270 0021 03       		.uleb128 0x3
+ 1271 0022 0E       		.uleb128 0xe
+ 1272 0023 3A       		.uleb128 0x3a
+ 1273 0024 0B       		.uleb128 0xb
+ 1274 0025 3B       		.uleb128 0x3b
+ 1275 0026 0B       		.uleb128 0xb
+ 1276 0027 49       		.uleb128 0x49
+ 1277 0028 13       		.uleb128 0x13
+ 1278 0029 00       		.byte	0
+ 1279 002a 00       		.byte	0
+ 1280 002b 04       		.uleb128 0x4
+ 1281 002c 24       		.uleb128 0x24
+ 1282 002d 00       		.byte	0
+ 1283 002e 0B       		.uleb128 0xb
+ 1284 002f 0B       		.uleb128 0xb
+ 1285 0030 3E       		.uleb128 0x3e
+ 1286 0031 0B       		.uleb128 0xb
+ 1287 0032 03       		.uleb128 0x3
+ 1288 0033 08       		.uleb128 0x8
+ 1289 0034 00       		.byte	0
+ 1290 0035 00       		.byte	0
+ 1291 0036 05       		.uleb128 0x5
+ 1292 0037 16       		.uleb128 0x16
+ 1293 0038 00       		.byte	0
+ 1294 0039 03       		.uleb128 0x3
+ 1295 003a 0E       		.uleb128 0xe
+ 1296 003b 3A       		.uleb128 0x3a
+ 1297 003c 0B       		.uleb128 0xb
+ 1298 003d 3B       		.uleb128 0x3b
+ 1299 003e 05       		.uleb128 0x5
+ 1300 003f 49       		.uleb128 0x49
+ 1301 0040 13       		.uleb128 0x13
+ 1302 0041 00       		.byte	0
+ 1303 0042 00       		.byte	0
+ 1304 0043 06       		.uleb128 0x6
+ 1305 0044 35       		.uleb128 0x35
+ 1306 0045 00       		.byte	0
+ 1307 0046 49       		.uleb128 0x49
+ 1308 0047 13       		.uleb128 0x13
+ 1309 0048 00       		.byte	0
+ 1310 0049 00       		.byte	0
+ 1311 004a 07       		.uleb128 0x7
+ 1312 004b 13       		.uleb128 0x13
+ 1313 004c 01       		.byte	0x1
+ 1314 004d 0B       		.uleb128 0xb
+ 1315 004e 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 36
 
 
- 1140 0072 49       		.uleb128 0x49
- 1141 0073 13       		.uleb128 0x13
- 1142 0074 2F       		.uleb128 0x2f
- 1143 0075 0B       		.uleb128 0xb
- 1144 0076 00       		.byte	0
- 1145 0077 00       		.byte	0
- 1146 0078 0B       		.uleb128 0xb
- 1147 0079 0D       		.uleb128 0xd
- 1148 007a 00       		.byte	0
- 1149 007b 03       		.uleb128 0x3
- 1150 007c 08       		.uleb128 0x8
- 1151 007d 3A       		.uleb128 0x3a
- 1152 007e 0B       		.uleb128 0xb
- 1153 007f 3B       		.uleb128 0x3b
- 1154 0080 0B       		.uleb128 0xb
- 1155 0081 49       		.uleb128 0x49
- 1156 0082 13       		.uleb128 0x13
- 1157 0083 38       		.uleb128 0x38
- 1158 0084 0B       		.uleb128 0xb
- 1159 0085 00       		.byte	0
- 1160 0086 00       		.byte	0
- 1161 0087 0C       		.uleb128 0xc
- 1162 0088 0F       		.uleb128 0xf
- 1163 0089 00       		.byte	0
- 1164 008a 0B       		.uleb128 0xb
- 1165 008b 0B       		.uleb128 0xb
- 1166 008c 49       		.uleb128 0x49
- 1167 008d 13       		.uleb128 0x13
- 1168 008e 00       		.byte	0
- 1169 008f 00       		.byte	0
- 1170 0090 0D       		.uleb128 0xd
- 1171 0091 2E       		.uleb128 0x2e
- 1172 0092 01       		.byte	0x1
- 1173 0093 3F       		.uleb128 0x3f
- 1174 0094 19       		.uleb128 0x19
- 1175 0095 03       		.uleb128 0x3
- 1176 0096 0E       		.uleb128 0xe
- 1177 0097 3A       		.uleb128 0x3a
- 1178 0098 0B       		.uleb128 0xb
- 1179 0099 3B       		.uleb128 0x3b
- 1180 009a 0B       		.uleb128 0xb
- 1181 009b 27       		.uleb128 0x27
- 1182 009c 19       		.uleb128 0x19
- 1183 009d 49       		.uleb128 0x49
- 1184 009e 13       		.uleb128 0x13
- 1185 009f 11       		.uleb128 0x11
- 1186 00a0 01       		.uleb128 0x1
- 1187 00a1 12       		.uleb128 0x12
- 1188 00a2 06       		.uleb128 0x6
- 1189 00a3 40       		.uleb128 0x40
- 1190 00a4 18       		.uleb128 0x18
- 1191 00a5 9742     		.uleb128 0x2117
- 1192 00a7 19       		.uleb128 0x19
- 1193 00a8 01       		.uleb128 0x1
- 1194 00a9 13       		.uleb128 0x13
- 1195 00aa 00       		.byte	0
- 1196 00ab 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 34
+ 1316 004f 3A       		.uleb128 0x3a
+ 1317 0050 0B       		.uleb128 0xb
+ 1318 0051 3B       		.uleb128 0x3b
+ 1319 0052 0B       		.uleb128 0xb
+ 1320 0053 01       		.uleb128 0x1
+ 1321 0054 13       		.uleb128 0x13
+ 1322 0055 00       		.byte	0
+ 1323 0056 00       		.byte	0
+ 1324 0057 08       		.uleb128 0x8
+ 1325 0058 0D       		.uleb128 0xd
+ 1326 0059 00       		.byte	0
+ 1327 005a 03       		.uleb128 0x3
+ 1328 005b 0E       		.uleb128 0xe
+ 1329 005c 3A       		.uleb128 0x3a
+ 1330 005d 0B       		.uleb128 0xb
+ 1331 005e 3B       		.uleb128 0x3b
+ 1332 005f 0B       		.uleb128 0xb
+ 1333 0060 49       		.uleb128 0x49
+ 1334 0061 13       		.uleb128 0x13
+ 1335 0062 38       		.uleb128 0x38
+ 1336 0063 0B       		.uleb128 0xb
+ 1337 0064 00       		.byte	0
+ 1338 0065 00       		.byte	0
+ 1339 0066 09       		.uleb128 0x9
+ 1340 0067 01       		.uleb128 0x1
+ 1341 0068 01       		.byte	0x1
+ 1342 0069 49       		.uleb128 0x49
+ 1343 006a 13       		.uleb128 0x13
+ 1344 006b 01       		.uleb128 0x1
+ 1345 006c 13       		.uleb128 0x13
+ 1346 006d 00       		.byte	0
+ 1347 006e 00       		.byte	0
+ 1348 006f 0A       		.uleb128 0xa
+ 1349 0070 21       		.uleb128 0x21
+ 1350 0071 00       		.byte	0
+ 1351 0072 49       		.uleb128 0x49
+ 1352 0073 13       		.uleb128 0x13
+ 1353 0074 2F       		.uleb128 0x2f
+ 1354 0075 0B       		.uleb128 0xb
+ 1355 0076 00       		.byte	0
+ 1356 0077 00       		.byte	0
+ 1357 0078 0B       		.uleb128 0xb
+ 1358 0079 0D       		.uleb128 0xd
+ 1359 007a 00       		.byte	0
+ 1360 007b 03       		.uleb128 0x3
+ 1361 007c 08       		.uleb128 0x8
+ 1362 007d 3A       		.uleb128 0x3a
+ 1363 007e 0B       		.uleb128 0xb
+ 1364 007f 3B       		.uleb128 0x3b
+ 1365 0080 0B       		.uleb128 0xb
+ 1366 0081 49       		.uleb128 0x49
+ 1367 0082 13       		.uleb128 0x13
+ 1368 0083 38       		.uleb128 0x38
+ 1369 0084 0B       		.uleb128 0xb
+ 1370 0085 00       		.byte	0
+ 1371 0086 00       		.byte	0
+ 1372 0087 0C       		.uleb128 0xc
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 37
 
 
- 1197 00ac 0E       		.uleb128 0xe
- 1198 00ad 05       		.uleb128 0x5
- 1199 00ae 00       		.byte	0
- 1200 00af 03       		.uleb128 0x3
- 1201 00b0 0E       		.uleb128 0xe
- 1202 00b1 3A       		.uleb128 0x3a
- 1203 00b2 0B       		.uleb128 0xb
- 1204 00b3 3B       		.uleb128 0x3b
- 1205 00b4 0B       		.uleb128 0xb
- 1206 00b5 49       		.uleb128 0x49
- 1207 00b6 13       		.uleb128 0x13
- 1208 00b7 02       		.uleb128 0x2
- 1209 00b8 17       		.uleb128 0x17
- 1210 00b9 00       		.byte	0
- 1211 00ba 00       		.byte	0
- 1212 00bb 0F       		.uleb128 0xf
- 1213 00bc 34       		.uleb128 0x34
- 1214 00bd 00       		.byte	0
- 1215 00be 03       		.uleb128 0x3
- 1216 00bf 08       		.uleb128 0x8
- 1217 00c0 3A       		.uleb128 0x3a
- 1218 00c1 0B       		.uleb128 0xb
- 1219 00c2 3B       		.uleb128 0x3b
- 1220 00c3 0B       		.uleb128 0xb
- 1221 00c4 49       		.uleb128 0x49
- 1222 00c5 13       		.uleb128 0x13
- 1223 00c6 02       		.uleb128 0x2
- 1224 00c7 17       		.uleb128 0x17
- 1225 00c8 00       		.byte	0
- 1226 00c9 00       		.byte	0
- 1227 00ca 10       		.uleb128 0x10
- 1228 00cb 34       		.uleb128 0x34
- 1229 00cc 00       		.byte	0
- 1230 00cd 03       		.uleb128 0x3
- 1231 00ce 0E       		.uleb128 0xe
- 1232 00cf 3A       		.uleb128 0x3a
- 1233 00d0 0B       		.uleb128 0xb
- 1234 00d1 3B       		.uleb128 0x3b
- 1235 00d2 0B       		.uleb128 0xb
- 1236 00d3 49       		.uleb128 0x49
- 1237 00d4 13       		.uleb128 0x13
- 1238 00d5 02       		.uleb128 0x2
- 1239 00d6 17       		.uleb128 0x17
- 1240 00d7 00       		.byte	0
- 1241 00d8 00       		.byte	0
- 1242 00d9 11       		.uleb128 0x11
- 1243 00da 26       		.uleb128 0x26
- 1244 00db 00       		.byte	0
- 1245 00dc 49       		.uleb128 0x49
- 1246 00dd 13       		.uleb128 0x13
- 1247 00de 00       		.byte	0
- 1248 00df 00       		.byte	0
- 1249 00e0 12       		.uleb128 0x12
- 1250 00e1 2E       		.uleb128 0x2e
- 1251 00e2 01       		.byte	0x1
- 1252 00e3 3F       		.uleb128 0x3f
- 1253 00e4 19       		.uleb128 0x19
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 35
+ 1373 0088 0F       		.uleb128 0xf
+ 1374 0089 00       		.byte	0
+ 1375 008a 0B       		.uleb128 0xb
+ 1376 008b 0B       		.uleb128 0xb
+ 1377 008c 49       		.uleb128 0x49
+ 1378 008d 13       		.uleb128 0x13
+ 1379 008e 00       		.byte	0
+ 1380 008f 00       		.byte	0
+ 1381 0090 0D       		.uleb128 0xd
+ 1382 0091 2E       		.uleb128 0x2e
+ 1383 0092 01       		.byte	0x1
+ 1384 0093 3F       		.uleb128 0x3f
+ 1385 0094 19       		.uleb128 0x19
+ 1386 0095 03       		.uleb128 0x3
+ 1387 0096 0E       		.uleb128 0xe
+ 1388 0097 3A       		.uleb128 0x3a
+ 1389 0098 0B       		.uleb128 0xb
+ 1390 0099 3B       		.uleb128 0x3b
+ 1391 009a 0B       		.uleb128 0xb
+ 1392 009b 27       		.uleb128 0x27
+ 1393 009c 19       		.uleb128 0x19
+ 1394 009d 49       		.uleb128 0x49
+ 1395 009e 13       		.uleb128 0x13
+ 1396 009f 11       		.uleb128 0x11
+ 1397 00a0 01       		.uleb128 0x1
+ 1398 00a1 12       		.uleb128 0x12
+ 1399 00a2 06       		.uleb128 0x6
+ 1400 00a3 40       		.uleb128 0x40
+ 1401 00a4 18       		.uleb128 0x18
+ 1402 00a5 9742     		.uleb128 0x2117
+ 1403 00a7 19       		.uleb128 0x19
+ 1404 00a8 01       		.uleb128 0x1
+ 1405 00a9 13       		.uleb128 0x13
+ 1406 00aa 00       		.byte	0
+ 1407 00ab 00       		.byte	0
+ 1408 00ac 0E       		.uleb128 0xe
+ 1409 00ad 05       		.uleb128 0x5
+ 1410 00ae 00       		.byte	0
+ 1411 00af 03       		.uleb128 0x3
+ 1412 00b0 0E       		.uleb128 0xe
+ 1413 00b1 3A       		.uleb128 0x3a
+ 1414 00b2 0B       		.uleb128 0xb
+ 1415 00b3 3B       		.uleb128 0x3b
+ 1416 00b4 0B       		.uleb128 0xb
+ 1417 00b5 49       		.uleb128 0x49
+ 1418 00b6 13       		.uleb128 0x13
+ 1419 00b7 02       		.uleb128 0x2
+ 1420 00b8 18       		.uleb128 0x18
+ 1421 00b9 00       		.byte	0
+ 1422 00ba 00       		.byte	0
+ 1423 00bb 0F       		.uleb128 0xf
+ 1424 00bc 34       		.uleb128 0x34
+ 1425 00bd 00       		.byte	0
+ 1426 00be 03       		.uleb128 0x3
+ 1427 00bf 08       		.uleb128 0x8
+ 1428 00c0 3A       		.uleb128 0x3a
+ 1429 00c1 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 38
 
 
- 1254 00e5 03       		.uleb128 0x3
- 1255 00e6 0E       		.uleb128 0xe
- 1256 00e7 3A       		.uleb128 0x3a
- 1257 00e8 0B       		.uleb128 0xb
- 1258 00e9 3B       		.uleb128 0x3b
- 1259 00ea 0B       		.uleb128 0xb
- 1260 00eb 27       		.uleb128 0x27
- 1261 00ec 19       		.uleb128 0x19
- 1262 00ed 11       		.uleb128 0x11
- 1263 00ee 01       		.uleb128 0x1
- 1264 00ef 12       		.uleb128 0x12
- 1265 00f0 06       		.uleb128 0x6
- 1266 00f1 40       		.uleb128 0x40
- 1267 00f2 18       		.uleb128 0x18
- 1268 00f3 9742     		.uleb128 0x2117
- 1269 00f5 19       		.uleb128 0x19
- 1270 00f6 01       		.uleb128 0x1
- 1271 00f7 13       		.uleb128 0x13
- 1272 00f8 00       		.byte	0
- 1273 00f9 00       		.byte	0
- 1274 00fa 13       		.uleb128 0x13
- 1275 00fb 0B       		.uleb128 0xb
- 1276 00fc 01       		.byte	0x1
- 1277 00fd 11       		.uleb128 0x11
- 1278 00fe 01       		.uleb128 0x1
- 1279 00ff 12       		.uleb128 0x12
- 1280 0100 06       		.uleb128 0x6
- 1281 0101 00       		.byte	0
- 1282 0102 00       		.byte	0
- 1283 0103 14       		.uleb128 0x14
- 1284 0104 2E       		.uleb128 0x2e
- 1285 0105 01       		.byte	0x1
- 1286 0106 3F       		.uleb128 0x3f
- 1287 0107 19       		.uleb128 0x19
- 1288 0108 03       		.uleb128 0x3
- 1289 0109 0E       		.uleb128 0xe
- 1290 010a 3A       		.uleb128 0x3a
- 1291 010b 0B       		.uleb128 0xb
- 1292 010c 3B       		.uleb128 0x3b
- 1293 010d 05       		.uleb128 0x5
- 1294 010e 27       		.uleb128 0x27
- 1295 010f 19       		.uleb128 0x19
- 1296 0110 49       		.uleb128 0x49
- 1297 0111 13       		.uleb128 0x13
- 1298 0112 11       		.uleb128 0x11
- 1299 0113 01       		.uleb128 0x1
- 1300 0114 12       		.uleb128 0x12
- 1301 0115 06       		.uleb128 0x6
- 1302 0116 40       		.uleb128 0x40
- 1303 0117 18       		.uleb128 0x18
- 1304 0118 9742     		.uleb128 0x2117
- 1305 011a 19       		.uleb128 0x19
- 1306 011b 01       		.uleb128 0x1
- 1307 011c 13       		.uleb128 0x13
- 1308 011d 00       		.byte	0
- 1309 011e 00       		.byte	0
- 1310 011f 15       		.uleb128 0x15
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 36
+ 1430 00c2 3B       		.uleb128 0x3b
+ 1431 00c3 0B       		.uleb128 0xb
+ 1432 00c4 49       		.uleb128 0x49
+ 1433 00c5 13       		.uleb128 0x13
+ 1434 00c6 02       		.uleb128 0x2
+ 1435 00c7 18       		.uleb128 0x18
+ 1436 00c8 00       		.byte	0
+ 1437 00c9 00       		.byte	0
+ 1438 00ca 10       		.uleb128 0x10
+ 1439 00cb 34       		.uleb128 0x34
+ 1440 00cc 00       		.byte	0
+ 1441 00cd 03       		.uleb128 0x3
+ 1442 00ce 0E       		.uleb128 0xe
+ 1443 00cf 3A       		.uleb128 0x3a
+ 1444 00d0 0B       		.uleb128 0xb
+ 1445 00d1 3B       		.uleb128 0x3b
+ 1446 00d2 0B       		.uleb128 0xb
+ 1447 00d3 49       		.uleb128 0x49
+ 1448 00d4 13       		.uleb128 0x13
+ 1449 00d5 02       		.uleb128 0x2
+ 1450 00d6 18       		.uleb128 0x18
+ 1451 00d7 00       		.byte	0
+ 1452 00d8 00       		.byte	0
+ 1453 00d9 11       		.uleb128 0x11
+ 1454 00da 26       		.uleb128 0x26
+ 1455 00db 00       		.byte	0
+ 1456 00dc 49       		.uleb128 0x49
+ 1457 00dd 13       		.uleb128 0x13
+ 1458 00de 00       		.byte	0
+ 1459 00df 00       		.byte	0
+ 1460 00e0 12       		.uleb128 0x12
+ 1461 00e1 2E       		.uleb128 0x2e
+ 1462 00e2 01       		.byte	0x1
+ 1463 00e3 3F       		.uleb128 0x3f
+ 1464 00e4 19       		.uleb128 0x19
+ 1465 00e5 03       		.uleb128 0x3
+ 1466 00e6 0E       		.uleb128 0xe
+ 1467 00e7 3A       		.uleb128 0x3a
+ 1468 00e8 0B       		.uleb128 0xb
+ 1469 00e9 3B       		.uleb128 0x3b
+ 1470 00ea 0B       		.uleb128 0xb
+ 1471 00eb 27       		.uleb128 0x27
+ 1472 00ec 19       		.uleb128 0x19
+ 1473 00ed 11       		.uleb128 0x11
+ 1474 00ee 01       		.uleb128 0x1
+ 1475 00ef 12       		.uleb128 0x12
+ 1476 00f0 06       		.uleb128 0x6
+ 1477 00f1 40       		.uleb128 0x40
+ 1478 00f2 18       		.uleb128 0x18
+ 1479 00f3 9742     		.uleb128 0x2117
+ 1480 00f5 19       		.uleb128 0x19
+ 1481 00f6 01       		.uleb128 0x1
+ 1482 00f7 13       		.uleb128 0x13
+ 1483 00f8 00       		.byte	0
+ 1484 00f9 00       		.byte	0
+ 1485 00fa 13       		.uleb128 0x13
+ 1486 00fb 0B       		.uleb128 0xb
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 39
 
 
- 1311 0120 34       		.uleb128 0x34
- 1312 0121 00       		.byte	0
- 1313 0122 03       		.uleb128 0x3
- 1314 0123 0E       		.uleb128 0xe
- 1315 0124 3A       		.uleb128 0x3a
- 1316 0125 0B       		.uleb128 0xb
- 1317 0126 3B       		.uleb128 0x3b
- 1318 0127 05       		.uleb128 0x5
- 1319 0128 49       		.uleb128 0x49
- 1320 0129 13       		.uleb128 0x13
- 1321 012a 02       		.uleb128 0x2
- 1322 012b 17       		.uleb128 0x17
- 1323 012c 00       		.byte	0
- 1324 012d 00       		.byte	0
- 1325 012e 16       		.uleb128 0x16
- 1326 012f 34       		.uleb128 0x34
- 1327 0130 00       		.byte	0
- 1328 0131 03       		.uleb128 0x3
- 1329 0132 08       		.uleb128 0x8
- 1330 0133 3A       		.uleb128 0x3a
- 1331 0134 0B       		.uleb128 0xb
- 1332 0135 3B       		.uleb128 0x3b
- 1333 0136 05       		.uleb128 0x5
- 1334 0137 49       		.uleb128 0x49
- 1335 0138 13       		.uleb128 0x13
- 1336 0139 02       		.uleb128 0x2
- 1337 013a 17       		.uleb128 0x17
- 1338 013b 00       		.byte	0
- 1339 013c 00       		.byte	0
- 1340 013d 17       		.uleb128 0x17
- 1341 013e 2E       		.uleb128 0x2e
- 1342 013f 01       		.byte	0x1
- 1343 0140 3F       		.uleb128 0x3f
- 1344 0141 19       		.uleb128 0x19
- 1345 0142 03       		.uleb128 0x3
- 1346 0143 0E       		.uleb128 0xe
- 1347 0144 3A       		.uleb128 0x3a
- 1348 0145 0B       		.uleb128 0xb
- 1349 0146 3B       		.uleb128 0x3b
- 1350 0147 05       		.uleb128 0x5
- 1351 0148 27       		.uleb128 0x27
- 1352 0149 19       		.uleb128 0x19
- 1353 014a 11       		.uleb128 0x11
- 1354 014b 01       		.uleb128 0x1
- 1355 014c 12       		.uleb128 0x12
- 1356 014d 06       		.uleb128 0x6
- 1357 014e 40       		.uleb128 0x40
- 1358 014f 18       		.uleb128 0x18
- 1359 0150 9742     		.uleb128 0x2117
- 1360 0152 19       		.uleb128 0x19
- 1361 0153 01       		.uleb128 0x1
- 1362 0154 13       		.uleb128 0x13
- 1363 0155 00       		.byte	0
- 1364 0156 00       		.byte	0
- 1365 0157 18       		.uleb128 0x18
- 1366 0158 05       		.uleb128 0x5
- 1367 0159 00       		.byte	0
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 37
+ 1487 00fc 01       		.byte	0x1
+ 1488 00fd 11       		.uleb128 0x11
+ 1489 00fe 01       		.uleb128 0x1
+ 1490 00ff 12       		.uleb128 0x12
+ 1491 0100 06       		.uleb128 0x6
+ 1492 0101 00       		.byte	0
+ 1493 0102 00       		.byte	0
+ 1494 0103 14       		.uleb128 0x14
+ 1495 0104 2E       		.uleb128 0x2e
+ 1496 0105 01       		.byte	0x1
+ 1497 0106 3F       		.uleb128 0x3f
+ 1498 0107 19       		.uleb128 0x19
+ 1499 0108 03       		.uleb128 0x3
+ 1500 0109 0E       		.uleb128 0xe
+ 1501 010a 3A       		.uleb128 0x3a
+ 1502 010b 0B       		.uleb128 0xb
+ 1503 010c 3B       		.uleb128 0x3b
+ 1504 010d 05       		.uleb128 0x5
+ 1505 010e 27       		.uleb128 0x27
+ 1506 010f 19       		.uleb128 0x19
+ 1507 0110 49       		.uleb128 0x49
+ 1508 0111 13       		.uleb128 0x13
+ 1509 0112 11       		.uleb128 0x11
+ 1510 0113 01       		.uleb128 0x1
+ 1511 0114 12       		.uleb128 0x12
+ 1512 0115 06       		.uleb128 0x6
+ 1513 0116 40       		.uleb128 0x40
+ 1514 0117 18       		.uleb128 0x18
+ 1515 0118 9742     		.uleb128 0x2117
+ 1516 011a 19       		.uleb128 0x19
+ 1517 011b 01       		.uleb128 0x1
+ 1518 011c 13       		.uleb128 0x13
+ 1519 011d 00       		.byte	0
+ 1520 011e 00       		.byte	0
+ 1521 011f 15       		.uleb128 0x15
+ 1522 0120 34       		.uleb128 0x34
+ 1523 0121 00       		.byte	0
+ 1524 0122 03       		.uleb128 0x3
+ 1525 0123 0E       		.uleb128 0xe
+ 1526 0124 3A       		.uleb128 0x3a
+ 1527 0125 0B       		.uleb128 0xb
+ 1528 0126 3B       		.uleb128 0x3b
+ 1529 0127 05       		.uleb128 0x5
+ 1530 0128 49       		.uleb128 0x49
+ 1531 0129 13       		.uleb128 0x13
+ 1532 012a 02       		.uleb128 0x2
+ 1533 012b 18       		.uleb128 0x18
+ 1534 012c 00       		.byte	0
+ 1535 012d 00       		.byte	0
+ 1536 012e 16       		.uleb128 0x16
+ 1537 012f 34       		.uleb128 0x34
+ 1538 0130 00       		.byte	0
+ 1539 0131 03       		.uleb128 0x3
+ 1540 0132 08       		.uleb128 0x8
+ 1541 0133 3A       		.uleb128 0x3a
+ 1542 0134 0B       		.uleb128 0xb
+ 1543 0135 3B       		.uleb128 0x3b
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 40
 
 
- 1368 015a 03       		.uleb128 0x3
- 1369 015b 0E       		.uleb128 0xe
- 1370 015c 3A       		.uleb128 0x3a
- 1371 015d 0B       		.uleb128 0xb
- 1372 015e 3B       		.uleb128 0x3b
- 1373 015f 05       		.uleb128 0x5
- 1374 0160 49       		.uleb128 0x49
- 1375 0161 13       		.uleb128 0x13
- 1376 0162 02       		.uleb128 0x2
- 1377 0163 17       		.uleb128 0x17
- 1378 0164 00       		.byte	0
- 1379 0165 00       		.byte	0
- 1380 0166 19       		.uleb128 0x19
- 1381 0167 34       		.uleb128 0x34
- 1382 0168 00       		.byte	0
- 1383 0169 03       		.uleb128 0x3
- 1384 016a 0E       		.uleb128 0xe
- 1385 016b 3A       		.uleb128 0x3a
- 1386 016c 0B       		.uleb128 0xb
- 1387 016d 3B       		.uleb128 0x3b
- 1388 016e 05       		.uleb128 0x5
- 1389 016f 49       		.uleb128 0x49
- 1390 0170 13       		.uleb128 0x13
- 1391 0171 02       		.uleb128 0x2
- 1392 0172 18       		.uleb128 0x18
- 1393 0173 00       		.byte	0
- 1394 0174 00       		.byte	0
- 1395 0175 1A       		.uleb128 0x1a
- 1396 0176 898201   		.uleb128 0x4109
- 1397 0179 01       		.byte	0x1
- 1398 017a 11       		.uleb128 0x11
- 1399 017b 01       		.uleb128 0x1
- 1400 017c 31       		.uleb128 0x31
- 1401 017d 13       		.uleb128 0x13
- 1402 017e 00       		.byte	0
- 1403 017f 00       		.byte	0
- 1404 0180 1B       		.uleb128 0x1b
- 1405 0181 8A8201   		.uleb128 0x410a
- 1406 0184 00       		.byte	0
- 1407 0185 02       		.uleb128 0x2
- 1408 0186 18       		.uleb128 0x18
- 1409 0187 9142     		.uleb128 0x2111
- 1410 0189 18       		.uleb128 0x18
- 1411 018a 00       		.byte	0
- 1412 018b 00       		.byte	0
- 1413 018c 1C       		.uleb128 0x1c
- 1414 018d 21       		.uleb128 0x21
- 1415 018e 00       		.byte	0
- 1416 018f 00       		.byte	0
- 1417 0190 00       		.byte	0
- 1418 0191 1D       		.uleb128 0x1d
- 1419 0192 34       		.uleb128 0x34
- 1420 0193 00       		.byte	0
- 1421 0194 03       		.uleb128 0x3
- 1422 0195 0E       		.uleb128 0xe
- 1423 0196 3A       		.uleb128 0x3a
- 1424 0197 0B       		.uleb128 0xb
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 38
+ 1544 0136 05       		.uleb128 0x5
+ 1545 0137 49       		.uleb128 0x49
+ 1546 0138 13       		.uleb128 0x13
+ 1547 0139 02       		.uleb128 0x2
+ 1548 013a 18       		.uleb128 0x18
+ 1549 013b 00       		.byte	0
+ 1550 013c 00       		.byte	0
+ 1551 013d 17       		.uleb128 0x17
+ 1552 013e 2E       		.uleb128 0x2e
+ 1553 013f 01       		.byte	0x1
+ 1554 0140 3F       		.uleb128 0x3f
+ 1555 0141 19       		.uleb128 0x19
+ 1556 0142 03       		.uleb128 0x3
+ 1557 0143 0E       		.uleb128 0xe
+ 1558 0144 3A       		.uleb128 0x3a
+ 1559 0145 0B       		.uleb128 0xb
+ 1560 0146 3B       		.uleb128 0x3b
+ 1561 0147 05       		.uleb128 0x5
+ 1562 0148 27       		.uleb128 0x27
+ 1563 0149 19       		.uleb128 0x19
+ 1564 014a 11       		.uleb128 0x11
+ 1565 014b 01       		.uleb128 0x1
+ 1566 014c 12       		.uleb128 0x12
+ 1567 014d 06       		.uleb128 0x6
+ 1568 014e 40       		.uleb128 0x40
+ 1569 014f 18       		.uleb128 0x18
+ 1570 0150 9642     		.uleb128 0x2116
+ 1571 0152 19       		.uleb128 0x19
+ 1572 0153 01       		.uleb128 0x1
+ 1573 0154 13       		.uleb128 0x13
+ 1574 0155 00       		.byte	0
+ 1575 0156 00       		.byte	0
+ 1576 0157 18       		.uleb128 0x18
+ 1577 0158 05       		.uleb128 0x5
+ 1578 0159 00       		.byte	0
+ 1579 015a 03       		.uleb128 0x3
+ 1580 015b 0E       		.uleb128 0xe
+ 1581 015c 3A       		.uleb128 0x3a
+ 1582 015d 0B       		.uleb128 0xb
+ 1583 015e 3B       		.uleb128 0x3b
+ 1584 015f 05       		.uleb128 0x5
+ 1585 0160 49       		.uleb128 0x49
+ 1586 0161 13       		.uleb128 0x13
+ 1587 0162 02       		.uleb128 0x2
+ 1588 0163 18       		.uleb128 0x18
+ 1589 0164 00       		.byte	0
+ 1590 0165 00       		.byte	0
+ 1591 0166 19       		.uleb128 0x19
+ 1592 0167 21       		.uleb128 0x21
+ 1593 0168 00       		.byte	0
+ 1594 0169 00       		.byte	0
+ 1595 016a 00       		.byte	0
+ 1596 016b 1A       		.uleb128 0x1a
+ 1597 016c 34       		.uleb128 0x34
+ 1598 016d 00       		.byte	0
+ 1599 016e 03       		.uleb128 0x3
+ 1600 016f 0E       		.uleb128 0xe
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 41
 
 
- 1425 0198 3B       		.uleb128 0x3b
- 1426 0199 0B       		.uleb128 0xb
- 1427 019a 49       		.uleb128 0x49
- 1428 019b 13       		.uleb128 0x13
- 1429 019c 3F       		.uleb128 0x3f
- 1430 019d 19       		.uleb128 0x19
- 1431 019e 3C       		.uleb128 0x3c
- 1432 019f 19       		.uleb128 0x19
- 1433 01a0 00       		.byte	0
- 1434 01a1 00       		.byte	0
- 1435 01a2 1E       		.uleb128 0x1e
- 1436 01a3 2E       		.uleb128 0x2e
- 1437 01a4 01       		.byte	0x1
- 1438 01a5 3F       		.uleb128 0x3f
- 1439 01a6 19       		.uleb128 0x19
- 1440 01a7 03       		.uleb128 0x3
- 1441 01a8 0E       		.uleb128 0xe
- 1442 01a9 3A       		.uleb128 0x3a
- 1443 01aa 0B       		.uleb128 0xb
- 1444 01ab 3B       		.uleb128 0x3b
- 1445 01ac 0B       		.uleb128 0xb
- 1446 01ad 27       		.uleb128 0x27
- 1447 01ae 19       		.uleb128 0x19
- 1448 01af 3C       		.uleb128 0x3c
- 1449 01b0 19       		.uleb128 0x19
- 1450 01b1 01       		.uleb128 0x1
- 1451 01b2 13       		.uleb128 0x13
- 1452 01b3 00       		.byte	0
- 1453 01b4 00       		.byte	0
- 1454 01b5 1F       		.uleb128 0x1f
- 1455 01b6 05       		.uleb128 0x5
- 1456 01b7 00       		.byte	0
- 1457 01b8 49       		.uleb128 0x49
- 1458 01b9 13       		.uleb128 0x13
- 1459 01ba 00       		.byte	0
- 1460 01bb 00       		.byte	0
- 1461 01bc 00       		.byte	0
- 1462              		.section	.debug_loc,"",%progbits
- 1463              	.Ldebug_loc0:
- 1464              	.LLST0:
- 1465 0000 00000000 		.4byte	.LVL0
- 1466 0004 CA000000 		.4byte	.LVL24
- 1467 0008 0100     		.2byte	0x1
- 1468 000a 50       		.byte	0x50
- 1469 000b CA000000 		.4byte	.LVL24
- 1470 000f DC000000 		.4byte	.LFE0
- 1471 0013 0400     		.2byte	0x4
- 1472 0015 F3       		.byte	0xf3
- 1473 0016 01       		.uleb128 0x1
- 1474 0017 50       		.byte	0x50
- 1475 0018 9F       		.byte	0x9f
- 1476 0019 00000000 		.4byte	0
- 1477 001d 00000000 		.4byte	0
- 1478              	.LLST1:
- 1479 0021 08000000 		.4byte	.LVL2
- 1480 0025 B2000000 		.4byte	.LVL18
- 1481 0029 0100     		.2byte	0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 39
+ 1601 0170 3A       		.uleb128 0x3a
+ 1602 0171 0B       		.uleb128 0xb
+ 1603 0172 3B       		.uleb128 0x3b
+ 1604 0173 0B       		.uleb128 0xb
+ 1605 0174 49       		.uleb128 0x49
+ 1606 0175 13       		.uleb128 0x13
+ 1607 0176 3F       		.uleb128 0x3f
+ 1608 0177 19       		.uleb128 0x19
+ 1609 0178 3C       		.uleb128 0x3c
+ 1610 0179 19       		.uleb128 0x19
+ 1611 017a 00       		.byte	0
+ 1612 017b 00       		.byte	0
+ 1613 017c 00       		.byte	0
+ 1614              		.section	.debug_aranges,"",%progbits
+ 1615 0000 3C000000 		.4byte	0x3c
+ 1616 0004 0200     		.2byte	0x2
+ 1617 0006 00000000 		.4byte	.Ldebug_info0
+ 1618 000a 04       		.byte	0x4
+ 1619 000b 00       		.byte	0
+ 1620 000c 0000     		.2byte	0
+ 1621 000e 0000     		.2byte	0
+ 1622 0010 00000000 		.4byte	.LFB0
+ 1623 0014 80010000 		.4byte	.LFE0-.LFB0
+ 1624 0018 00000000 		.4byte	.LFB1
+ 1625 001c 44000000 		.4byte	.LFE1-.LFB1
+ 1626 0020 00000000 		.4byte	.LFB2
+ 1627 0024 74000000 		.4byte	.LFE2-.LFB2
+ 1628 0028 00000000 		.4byte	.LFB3
+ 1629 002c 74000000 		.4byte	.LFE3-.LFB3
+ 1630 0030 00000000 		.4byte	.LFB4
+ 1631 0034 DC000000 		.4byte	.LFE4-.LFB4
+ 1632 0038 00000000 		.4byte	0
+ 1633 003c 00000000 		.4byte	0
+ 1634              		.section	.debug_ranges,"",%progbits
+ 1635              	.Ldebug_ranges0:
+ 1636 0000 00000000 		.4byte	.LFB0
+ 1637 0004 80010000 		.4byte	.LFE0
+ 1638 0008 00000000 		.4byte	.LFB1
+ 1639 000c 44000000 		.4byte	.LFE1
+ 1640 0010 00000000 		.4byte	.LFB2
+ 1641 0014 74000000 		.4byte	.LFE2
+ 1642 0018 00000000 		.4byte	.LFB3
+ 1643 001c 74000000 		.4byte	.LFE3
+ 1644 0020 00000000 		.4byte	.LFB4
+ 1645 0024 DC000000 		.4byte	.LFE4
+ 1646 0028 00000000 		.4byte	0
+ 1647 002c 00000000 		.4byte	0
+ 1648              		.section	.debug_line,"",%progbits
+ 1649              	.Ldebug_line0:
+ 1650 0000 79020000 		.section	.debug_str,"MS",%progbits,1
+ 1650      02003C01 
+ 1650      00000201 
+ 1650      FB0E0D00 
+ 1650      01010101 
+ 1651              	.LASF9:
+ 1652 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1652      6E74385F 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 42
 
 
- 1482 002b 52       		.byte	0x52
- 1483 002c B4000000 		.4byte	.LVL19
- 1484 0030 B6000000 		.4byte	.LVL20
- 1485 0034 0100     		.2byte	0x1
- 1486 0036 52       		.byte	0x52
- 1487 0037 BA000000 		.4byte	.LVL21
- 1488 003b C4000000 		.4byte	.LVL23
- 1489 003f 0100     		.2byte	0x1
- 1490 0041 52       		.byte	0x52
- 1491 0042 00000000 		.4byte	0
- 1492 0046 00000000 		.4byte	0
- 1493              	.LLST2:
- 1494 004a 5C000000 		.4byte	.LVL10
- 1495 004e 60000000 		.4byte	.LVL11
- 1496 0052 0200     		.2byte	0x2
- 1497 0054 30       		.byte	0x30
- 1498 0055 9F       		.byte	0x9f
- 1499 0056 60000000 		.4byte	.LVL11
- 1500 005a 7E000000 		.4byte	.LVL12
- 1501 005e 0100     		.2byte	0x1
- 1502 0060 53       		.byte	0x53
- 1503 0061 80000000 		.4byte	.LVL13
- 1504 0065 90000000 		.4byte	.LVL14
- 1505 0069 0100     		.2byte	0x1
- 1506 006b 53       		.byte	0x53
- 1507 006c 00000000 		.4byte	0
- 1508 0070 00000000 		.4byte	0
- 1509              	.LLST3:
- 1510 0074 08000000 		.4byte	.LVL2
- 1511 0078 B6000000 		.4byte	.LVL20
- 1512 007c 0100     		.2byte	0x1
- 1513 007e 57       		.byte	0x57
- 1514 007f BA000000 		.4byte	.LVL21
- 1515 0083 C4000000 		.4byte	.LVL23
- 1516 0087 0100     		.2byte	0x1
- 1517 0089 57       		.byte	0x57
- 1518 008a 00000000 		.4byte	0
- 1519 008e 00000000 		.4byte	0
- 1520              	.LLST4:
- 1521 0092 02000000 		.4byte	.LVL1
- 1522 0096 08000000 		.4byte	.LVL2
- 1523 009a 0200     		.2byte	0x2
- 1524 009c 30       		.byte	0x30
- 1525 009d 9F       		.byte	0x9f
- 1526 009e 08000000 		.4byte	.LVL2
- 1527 00a2 C2000000 		.4byte	.LVL22
- 1528 00a6 0100     		.2byte	0x1
- 1529 00a8 56       		.byte	0x56
- 1530 00a9 C4000000 		.4byte	.LVL23
- 1531 00ad CC000000 		.4byte	.LVL25
- 1532 00b1 0100     		.2byte	0x1
- 1533 00b3 56       		.byte	0x56
- 1534 00b4 00000000 		.4byte	0
- 1535 00b8 00000000 		.4byte	0
- 1536              	.LLST5:
- 1537 00bc 02000000 		.4byte	.LVL1
- 1538 00c0 08000000 		.4byte	.LVL2
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 40
+ 1652      7400
+ 1653              	.LASF43:
+ 1654 000a 43414E5F 		.ascii	"CAN_SendMsgDash_status\000"
+ 1654      53656E64 
+ 1654      4D736744 
+ 1654      6173685F 
+ 1654      73746174 
+ 1655              	.LASF7:
+ 1656 0021 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1656      206C6F6E 
+ 1656      6720756E 
+ 1656      7369676E 
+ 1656      65642069 
+ 1657              	.LASF32:
+ 1658 0038 7478636D 		.ascii	"txcmd\000"
+ 1658      6400
+ 1659              	.LASF48:
+ 1660 003e 74657374 		.ascii	"test\000"
+ 1660      00
+ 1661              	.LASF29:
+ 1662 0043 7278616D 		.ascii	"rxamrd\000"
+ 1662      726400
+ 1663              	.LASF6:
+ 1664 004a 6C6F6E67 		.ascii	"long long int\000"
+ 1664      206C6F6E 
+ 1664      6720696E 
+ 1664      7400
+ 1665              	.LASF0:
+ 1666 0058 7369676E 		.ascii	"signed char\000"
+ 1666      65642063 
+ 1666      68617200 
+ 1667              	.LASF4:
+ 1668 0064 6C6F6E67 		.ascii	"long int\000"
+ 1668      20696E74 
+ 1668      00
+ 1669              	.LASF26:
+ 1670 006d 72786461 		.ascii	"rxdata\000"
+ 1670      746100
+ 1671              	.LASF11:
+ 1672 0074 75696E74 		.ascii	"uint8\000"
+ 1672      3800
+ 1673              	.LASF27:
+ 1674 007a 7278616D 		.ascii	"rxamr\000"
+ 1674      7200
+ 1675              	.LASF14:
+ 1676 0080 646F7562 		.ascii	"double\000"
+ 1676      6C6500
+ 1677              	.LASF36:
+ 1678 0087 73686966 		.ascii	"shift\000"
+ 1678      7400
+ 1679              	.LASF12:
+ 1680 008d 75696E74 		.ascii	"uint32\000"
+ 1680      333200
+ 1681              	.LASF45:
+ 1682 0094 43414E5F 		.ascii	"CAN_TxCancel\000"
+ 1682      54784361 
+ 1682      6E63656C 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 43
 
 
- 1539 00c4 0200     		.2byte	0x2
- 1540 00c6 31       		.byte	0x31
- 1541 00c7 9F       		.byte	0x9f
- 1542 00c8 08000000 		.4byte	.LVL2
- 1543 00cc 20000000 		.4byte	.LVL5
- 1544 00d0 0100     		.2byte	0x1
- 1545 00d2 51       		.byte	0x51
- 1546 00d3 A8000000 		.4byte	.LVL15
- 1547 00d7 AA000000 		.4byte	.LVL16
- 1548 00db 0200     		.2byte	0x2
- 1549 00dd 30       		.byte	0x30
- 1550 00de 9F       		.byte	0x9f
- 1551 00df AA000000 		.4byte	.LVL16
- 1552 00e3 DC000000 		.4byte	.LFE0
- 1553 00e7 0100     		.2byte	0x1
- 1554 00e9 51       		.byte	0x51
- 1555 00ea 00000000 		.4byte	0
- 1556 00ee 00000000 		.4byte	0
- 1557              	.LLST6:
- 1558 00f2 16000000 		.4byte	.LVL3
- 1559 00f6 1E000000 		.4byte	.LVL4
- 1560 00fa 0200     		.2byte	0x2
- 1561 00fc 30       		.byte	0x30
- 1562 00fd 9F       		.byte	0x9f
- 1563 00fe 1E000000 		.4byte	.LVL4
- 1564 0102 4E000000 		.4byte	.LVL7
- 1565 0106 0100     		.2byte	0x1
- 1566 0108 53       		.byte	0x53
- 1567 0109 4E000000 		.4byte	.LVL7
- 1568 010d 50000000 		.4byte	.LVL8
- 1569 0111 0100     		.2byte	0x1
- 1570 0113 5E       		.byte	0x5e
- 1571 0114 50000000 		.4byte	.LVL8
- 1572 0118 54000000 		.4byte	.LVL9
- 1573 011c 0100     		.2byte	0x1
- 1574 011e 53       		.byte	0x53
- 1575 011f 54000000 		.4byte	.LVL9
- 1576 0123 AA000000 		.4byte	.LVL16
- 1577 0127 0100     		.2byte	0x1
- 1578 0129 5E       		.byte	0x5e
- 1579 012a 00000000 		.4byte	0
- 1580 012e 00000000 		.4byte	0
- 1581              	.LLST7:
- 1582 0132 00000000 		.4byte	.LVL26
- 1583 0136 06000000 		.4byte	.LVL27
- 1584 013a 0100     		.2byte	0x1
- 1585 013c 50       		.byte	0x50
- 1586 013d 06000000 		.4byte	.LVL27
- 1587 0141 1C000000 		.4byte	.LFE1
- 1588 0145 0400     		.2byte	0x4
- 1589 0147 F3       		.byte	0xf3
- 1590 0148 01       		.uleb128 0x1
- 1591 0149 50       		.byte	0x50
- 1592 014a 9F       		.byte	0x9f
- 1593 014b 00000000 		.4byte	0
- 1594 014f 00000000 		.4byte	0
- 1595              	.LLST8:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 41
+ 1682      00
+ 1683              	.LASF20:
+ 1684 00a1 62797465 		.ascii	"byte\000"
+ 1684      00
+ 1685              	.LASF8:
+ 1686 00a6 756E7369 		.ascii	"unsigned int\000"
+ 1686      676E6564 
+ 1686      20696E74 
+ 1686      00
+ 1687              	.LASF5:
+ 1688 00b3 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1688      20756E73 
+ 1688      69676E65 
+ 1688      6420696E 
+ 1688      7400
+ 1689              	.LASF42:
+ 1690 00c5 43414E5F 		.ascii	"CAN_SendMsg\000"
+ 1690      53656E64 
+ 1690      4D736700 
+ 1691              	.LASF41:
+ 1692 00d1 62756666 		.ascii	"bufferId\000"
+ 1692      65724964 
+ 1692      00
+ 1693              	.LASF44:
+ 1694 00da 43414E5F 		.ascii	"CAN_SendMsgDash_cmd\000"
+ 1694      53656E64 
+ 1694      4D736744 
+ 1694      6173685F 
+ 1694      636D6400 
+ 1695              	.LASF49:
+ 1696 00ee 64617461 		.ascii	"data\000"
+ 1696      00
+ 1697              	.LASF39:
+ 1698 00f3 72656754 		.ascii	"regTemp\000"
+ 1698      656D7000 
+ 1699              	.LASF3:
+ 1700 00fb 73686F72 		.ascii	"short unsigned int\000"
+ 1700      7420756E 
+ 1700      7369676E 
+ 1700      65642069 
+ 1700      6E7400
+ 1701              	.LASF31:
+ 1702 010e 43414E5F 		.ascii	"CAN_RX_STRUCT\000"
+ 1702      52585F53 
+ 1702      54525543 
+ 1702      5400
+ 1703              	.LASF47:
+ 1704 011c 72784D61 		.ascii	"rxMailbox\000"
+ 1704      696C626F 
+ 1704      7800
+ 1705              	.LASF33:
+ 1706 0126 74786964 		.ascii	"txid\000"
+ 1706      00
+ 1707              	.LASF34:
+ 1708 012b 74786461 		.ascii	"txdata\000"
+ 1708      746100
+ 1709              	.LASF17:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 44
 
 
- 1596 0153 00000000 		.4byte	.LVL28
- 1597 0157 3C000000 		.4byte	.LVL33
- 1598 015b 0200     		.2byte	0x2
- 1599 015d 30       		.byte	0x30
- 1600 015e 9F       		.byte	0x9f
- 1601 015f 3C000000 		.4byte	.LVL33
- 1602 0163 4C000000 		.4byte	.LFE2
- 1603 0167 0100     		.2byte	0x1
- 1604 0169 50       		.byte	0x50
- 1605 016a 00000000 		.4byte	0
- 1606 016e 00000000 		.4byte	0
- 1607              	.LLST9:
- 1608 0172 0E000000 		.4byte	.LVL29
- 1609 0176 26000000 		.4byte	.LVL30
- 1610 017a 0100     		.2byte	0x1
- 1611 017c 53       		.byte	0x53
- 1612 017d 28000000 		.4byte	.LVL31
- 1613 0181 30000000 		.4byte	.LVL32
- 1614 0185 0100     		.2byte	0x1
- 1615 0187 53       		.byte	0x53
- 1616 0188 00000000 		.4byte	0
- 1617 018c 00000000 		.4byte	0
- 1618              	.LLST10:
- 1619 0190 00000000 		.4byte	.LVL34
- 1620 0194 3C000000 		.4byte	.LVL39
- 1621 0198 0200     		.2byte	0x2
- 1622 019a 30       		.byte	0x30
- 1623 019b 9F       		.byte	0x9f
- 1624 019c 3C000000 		.4byte	.LVL39
- 1625 01a0 4C000000 		.4byte	.LFE3
- 1626 01a4 0100     		.2byte	0x1
- 1627 01a6 50       		.byte	0x50
- 1628 01a7 00000000 		.4byte	0
- 1629 01ab 00000000 		.4byte	0
- 1630              	.LLST11:
- 1631 01af 0E000000 		.4byte	.LVL35
- 1632 01b3 26000000 		.4byte	.LVL36
- 1633 01b7 0100     		.2byte	0x1
- 1634 01b9 53       		.byte	0x53
- 1635 01ba 28000000 		.4byte	.LVL37
- 1636 01be 30000000 		.4byte	.LVL38
- 1637 01c2 0100     		.2byte	0x1
- 1638 01c4 53       		.byte	0x53
- 1639 01c5 00000000 		.4byte	0
- 1640 01c9 00000000 		.4byte	0
- 1641              	.LLST12:
- 1642 01cd 00000000 		.4byte	.LVL40
- 1643 01d1 30000000 		.4byte	.LVL42
- 1644 01d5 0100     		.2byte	0x1
- 1645 01d7 50       		.byte	0x50
- 1646 01d8 30000000 		.4byte	.LVL42
- 1647 01dc 68000000 		.4byte	.LFE4
- 1648 01e0 0400     		.2byte	0x4
- 1649 01e2 F3       		.byte	0xf3
- 1650 01e3 01       		.uleb128 0x1
- 1651 01e4 50       		.byte	0x50
- 1652 01e5 9F       		.byte	0x9f
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 42
-
-
- 1653 01e6 00000000 		.4byte	0
- 1654 01ea 00000000 		.4byte	0
- 1655              	.LLST13:
- 1656 01ee 28000000 		.4byte	.LVL41
- 1657 01f2 57000000 		.4byte	.LVL46-1
- 1658 01f6 0100     		.2byte	0x1
- 1659 01f8 5C       		.byte	0x5c
- 1660 01f9 00000000 		.4byte	0
- 1661 01fd 00000000 		.4byte	0
- 1662              	.LLST14:
- 1663 0201 3A000000 		.4byte	.LVL43
- 1664 0205 3E000000 		.4byte	.LVL44
- 1665 0209 0200     		.2byte	0x2
- 1666 020b 30       		.byte	0x30
- 1667 020c 9F       		.byte	0x9f
- 1668 020d 3E000000 		.4byte	.LVL44
- 1669 0211 57000000 		.4byte	.LVL46-1
- 1670 0215 0100     		.2byte	0x1
- 1671 0217 53       		.byte	0x53
- 1672 0218 00000000 		.4byte	0
- 1673 021c 00000000 		.4byte	0
- 1674              		.section	.debug_aranges,"",%progbits
- 1675 0000 3C000000 		.4byte	0x3c
- 1676 0004 0200     		.2byte	0x2
- 1677 0006 00000000 		.4byte	.Ldebug_info0
- 1678 000a 04       		.byte	0x4
- 1679 000b 00       		.byte	0
- 1680 000c 0000     		.2byte	0
- 1681 000e 0000     		.2byte	0
- 1682 0010 00000000 		.4byte	.LFB0
- 1683 0014 DC000000 		.4byte	.LFE0-.LFB0
- 1684 0018 00000000 		.4byte	.LFB1
- 1685 001c 1C000000 		.4byte	.LFE1-.LFB1
- 1686 0020 00000000 		.4byte	.LFB2
- 1687 0024 4C000000 		.4byte	.LFE2-.LFB2
- 1688 0028 00000000 		.4byte	.LFB3
- 1689 002c 4C000000 		.4byte	.LFE3-.LFB3
- 1690 0030 00000000 		.4byte	.LFB4
- 1691 0034 68000000 		.4byte	.LFE4-.LFB4
- 1692 0038 00000000 		.4byte	0
- 1693 003c 00000000 		.4byte	0
- 1694              		.section	.debug_ranges,"",%progbits
- 1695              	.Ldebug_ranges0:
- 1696 0000 00000000 		.4byte	.LFB0
- 1697 0004 DC000000 		.4byte	.LFE0
- 1698 0008 00000000 		.4byte	.LFB1
- 1699 000c 1C000000 		.4byte	.LFE1
- 1700 0010 00000000 		.4byte	.LFB2
- 1701 0014 4C000000 		.4byte	.LFE2
- 1702 0018 00000000 		.4byte	.LFB3
- 1703 001c 4C000000 		.4byte	.LFE3
- 1704 0020 00000000 		.4byte	.LFB4
- 1705 0024 68000000 		.4byte	.LFE4
- 1706 0028 00000000 		.4byte	0
- 1707 002c 00000000 		.4byte	0
- 1708              		.section	.debug_line,"",%progbits
- 1709              	.Ldebug_line0:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 43
-
-
- 1710 0000 81020000 		.section	.debug_str,"MS",%progbits,1
- 1710      02004D01 
- 1710      00000201 
- 1710      FB0E0D00 
- 1710      01010101 
- 1711              	.LASF9:
- 1712 0000 5F5F7569 		.ascii	"__uint8_t\000"
- 1712      6E74385F 
- 1712      7400
- 1713              	.LASF43:
- 1714 000a 43414E5F 		.ascii	"CAN_SendMsgDash_status\000"
- 1714      53656E64 
- 1714      4D736744 
- 1714      6173685F 
- 1714      73746174 
- 1715              	.LASF7:
- 1716 0021 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1716      206C6F6E 
- 1716      6720756E 
- 1716      7369676E 
- 1716      65642069 
- 1717              	.LASF32:
- 1718 0038 7478636D 		.ascii	"txcmd\000"
- 1718      6400
- 1719              	.LASF48:
- 1720 003e 74657374 		.ascii	"test\000"
- 1720      00
- 1721              	.LASF29:
- 1722 0043 7278616D 		.ascii	"rxamrd\000"
- 1722      726400
- 1723              	.LASF6:
- 1724 004a 6C6F6E67 		.ascii	"long long int\000"
- 1724      206C6F6E 
- 1724      6720696E 
+ 1710 0132 72656733 		.ascii	"reg32\000"
+ 1710      3200
+ 1711              	.LASF22:
+ 1712 0138 43414E5F 		.ascii	"CAN_REG_32\000"
+ 1712      5245475F 
+ 1712      333200
+ 1713              	.LASF18:
+ 1714 0143 73697A65 		.ascii	"sizetype\000"
+ 1714      74797065 
+ 1714      00
+ 1715              	.LASF51:
+ 1716 014c 47656E65 		.ascii	"Generated_Source\\PSoC5\\CAN_TX_RX_func.c\000"
+ 1716      72617465 
+ 1716      645F536F 
+ 1716      75726365 
+ 1716      5C50536F 
+ 1717              	.LASF37:
+ 1718 0174 72657472 		.ascii	"retry\000"
+ 1718      7900
+ 1719              	.LASF50:
+ 1720 017a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1720      4320342E 
+ 1720      392E3320 
+ 1720      32303135 
+ 1720      30333033 
+ 1721 01ad 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1721      20726576 
+ 1721      6973696F 
+ 1721      6E203232 
+ 1721      31323230 
+ 1722 01e0 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1722      66756E63 
+ 1722      74696F6E 
+ 1722      2D736563 
+ 1722      74696F6E 
+ 1723              	.LASF13:
+ 1724 0208 666C6F61 		.ascii	"float\000"
  1724      7400
- 1725              	.LASF0:
- 1726 0058 7369676E 		.ascii	"signed char\000"
- 1726      65642063 
- 1726      68617200 
- 1727              	.LASF4:
- 1728 0064 6C6F6E67 		.ascii	"long int\000"
- 1728      20696E74 
- 1728      00
- 1729              	.LASF26:
- 1730 006d 72786461 		.ascii	"rxdata\000"
- 1730      746100
- 1731              	.LASF11:
- 1732 0074 75696E74 		.ascii	"uint8\000"
- 1732      3800
- 1733              	.LASF27:
- 1734 007a 7278616D 		.ascii	"rxamr\000"
- 1734      7200
- 1735              	.LASF14:
- 1736 0080 646F7562 		.ascii	"double\000"
- 1736      6C6500
- 1737              	.LASF36:
- 1738 0087 73686966 		.ascii	"shift\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 44
+ 1725              	.LASF16:
+ 1726 020e 72656738 		.ascii	"reg8\000"
+ 1726      00
+ 1727              	.LASF1:
+ 1728 0213 756E7369 		.ascii	"unsigned char\000"
+ 1728      676E6564 
+ 1728      20636861 
+ 1728      7200
+ 1729              	.LASF2:
+ 1730 0221 73686F72 		.ascii	"short int\000"
+ 1730      7420696E 
+ 1730      7400
+ 1731              	.LASF19:
+ 1732 022b 43414E5F 		.ascii	"CAN_DATA_BYTES_MSG\000"
+ 1732      44415441 
+ 1732      5F425954 
+ 1732      45535F4D 
+ 1732      534700
+ 1733              	.LASF35:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 45
 
 
- 1738      7400
- 1739              	.LASF12:
- 1740 008d 75696E74 		.ascii	"uint32\000"
- 1740      333200
- 1741              	.LASF45:
- 1742 0094 43414E5F 		.ascii	"CAN_TxCancel\000"
- 1742      54784361 
- 1742      6E63656C 
- 1742      00
- 1743              	.LASF20:
- 1744 00a1 62797465 		.ascii	"byte\000"
- 1744      00
- 1745              	.LASF8:
- 1746 00a6 756E7369 		.ascii	"unsigned int\000"
- 1746      676E6564 
- 1746      20696E74 
- 1746      00
- 1747              	.LASF5:
- 1748 00b3 6C6F6E67 		.ascii	"long unsigned int\000"
- 1748      20756E73 
- 1748      69676E65 
- 1748      6420696E 
- 1748      7400
- 1749              	.LASF42:
- 1750 00c5 43414E5F 		.ascii	"CAN_SendMsg\000"
- 1750      53656E64 
- 1750      4D736700 
- 1751              	.LASF41:
- 1752 00d1 62756666 		.ascii	"bufferId\000"
- 1752      65724964 
- 1752      00
- 1753              	.LASF44:
- 1754 00da 43414E5F 		.ascii	"CAN_SendMsgDash_cmd\000"
- 1754      53656E64 
- 1754      4D736744 
- 1754      6173685F 
- 1754      636D6400 
- 1755              	.LASF49:
- 1756 00ee 64617461 		.ascii	"data\000"
- 1756      00
- 1757              	.LASF39:
- 1758 00f3 72656754 		.ascii	"regTemp\000"
- 1758      656D7000 
- 1759              	.LASF3:
- 1760 00fb 73686F72 		.ascii	"short unsigned int\000"
- 1760      7420756E 
- 1760      7369676E 
- 1760      65642069 
- 1760      6E7400
- 1761              	.LASF31:
- 1762 010e 43414E5F 		.ascii	"CAN_RX_STRUCT\000"
- 1762      52585F53 
- 1762      54525543 
- 1762      5400
- 1763              	.LASF47:
- 1764 011c 72784D61 		.ascii	"rxMailbox\000"
- 1764      696C626F 
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 45
+ 1734 023e 43414E5F 		.ascii	"CAN_TX_STRUCT\000"
+ 1734      54585F53 
+ 1734      54525543 
+ 1734      5400
+ 1735              	.LASF15:
+ 1736 024c 63686172 		.ascii	"char\000"
+ 1736      00
+ 1737              	.LASF25:
+ 1738 0251 72786964 		.ascii	"rxid\000"
+ 1738      00
+ 1739              	.LASF21:
+ 1740 0256 43414E5F 		.ascii	"CAN_DATA_BYTES\000"
+ 1740      44415441 
+ 1740      5F425954 
+ 1740      455300
+ 1741              	.LASF24:
+ 1742 0265 7278636D 		.ascii	"rxcmd\000"
+ 1742      6400
+ 1743              	.LASF23:
+ 1744 026b 43414E5F 		.ascii	"CAN_TX_MSG\000"
+ 1744      54585F4D 
+ 1744      534700
+ 1745              	.LASF52:
+ 1746 0276 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 1746      6F776E6C 
+ 1746      6F616473 
+ 1746      5C465255 
+ 1746      43445C4E 
+ 1747 02a4 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 1747      67756172 
+ 1747      2E637964 
+ 1747      736E00
+ 1748              	.LASF10:
+ 1749 02b3 75696E74 		.ascii	"uint8_t\000"
+ 1749      385F7400 
+ 1750              	.LASF28:
+ 1751 02bb 72786163 		.ascii	"rxacr\000"
+ 1751      7200
+ 1752              	.LASF30:
+ 1753 02c1 72786163 		.ascii	"rxacrd\000"
+ 1753      726400
+ 1754              	.LASF40:
+ 1755 02c8 6D657373 		.ascii	"message\000"
+ 1755      61676500 
+ 1756              	.LASF46:
+ 1757 02d0 43414E5F 		.ascii	"CAN_ReceiveMsg\000"
+ 1757      52656365 
+ 1757      6976654D 
+ 1757      736700
+ 1758              	.LASF38:
+ 1759 02df 72657375 		.ascii	"result\000"
+ 1759      6C7400
+ 1760              	.LASF53:
+ 1761 02e6 63616E5F 		.ascii	"can_buffer\000"
+ 1761      62756666 
+ 1761      657200
+ 1762              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ARM GAS  D:\Windows\AppData\Local\Temp\ccxctkJs.s 			page 46
 
 
- 1764      7800
- 1765              	.LASF33:
- 1766 0126 74786964 		.ascii	"txid\000"
- 1766      00
- 1767              	.LASF34:
- 1768 012b 74786461 		.ascii	"txdata\000"
- 1768      746100
- 1769              	.LASF17:
- 1770 0132 72656733 		.ascii	"reg32\000"
- 1770      3200
- 1771              	.LASF22:
- 1772 0138 43414E5F 		.ascii	"CAN_REG_32\000"
- 1772      5245475F 
- 1772      333200
- 1773              	.LASF18:
- 1774 0143 73697A65 		.ascii	"sizetype\000"
- 1774      74797065 
- 1774      00
- 1775              	.LASF51:
- 1776 014c 47656E65 		.ascii	"Generated_Source\\PSoC5\\CAN_TX_RX_func.c\000"
- 1776      72617465 
- 1776      645F536F 
- 1776      75726365 
- 1776      5C50536F 
- 1777              	.LASF37:
- 1778 0174 72657472 		.ascii	"retry\000"
- 1778      7900
- 1779              	.LASF40:
- 1780 017a 6D657373 		.ascii	"message\000"
- 1780      61676500 
- 1781              	.LASF13:
- 1782 0182 666C6F61 		.ascii	"float\000"
- 1782      7400
- 1783              	.LASF16:
- 1784 0188 72656738 		.ascii	"reg8\000"
- 1784      00
- 1785              	.LASF1:
- 1786 018d 756E7369 		.ascii	"unsigned char\000"
- 1786      676E6564 
- 1786      20636861 
- 1786      7200
- 1787              	.LASF2:
- 1788 019b 73686F72 		.ascii	"short int\000"
- 1788      7420696E 
- 1788      7400
- 1789              	.LASF19:
- 1790 01a5 43414E5F 		.ascii	"CAN_DATA_BYTES_MSG\000"
- 1790      44415441 
- 1790      5F425954 
- 1790      45535F4D 
- 1790      534700
- 1791              	.LASF35:
- 1792 01b8 43414E5F 		.ascii	"CAN_TX_STRUCT\000"
- 1792      54585F53 
- 1792      54525543 
- 1792      5400
- 1793              	.LASF15:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 46
-
-
- 1794 01c6 63686172 		.ascii	"char\000"
- 1794      00
- 1795              	.LASF25:
- 1796 01cb 72786964 		.ascii	"rxid\000"
- 1796      00
- 1797              	.LASF21:
- 1798 01d0 43414E5F 		.ascii	"CAN_DATA_BYTES\000"
- 1798      44415441 
- 1798      5F425954 
- 1798      455300
- 1799              	.LASF24:
- 1800 01df 7278636D 		.ascii	"rxcmd\000"
- 1800      6400
- 1801              	.LASF23:
- 1802 01e5 43414E5F 		.ascii	"CAN_TX_MSG\000"
- 1802      54585F4D 
- 1802      534700
- 1803              	.LASF50:
- 1804 01f0 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1804      4320342E 
- 1804      392E3320 
- 1804      32303135 
- 1804      30333033 
- 1805 0223 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1805      20726576 
- 1805      6973696F 
- 1805      6E203232 
- 1805      31323230 
- 1806 0256 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1806      66756E63 
- 1806      74696F6E 
- 1806      2D736563 
- 1806      74696F6E 
- 1807              	.LASF52:
- 1808 027e 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
- 1808      6F776E6C 
- 1808      6F616473 
- 1808      5C465255 
- 1808      43445C4E 
- 1809 02ac 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
- 1809      67756172 
- 1809      2E637964 
- 1809      736E00
- 1810              	.LASF54:
- 1811 02bb 63616E5F 		.ascii	"can_receive\000"
- 1811      72656365 
- 1811      69766500 
- 1812              	.LASF10:
- 1813 02c7 75696E74 		.ascii	"uint8_t\000"
- 1813      385F7400 
- 1814              	.LASF28:
- 1815 02cf 72786163 		.ascii	"rxacr\000"
- 1815      7200
- 1816              	.LASF30:
- 1817 02d5 72786163 		.ascii	"rxacrd\000"
- 1817      726400
- 1818              	.LASF46:
-ARM GAS  D:\Windows\AppData\Local\Temp\ccNaduLE.s 			page 47
-
-
- 1819 02dc 43414E5F 		.ascii	"CAN_ReceiveMsg\000"
- 1819      52656365 
- 1819      6976654D 
- 1819      736700
- 1820              	.LASF38:
- 1821 02eb 72657375 		.ascii	"result\000"
- 1821      6C7400
- 1822              	.LASF53:
- 1823 02f2 63616E5F 		.ascii	"can_buffer\000"
- 1823      62756666 
- 1823      657200
- 1824              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

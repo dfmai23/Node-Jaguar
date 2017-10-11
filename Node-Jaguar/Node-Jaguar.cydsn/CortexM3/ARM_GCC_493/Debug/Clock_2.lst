@@ -1,4 +1,4 @@
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 1
 
 
    1              		.syntax unified
@@ -10,7 +10,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
    7              		.eabi_attribute 24, 1
    8              		.eabi_attribute 25, 1
    9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 30, 6
   11              		.eabi_attribute 34, 1
   12              		.eabi_attribute 18, 4
   13              		.thumb
@@ -58,7 +58,7 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
   29:Generated_Source\PSoC5/Clock_2.c **** 
   30:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
   31:Generated_Source\PSoC5/Clock_2.c **** * Function Name: Clock_2_Start
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 2
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 2
 
 
   32:Generated_Source\PSoC5/Clock_2.c **** ********************************************************************************
@@ -79,38 +79,60 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
   27              		.loc 1 46 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  30              		@ frame_needed = 1, uses_anonymous_args = 0
   31              		@ link register save eliminated.
+  32 0000 80B4     		push	{r7}
+  33              		.cfi_def_cfa_offset 4
+  34              		.cfi_offset 7, -4
+  35 0002 00AF     		add	r7, sp, #0
+  36              		.cfi_def_cfa_register 7
   47:Generated_Source\PSoC5/Clock_2.c ****     /* Set the bit to enable the clock. */
   48:Generated_Source\PSoC5/Clock_2.c ****     Clock_2_CLKEN |= Clock_2_CLKEN_MASK;
-  32              		.loc 1 48 0
-  33 0000 054A     		ldr	r2, .L2
-  34 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  35 0004 43F00103 		orr	r3, r3, #1
-  36 0008 1370     		strb	r3, [r2]
+  37              		.loc 1 48 0
+  38 0004 094A     		ldr	r2, .L2
+  39 0006 094B     		ldr	r3, .L2
+  40 0008 1B78     		ldrb	r3, [r3]
+  41 000a DBB2     		uxtb	r3, r3
+  42 000c 43F00103 		orr	r3, r3, #1
+  43 0010 DBB2     		uxtb	r3, r3
+  44 0012 1370     		strb	r3, [r2]
   49:Generated_Source\PSoC5/Clock_2.c **** 	Clock_2_CLKSTBY |= Clock_2_CLKSTBY_MASK;
-  37              		.loc 1 49 0
-  38 000a 1032     		adds	r2, r2, #16
-  39 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  40 000e 43F00103 		orr	r3, r3, #1
-  41 0012 1370     		strb	r3, [r2]
-  42 0014 7047     		bx	lr
-  43              	.L3:
-  44 0016 00BF     		.align	2
-  45              	.L2:
-  46 0018 A2430040 		.word	1073759138
-  47              		.cfi_endproc
-  48              	.LFE0:
-  49              		.size	Clock_2_Start, .-Clock_2_Start
-  50              		.section	.text.Clock_2_Stop,"ax",%progbits
-  51              		.align	2
-  52              		.global	Clock_2_Stop
-  53              		.thumb
-  54              		.thumb_func
-  55              		.type	Clock_2_Stop, %function
-  56              	Clock_2_Stop:
-  57              	.LFB1:
+  45              		.loc 1 49 0
+  46 0014 064A     		ldr	r2, .L2+4
+  47 0016 064B     		ldr	r3, .L2+4
+  48 0018 1B78     		ldrb	r3, [r3]
+  49 001a DBB2     		uxtb	r3, r3
+  50 001c 43F00103 		orr	r3, r3, #1
+  51 0020 DBB2     		uxtb	r3, r3
+  52 0022 1370     		strb	r3, [r2]
   50:Generated_Source\PSoC5/Clock_2.c **** }
+  53              		.loc 1 50 0
+  54 0024 BD46     		mov	sp, r7
+  55              		.cfi_def_cfa_register 13
+  56              		@ sp needed
+  57 0026 5DF8047B 		ldr	r7, [sp], #4
+  58              		.cfi_restore 7
+  59              		.cfi_def_cfa_offset 0
+  60 002a 7047     		bx	lr
+  61              	.L3:
+  62              		.align	2
+  63              	.L2:
+  64 002c A2430040 		.word	1073759138
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 3
+
+
+  65 0030 B2430040 		.word	1073759154
+  66              		.cfi_endproc
+  67              	.LFE0:
+  68              		.size	Clock_2_Start, .-Clock_2_Start
+  69              		.section	.text.Clock_2_Stop,"ax",%progbits
+  70              		.align	2
+  71              		.global	Clock_2_Stop
+  72              		.thumb
+  73              		.thumb_func
+  74              		.type	Clock_2_Stop, %function
+  75              	Clock_2_Stop:
+  76              	.LFB1:
   51:Generated_Source\PSoC5/Clock_2.c **** 
   52:Generated_Source\PSoC5/Clock_2.c **** 
   53:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
@@ -118,9 +140,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
   55:Generated_Source\PSoC5/Clock_2.c **** ********************************************************************************
   56:Generated_Source\PSoC5/Clock_2.c **** *
   57:Generated_Source\PSoC5/Clock_2.c **** * Summary:
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 3
-
-
   58:Generated_Source\PSoC5/Clock_2.c **** *  Stops the clock and returns immediately. This API does not require the
   59:Generated_Source\PSoC5/Clock_2.c **** *  source clock to be running but may return before the hardware is actually
   60:Generated_Source\PSoC5/Clock_2.c **** *  disabled. If the settings of the clock are changed after calling this
@@ -136,41 +155,63 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
   70:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
   71:Generated_Source\PSoC5/Clock_2.c **** void Clock_2_Stop(void) 
   72:Generated_Source\PSoC5/Clock_2.c **** {
-  58              		.loc 1 72 0
-  59              		.cfi_startproc
-  60              		@ args = 0, pretend = 0, frame = 0
-  61              		@ frame_needed = 0, uses_anonymous_args = 0
-  62              		@ link register save eliminated.
+  77              		.loc 1 72 0
+  78              		.cfi_startproc
+  79              		@ args = 0, pretend = 0, frame = 0
+  80              		@ frame_needed = 1, uses_anonymous_args = 0
+  81              		@ link register save eliminated.
+  82 0000 80B4     		push	{r7}
+  83              		.cfi_def_cfa_offset 4
+  84              		.cfi_offset 7, -4
+  85 0002 00AF     		add	r7, sp, #0
+  86              		.cfi_def_cfa_register 7
   73:Generated_Source\PSoC5/Clock_2.c ****     /* Clear the bit to disable the clock. */
   74:Generated_Source\PSoC5/Clock_2.c ****     Clock_2_CLKEN &= (uint8)(~Clock_2_CLKEN_MASK);
-  63              		.loc 1 74 0
-  64 0000 054A     		ldr	r2, .L5
-  65 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  66 0004 03F0FE03 		and	r3, r3, #254
-  67 0008 1370     		strb	r3, [r2]
+  87              		.loc 1 74 0
+  88 0004 094A     		ldr	r2, .L5
+  89 0006 094B     		ldr	r3, .L5
+  90 0008 1B78     		ldrb	r3, [r3]
+  91 000a DBB2     		uxtb	r3, r3
+  92 000c 23F00103 		bic	r3, r3, #1
+  93 0010 DBB2     		uxtb	r3, r3
+  94 0012 1370     		strb	r3, [r2]
   75:Generated_Source\PSoC5/Clock_2.c **** 	Clock_2_CLKSTBY &= (uint8)(~Clock_2_CLKSTBY_MASK);
-  68              		.loc 1 75 0
-  69 000a 1032     		adds	r2, r2, #16
-  70 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
-  71 000e 03F0FE03 		and	r3, r3, #254
-  72 0012 1370     		strb	r3, [r2]
-  73 0014 7047     		bx	lr
-  74              	.L6:
-  75 0016 00BF     		.align	2
-  76              	.L5:
-  77 0018 A2430040 		.word	1073759138
-  78              		.cfi_endproc
-  79              	.LFE1:
-  80              		.size	Clock_2_Stop, .-Clock_2_Stop
-  81              		.section	.text.Clock_2_StopBlock,"ax",%progbits
-  82              		.align	2
-  83              		.global	Clock_2_StopBlock
-  84              		.thumb
-  85              		.thumb_func
-  86              		.type	Clock_2_StopBlock, %function
-  87              	Clock_2_StopBlock:
-  88              	.LFB2:
+  95              		.loc 1 75 0
+  96 0014 064A     		ldr	r2, .L5+4
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 4
+
+
+  97 0016 064B     		ldr	r3, .L5+4
+  98 0018 1B78     		ldrb	r3, [r3]
+  99 001a DBB2     		uxtb	r3, r3
+ 100 001c 23F00103 		bic	r3, r3, #1
+ 101 0020 DBB2     		uxtb	r3, r3
+ 102 0022 1370     		strb	r3, [r2]
   76:Generated_Source\PSoC5/Clock_2.c **** }
+ 103              		.loc 1 76 0
+ 104 0024 BD46     		mov	sp, r7
+ 105              		.cfi_def_cfa_register 13
+ 106              		@ sp needed
+ 107 0026 5DF8047B 		ldr	r7, [sp], #4
+ 108              		.cfi_restore 7
+ 109              		.cfi_def_cfa_offset 0
+ 110 002a 7047     		bx	lr
+ 111              	.L6:
+ 112              		.align	2
+ 113              	.L5:
+ 114 002c A2430040 		.word	1073759138
+ 115 0030 B2430040 		.word	1073759154
+ 116              		.cfi_endproc
+ 117              	.LFE1:
+ 118              		.size	Clock_2_Stop, .-Clock_2_Stop
+ 119              		.section	.text.Clock_2_StopBlock,"ax",%progbits
+ 120              		.align	2
+ 121              		.global	Clock_2_StopBlock
+ 122              		.thumb
+ 123              		.thumb_func
+ 124              		.type	Clock_2_StopBlock, %function
+ 125              	Clock_2_StopBlock:
+ 126              	.LFB2:
   77:Generated_Source\PSoC5/Clock_2.c **** 
   78:Generated_Source\PSoC5/Clock_2.c **** 
   79:Generated_Source\PSoC5/Clock_2.c **** #if(CY_PSOC3 || CY_PSOC5LP)
@@ -178,9 +219,6 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
   81:Generated_Source\PSoC5/Clock_2.c **** 
   82:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
   83:Generated_Source\PSoC5/Clock_2.c **** * Function Name: Clock_2_StopBlock
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 4
-
-
   84:Generated_Source\PSoC5/Clock_2.c **** ********************************************************************************
   85:Generated_Source\PSoC5/Clock_2.c **** *
   86:Generated_Source\PSoC5/Clock_2.c **** * Summary:
@@ -199,27 +237,39 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
   99:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
  100:Generated_Source\PSoC5/Clock_2.c **** void Clock_2_StopBlock(void) 
  101:Generated_Source\PSoC5/Clock_2.c **** {
-  89              		.loc 1 101 0
-  90              		.cfi_startproc
-  91              		@ args = 0, pretend = 0, frame = 0
-  92              		@ frame_needed = 0, uses_anonymous_args = 0
-  93              		@ link register save eliminated.
+ 127              		.loc 1 101 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 5
+
+
+ 128              		.cfi_startproc
+ 129              		@ args = 0, pretend = 0, frame = 8
+ 130              		@ frame_needed = 1, uses_anonymous_args = 0
+ 131              		@ link register save eliminated.
+ 132 0000 80B4     		push	{r7}
+ 133              		.cfi_def_cfa_offset 4
+ 134              		.cfi_offset 7, -4
+ 135 0002 83B0     		sub	sp, sp, #12
+ 136              		.cfi_def_cfa_offset 16
+ 137 0004 00AF     		add	r7, sp, #0
+ 138              		.cfi_def_cfa_register 7
  102:Generated_Source\PSoC5/Clock_2.c ****     if ((Clock_2_CLKEN & Clock_2_CLKEN_MASK) != 0u)
-  94              		.loc 1 102 0
-  95 0000 164B     		ldr	r3, .L10
-  96 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  97 0004 13F0010F 		tst	r3, #1
-  98 0008 27D0     		beq	.L7
-  99              	.LBB2:
+ 139              		.loc 1 102 0
+ 140 0006 224B     		ldr	r3, .L10
+ 141 0008 1B78     		ldrb	r3, [r3]
+ 142 000a DBB2     		uxtb	r3, r3
+ 143 000c 03F00103 		and	r3, r3, #1
+ 144 0010 002B     		cmp	r3, #0
+ 145 0012 37D0     		beq	.L7
+ 146              	.LBB2:
  103:Generated_Source\PSoC5/Clock_2.c ****     {
  104:Generated_Source\PSoC5/Clock_2.c **** #if HAS_CLKDIST_LD_DISABLE
  105:Generated_Source\PSoC5/Clock_2.c ****         uint16 oldDivider;
  106:Generated_Source\PSoC5/Clock_2.c **** 
  107:Generated_Source\PSoC5/Clock_2.c ****         CLK_DIST_LD = 0u;
- 100              		.loc 1 107 0
- 101 000a 1549     		ldr	r1, .L10+4
- 102 000c 0023     		movs	r3, #0
- 103 000e 0B70     		strb	r3, [r1]
+ 147              		.loc 1 107 0
+ 148 0014 1F4B     		ldr	r3, .L10+4
+ 149 0016 0022     		movs	r2, #0
+ 150 0018 1A70     		strb	r2, [r3]
  108:Generated_Source\PSoC5/Clock_2.c **** 
  109:Generated_Source\PSoC5/Clock_2.c ****         /* Clear all the mask bits except ours. */
  110:Generated_Source\PSoC5/Clock_2.c **** #if defined(Clock_2__CFG3)
@@ -227,105 +277,133 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  112:Generated_Source\PSoC5/Clock_2.c ****         CLK_DIST_DMASK = 0x00u;
  113:Generated_Source\PSoC5/Clock_2.c **** #else
  114:Generated_Source\PSoC5/Clock_2.c ****         CLK_DIST_DMASK = Clock_2_CLKEN_MASK;
- 104              		.loc 1 114 0
- 105 0010 0120     		movs	r0, #1
- 106 0012 144A     		ldr	r2, .L10+8
- 107 0014 1070     		strb	r0, [r2]
+ 151              		.loc 1 114 0
+ 152 001a 1F4B     		ldr	r3, .L10+8
+ 153 001c 0122     		movs	r2, #1
+ 154 001e 1A70     		strb	r2, [r3]
  115:Generated_Source\PSoC5/Clock_2.c ****         CLK_DIST_AMASK = 0x00u;
- 108              		.loc 1 115 0
- 109 0016 0432     		adds	r2, r2, #4
- 110 0018 1370     		strb	r3, [r2]
+ 155              		.loc 1 115 0
+ 156 0020 1E4B     		ldr	r3, .L10+12
+ 157 0022 0022     		movs	r2, #0
+ 158 0024 1A70     		strb	r2, [r3]
  116:Generated_Source\PSoC5/Clock_2.c **** #endif /* Clock_2__CFG3 */
  117:Generated_Source\PSoC5/Clock_2.c **** 
  118:Generated_Source\PSoC5/Clock_2.c ****         /* Clear mask of bus clock. */
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 5
-
-
  119:Generated_Source\PSoC5/Clock_2.c ****         CLK_DIST_BCFG2 &= (uint8)(~BCFG2_MASK);
- 111              		.loc 1 119 0
- 112 001a 0C3A     		subs	r2, r2, #12
- 113 001c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 114 001e 03F07F03 		and	r3, r3, #127
- 115 0022 1370     		strb	r3, [r2]
+ 159              		.loc 1 119 0
+ 160 0026 1E4A     		ldr	r2, .L10+16
+ 161 0028 1D4B     		ldr	r3, .L10+16
+ 162 002a 1B78     		ldrb	r3, [r3]
+ 163 002c DBB2     		uxtb	r3, r3
+ 164 002e 03F07F03 		and	r3, r3, #127
+ 165 0032 DBB2     		uxtb	r3, r3
+ 166 0034 1370     		strb	r3, [r2]
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 6
+
+
  120:Generated_Source\PSoC5/Clock_2.c **** 
  121:Generated_Source\PSoC5/Clock_2.c ****         oldDivider = CY_GET_REG16(Clock_2_DIV_PTR);
- 116              		.loc 1 121 0
- 117 0024 104B     		ldr	r3, .L10+12
- 118 0026 1A88     		ldrh	r2, [r3]
- 119 0028 92B2     		uxth	r2, r2
- 120              	.LVL0:
+ 167              		.loc 1 121 0
+ 168 0036 1B4B     		ldr	r3, .L10+20
+ 169 0038 1B88     		ldrh	r3, [r3]	@ movhi
+ 170 003a FB80     		strh	r3, [r7, #6]	@ movhi
  122:Generated_Source\PSoC5/Clock_2.c ****         CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
- 121              		.loc 1 122 0
- 122 002a 7E3B     		subs	r3, r3, #126
- 123 002c 1A80     		strh	r2, [r3]	@ movhi
+ 171              		.loc 1 122 0
+ 172 003c 1A4A     		ldr	r2, .L10+24
+ 173 003e FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 174 0040 1380     		strh	r3, [r2]	@ movhi
  123:Generated_Source\PSoC5/Clock_2.c ****         CLK_DIST_LD = CYCLK_LD_DISABLE | CYCLK_LD_SYNC_EN | CYCLK_LD_LOAD;
- 124              		.loc 1 123 0
- 125 002e 0723     		movs	r3, #7
- 126 0030 0B70     		strb	r3, [r1]
- 127              	.L9:
+ 175              		.loc 1 123 0
+ 176 0042 144B     		ldr	r3, .L10+4
+ 177 0044 0722     		movs	r2, #7
+ 178 0046 1A70     		strb	r2, [r3]
  124:Generated_Source\PSoC5/Clock_2.c **** 
  125:Generated_Source\PSoC5/Clock_2.c ****         /* Wait for clock to be disabled */
  126:Generated_Source\PSoC5/Clock_2.c ****         while ((CLK_DIST_LD & CYCLK_LD_LOAD) != 0u) { }
- 128              		.loc 1 126 0 discriminator 1
- 129 0032 0B4B     		ldr	r3, .L10+4
- 130 0034 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 131 0036 13F0010F 		tst	r3, #1
- 132 003a FAD1     		bne	.L9
+ 179              		.loc 1 126 0
+ 180 0048 00BF     		nop
+ 181              	.L9:
+ 182              		.loc 1 126 0 is_stmt 0 discriminator 1
+ 183 004a 124B     		ldr	r3, .L10+4
+ 184 004c 1B78     		ldrb	r3, [r3]
+ 185 004e DBB2     		uxtb	r3, r3
+ 186 0050 03F00103 		and	r3, r3, #1
+ 187 0054 002B     		cmp	r3, #0
+ 188 0056 F8D1     		bne	.L9
  127:Generated_Source\PSoC5/Clock_2.c **** #endif /* HAS_CLKDIST_LD_DISABLE */
  128:Generated_Source\PSoC5/Clock_2.c **** 
  129:Generated_Source\PSoC5/Clock_2.c ****         /* Clear the bit to disable the clock. */
  130:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_CLKEN &= (uint8)(~Clock_2_CLKEN_MASK);
- 133              		.loc 1 130 0
- 134 003c 0749     		ldr	r1, .L10
- 135 003e 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 136 0040 03F0FE03 		and	r3, r3, #254
- 137 0044 0B70     		strb	r3, [r1]
+ 189              		.loc 1 130 0 is_stmt 1
+ 190 0058 0D4A     		ldr	r2, .L10
+ 191 005a 0D4B     		ldr	r3, .L10
+ 192 005c 1B78     		ldrb	r3, [r3]
+ 193 005e DBB2     		uxtb	r3, r3
+ 194 0060 23F00103 		bic	r3, r3, #1
+ 195 0064 DBB2     		uxtb	r3, r3
+ 196 0066 1370     		strb	r3, [r2]
  131:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_CLKSTBY &= (uint8)(~Clock_2_CLKSTBY_MASK);
- 138              		.loc 1 131 0
- 139 0046 1031     		adds	r1, r1, #16
- 140 0048 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 141 004a 03F0FE03 		and	r3, r3, #254
- 142 004e 0B70     		strb	r3, [r1]
+ 197              		.loc 1 131 0
+ 198 0068 104A     		ldr	r2, .L10+28
+ 199 006a 104B     		ldr	r3, .L10+28
+ 200 006c 1B78     		ldrb	r3, [r3]
+ 201 006e DBB2     		uxtb	r3, r3
+ 202 0070 23F00103 		bic	r3, r3, #1
+ 203 0074 DBB2     		uxtb	r3, r3
+ 204 0076 1370     		strb	r3, [r2]
  132:Generated_Source\PSoC5/Clock_2.c **** 
  133:Generated_Source\PSoC5/Clock_2.c **** #if HAS_CLKDIST_LD_DISABLE
  134:Generated_Source\PSoC5/Clock_2.c ****         /* Clear the disable bit */
  135:Generated_Source\PSoC5/Clock_2.c ****         CLK_DIST_LD = 0x00u;
- 143              		.loc 1 135 0
- 144 0050 0021     		movs	r1, #0
- 145 0052 034B     		ldr	r3, .L10+4
- 146 0054 1970     		strb	r1, [r3]
+ 205              		.loc 1 135 0
+ 206 0078 064B     		ldr	r3, .L10+4
+ 207 007a 0022     		movs	r2, #0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 7
+
+
+ 208 007c 1A70     		strb	r2, [r3]
  136:Generated_Source\PSoC5/Clock_2.c ****         CY_SET_REG16(Clock_2_DIV_PTR, oldDivider);
- 147              		.loc 1 136 0
- 148 0056 7F33     		adds	r3, r3, #127
- 149 0058 1A80     		strh	r2, [r3]	@ movhi
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 6
-
-
- 150              	.LVL1:
- 151              	.L7:
- 152 005a 7047     		bx	lr
- 153              	.L11:
- 154              		.align	2
- 155              	.L10:
- 156 005c A2430040 		.word	1073759138
- 157 0060 01400040 		.word	1073758209
- 158 0064 10400040 		.word	1073758224
- 159 0068 80400040 		.word	1073758336
- 160              	.LBE2:
- 161              		.cfi_endproc
- 162              	.LFE2:
- 163              		.size	Clock_2_StopBlock, .-Clock_2_StopBlock
- 164              		.section	.text.Clock_2_StandbyPower,"ax",%progbits
- 165              		.align	2
- 166              		.global	Clock_2_StandbyPower
- 167              		.thumb
- 168              		.thumb_func
- 169              		.type	Clock_2_StandbyPower, %function
- 170              	Clock_2_StandbyPower:
- 171              	.LFB3:
+ 209              		.loc 1 136 0
+ 210 007e 094A     		ldr	r2, .L10+20
+ 211 0080 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 212 0082 1380     		strh	r3, [r2]	@ movhi
+ 213              	.L7:
+ 214              	.LBE2:
  137:Generated_Source\PSoC5/Clock_2.c **** #endif /* HAS_CLKDIST_LD_DISABLE */
  138:Generated_Source\PSoC5/Clock_2.c ****     }
  139:Generated_Source\PSoC5/Clock_2.c **** }
+ 215              		.loc 1 139 0
+ 216 0084 0C37     		adds	r7, r7, #12
+ 217              		.cfi_def_cfa_offset 4
+ 218 0086 BD46     		mov	sp, r7
+ 219              		.cfi_def_cfa_register 13
+ 220              		@ sp needed
+ 221 0088 5DF8047B 		ldr	r7, [sp], #4
+ 222              		.cfi_restore 7
+ 223              		.cfi_def_cfa_offset 0
+ 224 008c 7047     		bx	lr
+ 225              	.L11:
+ 226 008e 00BF     		.align	2
+ 227              	.L10:
+ 228 0090 A2430040 		.word	1073759138
+ 229 0094 01400040 		.word	1073758209
+ 230 0098 10400040 		.word	1073758224
+ 231 009c 14400040 		.word	1073758228
+ 232 00a0 08400040 		.word	1073758216
+ 233 00a4 80400040 		.word	1073758336
+ 234 00a8 02400040 		.word	1073758210
+ 235 00ac B2430040 		.word	1073759154
+ 236              		.cfi_endproc
+ 237              	.LFE2:
+ 238              		.size	Clock_2_StopBlock, .-Clock_2_StopBlock
+ 239              		.section	.text.Clock_2_StandbyPower,"ax",%progbits
+ 240              		.align	2
+ 241              		.global	Clock_2_StandbyPower
+ 242              		.thumb
+ 243              		.thumb_func
+ 244              		.type	Clock_2_StandbyPower, %function
+ 245              	Clock_2_StandbyPower:
+ 246              	.LFB3:
  140:Generated_Source\PSoC5/Clock_2.c **** #endif /* (CY_PSOC3 || CY_PSOC5LP) */
  141:Generated_Source\PSoC5/Clock_2.c **** 
  142:Generated_Source\PSoC5/Clock_2.c **** 
@@ -340,59 +418,88 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  151:Generated_Source\PSoC5/Clock_2.c **** *  state:  0 to disable clock during standby, nonzero to enable.
  152:Generated_Source\PSoC5/Clock_2.c **** *
  153:Generated_Source\PSoC5/Clock_2.c **** * Returns:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 8
+
+
  154:Generated_Source\PSoC5/Clock_2.c **** *  None
  155:Generated_Source\PSoC5/Clock_2.c **** *
  156:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
  157:Generated_Source\PSoC5/Clock_2.c **** void Clock_2_StandbyPower(uint8 state) 
  158:Generated_Source\PSoC5/Clock_2.c **** {
- 172              		.loc 1 158 0
- 173              		.cfi_startproc
- 174              		@ args = 0, pretend = 0, frame = 0
- 175              		@ frame_needed = 0, uses_anonymous_args = 0
- 176              		@ link register save eliminated.
- 177              	.LVL2:
+ 247              		.loc 1 158 0
+ 248              		.cfi_startproc
+ 249              		@ args = 0, pretend = 0, frame = 8
+ 250              		@ frame_needed = 1, uses_anonymous_args = 0
+ 251              		@ link register save eliminated.
+ 252 0000 80B4     		push	{r7}
+ 253              		.cfi_def_cfa_offset 4
+ 254              		.cfi_offset 7, -4
+ 255 0002 83B0     		sub	sp, sp, #12
+ 256              		.cfi_def_cfa_offset 16
+ 257 0004 00AF     		add	r7, sp, #0
+ 258              		.cfi_def_cfa_register 7
+ 259 0006 0346     		mov	r3, r0
+ 260 0008 FB71     		strb	r3, [r7, #7]
  159:Generated_Source\PSoC5/Clock_2.c ****     if(state == 0u)
- 178              		.loc 1 159 0
- 179 0000 28B9     		cbnz	r0, .L13
+ 261              		.loc 1 159 0
+ 262 000a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 263 000c 002B     		cmp	r3, #0
+ 264 000e 08D1     		bne	.L13
  160:Generated_Source\PSoC5/Clock_2.c ****     {
  161:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_CLKSTBY &= (uint8)(~Clock_2_CLKSTBY_MASK);
- 180              		.loc 1 161 0
- 181 0002 064A     		ldr	r2, .L15
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 7
-
-
- 182 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 183 0006 03F0FE03 		and	r3, r3, #254
- 184 000a 1370     		strb	r3, [r2]
- 185 000c 7047     		bx	lr
- 186              	.L13:
+ 265              		.loc 1 161 0
+ 266 0010 0A4A     		ldr	r2, .L15
+ 267 0012 0A4B     		ldr	r3, .L15
+ 268 0014 1B78     		ldrb	r3, [r3]
+ 269 0016 DBB2     		uxtb	r3, r3
+ 270 0018 23F00103 		bic	r3, r3, #1
+ 271 001c DBB2     		uxtb	r3, r3
+ 272 001e 1370     		strb	r3, [r2]
+ 273 0020 07E0     		b	.L12
+ 274              	.L13:
  162:Generated_Source\PSoC5/Clock_2.c ****     }
  163:Generated_Source\PSoC5/Clock_2.c ****     else
  164:Generated_Source\PSoC5/Clock_2.c ****     {
  165:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_CLKSTBY |= Clock_2_CLKSTBY_MASK;
- 187              		.loc 1 165 0
- 188 000e 034A     		ldr	r2, .L15
- 189 0010 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 190 0012 43F00103 		orr	r3, r3, #1
- 191 0016 1370     		strb	r3, [r2]
- 192 0018 7047     		bx	lr
- 193              	.L16:
- 194 001a 00BF     		.align	2
- 195              	.L15:
- 196 001c B2430040 		.word	1073759154
- 197              		.cfi_endproc
- 198              	.LFE3:
- 199              		.size	Clock_2_StandbyPower, .-Clock_2_StandbyPower
- 200              		.section	.text.Clock_2_GetDividerRegister,"ax",%progbits
- 201              		.align	2
- 202              		.global	Clock_2_GetDividerRegister
- 203              		.thumb
- 204              		.thumb_func
- 205              		.type	Clock_2_GetDividerRegister, %function
- 206              	Clock_2_GetDividerRegister:
- 207              	.LFB5:
+ 275              		.loc 1 165 0
+ 276 0022 064A     		ldr	r2, .L15
+ 277 0024 054B     		ldr	r3, .L15
+ 278 0026 1B78     		ldrb	r3, [r3]
+ 279 0028 DBB2     		uxtb	r3, r3
+ 280 002a 43F00103 		orr	r3, r3, #1
+ 281 002e DBB2     		uxtb	r3, r3
+ 282 0030 1370     		strb	r3, [r2]
+ 283              	.L12:
  166:Generated_Source\PSoC5/Clock_2.c ****     }
  167:Generated_Source\PSoC5/Clock_2.c **** }
+ 284              		.loc 1 167 0
+ 285 0032 0C37     		adds	r7, r7, #12
+ 286              		.cfi_def_cfa_offset 4
+ 287 0034 BD46     		mov	sp, r7
+ 288              		.cfi_def_cfa_register 13
+ 289              		@ sp needed
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 9
+
+
+ 290 0036 5DF8047B 		ldr	r7, [sp], #4
+ 291              		.cfi_restore 7
+ 292              		.cfi_def_cfa_offset 0
+ 293 003a 7047     		bx	lr
+ 294              	.L16:
+ 295              		.align	2
+ 296              	.L15:
+ 297 003c B2430040 		.word	1073759154
+ 298              		.cfi_endproc
+ 299              	.LFE3:
+ 300              		.size	Clock_2_StandbyPower, .-Clock_2_StandbyPower
+ 301              		.section	.text.Clock_2_SetDividerRegister,"ax",%progbits
+ 302              		.align	2
+ 303              		.global	Clock_2_SetDividerRegister
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.type	Clock_2_SetDividerRegister, %function
+ 307              	Clock_2_SetDividerRegister:
+ 308              	.LFB4:
  168:Generated_Source\PSoC5/Clock_2.c **** 
  169:Generated_Source\PSoC5/Clock_2.c **** 
  170:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
@@ -418,46 +525,145 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  190:Generated_Source\PSoC5/Clock_2.c **** *  None
  191:Generated_Source\PSoC5/Clock_2.c **** *
  192:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 8
-
-
  193:Generated_Source\PSoC5/Clock_2.c **** void Clock_2_SetDividerRegister(uint16 clkDivider, uint8 restart)
  194:Generated_Source\PSoC5/Clock_2.c ****                                 
  195:Generated_Source\PSoC5/Clock_2.c **** {
+ 309              		.loc 1 195 0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 16
+ 312              		@ frame_needed = 1, uses_anonymous_args = 0
+ 313 0000 80B5     		push	{r7, lr}
+ 314              		.cfi_def_cfa_offset 8
+ 315              		.cfi_offset 7, -8
+ 316              		.cfi_offset 14, -4
+ 317 0002 84B0     		sub	sp, sp, #16
+ 318              		.cfi_def_cfa_offset 24
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 10
+
+
+ 319 0004 00AF     		add	r7, sp, #0
+ 320              		.cfi_def_cfa_register 7
+ 321 0006 0346     		mov	r3, r0
+ 322 0008 0A46     		mov	r2, r1
+ 323 000a FB80     		strh	r3, [r7, #6]	@ movhi
+ 324 000c 1346     		mov	r3, r2
+ 325 000e 7B71     		strb	r3, [r7, #5]
  196:Generated_Source\PSoC5/Clock_2.c ****     uint8 enabled;
  197:Generated_Source\PSoC5/Clock_2.c **** 
  198:Generated_Source\PSoC5/Clock_2.c ****     uint8 currSrc = Clock_2_GetSourceRegister();
+ 326              		.loc 1 198 0
+ 327 0010 FFF7FEFF 		bl	Clock_2_GetSourceRegister
+ 328 0014 0346     		mov	r3, r0
+ 329 0016 FB73     		strb	r3, [r7, #15]
  199:Generated_Source\PSoC5/Clock_2.c ****     uint16 oldDivider = Clock_2_GetDividerRegister();
+ 330              		.loc 1 199 0
+ 331 0018 FFF7FEFF 		bl	Clock_2_GetDividerRegister
+ 332 001c 0346     		mov	r3, r0
+ 333 001e BB81     		strh	r3, [r7, #12]	@ movhi
  200:Generated_Source\PSoC5/Clock_2.c **** 
  201:Generated_Source\PSoC5/Clock_2.c ****     if (clkDivider != oldDivider)
+ 334              		.loc 1 201 0
+ 335 0020 FA88     		ldrh	r2, [r7, #6]
+ 336 0022 BB89     		ldrh	r3, [r7, #12]
+ 337 0024 9A42     		cmp	r2, r3
+ 338 0026 00F08780 		beq	.L17
  202:Generated_Source\PSoC5/Clock_2.c ****     {
  203:Generated_Source\PSoC5/Clock_2.c ****         enabled = Clock_2_CLKEN & Clock_2_CLKEN_MASK;
+ 339              		.loc 1 203 0
+ 340 002a 454B     		ldr	r3, .L30
+ 341 002c 1B78     		ldrb	r3, [r3]
+ 342 002e DBB2     		uxtb	r3, r3
+ 343 0030 03F00103 		and	r3, r3, #1
+ 344 0034 FB72     		strb	r3, [r7, #11]
  204:Generated_Source\PSoC5/Clock_2.c **** 
  205:Generated_Source\PSoC5/Clock_2.c ****         if ((currSrc == (uint8)CYCLK_SRC_SEL_CLK_SYNC_D) && ((oldDivider == 0u) || (clkDivider == 0
+ 345              		.loc 1 205 0
+ 346 0036 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
+ 347 0038 002B     		cmp	r3, #0
+ 348 003a 20D1     		bne	.L19
+ 349              		.loc 1 205 0 is_stmt 0 discriminator 1
+ 350 003c BB89     		ldrh	r3, [r7, #12]
+ 351 003e 002B     		cmp	r3, #0
+ 352 0040 02D0     		beq	.L20
+ 353              		.loc 1 205 0 discriminator 2
+ 354 0042 FB88     		ldrh	r3, [r7, #6]
+ 355 0044 002B     		cmp	r3, #0
+ 356 0046 1AD1     		bne	.L19
+ 357              	.L20:
  206:Generated_Source\PSoC5/Clock_2.c ****         {
  207:Generated_Source\PSoC5/Clock_2.c ****             /* Moving to/from SSS requires correct ordering to prevent halting the clock    */
  208:Generated_Source\PSoC5/Clock_2.c ****             if (oldDivider == 0u)
+ 358              		.loc 1 208 0 is_stmt 1
+ 359 0048 BB89     		ldrh	r3, [r7, #12]
+ 360 004a 002B     		cmp	r3, #0
+ 361 004c 0BD1     		bne	.L21
  209:Generated_Source\PSoC5/Clock_2.c ****             {
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 11
+
+
  210:Generated_Source\PSoC5/Clock_2.c ****                 /* Moving away from SSS, set the divider first so when SSS is cleared we    */
  211:Generated_Source\PSoC5/Clock_2.c ****                 /* don't halt the clock.  Using the shadow load isn't required as the       */
  212:Generated_Source\PSoC5/Clock_2.c ****                 /* divider is ignored while SSS is set.                                     */
  213:Generated_Source\PSoC5/Clock_2.c ****                 CY_SET_REG16(Clock_2_DIV_PTR, clkDivider);
+ 362              		.loc 1 213 0
+ 363 004e 3D4A     		ldr	r2, .L30+4
+ 364 0050 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 365 0052 1380     		strh	r3, [r2]	@ movhi
  214:Generated_Source\PSoC5/Clock_2.c ****                 Clock_2_MOD_SRC &= (uint8)(~CYCLK_SSS);
+ 366              		.loc 1 214 0
+ 367 0054 3C4A     		ldr	r2, .L30+8
+ 368 0056 3C4B     		ldr	r3, .L30+8
+ 369 0058 1B78     		ldrb	r3, [r3]
+ 370 005a DBB2     		uxtb	r3, r3
+ 371 005c 23F04003 		bic	r3, r3, #64
+ 372 0060 DBB2     		uxtb	r3, r3
+ 373 0062 1370     		strb	r3, [r2]
+ 208:Generated_Source\PSoC5/Clock_2.c ****             {
+ 374              		.loc 1 208 0
+ 375 0064 68E0     		b	.L17
+ 376              	.L21:
  215:Generated_Source\PSoC5/Clock_2.c ****             }
  216:Generated_Source\PSoC5/Clock_2.c ****             else
  217:Generated_Source\PSoC5/Clock_2.c ****             {
  218:Generated_Source\PSoC5/Clock_2.c ****                 /* Moving to SSS, set SSS which then ignores the divider and we can set     */
  219:Generated_Source\PSoC5/Clock_2.c ****                 /* it without bothering with the shadow load.                               */
  220:Generated_Source\PSoC5/Clock_2.c ****                 Clock_2_MOD_SRC |= CYCLK_SSS;
+ 377              		.loc 1 220 0
+ 378 0066 384A     		ldr	r2, .L30+8
+ 379 0068 374B     		ldr	r3, .L30+8
+ 380 006a 1B78     		ldrb	r3, [r3]
+ 381 006c DBB2     		uxtb	r3, r3
+ 382 006e 43F04003 		orr	r3, r3, #64
+ 383 0072 DBB2     		uxtb	r3, r3
+ 384 0074 1370     		strb	r3, [r2]
  221:Generated_Source\PSoC5/Clock_2.c ****                 CY_SET_REG16(Clock_2_DIV_PTR, clkDivider);
+ 385              		.loc 1 221 0
+ 386 0076 334A     		ldr	r2, .L30+4
+ 387 0078 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 388 007a 1380     		strh	r3, [r2]	@ movhi
+ 208:Generated_Source\PSoC5/Clock_2.c ****             {
+ 389              		.loc 1 208 0
+ 390 007c 5CE0     		b	.L17
+ 391              	.L19:
  222:Generated_Source\PSoC5/Clock_2.c ****             }
  223:Generated_Source\PSoC5/Clock_2.c ****         }
  224:Generated_Source\PSoC5/Clock_2.c ****         else
  225:Generated_Source\PSoC5/Clock_2.c ****         {
  226:Generated_Source\PSoC5/Clock_2.c **** 			
  227:Generated_Source\PSoC5/Clock_2.c ****             if (enabled != 0u)
+ 392              		.loc 1 227 0
+ 393 007e FB7A     		ldrb	r3, [r7, #11]	@ zero_extendqisi2
+ 394 0080 002B     		cmp	r3, #0
+ 395 0082 33D0     		beq	.L23
  228:Generated_Source\PSoC5/Clock_2.c ****             {
  229:Generated_Source\PSoC5/Clock_2.c ****                 CLK_DIST_LD = 0x00u;
+ 396              		.loc 1 229 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 12
+
+
+ 397 0084 314B     		ldr	r3, .L30+12
+ 398 0086 0022     		movs	r2, #0
+ 399 0088 1A70     		strb	r2, [r3]
  230:Generated_Source\PSoC5/Clock_2.c **** 
  231:Generated_Source\PSoC5/Clock_2.c ****                 /* Clear all the mask bits except ours. */
  232:Generated_Source\PSoC5/Clock_2.c **** #if defined(Clock_2__CFG3)
@@ -465,52 +671,197 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  234:Generated_Source\PSoC5/Clock_2.c ****                 CLK_DIST_DMASK = 0x00u;
  235:Generated_Source\PSoC5/Clock_2.c **** #else
  236:Generated_Source\PSoC5/Clock_2.c ****                 CLK_DIST_DMASK = Clock_2_CLKEN_MASK;
+ 400              		.loc 1 236 0
+ 401 008a 314B     		ldr	r3, .L30+16
+ 402 008c 0122     		movs	r2, #1
+ 403 008e 1A70     		strb	r2, [r3]
  237:Generated_Source\PSoC5/Clock_2.c ****                 CLK_DIST_AMASK = 0x00u;
+ 404              		.loc 1 237 0
+ 405 0090 304B     		ldr	r3, .L30+20
+ 406 0092 0022     		movs	r2, #0
+ 407 0094 1A70     		strb	r2, [r3]
  238:Generated_Source\PSoC5/Clock_2.c **** #endif /* Clock_2__CFG3 */
  239:Generated_Source\PSoC5/Clock_2.c ****                 /* Clear mask of bus clock. */
  240:Generated_Source\PSoC5/Clock_2.c ****                 CLK_DIST_BCFG2 &= (uint8)(~BCFG2_MASK);
+ 408              		.loc 1 240 0
+ 409 0096 304A     		ldr	r2, .L30+24
+ 410 0098 2F4B     		ldr	r3, .L30+24
+ 411 009a 1B78     		ldrb	r3, [r3]
+ 412 009c DBB2     		uxtb	r3, r3
+ 413 009e 03F07F03 		and	r3, r3, #127
+ 414 00a2 DBB2     		uxtb	r3, r3
+ 415 00a4 1370     		strb	r3, [r2]
  241:Generated_Source\PSoC5/Clock_2.c **** 
  242:Generated_Source\PSoC5/Clock_2.c ****                 /* If clock is currently enabled, disable it if async or going from N-to-1*/
  243:Generated_Source\PSoC5/Clock_2.c ****                 if (((Clock_2_MOD_SRC & CYCLK_SYNC) == 0u) || (clkDivider == 0u))
+ 416              		.loc 1 243 0
+ 417 00a6 284B     		ldr	r3, .L30+8
+ 418 00a8 1B78     		ldrb	r3, [r3]
+ 419 00aa DBB2     		uxtb	r3, r3
+ 420 00ac 03F00803 		and	r3, r3, #8
+ 421 00b0 002B     		cmp	r3, #0
+ 422 00b2 02D0     		beq	.L24
+ 423              		.loc 1 243 0 is_stmt 0 discriminator 1
+ 424 00b4 FB88     		ldrh	r3, [r7, #6]
+ 425 00b6 002B     		cmp	r3, #0
+ 426 00b8 18D1     		bne	.L23
+ 427              	.L24:
  244:Generated_Source\PSoC5/Clock_2.c ****                 {
  245:Generated_Source\PSoC5/Clock_2.c **** #if HAS_CLKDIST_LD_DISABLE
  246:Generated_Source\PSoC5/Clock_2.c ****                     CY_SET_REG16(CYREG_CLKDIST_WRK0, oldDivider);
+ 428              		.loc 1 246 0 is_stmt 1
+ 429 00ba 284A     		ldr	r2, .L30+28
+ 430 00bc BB89     		ldrh	r3, [r7, #12]	@ movhi
+ 431 00be 1380     		strh	r3, [r2]	@ movhi
  247:Generated_Source\PSoC5/Clock_2.c ****                     CLK_DIST_LD = CYCLK_LD_DISABLE|CYCLK_LD_SYNC_EN|CYCLK_LD_LOAD;
+ 432              		.loc 1 247 0
+ 433 00c0 224B     		ldr	r3, .L30+12
+ 434 00c2 0722     		movs	r2, #7
+ 435 00c4 1A70     		strb	r2, [r3]
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 13
+
+
  248:Generated_Source\PSoC5/Clock_2.c **** 
  249:Generated_Source\PSoC5/Clock_2.c ****                     /* Wait for clock to be disabled */
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 9
-
-
  250:Generated_Source\PSoC5/Clock_2.c ****                     while ((CLK_DIST_LD & CYCLK_LD_LOAD) != 0u) { }
+ 436              		.loc 1 250 0
+ 437 00c6 00BF     		nop
+ 438              	.L25:
+ 439              		.loc 1 250 0 is_stmt 0 discriminator 1
+ 440 00c8 204B     		ldr	r3, .L30+12
+ 441 00ca 1B78     		ldrb	r3, [r3]
+ 442 00cc DBB2     		uxtb	r3, r3
+ 443 00ce 03F00103 		and	r3, r3, #1
+ 444 00d2 002B     		cmp	r3, #0
+ 445 00d4 F8D1     		bne	.L25
  251:Generated_Source\PSoC5/Clock_2.c **** #endif /* HAS_CLKDIST_LD_DISABLE */
  252:Generated_Source\PSoC5/Clock_2.c **** 
  253:Generated_Source\PSoC5/Clock_2.c ****                     Clock_2_CLKEN &= (uint8)(~Clock_2_CLKEN_MASK);
+ 446              		.loc 1 253 0 is_stmt 1
+ 447 00d6 1A4A     		ldr	r2, .L30
+ 448 00d8 194B     		ldr	r3, .L30
+ 449 00da 1B78     		ldrb	r3, [r3]
+ 450 00dc DBB2     		uxtb	r3, r3
+ 451 00de 23F00103 		bic	r3, r3, #1
+ 452 00e2 DBB2     		uxtb	r3, r3
+ 453 00e4 1370     		strb	r3, [r2]
  254:Generated_Source\PSoC5/Clock_2.c **** 
  255:Generated_Source\PSoC5/Clock_2.c **** #if HAS_CLKDIST_LD_DISABLE
  256:Generated_Source\PSoC5/Clock_2.c ****                     /* Clear the disable bit */
  257:Generated_Source\PSoC5/Clock_2.c ****                     CLK_DIST_LD = 0x00u;
+ 454              		.loc 1 257 0
+ 455 00e6 194B     		ldr	r3, .L30+12
+ 456 00e8 0022     		movs	r2, #0
+ 457 00ea 1A70     		strb	r2, [r3]
+ 458              	.L23:
  258:Generated_Source\PSoC5/Clock_2.c **** #endif /* HAS_CLKDIST_LD_DISABLE */
  259:Generated_Source\PSoC5/Clock_2.c ****                 }
  260:Generated_Source\PSoC5/Clock_2.c ****             }
  261:Generated_Source\PSoC5/Clock_2.c **** 
  262:Generated_Source\PSoC5/Clock_2.c ****             /* Load divide value. */
  263:Generated_Source\PSoC5/Clock_2.c ****             if ((Clock_2_CLKEN & Clock_2_CLKEN_MASK) != 0u)
+ 459              		.loc 1 263 0
+ 460 00ec 144B     		ldr	r3, .L30
+ 461 00ee 1B78     		ldrb	r3, [r3]
+ 462 00f0 DBB2     		uxtb	r3, r3
+ 463 00f2 03F00103 		and	r3, r3, #1
+ 464 00f6 002B     		cmp	r3, #0
+ 465 00f8 13D0     		beq	.L26
  264:Generated_Source\PSoC5/Clock_2.c ****             {
  265:Generated_Source\PSoC5/Clock_2.c ****                 /* If the clock is still enabled, use the shadow registers */
  266:Generated_Source\PSoC5/Clock_2.c ****                 CY_SET_REG16(CYREG_CLKDIST_WRK0, clkDivider);
+ 466              		.loc 1 266 0
+ 467 00fa 184A     		ldr	r2, .L30+28
+ 468 00fc FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 469 00fe 1380     		strh	r3, [r2]	@ movhi
  267:Generated_Source\PSoC5/Clock_2.c **** 
  268:Generated_Source\PSoC5/Clock_2.c ****                 CLK_DIST_LD = (CYCLK_LD_LOAD | ((restart != 0u) ? CYCLK_LD_SYNC_EN : 0x00u));
+ 470              		.loc 1 268 0
+ 471 0100 124A     		ldr	r2, .L30+12
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 14
+
+
+ 472 0102 7B79     		ldrb	r3, [r7, #5]	@ zero_extendqisi2
+ 473 0104 002B     		cmp	r3, #0
+ 474 0106 01D0     		beq	.L27
+ 475              		.loc 1 268 0 is_stmt 0 discriminator 1
+ 476 0108 0323     		movs	r3, #3
+ 477 010a 00E0     		b	.L28
+ 478              	.L27:
+ 479              		.loc 1 268 0 discriminator 2
+ 480 010c 0123     		movs	r3, #1
+ 481              	.L28:
+ 482              		.loc 1 268 0 discriminator 4
+ 483 010e 1370     		strb	r3, [r2]
  269:Generated_Source\PSoC5/Clock_2.c ****                 while ((CLK_DIST_LD & CYCLK_LD_LOAD) != 0u) { }
+ 484              		.loc 1 269 0 is_stmt 1 discriminator 4
+ 485 0110 00BF     		nop
+ 486              	.L29:
+ 487              		.loc 1 269 0 is_stmt 0 discriminator 1
+ 488 0112 0E4B     		ldr	r3, .L30+12
+ 489 0114 1B78     		ldrb	r3, [r3]
+ 490 0116 DBB2     		uxtb	r3, r3
+ 491 0118 03F00103 		and	r3, r3, #1
+ 492 011c 002B     		cmp	r3, #0
+ 493 011e F8D1     		bne	.L29
+ 494 0120 0AE0     		b	.L17
+ 495              	.L26:
  270:Generated_Source\PSoC5/Clock_2.c ****             }
  271:Generated_Source\PSoC5/Clock_2.c ****             else
  272:Generated_Source\PSoC5/Clock_2.c ****             {
  273:Generated_Source\PSoC5/Clock_2.c ****                 /* If the clock is disabled, set the divider directly */
  274:Generated_Source\PSoC5/Clock_2.c ****                 CY_SET_REG16(Clock_2_DIV_PTR, clkDivider);
+ 496              		.loc 1 274 0 is_stmt 1
+ 497 0122 084A     		ldr	r2, .L30+4
+ 498 0124 FB88     		ldrh	r3, [r7, #6]	@ movhi
+ 499 0126 1380     		strh	r3, [r2]	@ movhi
  275:Generated_Source\PSoC5/Clock_2.c **** 				Clock_2_CLKEN |= enabled;
+ 500              		.loc 1 275 0
+ 501 0128 0549     		ldr	r1, .L30
+ 502 012a 054B     		ldr	r3, .L30
+ 503 012c 1B78     		ldrb	r3, [r3]
+ 504 012e DAB2     		uxtb	r2, r3
+ 505 0130 FB7A     		ldrb	r3, [r7, #11]
+ 506 0132 1343     		orrs	r3, r3, r2
+ 507 0134 DBB2     		uxtb	r3, r3
+ 508 0136 0B70     		strb	r3, [r1]
+ 509              	.L17:
  276:Generated_Source\PSoC5/Clock_2.c ****             }
  277:Generated_Source\PSoC5/Clock_2.c ****         }
  278:Generated_Source\PSoC5/Clock_2.c ****     }
  279:Generated_Source\PSoC5/Clock_2.c **** }
+ 510              		.loc 1 279 0
+ 511 0138 1037     		adds	r7, r7, #16
+ 512              		.cfi_def_cfa_offset 8
+ 513 013a BD46     		mov	sp, r7
+ 514              		.cfi_def_cfa_register 13
+ 515              		@ sp needed
+ 516 013c 80BD     		pop	{r7, pc}
+ 517              	.L31:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 15
+
+
+ 518 013e 00BF     		.align	2
+ 519              	.L30:
+ 520 0140 A2430040 		.word	1073759138
+ 521 0144 80400040 		.word	1073758336
+ 522 0148 82400040 		.word	1073758338
+ 523 014c 01400040 		.word	1073758209
+ 524 0150 10400040 		.word	1073758224
+ 525 0154 14400040 		.word	1073758228
+ 526 0158 08400040 		.word	1073758216
+ 527 015c 02400040 		.word	1073758210
+ 528              		.cfi_endproc
+ 529              	.LFE4:
+ 530              		.size	Clock_2_SetDividerRegister, .-Clock_2_SetDividerRegister
+ 531              		.section	.text.Clock_2_GetDividerRegister,"ax",%progbits
+ 532              		.align	2
+ 533              		.global	Clock_2_GetDividerRegister
+ 534              		.thumb
+ 535              		.thumb_func
+ 536              		.type	Clock_2_GetDividerRegister, %function
+ 537              	Clock_2_GetDividerRegister:
+ 538              	.LFB5:
  280:Generated_Source\PSoC5/Clock_2.c **** 
  281:Generated_Source\PSoC5/Clock_2.c **** 
  282:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
@@ -530,37 +881,49 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  296:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
  297:Generated_Source\PSoC5/Clock_2.c **** uint16 Clock_2_GetDividerRegister(void) 
  298:Generated_Source\PSoC5/Clock_2.c **** {
- 208              		.loc 1 298 0
- 209              		.cfi_startproc
- 210              		@ args = 0, pretend = 0, frame = 0
- 211              		@ frame_needed = 0, uses_anonymous_args = 0
- 212              		@ link register save eliminated.
+ 539              		.loc 1 298 0
+ 540              		.cfi_startproc
+ 541              		@ args = 0, pretend = 0, frame = 0
+ 542              		@ frame_needed = 1, uses_anonymous_args = 0
+ 543              		@ link register save eliminated.
+ 544 0000 80B4     		push	{r7}
+ 545              		.cfi_def_cfa_offset 4
+ 546              		.cfi_offset 7, -4
+ 547 0002 00AF     		add	r7, sp, #0
+ 548              		.cfi_def_cfa_register 7
  299:Generated_Source\PSoC5/Clock_2.c ****     return CY_GET_REG16(Clock_2_DIV_PTR);
- 213              		.loc 1 299 0
- 214 0000 014B     		ldr	r3, .L18
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 10
-
-
- 215 0002 1888     		ldrh	r0, [r3]
+ 549              		.loc 1 299 0
+ 550 0004 034B     		ldr	r3, .L34
+ 551 0006 1B88     		ldrh	r3, [r3]	@ movhi
+ 552 0008 9BB2     		uxth	r3, r3
  300:Generated_Source\PSoC5/Clock_2.c **** }
- 216              		.loc 1 300 0
- 217 0004 80B2     		uxth	r0, r0
- 218 0006 7047     		bx	lr
- 219              	.L19:
- 220              		.align	2
- 221              	.L18:
- 222 0008 80400040 		.word	1073758336
- 223              		.cfi_endproc
- 224              	.LFE5:
- 225              		.size	Clock_2_GetDividerRegister, .-Clock_2_GetDividerRegister
- 226              		.section	.text.Clock_2_SetModeRegister,"ax",%progbits
- 227              		.align	2
- 228              		.global	Clock_2_SetModeRegister
- 229              		.thumb
- 230              		.thumb_func
- 231              		.type	Clock_2_SetModeRegister, %function
- 232              	Clock_2_SetModeRegister:
- 233              	.LFB6:
+ 553              		.loc 1 300 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 16
+
+
+ 554 000a 1846     		mov	r0, r3
+ 555 000c BD46     		mov	sp, r7
+ 556              		.cfi_def_cfa_register 13
+ 557              		@ sp needed
+ 558 000e 5DF8047B 		ldr	r7, [sp], #4
+ 559              		.cfi_restore 7
+ 560              		.cfi_def_cfa_offset 0
+ 561 0012 7047     		bx	lr
+ 562              	.L35:
+ 563              		.align	2
+ 564              	.L34:
+ 565 0014 80400040 		.word	1073758336
+ 566              		.cfi_endproc
+ 567              	.LFE5:
+ 568              		.size	Clock_2_GetDividerRegister, .-Clock_2_GetDividerRegister
+ 569              		.section	.text.Clock_2_SetModeRegister,"ax",%progbits
+ 570              		.align	2
+ 571              		.global	Clock_2_SetModeRegister
+ 572              		.thumb
+ 573              		.thumb_func
+ 574              		.type	Clock_2_SetModeRegister, %function
+ 575              	Clock_2_SetModeRegister:
+ 576              	.LFB6:
  301:Generated_Source\PSoC5/Clock_2.c **** 
  302:Generated_Source\PSoC5/Clock_2.c **** 
  303:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
@@ -594,44 +957,70 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  331:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
  332:Generated_Source\PSoC5/Clock_2.c **** void Clock_2_SetModeRegister(uint8 modeBitMask) 
  333:Generated_Source\PSoC5/Clock_2.c **** {
- 234              		.loc 1 333 0
- 235              		.cfi_startproc
- 236              		@ args = 0, pretend = 0, frame = 0
- 237              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 11
+ 577              		.loc 1 333 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 17
 
 
- 238              		@ link register save eliminated.
- 239              	.LVL3:
+ 578              		.cfi_startproc
+ 579              		@ args = 0, pretend = 0, frame = 8
+ 580              		@ frame_needed = 1, uses_anonymous_args = 0
+ 581              		@ link register save eliminated.
+ 582 0000 80B4     		push	{r7}
+ 583              		.cfi_def_cfa_offset 4
+ 584              		.cfi_offset 7, -4
+ 585 0002 83B0     		sub	sp, sp, #12
+ 586              		.cfi_def_cfa_offset 16
+ 587 0004 00AF     		add	r7, sp, #0
+ 588              		.cfi_def_cfa_register 7
+ 589 0006 0346     		mov	r3, r0
+ 590 0008 FB71     		strb	r3, [r7, #7]
  334:Generated_Source\PSoC5/Clock_2.c ****     Clock_2_MOD_SRC |= modeBitMask & (uint8)Clock_2_MODE_MASK;
- 240              		.loc 1 334 0
- 241 0000 034B     		ldr	r3, .L21
- 242 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 243 0004 00F0F800 		and	r0, r0, #248
- 244              	.LVL4:
- 245 0008 1043     		orrs	r0, r0, r2
- 246 000a 1870     		strb	r0, [r3]
- 247 000c 7047     		bx	lr
- 248              	.L22:
- 249 000e 00BF     		.align	2
- 250              	.L21:
- 251 0010 82400040 		.word	1073758338
- 252              		.cfi_endproc
- 253              	.LFE6:
- 254              		.size	Clock_2_SetModeRegister, .-Clock_2_SetModeRegister
- 255              		.section	.text.Clock_2_ClearModeRegister,"ax",%progbits
- 256              		.align	2
- 257              		.global	Clock_2_ClearModeRegister
- 258              		.thumb
- 259              		.thumb_func
- 260              		.type	Clock_2_ClearModeRegister, %function
- 261              	Clock_2_ClearModeRegister:
- 262              	.LFB7:
+ 591              		.loc 1 334 0
+ 592 000a 094B     		ldr	r3, .L37
+ 593 000c 084A     		ldr	r2, .L37
+ 594 000e 1278     		ldrb	r2, [r2]
+ 595 0010 D2B2     		uxtb	r2, r2
+ 596 0012 D1B2     		uxtb	r1, r2
+ 597 0014 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 598 0016 22F00702 		bic	r2, r2, #7
+ 599 001a D2B2     		uxtb	r2, r2
+ 600 001c 0A43     		orrs	r2, r2, r1
+ 601 001e D2B2     		uxtb	r2, r2
+ 602 0020 D2B2     		uxtb	r2, r2
+ 603 0022 1A70     		strb	r2, [r3]
  335:Generated_Source\PSoC5/Clock_2.c **** }
+ 604              		.loc 1 335 0
+ 605 0024 0C37     		adds	r7, r7, #12
+ 606              		.cfi_def_cfa_offset 4
+ 607 0026 BD46     		mov	sp, r7
+ 608              		.cfi_def_cfa_register 13
+ 609              		@ sp needed
+ 610 0028 5DF8047B 		ldr	r7, [sp], #4
+ 611              		.cfi_restore 7
+ 612              		.cfi_def_cfa_offset 0
+ 613 002c 7047     		bx	lr
+ 614              	.L38:
+ 615 002e 00BF     		.align	2
+ 616              	.L37:
+ 617 0030 82400040 		.word	1073758338
+ 618              		.cfi_endproc
+ 619              	.LFE6:
+ 620              		.size	Clock_2_SetModeRegister, .-Clock_2_SetModeRegister
+ 621              		.section	.text.Clock_2_ClearModeRegister,"ax",%progbits
+ 622              		.align	2
+ 623              		.global	Clock_2_ClearModeRegister
+ 624              		.thumb
+ 625              		.thumb_func
+ 626              		.type	Clock_2_ClearModeRegister, %function
+ 627              	Clock_2_ClearModeRegister:
+ 628              	.LFB7:
  336:Generated_Source\PSoC5/Clock_2.c **** 
  337:Generated_Source\PSoC5/Clock_2.c **** 
  338:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
  339:Generated_Source\PSoC5/Clock_2.c **** * Function Name: Clock_2_ClearModeRegister
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 18
+
+
  340:Generated_Source\PSoC5/Clock_2.c **** ********************************************************************************
  341:Generated_Source\PSoC5/Clock_2.c **** *
  342:Generated_Source\PSoC5/Clock_2.c **** * Summary:
@@ -658,45 +1047,66 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  363:Generated_Source\PSoC5/Clock_2.c **** * Returns:
  364:Generated_Source\PSoC5/Clock_2.c **** *  None
  365:Generated_Source\PSoC5/Clock_2.c **** *
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 12
-
-
  366:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
  367:Generated_Source\PSoC5/Clock_2.c **** void Clock_2_ClearModeRegister(uint8 modeBitMask) 
  368:Generated_Source\PSoC5/Clock_2.c **** {
- 263              		.loc 1 368 0
- 264              		.cfi_startproc
- 265              		@ args = 0, pretend = 0, frame = 0
- 266              		@ frame_needed = 0, uses_anonymous_args = 0
- 267              		@ link register save eliminated.
- 268              	.LVL5:
+ 629              		.loc 1 368 0
+ 630              		.cfi_startproc
+ 631              		@ args = 0, pretend = 0, frame = 8
+ 632              		@ frame_needed = 1, uses_anonymous_args = 0
+ 633              		@ link register save eliminated.
+ 634 0000 80B4     		push	{r7}
+ 635              		.cfi_def_cfa_offset 4
+ 636              		.cfi_offset 7, -4
+ 637 0002 83B0     		sub	sp, sp, #12
+ 638              		.cfi_def_cfa_offset 16
+ 639 0004 00AF     		add	r7, sp, #0
+ 640              		.cfi_def_cfa_register 7
+ 641 0006 0346     		mov	r3, r0
+ 642 0008 FB71     		strb	r3, [r7, #7]
  369:Generated_Source\PSoC5/Clock_2.c ****     Clock_2_MOD_SRC &= (uint8)(~modeBitMask) | (uint8)(~(uint8)(Clock_2_MODE_MASK));
- 269              		.loc 1 369 0
- 270 0000 044B     		ldr	r3, .L24
- 271 0002 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
- 272 0004 C043     		mvns	r0, r0
- 273              	.LVL6:
- 274 0006 C0B2     		uxtb	r0, r0
- 275 0008 40F00700 		orr	r0, r0, #7
- 276 000c 1040     		ands	r0, r0, r2
- 277 000e 1870     		strb	r0, [r3]
- 278 0010 7047     		bx	lr
- 279              	.L25:
- 280 0012 00BF     		.align	2
- 281              	.L24:
- 282 0014 82400040 		.word	1073758338
- 283              		.cfi_endproc
- 284              	.LFE7:
- 285              		.size	Clock_2_ClearModeRegister, .-Clock_2_ClearModeRegister
- 286              		.section	.text.Clock_2_GetModeRegister,"ax",%progbits
- 287              		.align	2
- 288              		.global	Clock_2_GetModeRegister
- 289              		.thumb
- 290              		.thumb_func
- 291              		.type	Clock_2_GetModeRegister, %function
- 292              	Clock_2_GetModeRegister:
- 293              	.LFB8:
+ 643              		.loc 1 369 0
+ 644 000a 0949     		ldr	r1, .L40
+ 645 000c 084B     		ldr	r3, .L40
+ 646 000e 1B78     		ldrb	r3, [r3]
+ 647 0010 DAB2     		uxtb	r2, r3
+ 648 0012 FB79     		ldrb	r3, [r7, #7]
+ 649 0014 DB43     		mvns	r3, r3
+ 650 0016 DBB2     		uxtb	r3, r3
+ 651 0018 43F00703 		orr	r3, r3, #7
+ 652 001c DBB2     		uxtb	r3, r3
+ 653 001e 1340     		ands	r3, r3, r2
+ 654 0020 DBB2     		uxtb	r3, r3
+ 655 0022 0B70     		strb	r3, [r1]
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 19
+
+
  370:Generated_Source\PSoC5/Clock_2.c **** }
+ 656              		.loc 1 370 0
+ 657 0024 0C37     		adds	r7, r7, #12
+ 658              		.cfi_def_cfa_offset 4
+ 659 0026 BD46     		mov	sp, r7
+ 660              		.cfi_def_cfa_register 13
+ 661              		@ sp needed
+ 662 0028 5DF8047B 		ldr	r7, [sp], #4
+ 663              		.cfi_restore 7
+ 664              		.cfi_def_cfa_offset 0
+ 665 002c 7047     		bx	lr
+ 666              	.L41:
+ 667 002e 00BF     		.align	2
+ 668              	.L40:
+ 669 0030 82400040 		.word	1073758338
+ 670              		.cfi_endproc
+ 671              	.LFE7:
+ 672              		.size	Clock_2_ClearModeRegister, .-Clock_2_ClearModeRegister
+ 673              		.section	.text.Clock_2_GetModeRegister,"ax",%progbits
+ 674              		.align	2
+ 675              		.global	Clock_2_GetModeRegister
+ 676              		.thumb
+ 677              		.thumb_func
+ 678              		.type	Clock_2_GetModeRegister, %function
+ 679              	Clock_2_GetModeRegister:
+ 680              	.LFB8:
  371:Generated_Source\PSoC5/Clock_2.c **** 
  372:Generated_Source\PSoC5/Clock_2.c **** 
  373:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
@@ -716,37 +1126,51 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  387:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
  388:Generated_Source\PSoC5/Clock_2.c **** uint8 Clock_2_GetModeRegister(void) 
  389:Generated_Source\PSoC5/Clock_2.c **** {
- 294              		.loc 1 389 0
- 295              		.cfi_startproc
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 13
-
-
- 296              		@ args = 0, pretend = 0, frame = 0
- 297              		@ frame_needed = 0, uses_anonymous_args = 0
- 298              		@ link register save eliminated.
+ 681              		.loc 1 389 0
+ 682              		.cfi_startproc
+ 683              		@ args = 0, pretend = 0, frame = 0
+ 684              		@ frame_needed = 1, uses_anonymous_args = 0
+ 685              		@ link register save eliminated.
+ 686 0000 80B4     		push	{r7}
+ 687              		.cfi_def_cfa_offset 4
+ 688              		.cfi_offset 7, -4
+ 689 0002 00AF     		add	r7, sp, #0
+ 690              		.cfi_def_cfa_register 7
  390:Generated_Source\PSoC5/Clock_2.c ****     return Clock_2_MOD_SRC & (uint8)(Clock_2_MODE_MASK);
- 299              		.loc 1 390 0
- 300 0000 024B     		ldr	r3, .L27
- 301 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 691              		.loc 1 390 0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 20
+
+
+ 692 0004 054B     		ldr	r3, .L44
+ 693 0006 1B78     		ldrb	r3, [r3]
+ 694 0008 DBB2     		uxtb	r3, r3
+ 695 000a 23F00703 		bic	r3, r3, #7
+ 696 000e DBB2     		uxtb	r3, r3
  391:Generated_Source\PSoC5/Clock_2.c **** }
- 302              		.loc 1 391 0
- 303 0004 00F0F800 		and	r0, r0, #248
- 304 0008 7047     		bx	lr
- 305              	.L28:
- 306 000a 00BF     		.align	2
- 307              	.L27:
- 308 000c 82400040 		.word	1073758338
- 309              		.cfi_endproc
- 310              	.LFE8:
- 311              		.size	Clock_2_GetModeRegister, .-Clock_2_GetModeRegister
- 312              		.section	.text.Clock_2_GetSourceRegister,"ax",%progbits
- 313              		.align	2
- 314              		.global	Clock_2_GetSourceRegister
- 315              		.thumb
- 316              		.thumb_func
- 317              		.type	Clock_2_GetSourceRegister, %function
- 318              	Clock_2_GetSourceRegister:
- 319              	.LFB10:
+ 697              		.loc 1 391 0
+ 698 0010 1846     		mov	r0, r3
+ 699 0012 BD46     		mov	sp, r7
+ 700              		.cfi_def_cfa_register 13
+ 701              		@ sp needed
+ 702 0014 5DF8047B 		ldr	r7, [sp], #4
+ 703              		.cfi_restore 7
+ 704              		.cfi_def_cfa_offset 0
+ 705 0018 7047     		bx	lr
+ 706              	.L45:
+ 707 001a 00BF     		.align	2
+ 708              	.L44:
+ 709 001c 82400040 		.word	1073758338
+ 710              		.cfi_endproc
+ 711              	.LFE8:
+ 712              		.size	Clock_2_GetModeRegister, .-Clock_2_GetModeRegister
+ 713              		.section	.text.Clock_2_SetSourceRegister,"ax",%progbits
+ 714              		.align	2
+ 715              		.global	Clock_2_SetSourceRegister
+ 716              		.thumb
+ 717              		.thumb_func
+ 718              		.type	Clock_2_SetSourceRegister, %function
+ 719              	Clock_2_SetSourceRegister:
+ 720              	.LFB9:
  392:Generated_Source\PSoC5/Clock_2.c **** 
  393:Generated_Source\PSoC5/Clock_2.c **** 
  394:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
@@ -774,43 +1198,189 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  416:Generated_Source\PSoC5/Clock_2.c **** *  None
  417:Generated_Source\PSoC5/Clock_2.c **** *
  418:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 21
+
+
  419:Generated_Source\PSoC5/Clock_2.c **** void Clock_2_SetSourceRegister(uint8 clkSource) 
  420:Generated_Source\PSoC5/Clock_2.c **** {
+ 721              		.loc 1 420 0
+ 722              		.cfi_startproc
+ 723              		@ args = 0, pretend = 0, frame = 16
+ 724              		@ frame_needed = 1, uses_anonymous_args = 0
+ 725 0000 80B5     		push	{r7, lr}
+ 726              		.cfi_def_cfa_offset 8
+ 727              		.cfi_offset 7, -8
+ 728              		.cfi_offset 14, -4
+ 729 0002 84B0     		sub	sp, sp, #16
+ 730              		.cfi_def_cfa_offset 24
+ 731 0004 00AF     		add	r7, sp, #0
+ 732              		.cfi_def_cfa_register 7
+ 733 0006 0346     		mov	r3, r0
+ 734 0008 FB71     		strb	r3, [r7, #7]
  421:Generated_Source\PSoC5/Clock_2.c ****     uint16 currDiv = Clock_2_GetDividerRegister();
+ 735              		.loc 1 421 0
+ 736 000a FFF7FEFF 		bl	Clock_2_GetDividerRegister
+ 737 000e 0346     		mov	r3, r0
+ 738 0010 FB81     		strh	r3, [r7, #14]	@ movhi
  422:Generated_Source\PSoC5/Clock_2.c ****     uint8 oldSrc = Clock_2_GetSourceRegister();
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 14
-
-
+ 739              		.loc 1 422 0
+ 740 0012 FFF7FEFF 		bl	Clock_2_GetSourceRegister
+ 741 0016 0346     		mov	r3, r0
+ 742 0018 7B73     		strb	r3, [r7, #13]
  423:Generated_Source\PSoC5/Clock_2.c **** 
  424:Generated_Source\PSoC5/Clock_2.c ****     if (((oldSrc != ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D)) && 
+ 743              		.loc 1 424 0
+ 744 001a 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 745 001c 002B     		cmp	r3, #0
+ 746 001e 1BD0     		beq	.L47
+ 747              		.loc 1 424 0 is_stmt 0 discriminator 1
+ 748 0020 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 749 0022 002B     		cmp	r3, #0
+ 750 0024 18D1     		bne	.L47
  425:Generated_Source\PSoC5/Clock_2.c ****         (clkSource == ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
+ 751              		.loc 1 425 0 is_stmt 1
+ 752 0026 FB89     		ldrh	r3, [r7, #14]
+ 753 0028 002B     		cmp	r3, #0
+ 754 002a 15D1     		bne	.L47
  426:Generated_Source\PSoC5/Clock_2.c ****     {
  427:Generated_Source\PSoC5/Clock_2.c ****         /* Switching to Master and divider is 1, set SSS, which will output master, */
  428:Generated_Source\PSoC5/Clock_2.c ****         /* then set the source so we are consistent.                                */
  429:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_MOD_SRC |= CYCLK_SSS;
+ 755              		.loc 1 429 0
+ 756 002c 224A     		ldr	r2, .L50
+ 757 002e 224B     		ldr	r3, .L50
+ 758 0030 1B78     		ldrb	r3, [r3]
+ 759 0032 DBB2     		uxtb	r3, r3
+ 760 0034 43F04003 		orr	r3, r3, #64
+ 761 0038 DBB2     		uxtb	r3, r3
+ 762 003a 1370     		strb	r3, [r2]
  430:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_MOD_SRC =
+ 763              		.loc 1 430 0
+ 764 003c 1E4B     		ldr	r3, .L50
  431:Generated_Source\PSoC5/Clock_2.c ****             (Clock_2_MOD_SRC & (uint8)(~Clock_2_SRC_SEL_MSK)) | clkSource;
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 22
+
+
+ 765              		.loc 1 431 0
+ 766 003e 1E4A     		ldr	r2, .L50
+ 767 0040 1278     		ldrb	r2, [r2]
+ 768 0042 D2B2     		uxtb	r2, r2
+ 430:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_MOD_SRC =
+ 769              		.loc 1 430 0
+ 770 0044 D2B2     		uxtb	r2, r2
+ 771 0046 22F00702 		bic	r2, r2, #7
+ 772 004a D1B2     		uxtb	r1, r2
+ 773 004c FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 774 004e 0A43     		orrs	r2, r2, r1
+ 775 0050 D2B2     		uxtb	r2, r2
+ 776 0052 D2B2     		uxtb	r2, r2
+ 777 0054 1A70     		strb	r2, [r3]
+ 778 0056 2BE0     		b	.L46
+ 779              	.L47:
  432:Generated_Source\PSoC5/Clock_2.c ****     }
  433:Generated_Source\PSoC5/Clock_2.c ****     else if (((oldSrc == ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D)) && 
+ 780              		.loc 1 433 0
+ 781 0058 7B7B     		ldrb	r3, [r7, #13]	@ zero_extendqisi2
+ 782 005a 002B     		cmp	r3, #0
+ 783 005c 1BD1     		bne	.L49
+ 784              		.loc 1 433 0 is_stmt 0 discriminator 1
+ 785 005e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 786 0060 002B     		cmp	r3, #0
+ 787 0062 18D0     		beq	.L49
  434:Generated_Source\PSoC5/Clock_2.c ****             (clkSource != ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
+ 788              		.loc 1 434 0 is_stmt 1
+ 789 0064 FB89     		ldrh	r3, [r7, #14]
+ 790 0066 002B     		cmp	r3, #0
+ 791 0068 15D1     		bne	.L49
  435:Generated_Source\PSoC5/Clock_2.c ****     {
  436:Generated_Source\PSoC5/Clock_2.c ****         /* Switching from Master to not and divider is 1, set source, so we don't   */
  437:Generated_Source\PSoC5/Clock_2.c ****         /* lock when we clear SSS.                                                  */
  438:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_MOD_SRC =
+ 792              		.loc 1 438 0
+ 793 006a 134B     		ldr	r3, .L50
  439:Generated_Source\PSoC5/Clock_2.c ****             (Clock_2_MOD_SRC & (uint8)(~Clock_2_SRC_SEL_MSK)) | clkSource;
+ 794              		.loc 1 439 0
+ 795 006c 124A     		ldr	r2, .L50
+ 796 006e 1278     		ldrb	r2, [r2]
+ 797 0070 D2B2     		uxtb	r2, r2
+ 438:Generated_Source\PSoC5/Clock_2.c ****             (Clock_2_MOD_SRC & (uint8)(~Clock_2_SRC_SEL_MSK)) | clkSource;
+ 798              		.loc 1 438 0
+ 799 0072 D2B2     		uxtb	r2, r2
+ 800 0074 22F00702 		bic	r2, r2, #7
+ 801 0078 D1B2     		uxtb	r1, r2
+ 802 007a FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 803 007c 0A43     		orrs	r2, r2, r1
+ 804 007e D2B2     		uxtb	r2, r2
+ 805 0080 D2B2     		uxtb	r2, r2
+ 806 0082 1A70     		strb	r2, [r3]
  440:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_MOD_SRC &= (uint8)(~CYCLK_SSS);
+ 807              		.loc 1 440 0
+ 808 0084 0C4A     		ldr	r2, .L50
+ 809 0086 0C4B     		ldr	r3, .L50
+ 810 0088 1B78     		ldrb	r3, [r3]
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 23
+
+
+ 811 008a DBB2     		uxtb	r3, r3
+ 812 008c 23F04003 		bic	r3, r3, #64
+ 813 0090 DBB2     		uxtb	r3, r3
+ 814 0092 1370     		strb	r3, [r2]
+ 815 0094 0CE0     		b	.L46
+ 816              	.L49:
  441:Generated_Source\PSoC5/Clock_2.c ****     }
  442:Generated_Source\PSoC5/Clock_2.c ****     else
  443:Generated_Source\PSoC5/Clock_2.c ****     {
  444:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_MOD_SRC =
+ 817              		.loc 1 444 0
+ 818 0096 084B     		ldr	r3, .L50
  445:Generated_Source\PSoC5/Clock_2.c ****             (Clock_2_MOD_SRC & (uint8)(~Clock_2_SRC_SEL_MSK)) | clkSource;
+ 819              		.loc 1 445 0
+ 820 0098 074A     		ldr	r2, .L50
+ 821 009a 1278     		ldrb	r2, [r2]
+ 822 009c D2B2     		uxtb	r2, r2
+ 444:Generated_Source\PSoC5/Clock_2.c ****             (Clock_2_MOD_SRC & (uint8)(~Clock_2_SRC_SEL_MSK)) | clkSource;
+ 823              		.loc 1 444 0
+ 824 009e D2B2     		uxtb	r2, r2
+ 825 00a0 22F00702 		bic	r2, r2, #7
+ 826 00a4 D1B2     		uxtb	r1, r2
+ 827 00a6 FA79     		ldrb	r2, [r7, #7]	@ zero_extendqisi2
+ 828 00a8 0A43     		orrs	r2, r2, r1
+ 829 00aa D2B2     		uxtb	r2, r2
+ 830 00ac D2B2     		uxtb	r2, r2
+ 831 00ae 1A70     		strb	r2, [r3]
+ 832              	.L46:
  446:Generated_Source\PSoC5/Clock_2.c ****     }
  447:Generated_Source\PSoC5/Clock_2.c **** }
+ 833              		.loc 1 447 0
+ 834 00b0 1037     		adds	r7, r7, #16
+ 835              		.cfi_def_cfa_offset 8
+ 836 00b2 BD46     		mov	sp, r7
+ 837              		.cfi_def_cfa_register 13
+ 838              		@ sp needed
+ 839 00b4 80BD     		pop	{r7, pc}
+ 840              	.L51:
+ 841 00b6 00BF     		.align	2
+ 842              	.L50:
+ 843 00b8 82400040 		.word	1073758338
+ 844              		.cfi_endproc
+ 845              	.LFE9:
+ 846              		.size	Clock_2_SetSourceRegister, .-Clock_2_SetSourceRegister
+ 847              		.section	.text.Clock_2_GetSourceRegister,"ax",%progbits
+ 848              		.align	2
+ 849              		.global	Clock_2_GetSourceRegister
+ 850              		.thumb
+ 851              		.thumb_func
+ 852              		.type	Clock_2_GetSourceRegister, %function
+ 853              	Clock_2_GetSourceRegister:
+ 854              	.LFB10:
  448:Generated_Source\PSoC5/Clock_2.c **** 
  449:Generated_Source\PSoC5/Clock_2.c **** 
  450:Generated_Source\PSoC5/Clock_2.c **** /*******************************************************************************
  451:Generated_Source\PSoC5/Clock_2.c **** * Function Name: Clock_2_GetSourceRegister
  452:Generated_Source\PSoC5/Clock_2.c **** ********************************************************************************
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 24
+
+
  453:Generated_Source\PSoC5/Clock_2.c **** *
  454:Generated_Source\PSoC5/Clock_2.c **** * Summary:
  455:Generated_Source\PSoC5/Clock_2.c **** *  Gets the input source of the clock.
@@ -824,1380 +1394,922 @@ ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 1
  463:Generated_Source\PSoC5/Clock_2.c **** *******************************************************************************/
  464:Generated_Source\PSoC5/Clock_2.c **** uint8 Clock_2_GetSourceRegister(void) 
  465:Generated_Source\PSoC5/Clock_2.c **** {
- 320              		.loc 1 465 0
- 321              		.cfi_startproc
- 322              		@ args = 0, pretend = 0, frame = 0
- 323              		@ frame_needed = 0, uses_anonymous_args = 0
- 324              		@ link register save eliminated.
+ 855              		.loc 1 465 0
+ 856              		.cfi_startproc
+ 857              		@ args = 0, pretend = 0, frame = 0
+ 858              		@ frame_needed = 1, uses_anonymous_args = 0
+ 859              		@ link register save eliminated.
+ 860 0000 80B4     		push	{r7}
+ 861              		.cfi_def_cfa_offset 4
+ 862              		.cfi_offset 7, -4
+ 863 0002 00AF     		add	r7, sp, #0
+ 864              		.cfi_def_cfa_register 7
  466:Generated_Source\PSoC5/Clock_2.c ****     return Clock_2_MOD_SRC & Clock_2_SRC_SEL_MSK;
- 325              		.loc 1 466 0
- 326 0000 024B     		ldr	r3, .L30
- 327 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 865              		.loc 1 466 0
+ 866 0004 054B     		ldr	r3, .L54
+ 867 0006 1B78     		ldrb	r3, [r3]
+ 868 0008 DBB2     		uxtb	r3, r3
+ 869 000a 03F00703 		and	r3, r3, #7
+ 870 000e DBB2     		uxtb	r3, r3
  467:Generated_Source\PSoC5/Clock_2.c **** }
- 328              		.loc 1 467 0
- 329 0004 00F00700 		and	r0, r0, #7
- 330 0008 7047     		bx	lr
- 331              	.L31:
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 15
+ 871              		.loc 1 467 0
+ 872 0010 1846     		mov	r0, r3
+ 873 0012 BD46     		mov	sp, r7
+ 874              		.cfi_def_cfa_register 13
+ 875              		@ sp needed
+ 876 0014 5DF8047B 		ldr	r7, [sp], #4
+ 877              		.cfi_restore 7
+ 878              		.cfi_def_cfa_offset 0
+ 879 0018 7047     		bx	lr
+ 880              	.L55:
+ 881 001a 00BF     		.align	2
+ 882              	.L54:
+ 883 001c 82400040 		.word	1073758338
+ 884              		.cfi_endproc
+ 885              	.LFE10:
+ 886              		.size	Clock_2_GetSourceRegister, .-Clock_2_GetSourceRegister
+ 887              		.text
+ 888              	.Letext0:
+ 889              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
+ 890              		.section	.debug_info,"",%progbits
+ 891              	.Ldebug_info0:
+ 892 0000 59020000 		.4byte	0x259
+ 893 0004 0400     		.2byte	0x4
+ 894 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 895 000a 04       		.byte	0x4
+ 896 000b 01       		.uleb128 0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 25
 
 
- 332 000a 00BF     		.align	2
- 333              	.L30:
- 334 000c 82400040 		.word	1073758338
- 335              		.cfi_endproc
- 336              	.LFE10:
- 337              		.size	Clock_2_GetSourceRegister, .-Clock_2_GetSourceRegister
- 338              		.section	.text.Clock_2_SetDividerRegister,"ax",%progbits
- 339              		.align	2
- 340              		.global	Clock_2_SetDividerRegister
- 341              		.thumb
- 342              		.thumb_func
- 343              		.type	Clock_2_SetDividerRegister, %function
- 344              	Clock_2_SetDividerRegister:
- 345              	.LFB4:
- 195:Generated_Source\PSoC5/Clock_2.c ****     uint8 enabled;
- 346              		.loc 1 195 0
- 347              		.cfi_startproc
- 348              		@ args = 0, pretend = 0, frame = 0
- 349              		@ frame_needed = 0, uses_anonymous_args = 0
- 350              	.LVL7:
- 351 0000 70B5     		push	{r4, r5, r6, lr}
- 352              		.cfi_def_cfa_offset 16
- 353              		.cfi_offset 4, -16
- 354              		.cfi_offset 5, -12
- 355              		.cfi_offset 6, -8
- 356              		.cfi_offset 14, -4
- 357 0002 0546     		mov	r5, r0
- 358 0004 0E46     		mov	r6, r1
- 198:Generated_Source\PSoC5/Clock_2.c ****     uint16 oldDivider = Clock_2_GetDividerRegister();
- 359              		.loc 1 198 0
- 360 0006 FFF7FEFF 		bl	Clock_2_GetSourceRegister
- 361              	.LVL8:
- 362 000a 0446     		mov	r4, r0
- 363              	.LVL9:
- 199:Generated_Source\PSoC5/Clock_2.c **** 
- 364              		.loc 1 199 0
- 365 000c FFF7FEFF 		bl	Clock_2_GetDividerRegister
- 366              	.LVL10:
- 201:Generated_Source\PSoC5/Clock_2.c ****     {
- 367              		.loc 1 201 0
- 368 0010 8542     		cmp	r5, r0
- 369 0012 56D0     		beq	.L32
- 203:Generated_Source\PSoC5/Clock_2.c **** 
- 370              		.loc 1 203 0
- 371 0014 2B4B     		ldr	r3, .L45
- 372 0016 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 373 0018 03F00102 		and	r2, r3, #1
- 374              	.LVL11:
- 205:Generated_Source\PSoC5/Clock_2.c ****         {
- 375              		.loc 1 205 0
- 376 001c 94B9     		cbnz	r4, .L34
- 205:Generated_Source\PSoC5/Clock_2.c ****         {
- 377              		.loc 1 205 0 is_stmt 0 discriminator 1
- 378 001e 00B1     		cbz	r0, .L35
- 205:Generated_Source\PSoC5/Clock_2.c ****         {
- 379              		.loc 1 205 0 discriminator 2
- 380 0020 85B9     		cbnz	r5, .L34
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 16
+ 897 000c ED000000 		.4byte	.LASF37
+ 898 0010 01       		.byte	0x1
+ 899 0011 58000000 		.4byte	.LASF38
+ 900 0015 C2010000 		.4byte	.LASF39
+ 901 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 902 001d 00000000 		.4byte	0
+ 903 0021 00000000 		.4byte	.Ldebug_line0
+ 904 0025 02       		.uleb128 0x2
+ 905 0026 01       		.byte	0x1
+ 906 0027 06       		.byte	0x6
+ 907 0028 B6010000 		.4byte	.LASF0
+ 908 002c 02       		.uleb128 0x2
+ 909 002d 01       		.byte	0x1
+ 910 002e 08       		.byte	0x8
+ 911 002f 81010000 		.4byte	.LASF1
+ 912 0033 02       		.uleb128 0x2
+ 913 0034 02       		.byte	0x2
+ 914 0035 05       		.byte	0x5
+ 915 0036 33000000 		.4byte	.LASF2
+ 916 003a 02       		.uleb128 0x2
+ 917 003b 02       		.byte	0x2
+ 918 003c 07       		.byte	0x7
+ 919 003d 4B020000 		.4byte	.LASF3
+ 920 0041 02       		.uleb128 0x2
+ 921 0042 04       		.byte	0x4
+ 922 0043 05       		.byte	0x5
+ 923 0044 78020000 		.4byte	.LASF4
+ 924 0048 02       		.uleb128 0x2
+ 925 0049 04       		.byte	0x4
+ 926 004a 07       		.byte	0x7
+ 927 004b BB020000 		.4byte	.LASF5
+ 928 004f 02       		.uleb128 0x2
+ 929 0050 08       		.byte	0x8
+ 930 0051 05       		.byte	0x5
+ 931 0052 DF000000 		.4byte	.LASF6
+ 932 0056 02       		.uleb128 0x2
+ 933 0057 08       		.byte	0x8
+ 934 0058 07       		.byte	0x7
+ 935 0059 FF010000 		.4byte	.LASF7
+ 936 005d 03       		.uleb128 0x3
+ 937 005e 04       		.byte	0x4
+ 938 005f 05       		.byte	0x5
+ 939 0060 696E7400 		.ascii	"int\000"
+ 940 0064 02       		.uleb128 0x2
+ 941 0065 04       		.byte	0x4
+ 942 0066 07       		.byte	0x7
+ 943 0067 16020000 		.4byte	.LASF8
+ 944 006b 04       		.uleb128 0x4
+ 945 006c 8F000000 		.4byte	.LASF9
+ 946 0070 02       		.byte	0x2
+ 947 0071 3801     		.2byte	0x138
+ 948 0073 2C000000 		.4byte	0x2c
+ 949 0077 04       		.uleb128 0x4
+ 950 0078 79000000 		.4byte	.LASF10
+ 951 007c 02       		.byte	0x2
+ 952 007d 3901     		.2byte	0x139
+ 953 007f 3A000000 		.4byte	0x3a
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 26
 
 
- 381              	.L35:
- 208:Generated_Source\PSoC5/Clock_2.c ****             {
- 382              		.loc 1 208 0 is_stmt 1
- 383 0022 38B9     		cbnz	r0, .L36
- 213:Generated_Source\PSoC5/Clock_2.c ****                 Clock_2_MOD_SRC &= (uint8)(~CYCLK_SSS);
- 384              		.loc 1 213 0
- 385 0024 284B     		ldr	r3, .L45+4
- 386 0026 1D80     		strh	r5, [r3]	@ movhi
- 214:Generated_Source\PSoC5/Clock_2.c ****             }
- 387              		.loc 1 214 0
- 388 0028 284A     		ldr	r2, .L45+8
- 389              	.LVL12:
- 390 002a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 391 002c 03F0BF03 		and	r3, r3, #191
- 392 0030 1370     		strb	r3, [r2]
- 393 0032 70BD     		pop	{r4, r5, r6, pc}
- 394              	.LVL13:
- 395              	.L36:
- 220:Generated_Source\PSoC5/Clock_2.c ****                 CY_SET_REG16(Clock_2_DIV_PTR, clkDivider);
- 396              		.loc 1 220 0
- 397 0034 254A     		ldr	r2, .L45+8
- 398              	.LVL14:
- 399 0036 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 400              	.LVL15:
- 401 0038 43F04003 		orr	r3, r3, #64
- 402 003c 1370     		strb	r3, [r2]
- 221:Generated_Source\PSoC5/Clock_2.c ****             }
- 403              		.loc 1 221 0
- 404 003e 224B     		ldr	r3, .L45+4
- 405 0040 1D80     		strh	r5, [r3]	@ movhi
- 406 0042 70BD     		pop	{r4, r5, r6, pc}
- 407              	.LVL16:
- 408              	.L34:
- 227:Generated_Source\PSoC5/Clock_2.c ****             {
- 409              		.loc 1 227 0
- 410 0044 22B3     		cbz	r2, .L37
- 229:Generated_Source\PSoC5/Clock_2.c **** 
- 411              		.loc 1 229 0
- 412 0046 0023     		movs	r3, #0
- 413 0048 2149     		ldr	r1, .L45+12
- 414 004a 0B70     		strb	r3, [r1]
- 236:Generated_Source\PSoC5/Clock_2.c ****                 CLK_DIST_AMASK = 0x00u;
- 415              		.loc 1 236 0
- 416 004c 0124     		movs	r4, #1
- 417              	.LVL17:
- 418 004e 0F31     		adds	r1, r1, #15
- 419 0050 0C70     		strb	r4, [r1]
- 237:Generated_Source\PSoC5/Clock_2.c **** #endif /* Clock_2__CFG3 */
- 420              		.loc 1 237 0
- 421 0052 0431     		adds	r1, r1, #4
- 422 0054 0B70     		strb	r3, [r1]
- 240:Generated_Source\PSoC5/Clock_2.c **** 
- 423              		.loc 1 240 0
- 424 0056 0C39     		subs	r1, r1, #12
- 425 0058 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 426 005a 03F07F03 		and	r3, r3, #127
- 427 005e 0B70     		strb	r3, [r1]
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 17
+ 954 0083 02       		.uleb128 0x2
+ 955 0084 04       		.byte	0x4
+ 956 0085 04       		.byte	0x4
+ 957 0086 D9000000 		.4byte	.LASF11
+ 958 008a 02       		.uleb128 0x2
+ 959 008b 08       		.byte	0x8
+ 960 008c 04       		.byte	0x4
+ 961 008d DA020000 		.4byte	.LASF12
+ 962 0091 02       		.uleb128 0x2
+ 963 0092 01       		.byte	0x1
+ 964 0093 08       		.byte	0x8
+ 965 0094 73020000 		.4byte	.LASF13
+ 966 0098 04       		.uleb128 0x4
+ 967 0099 B6020000 		.4byte	.LASF14
+ 968 009d 02       		.byte	0x2
+ 969 009e E201     		.2byte	0x1e2
+ 970 00a0 A4000000 		.4byte	0xa4
+ 971 00a4 05       		.uleb128 0x5
+ 972 00a5 6B000000 		.4byte	0x6b
+ 973 00a9 04       		.uleb128 0x4
+ 974 00aa 2D000000 		.4byte	.LASF15
+ 975 00ae 02       		.byte	0x2
+ 976 00af E301     		.2byte	0x1e3
+ 977 00b1 B5000000 		.4byte	0xb5
+ 978 00b5 05       		.uleb128 0x5
+ 979 00b6 77000000 		.4byte	0x77
+ 980 00ba 06       		.uleb128 0x6
+ 981 00bb 23020000 		.4byte	.LASF16
+ 982 00bf 01       		.byte	0x1
+ 983 00c0 2D       		.byte	0x2d
+ 984 00c1 00000000 		.4byte	.LFB0
+ 985 00c5 34000000 		.4byte	.LFE0-.LFB0
+ 986 00c9 01       		.uleb128 0x1
+ 987 00ca 9C       		.byte	0x9c
+ 988 00cb 06       		.uleb128 0x6
+ 989 00cc CD020000 		.4byte	.LASF17
+ 990 00d0 01       		.byte	0x1
+ 991 00d1 47       		.byte	0x47
+ 992 00d2 00000000 		.4byte	.LFB1
+ 993 00d6 34000000 		.4byte	.LFE1-.LFB1
+ 994 00da 01       		.uleb128 0x1
+ 995 00db 9C       		.byte	0x9c
+ 996 00dc 07       		.uleb128 0x7
+ 997 00dd 95000000 		.4byte	.LASF18
+ 998 00e1 01       		.byte	0x1
+ 999 00e2 64       		.byte	0x64
+ 1000 00e3 00000000 		.4byte	.LFB2
+ 1001 00e7 B0000000 		.4byte	.LFE2-.LFB2
+ 1002 00eb 01       		.uleb128 0x1
+ 1003 00ec 9C       		.byte	0x9c
+ 1004 00ed 0A010000 		.4byte	0x10a
+ 1005 00f1 08       		.uleb128 0x8
+ 1006 00f2 14000000 		.4byte	.LBB2
+ 1007 00f6 70000000 		.4byte	.LBE2-.LBB2
+ 1008 00fa 09       		.uleb128 0x9
+ 1009 00fb 93020000 		.4byte	.LASF24
+ 1010 00ff 01       		.byte	0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 27
 
 
- 243:Generated_Source\PSoC5/Clock_2.c ****                 {
- 428              		.loc 1 243 0
- 429 0060 1A4B     		ldr	r3, .L45+8
- 430 0062 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 431 0064 13F0080F 		tst	r3, #8
- 432 0068 00D0     		beq	.L38
- 243:Generated_Source\PSoC5/Clock_2.c ****                 {
- 433              		.loc 1 243 0 is_stmt 0 discriminator 1
- 434 006a 8DB9     		cbnz	r5, .L37
- 435              	.L38:
- 246:Generated_Source\PSoC5/Clock_2.c ****                     CLK_DIST_LD = CYCLK_LD_DISABLE|CYCLK_LD_SYNC_EN|CYCLK_LD_LOAD;
- 436              		.loc 1 246 0 is_stmt 1
- 437 006c 194B     		ldr	r3, .L45+16
- 438 006e 1880     		strh	r0, [r3]	@ movhi
- 247:Generated_Source\PSoC5/Clock_2.c **** 
- 439              		.loc 1 247 0
- 440 0070 0721     		movs	r1, #7
- 441 0072 013B     		subs	r3, r3, #1
- 442 0074 1970     		strb	r1, [r3]
- 443              	.L39:
- 250:Generated_Source\PSoC5/Clock_2.c **** #endif /* HAS_CLKDIST_LD_DISABLE */
- 444              		.loc 1 250 0 discriminator 1
- 445 0076 164B     		ldr	r3, .L45+12
- 446 0078 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 447 007a 13F0010F 		tst	r3, #1
- 448 007e FAD1     		bne	.L39
- 253:Generated_Source\PSoC5/Clock_2.c **** 
- 449              		.loc 1 253 0
- 450 0080 1049     		ldr	r1, .L45
- 451 0082 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 452 0084 03F0FE03 		and	r3, r3, #254
- 453 0088 0B70     		strb	r3, [r1]
- 257:Generated_Source\PSoC5/Clock_2.c **** #endif /* HAS_CLKDIST_LD_DISABLE */
- 454              		.loc 1 257 0
- 455 008a 0021     		movs	r1, #0
- 456 008c 104B     		ldr	r3, .L45+12
- 457 008e 1970     		strb	r1, [r3]
- 458              	.L37:
- 263:Generated_Source\PSoC5/Clock_2.c ****             {
- 459              		.loc 1 263 0
- 460 0090 0C4B     		ldr	r3, .L45
- 461 0092 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 462 0094 13F0010F 		tst	r3, #1
- 463 0098 0DD0     		beq	.L40
- 266:Generated_Source\PSoC5/Clock_2.c **** 
- 464              		.loc 1 266 0
- 465 009a 0E4B     		ldr	r3, .L45+16
- 466 009c 1D80     		strh	r5, [r3]	@ movhi
- 268:Generated_Source\PSoC5/Clock_2.c ****                 while ((CLK_DIST_LD & CYCLK_LD_LOAD) != 0u) { }
- 467              		.loc 1 268 0
- 468 009e 0EB1     		cbz	r6, .L43
- 469 00a0 0322     		movs	r2, #3
- 470              	.LVL18:
- 471 00a2 00E0     		b	.L41
- 472              	.LVL19:
- 473              	.L43:
- 474 00a4 0122     		movs	r2, #1
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 18
+ 1011 0100 69       		.byte	0x69
+ 1012 0101 77000000 		.4byte	0x77
+ 1013 0105 02       		.uleb128 0x2
+ 1014 0106 91       		.byte	0x91
+ 1015 0107 76       		.sleb128 -10
+ 1016 0108 00       		.byte	0
+ 1017 0109 00       		.byte	0
+ 1018 010a 07       		.uleb128 0x7
+ 1019 010b 5E020000 		.4byte	.LASF19
+ 1020 010f 01       		.byte	0x1
+ 1021 0110 9D       		.byte	0x9d
+ 1022 0111 00000000 		.4byte	.LFB3
+ 1023 0115 40000000 		.4byte	.LFE3-.LFB3
+ 1024 0119 01       		.uleb128 0x1
+ 1025 011a 9C       		.byte	0x9c
+ 1026 011b 2E010000 		.4byte	0x12e
+ 1027 011f 0A       		.uleb128 0xa
+ 1028 0120 7B010000 		.4byte	.LASF21
+ 1029 0124 01       		.byte	0x1
+ 1030 0125 9D       		.byte	0x9d
+ 1031 0126 6B000000 		.4byte	0x6b
+ 1032 012a 02       		.uleb128 0x2
+ 1033 012b 91       		.byte	0x91
+ 1034 012c 77       		.sleb128 -9
+ 1035 012d 00       		.byte	0
+ 1036 012e 0B       		.uleb128 0xb
+ 1037 012f 9B010000 		.4byte	.LASF20
+ 1038 0133 01       		.byte	0x1
+ 1039 0134 C1       		.byte	0xc1
+ 1040 0135 00000000 		.4byte	.LFB4
+ 1041 0139 60010000 		.4byte	.LFE4-.LFB4
+ 1042 013d 01       		.uleb128 0x1
+ 1043 013e 9C       		.byte	0x9c
+ 1044 013f 8A010000 		.4byte	0x18a
+ 1045 0143 0A       		.uleb128 0xa
+ 1046 0144 22000000 		.4byte	.LASF22
+ 1047 0148 01       		.byte	0x1
+ 1048 0149 C1       		.byte	0xc1
+ 1049 014a 77000000 		.4byte	0x77
+ 1050 014e 02       		.uleb128 0x2
+ 1051 014f 91       		.byte	0x91
+ 1052 0150 6E       		.sleb128 -18
+ 1053 0151 0A       		.uleb128 0xa
+ 1054 0152 80000000 		.4byte	.LASF23
+ 1055 0156 01       		.byte	0x1
+ 1056 0157 C1       		.byte	0xc1
+ 1057 0158 6B000000 		.4byte	0x6b
+ 1058 015c 02       		.uleb128 0x2
+ 1059 015d 91       		.byte	0x91
+ 1060 015e 6D       		.sleb128 -19
+ 1061 015f 09       		.uleb128 0x9
+ 1062 0160 E1020000 		.4byte	.LASF25
+ 1063 0164 01       		.byte	0x1
+ 1064 0165 C4       		.byte	0xc4
+ 1065 0166 6B000000 		.4byte	0x6b
+ 1066 016a 02       		.uleb128 0x2
+ 1067 016b 91       		.byte	0x91
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 28
 
 
- 475              	.LVL20:
- 476              	.L41:
- 268:Generated_Source\PSoC5/Clock_2.c ****                 while ((CLK_DIST_LD & CYCLK_LD_LOAD) != 0u) { }
- 477              		.loc 1 268 0 is_stmt 0 discriminator 4
- 478 00a6 0A4B     		ldr	r3, .L45+12
- 479 00a8 1A70     		strb	r2, [r3]
- 480              	.L42:
- 269:Generated_Source\PSoC5/Clock_2.c ****             }
- 481              		.loc 1 269 0 is_stmt 1 discriminator 1
- 482 00aa 094B     		ldr	r3, .L45+12
- 483 00ac 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 484 00ae 13F0010F 		tst	r3, #1
- 485 00b2 FAD1     		bne	.L42
- 486 00b4 70BD     		pop	{r4, r5, r6, pc}
- 487              	.LVL21:
- 488              	.L40:
- 274:Generated_Source\PSoC5/Clock_2.c **** 				Clock_2_CLKEN |= enabled;
- 489              		.loc 1 274 0
- 490 00b6 044B     		ldr	r3, .L45+4
- 491 00b8 1D80     		strh	r5, [r3]	@ movhi
- 275:Generated_Source\PSoC5/Clock_2.c ****             }
- 492              		.loc 1 275 0
- 493 00ba 0249     		ldr	r1, .L45
- 494 00bc 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
- 495 00be 1343     		orrs	r3, r3, r2
- 496 00c0 0B70     		strb	r3, [r1]
- 497              	.LVL22:
- 498              	.L32:
- 499 00c2 70BD     		pop	{r4, r5, r6, pc}
- 500              	.L46:
- 501              		.align	2
- 502              	.L45:
- 503 00c4 A2430040 		.word	1073759138
- 504 00c8 80400040 		.word	1073758336
- 505 00cc 82400040 		.word	1073758338
- 506 00d0 01400040 		.word	1073758209
- 507 00d4 02400040 		.word	1073758210
- 508              		.cfi_endproc
- 509              	.LFE4:
- 510              		.size	Clock_2_SetDividerRegister, .-Clock_2_SetDividerRegister
- 511              		.section	.text.Clock_2_SetSourceRegister,"ax",%progbits
- 512              		.align	2
- 513              		.global	Clock_2_SetSourceRegister
- 514              		.thumb
- 515              		.thumb_func
- 516              		.type	Clock_2_SetSourceRegister, %function
- 517              	Clock_2_SetSourceRegister:
- 518              	.LFB9:
- 420:Generated_Source\PSoC5/Clock_2.c ****     uint16 currDiv = Clock_2_GetDividerRegister();
- 519              		.loc 1 420 0
- 520              		.cfi_startproc
- 521              		@ args = 0, pretend = 0, frame = 0
- 522              		@ frame_needed = 0, uses_anonymous_args = 0
- 523              	.LVL23:
- 524 0000 38B5     		push	{r3, r4, r5, lr}
- 525              		.cfi_def_cfa_offset 16
- 526              		.cfi_offset 3, -16
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 19
+ 1068 016c 73       		.sleb128 -13
+ 1069 016d 09       		.uleb128 0x9
+ 1070 016e 8B020000 		.4byte	.LASF26
+ 1071 0172 01       		.byte	0x1
+ 1072 0173 C6       		.byte	0xc6
+ 1073 0174 6B000000 		.4byte	0x6b
+ 1074 0178 02       		.uleb128 0x2
+ 1075 0179 91       		.byte	0x91
+ 1076 017a 77       		.sleb128 -9
+ 1077 017b 09       		.uleb128 0x9
+ 1078 017c 93020000 		.4byte	.LASF24
+ 1079 0180 01       		.byte	0x1
+ 1080 0181 C7       		.byte	0xc7
+ 1081 0182 77000000 		.4byte	0x77
+ 1082 0186 02       		.uleb128 0x2
+ 1083 0187 91       		.byte	0x91
+ 1084 0188 74       		.sleb128 -12
+ 1085 0189 00       		.byte	0
+ 1086 018a 0C       		.uleb128 0xc
+ 1087 018b 3D000000 		.4byte	.LASF30
+ 1088 018f 01       		.byte	0x1
+ 1089 0190 2901     		.2byte	0x129
+ 1090 0192 77000000 		.4byte	0x77
+ 1091 0196 00000000 		.4byte	.LFB5
+ 1092 019a 18000000 		.4byte	.LFE5-.LFB5
+ 1093 019e 01       		.uleb128 0x1
+ 1094 019f 9C       		.byte	0x9c
+ 1095 01a0 0D       		.uleb128 0xd
+ 1096 01a1 C1000000 		.4byte	.LASF27
+ 1097 01a5 01       		.byte	0x1
+ 1098 01a6 4C01     		.2byte	0x14c
+ 1099 01a8 00000000 		.4byte	.LFB6
+ 1100 01ac 34000000 		.4byte	.LFE6-.LFB6
+ 1101 01b0 01       		.uleb128 0x1
+ 1102 01b1 9C       		.byte	0x9c
+ 1103 01b2 C6010000 		.4byte	0x1c6
+ 1104 01b6 0E       		.uleb128 0xe
+ 1105 01b7 8F010000 		.4byte	.LASF28
+ 1106 01bb 01       		.byte	0x1
+ 1107 01bc 4C01     		.2byte	0x14c
+ 1108 01be 6B000000 		.4byte	0x6b
+ 1109 01c2 02       		.uleb128 0x2
+ 1110 01c3 91       		.byte	0x91
+ 1111 01c4 77       		.sleb128 -9
+ 1112 01c5 00       		.byte	0
+ 1113 01c6 0D       		.uleb128 0xd
+ 1114 01c7 A7000000 		.4byte	.LASF29
+ 1115 01cb 01       		.byte	0x1
+ 1116 01cc 6F01     		.2byte	0x16f
+ 1117 01ce 00000000 		.4byte	.LFB7
+ 1118 01d2 34000000 		.4byte	.LFE7-.LFB7
+ 1119 01d6 01       		.uleb128 0x1
+ 1120 01d7 9C       		.byte	0x9c
+ 1121 01d8 EC010000 		.4byte	0x1ec
+ 1122 01dc 0E       		.uleb128 0xe
+ 1123 01dd 8F010000 		.4byte	.LASF28
+ 1124 01e1 01       		.byte	0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 29
 
 
- 527              		.cfi_offset 4, -12
- 528              		.cfi_offset 5, -8
- 529              		.cfi_offset 14, -4
- 530 0002 0446     		mov	r4, r0
- 421:Generated_Source\PSoC5/Clock_2.c ****     uint8 oldSrc = Clock_2_GetSourceRegister();
- 531              		.loc 1 421 0
- 532 0004 FFF7FEFF 		bl	Clock_2_GetDividerRegister
- 533              	.LVL24:
- 534 0008 0546     		mov	r5, r0
- 535              	.LVL25:
- 422:Generated_Source\PSoC5/Clock_2.c **** 
- 536              		.loc 1 422 0
- 537 000a FFF7FEFF 		bl	Clock_2_GetSourceRegister
- 538              	.LVL26:
- 424:Generated_Source\PSoC5/Clock_2.c ****         (clkSource == ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
- 539              		.loc 1 424 0
- 540 000e 0346     		mov	r3, r0
- 541 0010 60B1     		cbz	r0, .L48
- 424:Generated_Source\PSoC5/Clock_2.c ****         (clkSource == ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
- 542              		.loc 1 424 0 is_stmt 0 discriminator 1
- 543 0012 5CB9     		cbnz	r4, .L48
- 425:Generated_Source\PSoC5/Clock_2.c ****     {
- 544              		.loc 1 425 0 is_stmt 1
- 545 0014 55B9     		cbnz	r5, .L48
- 429:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_MOD_SRC =
- 546              		.loc 1 429 0
- 547 0016 104A     		ldr	r2, .L52
- 548 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 549 001a 43F04003 		orr	r3, r3, #64
- 550 001e 1370     		strb	r3, [r2]
- 431:Generated_Source\PSoC5/Clock_2.c ****     }
- 551              		.loc 1 431 0
- 552 0020 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 430:Generated_Source\PSoC5/Clock_2.c ****             (Clock_2_MOD_SRC & (uint8)(~Clock_2_SRC_SEL_MSK)) | clkSource;
- 553              		.loc 1 430 0
- 554 0022 03F0F803 		and	r3, r3, #248
- 555 0026 1C43     		orrs	r4, r4, r3
- 556 0028 1470     		strb	r4, [r2]
- 557 002a 38BD     		pop	{r3, r4, r5, pc}
- 558              	.LVL27:
- 559              	.L48:
- 433:Generated_Source\PSoC5/Clock_2.c ****             (clkSource != ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
- 560              		.loc 1 433 0
- 561 002c 63B9     		cbnz	r3, .L50
- 433:Generated_Source\PSoC5/Clock_2.c ****             (clkSource != ((uint8)CYCLK_SRC_SEL_CLK_SYNC_D))) && (currDiv == 0u))
- 562              		.loc 1 433 0 is_stmt 0 discriminator 1
- 563 002e 5CB1     		cbz	r4, .L50
- 434:Generated_Source\PSoC5/Clock_2.c ****     {
- 564              		.loc 1 434 0 is_stmt 1
- 565 0030 55B9     		cbnz	r5, .L50
- 439:Generated_Source\PSoC5/Clock_2.c ****         Clock_2_MOD_SRC &= (uint8)(~CYCLK_SSS);
- 566              		.loc 1 439 0
- 567 0032 094A     		ldr	r2, .L52
- 568 0034 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 438:Generated_Source\PSoC5/Clock_2.c ****             (Clock_2_MOD_SRC & (uint8)(~Clock_2_SRC_SEL_MSK)) | clkSource;
- 569              		.loc 1 438 0
- 570 0036 03F0F803 		and	r3, r3, #248
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 20
+ 1125 01e2 6F01     		.2byte	0x16f
+ 1126 01e4 6B000000 		.4byte	0x6b
+ 1127 01e8 02       		.uleb128 0x2
+ 1128 01e9 91       		.byte	0x91
+ 1129 01ea 77       		.sleb128 -9
+ 1130 01eb 00       		.byte	0
+ 1131 01ec 0C       		.uleb128 0xc
+ 1132 01ed 9E020000 		.4byte	.LASF31
+ 1133 01f1 01       		.byte	0x1
+ 1134 01f2 8401     		.2byte	0x184
+ 1135 01f4 6B000000 		.4byte	0x6b
+ 1136 01f8 00000000 		.4byte	.LFB8
+ 1137 01fc 20000000 		.4byte	.LFE8-.LFB8
+ 1138 0200 01       		.uleb128 0x1
+ 1139 0201 9C       		.byte	0x9c
+ 1140 0202 0F       		.uleb128 0xf
+ 1141 0203 31020000 		.4byte	.LASF32
+ 1142 0207 01       		.byte	0x1
+ 1143 0208 A301     		.2byte	0x1a3
+ 1144 020a 00000000 		.4byte	.LFB9
+ 1145 020e BC000000 		.4byte	.LFE9-.LFB9
+ 1146 0212 01       		.uleb128 0x1
+ 1147 0213 9C       		.byte	0x9c
+ 1148 0214 46020000 		.4byte	0x246
+ 1149 0218 0E       		.uleb128 0xe
+ 1150 0219 81020000 		.4byte	.LASF33
+ 1151 021d 01       		.byte	0x1
+ 1152 021e A301     		.2byte	0x1a3
+ 1153 0220 6B000000 		.4byte	0x6b
+ 1154 0224 02       		.uleb128 0x2
+ 1155 0225 91       		.byte	0x91
+ 1156 0226 6F       		.sleb128 -17
+ 1157 0227 10       		.uleb128 0x10
+ 1158 0228 1A000000 		.4byte	.LASF34
+ 1159 022c 01       		.byte	0x1
+ 1160 022d A501     		.2byte	0x1a5
+ 1161 022f 77000000 		.4byte	0x77
+ 1162 0233 02       		.uleb128 0x2
+ 1163 0234 91       		.byte	0x91
+ 1164 0235 76       		.sleb128 -10
+ 1165 0236 10       		.uleb128 0x10
+ 1166 0237 88000000 		.4byte	.LASF35
+ 1167 023b 01       		.byte	0x1
+ 1168 023c A601     		.2byte	0x1a6
+ 1169 023e 6B000000 		.4byte	0x6b
+ 1170 0242 02       		.uleb128 0x2
+ 1171 0243 91       		.byte	0x91
+ 1172 0244 75       		.sleb128 -11
+ 1173 0245 00       		.byte	0
+ 1174 0246 0C       		.uleb128 0xc
+ 1175 0247 00000000 		.4byte	.LASF36
+ 1176 024b 01       		.byte	0x1
+ 1177 024c D001     		.2byte	0x1d0
+ 1178 024e 6B000000 		.4byte	0x6b
+ 1179 0252 00000000 		.4byte	.LFB10
+ 1180 0256 20000000 		.4byte	.LFE10-.LFB10
+ 1181 025a 01       		.uleb128 0x1
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 30
 
 
- 571 003a 1C43     		orrs	r4, r4, r3
- 572 003c 1470     		strb	r4, [r2]
- 440:Generated_Source\PSoC5/Clock_2.c ****     }
- 573              		.loc 1 440 0
- 574 003e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 575 0040 03F0BF03 		and	r3, r3, #191
- 576 0044 1370     		strb	r3, [r2]
- 577 0046 38BD     		pop	{r3, r4, r5, pc}
- 578              	.LVL28:
- 579              	.L50:
- 445:Generated_Source\PSoC5/Clock_2.c ****     }
- 580              		.loc 1 445 0
- 581 0048 034A     		ldr	r2, .L52
- 582 004a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
- 444:Generated_Source\PSoC5/Clock_2.c ****             (Clock_2_MOD_SRC & (uint8)(~Clock_2_SRC_SEL_MSK)) | clkSource;
- 583              		.loc 1 444 0
- 584 004c 03F0F803 		and	r3, r3, #248
- 585 0050 1C43     		orrs	r4, r4, r3
- 586 0052 1470     		strb	r4, [r2]
- 587 0054 38BD     		pop	{r3, r4, r5, pc}
- 588              	.LVL29:
- 589              	.L53:
- 590 0056 00BF     		.align	2
- 591              	.L52:
- 592 0058 82400040 		.word	1073758338
- 593              		.cfi_endproc
- 594              	.LFE9:
- 595              		.size	Clock_2_SetSourceRegister, .-Clock_2_SetSourceRegister
- 596              		.text
- 597              	.Letext0:
- 598              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
- 599              		.section	.debug_info,"",%progbits
- 600              	.Ldebug_info0:
- 601 0000 7F020000 		.4byte	0x27f
- 602 0004 0400     		.2byte	0x4
- 603 0006 00000000 		.4byte	.Ldebug_abbrev0
- 604 000a 04       		.byte	0x4
- 605 000b 01       		.uleb128 0x1
- 606 000c F3010000 		.4byte	.LASF36
- 607 0010 01       		.byte	0x1
- 608 0011 58000000 		.4byte	.LASF37
- 609 0015 3D010000 		.4byte	.LASF38
- 610 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 611 001d 00000000 		.4byte	0
- 612 0021 00000000 		.4byte	.Ldebug_line0
- 613 0025 02       		.uleb128 0x2
- 614 0026 01       		.byte	0x1
- 615 0027 06       		.byte	0x6
- 616 0028 31010000 		.4byte	.LASF0
- 617 002c 02       		.uleb128 0x2
- 618 002d 01       		.byte	0x1
- 619 002e 08       		.byte	0x8
- 620 002f FC000000 		.4byte	.LASF1
- 621 0033 02       		.uleb128 0x2
- 622 0034 02       		.byte	0x2
- 623 0035 05       		.byte	0x5
- 624 0036 33000000 		.4byte	.LASF2
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 21
+ 1182 025b 9C       		.byte	0x9c
+ 1183 025c 00       		.byte	0
+ 1184              		.section	.debug_abbrev,"",%progbits
+ 1185              	.Ldebug_abbrev0:
+ 1186 0000 01       		.uleb128 0x1
+ 1187 0001 11       		.uleb128 0x11
+ 1188 0002 01       		.byte	0x1
+ 1189 0003 25       		.uleb128 0x25
+ 1190 0004 0E       		.uleb128 0xe
+ 1191 0005 13       		.uleb128 0x13
+ 1192 0006 0B       		.uleb128 0xb
+ 1193 0007 03       		.uleb128 0x3
+ 1194 0008 0E       		.uleb128 0xe
+ 1195 0009 1B       		.uleb128 0x1b
+ 1196 000a 0E       		.uleb128 0xe
+ 1197 000b 55       		.uleb128 0x55
+ 1198 000c 17       		.uleb128 0x17
+ 1199 000d 11       		.uleb128 0x11
+ 1200 000e 01       		.uleb128 0x1
+ 1201 000f 10       		.uleb128 0x10
+ 1202 0010 17       		.uleb128 0x17
+ 1203 0011 00       		.byte	0
+ 1204 0012 00       		.byte	0
+ 1205 0013 02       		.uleb128 0x2
+ 1206 0014 24       		.uleb128 0x24
+ 1207 0015 00       		.byte	0
+ 1208 0016 0B       		.uleb128 0xb
+ 1209 0017 0B       		.uleb128 0xb
+ 1210 0018 3E       		.uleb128 0x3e
+ 1211 0019 0B       		.uleb128 0xb
+ 1212 001a 03       		.uleb128 0x3
+ 1213 001b 0E       		.uleb128 0xe
+ 1214 001c 00       		.byte	0
+ 1215 001d 00       		.byte	0
+ 1216 001e 03       		.uleb128 0x3
+ 1217 001f 24       		.uleb128 0x24
+ 1218 0020 00       		.byte	0
+ 1219 0021 0B       		.uleb128 0xb
+ 1220 0022 0B       		.uleb128 0xb
+ 1221 0023 3E       		.uleb128 0x3e
+ 1222 0024 0B       		.uleb128 0xb
+ 1223 0025 03       		.uleb128 0x3
+ 1224 0026 08       		.uleb128 0x8
+ 1225 0027 00       		.byte	0
+ 1226 0028 00       		.byte	0
+ 1227 0029 04       		.uleb128 0x4
+ 1228 002a 16       		.uleb128 0x16
+ 1229 002b 00       		.byte	0
+ 1230 002c 03       		.uleb128 0x3
+ 1231 002d 0E       		.uleb128 0xe
+ 1232 002e 3A       		.uleb128 0x3a
+ 1233 002f 0B       		.uleb128 0xb
+ 1234 0030 3B       		.uleb128 0x3b
+ 1235 0031 05       		.uleb128 0x5
+ 1236 0032 49       		.uleb128 0x49
+ 1237 0033 13       		.uleb128 0x13
+ 1238 0034 00       		.byte	0
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 31
 
 
- 625 003a 02       		.uleb128 0x2
- 626 003b 02       		.byte	0x2
- 627 003c 07       		.byte	0x7
- 628 003d C6010000 		.4byte	.LASF3
- 629 0041 02       		.uleb128 0x2
- 630 0042 04       		.byte	0x4
- 631 0043 05       		.byte	0x5
- 632 0044 ED000000 		.4byte	.LASF4
- 633 0048 02       		.uleb128 0x2
- 634 0049 04       		.byte	0x4
- 635 004a 07       		.byte	0x7
- 636 004b BB020000 		.4byte	.LASF5
- 637 004f 02       		.uleb128 0x2
- 638 0050 08       		.byte	0x8
- 639 0051 05       		.byte	0x5
- 640 0052 DF000000 		.4byte	.LASF6
- 641 0056 02       		.uleb128 0x2
- 642 0057 08       		.byte	0x8
- 643 0058 07       		.byte	0x7
- 644 0059 7A010000 		.4byte	.LASF7
- 645 005d 03       		.uleb128 0x3
- 646 005e 04       		.byte	0x4
- 647 005f 05       		.byte	0x5
- 648 0060 696E7400 		.ascii	"int\000"
- 649 0064 02       		.uleb128 0x2
- 650 0065 04       		.byte	0x4
- 651 0066 07       		.byte	0x7
- 652 0067 91010000 		.4byte	.LASF8
- 653 006b 04       		.uleb128 0x4
- 654 006c 8F000000 		.4byte	.LASF9
- 655 0070 02       		.byte	0x2
- 656 0071 3801     		.2byte	0x138
- 657 0073 2C000000 		.4byte	0x2c
- 658 0077 04       		.uleb128 0x4
- 659 0078 79000000 		.4byte	.LASF10
- 660 007c 02       		.byte	0x2
- 661 007d 3901     		.2byte	0x139
- 662 007f 3A000000 		.4byte	0x3a
- 663 0083 02       		.uleb128 0x2
- 664 0084 04       		.byte	0x4
- 665 0085 04       		.byte	0x4
- 666 0086 D9000000 		.4byte	.LASF11
- 667 008a 02       		.uleb128 0x2
- 668 008b 08       		.byte	0x8
- 669 008c 04       		.byte	0x4
- 670 008d DA020000 		.4byte	.LASF12
- 671 0091 02       		.uleb128 0x2
- 672 0092 01       		.byte	0x1
- 673 0093 08       		.byte	0x8
- 674 0094 EE010000 		.4byte	.LASF13
- 675 0098 04       		.uleb128 0x4
- 676 0099 B6020000 		.4byte	.LASF14
- 677 009d 02       		.byte	0x2
- 678 009e E201     		.2byte	0x1e2
- 679 00a0 A4000000 		.4byte	0xa4
- 680 00a4 05       		.uleb128 0x5
- 681 00a5 6B000000 		.4byte	0x6b
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 22
+ 1239 0035 00       		.byte	0
+ 1240 0036 05       		.uleb128 0x5
+ 1241 0037 35       		.uleb128 0x35
+ 1242 0038 00       		.byte	0
+ 1243 0039 49       		.uleb128 0x49
+ 1244 003a 13       		.uleb128 0x13
+ 1245 003b 00       		.byte	0
+ 1246 003c 00       		.byte	0
+ 1247 003d 06       		.uleb128 0x6
+ 1248 003e 2E       		.uleb128 0x2e
+ 1249 003f 00       		.byte	0
+ 1250 0040 3F       		.uleb128 0x3f
+ 1251 0041 19       		.uleb128 0x19
+ 1252 0042 03       		.uleb128 0x3
+ 1253 0043 0E       		.uleb128 0xe
+ 1254 0044 3A       		.uleb128 0x3a
+ 1255 0045 0B       		.uleb128 0xb
+ 1256 0046 3B       		.uleb128 0x3b
+ 1257 0047 0B       		.uleb128 0xb
+ 1258 0048 27       		.uleb128 0x27
+ 1259 0049 19       		.uleb128 0x19
+ 1260 004a 11       		.uleb128 0x11
+ 1261 004b 01       		.uleb128 0x1
+ 1262 004c 12       		.uleb128 0x12
+ 1263 004d 06       		.uleb128 0x6
+ 1264 004e 40       		.uleb128 0x40
+ 1265 004f 18       		.uleb128 0x18
+ 1266 0050 9742     		.uleb128 0x2117
+ 1267 0052 19       		.uleb128 0x19
+ 1268 0053 00       		.byte	0
+ 1269 0054 00       		.byte	0
+ 1270 0055 07       		.uleb128 0x7
+ 1271 0056 2E       		.uleb128 0x2e
+ 1272 0057 01       		.byte	0x1
+ 1273 0058 3F       		.uleb128 0x3f
+ 1274 0059 19       		.uleb128 0x19
+ 1275 005a 03       		.uleb128 0x3
+ 1276 005b 0E       		.uleb128 0xe
+ 1277 005c 3A       		.uleb128 0x3a
+ 1278 005d 0B       		.uleb128 0xb
+ 1279 005e 3B       		.uleb128 0x3b
+ 1280 005f 0B       		.uleb128 0xb
+ 1281 0060 27       		.uleb128 0x27
+ 1282 0061 19       		.uleb128 0x19
+ 1283 0062 11       		.uleb128 0x11
+ 1284 0063 01       		.uleb128 0x1
+ 1285 0064 12       		.uleb128 0x12
+ 1286 0065 06       		.uleb128 0x6
+ 1287 0066 40       		.uleb128 0x40
+ 1288 0067 18       		.uleb128 0x18
+ 1289 0068 9742     		.uleb128 0x2117
+ 1290 006a 19       		.uleb128 0x19
+ 1291 006b 01       		.uleb128 0x1
+ 1292 006c 13       		.uleb128 0x13
+ 1293 006d 00       		.byte	0
+ 1294 006e 00       		.byte	0
+ 1295 006f 08       		.uleb128 0x8
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 32
 
 
- 682 00a9 04       		.uleb128 0x4
- 683 00aa 2D000000 		.4byte	.LASF15
- 684 00ae 02       		.byte	0x2
- 685 00af E301     		.2byte	0x1e3
- 686 00b1 B5000000 		.4byte	0xb5
- 687 00b5 05       		.uleb128 0x5
- 688 00b6 77000000 		.4byte	0x77
- 689 00ba 06       		.uleb128 0x6
- 690 00bb 9E010000 		.4byte	.LASF16
- 691 00bf 01       		.byte	0x1
- 692 00c0 2D       		.byte	0x2d
- 693 00c1 00000000 		.4byte	.LFB0
- 694 00c5 1C000000 		.4byte	.LFE0-.LFB0
- 695 00c9 01       		.uleb128 0x1
- 696 00ca 9C       		.byte	0x9c
- 697 00cb 06       		.uleb128 0x6
- 698 00cc CD020000 		.4byte	.LASF17
- 699 00d0 01       		.byte	0x1
- 700 00d1 47       		.byte	0x47
- 701 00d2 00000000 		.4byte	.LFB1
- 702 00d6 1C000000 		.4byte	.LFE1-.LFB1
- 703 00da 01       		.uleb128 0x1
- 704 00db 9C       		.byte	0x9c
- 705 00dc 07       		.uleb128 0x7
- 706 00dd 95000000 		.4byte	.LASF18
- 707 00e1 01       		.byte	0x1
- 708 00e2 64       		.byte	0x64
- 709 00e3 00000000 		.4byte	.LFB2
- 710 00e7 6C000000 		.4byte	.LFE2-.LFB2
- 711 00eb 01       		.uleb128 0x1
- 712 00ec 9C       		.byte	0x9c
- 713 00ed 0B010000 		.4byte	0x10b
- 714 00f1 08       		.uleb128 0x8
- 715 00f2 0A000000 		.4byte	.LBB2
- 716 00f6 62000000 		.4byte	.LBE2-.LBB2
- 717 00fa 09       		.uleb128 0x9
- 718 00fb 93020000 		.4byte	.LASF30
- 719 00ff 01       		.byte	0x1
- 720 0100 69       		.byte	0x69
- 721 0101 77000000 		.4byte	0x77
- 722 0105 00000000 		.4byte	.LLST0
- 723 0109 00       		.byte	0
- 724 010a 00       		.byte	0
- 725 010b 07       		.uleb128 0x7
- 726 010c D9010000 		.4byte	.LASF19
- 727 0110 01       		.byte	0x1
- 728 0111 9D       		.byte	0x9d
- 729 0112 00000000 		.4byte	.LFB3
- 730 0116 20000000 		.4byte	.LFE3-.LFB3
- 731 011a 01       		.uleb128 0x1
- 732 011b 9C       		.byte	0x9c
- 733 011c 2E010000 		.4byte	0x12e
- 734 0120 0A       		.uleb128 0xa
- 735 0121 F6000000 		.4byte	.LASF21
- 736 0125 01       		.byte	0x1
- 737 0126 9D       		.byte	0x9d
- 738 0127 6B000000 		.4byte	0x6b
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 23
+ 1296 0070 0B       		.uleb128 0xb
+ 1297 0071 01       		.byte	0x1
+ 1298 0072 11       		.uleb128 0x11
+ 1299 0073 01       		.uleb128 0x1
+ 1300 0074 12       		.uleb128 0x12
+ 1301 0075 06       		.uleb128 0x6
+ 1302 0076 00       		.byte	0
+ 1303 0077 00       		.byte	0
+ 1304 0078 09       		.uleb128 0x9
+ 1305 0079 34       		.uleb128 0x34
+ 1306 007a 00       		.byte	0
+ 1307 007b 03       		.uleb128 0x3
+ 1308 007c 0E       		.uleb128 0xe
+ 1309 007d 3A       		.uleb128 0x3a
+ 1310 007e 0B       		.uleb128 0xb
+ 1311 007f 3B       		.uleb128 0x3b
+ 1312 0080 0B       		.uleb128 0xb
+ 1313 0081 49       		.uleb128 0x49
+ 1314 0082 13       		.uleb128 0x13
+ 1315 0083 02       		.uleb128 0x2
+ 1316 0084 18       		.uleb128 0x18
+ 1317 0085 00       		.byte	0
+ 1318 0086 00       		.byte	0
+ 1319 0087 0A       		.uleb128 0xa
+ 1320 0088 05       		.uleb128 0x5
+ 1321 0089 00       		.byte	0
+ 1322 008a 03       		.uleb128 0x3
+ 1323 008b 0E       		.uleb128 0xe
+ 1324 008c 3A       		.uleb128 0x3a
+ 1325 008d 0B       		.uleb128 0xb
+ 1326 008e 3B       		.uleb128 0x3b
+ 1327 008f 0B       		.uleb128 0xb
+ 1328 0090 49       		.uleb128 0x49
+ 1329 0091 13       		.uleb128 0x13
+ 1330 0092 02       		.uleb128 0x2
+ 1331 0093 18       		.uleb128 0x18
+ 1332 0094 00       		.byte	0
+ 1333 0095 00       		.byte	0
+ 1334 0096 0B       		.uleb128 0xb
+ 1335 0097 2E       		.uleb128 0x2e
+ 1336 0098 01       		.byte	0x1
+ 1337 0099 3F       		.uleb128 0x3f
+ 1338 009a 19       		.uleb128 0x19
+ 1339 009b 03       		.uleb128 0x3
+ 1340 009c 0E       		.uleb128 0xe
+ 1341 009d 3A       		.uleb128 0x3a
+ 1342 009e 0B       		.uleb128 0xb
+ 1343 009f 3B       		.uleb128 0x3b
+ 1344 00a0 0B       		.uleb128 0xb
+ 1345 00a1 27       		.uleb128 0x27
+ 1346 00a2 19       		.uleb128 0x19
+ 1347 00a3 11       		.uleb128 0x11
+ 1348 00a4 01       		.uleb128 0x1
+ 1349 00a5 12       		.uleb128 0x12
+ 1350 00a6 06       		.uleb128 0x6
+ 1351 00a7 40       		.uleb128 0x40
+ 1352 00a8 18       		.uleb128 0x18
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 33
 
 
- 739 012b 01       		.uleb128 0x1
- 740 012c 50       		.byte	0x50
- 741 012d 00       		.byte	0
- 742 012e 0B       		.uleb128 0xb
- 743 012f 3D000000 		.4byte	.LASF24
- 744 0133 01       		.byte	0x1
- 745 0134 2901     		.2byte	0x129
- 746 0136 77000000 		.4byte	0x77
- 747 013a 00000000 		.4byte	.LFB5
- 748 013e 0C000000 		.4byte	.LFE5-.LFB5
- 749 0142 01       		.uleb128 0x1
- 750 0143 9C       		.byte	0x9c
- 751 0144 0C       		.uleb128 0xc
- 752 0145 C1000000 		.4byte	.LASF20
- 753 0149 01       		.byte	0x1
- 754 014a 4C01     		.2byte	0x14c
- 755 014c 00000000 		.4byte	.LFB6
- 756 0150 14000000 		.4byte	.LFE6-.LFB6
- 757 0154 01       		.uleb128 0x1
- 758 0155 9C       		.byte	0x9c
- 759 0156 6B010000 		.4byte	0x16b
- 760 015a 0D       		.uleb128 0xd
- 761 015b 0A010000 		.4byte	.LASF22
- 762 015f 01       		.byte	0x1
- 763 0160 4C01     		.2byte	0x14c
- 764 0162 6B000000 		.4byte	0x6b
- 765 0166 13000000 		.4byte	.LLST1
- 766 016a 00       		.byte	0
- 767 016b 0C       		.uleb128 0xc
- 768 016c A7000000 		.4byte	.LASF23
- 769 0170 01       		.byte	0x1
- 770 0171 6F01     		.2byte	0x16f
- 771 0173 00000000 		.4byte	.LFB7
- 772 0177 18000000 		.4byte	.LFE7-.LFB7
- 773 017b 01       		.uleb128 0x1
- 774 017c 9C       		.byte	0x9c
- 775 017d 92010000 		.4byte	0x192
- 776 0181 0D       		.uleb128 0xd
- 777 0182 0A010000 		.4byte	.LASF22
- 778 0186 01       		.byte	0x1
- 779 0187 6F01     		.2byte	0x16f
- 780 0189 6B000000 		.4byte	0x6b
- 781 018d 34000000 		.4byte	.LLST2
- 782 0191 00       		.byte	0
- 783 0192 0B       		.uleb128 0xb
- 784 0193 9E020000 		.4byte	.LASF25
- 785 0197 01       		.byte	0x1
- 786 0198 8401     		.2byte	0x184
- 787 019a 6B000000 		.4byte	0x6b
- 788 019e 00000000 		.4byte	.LFB8
- 789 01a2 10000000 		.4byte	.LFE8-.LFB8
- 790 01a6 01       		.uleb128 0x1
- 791 01a7 9C       		.byte	0x9c
- 792 01a8 0B       		.uleb128 0xb
- 793 01a9 00000000 		.4byte	.LASF26
- 794 01ad 01       		.byte	0x1
- 795 01ae D001     		.2byte	0x1d0
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 24
+ 1353 00a9 9642     		.uleb128 0x2116
+ 1354 00ab 19       		.uleb128 0x19
+ 1355 00ac 01       		.uleb128 0x1
+ 1356 00ad 13       		.uleb128 0x13
+ 1357 00ae 00       		.byte	0
+ 1358 00af 00       		.byte	0
+ 1359 00b0 0C       		.uleb128 0xc
+ 1360 00b1 2E       		.uleb128 0x2e
+ 1361 00b2 00       		.byte	0
+ 1362 00b3 3F       		.uleb128 0x3f
+ 1363 00b4 19       		.uleb128 0x19
+ 1364 00b5 03       		.uleb128 0x3
+ 1365 00b6 0E       		.uleb128 0xe
+ 1366 00b7 3A       		.uleb128 0x3a
+ 1367 00b8 0B       		.uleb128 0xb
+ 1368 00b9 3B       		.uleb128 0x3b
+ 1369 00ba 05       		.uleb128 0x5
+ 1370 00bb 27       		.uleb128 0x27
+ 1371 00bc 19       		.uleb128 0x19
+ 1372 00bd 49       		.uleb128 0x49
+ 1373 00be 13       		.uleb128 0x13
+ 1374 00bf 11       		.uleb128 0x11
+ 1375 00c0 01       		.uleb128 0x1
+ 1376 00c1 12       		.uleb128 0x12
+ 1377 00c2 06       		.uleb128 0x6
+ 1378 00c3 40       		.uleb128 0x40
+ 1379 00c4 18       		.uleb128 0x18
+ 1380 00c5 9742     		.uleb128 0x2117
+ 1381 00c7 19       		.uleb128 0x19
+ 1382 00c8 00       		.byte	0
+ 1383 00c9 00       		.byte	0
+ 1384 00ca 0D       		.uleb128 0xd
+ 1385 00cb 2E       		.uleb128 0x2e
+ 1386 00cc 01       		.byte	0x1
+ 1387 00cd 3F       		.uleb128 0x3f
+ 1388 00ce 19       		.uleb128 0x19
+ 1389 00cf 03       		.uleb128 0x3
+ 1390 00d0 0E       		.uleb128 0xe
+ 1391 00d1 3A       		.uleb128 0x3a
+ 1392 00d2 0B       		.uleb128 0xb
+ 1393 00d3 3B       		.uleb128 0x3b
+ 1394 00d4 05       		.uleb128 0x5
+ 1395 00d5 27       		.uleb128 0x27
+ 1396 00d6 19       		.uleb128 0x19
+ 1397 00d7 11       		.uleb128 0x11
+ 1398 00d8 01       		.uleb128 0x1
+ 1399 00d9 12       		.uleb128 0x12
+ 1400 00da 06       		.uleb128 0x6
+ 1401 00db 40       		.uleb128 0x40
+ 1402 00dc 18       		.uleb128 0x18
+ 1403 00dd 9742     		.uleb128 0x2117
+ 1404 00df 19       		.uleb128 0x19
+ 1405 00e0 01       		.uleb128 0x1
+ 1406 00e1 13       		.uleb128 0x13
+ 1407 00e2 00       		.byte	0
+ 1408 00e3 00       		.byte	0
+ 1409 00e4 0E       		.uleb128 0xe
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 34
 
 
- 796 01b0 6B000000 		.4byte	0x6b
- 797 01b4 00000000 		.4byte	.LFB10
- 798 01b8 10000000 		.4byte	.LFE10-.LFB10
- 799 01bc 01       		.uleb128 0x1
- 800 01bd 9C       		.byte	0x9c
- 801 01be 07       		.uleb128 0x7
- 802 01bf 16010000 		.4byte	.LASF27
- 803 01c3 01       		.byte	0x1
- 804 01c4 C1       		.byte	0xc1
- 805 01c5 00000000 		.4byte	.LFB4
- 806 01c9 D8000000 		.4byte	.LFE4-.LFB4
- 807 01cd 01       		.uleb128 0x1
- 808 01ce 9C       		.byte	0x9c
- 809 01cf 2F020000 		.4byte	0x22f
- 810 01d3 0E       		.uleb128 0xe
- 811 01d4 22000000 		.4byte	.LASF28
- 812 01d8 01       		.byte	0x1
- 813 01d9 C1       		.byte	0xc1
- 814 01da 77000000 		.4byte	0x77
- 815 01de 55000000 		.4byte	.LLST3
- 816 01e2 0E       		.uleb128 0xe
- 817 01e3 80000000 		.4byte	.LASF29
- 818 01e7 01       		.byte	0x1
- 819 01e8 C1       		.byte	0xc1
- 820 01e9 6B000000 		.4byte	0x6b
- 821 01ed 76000000 		.4byte	.LLST4
- 822 01f1 09       		.uleb128 0x9
- 823 01f2 E1020000 		.4byte	.LASF31
- 824 01f6 01       		.byte	0x1
- 825 01f7 C4       		.byte	0xc4
- 826 01f8 6B000000 		.4byte	0x6b
- 827 01fc 97000000 		.4byte	.LLST5
- 828 0200 09       		.uleb128 0x9
- 829 0201 8B020000 		.4byte	.LASF32
- 830 0205 01       		.byte	0x1
- 831 0206 C6       		.byte	0xc6
- 832 0207 6B000000 		.4byte	0x6b
- 833 020b E5000000 		.4byte	.LLST6
- 834 020f 0F       		.uleb128 0xf
- 835 0210 93020000 		.4byte	.LASF30
- 836 0214 01       		.byte	0x1
- 837 0215 C7       		.byte	0xc7
- 838 0216 77000000 		.4byte	0x77
- 839 021a 01       		.uleb128 0x1
- 840 021b 50       		.byte	0x50
- 841 021c 10       		.uleb128 0x10
- 842 021d 0A000000 		.4byte	.LVL8
- 843 0221 A8010000 		.4byte	0x1a8
- 844 0225 10       		.uleb128 0x10
- 845 0226 10000000 		.4byte	.LVL10
- 846 022a 2E010000 		.4byte	0x12e
- 847 022e 00       		.byte	0
- 848 022f 11       		.uleb128 0x11
- 849 0230 AC010000 		.4byte	.LASF39
- 850 0234 01       		.byte	0x1
- 851 0235 A301     		.2byte	0x1a3
- 852 0237 00000000 		.4byte	.LFB9
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 25
+ 1410 00e5 05       		.uleb128 0x5
+ 1411 00e6 00       		.byte	0
+ 1412 00e7 03       		.uleb128 0x3
+ 1413 00e8 0E       		.uleb128 0xe
+ 1414 00e9 3A       		.uleb128 0x3a
+ 1415 00ea 0B       		.uleb128 0xb
+ 1416 00eb 3B       		.uleb128 0x3b
+ 1417 00ec 05       		.uleb128 0x5
+ 1418 00ed 49       		.uleb128 0x49
+ 1419 00ee 13       		.uleb128 0x13
+ 1420 00ef 02       		.uleb128 0x2
+ 1421 00f0 18       		.uleb128 0x18
+ 1422 00f1 00       		.byte	0
+ 1423 00f2 00       		.byte	0
+ 1424 00f3 0F       		.uleb128 0xf
+ 1425 00f4 2E       		.uleb128 0x2e
+ 1426 00f5 01       		.byte	0x1
+ 1427 00f6 3F       		.uleb128 0x3f
+ 1428 00f7 19       		.uleb128 0x19
+ 1429 00f8 03       		.uleb128 0x3
+ 1430 00f9 0E       		.uleb128 0xe
+ 1431 00fa 3A       		.uleb128 0x3a
+ 1432 00fb 0B       		.uleb128 0xb
+ 1433 00fc 3B       		.uleb128 0x3b
+ 1434 00fd 05       		.uleb128 0x5
+ 1435 00fe 27       		.uleb128 0x27
+ 1436 00ff 19       		.uleb128 0x19
+ 1437 0100 11       		.uleb128 0x11
+ 1438 0101 01       		.uleb128 0x1
+ 1439 0102 12       		.uleb128 0x12
+ 1440 0103 06       		.uleb128 0x6
+ 1441 0104 40       		.uleb128 0x40
+ 1442 0105 18       		.uleb128 0x18
+ 1443 0106 9642     		.uleb128 0x2116
+ 1444 0108 19       		.uleb128 0x19
+ 1445 0109 01       		.uleb128 0x1
+ 1446 010a 13       		.uleb128 0x13
+ 1447 010b 00       		.byte	0
+ 1448 010c 00       		.byte	0
+ 1449 010d 10       		.uleb128 0x10
+ 1450 010e 34       		.uleb128 0x34
+ 1451 010f 00       		.byte	0
+ 1452 0110 03       		.uleb128 0x3
+ 1453 0111 0E       		.uleb128 0xe
+ 1454 0112 3A       		.uleb128 0x3a
+ 1455 0113 0B       		.uleb128 0xb
+ 1456 0114 3B       		.uleb128 0x3b
+ 1457 0115 05       		.uleb128 0x5
+ 1458 0116 49       		.uleb128 0x49
+ 1459 0117 13       		.uleb128 0x13
+ 1460 0118 02       		.uleb128 0x2
+ 1461 0119 18       		.uleb128 0x18
+ 1462 011a 00       		.byte	0
+ 1463 011b 00       		.byte	0
+ 1464 011c 00       		.byte	0
+ 1465              		.section	.debug_aranges,"",%progbits
+ 1466 0000 6C000000 		.4byte	0x6c
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 35
 
 
- 853 023b 5C000000 		.4byte	.LFE9-.LFB9
- 854 023f 01       		.uleb128 0x1
- 855 0240 9C       		.byte	0x9c
- 856 0241 0D       		.uleb128 0xd
- 857 0242 81020000 		.4byte	.LASF33
- 858 0246 01       		.byte	0x1
- 859 0247 A301     		.2byte	0x1a3
- 860 0249 6B000000 		.4byte	0x6b
- 861 024d F8000000 		.4byte	.LLST7
- 862 0251 12       		.uleb128 0x12
- 863 0252 1A000000 		.4byte	.LASF34
- 864 0256 01       		.byte	0x1
- 865 0257 A501     		.2byte	0x1a5
- 866 0259 77000000 		.4byte	0x77
- 867 025d 19010000 		.4byte	.LLST8
- 868 0261 13       		.uleb128 0x13
- 869 0262 88000000 		.4byte	.LASF35
- 870 0266 01       		.byte	0x1
- 871 0267 A601     		.2byte	0x1a6
- 872 0269 6B000000 		.4byte	0x6b
- 873 026d 01       		.uleb128 0x1
- 874 026e 50       		.byte	0x50
- 875 026f 10       		.uleb128 0x10
- 876 0270 08000000 		.4byte	.LVL24
- 877 0274 2E010000 		.4byte	0x12e
- 878 0278 10       		.uleb128 0x10
- 879 0279 0E000000 		.4byte	.LVL26
- 880 027d A8010000 		.4byte	0x1a8
- 881 0281 00       		.byte	0
- 882 0282 00       		.byte	0
- 883              		.section	.debug_abbrev,"",%progbits
- 884              	.Ldebug_abbrev0:
- 885 0000 01       		.uleb128 0x1
- 886 0001 11       		.uleb128 0x11
- 887 0002 01       		.byte	0x1
- 888 0003 25       		.uleb128 0x25
- 889 0004 0E       		.uleb128 0xe
- 890 0005 13       		.uleb128 0x13
- 891 0006 0B       		.uleb128 0xb
- 892 0007 03       		.uleb128 0x3
- 893 0008 0E       		.uleb128 0xe
- 894 0009 1B       		.uleb128 0x1b
- 895 000a 0E       		.uleb128 0xe
- 896 000b 55       		.uleb128 0x55
- 897 000c 17       		.uleb128 0x17
- 898 000d 11       		.uleb128 0x11
- 899 000e 01       		.uleb128 0x1
- 900 000f 10       		.uleb128 0x10
- 901 0010 17       		.uleb128 0x17
- 902 0011 00       		.byte	0
- 903 0012 00       		.byte	0
- 904 0013 02       		.uleb128 0x2
- 905 0014 24       		.uleb128 0x24
- 906 0015 00       		.byte	0
- 907 0016 0B       		.uleb128 0xb
- 908 0017 0B       		.uleb128 0xb
- 909 0018 3E       		.uleb128 0x3e
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 26
+ 1467 0004 0200     		.2byte	0x2
+ 1468 0006 00000000 		.4byte	.Ldebug_info0
+ 1469 000a 04       		.byte	0x4
+ 1470 000b 00       		.byte	0
+ 1471 000c 0000     		.2byte	0
+ 1472 000e 0000     		.2byte	0
+ 1473 0010 00000000 		.4byte	.LFB0
+ 1474 0014 34000000 		.4byte	.LFE0-.LFB0
+ 1475 0018 00000000 		.4byte	.LFB1
+ 1476 001c 34000000 		.4byte	.LFE1-.LFB1
+ 1477 0020 00000000 		.4byte	.LFB2
+ 1478 0024 B0000000 		.4byte	.LFE2-.LFB2
+ 1479 0028 00000000 		.4byte	.LFB3
+ 1480 002c 40000000 		.4byte	.LFE3-.LFB3
+ 1481 0030 00000000 		.4byte	.LFB4
+ 1482 0034 60010000 		.4byte	.LFE4-.LFB4
+ 1483 0038 00000000 		.4byte	.LFB5
+ 1484 003c 18000000 		.4byte	.LFE5-.LFB5
+ 1485 0040 00000000 		.4byte	.LFB6
+ 1486 0044 34000000 		.4byte	.LFE6-.LFB6
+ 1487 0048 00000000 		.4byte	.LFB7
+ 1488 004c 34000000 		.4byte	.LFE7-.LFB7
+ 1489 0050 00000000 		.4byte	.LFB8
+ 1490 0054 20000000 		.4byte	.LFE8-.LFB8
+ 1491 0058 00000000 		.4byte	.LFB9
+ 1492 005c BC000000 		.4byte	.LFE9-.LFB9
+ 1493 0060 00000000 		.4byte	.LFB10
+ 1494 0064 20000000 		.4byte	.LFE10-.LFB10
+ 1495 0068 00000000 		.4byte	0
+ 1496 006c 00000000 		.4byte	0
+ 1497              		.section	.debug_ranges,"",%progbits
+ 1498              	.Ldebug_ranges0:
+ 1499 0000 00000000 		.4byte	.LFB0
+ 1500 0004 34000000 		.4byte	.LFE0
+ 1501 0008 00000000 		.4byte	.LFB1
+ 1502 000c 34000000 		.4byte	.LFE1
+ 1503 0010 00000000 		.4byte	.LFB2
+ 1504 0014 B0000000 		.4byte	.LFE2
+ 1505 0018 00000000 		.4byte	.LFB3
+ 1506 001c 40000000 		.4byte	.LFE3
+ 1507 0020 00000000 		.4byte	.LFB4
+ 1508 0024 60010000 		.4byte	.LFE4
+ 1509 0028 00000000 		.4byte	.LFB5
+ 1510 002c 18000000 		.4byte	.LFE5
+ 1511 0030 00000000 		.4byte	.LFB6
+ 1512 0034 34000000 		.4byte	.LFE6
+ 1513 0038 00000000 		.4byte	.LFB7
+ 1514 003c 34000000 		.4byte	.LFE7
+ 1515 0040 00000000 		.4byte	.LFB8
+ 1516 0044 20000000 		.4byte	.LFE8
+ 1517 0048 00000000 		.4byte	.LFB9
+ 1518 004c BC000000 		.4byte	.LFE9
+ 1519 0050 00000000 		.4byte	.LFB10
+ 1520 0054 20000000 		.4byte	.LFE10
+ 1521 0058 00000000 		.4byte	0
+ 1522 005c 00000000 		.4byte	0
+ 1523              		.section	.debug_line,"",%progbits
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 36
 
 
- 910 0019 0B       		.uleb128 0xb
- 911 001a 03       		.uleb128 0x3
- 912 001b 0E       		.uleb128 0xe
- 913 001c 00       		.byte	0
- 914 001d 00       		.byte	0
- 915 001e 03       		.uleb128 0x3
- 916 001f 24       		.uleb128 0x24
- 917 0020 00       		.byte	0
- 918 0021 0B       		.uleb128 0xb
- 919 0022 0B       		.uleb128 0xb
- 920 0023 3E       		.uleb128 0x3e
- 921 0024 0B       		.uleb128 0xb
- 922 0025 03       		.uleb128 0x3
- 923 0026 08       		.uleb128 0x8
- 924 0027 00       		.byte	0
- 925 0028 00       		.byte	0
- 926 0029 04       		.uleb128 0x4
- 927 002a 16       		.uleb128 0x16
- 928 002b 00       		.byte	0
- 929 002c 03       		.uleb128 0x3
- 930 002d 0E       		.uleb128 0xe
- 931 002e 3A       		.uleb128 0x3a
- 932 002f 0B       		.uleb128 0xb
- 933 0030 3B       		.uleb128 0x3b
- 934 0031 05       		.uleb128 0x5
- 935 0032 49       		.uleb128 0x49
- 936 0033 13       		.uleb128 0x13
- 937 0034 00       		.byte	0
- 938 0035 00       		.byte	0
- 939 0036 05       		.uleb128 0x5
- 940 0037 35       		.uleb128 0x35
- 941 0038 00       		.byte	0
- 942 0039 49       		.uleb128 0x49
- 943 003a 13       		.uleb128 0x13
- 944 003b 00       		.byte	0
- 945 003c 00       		.byte	0
- 946 003d 06       		.uleb128 0x6
- 947 003e 2E       		.uleb128 0x2e
- 948 003f 00       		.byte	0
- 949 0040 3F       		.uleb128 0x3f
- 950 0041 19       		.uleb128 0x19
- 951 0042 03       		.uleb128 0x3
- 952 0043 0E       		.uleb128 0xe
- 953 0044 3A       		.uleb128 0x3a
- 954 0045 0B       		.uleb128 0xb
- 955 0046 3B       		.uleb128 0x3b
- 956 0047 0B       		.uleb128 0xb
- 957 0048 27       		.uleb128 0x27
- 958 0049 19       		.uleb128 0x19
- 959 004a 11       		.uleb128 0x11
- 960 004b 01       		.uleb128 0x1
- 961 004c 12       		.uleb128 0x12
- 962 004d 06       		.uleb128 0x6
- 963 004e 40       		.uleb128 0x40
- 964 004f 18       		.uleb128 0x18
- 965 0050 9742     		.uleb128 0x2117
- 966 0052 19       		.uleb128 0x19
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 27
+ 1524              	.Ldebug_line0:
+ 1525 0000 9E010000 		.section	.debug_str,"MS",%progbits,1
+ 1525      02004400 
+ 1525      00000201 
+ 1525      FB0E0D00 
+ 1525      01010101 
+ 1526              	.LASF36:
+ 1527 0000 436C6F63 		.ascii	"Clock_2_GetSourceRegister\000"
+ 1527      6B5F325F 
+ 1527      47657453 
+ 1527      6F757263 
+ 1527      65526567 
+ 1528              	.LASF34:
+ 1529 001a 63757272 		.ascii	"currDiv\000"
+ 1529      44697600 
+ 1530              	.LASF22:
+ 1531 0022 636C6B44 		.ascii	"clkDivider\000"
+ 1531      69766964 
+ 1531      657200
+ 1532              	.LASF15:
+ 1533 002d 72656731 		.ascii	"reg16\000"
+ 1533      3600
+ 1534              	.LASF2:
+ 1535 0033 73686F72 		.ascii	"short int\000"
+ 1535      7420696E 
+ 1535      7400
+ 1536              	.LASF30:
+ 1537 003d 436C6F63 		.ascii	"Clock_2_GetDividerRegister\000"
+ 1537      6B5F325F 
+ 1537      47657444 
+ 1537      69766964 
+ 1537      65725265 
+ 1538              	.LASF38:
+ 1539 0058 47656E65 		.ascii	"Generated_Source\\PSoC5\\Clock_2.c\000"
+ 1539      72617465 
+ 1539      645F536F 
+ 1539      75726365 
+ 1539      5C50536F 
+ 1540              	.LASF10:
+ 1541 0079 75696E74 		.ascii	"uint16\000"
+ 1541      313600
+ 1542              	.LASF23:
+ 1543 0080 72657374 		.ascii	"restart\000"
+ 1543      61727400 
+ 1544              	.LASF35:
+ 1545 0088 6F6C6453 		.ascii	"oldSrc\000"
+ 1545      726300
+ 1546              	.LASF9:
+ 1547 008f 75696E74 		.ascii	"uint8\000"
+ 1547      3800
+ 1548              	.LASF18:
+ 1549 0095 436C6F63 		.ascii	"Clock_2_StopBlock\000"
+ 1549      6B5F325F 
+ 1549      53746F70 
+ 1549      426C6F63 
+ 1549      6B00
+ 1550              	.LASF29:
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 37
 
 
- 967 0053 00       		.byte	0
- 968 0054 00       		.byte	0
- 969 0055 07       		.uleb128 0x7
- 970 0056 2E       		.uleb128 0x2e
- 971 0057 01       		.byte	0x1
- 972 0058 3F       		.uleb128 0x3f
- 973 0059 19       		.uleb128 0x19
- 974 005a 03       		.uleb128 0x3
- 975 005b 0E       		.uleb128 0xe
- 976 005c 3A       		.uleb128 0x3a
- 977 005d 0B       		.uleb128 0xb
- 978 005e 3B       		.uleb128 0x3b
- 979 005f 0B       		.uleb128 0xb
- 980 0060 27       		.uleb128 0x27
- 981 0061 19       		.uleb128 0x19
- 982 0062 11       		.uleb128 0x11
- 983 0063 01       		.uleb128 0x1
- 984 0064 12       		.uleb128 0x12
- 985 0065 06       		.uleb128 0x6
- 986 0066 40       		.uleb128 0x40
- 987 0067 18       		.uleb128 0x18
- 988 0068 9742     		.uleb128 0x2117
- 989 006a 19       		.uleb128 0x19
- 990 006b 01       		.uleb128 0x1
- 991 006c 13       		.uleb128 0x13
- 992 006d 00       		.byte	0
- 993 006e 00       		.byte	0
- 994 006f 08       		.uleb128 0x8
- 995 0070 0B       		.uleb128 0xb
- 996 0071 01       		.byte	0x1
- 997 0072 11       		.uleb128 0x11
- 998 0073 01       		.uleb128 0x1
- 999 0074 12       		.uleb128 0x12
- 1000 0075 06       		.uleb128 0x6
- 1001 0076 00       		.byte	0
- 1002 0077 00       		.byte	0
- 1003 0078 09       		.uleb128 0x9
- 1004 0079 34       		.uleb128 0x34
- 1005 007a 00       		.byte	0
- 1006 007b 03       		.uleb128 0x3
- 1007 007c 0E       		.uleb128 0xe
- 1008 007d 3A       		.uleb128 0x3a
- 1009 007e 0B       		.uleb128 0xb
- 1010 007f 3B       		.uleb128 0x3b
- 1011 0080 0B       		.uleb128 0xb
- 1012 0081 49       		.uleb128 0x49
- 1013 0082 13       		.uleb128 0x13
- 1014 0083 02       		.uleb128 0x2
- 1015 0084 17       		.uleb128 0x17
- 1016 0085 00       		.byte	0
- 1017 0086 00       		.byte	0
- 1018 0087 0A       		.uleb128 0xa
- 1019 0088 05       		.uleb128 0x5
- 1020 0089 00       		.byte	0
- 1021 008a 03       		.uleb128 0x3
- 1022 008b 0E       		.uleb128 0xe
- 1023 008c 3A       		.uleb128 0x3a
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 28
+ 1551 00a7 436C6F63 		.ascii	"Clock_2_ClearModeRegister\000"
+ 1551      6B5F325F 
+ 1551      436C6561 
+ 1551      724D6F64 
+ 1551      65526567 
+ 1552              	.LASF27:
+ 1553 00c1 436C6F63 		.ascii	"Clock_2_SetModeRegister\000"
+ 1553      6B5F325F 
+ 1553      5365744D 
+ 1553      6F646552 
+ 1553      65676973 
+ 1554              	.LASF11:
+ 1555 00d9 666C6F61 		.ascii	"float\000"
+ 1555      7400
+ 1556              	.LASF6:
+ 1557 00df 6C6F6E67 		.ascii	"long long int\000"
+ 1557      206C6F6E 
+ 1557      6720696E 
+ 1557      7400
+ 1558              	.LASF37:
+ 1559 00ed 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1559      4320342E 
+ 1559      392E3320 
+ 1559      32303135 
+ 1559      30333033 
+ 1560 0120 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1560      20726576 
+ 1560      6973696F 
+ 1560      6E203232 
+ 1560      31323230 
+ 1561 0153 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1561      66756E63 
+ 1561      74696F6E 
+ 1561      2D736563 
+ 1561      74696F6E 
+ 1562              	.LASF21:
+ 1563 017b 73746174 		.ascii	"state\000"
+ 1563      6500
+ 1564              	.LASF1:
+ 1565 0181 756E7369 		.ascii	"unsigned char\000"
+ 1565      676E6564 
+ 1565      20636861 
+ 1565      7200
+ 1566              	.LASF28:
+ 1567 018f 6D6F6465 		.ascii	"modeBitMask\000"
+ 1567      4269744D 
+ 1567      61736B00 
+ 1568              	.LASF20:
+ 1569 019b 436C6F63 		.ascii	"Clock_2_SetDividerRegister\000"
+ 1569      6B5F325F 
+ 1569      53657444 
+ 1569      69766964 
+ 1569      65725265 
+ 1570              	.LASF0:
+ 1571 01b6 7369676E 		.ascii	"signed char\000"
+ 1571      65642063 
+ 1571      68617200 
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 38
 
 
- 1024 008d 0B       		.uleb128 0xb
- 1025 008e 3B       		.uleb128 0x3b
- 1026 008f 0B       		.uleb128 0xb
- 1027 0090 49       		.uleb128 0x49
- 1028 0091 13       		.uleb128 0x13
- 1029 0092 02       		.uleb128 0x2
- 1030 0093 18       		.uleb128 0x18
- 1031 0094 00       		.byte	0
- 1032 0095 00       		.byte	0
- 1033 0096 0B       		.uleb128 0xb
- 1034 0097 2E       		.uleb128 0x2e
- 1035 0098 00       		.byte	0
- 1036 0099 3F       		.uleb128 0x3f
- 1037 009a 19       		.uleb128 0x19
- 1038 009b 03       		.uleb128 0x3
- 1039 009c 0E       		.uleb128 0xe
- 1040 009d 3A       		.uleb128 0x3a
- 1041 009e 0B       		.uleb128 0xb
- 1042 009f 3B       		.uleb128 0x3b
- 1043 00a0 05       		.uleb128 0x5
- 1044 00a1 27       		.uleb128 0x27
- 1045 00a2 19       		.uleb128 0x19
- 1046 00a3 49       		.uleb128 0x49
- 1047 00a4 13       		.uleb128 0x13
- 1048 00a5 11       		.uleb128 0x11
- 1049 00a6 01       		.uleb128 0x1
- 1050 00a7 12       		.uleb128 0x12
- 1051 00a8 06       		.uleb128 0x6
- 1052 00a9 40       		.uleb128 0x40
- 1053 00aa 18       		.uleb128 0x18
- 1054 00ab 9742     		.uleb128 0x2117
- 1055 00ad 19       		.uleb128 0x19
- 1056 00ae 00       		.byte	0
- 1057 00af 00       		.byte	0
- 1058 00b0 0C       		.uleb128 0xc
- 1059 00b1 2E       		.uleb128 0x2e
- 1060 00b2 01       		.byte	0x1
- 1061 00b3 3F       		.uleb128 0x3f
- 1062 00b4 19       		.uleb128 0x19
- 1063 00b5 03       		.uleb128 0x3
- 1064 00b6 0E       		.uleb128 0xe
- 1065 00b7 3A       		.uleb128 0x3a
- 1066 00b8 0B       		.uleb128 0xb
- 1067 00b9 3B       		.uleb128 0x3b
- 1068 00ba 05       		.uleb128 0x5
- 1069 00bb 27       		.uleb128 0x27
- 1070 00bc 19       		.uleb128 0x19
- 1071 00bd 11       		.uleb128 0x11
- 1072 00be 01       		.uleb128 0x1
- 1073 00bf 12       		.uleb128 0x12
- 1074 00c0 06       		.uleb128 0x6
- 1075 00c1 40       		.uleb128 0x40
- 1076 00c2 18       		.uleb128 0x18
- 1077 00c3 9742     		.uleb128 0x2117
- 1078 00c5 19       		.uleb128 0x19
- 1079 00c6 01       		.uleb128 0x1
- 1080 00c7 13       		.uleb128 0x13
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 29
+ 1572              	.LASF39:
+ 1573 01c2 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
+ 1573      6F776E6C 
+ 1573      6F616473 
+ 1573      5C465255 
+ 1573      43445C4E 
+ 1574 01f0 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
+ 1574      67756172 
+ 1574      2E637964 
+ 1574      736E00
+ 1575              	.LASF7:
+ 1576 01ff 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1576      206C6F6E 
+ 1576      6720756E 
+ 1576      7369676E 
+ 1576      65642069 
+ 1577              	.LASF8:
+ 1578 0216 756E7369 		.ascii	"unsigned int\000"
+ 1578      676E6564 
+ 1578      20696E74 
+ 1578      00
+ 1579              	.LASF16:
+ 1580 0223 436C6F63 		.ascii	"Clock_2_Start\000"
+ 1580      6B5F325F 
+ 1580      53746172 
+ 1580      7400
+ 1581              	.LASF32:
+ 1582 0231 436C6F63 		.ascii	"Clock_2_SetSourceRegister\000"
+ 1582      6B5F325F 
+ 1582      53657453 
+ 1582      6F757263 
+ 1582      65526567 
+ 1583              	.LASF3:
+ 1584 024b 73686F72 		.ascii	"short unsigned int\000"
+ 1584      7420756E 
+ 1584      7369676E 
+ 1584      65642069 
+ 1584      6E7400
+ 1585              	.LASF19:
+ 1586 025e 436C6F63 		.ascii	"Clock_2_StandbyPower\000"
+ 1586      6B5F325F 
+ 1586      5374616E 
+ 1586      64627950 
+ 1586      6F776572 
+ 1587              	.LASF13:
+ 1588 0273 63686172 		.ascii	"char\000"
+ 1588      00
+ 1589              	.LASF4:
+ 1590 0278 6C6F6E67 		.ascii	"long int\000"
+ 1590      20696E74 
+ 1590      00
+ 1591              	.LASF33:
+ 1592 0281 636C6B53 		.ascii	"clkSource\000"
+ 1592      6F757263 
+ 1592      6500
+ 1593              	.LASF26:
+ 1594 028b 63757272 		.ascii	"currSrc\000"
+ARM GAS  D:\Windows\AppData\Local\Temp\ccLLd4Ku.s 			page 39
 
 
- 1081 00c8 00       		.byte	0
- 1082 00c9 00       		.byte	0
- 1083 00ca 0D       		.uleb128 0xd
- 1084 00cb 05       		.uleb128 0x5
- 1085 00cc 00       		.byte	0
- 1086 00cd 03       		.uleb128 0x3
- 1087 00ce 0E       		.uleb128 0xe
- 1088 00cf 3A       		.uleb128 0x3a
- 1089 00d0 0B       		.uleb128 0xb
- 1090 00d1 3B       		.uleb128 0x3b
- 1091 00d2 05       		.uleb128 0x5
- 1092 00d3 49       		.uleb128 0x49
- 1093 00d4 13       		.uleb128 0x13
- 1094 00d5 02       		.uleb128 0x2
- 1095 00d6 17       		.uleb128 0x17
- 1096 00d7 00       		.byte	0
- 1097 00d8 00       		.byte	0
- 1098 00d9 0E       		.uleb128 0xe
- 1099 00da 05       		.uleb128 0x5
- 1100 00db 00       		.byte	0
- 1101 00dc 03       		.uleb128 0x3
- 1102 00dd 0E       		.uleb128 0xe
- 1103 00de 3A       		.uleb128 0x3a
- 1104 00df 0B       		.uleb128 0xb
- 1105 00e0 3B       		.uleb128 0x3b
- 1106 00e1 0B       		.uleb128 0xb
- 1107 00e2 49       		.uleb128 0x49
- 1108 00e3 13       		.uleb128 0x13
- 1109 00e4 02       		.uleb128 0x2
- 1110 00e5 17       		.uleb128 0x17
- 1111 00e6 00       		.byte	0
- 1112 00e7 00       		.byte	0
- 1113 00e8 0F       		.uleb128 0xf
- 1114 00e9 34       		.uleb128 0x34
- 1115 00ea 00       		.byte	0
- 1116 00eb 03       		.uleb128 0x3
- 1117 00ec 0E       		.uleb128 0xe
- 1118 00ed 3A       		.uleb128 0x3a
- 1119 00ee 0B       		.uleb128 0xb
- 1120 00ef 3B       		.uleb128 0x3b
- 1121 00f0 0B       		.uleb128 0xb
- 1122 00f1 49       		.uleb128 0x49
- 1123 00f2 13       		.uleb128 0x13
- 1124 00f3 02       		.uleb128 0x2
- 1125 00f4 18       		.uleb128 0x18
- 1126 00f5 00       		.byte	0
- 1127 00f6 00       		.byte	0
- 1128 00f7 10       		.uleb128 0x10
- 1129 00f8 898201   		.uleb128 0x4109
- 1130 00fb 00       		.byte	0
- 1131 00fc 11       		.uleb128 0x11
- 1132 00fd 01       		.uleb128 0x1
- 1133 00fe 31       		.uleb128 0x31
- 1134 00ff 13       		.uleb128 0x13
- 1135 0100 00       		.byte	0
- 1136 0101 00       		.byte	0
- 1137 0102 11       		.uleb128 0x11
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 30
-
-
- 1138 0103 2E       		.uleb128 0x2e
- 1139 0104 01       		.byte	0x1
- 1140 0105 3F       		.uleb128 0x3f
- 1141 0106 19       		.uleb128 0x19
- 1142 0107 03       		.uleb128 0x3
- 1143 0108 0E       		.uleb128 0xe
- 1144 0109 3A       		.uleb128 0x3a
- 1145 010a 0B       		.uleb128 0xb
- 1146 010b 3B       		.uleb128 0x3b
- 1147 010c 05       		.uleb128 0x5
- 1148 010d 27       		.uleb128 0x27
- 1149 010e 19       		.uleb128 0x19
- 1150 010f 11       		.uleb128 0x11
- 1151 0110 01       		.uleb128 0x1
- 1152 0111 12       		.uleb128 0x12
- 1153 0112 06       		.uleb128 0x6
- 1154 0113 40       		.uleb128 0x40
- 1155 0114 18       		.uleb128 0x18
- 1156 0115 9742     		.uleb128 0x2117
- 1157 0117 19       		.uleb128 0x19
- 1158 0118 00       		.byte	0
- 1159 0119 00       		.byte	0
- 1160 011a 12       		.uleb128 0x12
- 1161 011b 34       		.uleb128 0x34
- 1162 011c 00       		.byte	0
- 1163 011d 03       		.uleb128 0x3
- 1164 011e 0E       		.uleb128 0xe
- 1165 011f 3A       		.uleb128 0x3a
- 1166 0120 0B       		.uleb128 0xb
- 1167 0121 3B       		.uleb128 0x3b
- 1168 0122 05       		.uleb128 0x5
- 1169 0123 49       		.uleb128 0x49
- 1170 0124 13       		.uleb128 0x13
- 1171 0125 02       		.uleb128 0x2
- 1172 0126 17       		.uleb128 0x17
- 1173 0127 00       		.byte	0
- 1174 0128 00       		.byte	0
- 1175 0129 13       		.uleb128 0x13
- 1176 012a 34       		.uleb128 0x34
- 1177 012b 00       		.byte	0
- 1178 012c 03       		.uleb128 0x3
- 1179 012d 0E       		.uleb128 0xe
- 1180 012e 3A       		.uleb128 0x3a
- 1181 012f 0B       		.uleb128 0xb
- 1182 0130 3B       		.uleb128 0x3b
- 1183 0131 05       		.uleb128 0x5
- 1184 0132 49       		.uleb128 0x49
- 1185 0133 13       		.uleb128 0x13
- 1186 0134 02       		.uleb128 0x2
- 1187 0135 18       		.uleb128 0x18
- 1188 0136 00       		.byte	0
- 1189 0137 00       		.byte	0
- 1190 0138 00       		.byte	0
- 1191              		.section	.debug_loc,"",%progbits
- 1192              	.Ldebug_loc0:
- 1193              	.LLST0:
- 1194 0000 2A000000 		.4byte	.LVL0
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 31
-
-
- 1195 0004 5A000000 		.4byte	.LVL1
- 1196 0008 0100     		.2byte	0x1
- 1197 000a 52       		.byte	0x52
- 1198 000b 00000000 		.4byte	0
- 1199 000f 00000000 		.4byte	0
- 1200              	.LLST1:
- 1201 0013 00000000 		.4byte	.LVL3
- 1202 0017 08000000 		.4byte	.LVL4
- 1203 001b 0100     		.2byte	0x1
- 1204 001d 50       		.byte	0x50
- 1205 001e 08000000 		.4byte	.LVL4
- 1206 0022 14000000 		.4byte	.LFE6
- 1207 0026 0400     		.2byte	0x4
- 1208 0028 F3       		.byte	0xf3
- 1209 0029 01       		.uleb128 0x1
- 1210 002a 50       		.byte	0x50
- 1211 002b 9F       		.byte	0x9f
- 1212 002c 00000000 		.4byte	0
- 1213 0030 00000000 		.4byte	0
- 1214              	.LLST2:
- 1215 0034 00000000 		.4byte	.LVL5
- 1216 0038 06000000 		.4byte	.LVL6
- 1217 003c 0100     		.2byte	0x1
- 1218 003e 50       		.byte	0x50
- 1219 003f 06000000 		.4byte	.LVL6
- 1220 0043 18000000 		.4byte	.LFE7
- 1221 0047 0400     		.2byte	0x4
- 1222 0049 F3       		.byte	0xf3
- 1223 004a 01       		.uleb128 0x1
- 1224 004b 50       		.byte	0x50
- 1225 004c 9F       		.byte	0x9f
- 1226 004d 00000000 		.4byte	0
- 1227 0051 00000000 		.4byte	0
- 1228              	.LLST3:
- 1229 0055 00000000 		.4byte	.LVL7
- 1230 0059 09000000 		.4byte	.LVL8-1
- 1231 005d 0100     		.2byte	0x1
- 1232 005f 50       		.byte	0x50
- 1233 0060 09000000 		.4byte	.LVL8-1
- 1234 0064 D8000000 		.4byte	.LFE4
- 1235 0068 0400     		.2byte	0x4
- 1236 006a F3       		.byte	0xf3
- 1237 006b 01       		.uleb128 0x1
- 1238 006c 50       		.byte	0x50
- 1239 006d 9F       		.byte	0x9f
- 1240 006e 00000000 		.4byte	0
- 1241 0072 00000000 		.4byte	0
- 1242              	.LLST4:
- 1243 0076 00000000 		.4byte	.LVL7
- 1244 007a 09000000 		.4byte	.LVL8-1
- 1245 007e 0100     		.2byte	0x1
- 1246 0080 51       		.byte	0x51
- 1247 0081 09000000 		.4byte	.LVL8-1
- 1248 0085 D8000000 		.4byte	.LFE4
- 1249 0089 0400     		.2byte	0x4
- 1250 008b F3       		.byte	0xf3
- 1251 008c 01       		.uleb128 0x1
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 32
-
-
- 1252 008d 51       		.byte	0x51
- 1253 008e 9F       		.byte	0x9f
- 1254 008f 00000000 		.4byte	0
- 1255 0093 00000000 		.4byte	0
- 1256              	.LLST5:
- 1257 0097 1C000000 		.4byte	.LVL11
- 1258 009b 2A000000 		.4byte	.LVL12
- 1259 009f 0100     		.2byte	0x1
- 1260 00a1 52       		.byte	0x52
- 1261 00a2 34000000 		.4byte	.LVL13
- 1262 00a6 36000000 		.4byte	.LVL14
- 1263 00aa 0100     		.2byte	0x1
- 1264 00ac 52       		.byte	0x52
- 1265 00ad 36000000 		.4byte	.LVL14
- 1266 00b1 38000000 		.4byte	.LVL15
- 1267 00b5 0500     		.2byte	0x5
- 1268 00b7 73       		.byte	0x73
- 1269 00b8 00       		.sleb128 0
- 1270 00b9 31       		.byte	0x31
- 1271 00ba 1A       		.byte	0x1a
- 1272 00bb 9F       		.byte	0x9f
- 1273 00bc 44000000 		.4byte	.LVL16
- 1274 00c0 A2000000 		.4byte	.LVL18
- 1275 00c4 0100     		.2byte	0x1
- 1276 00c6 52       		.byte	0x52
- 1277 00c7 A4000000 		.4byte	.LVL19
- 1278 00cb A6000000 		.4byte	.LVL20
- 1279 00cf 0100     		.2byte	0x1
- 1280 00d1 52       		.byte	0x52
- 1281 00d2 B6000000 		.4byte	.LVL21
- 1282 00d6 C2000000 		.4byte	.LVL22
- 1283 00da 0100     		.2byte	0x1
- 1284 00dc 52       		.byte	0x52
- 1285 00dd 00000000 		.4byte	0
- 1286 00e1 00000000 		.4byte	0
- 1287              	.LLST6:
- 1288 00e5 0C000000 		.4byte	.LVL9
- 1289 00e9 4E000000 		.4byte	.LVL17
- 1290 00ed 0100     		.2byte	0x1
- 1291 00ef 54       		.byte	0x54
- 1292 00f0 00000000 		.4byte	0
- 1293 00f4 00000000 		.4byte	0
- 1294              	.LLST7:
- 1295 00f8 00000000 		.4byte	.LVL23
- 1296 00fc 07000000 		.4byte	.LVL24-1
- 1297 0100 0100     		.2byte	0x1
- 1298 0102 50       		.byte	0x50
- 1299 0103 07000000 		.4byte	.LVL24-1
- 1300 0107 5C000000 		.4byte	.LFE9
- 1301 010b 0400     		.2byte	0x4
- 1302 010d F3       		.byte	0xf3
- 1303 010e 01       		.uleb128 0x1
- 1304 010f 50       		.byte	0x50
- 1305 0110 9F       		.byte	0x9f
- 1306 0111 00000000 		.4byte	0
- 1307 0115 00000000 		.4byte	0
- 1308              	.LLST8:
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 33
-
-
- 1309 0119 0A000000 		.4byte	.LVL25
- 1310 011d 56000000 		.4byte	.LVL29
- 1311 0121 0100     		.2byte	0x1
- 1312 0123 55       		.byte	0x55
- 1313 0124 00000000 		.4byte	0
- 1314 0128 00000000 		.4byte	0
- 1315              		.section	.debug_aranges,"",%progbits
- 1316 0000 6C000000 		.4byte	0x6c
- 1317 0004 0200     		.2byte	0x2
- 1318 0006 00000000 		.4byte	.Ldebug_info0
- 1319 000a 04       		.byte	0x4
- 1320 000b 00       		.byte	0
- 1321 000c 0000     		.2byte	0
- 1322 000e 0000     		.2byte	0
- 1323 0010 00000000 		.4byte	.LFB0
- 1324 0014 1C000000 		.4byte	.LFE0-.LFB0
- 1325 0018 00000000 		.4byte	.LFB1
- 1326 001c 1C000000 		.4byte	.LFE1-.LFB1
- 1327 0020 00000000 		.4byte	.LFB2
- 1328 0024 6C000000 		.4byte	.LFE2-.LFB2
- 1329 0028 00000000 		.4byte	.LFB3
- 1330 002c 20000000 		.4byte	.LFE3-.LFB3
- 1331 0030 00000000 		.4byte	.LFB5
- 1332 0034 0C000000 		.4byte	.LFE5-.LFB5
- 1333 0038 00000000 		.4byte	.LFB6
- 1334 003c 14000000 		.4byte	.LFE6-.LFB6
- 1335 0040 00000000 		.4byte	.LFB7
- 1336 0044 18000000 		.4byte	.LFE7-.LFB7
- 1337 0048 00000000 		.4byte	.LFB8
- 1338 004c 10000000 		.4byte	.LFE8-.LFB8
- 1339 0050 00000000 		.4byte	.LFB10
- 1340 0054 10000000 		.4byte	.LFE10-.LFB10
- 1341 0058 00000000 		.4byte	.LFB4
- 1342 005c D8000000 		.4byte	.LFE4-.LFB4
- 1343 0060 00000000 		.4byte	.LFB9
- 1344 0064 5C000000 		.4byte	.LFE9-.LFB9
- 1345 0068 00000000 		.4byte	0
- 1346 006c 00000000 		.4byte	0
- 1347              		.section	.debug_ranges,"",%progbits
- 1348              	.Ldebug_ranges0:
- 1349 0000 00000000 		.4byte	.LFB0
- 1350 0004 1C000000 		.4byte	.LFE0
- 1351 0008 00000000 		.4byte	.LFB1
- 1352 000c 1C000000 		.4byte	.LFE1
- 1353 0010 00000000 		.4byte	.LFB2
- 1354 0014 6C000000 		.4byte	.LFE2
- 1355 0018 00000000 		.4byte	.LFB3
- 1356 001c 20000000 		.4byte	.LFE3
- 1357 0020 00000000 		.4byte	.LFB5
- 1358 0024 0C000000 		.4byte	.LFE5
- 1359 0028 00000000 		.4byte	.LFB6
- 1360 002c 14000000 		.4byte	.LFE6
- 1361 0030 00000000 		.4byte	.LFB7
- 1362 0034 18000000 		.4byte	.LFE7
- 1363 0038 00000000 		.4byte	.LFB8
- 1364 003c 10000000 		.4byte	.LFE8
- 1365 0040 00000000 		.4byte	.LFB10
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 34
-
-
- 1366 0044 10000000 		.4byte	.LFE10
- 1367 0048 00000000 		.4byte	.LFB4
- 1368 004c D8000000 		.4byte	.LFE4
- 1369 0050 00000000 		.4byte	.LFB9
- 1370 0054 5C000000 		.4byte	.LFE9
- 1371 0058 00000000 		.4byte	0
- 1372 005c 00000000 		.4byte	0
- 1373              		.section	.debug_line,"",%progbits
- 1374              	.Ldebug_line0:
- 1375 0000 72010000 		.section	.debug_str,"MS",%progbits,1
- 1375      02004400 
- 1375      00000201 
- 1375      FB0E0D00 
- 1375      01010101 
- 1376              	.LASF26:
- 1377 0000 436C6F63 		.ascii	"Clock_2_GetSourceRegister\000"
- 1377      6B5F325F 
- 1377      47657453 
- 1377      6F757263 
- 1377      65526567 
- 1378              	.LASF34:
- 1379 001a 63757272 		.ascii	"currDiv\000"
- 1379      44697600 
- 1380              	.LASF28:
- 1381 0022 636C6B44 		.ascii	"clkDivider\000"
- 1381      69766964 
- 1381      657200
- 1382              	.LASF15:
- 1383 002d 72656731 		.ascii	"reg16\000"
- 1383      3600
- 1384              	.LASF2:
- 1385 0033 73686F72 		.ascii	"short int\000"
- 1385      7420696E 
- 1385      7400
- 1386              	.LASF24:
- 1387 003d 436C6F63 		.ascii	"Clock_2_GetDividerRegister\000"
- 1387      6B5F325F 
- 1387      47657444 
- 1387      69766964 
- 1387      65725265 
- 1388              	.LASF37:
- 1389 0058 47656E65 		.ascii	"Generated_Source\\PSoC5\\Clock_2.c\000"
- 1389      72617465 
- 1389      645F536F 
- 1389      75726365 
- 1389      5C50536F 
- 1390              	.LASF10:
- 1391 0079 75696E74 		.ascii	"uint16\000"
- 1391      313600
- 1392              	.LASF29:
- 1393 0080 72657374 		.ascii	"restart\000"
- 1393      61727400 
- 1394              	.LASF35:
- 1395 0088 6F6C6453 		.ascii	"oldSrc\000"
- 1395      726300
- 1396              	.LASF9:
- 1397 008f 75696E74 		.ascii	"uint8\000"
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 35
-
-
- 1397      3800
- 1398              	.LASF18:
- 1399 0095 436C6F63 		.ascii	"Clock_2_StopBlock\000"
- 1399      6B5F325F 
- 1399      53746F70 
- 1399      426C6F63 
- 1399      6B00
- 1400              	.LASF23:
- 1401 00a7 436C6F63 		.ascii	"Clock_2_ClearModeRegister\000"
- 1401      6B5F325F 
- 1401      436C6561 
- 1401      724D6F64 
- 1401      65526567 
- 1402              	.LASF20:
- 1403 00c1 436C6F63 		.ascii	"Clock_2_SetModeRegister\000"
- 1403      6B5F325F 
- 1403      5365744D 
- 1403      6F646552 
- 1403      65676973 
- 1404              	.LASF11:
- 1405 00d9 666C6F61 		.ascii	"float\000"
- 1405      7400
- 1406              	.LASF6:
- 1407 00df 6C6F6E67 		.ascii	"long long int\000"
- 1407      206C6F6E 
- 1407      6720696E 
- 1407      7400
- 1408              	.LASF4:
- 1409 00ed 6C6F6E67 		.ascii	"long int\000"
- 1409      20696E74 
- 1409      00
- 1410              	.LASF21:
- 1411 00f6 73746174 		.ascii	"state\000"
- 1411      6500
- 1412              	.LASF1:
- 1413 00fc 756E7369 		.ascii	"unsigned char\000"
- 1413      676E6564 
- 1413      20636861 
- 1413      7200
- 1414              	.LASF22:
- 1415 010a 6D6F6465 		.ascii	"modeBitMask\000"
- 1415      4269744D 
- 1415      61736B00 
- 1416              	.LASF27:
- 1417 0116 436C6F63 		.ascii	"Clock_2_SetDividerRegister\000"
- 1417      6B5F325F 
- 1417      53657444 
- 1417      69766964 
- 1417      65725265 
- 1418              	.LASF0:
- 1419 0131 7369676E 		.ascii	"signed char\000"
- 1419      65642063 
- 1419      68617200 
- 1420              	.LASF38:
- 1421 013d 443A5C44 		.ascii	"D:\\Downloads\\FRUCD\\Node-Jaguar\\Node-Jaguar\\Nod"
- 1421      6F776E6C 
- 1421      6F616473 
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 36
-
-
- 1421      5C465255 
- 1421      43445C4E 
- 1422 016b 652D4A61 		.ascii	"e-Jaguar.cydsn\000"
- 1422      67756172 
- 1422      2E637964 
- 1422      736E00
- 1423              	.LASF7:
- 1424 017a 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1424      206C6F6E 
- 1424      6720756E 
- 1424      7369676E 
- 1424      65642069 
- 1425              	.LASF8:
- 1426 0191 756E7369 		.ascii	"unsigned int\000"
- 1426      676E6564 
- 1426      20696E74 
- 1426      00
- 1427              	.LASF16:
- 1428 019e 436C6F63 		.ascii	"Clock_2_Start\000"
- 1428      6B5F325F 
- 1428      53746172 
- 1428      7400
- 1429              	.LASF39:
- 1430 01ac 436C6F63 		.ascii	"Clock_2_SetSourceRegister\000"
- 1430      6B5F325F 
- 1430      53657453 
- 1430      6F757263 
- 1430      65526567 
- 1431              	.LASF3:
- 1432 01c6 73686F72 		.ascii	"short unsigned int\000"
- 1432      7420756E 
- 1432      7369676E 
- 1432      65642069 
- 1432      6E7400
- 1433              	.LASF19:
- 1434 01d9 436C6F63 		.ascii	"Clock_2_StandbyPower\000"
- 1434      6B5F325F 
- 1434      5374616E 
- 1434      64627950 
- 1434      6F776572 
- 1435              	.LASF13:
- 1436 01ee 63686172 		.ascii	"char\000"
- 1436      00
- 1437              	.LASF36:
- 1438 01f3 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1438      4320342E 
- 1438      392E3320 
- 1438      32303135 
- 1438      30333033 
- 1439 0226 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1439      20726576 
- 1439      6973696F 
- 1439      6E203232 
- 1439      31323230 
- 1440 0259 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1440      66756E63 
- 1440      74696F6E 
-ARM GAS  D:\Windows\AppData\Local\Temp\cclOIKgb.s 			page 37
-
-
- 1440      2D736563 
- 1440      74696F6E 
- 1441              	.LASF33:
- 1442 0281 636C6B53 		.ascii	"clkSource\000"
- 1442      6F757263 
- 1442      6500
- 1443              	.LASF32:
- 1444 028b 63757272 		.ascii	"currSrc\000"
- 1444      53726300 
- 1445              	.LASF30:
- 1446 0293 6F6C6444 		.ascii	"oldDivider\000"
- 1446      69766964 
- 1446      657200
- 1447              	.LASF25:
- 1448 029e 436C6F63 		.ascii	"Clock_2_GetModeRegister\000"
- 1448      6B5F325F 
- 1448      4765744D 
- 1448      6F646552 
- 1448      65676973 
- 1449              	.LASF14:
- 1450 02b6 72656738 		.ascii	"reg8\000"
- 1450      00
- 1451              	.LASF5:
- 1452 02bb 6C6F6E67 		.ascii	"long unsigned int\000"
- 1452      20756E73 
- 1452      69676E65 
- 1452      6420696E 
- 1452      7400
- 1453              	.LASF17:
- 1454 02cd 436C6F63 		.ascii	"Clock_2_Stop\000"
- 1454      6B5F325F 
- 1454      53746F70 
- 1454      00
- 1455              	.LASF12:
- 1456 02da 646F7562 		.ascii	"double\000"
- 1456      6C6500
- 1457              	.LASF31:
- 1458 02e1 656E6162 		.ascii	"enabled\000"
- 1458      6C656400 
- 1459              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1594      53726300 
+ 1595              	.LASF24:
+ 1596 0293 6F6C6444 		.ascii	"oldDivider\000"
+ 1596      69766964 
+ 1596      657200
+ 1597              	.LASF31:
+ 1598 029e 436C6F63 		.ascii	"Clock_2_GetModeRegister\000"
+ 1598      6B5F325F 
+ 1598      4765744D 
+ 1598      6F646552 
+ 1598      65676973 
+ 1599              	.LASF14:
+ 1600 02b6 72656738 		.ascii	"reg8\000"
+ 1600      00
+ 1601              	.LASF5:
+ 1602 02bb 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1602      20756E73 
+ 1602      69676E65 
+ 1602      6420696E 
+ 1602      7400
+ 1603              	.LASF17:
+ 1604 02cd 436C6F63 		.ascii	"Clock_2_Stop\000"
+ 1604      6B5F325F 
+ 1604      53746F70 
+ 1604      00
+ 1605              	.LASF12:
+ 1606 02da 646F7562 		.ascii	"double\000"
+ 1606      6C6500
+ 1607              	.LASF25:
+ 1608 02e1 656E6162 		.ascii	"enabled\000"
+ 1608      6C656400 
+ 1609              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -41,8 +41,6 @@
 #include "CAN_Timer.h"
 #include "isr_can.h"
 #include "timer_clk.h"
-#include "Node_Timer.h"
-#include "isr_nodeok.h"
 #include "SDA_1_aliases.h"
 #include "SDA_1.h"
 #include "SCL_1_aliases.h"
